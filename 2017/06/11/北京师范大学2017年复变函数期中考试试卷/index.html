@@ -16,7 +16,7 @@
 
 
 <meta name="description" content="2016-2017学年第二学期期中考试 邓冠铁 赵纪满.">
-<meta name="keywords" content="各种试卷,复变函数">
+<meta name="keywords" content="复变函数,各种试卷">
 <meta property="og:type" content="article">
 <meta property="og:title" content="北京师范大学2017年复变函数期中考试试卷">
 <meta property="og:url" content="http://lizhechen.com/2017/06/11/北京师范大学2017年复变函数期中考试试卷/index.html">
@@ -543,6 +543,23 @@ MathJax.Hub.Queue(function() {
         }
     
 </script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
