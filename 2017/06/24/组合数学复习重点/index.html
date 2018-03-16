@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="lzcwr" />
+
+
+
+<meta name="description" content="组合数学期末复习.">
+<meta name="keywords" content="组合数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合数学复习重点">
+<meta property="og:url" content="http://lizhechen.com/2017/06/24/组合数学复习重点/index.html">
+<meta property="og:site_name" content="Zhechen的博客">
+<meta property="og:description" content="组合数学期末复习.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-16T02:52:44.702Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="组合数学复习重点">
+<meta name="twitter:description" content="组合数学期末复习.">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhechen的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>组合数学复习重点 | Zhechen的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">lzcwr</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">随便搞搞</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/diary/">日记</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="http://www.zhihu.com/lzcwr" title="知乎"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE/">GRE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL/">TOEFL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/各种试卷/">各种试卷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复变函数/">复变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实变函数/">实变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平衡树/">平衡树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/建模/">建模</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微分几何/">微分几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拓扑学/">拓扑学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学分析/">数学分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率论/">概率论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛函分析/">泛函分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测度论/">测度论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/篮球/">篮球</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/统计学/">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范畴论/">范畴论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/近世代数/">近世代数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高等代数/">高等代数</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.xuhongxu.com/">许宏旭的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.bufan.xyz/">卜凡的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">lzcwr</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">lzcwr</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">随便搞搞</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/diary/">日记</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="http://www.zhihu.com/lzcwr" title="知乎"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-组合数学复习重点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/24/组合数学复习重点/" class="article-date">
+      <time datetime="2017-06-24T15:50:11.000Z" itemprop="datePublished">2017-06-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      组合数学复习重点
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数学/">数学</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组合数学/">组合数学</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="第二章-抽屉原理">第二章 抽屉原理</h2>
+<p>吧 <span class="math inline">\(n+1\)</span> 个物体放入 <span class="math inline">\(n\)</span> 个抽屉, 则至少存在一个抽屉里面有至少两个物体.</p>
+<h2 id="第三章-排列组合">第三章 排列组合</h2>
+<h3 id="重集的排列">重集的排列</h3>
+<p><span class="math inline">\(k\)</span> 种元素, 个数无限: <span class="math inline">\(r\)</span>-排列数为 <span class="math inline">\(k^r\)</span>. <span class="math inline">\(k\)</span> 种元素, 第 <span class="math inline">\(i\)</span> 种有 <span class="math inline">\(n_i\)</span> 个: 全排列为 <span class="math inline">\(\frac{(n_1+\cdots+n_k)!}{n_1!\cdots n_k!}\)</span>.</p>
+<h3 id="重集的组合">重集的组合</h3>
+<p><span class="math inline">\(x_1+\cdots+x_k=r\)</span> 的非负整数解个数为 <span class="math inline">\(\binom{r+k-1}{r}\)</span>.</p>
+<h2 id="第四章-二项式系数">第四章 二项式系数</h2>
+<h3 id="组合恒等式">组合恒等式</h3>
+<ol type="1">
+<li>(帕斯卡公式): <span class="math inline">\(\binom{\alpha}{k}=\binom{\alpha-1}{k}+\binom{\alpha-1}{k-1}\)</span>;</li>
+<li><span class="math inline">\(\binom{\alpha}{k}\binom{k}{p}=\binom{\alpha}{p}\binom{\alpha-p}{k-p}=\binom{\alpha}{k-p}\binom{\alpha+p-k}{p}\)</span>;</li>
+<li><span class="math inline">\(\binom{\alpha+k}{p+k}\binom{p+k}{k}=\binom{\alpha+k}{k}\binom{\alpha}{p}\)</span>;</li>
+<li><span class="math inline">\(\sum\limits_{k=0}^n\binom{n}{k}=\sum\limits_k\binom{n}{k}=2^n\)</span>;</li>
+<li><span class="math inline">\(\sum\limits_{k=0}^n(-1)^k\binom{\alpha}{k}=(-1)^m\binom{\alpha-1}{m}\)</span>;</li>
+<li><span class="math inline">\(\sum\limits_{k=0}^n\binom{\alpha}{k}\binom{\beta}{n-k}=\binom{\alpha+\beta}{n}\)</span>;</li>
+<li><span class="math inline">\(\sum\limits_{k=0}^n\binom{\alpha+k}{k}\binom{\beta-k}{n-k}=\binom{\alpha+\beta+1}{n}\)</span>.</li>
+</ol>
+<h2 id="第五章-容斥原理">第五章 容斥原理</h2>
+<h3 id="符号说明">符号说明</h3>
+<ul>
+<li><span class="math inline">\(A_i\)</span>: <span class="math inline">\(S\)</span> 中满足性质 <span class="math inline">\(P_i\)</span> 的元素集合;</li>
+<li><span class="math inline">\(N(i)\)</span>: <span class="math inline">\(S\)</span> 中恰好具有 <span class="math inline">\(i\)</span> 个性质的元素集合;</li>
+<li><span class="math inline">\(L(i)\)</span>: <span class="math inline">\(S\)</span> 中至少具有 <span class="math inline">\(i\)</span> 个性质的元素集合;</li>
+<li><span class="math inline">\(W(i)\)</span>: <span class="math inline">\(A_1,\cdots,A_m\)</span> 中所有 <span class="math inline">\(i\)</span> 个交集的元素个数之和.</li>
+</ul>
+<h3 id="容斥原理">容斥原理</h3>
+<ol type="1">
+<li><span class="math inline">\(N(0)=W(0)-W(1)+W(2)-\cdots+(-1)^mW(m)\)</span>;</li>
+<li><span class="math inline">\(L(1)=|S|-N(0)=W(1)-W(2)+W(3)-\cdots+(-1)^{m-1}W(m)\)</span>.</li>
+</ol>
+<h3 id="重集的组合-1">重集的组合</h3>
+<blockquote>
+<p>求方程 <span class="math inline">\(x_1+\cdots+x_n=r\)</span> 带上下界 <span class="math inline">\((a_i\leqslant x_i\leqslant b_i)\)</span> 的整数解个数.</p>
+</blockquote>
+<p><strong>解答</strong>: 先做变换 <span class="math inline">\(y_i=x_i-a_i\)</span>, 则方程变形为 <span class="math inline">\(y_1+\cdots+y_n=r-a_1-\cdots-a_n\)</span>. 记 <span class="math inline">\(y_i\leqslant b_i-a_i\)</span> 为条件 <span class="math inline">\(P_i\)</span>, 用容斥原理即可.</p>
+<h3 id="错位排列与禁位排列">错位排列与禁位排列</h3>
+<h4 id="错位排列">错位排列</h4>
+<ul>
+<li>递推: <span class="math inline">\(D_n=(n-1)(D_{n-1}+D_{n-2})\)</span>, <span class="math inline">\(D_1=0\)</span>, <span class="math inline">\(D_2=1\)</span>;</li>
+<li>通项: <span class="math inline">\(D_n=n!\cdot\left(1-\frac{1}{1!}+\frac{1}{2!}-\cdots+\frac{1}{n!}\right)\)</span>.</li>
+</ul>
+<h4 id="禁位排列">禁位排列</h4>
+<ul>
+<li>递推: <span class="math inline">\(Q_n=(n-1)Q_{n-1}+(n-2)Q_{n-2}\)</span>;</li>
+<li>组合证明: 考虑去掉 <span class="math inline">\(n\)</span> 的情况, 若前 <span class="math inline">\(n-1\)</span> 项本身就能构成禁位排列, 则只需要 <span class="math inline">\(n\)</span> 不在 <span class="math inline">\(n-1\)</span> 后即可, 方案数 <span class="math inline">\((n-1)Q_{n-1}\)</span>; 若前 <span class="math inline">\(n-1\)</span> 项本身不能构成禁位排列, 则只能有一个 <span class="math inline">\(i\)</span> 使得 <span class="math inline">\(a_{i+1}=a_i+1\)</span>, 则此时 <span class="math inline">\(n\)</span> 只能放在此处, 考虑到 <span class="math inline">\(i\)</span> 有 <span class="math inline">\(n-2\)</span> 种选择, 并且去掉 <span class="math inline">\(i+1\)</span> 后, 序列构成长度为 <span class="math inline">\(n-2\)</span> 的禁位排列, 此时方案数为 <span class="math inline">\((n-2)Q_{n-2}\)</span>, 得证.</li>
+</ul>
+<h2 id="第六章-递推关系与生产函数">第六章 递推关系与生产函数</h2>
+<h3 id="递推关系">递推关系</h3>
+<h4 id="线性-齐次-常系数">线性 齐次 常系数</h4>
+<p><span class="math inline">\(h_n-a_1h_{n-1}-\cdots-a_kh_{n-k}=0\)</span> 的特征方程为 <span class="math inline">\(q_k-a_1q_{k-1}-\cdots-a_k=0\)</span></p>
+<ol type="1">
+<li>若特征方程有 <span class="math inline">\(k\)</span> 个单根, 则通解为 <span class="math inline">\(h_n=C_1q_1^n+\cdots+C_kq_k^n\)</span>;</li>
+<li>若 <span class="math inline">\(q_i\)</span> 的重数为 <span class="math inline">\(s_i\)</span>, 则通解为 <span class="math inline">\(n^jq_i,~0\leqslant j\leqslant s_i,~1\leqslant i\leqslant k\)</span> 的线性组合.</li>
+</ol>
+<h4 id="非齐次">非齐次</h4>
+<p>求一个特解, 然后求齐次方程的通解. 设 <span class="math inline">\(f(n)=D_r(n)q^n\)</span>, <span class="math inline">\(D_r\)</span> 为 <span class="math inline">\(r\)</span> 次多项式, 则有特解 <span class="math display">\[h(n)=n^sF_r(n)q^n\]</span> 其中 <span class="math inline">\(F_r\)</span> 为多项式, <span class="math inline">\(s\)</span> 是 <span class="math inline">\(q\)</span> 的重数.</p>
+<h3 id="生成函数">生成函数</h3>
+<p>生成函数: <span class="math inline">\(h(x)=\sum\limits_{n=0}^\infty h_nx^n\)</span>.</p>
+<blockquote>
+<p>若递推式为 <span class="math inline">\(h_n+a_1h_{n-1}+\cdots+a_kh_{n-k}=0\)</span>, 则其生成函数为 <span class="math display">\[h(x)=\frac{b_0+b_1x+\cdots+b_{k-1}x^{k-1}}{1+a_1x+\cdots+a_kx^k}.\]</span> 其中 <span class="math inline">\(b_n=\sum\limits_{i=0}^n a_ih_{n-i}\)</span>, <span class="math inline">\(a_0=1\)</span>.</p>
+</blockquote>
+<h2 id="第八章-二分图匹配">第八章 二分图匹配</h2>
+<h3 id="最大匹配">最大匹配</h3>
+<p>找 <span class="math inline">\(M\)</span>-交错链, 标记算法求最大匹配.</p>
+<blockquote>
+<p>König定理: 最大匹配 <span class="math inline">\(=\)</span> 最小点覆盖.</p>
+</blockquote>
+<p><span class="math inline">\(p\)</span>-正则: 每个点度都是 <span class="math inline">\(p\)</span>. 完美匹配: 若二分图 <span class="math inline">\(G\)</span> 满足 <span class="math inline">\(|X|=|Y|=n\)</span>, 且一个匹配含 <span class="math inline">\(n\)</span> 条边, 则称其为完美匹配.</p>
+<blockquote>
+<p>定理: <span class="math inline">\(p\geqslant 1\)</span> 的 <span class="math inline">\(p\)</span>-正则二分图一定有完美匹配.</p>
+</blockquote>
+<h3 id="稳定匹配">稳定匹配</h3>
+<p>延迟认可算法.</p>
+<blockquote>
+<p>定理: 由延迟认可算法得到的匹配是稳定匹配.</p>
+</blockquote>
+<h2 id="第九章-组合设计">第九章 组合设计</h2>
+<h3 id="pk-元域的构造"><span class="math inline">\(p^k\)</span> 元域的构造</h3>
+<p>取 <span class="math inline">\(\mathbb{Z}_p\)</span> 的 <span class="math inline">\(k\)</span> 次不可约多项式 <span class="math inline">\(f\)</span>, 令其 <span class="math inline">\(k\)</span> 个根为 <span class="math inline">\(a_1,\cdots,a_k\)</span>, 则 <span class="math inline">\(\mathbb{Z}_p\)</span> 的 <span class="math inline">\(k\)</span> 次扩张 <span class="math inline">\(\mathbb{Z}_p(a_1,\cdots,a_k)\)</span> 即为 <span class="math inline">\(p^k\)</span> 元域.</p>
+<h3 id="区组设计">区组设计</h3>
+<h4 id="bibd-的性质">BIBD 的性质</h4>
+<ul>
+<li>每一组含 <span class="math inline">\(k\)</span> 个元素;</li>
+<li>每一对都恰好出现在 <span class="math inline">\(\lambda\)</span> 个区组中, 则为平衡区组设计(Balanced);</li>
+<li><span class="math inline">\(k&lt;v\)</span>, 不完全(Incomplete);</li>
+</ul>
+<blockquote>
+<p>定理: BIBD 中, <span class="math inline">\(r(k-1)=\lambda(v-1)\)</span>.</p>
+</blockquote>
+<p>可利用包含 <span class="math inline">\(x_i\)</span> 的元素对的个数来组合证明.</p>
+<blockquote>
+<p>定理: BIBD 中, <span class="math inline">\(bk=vr\)</span>.</p>
+</blockquote>
+<p>可利用 BIBD 的关联矩阵中 <span class="math inline">\(1\)</span> 的个数来组合证明.</p>
+<blockquote>
+<p>定理: BIBD 中, <span class="math inline">\(b\geqslant v\)</span>.</p>
+</blockquote>
+<p><span class="math inline">\(b=v\)</span> 时称为 SBIBD (symmetric).</p>
+<h4 id="符号说明-1">符号说明</h4>
+<ul>
+<li><span class="math inline">\(b\)</span>: 区组的个数;</li>
+<li><span class="math inline">\(v\)</span>: 集合元素总数;</li>
+<li><span class="math inline">\(k\)</span>: 每个区组中的元素个数;</li>
+<li><span class="math inline">\(r\)</span>: 包含任何一个特定元素的不同区组的个数;</li>
+<li><span class="math inline">\(\lambda\)</span>: 包含任何一对特定元素的不同区组的个数.</li>
+</ul>
+<h4 id="sbibd-的构造">SBIBD 的构造</h4>
+<blockquote>
+<p>定理: 若 <span class="math inline">\(B\)</span> 是 <span class="math inline">\(\mathbb{Z}_v\)</span> 的差分集, 则 <span class="math inline">\(B\)</span> 生成的区组构成一个指标为 <span class="math inline">\(\lambda=\frac{k(k-1)}{v-1}\)</span> 的 SBIBD.</p>
+</blockquote>
+<p>如 <span class="math inline">\(\mathbb{Z}_7\)</span> 中取 $B= &amp;#123; 0,1,3 &amp;#125; $, 则 <span class="math display">\[
+\begin{align}
+B+0 &amp;= \&amp;#123; 0,1,3 \&amp;#125; , \\
+B+1 &amp;= \&amp;#123; 1,2,4 \&amp;#125; , \\
+B+2 &amp;= \&amp;#123; 2,3,5 \&amp;#125; , \\
+B+3 &amp;= \&amp;#123; 3,4,6 \&amp;#125; , \\
+B+4 &amp;= \&amp;#123; 4,5,0 \&amp;#125; , \\
+B+5 &amp;= \&amp;#123; 5,6,1 \&amp;#125; , \\
+B+6 &amp;= \&amp;#123; 6,0,2 \&amp;#125; , \\
+\end{align}
+\]</span> 构成一个 <span class="math inline">\(b=v=7,~k=r=3,~\lambda=1\)</span> SBIBD.</p>
+<h3 id="steiner三元系统">Steiner三元系统</h3>
+<blockquote>
+<p>定理: STS 中, <span class="math inline">\(r=\frac{\lambda(v-1)}{2},~b=\frac{\lambda v(v-1)}{6}\)</span>.</p>
+</blockquote>
+<p>一个 <span class="math inline">\(v=9,~\lambda=1\)</span> 的 STS: <span class="math display">\[
+\begin{align}
+&amp; \&amp;#123; 0,1,2 \&amp;#125; , \&amp;#123; 3,4,5 \&amp;#125; , \&amp;#123; 6,7,8 \&amp;#125; , \\
+&amp; \&amp;#123; 0,3,6 \&amp;#125; , \&amp;#123; 1,4,7 \&amp;#125; , \&amp;#123; 2,5,8 \&amp;#125; , \\
+&amp; \&amp;#123; 0,4,8 \&amp;#125; , \&amp;#123; 1,5,6 \&amp;#125; , \&amp;#123; 2,3,7 \&amp;#125; , \\
+&amp; \&amp;#123; 0,5,7 \&amp;#125; , \&amp;#123; 1,3,8 \&amp;#125; , \&amp;#123; 2,4,6 \&amp;#125; . \\
+\end{align}
+\]</span></p>
+<h3 id="拉丁方">拉丁方</h3>
+<p><span class="math inline">\(n\)</span> 阶拉丁方: 由 <span class="math inline">\(n\)</span> 个元素构成的 <span class="math inline">\(n\times n\)</span> 方阵, 每行每列都包含了所有 <span class="math inline">\(n\)</span> 个元素.</p>
+<blockquote>
+<p>定理: <span class="math inline">\((r,n)=1\)</span>, 则 <span class="math inline">\(a_{ij}=r\times i+j\)</span> 构成 <span class="math inline">\(\mathbb{Z}_n\)</span> 的拉丁方, 记作 <span class="math inline">\(\mathbf{L}_n^r\)</span>.</p>
+</blockquote>
+<h4 id="正交拉丁方">正交拉丁方</h4>
+<p>将两个 <span class="math inline">\(n\)</span> 阶拉丁方对应位置的元素组成二元有序组, 可以构成一个新的 <span class="math inline">\(n\)</span> 阶方阵. 如果该方阵中, <span class="math inline">\((0,0)\sim (n-1,n-1)\)</span> 都恰好出现一次, 则称这两个拉丁方正交. 称两两正交的拉丁方为MOLS. 第一行为 <span class="math inline">\(0,\cdots,n-1\)</span> 的MOLS由如下定理给出:</p>
+<blockquote>
+<p>定理: 设 <span class="math inline">\(F\)</span> 是一个 <span class="math inline">\(n=p^k\)</span> 元域, 其中元素为 <span class="math inline">\(f_i\)</span>, 则 <span class="math inline">\(a_{ij}=r\times a_i+a_j\)</span> 为拉丁方, <span class="math inline">\(\forall~r\neq 0\in F\)</span>, 记作 <span class="math inline">\(\mathbf{L}_n^r\)</span>. 当 <span class="math inline">\(r\)</span> 取遍所有 <span class="math inline">\(F\)</span> 中非零值时, 可以得到 <span class="math inline">\(n-1\)</span> 个两两正交的拉丁方.</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/24/组合数学复习重点/">组合数学复习重点</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
+        <p><span>发布时间:</span>2017-06-24, 23:50:11</p>
+        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/24/组合数学复习重点/" title="组合数学复习重点">http://lizhechen.com/2017/06/24/组合数学复习重点/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/06/24/组合数学复习重点/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/07/02/北京师范大学2017年复变函数期末考试试卷/">
+                    北京师范大学2017年复变函数期末考试试卷
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/23/微分几何复习重点/">
+                    微分几何复习重点
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-抽屉原理"><span class="toc-number">1.</span> <span class="toc-text">第二章 抽屉原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-排列组合"><span class="toc-number">2.</span> <span class="toc-text">第三章 排列组合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重集的排列"><span class="toc-number">2.1.</span> <span class="toc-text">重集的排列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重集的组合"><span class="toc-number">2.2.</span> <span class="toc-text">重集的组合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四章-二项式系数"><span class="toc-number">3.</span> <span class="toc-text">第四章 二项式系数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组合恒等式"><span class="toc-number">3.1.</span> <span class="toc-text">组合恒等式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-容斥原理"><span class="toc-number">4.</span> <span class="toc-text">第五章 容斥原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#符号说明"><span class="toc-number">4.1.</span> <span class="toc-text">符号说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容斥原理"><span class="toc-number">4.2.</span> <span class="toc-text">容斥原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重集的组合-1"><span class="toc-number">4.3.</span> <span class="toc-text">重集的组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错位排列与禁位排列"><span class="toc-number">4.4.</span> <span class="toc-text">错位排列与禁位排列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#错位排列"><span class="toc-number">4.4.1.</span> <span class="toc-text">错位排列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#禁位排列"><span class="toc-number">4.4.2.</span> <span class="toc-text">禁位排列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六章-递推关系与生产函数"><span class="toc-number">5.</span> <span class="toc-text">第六章 递推关系与生产函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递推关系"><span class="toc-number">5.1.</span> <span class="toc-text">递推关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线性-齐次-常系数"><span class="toc-number">5.1.1.</span> <span class="toc-text">线性 齐次 常系数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#非齐次"><span class="toc-number">5.1.2.</span> <span class="toc-text">非齐次</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成函数"><span class="toc-number">5.2.</span> <span class="toc-text">生成函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第八章-二分图匹配"><span class="toc-number">6.</span> <span class="toc-text">第八章 二分图匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大匹配"><span class="toc-number">6.1.</span> <span class="toc-text">最大匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#稳定匹配"><span class="toc-number">6.2.</span> <span class="toc-text">稳定匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第九章-组合设计"><span class="toc-number">7.</span> <span class="toc-text">第九章 组合设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pk-元域的构造"><span class="toc-number">7.1.</span> <span class="toc-text">\(p^k\) 元域的构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区组设计"><span class="toc-number">7.2.</span> <span class="toc-text">区组设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bibd-的性质"><span class="toc-number">7.2.1.</span> <span class="toc-text">BIBD 的性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#符号说明-1"><span class="toc-number">7.2.2.</span> <span class="toc-text">符号说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sbibd-的构造"><span class="toc-number">7.2.3.</span> <span class="toc-text">SBIBD 的构造</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#steiner三元系统"><span class="toc-number">7.3.</span> <span class="toc-text">Steiner三元系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拉丁方"><span class="toc-number">7.4.</span> <span class="toc-text">拉丁方</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#正交拉丁方"><span class="toc-number">7.4.1.</span> <span class="toc-text">正交拉丁方</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"组合数学复习重点　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/07/02/北京师范大学2017年复变函数期末考试试卷/" title="上一篇: 北京师范大学2017年复变函数期末考试试卷">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/23/微分几何复习重点/" title="下一篇: 微分几何复习重点">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/数学分析拾遗-2-——积分中值定理/">数学分析拾遗[2]——积分中值定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/数学分析拾遗-1-——一些不等式/">数学分析拾遗[1]——一些不等式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/02/范畴论学习笔记/">范畴论学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/2018MCM乱搞/">2018MCM乱搞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/11/北京师范大学2017年拓扑学期末考试试卷/">北京师范大学2017年拓扑学期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/11/北京师范大学2017年泛函分析期末考试试卷/">北京师范大学2017年泛函分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/拓扑学复习重点/">拓扑学复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/数理统计复习重点/">数理统计复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/测度与概率复习重点/">测度与概率复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/24/泛函——复习重点/">泛函——复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/北京师范大学2017年概率测度小测二题目/">北京师范大学2017年概率测度小测二题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/明月杯回忆录/">明月杯回忆录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/2016-2017学年春季学期志愿时长录入/">2016-2017学年春季学期志愿时长录入</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/泛函——有界集、完全有界集和紧集/">泛函——有界集、完全有界集和紧集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/北京师范大学2017年概率测度小测一题目/">北京师范大学2017年概率测度小测一题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/次序统计量的联合分布/">次序统计量的联合分布</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/泛函——自然数集上的Lp范数/">泛函——自然数集上的Lp范数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/拓扑学题目/">拓扑学题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/单调类定理/">单调类定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/17/数理统计基础知识/">数理统计基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/GRE阅读题目分析[4]/">GRE阅读题目分析[4]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/GRE填空思路分析[3]——推理的线索来源·同义线索/">GRE填空思路分析[3]——推理的线索来源·同义线索</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/GRE阅读题目分析[3]/">GRE阅读题目分析[3]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/GRE填空思路分析[2]——推理的线索来源·反义线索/">GRE填空思路分析[2]——推理的线索来源·反义线索</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/GRE填空思路分析[1]/">GRE填空思路分析[1]——词句推理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/GRE阅读题目分析[2]/">GRE阅读题目分析[2]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/GRE阅读题目分析[1]/">GRE阅读题目分析[1]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2015年数学分析期末考试试卷/">北京师范大学2015年数学分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2016年高等代数期中考试试卷/">北京师范大学2016年高等代数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2016年数学分析期中考试试卷/">北京师范大学2016年数学分析期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年数学分析期末考试试卷/">北京师范大学2016年数学分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年近世代数期末考试试卷/">北京师范大学2016年近世代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年近世代数期中考试试卷/">北京师范大学2016年近世代数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/北京师范大学2017年实变函数期末考试试卷/">北京师范大学2017年实变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/北京师范大学2017年复变函数期末考试试卷/">北京师范大学2017年复变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/24/组合数学复习重点/">组合数学复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/微分几何复习重点/">微分几何复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/概率论复习重点/">概率论复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/复变复习重点/">复变复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/北京师范大学2015年复变函数期末考试试卷/">北京师范大学2015年复变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/北京师范大学2011年概率论期末考试试卷/">北京师范大学2011年概率论期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/北京师范大学2016年高等代数期末考试试卷/">北京师范大学2016年高等代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/">北京师范大学2017年复变函数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/">Mathematica技巧[2]——修改输入和输出字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/几篇TOEFL独立写作范文/">几篇TOEFL独立写作范文</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/LaTeX技巧[2]——打生僻字/">LaTeX技巧[1]——打生僻字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/LaTeX技巧[1]——修改数学公式字体/">LaTeX技巧[2]——修改数学公式字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/组合杂题/">组合杂题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/一些概率论题目/">一些概率论题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/一些实变函数题目/">一些实变函数题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/Hexo与Mathjax的冲突及（部分）解决/">Hexo与Mathjax的冲突及（部分）解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/数学系转专业考试题及解答不完全版（2015-04）/">数学系转专业考试题及解答不完全版（2015.04）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/数据结构——树状数组 Binary Indexed Tree/">数据结构——树状数组 Binary Indexed Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/数据结构——平衡树 Treap/">数据结构——平衡树 Treap</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/数据结构——线段树 Segment Tree/">数据结构——线段树 Segment Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/16/Mathematica技巧[1]——图像复原与处理/">Mathematica技巧[1]——图像复原与处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/github-hexo-搭建个人博客/">github+hexo 搭建个人博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 lzcwr
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

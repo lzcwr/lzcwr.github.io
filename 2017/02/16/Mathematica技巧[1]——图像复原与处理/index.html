@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="lzcwr" />
+
+
+
+<meta name="description" content="对Mathematica Inpaint函数功能及用法的普及性介绍.">
+<meta name="keywords" content="Mathematica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mathematica技巧[1]——图像复原与处理">
+<meta property="og:url" content="http://lizhechen.com/2017/02/16/Mathematica技巧[1]——图像复原与处理/index.html">
+<meta property="og:site_name" content="Zhechen的博客">
+<meta property="og:description" content="对Mathematica Inpaint函数功能及用法的普及性介绍.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/acvr1e10vda50lld9excuywm/image_1b95789ipkjg1gudqgq9mqrmg57.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/xzw3f225yjm0ggjr98sfi3sr/image_1b9579v3t1mvv1nc0163e18ps27q5k.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/3qjuejedy1c4s4ztljrc40h7/image_1b957fb3hjgqv46l3q1af9l761.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/xbwvvxwxmytb0o8rl9uyc159/image_1b957g7671akai2lt7hsu358n6e.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/xh1jopg1uuaq5f5k2uqoamvn/image_1b93g3b6r1ac3qugnj33q4pgj1f.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/s4c1yxtq4yrk05qzuqr0wcnr/mma1-1.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/bqzwzw262qdhi0ocq4lco285/mma1-2.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/hunbysi0g3gojegdgdlmmuay/mma1-3.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/05x06nkjuw8oztloswld5zgs/image_1b93giupt1321lqv26p1b2r183p3j.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/qfsl33sfd2l7a44mv4cdnz8a/image_1b958k6rv1mg1ai41lafg3abd26r.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/o2ihbg3nlnrfe0qtvvkza3u9/image_1b94pcrduqe51l2h1k4c12hq10g240.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/3tin320gpf8dhifgxvor4rf9/image_1b94pkcvg9q7705s4r1fdtupo4d.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/g1t9y9iqf73nf3vnxwcm08x9/image_1b94qh78nbpvmfq6tm1e471d5h4q.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/1od15epr9dwdghtqpttbo7jz/image_1b95a50op1m0h14pbs74fjdp6978.png">
+<meta property="og:image" content="http://static.zybuluo.com/lzcwr/00ngpy90vzmlfb2zgn2jw2l0/image_1b95auqqggfh1lic1f5k1qsq16tc7l.png">
+<meta property="og:updated_time" content="2018-03-16T02:52:44.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mathematica技巧[1]——图像复原与处理">
+<meta name="twitter:description" content="对Mathematica Inpaint函数功能及用法的普及性介绍.">
+<meta name="twitter:image" content="http://static.zybuluo.com/lzcwr/acvr1e10vda50lld9excuywm/image_1b95789ipkjg1gudqgq9mqrmg57.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhechen的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Mathematica技巧[1]——图像复原与处理 | Zhechen的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">lzcwr</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">随便搞搞</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/diary/">日记</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="http://www.zhihu.com/lzcwr" title="知乎"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE/">GRE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL/">TOEFL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/各种试卷/">各种试卷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复变函数/">复变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实变函数/">实变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平衡树/">平衡树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/建模/">建模</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微分几何/">微分几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拓扑学/">拓扑学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学分析/">数学分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率论/">概率论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛函分析/">泛函分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测度论/">测度论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/篮球/">篮球</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/统计学/">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范畴论/">范畴论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/近世代数/">近世代数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高等代数/">高等代数</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.xuhongxu.com/">许宏旭的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.bufan.xyz/">卜凡的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">lzcwr</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">lzcwr</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">随便搞搞</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/diary/">日记</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="http://www.zhihu.com/lzcwr" title="知乎"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Mathematica技巧[1]——图像复原与处理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/16/Mathematica技巧[1]——图像复原与处理/" class="article-date">
+      <time datetime="2017-02-16T12:30:17.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mathematica技巧[1]——图像复原与处理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码学习/">代码学习</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mathematica/">Mathematica</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="函数介绍">函数介绍</h2>
+<p>官方文档中对该函数的翻译是“润饰”：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Inpaint[image, region]</span><br><span class="line">    润饰 region 中非零元素的 image 部分</span><br></pre></td></tr></table></figure>
+<p>Inpaint函数在使用时，需要两个参数，分别是<em>image</em>和<em>region</em>。一般来说，<em>image</em>就是需要处理的原始图像，而<em>region</em>更像是一个mask。所以Inpaint一般需要接受两个大小相同的图像，也总是会返回和image有着相同大小和类型的图片。</p>
+<hr>
+<p>Inpaint函数有接受Method选项，并给出如下方法：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">方法</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">“Diffusion”</td>
+<td style="text-align: center;">迭代各向同性扩散方法</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">“TotalVariation”</td>
+<td style="text-align: center;">迭代全变差方法</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">“FastMarching”</td>
+<td style="text-align: center;">快速行进方法</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">“NavierStokes”</td>
+<td style="text-align: center;">Navier-Stokes 方法</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">“TextureSynthesis”</td>
+<td style="text-align: center;">利用随机采样的最佳拟合纹理合成方法</td>
+</tr>
+</tbody>
+</table>
+<p>默认情况下，使用TextureSynthesis方法。</p>
+<hr>
+<p>设置 Method-&gt;{“TotalVariation”, <em>subopt</em>} 下，可以指定下列子选项：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">子操作</th>
+<th style="text-align: center;">值</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">“NoiseModel”</td>
+<td style="text-align: center;">“Gaussian”</td>
+<td style="text-align: center;">“Gaussian”、“Laplacian”或“Poisson”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">“Regularization”</td>
+<td style="text-align: center;">Automatic</td>
+<td style="text-align: center;">正则化参数</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>设置 Method-&gt;{“TextureSynthesis”, <em>subopt</em>} 下，可以指定下列子选项：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">子操作</th>
+<th style="text-align: center;">值</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Masking</td>
+<td style="text-align: center;">Automatic</td>
+<td style="text-align: center;">为二元掩模，可指定用于求出最佳拟合纹理的像素</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">“MaxSamples”</td>
+<td style="text-align: center;">300</td>
+<td style="text-align: center;">用于求出最佳拟合纹理的样本最大数量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">“NeighborCount”</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">用于纹理比较的邻近像素的数目</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Inpaint 接受 MaxIterations 选项，指定使用迭代方法执行迭代的最大数. 默认设置是 MaxIterations-&gt;100。关于参数，本文不再详谈。</p>
+<h2 id="两个应用">两个应用</h2>
+<p>Inpaint函数有着强大的功能，在图形处理中有着不可思议的作用，以下依据<a href="http://reference.wolfram.com/language/ref/Inpaint.html" target="_blank" rel="noopener">官方文档</a>介绍Inpaint的两个较为直接的应用。</p>
+<h3 id="修复图像损坏的部分">修复图像损坏的部分</h3>
+<p>用合适的Mask图片传入Inpaint可以修复图像的损坏部分：</p>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/acvr1e10vda50lld9excuywm/image_1b95789ipkjg1gudqgq9mqrmg57.png" alt="image_1b95789ipkjg1gudqgq9mqrmg57.png-182.4kB"><figcaption>image_1b95789ipkjg1gudqgq9mqrmg57.png-182.4kB</figcaption>
+</figure>
+<p>在处理中也可以使用其他的Method选项：</p>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/xzw3f225yjm0ggjr98sfi3sr/image_1b9579v3t1mvv1nc0163e18ps27q5k.png" alt="image_1b9579v3t1mvv1nc0163e18ps27q5k.png-83.3kB"><figcaption>image_1b9579v3t1mvv1nc0163e18ps27q5k.png-83.3kB</figcaption>
+</figure>
+<h3 id="去除图片中较大的对象">去除图片中较大的对象</h3>
+<p>通过调整Mask图片的形状和黑白区域分配，可以去除图片中较大的对象。以下是官方文档中的两个例子：</p>
+<p><img src="http://static.zybuluo.com/lzcwr/3qjuejedy1c4s4ztljrc40h7/image_1b957fb3hjgqv46l3q1af9l761.png" alt="image_1b957fb3hjgqv46l3q1af9l761.png-55.6kB"> <img src="http://static.zybuluo.com/lzcwr/xbwvvxwxmytb0o8rl9uyc159/image_1b957g7671akai2lt7hsu358n6e.png" alt="image_1b957g7671akai2lt7hsu358n6e.png-99.4kB"></p>
+<h2 id="mask图片的生成技巧">Mask图片的生成技巧</h2>
+<p>从以上例子中可以看出，关于图像的修复和改动，最关键最核心的就是函数中的region参数，也就是Mask图片的生成。以下讨论两种生成Mask图片的方法：</p>
+<h3 id="掩模工具">掩模工具</h3>
+<p>利用“去除较大对象”的功能以及<code>Mathematica</code>自带的掩模工具，可以去除图片上的水印。 例如下面这张图片，也就是我的头像。来源是<a href="http://baike.baidu.com/link?url=KT1OSCvJNCAtnTD8lciSq6sfiH8Zd2hDvqy93GIykGWVhQ2sDAVivz4fyu41sHA-vu1ZWB_LDp61jTpd6GodvrEWPS9Fndw9lrQ_ek6-0xDlHnj7v4LuH5S9TmCUUIHnfPhhmYJogwklspdtxiq-HeAaWAdvJ2MZDjM3Y8v8klW" target="_blank" rel="noopener">百度百科-正一百二十胞体</a>。但图片左下角带有百度百科的水印：</p>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/xh1jopg1uuaq5f5k2uqoamvn/image_1b93g3b6r1ac3qugnj33q4pgj1f.png" alt="image_1b93g3b6r1ac3qugnj33q4pgj1f.png-75kB"><figcaption>image_1b93g3b6r1ac3qugnj33q4pgj1f.png-75kB</figcaption>
+</figure>
+<p>利用Inpaint函数可以很好地处理这件事情，以下是处理的方法：</p>
+<ul>
+<li>先将图片导入<code>Mathematica</code>：<img src="http://static.zybuluo.com/lzcwr/s4c1yxtq4yrk05qzuqr0wcnr/mma1-1.jpg" alt="mma1-1.jpg-20kB"></li>
+<li>然后进行掩模，即生成一个黑白的图片，其中黑色的部分保留，白色的部分去除：<img src="http://static.zybuluo.com/lzcwr/bqzwzw262qdhi0ocq4lco285/mma1-2.jpg" alt="mma1-2.jpg-18.5kB"></li>
+<li>掩模完成后就可以直接调用Inpaint函数将左下角的水印去掉了（<code>Mathematica</code>可以直接把图片作为参数，非常便捷）：<img src="http://static.zybuluo.com/lzcwr/hunbysi0g3gojegdgdlmmuay/mma1-3.jpg" alt="mma1-3.jpg-9.7kB"></li>
+<li>然后将图像导出，即可得到一个没有水印的图片（如下图所示）。</li>
+</ul>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/05x06nkjuw8oztloswld5zgs/image_1b93giupt1321lqv26p1b2r183p3j.png" alt="image_1b93giupt1321lqv26p1b2r183p3j.png-75.7kB"><figcaption>image_1b93giupt1321lqv26p1b2r183p3j.png-75.7kB</figcaption>
+</figure>
+<p>在很多情况下，用掩模工具生成Mask图片作为region参数对图像进行处理都是非常方便的。</p>
+<h3 id="利用颜色的值自动从原图生成mask">利用颜色的值自动从原图生成Mask</h3>
+<p>还有一种方法能够直接从原图中生成Mask图片，以下是官方文档中非常具有启发性的一个例子：</p>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/qfsl33sfd2l7a44mv4cdnz8a/image_1b958k6rv1mg1ai41lafg3abd26r.png" alt="image_1b958k6rv1mg1ai41lafg3abd26r.png-104.6kB"><figcaption>image_1b958k6rv1mg1ai41lafg3abd26r.png-104.6kB</figcaption>
+</figure>
+<p>在这个例子中，非常完美地地去掉了图片右下的日期标记，而且在命令中没有直接出现Mask图片，而是用了一行命令来自动生成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dilation[Binarize[ColorSeparate[img][[1]], 0.93], 1]</span><br></pre></td></tr></table></figure>
+<p>其含义是：用ColorSeperate函数将图片分为RGB三层，然后将Red层像素值大于255×0.93的设为白色，其余为黑色，然后用二值化函数Binarize来生成黑白图片作为region参数。其中的Dilation函数是一个处理函数，本文不多赘述。</p>
+<p>由这个例子，我们可以产生一种想法： 用图像处理的软件很简单地将图片中不想要的部分染色（染成一个图片当中没有的颜色），然后用上面的方法生成一个region参数，再对原图进行处理。此时便不再需要掩模：</p>
+<ul>
+<li>比如这样一张照片： <img src="http://static.zybuluo.com/lzcwr/o2ihbg3nlnrfe0qtvvkza3u9/image_1b94pcrduqe51l2h1k4c12hq10g240.png" alt="image_1b94pcrduqe51l2h1k4c12hq10g240.png-242.1kB"></li>
+<li>用工具把不想要的部分染色，作为Mask <img src="http://static.zybuluo.com/lzcwr/3tin320gpf8dhifgxvor4rf9/image_1b94pkcvg9q7705s4r1fdtupo4d.png" alt="image_1b94pkcvg9q7705s4r1fdtupo4d.png-199.2kB"></li>
+<li>运行代码可得如下结果，效果 <del>不咋地</del> 很好，但是确实能去掉该部分。（原因是像素值筛选范围的设定出现了问题，不过我比较懒，没有进行更好的调整） <img src="http://static.zybuluo.com/lzcwr/g1t9y9iqf73nf3vnxwcm08x9/image_1b94qh78nbpvmfq6tm1e471d5h4q.png" alt="image_1b94qh78nbpvmfq6tm1e471d5h4q.png-234.6kB"></li>
+</ul>
+<p>原理和官方文献中的类似，于是处理这样的问题<strong>只需要一行代码</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Inpaint[#1,ImageResize[Binarize[#2,#==&#123;1,0,0&#125;&amp;], ImageDimensions@#1]]&amp;[img,mask]</span><br></pre></td></tr></table></figure>
+<h2 id="纹理和画作分析">纹理和画作分析</h2>
+<p>如果说刚刚的功能看起来也比较平常的话，那么根据一幅画来创作一幅风格相近的画，或是分析图片中的纹理，总应该是看起来很高端很厉害的功能了。以下是官方文档中的例子：</p>
+<ul>
+<li>纹理合成：</li>
+</ul>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/1od15epr9dwdghtqpttbo7jz/image_1b95a50op1m0h14pbs74fjdp6978.png" alt="image_1b95a50op1m0h14pbs74fjdp6978.png-125.8kB"><figcaption>image_1b95a50op1m0h14pbs74fjdp6978.png-125.8kB</figcaption>
+</figure>
+<ul>
+<li>画作分析：</li>
+</ul>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/00ngpy90vzmlfb2zgn2jw2l0/image_1b95auqqggfh1lic1f5k1qsq16tc7l.png" alt="image_1b95auqqggfh1lic1f5k1qsq16tc7l.png-267.5kB"><figcaption>image_1b95auqqggfh1lic1f5k1qsq16tc7l.png-267.5kB</figcaption>
+</figure>
+<p>有关<code>Mathematica</code>的其他资料请自行查阅。本文只做普及，不做详解。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/02/16/Mathematica技巧[1]——图像复原与处理/">Mathematica技巧[1]——图像复原与处理</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
+        <p><span>发布时间:</span>2017-02-16, 20:30:17</p>
+        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/16/Mathematica技巧[1]——图像复原与处理/" title="Mathematica技巧[1]——图像复原与处理">http://lizhechen.com/2017/02/16/Mathematica技巧[1]——图像复原与处理/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/02/16/Mathematica技巧[1]——图像复原与处理/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/02/17/数据结构——线段树 Segment Tree/">
+                    数据结构——线段树 Segment Tree
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/02/12/github-hexo-搭建个人博客/">
+                    github+hexo 搭建个人博客
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数介绍"><span class="toc-number">1.</span> <span class="toc-text">函数介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两个应用"><span class="toc-number">2.</span> <span class="toc-text">两个应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修复图像损坏的部分"><span class="toc-number">2.1.</span> <span class="toc-text">修复图像损坏的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去除图片中较大的对象"><span class="toc-number">2.2.</span> <span class="toc-text">去除图片中较大的对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mask图片的生成技巧"><span class="toc-number">3.</span> <span class="toc-text">Mask图片的生成技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#掩模工具"><span class="toc-number">3.1.</span> <span class="toc-text">掩模工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用颜色的值自动从原图生成mask"><span class="toc-number">3.2.</span> <span class="toc-text">利用颜色的值自动从原图生成Mask</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纹理和画作分析"><span class="toc-number">4.</span> <span class="toc-text">纹理和画作分析</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Mathematica技巧[1]——图像复原与处理　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/02/17/数据结构——线段树 Segment Tree/" title="上一篇: 数据结构——线段树 Segment Tree">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/02/12/github-hexo-搭建个人博客/" title="下一篇: github+hexo 搭建个人博客">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/数学分析拾遗-2-——积分中值定理/">数学分析拾遗[2]——积分中值定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/数学分析拾遗-1-——一些不等式/">数学分析拾遗[1]——一些不等式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/02/范畴论学习笔记/">范畴论学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/2018MCM乱搞/">2018MCM乱搞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/11/北京师范大学2017年拓扑学期末考试试卷/">北京师范大学2017年拓扑学期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/11/北京师范大学2017年泛函分析期末考试试卷/">北京师范大学2017年泛函分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/拓扑学复习重点/">拓扑学复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/数理统计复习重点/">数理统计复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/测度与概率复习重点/">测度与概率复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/24/泛函——复习重点/">泛函——复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/北京师范大学2017年概率测度小测二题目/">北京师范大学2017年概率测度小测二题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/明月杯回忆录/">明月杯回忆录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/2016-2017学年春季学期志愿时长录入/">2016-2017学年春季学期志愿时长录入</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/泛函——有界集、完全有界集和紧集/">泛函——有界集、完全有界集和紧集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/北京师范大学2017年概率测度小测一题目/">北京师范大学2017年概率测度小测一题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/次序统计量的联合分布/">次序统计量的联合分布</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/泛函——自然数集上的Lp范数/">泛函——自然数集上的Lp范数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/拓扑学题目/">拓扑学题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/单调类定理/">单调类定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/17/数理统计基础知识/">数理统计基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/GRE阅读题目分析[4]/">GRE阅读题目分析[4]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/GRE填空思路分析[3]——推理的线索来源·同义线索/">GRE填空思路分析[3]——推理的线索来源·同义线索</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/GRE阅读题目分析[3]/">GRE阅读题目分析[3]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/GRE填空思路分析[2]——推理的线索来源·反义线索/">GRE填空思路分析[2]——推理的线索来源·反义线索</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/GRE填空思路分析[1]/">GRE填空思路分析[1]——词句推理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/GRE阅读题目分析[2]/">GRE阅读题目分析[2]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/GRE阅读题目分析[1]/">GRE阅读题目分析[1]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2015年数学分析期末考试试卷/">北京师范大学2015年数学分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2016年高等代数期中考试试卷/">北京师范大学2016年高等代数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2016年数学分析期中考试试卷/">北京师范大学2016年数学分析期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年数学分析期末考试试卷/">北京师范大学2016年数学分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年近世代数期末考试试卷/">北京师范大学2016年近世代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年近世代数期中考试试卷/">北京师范大学2016年近世代数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/北京师范大学2017年实变函数期末考试试卷/">北京师范大学2017年实变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/北京师范大学2017年复变函数期末考试试卷/">北京师范大学2017年复变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/24/组合数学复习重点/">组合数学复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/微分几何复习重点/">微分几何复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/概率论复习重点/">概率论复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/复变复习重点/">复变复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/北京师范大学2015年复变函数期末考试试卷/">北京师范大学2015年复变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/北京师范大学2011年概率论期末考试试卷/">北京师范大学2011年概率论期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/北京师范大学2016年高等代数期末考试试卷/">北京师范大学2016年高等代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/">北京师范大学2017年复变函数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/">Mathematica技巧[2]——修改输入和输出字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/几篇TOEFL独立写作范文/">几篇TOEFL独立写作范文</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/LaTeX技巧[2]——打生僻字/">LaTeX技巧[1]——打生僻字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/LaTeX技巧[1]——修改数学公式字体/">LaTeX技巧[2]——修改数学公式字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/组合杂题/">组合杂题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/一些概率论题目/">一些概率论题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/一些实变函数题目/">一些实变函数题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/Hexo与Mathjax的冲突及（部分）解决/">Hexo与Mathjax的冲突及（部分）解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/数学系转专业考试题及解答不完全版（2015-04）/">数学系转专业考试题及解答不完全版（2015.04）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/数据结构——树状数组 Binary Indexed Tree/">数据结构——树状数组 Binary Indexed Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/数据结构——平衡树 Treap/">数据结构——平衡树 Treap</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/数据结构——线段树 Segment Tree/">数据结构——线段树 Segment Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/16/Mathematica技巧[1]——图像复原与处理/">Mathematica技巧[1]——图像复原与处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/github-hexo-搭建个人博客/">github+hexo 搭建个人博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 lzcwr
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

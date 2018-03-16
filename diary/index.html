@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="lzcwr" />
+
+
+
+<meta name="description" content="2018 年 三月 – 大三下 2018.03.04  [x] 高等代数:  行列式技巧: Vandermonde行列式, 拆分. 构造行列式.  [x] 数学分析:  转系考试第8题: 地址 复习基本定义  [x] 英语:  背单词: 457/9196  [x] 其他:  范畴论: Categories beget categories    备注:">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LZC 的学习记录">
+<meta property="og:url" content="http://lizhechen.com/diary/index.html">
+<meta property="og:site_name" content="Zhechen的博客">
+<meta property="og:description" content="2018 年 三月 – 大三下 2018.03.04  [x] 高等代数:  行列式技巧: Vandermonde行列式, 拆分. 构造行列式.  [x] 数学分析:  转系考试第8题: 地址 复习基本定义  [x] 英语:  背单词: 457/9196  [x] 其他:  范畴论: Categories beget categories    备注:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-16T07:47:35.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LZC 的学习记录">
+<meta name="twitter:description" content="2018 年 三月 – 大三下 2018.03.04  [x] 高等代数:  行列式技巧: Vandermonde行列式, 拆分. 构造行列式.  [x] 数学分析:  转系考试第8题: 地址 复习基本定义  [x] 英语:  背单词: 457/9196  [x] 其他:  范畴论: Categories beget categories    备注:">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhechen的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>LZC 的学习记录 | Zhechen的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">lzcwr</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">随便搞搞</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/diary/">日记</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="http://www.zhihu.com/lzcwr" title="知乎"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE/">GRE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL/">TOEFL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/各种试卷/">各种试卷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复变函数/">复变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实变函数/">实变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平衡树/">平衡树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/建模/">建模</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微分几何/">微分几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拓扑学/">拓扑学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学分析/">数学分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率论/">概率论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛函分析/">泛函分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测度论/">测度论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/篮球/">篮球</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/统计学/">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范畴论/">范畴论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/近世代数/">近世代数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高等代数/">高等代数</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.xuhongxu.com/">许宏旭的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.bufan.xyz/">卜凡的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">lzcwr</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">lzcwr</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">随便搞搞</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/diary/">日记</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="http://www.zhihu.com/lzcwr" title="知乎"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/diary/index.html" class="article-date">
+      <time datetime="2018-03-05T13:46:52.000Z" itemprop="datePublished">2018-03-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LZC 的学习记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <style>
+    .article-meta { display: none; }
+    #container .article .article-title { padding-right: 0; }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover { border-left: none; }
+    .article-title { font-size: 1.6em }
+    .article-entry hr { margin: 0;}
+    .article-meta,
+    #container .article-info-post.article-info { display: none;}
+    #container .article .article-title { padding: 0; }
+</style>
+
+
+          
+        <h2 id="年">2018 年</h2>
+<h3 id="三月-大三下">三月 – 大三下</h3>
+<h4 id="section">2018.03.04</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>行列式技巧: Vandermonde行列式, 拆分. 构造行列式.</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>转系考试第8题: <a href="http://www.lizhechen.com/2017/03/08/%E6%95%B0%E5%AD%A6%E7%B3%BB%E8%BD%AC%E4%B8%93%E4%B8%9A%E8%80%83%E8%AF%95%E9%A2%98%E5%8F%8A%E8%A7%A3%E7%AD%94%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%89%88%EF%BC%882015-04%EF%BC%89/" target="_blank" rel="noopener">地址</a></li>
+<li>复习基本定义</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 457/9196</li>
+</ul></li>
+<li>[x] 其他:
+<ul>
+<li>范畴论: Categories beget categories</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>备注: 上午背单词, 学范畴论. 下午看代数. 晚上复习数分, 菜的一匹.</p>
+</blockquote>
+<h4 id="section-1">2018.03.05</h4>
+<ul>
+<li>[ ] 高等代数: ×</li>
+<li>[x] 数学分析:
+<ul>
+<li>常用不等式: 裴礼文 1.1.4</li>
+<li>求极限相关问题: 裴礼文 1.3</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 561/9196</li>
+</ul></li>
+<li>[x] 其他:
+<ul>
+<li>范畴论: Kinds of arrows</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>备注: 上午背单词, 学范畴论. 下午玩过头没来得及看代数. 晚上复习数分.</p>
+</blockquote>
+<h4 id="section-2">2018.03.06</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>行列式技巧: 递推, 降阶, 数学归纳法</li>
+<li>矩阵初等变换</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>高阶导数: 裴礼文 3.1.2</li>
+<li>中值定理: 裴礼文 3.2</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 572/9196</li>
+</ul></li>
+<li>[x] 其他:
+<ul>
+<li>直观拓扑</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>备注: 单词没背完. 不打算继续细看行列式.</p>
+</blockquote>
+<h4 id="section-3">2018.03.07</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>初等变换: 广义初等矩阵, 分块矩阵的初等变换</li>
+<li>矩阵的秩: Sylvester不等式, Frobenius不等式</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>中值定理: 裴礼文 3.2</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 585/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: 贼困, 后面需要看Jordan标准型.</p>
+</blockquote>
+<h4 id="section-4">2018.03.08</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>线性变换: 特征值, 特征向量, 相似矩阵</li>
+<li>线性空间: 子空间, 不变子空间, Caley-Hamilton定理, 最小多项式</li>
+<li>Jordan标准型: 初等因子, 不变因子, <span class="math inline">\(\lambda\)</span> 矩阵</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>一直连续性</li>
+<li>函数的可积性</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 630/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: Jordan标准型还需要再看一下, 代数忘了大半.</p>
+</blockquote>
+<h4 id="section-5">2018.03.09</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>Jordan标准型: 初等因子, <span class="math inline">\(\lambda\)</span> 矩阵</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>实数理论: Dedekind分割, 区间套, 有限覆盖, Cauchy收敛, B-W聚点原理, 单调有界, 确界原理</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 670/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: 实数理论有点不知道该看什么.</p>
+</blockquote>
+<h4 id="section-6">2018.03.10</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>Jordan标准型: 循环子空间, 根子空间</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>上下极限: 定义及证明</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 744/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: 上下极限也不知道会怎么考, 同样觉得不知道该看什么.</p>
+</blockquote>
+<h4 id="section-7">2018.03.11</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>Jordan标准型: 相关证明</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>不等式: Holder不等式, Minkowski不等式</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 779/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: Jordan标准型做起来好麻烦.</p>
+</blockquote>
+<h4 id="section-8">2018.03.12</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>矩阵的等价关系: 等价, 相似, 合同</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>几道没什么用的题目</li>
+</ul></li>
+<li>[x] 英语: 819/9196</li>
+<li>[x] 其他:
+<ul>
+<li>Munkres拓扑学</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>备注: 无.</p>
+</blockquote>
+<h4 id="section-9">2018.03.13</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>准对角矩阵, 三角矩阵, 幂零矩阵, 对合矩阵</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>积分中值定理: 第一, 第二</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 892/9196</li>
+</ul></li>
+<li>[x] 其他:
+<ul>
+<li>直观拓扑: 多面体Euler公式</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>备注: 直观拓扑作业: 证明图中点的度是拓扑性质.</p>
+</blockquote>
+<h4 id="section-10">2018.03.14</h4>
+<ul>
+<li>[ ] 高等代数: ×</li>
+<li>[x] 数学分析:
+<ul>
+<li>不等式证明, Young不等式</li>
+</ul></li>
+<li>[x] 解析几何:
+<ul>
+<li>仿射坐标系</li>
+</ul></li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 945/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: 解析几何学的太差, 简单结论能理解不能应用Orz.</p>
+</blockquote>
+<h4 id="section-11">2018.03.15</h4>
+<ul>
+<li>[x] 高等代数:
+<ul>
+<li>复习代数研讨课讲义</li>
+</ul></li>
+<li>[x] 数学分析:
+<ul>
+<li>多元微积分: 几个题目</li>
+</ul></li>
+<li>[ ] 解析几何: ×</li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 991/9196</li>
+</ul></li>
+<li>[ ] 其他: ×</li>
+</ul>
+<blockquote>
+<p>备注: 矩阵理论学的一团糟.</p>
+</blockquote>
+<h4 id="section-12">2018.03.16</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[x] 英语:
+<ul>
+<li>背单词: 1038/9196</li>
+</ul></li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-13">2018.03.17</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-14">2018.03.18</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-15">2018.03.19</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-16">2018.03.20</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-17">2018.03.21</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-18">2018.03.22</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-19">2018.03.23</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-20">2018.03.24</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-21">2018.03.25</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-22">2018.03.26</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-23">2018.03.27</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-24">2018.03.28</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-25">2018.03.29</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-26">2018.03.30</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-27">2018.03.31</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+<h4 id="section-28">2018.04.01</h4>
+<ul>
+<li>[ ] 高等代数:</li>
+<li>[ ] 数学分析:</li>
+<li>[ ] 解析几何:<br>
+</li>
+<li>[ ] 英语:</li>
+<li>[ ] 其他:</li>
+</ul>
+<blockquote>
+<p>备注:</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#年"><span class="toc-number">1.</span> <span class="toc-text">2018 年</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三月-大三下"><span class="toc-number">1.1.</span> <span class="toc-text">三月 – 大三下</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#section"><span class="toc-number">1.1.1.</span> <span class="toc-text">2018.03.04</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-1"><span class="toc-number">1.1.2.</span> <span class="toc-text">2018.03.05</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-2"><span class="toc-number">1.1.3.</span> <span class="toc-text">2018.03.06</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-3"><span class="toc-number">1.1.4.</span> <span class="toc-text">2018.03.07</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-4"><span class="toc-number">1.1.5.</span> <span class="toc-text">2018.03.08</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-5"><span class="toc-number">1.1.6.</span> <span class="toc-text">2018.03.09</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-6"><span class="toc-number">1.1.7.</span> <span class="toc-text">2018.03.10</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-7"><span class="toc-number">1.1.8.</span> <span class="toc-text">2018.03.11</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-8"><span class="toc-number">1.1.9.</span> <span class="toc-text">2018.03.12</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-9"><span class="toc-number">1.1.10.</span> <span class="toc-text">2018.03.13</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-10"><span class="toc-number">1.1.11.</span> <span class="toc-text">2018.03.14</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-11"><span class="toc-number">1.1.12.</span> <span class="toc-text">2018.03.15</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-12"><span class="toc-number">1.1.13.</span> <span class="toc-text">2018.03.16</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-13"><span class="toc-number">1.1.14.</span> <span class="toc-text">2018.03.17</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-14"><span class="toc-number">1.1.15.</span> <span class="toc-text">2018.03.18</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-15"><span class="toc-number">1.1.16.</span> <span class="toc-text">2018.03.19</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-16"><span class="toc-number">1.1.17.</span> <span class="toc-text">2018.03.20</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-17"><span class="toc-number">1.1.18.</span> <span class="toc-text">2018.03.21</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-18"><span class="toc-number">1.1.19.</span> <span class="toc-text">2018.03.22</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-19"><span class="toc-number">1.1.20.</span> <span class="toc-text">2018.03.23</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-20"><span class="toc-number">1.1.21.</span> <span class="toc-text">2018.03.24</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-21"><span class="toc-number">1.1.22.</span> <span class="toc-text">2018.03.25</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-22"><span class="toc-number">1.1.23.</span> <span class="toc-text">2018.03.26</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-23"><span class="toc-number">1.1.24.</span> <span class="toc-text">2018.03.27</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-24"><span class="toc-number">1.1.25.</span> <span class="toc-text">2018.03.28</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-25"><span class="toc-number">1.1.26.</span> <span class="toc-text">2018.03.29</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-26"><span class="toc-number">1.1.27.</span> <span class="toc-text">2018.03.30</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-27"><span class="toc-number">1.1.28.</span> <span class="toc-text">2018.03.31</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section-28"><span class="toc-number">1.1.29.</span> <span class="toc-text">2018.04.01</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"LZC 的学习记录　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 lzcwr
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
