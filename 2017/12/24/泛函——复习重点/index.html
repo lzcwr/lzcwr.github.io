@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="泛函分析期末复习重点: 定义&amp;定理.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.700Z">
+<meta property="og:updated_time" content="2018-03-16T14:35:29.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛函——复习重点">
 <meta name="twitter:description" content="泛函分析期末复习重点: 定义&amp;定理.">
@@ -112,7 +112,7 @@
 
         
             <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
             <i class="fa fa-times" onclick="resetSearch()"></i>
             </form>
             <div id="local-search-result"></div>
@@ -325,9 +325,9 @@
 <li>完全有界和列紧</li>
 </ul>
 <blockquote>
-<p><strong>定理</strong> 列紧集一定完全有界, 完全有界集必定有界. <strong>定理</strong> 有穷维 <span class="math inline">\(B^&amp;#42;\)</span> 空间的有界集必定完全有界, 完备空间中的完全有界集必定列紧.</p>
+<p><strong>定理</strong> 列紧集一定完全有界, 完全有界集必定有界. <strong>定理</strong> 有穷维 <span class="math inline">\(B^*\)</span> 空间的有界集必定完全有界, 完备空间中的完全有界集必定列紧.</p>
 </blockquote>
-<p><span class="math inline">\(\mathscr{X}\)</span> 中的列紧集、完全有界集、有界集三者的关系如下: <font color="red"><span class="math display">\[列紧~\underset{\mathscr{X}~完备}{\rightleftarrows}~完全有界~\underset{有限维B^&amp;#42;}{\rightleftarrows}~有界\]</span></font></p>
+<p><span class="math inline">\(\mathscr{X}\)</span> 中的列紧集、完全有界集、有界集三者的关系如下: <font color="red"><span class="math display">\[列紧~\underset{\mathscr{X}~完备}{\rightleftarrows}~完全有界~\underset{有限维B^*}{\rightleftarrows}~有界\]</span></font></p>
 <h4 id="一致有界和等度连续">一致有界和等度连续</h4>
 <p><strong>一致有界</strong>: 设 <span class="math inline">\(F\subset C(M)\)</span>, 若 <span class="math inline">\(\exists M_1&gt;0\)</span>, s.t. <span class="math inline">\(\vert\varphi(x)\vert\leqslant M~(\forall x\in M,\forall \varphi\in F)\)</span>, 则称 <span class="math inline">\(F\)</span> 一致有界.</p>
 <p><strong>等度连续</strong>: 设 <span class="math inline">\(F\subset C(M)\)</span>, 若对 <span class="math inline">\(\forall \epsilon&gt;0\)</span>, <span class="math inline">\(\exists\delta(\epsilon)&gt;0\)</span>, s.t. <span class="math inline">\(\vert\varphi(x_1)-\varphi(x_2)\vert&lt; \epsilon~(\forall x_1,x_2\in M, \rho(x_1,x_2)&lt;\delta,\forall\varphi\in F)\)</span>, 则称 <span class="math inline">\(F\)</span> 等度连续.</p>
@@ -345,22 +345,22 @@
 <li><span class="math inline">\(\lim\limits_{\alpha_n\to 0}\Vert\alpha_n x\Vert=0\)</span>, <span class="math inline">\(\lim\limits_{\Vert x_n\Vert\to 0}\Vert\alpha x_n\Vert=0\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, <span class="math inline">\(\forall\alpha\in\mathbb{K}\)</span>.</li>
 </ol>
 <h4 id="frechet空间">Frechet空间</h4>
-<p>用准范数 <span class="math inline">\(\Vert x_n-x\Vert\to 0\)</span> 来定义极限 <span class="math inline">\(x_n\to x\)</span> 的线性空间 <span class="math inline">\(\mathscr{X}\)</span>, 称为 <span class="math inline">\(F^&amp;#42;\)</span> 空间. 完备的 <span class="math inline">\(F^&amp;#42;\)</span> 空间称为Frechet空间.</p>
+<p>用准范数 <span class="math inline">\(\Vert x_n-x\Vert\to 0\)</span> 来定义极限 <span class="math inline">\(x_n\to x\)</span> 的线性空间 <span class="math inline">\(\mathscr{X}\)</span>, 称为 <span class="math inline">\(F^*\)</span> 空间. 完备的 <span class="math inline">\(F^*\)</span> 空间称为Frechet空间.</p>
 <h3 id="范数与banach空间">范数与Banach空间</h3>
 <h4 id="范数">范数</h4>
 <p>线性空间 <span class="math inline">\(\mathscr{X}\)</span> 上的<strong>范数</strong> <span class="math inline">\(\Vert\cdot\Vert\)</span> 是一个非负值函数: <span class="math inline">\(\mathscr{X}\to\mathbb{R}^1\)</span>, s.t. 1. <span class="math inline">\(\Vert x\Vert\geqslant 0\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 且 <span class="math inline">\(\Vert x\Vert=0\Leftrightarrow x=\theta\)</span>; 2. <span class="math inline">\(\Vert x+y\Vert\leqslant \Vert x \Vert+ \Vert y\Vert\)</span>, <span class="math inline">\(\forall x,y\in\mathscr{X}\)</span>; 3. <span class="math inline">\(\Vert\alpha x\Vert=\vert\alpha\vert\Vert x\Vert\)</span>, <span class="math inline">\(\forall\alpha\in\mathbb{K}\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>.</p>
 <h4 id="banach空间">Banach空间</h4>
-<p>具有范数的 <span class="math inline">\(F^&amp;#42;\)</span> 空间称为 <span class="math inline">\(B^&amp;#42;\)</span> 空间, 完备的 <span class="math inline">\(B^&amp;#42;\)</span> 空间称为Banach空间.</p>
+<p>具有范数的 <span class="math inline">\(F^*\)</span> 空间称为 <span class="math inline">\(B^*\)</span> 空间, 完备的 <span class="math inline">\(B^*\)</span> 空间称为Banach空间.</p>
 <h4 id="范数的等价">范数的等价</h4>
-<p>范数 <span class="math inline">\(\Vert\cdot\Vert_1\)</span> 与 <span class="math inline">\(\Vert\cdot\Vert_2\)</span> 等价是指: <span class="math inline">\(\Vert x_n\Vert_1\Leftrightarrow \Vert x_n\Vert_2\)</span>, <span class="math inline">\(n\to\infty\)</span>. 即: <span class="math inline">\(\exists C_1,C_2&amp;#60;0\)</span>, s.t. <span class="math inline">\(C_1\Vert x\Vert_1\leqslant\Vert x\Vert_2\leqslant C_2\Vert x\Vert_1\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>.</p>
+<p>范数 <span class="math inline">\(\Vert\cdot\Vert_1\)</span> 与 <span class="math inline">\(\Vert\cdot\Vert_2\)</span> 等价是指: <span class="math inline">\(\Vert x_n\Vert_1\Leftrightarrow \Vert x_n\Vert_2\)</span>, <span class="math inline">\(n\to\infty\)</span>. 即: <span class="math inline">\(\exists C_1,C_2&lt;0\)</span>, s.t. <span class="math inline">\(C_1\Vert x\Vert_1\leqslant\Vert x\Vert_2\leqslant C_2\Vert x\Vert_1\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>.</p>
 <blockquote>
-<p><strong>定理</strong> 有穷维 <span class="math inline">\(B^&amp;#42;\)</span> 空间的任意范数都等价.</p>
+<p><strong>定理</strong> 有穷维 <span class="math inline">\(B^*\)</span> 空间的任意范数都等价.</p>
 </blockquote>
 <blockquote>
-<p><strong>推论</strong> 相同维数的有穷维 <span class="math inline">\(B^&amp;#42;\)</span> 空间代数上同构, 拓扑上同胚.</p>
+<p><strong>推论</strong> 相同维数的有穷维 <span class="math inline">\(B^*\)</span> 空间代数上同构, 拓扑上同胚.</p>
 </blockquote>
 <blockquote>
-<p><strong>推论</strong> 有穷维 <span class="math inline">\(B^&amp;#42;\)</span> 空间必定完备, <font color="red"><strong>反之不成立</strong></font>.</p>
+<p><strong>推论</strong> 有穷维 <span class="math inline">\(B^*\)</span> 空间必定完备, <font color="red"><strong>反之不成立</strong></font>.</p>
 </blockquote>
 <h4 id="半模">半模</h4>
 <p>半模是 <span class="math inline">\(P:\mathscr{X}\to\mathbb{R}^1\)</span> 是线性空间 <span class="math inline">\(\mathscr{X}\)</span> 上的一个函数, s.t.</p>
@@ -369,24 +369,24 @@
 <li><span class="math inline">\(P(x+y)\leqslant P(x)+P(y)\)</span>, <span class="math inline">\(\forall x,y\in\mathscr{X}\)</span>;</li>
 <li><span class="math inline">\(P(\alpha x)=\vert\alpha\vert P(x)\)</span>, <span class="math inline">\(\forall\alpha\in\mathbb{K}\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>.</li>
 </ol>
-<h4 id="有穷维-b42-空间">有穷维 <span class="math inline">\(B^&amp;#42;\)</span> 空间</h4>
+<h4 id="有穷维-b-空间">有穷维 <span class="math inline">\(B^*\)</span> 空间</h4>
 <blockquote>
-<p><strong>定理</strong> <span class="math inline">\(B^&amp;#42;\)</span> 空间是有穷维的当且仅当其单位球面是列紧的.</p>
+<p><strong>定理</strong> <span class="math inline">\(B^*\)</span> 空间是有穷维的当且仅当其单位球面是列紧的.</p>
 </blockquote>
 <blockquote>
-<p><strong>推论</strong> <span class="math inline">\(B^&amp;#42;\)</span> 空间是有穷维的当且仅当其任意有界集是列紧的.</p>
+<p><strong>推论</strong> <span class="math inline">\(B^*\)</span> 空间是有穷维的当且仅当其任意有界集是列紧的.</p>
 </blockquote>
 <p>还有如下的Riesz引理:</p>
 <blockquote>
-<p><strong>Riesz 引理</strong> 如果 <span class="math inline">\(\mathscr{X}_0\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 的一个真闭子空间, 那么对于 <span class="math inline">\(\forall 0&lt;\epsilon&lt;1\)</span>, <span class="math inline">\(\exists y\in\mathscr{X}\)</span>, s.t. <span class="math inline">\(\Vert y\Vert=1\)</span>, 且 <span class="math inline">\(\Vert y-x\Vert\geqslant1-\epsilon\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}_0\)</span>.</p>
+<p><strong>Riesz 引理</strong> 如果 <span class="math inline">\(\mathscr{X}_0\)</span> 是 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 的一个真闭子空间, 那么对于 <span class="math inline">\(\forall 0&lt;\epsilon&lt;1\)</span>, <span class="math inline">\(\exists y\in\mathscr{X}\)</span>, s.t. <span class="math inline">\(\Vert y\Vert=1\)</span>, 且 <span class="math inline">\(\Vert y-x\Vert\geqslant1-\epsilon\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}_0\)</span>.</p>
 </blockquote>
 <h3 id="凸集与minkowski泛函">凸集与Minkowski泛函</h3>
 <h4 id="凸集和凸包">凸集和凸包</h4>
 <p>凸集: <span class="math inline">\(E\)</span> 是凸集 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\lambda x+(1-\lambda)y\in E\)</span>, <span class="math inline">\(\forall x,y\in E\)</span>, <span class="math inline">\(\forall 0\leqslant\lambda\leqslant 1\)</span>.</p>
-<p>凸包: $co(A)= &amp;#123; _{i=1}<sup>n<em>i x_i <sub></sub> </em>{i=1}</sup>n _i=1, _i0, x_iA, i=1,2,,n, n &amp;#125; $, 为包含 <span class="math inline">\(A\)</span> 的最小凸集.</p>
+<p>凸包: <span class="math display">\[co(A)= \{ \sum\limits_{i=1}^n\lambda_i x_i ~\vert~ \sum\limits_{i=1}^n \lambda_i=1, \lambda_i\geqslant 0, x_i\in A, i=1,2,\cdots,n, \forall n\in\mathbb{N} \} \]</span>为包含 <span class="math inline">\(A\)</span> 的最小凸集.</p>
 <h4 id="minkowski泛函">Minkowski泛函</h4>
 <p><span class="math inline">\(\mathscr{X}\)</span> 是线性空间, <span class="math inline">\(C\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 上含有 <span class="math inline">\(\theta\)</span> 的凸子集, 则如下定义Minkowski泛函:</p>
-<p><span class="math display">\[P(x)=\inf \&amp;#123; \lambda&gt;0 ~\vert~ \frac{x}{\lambda}\in C \&amp;#125; ,\quad \forall x\in\mathscr{X}.\]</span></p>
+<p><span class="math display">\[P(x)=\inf \{ \lambda&gt;0 ~\vert~ \frac{x}{\lambda}\in C \} ,\quad \forall x\in\mathscr{X}.\]</span></p>
 <h3 id="内积与hilbert空间">内积与Hilbert空间</h3>
 <h4 id="共轭双线性函数">共轭双线性函数</h4>
 <p>线性空间 <span class="math inline">\(\mathscr{X}\)</span> 上的双线性函数是指一个二元函数 <span class="math inline">\(a(\cdot,~\cdot):\mathscr{X}\times\mathscr{X}\to\mathbb{K}\)</span>, s.t.</p>
@@ -408,26 +408,26 @@
 <blockquote>
 <p><strong>C-S</strong> 设 <span class="math inline">\((\mathscr{X},(\cdot,~\cdot))\)</span> 是内积空间, 取 <span class="math inline">\(\Vert x\Vert=(x,x)^\frac{1}{2}\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 则有 <span class="math display">\[\vert (x,y)\vert\leqslant \Vert x\Vert\Vert y\Vert, \quad \forall x,y\in\mathscr{X}.\]</span>等号当且仅当 <span class="math inline">\(x=\lambda y\)</span> 取得.</p>
 </blockquote>
-<h4 id="内积空间与-b42-空间">内积空间与 <span class="math inline">\(B^&amp;#42;\)</span> 空间</h4>
+<h4 id="内积空间与-b-空间">内积空间与 <span class="math inline">\(B^*\)</span> 空间</h4>
 <ul>
-<li>内积空间 <span class="math inline">\(\to\)</span> <span class="math inline">\(B^&amp;#42;\)</span> 空间</li>
+<li>内积空间 <span class="math inline">\(\to\)</span> <span class="math inline">\(B^*\)</span> 空间</li>
 </ul>
 <blockquote>
-<p>内积空间 <span class="math inline">\(\mathscr{X}\)</span> 按照 <span class="math inline">\(\Vert x\Vert=(x,x)^\frac{1}{2}\)</span> 定义范数, 是<strong>严格凸的 <span class="math inline">\(B^&amp;#42;\)</span> 空间</strong>, 且内积关于范数连续.</p>
+<p>内积空间 <span class="math inline">\(\mathscr{X}\)</span> 按照 <span class="math inline">\(\Vert x\Vert=(x,x)^\frac{1}{2}\)</span> 定义范数, 是<strong>严格凸的 <span class="math inline">\(B^*\)</span> 空间</strong>, 且内积关于范数连续.</p>
 </blockquote>
 <ul>
-<li><span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\to\)</span> 内积空间</li>
+<li><span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\to\)</span> 内积空间</li>
 </ul>
 <blockquote>
-<p>在 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 中, 为了引入内积满足上式, 范数必须满足 <span class="math display">\[\Vert x+y\Vert^2+\Vert x-y\Vert^2=2\Vert x\Vert^2+2\Vert y\Vert^2,\quad \forall x,y\in\mathscr{X}.\]</span></p>
+<p>在 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 中, 为了引入内积满足上式, 范数必须满足 <span class="math display">\[\Vert x+y\Vert^2+\Vert x-y\Vert^2=2\Vert x\Vert^2+2\Vert y\Vert^2,\quad \forall x,y\in\mathscr{X}.\]</span></p>
 </blockquote>
 <h4 id="正交集">正交集</h4>
 <ul>
-<li>完备正交集: <span class="math inline">\(S\)</span> 为正交集, 且 $S^= &amp;#123; &amp;#125; $.</li>
+<li>完备正交集: <span class="math inline">\(S\)</span> 为正交集, 且 $S^= { } $.</li>
 <li>Bessel 不等式</li>
 </ul>
 <blockquote>
-<p><strong>Bessel</strong>设 <span class="math inline">\(\mathscr{X}\)</span> 是一个内积空间, 若 $S= &amp;#123; e_<sub></sub>A &amp;#125; $ 是其中的正交规范基, 那么 <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 有 <span class="math display">\[\sum\limits_{\alpha\in A}|(x,e_\alpha)|^2\leqslant \Vert x\Vert^2.\]</span> 事实上, $ &amp;#123; A: (x,e_)0 &amp;#125; $ 至多可数.</p>
+<p><strong>Bessel</strong>设 <span class="math inline">\(\mathscr{X}\)</span> 是一个内积空间, 若 $S= { e_<sub></sub>A } $ 是其中的正交规范基, 那么 <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 有 <span class="math display">\[\sum\limits_{\alpha\in A}|(x,e_\alpha)|^2\leqslant \Vert x\Vert^2.\]</span> 事实上, $ { A: (x,e_)0 } $ 至多可数.</p>
 </blockquote>
 <ul>
 <li>Parseval 等式</li>
@@ -447,7 +447,7 @@
 <blockquote>
 <p><strong>定理</strong> 设 <span class="math inline">\(f\)</span> 是Hilbert空间 <span class="math inline">\(\mathscr{X}\)</span> 上的一个连续线性泛函, 则存在唯一的 <span class="math inline">\(y_f\in\mathscr{X}\)</span>, s.t. <span class="math inline">\(f(x)=(x,y_f)\)</span>, <span class="math inline">\(\forall x\in\mathscr{X}\)</span>.</p>
 </blockquote>
-<p>该定理直接说明了: <strong><font color="red">若 <span class="math inline">\(\mathscr{X}\)</span> 是Hilbert空间, 则 <span class="math inline">\(\mathscr{X}=\mathscr{X}^&amp;#42;\)</span>.</font></strong></p>
+<p>该定理直接说明了: <strong><font color="red">若 <span class="math inline">\(\mathscr{X}\)</span> 是Hilbert空间, 则 <span class="math inline">\(\mathscr{X}=\mathscr{X}^*\)</span>.</font></strong></p>
 <h3 id="开映像定理">开映像定理</h3>
 <h4 id="baire纲定理">Baire纲定理</h4>
 <blockquote>
@@ -460,7 +460,7 @@
 <h3 id="闭图像定理">闭图像定理</h3>
 <h4 id="bounded-linear-transform">Bounded Linear Transform</h4>
 <blockquote>
-<p><strong>B.I.T</strong> 设 <span class="math inline">\(T\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 到 <span class="math inline">\(B\)</span> 空间 <span class="math inline">\(\mathscr{Y}\)</span> 的连续线性算子, 那么 <span class="math inline">\(T\)</span> 能唯一地延拓到 <span class="math inline">\(\overline{D(T)}\)</span> 上称为连续线性算子 <span class="math inline">\(T_1\)</span>, s.t. <span class="math inline">\(T_1\vert_{D(T)}=T\)</span>, 且 <span class="math inline">\(\Vert T_1\Vert=\Vert T\Vert\)</span>.</p>
+<p><strong>B.I.T</strong> 设 <span class="math inline">\(T\)</span> 是 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 到 <span class="math inline">\(B\)</span> 空间 <span class="math inline">\(\mathscr{Y}\)</span> 的连续线性算子, 那么 <span class="math inline">\(T\)</span> 能唯一地延拓到 <span class="math inline">\(\overline{D(T)}\)</span> 上称为连续线性算子 <span class="math inline">\(T_1\)</span>, s.t. <span class="math inline">\(T_1\vert_{D(T)}=T\)</span>, 且 <span class="math inline">\(\Vert T_1\Vert=\Vert T\Vert\)</span>.</p>
 </blockquote>
 <blockquote>
 <p><strong>命题</strong> <span class="math inline">\(T\)</span> 是闭算子 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(G_T\)</span> 按照图模 (<span class="math inline">\(\Vert x\Vert_G=\Vert x\Vert+\Vert Tx\Vert\)</span>) 是闭集.</p>
@@ -476,15 +476,15 @@
 <h3 id="共鸣定理">共鸣定理</h3>
 <h4 id="共鸣定理-1">共鸣定理</h4>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B\)</span> 空间, <span class="math inline">\(\mathscr{Y}\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, 如果 <span class="math inline">\(W\subset\mathscr{L}(\mathscr{X},\mathscr{Y})\)</span>, s.t. <span class="math inline">\(\sup\limits_{A\in W}\Vert Ax\Vert&lt;\infty~~(\forall x\in\mathscr{X})\)</span>, 那么存在常数 <span class="math inline">\(M\)</span>, s.t. <span class="math inline">\(\Vert A\Vert\leqslant M\)</span>, <span class="math inline">\(\forall A\in W\)</span>.</p>
+<p><strong>定理</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B\)</span> 空间, <span class="math inline">\(\mathscr{Y}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, 如果 <span class="math inline">\(W\subset\mathscr{L}(\mathscr{X},\mathscr{Y})\)</span>, s.t. <span class="math inline">\(\sup\limits_{A\in W}\Vert Ax\Vert&lt;\infty~~(\forall x\in\mathscr{X})\)</span>, 那么存在常数 <span class="math inline">\(M\)</span>, s.t. <span class="math inline">\(\Vert A\Vert\leqslant M\)</span>, <span class="math inline">\(\forall A\in W\)</span>.</p>
 </blockquote>
 <p>立刻有如下推论:</p>
 <blockquote>
-<p><strong>推论</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是Banach空间, <span class="math inline">\(A\subset\mathscr{X}^&amp;#42;\)</span>, 则 <span class="math inline">\(A\)</span> 有界 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, <span class="math inline">\(\sup\limits_{f\in A}\vert f(x)\vert&lt;\infty\)</span>.</p>
+<p><strong>推论</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是Banach空间, <span class="math inline">\(A\subset\mathscr{X}^*\)</span>, 则 <span class="math inline">\(A\)</span> 有界 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, <span class="math inline">\(\sup\limits_{f\in A}\vert f(x)\vert&lt;\infty\)</span>.</p>
 </blockquote>
 <h4 id="banach-steinhaus定理">Banach-Steinhaus定理</h4>
 <blockquote>
-<p><strong>B-S</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B\)</span> 空间, <span class="math inline">\(\mathscr{Y}^&amp;#42;\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, <span class="math inline">\(M\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 的稠子集. 取 <span class="math inline">\(A_n~(n=1,2,\cdots)\in\mathscr{L}(\mathscr{X},\mathscr{Y})\)</span>, 则 <span class="math inline">\(\lim\limits_{n\to\infty}A_n x=Ax~(\forall x)\)</span> 当且仅当: 1. <span class="math inline">\(\Vert A_n\Vert\)</span> 有界; 2. 对于 <span class="math inline">\(\forall x\in M\)</span>, 有 <span class="math inline">\(\lim\limits_{n\to\infty}A_n x=Ax\)</span>.</p>
+<p><strong>B-S</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B\)</span> 空间, <span class="math inline">\(\mathscr{Y}^*\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, <span class="math inline">\(M\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 的稠子集. 取 <span class="math inline">\(A_n~(n=1,2,\cdots)\in\mathscr{L}(\mathscr{X},\mathscr{Y})\)</span>, 则 <span class="math inline">\(\lim\limits_{n\to\infty}A_n x=Ax~(\forall x)\)</span> 当且仅当: 1. <span class="math inline">\(\Vert A_n\Vert\)</span> 有界; 2. 对于 <span class="math inline">\(\forall x\in M\)</span>, 有 <span class="math inline">\(\lim\limits_{n\to\infty}A_n x=Ax\)</span>.</p>
 </blockquote>
 <p>该定理实际上说明了算子列的收敛性和有界性很大程度上决定于其在一个稠子集上的情况.</p>
 <h4 id="lax-milgram定理">Lax-Milgram定理</h4>
@@ -505,63 +505,63 @@
 </blockquote>
 <h4 id="hahn-banach定理-1">Hahn-Banach定理</h4>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, <span class="math inline">\(\mathscr{X}_0\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 的线性子空间, <span class="math inline">\(f_0\)</span> 是定义在 <span class="math inline">\(\mathscr{X}_0\)</span> 上的有界线性泛函, 则在 <span class="math inline">\(\mathscr{X}\)</span> 上存在有界线性泛函 <span class="math inline">\(f\)</span>, s.t. 1. <span class="math inline">\(f(x)=f_0(x)~(\forall x\in\mathscr{X})\)</span> (在 <span class="math inline">\(\mathscr{X}_0\)</span> 不变); 2. <span class="math inline">\(\Vert f\Vert=\Vert f_0\Vert_0\)</span> (保范).</p>
+<p><strong>定理</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, <span class="math inline">\(\mathscr{X}_0\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 的线性子空间, <span class="math inline">\(f_0\)</span> 是定义在 <span class="math inline">\(\mathscr{X}_0\)</span> 上的有界线性泛函, 则在 <span class="math inline">\(\mathscr{X}\)</span> 上存在有界线性泛函 <span class="math inline">\(f\)</span>, s.t. 1. <span class="math inline">\(f(x)=f_0(x)~(\forall x\in\mathscr{X})\)</span> (在 <span class="math inline">\(\mathscr{X}_0\)</span> 不变); 2. <span class="math inline">\(\Vert f\Vert=\Vert f_0\Vert_0\)</span> (保范).</p>
 </blockquote>
 <p>由此可以立刻得到推论</p>
 <blockquote>
-<p><strong>推论 1</strong> 在 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上, <span class="math inline">\(\forall x_1,x_2\in\mathscr{X}\)</span>, <span class="math inline">\(\exists f\in\mathscr{X}^&amp;#42;\)</span>, s.t. <span class="math inline">\(f(x_1)=f(x_2)\)</span>. <strong>推论 2</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, $x_0&amp;#123; &amp;#125; $, <span class="math inline">\(\exists f\in\mathscr{X}\)</span>, s.t. <span class="math inline">\(f(x_0)=\Vert x_0\Vert\)</span>, 且 <span class="math inline">\(\Vert f\Vert=1\)</span>.</p>
+<p><strong>推论 1</strong> 在 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上, <span class="math inline">\(\forall x_1,x_2\in\mathscr{X}\)</span>, <span class="math inline">\(\exists f\in\mathscr{X}^*\)</span>, s.t. <span class="math inline">\(f(x_1)=f(x_2)\)</span>. <strong>推论 2</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, $x_0{ } $, <span class="math inline">\(\exists f\in\mathscr{X}\)</span>, s.t. <span class="math inline">\(f(x_0)=\Vert x_0\Vert\)</span>, 且 <span class="math inline">\(\Vert f\Vert=1\)</span>.</p>
 </blockquote>
-<p>对于 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 的子空间 <span class="math inline">\(M\)</span>, 有如下结论:</p>
+<p>对于 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 的子空间 <span class="math inline">\(M\)</span>, 有如下结论:</p>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, <span class="math inline">\(M\)</span> 是其线性子空间. 若 <span class="math inline">\(x_0\in\mathscr{X}\)</span>, 且 <span class="math inline">\(d:=\rho(x_0,M)&gt;0\)</span>, 则 <span class="math inline">\(\exists f\in\mathscr{X}^&amp;#42;\)</span>, s.t. 1. <span class="math inline">\(f(x)=0~~(\forall x\in M)\)</span>; 2. <span class="math inline">\(f(x_0)=d\)</span>; 3. <span class="math inline">\(\Vert f\Vert=1\)</span>.</p>
+<p><strong>定理</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, <span class="math inline">\(M\)</span> 是其线性子空间. 若 <span class="math inline">\(x_0\in\mathscr{X}\)</span>, 且 <span class="math inline">\(d:=\rho(x_0,M)&gt;0\)</span>, 则 <span class="math inline">\(\exists f\in\mathscr{X}^*\)</span>, s.t. 1. <span class="math inline">\(f(x)=0~~(\forall x\in M)\)</span>; 2. <span class="math inline">\(f(x_0)=d\)</span>; 3. <span class="math inline">\(\Vert f\Vert=1\)</span>.</p>
 </blockquote>
 <h4 id="hahn-banach定理的几何形式">Hahn-Banach定理的几何形式</h4>
-<p>考虑 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 中的一个包含 <span class="math inline">\(\theta\)</span> 的真凸子集 <span class="math inline">\(E\)</span> 及 <span class="math inline">\(E\)</span> 外的一点 <span class="math inline">\(x_0\)</span>, 考虑 <span class="math inline">\(E\)</span> 的Minkowski泛函 <span class="math inline">\(p(x)\)</span>, 则 <span class="math inline">\(p\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 上的非零连续次线性泛函.</p>
-<p><strong>此时考虑Hahn-Banach定理的应用条件</strong>, 取子空间 $_0= &amp;#123; x_0<sub></sub>^1 &amp;#125; $ 及其上的线性泛函 <span class="math inline">\(f_0(\lambda x_0)=\lambda p(x_0)\)</span>. 则有 <span class="math inline">\(f_0(x)\leqslant p(x)\)</span>.</p>
+<p>考虑 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 中的一个包含 <span class="math inline">\(\theta\)</span> 的真凸子集 <span class="math inline">\(E\)</span> 及 <span class="math inline">\(E\)</span> 外的一点 <span class="math inline">\(x_0\)</span>, 考虑 <span class="math inline">\(E\)</span> 的Minkowski泛函 <span class="math inline">\(p(x)\)</span>, 则 <span class="math inline">\(p\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 上的非零连续次线性泛函.</p>
+<p><strong>此时考虑Hahn-Banach定理的应用条件</strong>, 取子空间 <span class="math display">\[\mathscr{X}_0= \{ \lambda x_0~\vert~\lambda\in\mathbb{R}^1 \} \]</span> 及其上的线性泛函 <span class="math inline">\(f_0(\lambda x_0)=\lambda p(x_0)\)</span>. 则有 <span class="math inline">\(f_0(x)\leqslant p(x)\)</span>.</p>
 <p><strong>至此, Hahn-Banach定理的条件已经全部满足</strong>. 于是存在实线性泛函 <span class="math inline">\(f\)</span>, s.t. <span class="math inline">\(f(x)\leqslant p(x)~(\forall x\in\mathscr{X})\)</span>, 且 <span class="math inline">\(f(x)=f_0(x)~(\forall x\in\mathscr{X}_0)\)</span>. 又由 <span class="math inline">\(f_0\)</span> 定义可知 <span class="math inline">\(f(x_0)\geqslant 0\)</span>, 以及 <span class="math inline">\(f(x)\leqslant 1~(\forall x\in E)\)</span>, 故 <strong><span class="math inline">\(H_f^1\)</span> 分离 <span class="math inline">\(x_0\)</span> 与 <span class="math inline">\(E\)</span></strong>.</p>
 <p>即如下的几何形式的Hahn-Banach定理:</p>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(E\)</span> 是实 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上以 <span class="math inline">\(\theta\)</span> 为内点的真凸子集, 又设 <span class="math inline">\(x_0\overline{\in}E\)</span>, 则必定存在一个超平面 <span class="math inline">\(H_f^r\)</span> 分离 <span class="math inline">\(x_0\)</span> 与 <span class="math inline">\(E\)</span>.</p>
+<p><strong>定理</strong> 设 <span class="math inline">\(E\)</span> 是实 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上以 <span class="math inline">\(\theta\)</span> 为内点的真凸子集, 又设 <span class="math inline">\(x_0\overline{\in}E\)</span>, 则必定存在一个超平面 <span class="math inline">\(H_f^r\)</span> 分离 <span class="math inline">\(x_0\)</span> 与 <span class="math inline">\(E\)</span>.</p>
 </blockquote>
 <p>由此可得到如下定理:</p>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(E_1\)</span> 和 <span class="math inline">\(E_2\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间中互不相交的非空凸集, 且 <span class="math inline">\(E_1\)</span> 有内点, 那么 <span class="math inline">\(\exists s\in\mathbb{R}^1\)</span> 以及非零线性连续泛函 <span class="math inline">\(f\)</span>, s.t. 超平面 <span class="math inline">\(H_f^s\)</span> 分离 <span class="math inline">\(E_1\)</span> 和 <span class="math inline">\(E_2\)</span>. 换言之, 存在非零连续线性泛函 <span class="math inline">\(f\)</span>, s.t. <span class="math inline">\(f(x)\leqslant s~(\forall x\in E_1)\)</span> 且 <span class="math inline">\(f(x)\geqslant s~(\forall x\in E_2)\)</span>.</p>
+<p><strong>定理</strong> 设 <span class="math inline">\(E_1\)</span> 和 <span class="math inline">\(E_2\)</span> 是 <span class="math inline">\(B^*\)</span> 空间中互不相交的非空凸集, 且 <span class="math inline">\(E_1\)</span> 有内点, 那么 <span class="math inline">\(\exists s\in\mathbb{R}^1\)</span> 以及非零线性连续泛函 <span class="math inline">\(f\)</span>, s.t. 超平面 <span class="math inline">\(H_f^s\)</span> 分离 <span class="math inline">\(E_1\)</span> 和 <span class="math inline">\(E_2\)</span>. 换言之, 存在非零连续线性泛函 <span class="math inline">\(f\)</span>, s.t. <span class="math inline">\(f(x)\leqslant s~(\forall x\in E_1)\)</span> 且 <span class="math inline">\(f(x)\geqslant s~(\forall x\in E_2)\)</span>.</p>
 </blockquote>
 <p>进而有如下两条定理:</p>
 <ul>
 <li>Ascoli定理</li>
 </ul>
 <blockquote>
-<p><strong>Ascoli</strong> 设 <span class="math inline">\(E\)</span> 是实 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 中的闭凸集, 则 <span class="math inline">\(\forall x_0\in\mathscr{X}\backslash E\)</span>, <span class="math inline">\(\exists f\in\mathscr{X}^&amp;#42;\)</span> 及 <span class="math inline">\(a\in\mathbb{R}^1\)</span>, s.t. <span class="math inline">\(f(x)&lt;a&lt;f(x_0)\)</span>, <span class="math inline">\(\forall x\in E\)</span>.</p>
+<p><strong>Ascoli</strong> 设 <span class="math inline">\(E\)</span> 是实 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 中的闭凸集, 则 <span class="math inline">\(\forall x_0\in\mathscr{X}\backslash E\)</span>, <span class="math inline">\(\exists f\in\mathscr{X}^*\)</span> 及 <span class="math inline">\(a\in\mathbb{R}^1\)</span>, s.t. <span class="math inline">\(f(x)&lt;a&lt;f(x_0)\)</span>, <span class="math inline">\(\forall x\in E\)</span>.</p>
 </blockquote>
 <ul>
 <li>Mazur定理</li>
 </ul>
 <blockquote>
-<p><strong>Mazur</strong> 设 <span class="math inline">\(E\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上的一个有内点的闭凸集, <span class="math inline">\(F\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 上的一个线性流形, 又设 <span class="math inline">\(E\cap F=\varnothing\)</span>, 则存在一个包含 <span class="math inline">\(F\)</span> 的闭超平面 <span class="math inline">\(L\)</span>, s.t. <span class="math inline">\(E\)</span> 在 <span class="math inline">\(L\)</span> 的一侧.</p>
+<p><strong>Mazur</strong> 设 <span class="math inline">\(E\)</span> 是 <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上的一个有内点的闭凸集, <span class="math inline">\(F\)</span> 是 <span class="math inline">\(\mathscr{X}\)</span> 上的一个线性流形, 又设 <span class="math inline">\(E\cap F=\varnothing\)</span>, 则存在一个包含 <span class="math inline">\(F\)</span> 的闭超平面 <span class="math inline">\(L\)</span>, s.t. <span class="math inline">\(E\)</span> 在 <span class="math inline">\(L\)</span> 的一侧.</p>
 </blockquote>
 <h3 id="共轭空间">共轭空间</h3>
 <ul>
-<li>设 <span class="math inline">\(\mathscr{X}\)</span> 是一个 <span class="math inline">\(B^&amp;#42;\)</span> 空间, <span class="math inline">\(\mathscr{X}\)</span> 上的所有连续限行泛函全体 <span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 按照范数 <span class="math inline">\(\Vert f\Vert=\sup\limits_{\Vert x\Vert=1} \vert f(x)\vert\)</span> 构成一个 <span class="math inline">\(B\)</span> 空间, 称为 <span class="math inline">\(\mathscr{X}\)</span> 的共轭空间.</li>
+<li>设 <span class="math inline">\(\mathscr{X}\)</span> 是一个 <span class="math inline">\(B^*\)</span> 空间, <span class="math inline">\(\mathscr{X}\)</span> 上的所有连续限行泛函全体 <span class="math inline">\(\mathscr{X}^*\)</span> 按照范数 <span class="math inline">\(\Vert f\Vert=\sup\limits_{\Vert x\Vert=1} \vert f(x)\vert\)</span> 构成一个 <span class="math inline">\(B\)</span> 空间, 称为 <span class="math inline">\(\mathscr{X}\)</span> 的共轭空间.</li>
 </ul>
 <blockquote>
-<p><strong>定理</strong> 有 <span class="math inline">\((L^p[0,1])^&amp;#42;=L^q[0,1]\)</span>, <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1~(1\leqslant p&lt;\infty)\)</span>.</p>
+<p><strong>定理</strong> 有 <span class="math inline">\((L^p[0,1])^*=L^q[0,1]\)</span>, <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1~(1\leqslant p&lt;\infty)\)</span>.</p>
 </blockquote>
-<p><font color="red"><strong>值得注意的是, <span class="math inline">\((L^\infty[0,1])^&amp;#42;\neq L^1[0,1]\)</span></strong>.</font></p>
+<p><font color="red"><strong>值得注意的是, <span class="math inline">\((L^\infty[0,1])^*\neq L^1[0,1]\)</span></strong>.</font></p>
 <h4 id="第二共轭空间与自反空间">第二共轭空间与自反空间</h4>
-<p><span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 的共轭空间 <span class="math inline">\(\mathscr{X}^{&amp;#42;&amp;#42;}\)</span> 称为 <span class="math inline">\(\mathscr{X}\)</span> 的第二共轭空间.</p>
-<p><strong>自然映射</strong>: 对于 <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 考虑 <span class="math inline">\(X(f)=f(x)~(\forall f\in\mathscr{X}^&amp;#42;)\)</span>, 则 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 上的线性泛函, 且满足 <span class="math inline">\(\vert X(f)\vert\leqslant \Vert f\Vert\Vert x\Vert\)</span>. 因此 <span class="math inline">\(X\)</span> 是连续的, 满足 <span class="math inline">\(\Vert X\Vert \leqslant \Vert x\Vert\)</span>.</p>
+<p><span class="math inline">\(\mathscr{X}^*\)</span> 的共轭空间 <span class="math inline">\(\mathscr{X}^{**}\)</span> 称为 <span class="math inline">\(\mathscr{X}\)</span> 的第二共轭空间.</p>
+<p><strong>自然映射</strong>: 对于 <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 考虑 <span class="math inline">\(X(f)=f(x)~(\forall f\in\mathscr{X}^*)\)</span>, 则 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(\mathscr{X}^*\)</span> 上的线性泛函, 且满足 <span class="math inline">\(\vert X(f)\vert\leqslant \Vert f\Vert\Vert x\Vert\)</span>. 因此 <span class="math inline">\(X\)</span> 是连续的, 满足 <span class="math inline">\(\Vert X\Vert \leqslant \Vert x\Vert\)</span>.</p>
 <p>称上文中的映射 <span class="math inline">\(T:x\mapsto X\)</span> 为<strong>自然映射</strong>. 容易验证 <span class="math inline">\(T\)</span> 是一个等距嵌入, 于是有如下定理</p>
 <blockquote>
-<p><strong>定理</strong> <span class="math inline">\(B^&amp;#42;\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 与它的第二共轭空间 <span class="math inline">\(\mathscr{X}^{&amp;#42;&amp;#42;}\)</span> 的一个子空间等距同构, 即 <span class="math inline">\(\mathscr{X}\subset\mathscr{X}^{&amp;#42;&amp;#42;}\)</span>.</p>
+<p><strong>定理</strong> <span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 与它的第二共轭空间 <span class="math inline">\(\mathscr{X}^{**}\)</span> 的一个子空间等距同构, 即 <span class="math inline">\(\mathscr{X}\subset\mathscr{X}^{**}\)</span>.</p>
 </blockquote>
-<p><strong>自反空间</strong>: 若自然映射 <span class="math inline">\(T\)</span> 是满射, 则称 <span class="math inline">\(\mathscr{X}\)</span> 是自反的. 即 <span class="math inline">\(\mathscr{X}=\mathscr{X}^{&amp;#42;&amp;#42;}\)</span></p>
+<p><strong>自反空间</strong>: 若自然映射 <span class="math inline">\(T\)</span> 是满射, 则称 <span class="math inline">\(\mathscr{X}\)</span> 是自反的. 即 <span class="math inline">\(\mathscr{X}=\mathscr{X}^{**}\)</span></p>
 <p>关于自反空间, 有如下定理:</p>
 <blockquote>
-<p><strong>定理</strong> 有限维 <span class="math inline">\(B^&amp;#42;\)</span> 空间是自反的. 特别地, <span class="math inline">\(L^p~(1&amp;#60;p&amp;#60;\infty)\)</span> 是自反的.</p>
+<p><strong>定理</strong> 有限维 <span class="math inline">\(B^*\)</span> 空间是自反的. 特别地, <span class="math inline">\(L^p~(1&lt;p&lt;\infty)\)</span> 是自反的.</p>
 </blockquote>
 <h4 id="弱收敛">弱收敛</h4>
-<p><strong>弱收敛</strong>: 设 <span class="math inline">\(\mathscr{X}\)</span> 是一个 <span class="math inline">\(B^&amp;#42;\)</span> 空间, $ &amp;#123; x_n &amp;#125; $, <span class="math inline">\(x\in\mathscr{X}\)</span>. 若对于 <span class="math inline">\(\forall f\in\mathscr{X}^&amp;#42;\)</span>, 均有 <span class="math inline">\(\lim\limits_{n\to\infty}f(x_n)=f(x)\)</span>, 则称 $ &amp;#123; x_n &amp;#125; $ 弱收敛于 <span class="math inline">\(x\)</span>, 记作 <span class="math inline">\(x_n\rightharpoonup x\)</span>.</p>
+<p><strong>弱收敛</strong>: 设 <span class="math inline">\(\mathscr{X}\)</span> 是一个 <span class="math inline">\(B^*\)</span> 空间, $ { x_n } $, <span class="math inline">\(x\in\mathscr{X}\)</span>. 若对于 <span class="math inline">\(\forall f\in\mathscr{X}^*\)</span>, 均有 <span class="math inline">\(\lim\limits_{n\to\infty}f(x_n)=f(x)\)</span>, 则称 $ { x_n } $ 弱收敛于 <span class="math inline">\(x\)</span>, 记作 <span class="math inline">\(x_n\rightharpoonup x\)</span>.</p>
 <p>容易得到弱收敛和强收敛有如下关系:</p>
 <ul>
 <li>强收敛蕴含弱收敛, 反之不成立(尽管对于 <span class="math inline">\(\mathbb{R}\)</span> 成立);</li>
@@ -570,25 +570,25 @@
 </ul>
 <p>简单概括如下:</p>
 <p><font color="red"><span class="math display">\[强收敛 \underset{在 \mathbb{R} 上}{\rightleftarrows}~弱收敛\quad\quad 强极限\underset{强极限存在}{\rightleftarrows}~弱极限\]</span></font></p>
-<p>在 <span class="math inline">\(B^&amp;#42;\)</span> 空间上, 有如下的Mazur定理:</p>
+<p>在 <span class="math inline">\(B^*\)</span> 空间上, 有如下的Mazur定理:</p>
 <blockquote>
-<p><strong>Mazur</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是一个 <span class="math inline">\(B^&amp;#42;\)</span> 空间, 且 <span class="math inline">\(x_n\rightharpoonup x_0\)</span>(注意是弱收敛), 则 <span class="math inline">\(\forall\epsilon&gt;0\)</span>, <span class="math inline">\(\exists \lambda_i&gt;0~(i=1,2,\cdots,n)\)</span>, <span class="math inline">\(\sum\limits_{i=1}^n\lambda_i=1\)</span> s.t. <span class="math display">\[\Vert x_0-\sum\limits_{i=1}^n\lambda_i x_i\Vert\leqslant \epsilon.\]</span></p>
+<p><strong>Mazur</strong> 设 <span class="math inline">\(\mathscr{X}\)</span> 是一个 <span class="math inline">\(B^*\)</span> 空间, 且 <span class="math inline">\(x_n\rightharpoonup x_0\)</span>(注意是弱收敛), 则 <span class="math inline">\(\forall\epsilon&gt;0\)</span>, <span class="math inline">\(\exists \lambda_i&gt;0~(i=1,2,\cdots,n)\)</span>, <span class="math inline">\(\sum\limits_{i=1}^n\lambda_i=1\)</span> s.t. <span class="math display">\[\Vert x_0-\sum\limits_{i=1}^n\lambda_i x_i\Vert\leqslant \epsilon.\]</span></p>
 </blockquote>
 <h4 id="弱收敛-1"><span class="math inline">\(*\)</span> 弱收敛</h4>
-<p><strong><span class="math inline">\(&amp;#42;\)</span> 弱收敛</strong>: 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, $ &amp;#123; f_n &amp;#125; ^*$, <span class="math inline">\(f\in\mathscr{X}^&amp;#42;\)</span>. 若 <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 都有 <span class="math inline">\(\lim\limits_{n\to\infty}f_n(x)=f(x)\)</span>, 则称 <span class="math inline">\(f_n~&amp;#42;\)</span> 弱收敛于 <span class="math inline">\(f\)</span>, 记作 <span class="math inline">\(w^&amp;#42;-\lim\limits_{n\to\infty}f_n=f\)</span>.</p>
-<p><strong><span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 上的弱收敛</strong>: 设 $ &amp;#123; f_n &amp;#125; ^*$, <span class="math inline">\(f\in\mathscr{X}^&amp;#42;\)</span>. 若对 <span class="math inline">\(\forall X\in\mathscr{X}^{&amp;#42;&amp;#42;}\)</span>, 都有 <span class="math inline">\(X(f_n)\to X(f)\)</span>, 则称 <span class="math inline">\(f_n\)</span> 弱收敛于 <span class="math inline">\(f\)</span>.</p>
-<p><strong>可以证明, <span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 上的弱收敛 <span class="math inline">\(\Rightarrow~&amp;#42;\)</span> 弱收敛.</strong> 特别地, 当 <span class="math inline">\(\mathscr{X}\)</span> 是一个自反空间时, 二者等价.</p>
-<h4 id="弱列紧与-42-弱列紧性">弱列紧与 <span class="math inline">\(&amp;#42;\)</span> 弱列紧性</h4>
-<p>对于 <span class="math inline">\(&amp;#42;\)</span> 弱列紧性, 有如下的定理:</p>
+<p><strong><span class="math inline">\(*\)</span> 弱收敛</strong>: 设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, $ { f_n } ^*$, <span class="math inline">\(f\in\mathscr{X}^*\)</span>. 若 <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 都有 <span class="math inline">\(\lim\limits_{n\to\infty}f_n(x)=f(x)\)</span>, 则称 <span class="math inline">\(f_n~*\)</span> 弱收敛于 <span class="math inline">\(f\)</span>, 记作 <span class="math inline">\(w^*-\lim\limits_{n\to\infty}f_n=f\)</span>.</p>
+<p><strong><span class="math inline">\(\mathscr{X}^*\)</span> 上的弱收敛</strong>: 设 $ { f_n } ^*$, <span class="math inline">\(f\in\mathscr{X}^*\)</span>. 若对 <span class="math inline">\(\forall X\in\mathscr{X}^{**}\)</span>, 都有 <span class="math inline">\(X(f_n)\to X(f)\)</span>, 则称 <span class="math inline">\(f_n\)</span> 弱收敛于 <span class="math inline">\(f\)</span>.</p>
+<p><strong>可以证明, <span class="math inline">\(\mathscr{X}^*\)</span> 上的弱收敛 <span class="math inline">\(\Rightarrow~*\)</span> 弱收敛.</strong> 特别地, 当 <span class="math inline">\(\mathscr{X}\)</span> 是一个自反空间时, 二者等价.</p>
+<h4 id="弱列紧与-弱列紧性">弱列紧与 <span class="math inline">\(*\)</span> 弱列紧性</h4>
+<p>对于 <span class="math inline">\(*\)</span> 弱列紧性, 有如下的定理:</p>
 <blockquote>
-<p><strong>定理</strong>: 可分的 <span class="math inline">\(B^&amp;#42;\)</span> 空间中的有界列必定有 <span class="math inline">\(&amp;#42;\)</span> 弱列紧的子列.</p>
+<p><strong>定理</strong>: 可分的 <span class="math inline">\(B^*\)</span> 空间中的有界列必定有 <span class="math inline">\(*\)</span> 弱列紧的子列.</p>
 </blockquote>
 <p>进一步还有如下的定理:</p>
 <ul>
 <li>Banach定理:</li>
 </ul>
 <blockquote>
-<p><strong>Banach</strong> 若 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^&amp;#42;\)</span> 空间, 则 <span class="math inline">\(\mathscr{X}\)</span> 可分 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 可分.</p>
+<p><strong>Banach</strong> 若 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间, 则 <span class="math inline">\(\mathscr{X}\)</span> 可分 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\mathscr{X}^*\)</span> 可分.</p>
 </blockquote>
 <ul>
 <li>Pettis定理:</li>
@@ -609,18 +609,18 @@
 <font color="red"><strong>强收敛 <span class="math inline">\(\Rightarrow\)</span> 弱收敛</strong></font>
 </center>
 <ul>
-<li><strong>弱收敛</strong>: <span class="math inline">\(\forall f\in\mathscr{X}^&amp;#42;\)</span>, <span class="math inline">\(f(x_n)\to f(x)\)</span>, 记作 <span class="math inline">\(x_n\rightharpoonup x\)</span>;</li>
+<li><strong>弱收敛</strong>: <span class="math inline">\(\forall f\in\mathscr{X}^*\)</span>, <span class="math inline">\(f(x_n)\to f(x)\)</span>, 记作 <span class="math inline">\(x_n\rightharpoonup x\)</span>;</li>
 <li><strong>强收敛</strong>: <span class="math inline">\(\Vert x_n-x\Vert\to 0\)</span>, 记作 <span class="math inline">\(x_n\to x\)</span>.</li>
 </ul>
-<h4 id="mathscrx42-的收敛"><span class="math inline">\(\mathscr{X}^&amp;#42;\)</span> 的收敛</h4>
+<h4 id="mathscrx-的收敛-1"><span class="math inline">\(\mathscr{X}^*\)</span> 的收敛</h4>
 <center>
-<font color="red"><strong>一致收敛 <span class="math inline">\(\Rightarrow\)</span> 强收敛 <span class="math inline">\(\Rightarrow\)</span> 弱收敛 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(&amp;#42;\)</span> 弱收敛</strong></font>
+<font color="red"><strong>一致收敛 <span class="math inline">\(\Rightarrow\)</span> 强收敛 <span class="math inline">\(\Rightarrow\)</span> 弱收敛 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(*\)</span> 弱收敛</strong></font>
 </center>
 <ul>
 <li><strong>一致收敛</strong>: <span class="math inline">\(\Vert f_n-f\Vert\to 0\)</span>, 记作 <span class="math inline">\(f_n\rightrightarrows f\)</span>;</li>
 <li><strong>强收敛</strong>: <span class="math inline">\(\Vert (f_n-f)x\Vert\to 0~(\forall x\in\mathscr{X})\)</span>, 记作 <span class="math inline">\(f_n\to f\)</span>;</li>
-<li><strong>弱收敛</strong>: <span class="math inline">\(X(f_n)\to X(f)~(\forall X\in\mathscr{X}^{&amp;#42;&amp;#42;})\)</span>, 记作 <span class="math inline">\(f_n\rightharpoonup f\)</span>;</li>
-<li><strong><span class="math inline">\(&amp;#42;\)</span>弱收敛</strong>: <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 有 <span class="math inline">\(f_n(x)\to f(x)\)</span>, 记作 <span class="math inline">\(w^&amp;#42;-\lim\limits_{n\to\infty}f_n=f\)</span>;</li>
+<li><strong>弱收敛</strong>: <span class="math inline">\(X(f_n)\to X(f)~(\forall X\in\mathscr{X}^{**})\)</span>, 记作 <span class="math inline">\(f_n\rightharpoonup f\)</span>;</li>
+<li><strong><span class="math inline">\(*\)</span>弱收敛</strong>: <span class="math inline">\(\forall x\in\mathscr{X}\)</span>, 有 <span class="math inline">\(f_n(x)\to f(x)\)</span>, 记作 <span class="math inline">\(w^*-\lim\limits_{n\to\infty}f_n=f\)</span>;</li>
 <li><strong>以上极限若存在必唯一</strong>.</li>
 </ul>
 <h3 id="几种banach空间">几种Banach空间</h3>
@@ -640,7 +640,7 @@
         <p><span>本文标题:</span><a href="/2017/12/24/泛函——复习重点/">泛函——复习重点</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-12-24, 16:52:37</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 22:35:29</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/24/泛函——复习重点/" title="泛函——复习重点">http://lizhechen.com/2017/12/24/泛函——复习重点/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/12/24/泛函——复习重点/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -676,7 +676,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#度量空间"><span class="toc-number">1.</span> <span class="toc-text">度量空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#压缩映像原理"><span class="toc-number">1.1.1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完备化"><span class="toc-number">1.1.2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有界性与列紧性"><span class="toc-number">1.1.3.</span> <span class="toc-text">有界性与列紧性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一致有界和等度连续"><span class="toc-number">1.1.4.</span> <span class="toc-text">一致有界和等度连续</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准范数与frechet空间"><span class="toc-number">1.2.</span> <span class="toc-text">准范数与Frechet空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#准范数"><span class="toc-number">1.2.1.</span> <span class="toc-text">准范数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#frechet空间"><span class="toc-number">1.2.2.</span> <span class="toc-text">Frechet空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#范数与banach空间"><span class="toc-number">1.3.</span> <span class="toc-text">范数与Banach空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#范数"><span class="toc-number">1.3.1.</span> <span class="toc-text">范数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#banach空间"><span class="toc-number">1.3.2.</span> <span class="toc-text">Banach空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#范数的等价"><span class="toc-number">1.3.3.</span> <span class="toc-text">范数的等价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#半模"><span class="toc-number">1.3.4.</span> <span class="toc-text">半模</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有穷维-b42-空间"><span class="toc-number">1.3.5.</span> <span class="toc-text">有穷维 \(B^&amp;#42;\) 空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#凸集与minkowski泛函"><span class="toc-number">1.4.</span> <span class="toc-text">凸集与Minkowski泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#凸集和凸包"><span class="toc-number">1.4.1.</span> <span class="toc-text">凸集和凸包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#minkowski泛函"><span class="toc-number">1.4.2.</span> <span class="toc-text">Minkowski泛函</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内积与hilbert空间"><span class="toc-number">1.5.</span> <span class="toc-text">内积与Hilbert空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#共轭双线性函数"><span class="toc-number">1.5.1.</span> <span class="toc-text">共轭双线性函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内积"><span class="toc-number">1.5.2.</span> <span class="toc-text">内积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cauchy-schwarz-不等式"><span class="toc-number">1.5.3.</span> <span class="toc-text">Cauchy-Schwarz 不等式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内积空间与-b42-空间"><span class="toc-number">1.5.4.</span> <span class="toc-text">内积空间与 \(B^&amp;#42;\) 空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正交集"><span class="toc-number">1.5.5.</span> <span class="toc-text">正交集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性算子与线性泛函"><span class="toc-number">2.</span> <span class="toc-text">线性算子与线性泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#riesz定理"><span class="toc-number">2.1.</span> <span class="toc-text">Riesz定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#riesz定理-1"><span class="toc-number">2.1.1.</span> <span class="toc-text">Riesz定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开映像定理"><span class="toc-number">2.2.</span> <span class="toc-text">开映像定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baire纲定理"><span class="toc-number">2.2.1.</span> <span class="toc-text">Baire纲定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开映像定理-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">开映像定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭图像定理"><span class="toc-number">2.3.</span> <span class="toc-text">闭图像定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bounded-linear-transform"><span class="toc-number">2.3.1.</span> <span class="toc-text">Bounded Linear Transform</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#范数等价定理"><span class="toc-number">2.3.2.</span> <span class="toc-text">范数等价定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭图像定理-1"><span class="toc-number">2.3.3.</span> <span class="toc-text">闭图像定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共鸣定理"><span class="toc-number">2.4.</span> <span class="toc-text">共鸣定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#共鸣定理-1"><span class="toc-number">2.4.1.</span> <span class="toc-text">共鸣定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#banach-steinhaus定理"><span class="toc-number">2.4.2.</span> <span class="toc-text">Banach-Steinhaus定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lax-milgram定理"><span class="toc-number">2.4.3.</span> <span class="toc-text">Lax-Milgram定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hahn-banach定理"><span class="toc-number">2.5.</span> <span class="toc-text">Hahn-Banach定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实hahn-banach定理"><span class="toc-number">2.5.1.</span> <span class="toc-text">实Hahn-Banach定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复hahn-banach定理"><span class="toc-number">2.5.2.</span> <span class="toc-text">复Hahn-Banach定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hahn-banach定理-1"><span class="toc-number">2.5.3.</span> <span class="toc-text">Hahn-Banach定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hahn-banach定理的几何形式"><span class="toc-number">2.5.4.</span> <span class="toc-text">Hahn-Banach定理的几何形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共轭空间"><span class="toc-number">2.6.</span> <span class="toc-text">共轭空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第二共轭空间与自反空间"><span class="toc-number">2.6.1.</span> <span class="toc-text">第二共轭空间与自反空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弱收敛"><span class="toc-number">2.6.2.</span> <span class="toc-text">弱收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弱收敛-1"><span class="toc-number">2.6.3.</span> <span class="toc-text">\(*\) 弱收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弱列紧与-42-弱列紧性"><span class="toc-number">2.6.4.</span> <span class="toc-text">弱列紧与 \(&amp;#42;\) 弱列紧性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">3.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#几种范数"><span class="toc-number">3.1.</span> <span class="toc-text">几种范数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几种收敛"><span class="toc-number">3.2.</span> <span class="toc-text">几种收敛</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mathscrx-的收敛"><span class="toc-number">3.2.1.</span> <span class="toc-text">\(\mathscr{X}\) 的收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mathscrx42-的收敛"><span class="toc-number">3.2.2.</span> <span class="toc-text">\(\mathscr{X}^&amp;#42;\) 的收敛</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几种banach空间"><span class="toc-number">3.3.</span> <span class="toc-text">几种Banach空间</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#度量空间"><span class="toc-number">1.</span> <span class="toc-text">度量空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#压缩映像原理"><span class="toc-number">1.1.1.</span> <span class="toc-text">压缩映像原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完备化"><span class="toc-number">1.1.2.</span> <span class="toc-text">完备化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有界性与列紧性"><span class="toc-number">1.1.3.</span> <span class="toc-text">有界性与列紧性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一致有界和等度连续"><span class="toc-number">1.1.4.</span> <span class="toc-text">一致有界和等度连续</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准范数与frechet空间"><span class="toc-number">1.2.</span> <span class="toc-text">准范数与Frechet空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#准范数"><span class="toc-number">1.2.1.</span> <span class="toc-text">准范数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#frechet空间"><span class="toc-number">1.2.2.</span> <span class="toc-text">Frechet空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#范数与banach空间"><span class="toc-number">1.3.</span> <span class="toc-text">范数与Banach空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#范数"><span class="toc-number">1.3.1.</span> <span class="toc-text">范数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#banach空间"><span class="toc-number">1.3.2.</span> <span class="toc-text">Banach空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#范数的等价"><span class="toc-number">1.3.3.</span> <span class="toc-text">范数的等价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#半模"><span class="toc-number">1.3.4.</span> <span class="toc-text">半模</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有穷维-b-空间"><span class="toc-number">1.3.5.</span> <span class="toc-text">有穷维 \(B^*\) 空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#凸集与minkowski泛函"><span class="toc-number">1.4.</span> <span class="toc-text">凸集与Minkowski泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#凸集和凸包"><span class="toc-number">1.4.1.</span> <span class="toc-text">凸集和凸包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#minkowski泛函"><span class="toc-number">1.4.2.</span> <span class="toc-text">Minkowski泛函</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内积与hilbert空间"><span class="toc-number">1.5.</span> <span class="toc-text">内积与Hilbert空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#共轭双线性函数"><span class="toc-number">1.5.1.</span> <span class="toc-text">共轭双线性函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内积"><span class="toc-number">1.5.2.</span> <span class="toc-text">内积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cauchy-schwarz-不等式"><span class="toc-number">1.5.3.</span> <span class="toc-text">Cauchy-Schwarz 不等式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内积空间与-b-空间"><span class="toc-number">1.5.4.</span> <span class="toc-text">内积空间与 \(B^*\) 空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正交集"><span class="toc-number">1.5.5.</span> <span class="toc-text">正交集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性算子与线性泛函"><span class="toc-number">2.</span> <span class="toc-text">线性算子与线性泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#riesz定理"><span class="toc-number">2.1.</span> <span class="toc-text">Riesz定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#riesz定理-1"><span class="toc-number">2.1.1.</span> <span class="toc-text">Riesz定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开映像定理"><span class="toc-number">2.2.</span> <span class="toc-text">开映像定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baire纲定理"><span class="toc-number">2.2.1.</span> <span class="toc-text">Baire纲定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开映像定理-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">开映像定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭图像定理"><span class="toc-number">2.3.</span> <span class="toc-text">闭图像定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bounded-linear-transform"><span class="toc-number">2.3.1.</span> <span class="toc-text">Bounded Linear Transform</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#范数等价定理"><span class="toc-number">2.3.2.</span> <span class="toc-text">范数等价定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭图像定理-1"><span class="toc-number">2.3.3.</span> <span class="toc-text">闭图像定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共鸣定理"><span class="toc-number">2.4.</span> <span class="toc-text">共鸣定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#共鸣定理-1"><span class="toc-number">2.4.1.</span> <span class="toc-text">共鸣定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#banach-steinhaus定理"><span class="toc-number">2.4.2.</span> <span class="toc-text">Banach-Steinhaus定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lax-milgram定理"><span class="toc-number">2.4.3.</span> <span class="toc-text">Lax-Milgram定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hahn-banach定理"><span class="toc-number">2.5.</span> <span class="toc-text">Hahn-Banach定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实hahn-banach定理"><span class="toc-number">2.5.1.</span> <span class="toc-text">实Hahn-Banach定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复hahn-banach定理"><span class="toc-number">2.5.2.</span> <span class="toc-text">复Hahn-Banach定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hahn-banach定理-1"><span class="toc-number">2.5.3.</span> <span class="toc-text">Hahn-Banach定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hahn-banach定理的几何形式"><span class="toc-number">2.5.4.</span> <span class="toc-text">Hahn-Banach定理的几何形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共轭空间"><span class="toc-number">2.6.</span> <span class="toc-text">共轭空间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第二共轭空间与自反空间"><span class="toc-number">2.6.1.</span> <span class="toc-text">第二共轭空间与自反空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弱收敛"><span class="toc-number">2.6.2.</span> <span class="toc-text">弱收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弱收敛-1"><span class="toc-number">2.6.3.</span> <span class="toc-text">\(*\) 弱收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#弱列紧与-弱列紧性"><span class="toc-number">2.6.4.</span> <span class="toc-text">弱列紧与 \(*\) 弱列紧性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">3.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#几种范数"><span class="toc-number">3.1.</span> <span class="toc-text">几种范数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几种收敛"><span class="toc-number">3.2.</span> <span class="toc-text">几种收敛</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mathscrx-的收敛"><span class="toc-number">3.2.1.</span> <span class="toc-text">\(\mathscr{X}\) 的收敛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mathscrx-的收敛-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">\(\mathscr{X}^*\) 的收敛</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几种banach空间"><span class="toc-number">3.3.</span> <span class="toc-text">几种Banach空间</span></a></li></ol></li></ol>
         
     </div>
     <style>
