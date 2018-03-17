@@ -24,7 +24,7 @@
 <meta property="og:description" content="概率测度第一次小测 2017.10.19">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/lzcwr/8mqxcw5s4s1hputqvhko8psy/IMG_20171027_002952.jpg">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.691Z">
+<meta property="og:updated_time" content="2018-03-17T02:38:24.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="北京师范大学2017年概率测度小测一题目">
 <meta name="twitter:description" content="概率测度第一次小测 2017.10.19">
@@ -315,7 +315,7 @@
 <p>正确须证明, 错误须举反例, 没有理由不得分.</p>
 <ol type="1">
 <li><p><span class="math inline">\(f:\Omega\rightarrow E\)</span>, <span class="math inline">\(\forall~B\subset E\)</span>, <span class="math inline">\(f^{-1}(B^c)=(f^{-1}(B))^c\)</span>;</p></li>
-<li><p>设 <span class="math inline">\((\Omega,\mathcal{F},\mu)\)</span> 为测度空间, 取 $ &amp;#123; A_n &amp;#125; _{n}$. s.t. <span class="math inline">\(A_n\to\varnothing\)</span>, 有 <span class="math inline">\(\lim\limits_{n\to\infty}\mu(A_n)=0\)</span>;</p></li>
+<li><p>设 <span class="math inline">\((\Omega,\mathcal{F},\mu)\)</span> 为测度空间, 取 <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\downarrow\subset\mathcal{F}\)</span>. s.t. <span class="math inline">\(A_n\to\varnothing\)</span>, 有 <span class="math inline">\(\lim\limits_{n\to\infty}\mu(A_n)=0\)</span>;</p></li>
 <li><p>设 <span class="math inline">\((\Omega,\mathcal{F},\mu)\)</span> 为测度空间, 取 <span class="math inline">\(A\in\mathcal{F}\)</span>, s.t. <span class="math inline">\(\mu(A)=0\)</span>, 取 <span class="math inline">\(B\subset A\)</span>, 则有 <span class="math inline">\(\mu(B)=0\)</span>;</p></li>
 <li><p>若 <span class="math inline">\(\Omega\)</span> 的子集类 <span class="math inline">\(\mathcal{C}\)</span> 既是 <span class="math inline">\(\lambda\)</span> 系又是 <span class="math inline">\(\pi\)</span> 系, 则 <span class="math inline">\(\mathcal{C}\)</span> 为 <span class="math inline">\(\sigma\)</span> 代数.</p></li>
 </ol>
@@ -327,7 +327,7 @@
 <ol type="1">
 <li>正确. 直接验证即可;</li>
 <li>错误. 取 <span class="math inline">\(\mathbb{R}\)</span> 上的Lebesgue测度, <span class="math inline">\(A_n=(n,+\infty)\)</span>, 即有 <span class="math inline">\(\bigcap\limits_{n=1}^\infty A_n=\varnothing\)</span>, 但 <span class="math inline">\(\mu(A_n)=\infty\)</span>, <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, 矛盾;</li>
-<li>错误. 取 $= &amp;#123; 0,1,2 &amp;#125; $ 上的 <span class="math inline">\(\sigma\)</span> 代数 $= &amp;#123; , &amp;#123; 0,1 &amp;#125; , &amp;#123; 2 &amp;#125; ,&amp;#125; $, 取集函数 <span class="math inline">\(\mu( \&amp;#123; \varnothing \&amp;#125; )=\mu( \&amp;#123; 0,1 \&amp;#125; )=0\)</span>, <span class="math inline">\(\mu( \&amp;#123; 2 \&amp;#125; )=\mu(\Omega)=1\)</span>, 容易验证 <span class="math inline">\(\mu\)</span> 是一个测度. 取 $B= &amp;#123; 0 &amp;#125; A= &amp;#123; 0,1 &amp;#125; $, 则 <span class="math inline">\(B\notin\mathcal{F}\)</span>, 矛盾;</li>
+<li>错误. 取 <span class="math inline">\(\Omega=\{0,1,2\}\)</span> 上的 <span class="math inline">\(\sigma\)</span> 代数 <span class="math inline">\(\mathcal{F}=\{\varnothing,\{0,1\},\{2\},\Omega\}\)</span>, 取集函数 <span class="math inline">\(\mu(\{\varnothing\})=\mu(\{0,1\})=0\)</span>, <span class="math inline">\(\mu(\{2\})=\mu(\Omega)=1\)</span>, 容易验证 <span class="math inline">\(\mu\)</span> 是一个测度. 取 <span class="math inline">\(B=\{0\}\subset A=\{0,1\}\)</span>, 则 <span class="math inline">\(B\notin\mathcal{F}\)</span>, 矛盾;</li>
 <li>正确. 直接验证即可(由 <span class="math inline">\(\lambda\)</span> 系可直接得到 <span class="math inline">\(\Omega\)</span> 和余运算封闭, 证明对有限并运算封闭时继续构造部分和即可).</li>
 </ol>
 <h3 id="证明题-1">证明题</h3>
@@ -348,7 +348,7 @@
         <p><span>本文标题:</span><a href="/2017/10/19/北京师范大学2017年概率测度小测一题目/">北京师范大学2017年概率测度小测一题目</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-10-19, 22:09:59</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-17, 10:38:24</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/19/北京师范大学2017年概率测度小测一题目/" title="北京师范大学2017年概率测度小测一题目">http://lizhechen.com/2017/10/19/北京师范大学2017年概率测度小测一题目/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/10/19/北京师范大学2017年概率测度小测一题目/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

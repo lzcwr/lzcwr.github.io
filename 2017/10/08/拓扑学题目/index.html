@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="拓扑习题/不会做的题.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.694Z">
+<meta property="og:updated_time" content="2018-03-16T15:21:39.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拓扑学题目">
 <meta name="twitter:description" content="拓扑习题/不会做的题.">
@@ -319,11 +319,11 @@
 <blockquote>
 <p>举例说明 <span class="math inline">\(p_1:X\times Y\to Y\)</span> 不一定是闭映射.</p>
 </blockquote>
-<p><strong>证明</strong>: 取 <span class="math inline">\(\mathbb{E}^2\)</span> 中的闭集 $F= &amp;#123; (x,):x&gt;0 &amp;#125; $, 则 <span class="math inline">\(p_1(F)=\mathbb{R}^+\)</span> 为开集.</p>
+<p><strong>证明</strong>: 取 <span class="math inline">\(\mathbb{E}^2\)</span> 中的闭集 <span class="math inline">\(F=\{(x,\frac{1}{x}):x&gt;0\in\mathbb{R}\}\)</span>, 则 <span class="math inline">\(p_1(F)=\mathbb{R}^+\)</span> 为开集.</p>
 <h2 id="连通性">连通性</h2>
 <h3 id="mathbbe2-上的非无理点集连通"><span class="math inline">\(\mathbb{E}^2\)</span> 上的非无理点集连通</h3>
 <blockquote>
-<p>设 $X= &amp;#123; (r,s)^2r<sub>或</sub>s &amp;#125; $, 证明 <span class="math inline">\(X\)</span> 连通.</p>
+<p>设 <span class="math inline">\(X=\{(r,s)\in\mathbb{E}^2\vert r\in\mathbb{Q}~或~s\in\mathbb{Q}\}\)</span>, 证明 <span class="math inline">\(X\)</span> 连通.</p>
 </blockquote>
 <p>有各种神奇的想法.</p>
 <p><strong>证明1</strong>: <strong>通过道路连通性考虑</strong>. 取 <span class="math inline">\(x_1=(r_1,s_1),x_2=(r_2,s_2)\in X\)</span>, 有以下两种情况.</p>
@@ -332,7 +332,7 @@
 <li>若 <span class="math inline">\(r_1,s_2\in\mathbb{Q}\)</span>, 则存在 <span class="math inline">\(x_1\to x_2\)</span> 的道路 <span class="math inline">\((r_1,s_1)\to(r_1,s_2)\to(r_2,s_2)\)</span>.</li>
 </ol>
 <p><strong>综上所述</strong>, <span class="math inline">\(X\)</span> 是道路连通的, 因此 <span class="math inline">\(X\)</span> 连通.</p>
-<p><strong>证明2</strong>: <strong>反证法</strong>. 假设 <span class="math inline">\(X\)</span> 可以写成两个不相交非空开集 <span class="math inline">\(A,B\)</span> 的并. 取 <span class="math inline">\(q\in\mathbb{Q}\)</span>, 则 $X_q= &amp;#123; (x,q),(q,x)x &amp;#125; $ 构成 <span class="math inline">\(X\)</span> 的连通子集. 显然有 <span class="math inline">\(X_q\subset A\)</span> 或者 <span class="math inline">\(X_q\subset B\)</span>, 否则 <span class="math inline">\(X_q\)</span> 可分成不相交的两部分 <span class="math inline">\(X_{q_A}\)</span> 和 <span class="math inline">\(X_{q_B}\)</span>, s.t. <span class="math inline">\(\overline{X_{q_A}}\cap X_{q_B}=\overline{X_{q_B}}\cap X_{q_A}=\varnothing\)</span>, 这与 <span class="math inline">\(X\)</span> 的连通性矛盾. 于是 <span class="math inline">\(\exists q_1,q_2\in\mathbb{Q}\)</span>, s.t. <span class="math inline">\(X_{q_1}\subset A\)</span>, <span class="math inline">\(X_{q_2}\subset B\)</span>. 但 <span class="math inline">\((q_1,q_2)\in X_{q_1}\cap X_{q_2}\)</span>, 与 <span class="math inline">\(A\cap B=\varnothing\)</span> 矛盾. 故 <span class="math inline">\(X\)</span> 连通.</p>
+<p><strong>证明2</strong>: <strong>反证法</strong>. 假设 <span class="math inline">\(X\)</span> 可以写成两个不相交非空开集 <span class="math inline">\(A,B\)</span> 的并. 取 <span class="math inline">\(q\in\mathbb{Q}\)</span>, 则 <span class="math inline">\(X_q=\{(x,q),(q,x)\vert x\in\mathbb{R}\}\)</span> 构成 <span class="math inline">\(X\)</span> 的连通子集. 显然有 <span class="math inline">\(X_q\subset A\)</span> 或者 <span class="math inline">\(X_q\subset B\)</span>, 否则 <span class="math inline">\(X_q\)</span> 可分成不相交的两部分 <span class="math inline">\(X_{q_A}\)</span> 和 <span class="math inline">\(X_{q_B}\)</span>, s.t. <span class="math inline">\(\overline{X_{q_A}}\cap X_{q_B}=\overline{X_{q_B}}\cap X_{q_A}=\varnothing\)</span>, 这与 <span class="math inline">\(X\)</span> 的连通性矛盾. 于是 <span class="math inline">\(\exists q_1,q_2\in\mathbb{Q}\)</span>, s.t. <span class="math inline">\(X_{q_1}\subset A\)</span>, <span class="math inline">\(X_{q_2}\subset B\)</span>. 但 <span class="math inline">\((q_1,q_2)\in X_{q_1}\cap X_{q_2}\)</span>, 与 <span class="math inline">\(A\cap B=\varnothing\)</span> 矛盾. 故 <span class="math inline">\(X\)</span> 连通.</p>
 <p>考虑一个引理:</p>
 <blockquote>
 <p><strong>引理</strong> 若 <span class="math inline">\(X_0\)</span> 是 <span class="math inline">\(X\)</span> 的既开又闭子集, <span class="math inline">\(A\)</span> 是 <span class="math inline">\(X\)</span> 的连通子集, 则 <span class="math inline">\(A\cap X_0=\varnothing\)</span> 或 <span class="math inline">\(A\subset X_0\)</span>.</p>
@@ -348,18 +348,18 @@
 <li>若 <span class="math inline">\(A\subset X_0\)</span>, 则 <span class="math inline">\(\forall U\in\mathscr{U}\)</span>, <span class="math inline">\(U\cap X_0\supset U\cap A\neq\varnothing\)</span>. 由引理, <span class="math inline">\(U\subset X_0\)</span>, 则 <span class="math inline">\(X=\bigcup\limits_{U\in\mathscr{U}}U\subset X_0\)</span>, 即有 <span class="math inline">\(X_0=X\)</span>.</li>
 </ol>
 <p><strong>综上所述</strong>, <span class="math inline">\(X\)</span> 连通.</p>
-<p><strong>证明3</strong>: 仍然考虑 $A_q= &amp;#123; (x,y)x=q<sub>或</sub>y=q &amp;#125; $, 则 <span class="math inline">\(A_q\)</span> 连通且 <span class="math inline">\(X=\bigcup\limits_{q\in\mathbb{Q}}A_q\)</span>, 即 $ &amp;#123; A_q &amp;#125; _{q}$ 构成 <span class="math inline">\(X\)</span> 的连通覆盖, 而 <span class="math inline">\(A_q\cap A_0\neq\varnothing, \forall q\in\mathbb{Q}\)</span>, 故由命题2.23, <span class="math inline">\(X\)</span> 连通.</p>
+<p><strong>证明3</strong>: 仍然考虑 <span class="math inline">\(A_q=\{(x,y)\vert x=q~或~y=q\}\)</span>, 则 <span class="math inline">\(A_q\)</span> 连通且 <span class="math inline">\(X=\bigcup\limits_{q\in\mathbb{Q}}A_q\)</span>, 即 <span class="math inline">\(\{A_q\}_{q\in\mathbb{Q}}\)</span> 构成 <span class="math inline">\(X\)</span> 的连通覆盖, 而 <span class="math inline">\(A_q\cap A_0\neq\varnothing, \forall q\in\mathbb{Q}\)</span>, 故由命题2.23, <span class="math inline">\(X\)</span> 连通.</p>
 <p>结合引理, 证法2也会有不同的写法, 不再赘述.</p>
 <h3 id="mathbbr1-上左开右闭区间生成的拓扑不是-c_2-空间"><span class="math inline">\(\mathbb{R}^1\)</span> 上左开右闭区间生成的拓扑不是 <span class="math inline">\(C_2\)</span> 空间</h3>
 <blockquote>
-<p>设 <span class="math inline">\(\mathbb{R}^1\)</span> 的子集族 $= &amp;#123; (a,b]:a,b^1,a&lt;b &amp;#125; $, 则 <span class="math inline">\(\mathcal{B}\)</span> 构成 <span class="math inline">\(\mathbb{R}^1\)</span> 上的一个拓扑基且该拓扑不是第二可数空间.</p>
+<p>设 <span class="math inline">\(\mathbb{R}^1\)</span> 的子集族 <span class="math inline">\(\mathcal{B}=\{(a,b]:a,b\in\mathbb{R}^1,a&lt;b\}\)</span>, 则 <span class="math inline">\(\mathcal{B}\)</span> 构成 <span class="math inline">\(\mathbb{R}^1\)</span> 上的一个拓扑基且该拓扑不是第二可数空间.</p>
 </blockquote>
-<p><strong>证明</strong>: <span class="math inline">\(\mathcal{B}\)</span> 构成拓扑基的证明是平凡的, 不再赘述. 以下证明该空间不是第二可数的. <strong>反证法.</strong> 设有可数拓扑基 $ &amp;#123; _i &amp;#125; $, 设 <span class="math inline">\(a_i=\sup\limits_{x\in\alpha_i}x\)</span> (<span class="math inline">\(a_i\)</span> 可取 <span class="math inline">\(\infty\)</span>), 则 <span class="math inline">\(a_i\)</span> 只有可数个, 于是 <span class="math inline">\(\exists\)</span> 无理数 <span class="math inline">\(\beta\notin \&amp;#123; a_i \&amp;#125; _{i\in\mathbb{N}}\)</span>. 由条件, 可设 <span class="math inline">\((\beta^{-1},\beta]=\bigcup\limits_{j} \alpha_j\)</span>. 于是 <span class="math inline">\(\beta=\sup\limits_{x\in\bigcup_j\alpha_j}x=\max\limits_j a_j\)</span>, 与 <span class="math inline">\(\beta\notin \&amp;#123; a_i \&amp;#125; _{i\in\mathbb{N}}\)</span> 矛盾. 于是不存在可数拓扑基, 因而不是 <span class="math inline">\(C_2\)</span> 空间.</p>
+<p><strong>证明</strong>: <span class="math inline">\(\mathcal{B}\)</span> 构成拓扑基的证明是平凡的, 不再赘述. 以下证明该空间不是第二可数的. <strong>反证法.</strong> 设有可数拓扑基 <span class="math inline">\(\{\alpha_i\}\)</span>, 设 <span class="math inline">\(a_i=\sup\limits_{x\in\alpha_i}x\)</span> (<span class="math inline">\(a_i\)</span> 可取 <span class="math inline">\(\infty\)</span>), 则 <span class="math inline">\(a_i\)</span> 只有可数个, 于是 <span class="math inline">\(\exists\)</span> 无理数 <span class="math inline">\(\beta\notin\{a_i\}_{i\in\mathbb{N}}\)</span>. 由条件, 可设 <span class="math inline">\((\beta^{-1},\beta]=\bigcup\limits_{j} \alpha_j\)</span>. 于是 <span class="math inline">\(\beta=\sup\limits_{x\in\bigcup_j\alpha_j}x=\max\limits_j a_j\)</span>, 与 <span class="math inline">\(\beta\notin\{a_i\}_{i\in\mathbb{N}}\)</span> 矛盾. 于是不存在可数拓扑基, 因而不是 <span class="math inline">\(C_2\)</span> 空间.</p>
 <h3 id="mathbbq-作为-mathbbe1-的子空间不是局部紧的"><span class="math inline">\(\mathbb{Q}\)</span> 作为 <span class="math inline">\(\mathbb{E}^1\)</span> 的子空间不是局部紧的</h3>
 <blockquote>
 <p>证明有理数作为 <span class="math inline">\(\mathbb{E}^1\)</span> 不是局部紧致的.</p>
 </blockquote>
-<p><strong>证明</strong>: 取 <span class="math inline">\(q\in \mathbb{Q}\)</span>, 只需要证明 <span class="math inline">\(q\)</span> 的任意邻域都不紧即可. 任取 <span class="math inline">\(\mathbb{Q}\)</span> 中包含 <span class="math inline">\(q\)</span> 的一个邻域, 则该邻域具有 <span class="math inline">\(U_q\cap\mathbb{Q}\)</span> 的形式, 其中 <span class="math inline">\(U_q\)</span> 是 <span class="math inline">\(q\)</span> 在 <span class="math inline">\(\mathbb{R}\)</span> 中的邻域. 故 <span class="math inline">\(U_q\)</span> 包含 <span class="math inline">\(q\)</span> 的连通分支必定具有区间 <span class="math inline">\(|a,b|\)</span> 的形式（开区间或闭区间）. 取无理数 <span class="math inline">\(\xi\in|a,b|\)</span>, 记 <span class="math inline">\(|a,b|\)</span> 中比 <span class="math inline">\(\xi\)</span> 小的有理数为 $ &amp;#123; a_1,a_2&amp;#125; $, 比 <span class="math inline">\(\xi\)</span> 大的有理数为 $ &amp;#123; b_1,b_2,&amp;#125; $, 则 $ &amp;#123; |a,a_i) &amp;#125; <em>{i}&amp;#123; (b_j,b| &amp;#125; </em>{j}$ 构成 <span class="math inline">\(|a,b|\)</span> 的一个开覆盖, 且没有有限子覆盖. 于是 <span class="math inline">\(|a,b|\)</span> 不紧. 命题得证.</p>
+<p><strong>证明</strong>: 取 <span class="math inline">\(q\in \mathbb{Q}\)</span>, 只需要证明 <span class="math inline">\(q\)</span> 的任意邻域都不紧即可. 任取 <span class="math inline">\(\mathbb{Q}\)</span> 中包含 <span class="math inline">\(q\)</span> 的一个邻域, 则该邻域具有 <span class="math inline">\(U_q\cap\mathbb{Q}\)</span> 的形式, 其中 <span class="math inline">\(U_q\)</span> 是 <span class="math inline">\(q\)</span> 在 <span class="math inline">\(\mathbb{R}\)</span> 中的邻域. 故 <span class="math inline">\(U_q\)</span> 包含 <span class="math inline">\(q\)</span> 的连通分支必定具有区间 <span class="math inline">\(|a,b|\)</span> 的形式（开区间或闭区间）. 取无理数 <span class="math inline">\(\xi\in|a,b|\)</span>, 记 <span class="math inline">\(|a,b|\)</span> 中比 <span class="math inline">\(\xi\)</span> 小的有理数为 <span class="math inline">\(\{a_1,a_2\cdots\}\)</span>, 比 <span class="math inline">\(\xi\)</span> 大的有理数为 <span class="math inline">\(\{b_1,b_2,\cdots\}\)</span>, 则 <span class="math inline">\(\{\mathbb{Q}\cap|a,a_i)\}_{i\in\mathbb{N}}\cup\{\mathbb{Q}\cap(b_j,b|\}_{j\in\mathbb{N}}\)</span> 构成 <span class="math inline">\(|a,b|\)</span> 的一个开覆盖, 且没有有限子覆盖. 于是 <span class="math inline">\(|a,b|\)</span> 不紧. 命题得证.</p>
 <h3 id="师大拓扑学p47-8.">师大《拓扑学》P47 8.</h3>
 <blockquote>
 <p>设拓扑空间 <span class="math inline">\(X\)</span> 可以写成两个开集 <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> 的并, 并且 <span class="math inline">\(X_0=X_1\cap X_2\neq\varnothing\)</span> 道路连通, 证明 <span class="math inline">\(X\)</span> 道路连通当且仅当 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 都道路连通.</p>
@@ -369,7 +369,7 @@
 <blockquote>
 <p>若 <span class="math inline">\(X_\alpha\)</span> 是 <span class="math inline">\(Z\)</span> 的子空间, 给 <span class="math inline">\(\bigcup\limits_\alpha X_\alpha\)</span> 以 <span class="math inline">\(Z\)</span> 的子空间拓扑. 若 <span class="math inline">\(\alpha\)</span> 个数有限, 并且每个 <span class="math inline">\(X_\alpha\)</span> 在 <span class="math inline">\(\bigcup\limits_\alpha X_\alpha\)</span> 中闭, 则 <span class="math inline">\(\bigcup\limits_\alpha X_\alpha\)</span> 的子空间拓扑与粘合拓扑一致. 若 <span class="math inline">\(\alpha\)</span> 个数无限, 则结论不一定成立.</p>
 </blockquote>
-<p><strong>证明1</strong>: 平凡的构造是很容易的: 考虑 <span class="math inline">\(Z=\mathbb{E}^1\)</span>, $X_= &amp;#123; &amp;#125; $, <span class="math inline">\(\forall\alpha\in\mathbb{R}\)</span>, 则 <span class="math inline">\(Z=\bigcup\limits_\alpha X_\alpha\)</span>. 并集的子空间拓扑显然就是欧氏拓扑, 但粘合拓扑为 <span class="math inline">\(\mathbb{R}\)</span> 上的离散拓扑, 因而不相同.</p>
+<p><strong>证明1</strong>: 平凡的构造是很容易的: 考虑 <span class="math inline">\(Z=\mathbb{E}^1\)</span>, <span class="math inline">\(X_\alpha=\{\alpha\}\)</span>, <span class="math inline">\(\forall\alpha\in\mathbb{R}\)</span>, 则 <span class="math inline">\(Z=\bigcup\limits_\alpha X_\alpha\)</span>. 并集的子空间拓扑显然就是欧氏拓扑, 但粘合拓扑为 <span class="math inline">\(\mathbb{R}\)</span> 上的离散拓扑, 因而不相同.</p>
 <p><strong>证明2</strong>: 非平凡的例子: 待补.</p>
 
       
@@ -382,7 +382,7 @@
         <p><span>本文标题:</span><a href="/2017/10/08/拓扑学题目/">拓扑学题目</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-10-08, 22:10:39</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 23:21:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/08/拓扑学题目/" title="拓扑学题目">http://lizhechen.com/2017/10/08/拓扑学题目/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/10/08/拓扑学题目/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

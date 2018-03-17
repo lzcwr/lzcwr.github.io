@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="测度与概率期末复习重点: 定义&amp;定理.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.701Z">
+<meta property="og:updated_time" content="2018-03-16T15:35:43.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测度与概率复习重点">
 <meta name="twitter:description" content="测度与概率期末复习重点: 定义&amp;定理.">
@@ -321,7 +321,7 @@
 <li>若 <span class="math inline">\(A\in\mathscr{A}\)</span>, 则 <span class="math inline">\(A^c\in\mathscr{A}\)</span>.</li>
 </ol>
 <ul>
-<li>包含半集代数 <span class="math inline">\(\mathscr{S}\)</span> 的最小集代数为 $()= &amp;#123; _{k=1}^n A_k:A_1,,A_n &amp;#125; $.</li>
+<li>包含半集代数 <span class="math inline">\(\mathscr{S}\)</span> 的最小集代数为 <span class="math inline">\(\mathscr{A}(\mathscr{S})=\{\bigcup\limits_{k=1}^n A_k:A_1,\cdots,A_n\in\mathscr{S}\}\)</span>.</li>
 </ul>
 <h4 id="sigma-代数"><span class="math inline">\(\sigma\)</span> 代数</h4>
 <ol type="1">
@@ -338,7 +338,7 @@
 <ol type="1">
 <li><span class="math inline">\(\Omega\in\Lambda\)</span>;</li>
 <li>对真差封闭: <span class="math inline">\(A,B\in\Lambda\)</span>, <span class="math inline">\(A\subset B\)</span>, 则 <span class="math inline">\(B\backslash A\in\Lambda\)</span>;</li>
-<li>对不降序列的并封闭: $ &amp;#123; A_n:n &amp;#125; $, <span class="math inline">\(A_n\uparrow\)</span>, 则 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\Lambda\)</span>.</li>
+<li>对不降序列的并封闭: <span class="math inline">\(\{A_n:n\in\mathbb{N}\} \subset\Lambda\)</span>, <span class="math inline">\(A_n\uparrow\)</span>, 则 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\Lambda\)</span>.</li>
 </ol>
 <h4 id="pi-系"><span class="math inline">\(\pi\)</span> 系</h4>
 <ol type="1">
@@ -350,7 +350,7 @@
 </blockquote>
 <p>证明思路:</p>
 <ol type="1">
-<li>令 $_A= &amp;#123; B():AB() &amp;#125; $;</li>
+<li>令 $_A={B():AB()} $;</li>
 <li><span class="math inline">\(\forall A\in\Lambda(\mathcal{C})\)</span>, 证明 <span class="math inline">\(\Lambda_A\)</span> 是 <span class="math inline">\(\lambda\)</span> 系;</li>
 <li><span class="math inline">\(\forall A\in\mathcal{C}\)</span>, 证明 <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span>;</li>
 <li><span class="math inline">\(\forall A\in\Lambda(\mathcal{C})\)</span>, 证明 <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span>.</li>
@@ -366,11 +366,11 @@
 <li><span class="math inline">\(\forall A_n\in\mathcal{C}\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 两两不交且 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\mathcal{C}\)</span>, 有 <span class="math inline">\(\mu(\bigcup\limits_{n=1}^\infty A_n)=\sum\limits_{n=1}^\infty\mu(A_n)\)</span>.</li>
 </ul>
 <h4 id="sigma-有限测度"><span class="math inline">\(\sigma\)</span> 有限测度</h4>
-<p>若 <span class="math inline">\(\forall A\in\mathcal{C}\)</span>, <span class="math inline">\(\exists \&amp;#123; A_n:n\in\mathbb{N} \&amp;#125; \subset\mathcal{C}\)</span>, s.t. <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n=A\)</span> 且 <span class="math inline">\(\mu(A_n)&lt;\infty\)</span>, <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, 则称其为 <span class="math inline">\(\sigma\)</span> 有限的.</p>
+<p>若 <span class="math inline">\(\forall A\in\mathcal{C}\)</span>, <span class="math inline">\(\exists \{A_n:n\in\mathbb{N}\} \subset\mathcal{C}\)</span>, s.t. <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n=A\)</span> 且 <span class="math inline">\(\mu(A_n)&lt;\infty\)</span>, <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, 则称其为 <span class="math inline">\(\sigma\)</span> 有限的.</p>
 <h3 id="测度扩张定理">测度扩张定理</h3>
 <h4 id="半集代数上的测度">半集代数上的测度</h4>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(F\)</span> 为 <span class="math inline">\(\mathbb{R}\)</span> 上的右连续增函数, 则在半集代数 <span class="math display">\[\mathscr{S}:= \&amp;#123; (a,b]:-\infty\leqslant a\leqslant b\leqslant\infty \&amp;#125; \]</span> 上有唯一的测度 <span class="math inline">\(\mu=\mu_F\)</span>, s.t. <span class="math display">\[\mu((a,b])=F(b)-F(a),~a\leqslant b\leqslant a,b\in\mathbb{R},\]</span> 并且 <span class="math inline">\(\mu\)</span> 在有限区间上的值有限(因而 <span class="math inline">\(\sigma\)</span> 有限).</p>
+<p><strong>定理</strong> 设 <span class="math inline">\(F\)</span> 为 <span class="math inline">\(\mathbb{R}\)</span> 上的右连续增函数, 则在半集代数 <span class="math display">\[\mathscr{S}:=\{(a,b]:-\infty\leqslant a\leqslant b\leqslant\infty\} \]</span> 上有唯一的测度 <span class="math inline">\(\mu=\mu_F\)</span>, s.t. <span class="math display">\[\mu((a,b])=F(b)-F(a),~a\leqslant b\leqslant a,b\in\mathbb{R},\]</span> 并且 <span class="math inline">\(\mu\)</span> 在有限区间上的值有限(因而 <span class="math inline">\(\sigma\)</span> 有限).</p>
 </blockquote>
 <h4 id="测度扩张定理-1">测度扩张定理</h4>
 <blockquote>
@@ -381,12 +381,12 @@
 </ul>
 <h4 id="外测度">外测度</h4>
 <ol type="1">
-<li><span class="math inline">\(\mu^&amp;#42;(\varnothing)=0\)</span>;</li>
-<li>不降性: <span class="math inline">\(\forall A\subset B\subset\Omega\)</span>, 有 <span class="math inline">\(\mu^&amp;#42;(A)\leqslant \mu^&amp;#42;(B)\)</span>;</li>
-<li>次 <span class="math inline">\(\sigma\)</span> 可加性: <span class="math inline">\(\forall A_n\subset\Omega\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, 有 <span class="math display">\[\mu^&amp;#42;(\bigcup\limits_{N=1}^\infty A_n)\leqslant \sum\limits_{n=1}^\infty \mu^&amp;#42;(A_n).\]</span></li>
+<li><span class="math inline">\(\mu^*(\varnothing)=0\)</span>;</li>
+<li>不降性: <span class="math inline">\(\forall A\subset B\subset\Omega\)</span>, 有 <span class="math inline">\(\mu^*(A)\leqslant \mu^*(B)\)</span>;</li>
+<li>次 <span class="math inline">\(\sigma\)</span> 可加性: <span class="math inline">\(\forall A_n\subset\Omega\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, 有 <span class="math display">\[\mu^*(\bigcup\limits_{N=1}^\infty A_n)\leqslant \sum\limits_{n=1}^\infty \mu^*(A_n).\]</span></li>
 </ol>
 <ul>
-<li><span class="math inline">\(\mu^&amp;#42;\)</span> 可测集: <span class="math inline">\(\mu^&amp;#42;(D)=\mu^&amp;#42;(A\cap D)+\mu^&amp;#42;(A^c\cap D)\)</span>.</li>
+<li><span class="math inline">\(\mu^*\)</span> 可测集: <span class="math inline">\(\mu^*(D)=\mu^*(A\cap D)+\mu^*(A^c\cap D)\)</span>.</li>
 </ul>
 <h3 id="测度空间-1">测度空间</h3>
 <h4 id="测度空间-2">测度空间</h4>
@@ -396,7 +396,13 @@
 </ul>
 <h4 id="可加性的提升">可加性的提升</h4>
 <blockquote>
-<p><strong>定理</strong> <span class="math inline">\(\mu\)</span> 为集代数 <span class="math inline">\(\mathscr{A}\)</span> 上的<strong>可加</strong>测度, 若 <span class="math inline">\(\mu\)</span> 还满足以下条件之一: 1. <span class="math inline">\(\mu\)</span> 下方连续: 即对 <span class="math inline">\(\forall \&amp;#123; A_n \&amp;#125; \subset\mathscr{A}\)</span>, <span class="math inline">\(A_n\uparrow A\)</span>, 总有 <span class="math inline">\(\lim\limits_ {n\to\infty}\mu(A_n)=\mu(A)\)</span>; 2. <span class="math inline">\(\mu\)</span> 有限且在 <span class="math inline">\(\varnothing\)</span> 上方连续: 即对 <span class="math inline">\(\forall \&amp;#123; A_n \&amp;#125; \subset\mathscr{A}\)</span>, <span class="math inline">\(A_n\downarrow\varnothing\)</span>, 都有 <span class="math inline">\(\lim\limits_{n\to\infty}\mu(A_n)=0\)</span>. 则 <span class="math inline">\(\mu\)</span> 为 <span class="math inline">\(\mathscr{A}\)</span> 上的测度(即有限可加可提升为 <span class="math inline">\(\sigma\)</span> 可加).</p>
+<p><strong>定理</strong> <span class="math inline">\(\mu\)</span> 为集代数 <span class="math inline">\(\mathscr{A}\)</span> 上的<strong>可加</strong>测度, 若 <span class="math inline">\(\mu\)</span> 还满足以下条件之一:</p>
+</blockquote>
+<blockquote>
+<ol type="1">
+<li><span class="math inline">\(\mu\)</span> 下方连续: 即对 <span class="math inline">\(\forall \{A_n\} \subset\mathscr{A}\)</span>, <span class="math inline">\(A_n\uparrow A\)</span>, 总有 <span class="math inline">\(\lim\limits_ {n\to\infty}\mu(A_n)=\mu(A)\)</span>;</li>
+<li><span class="math inline">\(\mu\)</span> 有限且在 <span class="math inline">\(\varnothing\)</span> 上方连续: 即对 <span class="math inline">\(\forall \{A_n\} \subset\mathscr{A}\)</span>, <span class="math inline">\(A_n\downarrow\varnothing\)</span>, 都有 <span class="math inline">\(\lim\limits_{n\to\infty}\mu(A_n)=0\)</span>. 则 <span class="math inline">\(\mu\)</span> 为 <span class="math inline">\(\mathscr{A}\)</span> 上的测度(即有限可加可提升为 <span class="math inline">\(\sigma\)</span> 可加).</li>
+</ol>
 </blockquote>
 <h4 id="测度的完全化">测度的完全化</h4>
 <ul>
@@ -404,7 +410,7 @@
 <li><strong>完全测度</strong>: 若每一个 <span class="math inline">\(\mu\)</span> 零集都属于 <span class="math inline">\(\mathcal{F}\)</span>, 则称 <span class="math inline">\(\mu\)</span> 为完全测度, 该测度空间为完全测度空间.</li>
 </ul>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> 为测度空间, 令 <span class="math display">\[\overline{\mathcal{F}}= \&amp;#123; A\triangle N:A\in\mathcal{F}, N 为 \mu 零集 \&amp;#125; = \&amp;#123; A\cup N:A\in\mathcal{F}, N 为 \mu 零集 \&amp;#125; \]</span> <span class="math display">\[\overline{\mu}(A\triangle N)=\mu(A),~A\in\mathcal{F},~N 为 \mu 零集合\]</span> 则 <span class="math inline">\((\Omega,\overline{\mathcal{F}},\overline{\mu})\)</span> 为一个完全测度空间, 称为原空间的完全化.</p>
+<p><strong>定理</strong> 设 <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> 为测度空间, 令 <span class="math display">\[\overline{\mathcal{F}}=\{A\triangle N:A\in\mathcal{F}, N 为 \mu 零集\} =\{A\cup N:A\in\mathcal{F}, N 为 \mu 零集\} \]</span> <span class="math display">\[\overline{\mu}(A\triangle N)=\mu(A),~A\in\mathcal{F},~N 为 \mu 零集合\]</span> 则 <span class="math inline">\((\Omega,\overline{\mathcal{F}},\overline{\mu})\)</span> 为一个完全测度空间, 称为原空间的完全化.</p>
 </blockquote>
 <h2 id="可测函数与随机变量">可测函数与随机变量</h2>
 <h3 id="逆像">逆像</h3>
@@ -491,7 +497,7 @@
 </blockquote>
 <h4 id="fatou引理">Fatou引理</h4>
 <blockquote>
-<p><strong>定理</strong> 设 <span class="math inline">\(g,h\)</span> 是可积实函数, $ &amp;#123; f_n:n &amp;#125; $ 是实可测函数列, 有 1. <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\geqslant g\)</span>, a.e., 则 <span class="math display">\[\int\varliminf\limits_{n\to\infty} f_n\leqslant \varliminf\limits_{n\to\infty}\int f_n.\]</span> 2. <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\leqslant h\)</span>, a.e., 则 <span class="math display">\[\int\varlimsup\limits_{n\to\infty} f_n\geqslant \varlimsup\limits_{n\to\infty}\int f_n.\]</span></p>
+<p><strong>定理</strong> 设 <span class="math inline">\(g,h\)</span> 是可积实函数, ${f_n:n} $ 是实可测函数列, 有 1. <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\geqslant g\)</span>, a.e., 则 <span class="math display">\[\int\varliminf\limits_{n\to\infty} f_n\leqslant \varliminf\limits_{n\to\infty}\int f_n.\]</span> 2. <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\leqslant h\)</span>, a.e., 则 <span class="math display">\[\int\varlimsup\limits_{n\to\infty} f_n\geqslant \varlimsup\limits_{n\to\infty}\int f_n.\]</span></p>
 </blockquote>
 <h4 id="控制收敛定理">控制收敛定理</h4>
 <blockquote>
@@ -499,14 +505,14 @@
 </blockquote>
 <h2 id="乘积空间">乘积空间</h2>
 <h3 id="乘积-sigma-代数">乘积 <span class="math inline">\(\sigma\)</span> 代数</h3>
-<p>设 <span class="math inline">\((\Omega_i,\mathcal{F})\)</span>, <span class="math inline">\(i=1,2\)</span> 是可测空间, 称包含可测矩形 <span class="math display">\[\mathcal{C}= \&amp;#123; A_1\times A_2: A_i\in\mathcal{F}, i=1,2 \&amp;#125; \]</span> 的最小 <span class="math inline">\(\sigma\)</span> 代数为 <span class="math inline">\(\mathcal{F}_1,\mathcal{F}_2\)</span> 的乘积 <span class="math inline">\(\sigma\)</span> 代数.</p>
+<p>设 <span class="math inline">\((\Omega_i,\mathcal{F})\)</span>, <span class="math inline">\(i=1,2\)</span> 是可测空间, 称包含可测矩形 <span class="math display">\[\mathcal{C}=\{A_1\times A_2: A_i\in\mathcal{F}, i=1,2\} \]</span> 的最小 <span class="math inline">\(\sigma\)</span> 代数为 <span class="math inline">\(\mathcal{F}_1,\mathcal{F}_2\)</span> 的乘积 <span class="math inline">\(\sigma\)</span> 代数.</p>
 <ul>
 <li>可测矩形类 <span class="math inline">\(\mathcal{C}\)</span> 是一个半集代数;</li>
 <li><span class="math inline">\(\mathscr{B}^2=\mathscr{B}\times\mathscr{B}\)</span>. (<strong>证明: <span class="math inline">\(\lambda-\pi\)</span> 系方法</strong>)</li>
 </ul>
 <h3 id="截集">截集</h3>
 <h4 id="截集-1">截集</h4>
-<p><span class="math inline">\(A\subset\Omega_1\times\Omega_2\)</span>, <span class="math inline">\(\omega_i\in\Omega_i\)</span>, <span class="math inline">\(i=1,2\)</span>, 称集合 <span class="math display">\[A_{\omega_1}=A(\omega_1)= \&amp;#123; \omega_2\in\Omega_2: (\omega_1,\omega_2)\in A \&amp;#125; ,\]</span> <span class="math display">\[A_{\omega_2}=A(\omega_2)= \&amp;#123; \omega_1\in\Omega_1: (\omega_1,\omega_2)\in A \&amp;#125; ,\]</span> 分别为 <span class="math inline">\(A\)</span> 在 <span class="math inline">\(\omega_1\)</span>, <span class="math inline">\(\omega_2\)</span> 处的截集.</p>
+<p><span class="math inline">\(A\subset\Omega_1\times\Omega_2\)</span>, <span class="math inline">\(\omega_i\in\Omega_i\)</span>, <span class="math inline">\(i=1,2\)</span>, 称集合 <span class="math display">\[A_{\omega_1}=A(\omega_1)=\{\omega_2\in\Omega_2: (\omega_1,\omega_2)\in A\} ,\]</span> <span class="math display">\[A_{\omega_2}=A(\omega_2)=\{\omega_1\in\Omega_1: (\omega_1,\omega_2)\in A\} ,\]</span> 分别为 <span class="math inline">\(A\)</span> 在 <span class="math inline">\(\omega_1\)</span>, <span class="math inline">\(\omega_2\)</span> 处的截集.</p>
 <h4 id="截集的性质">截集的性质</h4>
 <p>截集与集合的运算可以交换:</p>
 <ol type="1">
@@ -561,7 +567,7 @@
         <p><span>本文标题:</span><a href="/2018/01/02/测度与概率复习重点/">测度与概率复习重点</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-01-02, 21:16:11</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 23:35:43</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/02/测度与概率复习重点/" title="测度与概率复习重点">http://lizhechen.com/2018/01/02/测度与概率复习重点/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/01/02/测度与概率复习重点/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

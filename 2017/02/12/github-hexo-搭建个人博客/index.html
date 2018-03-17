@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="github+hexo 搭建博客详细过程.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.685Z">
+<meta property="og:updated_time" content="2018-03-16T16:07:56.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo 搭建个人博客">
 <meta name="twitter:description" content="github+hexo 搭建博客详细过程.">
@@ -308,8 +308,9 @@
           
         <ul>
 <li><strong>本文针对的主要是Windows用户，不过总体步骤和Linux/Mac大同小异。</strong></li>
-<li><strong>本文中所有需要打开文件编辑的地方均不推荐记事本，推荐使用<a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener">nodepad++</a>或<a href="http://www.sublimetext.com/" target="_blank" rel="noopener">sublime text</a>。</strong> ## 环境配置</li>
+<li><strong>本文中所有需要打开文件编辑的地方均不推荐记事本，推荐使用<a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener">nodepad++</a>或<a href="http://www.sublimetext.com/" target="_blank" rel="noopener">sublime text</a>。</strong></li>
 </ul>
+<h2 id="环境配置">环境配置</h2>
 <h3 id="安装git-bash">安装git bash</h3>
 <p>直接在<a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">官网</a>下载最新版本并安装；</p>
 <h3 id="申请github账号">申请github账号</h3>
@@ -377,8 +378,9 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot; #(在github注册的邮箱)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>添加key到ssh： 将<code>C:/Users/xxxx/.ssh/github_rsa.pub</code>中的全文复制，添加到github。 （浏览器登录github，找到<code>settings -&gt; SSH and GPG keys -&gt; new SSH key</code>粘贴进去确认即可） 至此，你的github账户已经和你的电脑建立了关联。 有关SSH的更详尽步骤可以参考<a href="http://www.jianshu.com/p/21234432c94e" target="_blank" rel="noopener">这里</a>，本文不再细化。</li>
+<li>添加key到ssh： 将<code>C:/Users/xxxx/.ssh/github_rsa.pub</code>中的全文复制，添加到github。 （浏览器登录github，找到<code>settings -&gt; SSH and GPG keys -&gt; new SSH key</code>粘贴进去确认即可）</li>
 </ul>
+<p>至此，你的github账户已经和你的电脑建立了关联。 有关SSH的更详尽步骤可以参考<a href="http://www.jianshu.com/p/21234432c94e" target="_blank" rel="noopener">这里</a>，本文不再细化。</p>
 <h3 id="git仓库更新">git仓库更新</h3>
 <ul>
 <li>在hexo目录下运行git bash；</li>
@@ -405,7 +407,8 @@
 </ul>
 <p>例如你想用的主题是yilia，那么需要先执行如下操作：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-<p>然后将hexo目录中的<code>_config.yml</code>文件修改为<code>theme: yilia</code>，再重新部署一次即可使用yilia主题。 在使用各种主题时，可以按照自己的需要修改主题中的<code>_config.yml</code>文件。 <strong>修改主题的各项操作均可在该主题的说明文档中查阅，本文不再赘述。</strong></p>
+<p>然后将hexo目录中的<code>_config.yml</code>文件修改为<code>theme: yilia</code>，再重新部署一次即可使用yilia主题。</p>
+<p>在使用各种主题时，可以按照自己的需要修改主题中的<code>_config.yml</code>文件。 <strong>修改主题的各项操作均可在该主题的说明文档中查阅，本文不再赘述。</strong></p>
 <h3 id="撰写新文章">撰写新文章</h3>
 <ul>
 <li>运行如下命令，在<code>hexo\source\_posts</code>文件夹中就会出现一个名为<code>AAA.md</code>的文件；</li>
@@ -451,7 +454,7 @@
         <p><span>本文标题:</span><a href="/2017/02/12/github-hexo-搭建个人博客/">github+hexo 搭建个人博客</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-02-12, 13:05:29</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-17, 00:07:56</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/02/12/github-hexo-搭建个人博客/" title="github+hexo 搭建个人博客">http://lizhechen.com/2017/02/12/github-hexo-搭建个人博客/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/02/12/github-hexo-搭建个人博客/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -481,7 +484,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git-bash"><span class="toc-number">1.</span> <span class="toc-text">安装git bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#申请github账号"><span class="toc-number">2.</span> <span class="toc-text">申请github账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立github仓库"><span class="toc-number">3.</span> <span class="toc-text">建立github仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node.js"><span class="toc-number">4.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo"><span class="toc-number">5.</span> <span class="toc-text">安装hexo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建博客"><span class="toc-number"></span> <span class="toc-text">搭建博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地搭建"><span class="toc-number">1.</span> <span class="toc-text">本地搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到github"><span class="toc-number">2.</span> <span class="toc-text">部署到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可能出现的问题及解决办法"><span class="toc-number">3.</span> <span class="toc-text">可能出现的问题及解决办法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客源码备份"><span class="toc-number"></span> <span class="toc-text">博客源码备份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git配置"><span class="toc-number">1.</span> <span class="toc-text">git配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#全局配置"><span class="toc-number">1.1.</span> <span class="toc-text">全局配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置ssh-key"><span class="toc-number">1.2.</span> <span class="toc-text">配置ssh-key</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git仓库更新"><span class="toc-number">2.</span> <span class="toc-text">git仓库更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后续操作"><span class="toc-number"></span> <span class="toc-text">后续操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主题的选择"><span class="toc-number">1.</span> <span class="toc-text">主题的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撰写新文章"><span class="toc-number">2.</span> <span class="toc-text">撰写新文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将博客绑定在自己的域名上"><span class="toc-number">3.</span> <span class="toc-text">将博客绑定在自己的域名上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo的常用命令"><span class="toc-number">4.</span> <span class="toc-text">hexo的常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo与mathjax的冲突"><span class="toc-number">1.</span> <span class="toc-text">Hexo与Mathjax的冲突</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git-bash"><span class="toc-number">1.1.</span> <span class="toc-text">安装git bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#申请github账号"><span class="toc-number">1.2.</span> <span class="toc-text">申请github账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立github仓库"><span class="toc-number">1.3.</span> <span class="toc-text">建立github仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node.js"><span class="toc-number">1.4.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo"><span class="toc-number">1.5.</span> <span class="toc-text">安装hexo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建博客"><span class="toc-number">2.</span> <span class="toc-text">搭建博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地搭建"><span class="toc-number">2.1.</span> <span class="toc-text">本地搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到github"><span class="toc-number">2.2.</span> <span class="toc-text">部署到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可能出现的问题及解决办法"><span class="toc-number">2.3.</span> <span class="toc-text">可能出现的问题及解决办法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客源码备份"><span class="toc-number">3.</span> <span class="toc-text">博客源码备份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git配置"><span class="toc-number">3.1.</span> <span class="toc-text">git配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#全局配置"><span class="toc-number">3.1.1.</span> <span class="toc-text">全局配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置ssh-key"><span class="toc-number">3.1.2.</span> <span class="toc-text">配置ssh-key</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git仓库更新"><span class="toc-number">3.2.</span> <span class="toc-text">git仓库更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后续操作"><span class="toc-number">4.</span> <span class="toc-text">后续操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主题的选择"><span class="toc-number">4.1.</span> <span class="toc-text">主题的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撰写新文章"><span class="toc-number">4.2.</span> <span class="toc-text">撰写新文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将博客绑定在自己的域名上"><span class="toc-number">4.3.</span> <span class="toc-text">将博客绑定在自己的域名上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo的常用命令"><span class="toc-number">4.4.</span> <span class="toc-text">hexo的常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo与mathjax的冲突"><span class="toc-number">5.1.</span> <span class="toc-text">Hexo与Mathjax的冲突</span></a></li></ol></li></ol>
         
     </div>
     <style>

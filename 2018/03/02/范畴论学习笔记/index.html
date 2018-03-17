@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="范畴论学习笔记.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.702Z">
+<meta property="og:updated_time" content="2018-03-16T15:23:30.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="范畴论学习笔记">
 <meta name="twitter:description" content="范畴论学习笔记.">
@@ -388,16 +388,32 @@
 <ul>
 <li><strong>二元范畴: von Neumann ordinal <span class="math inline">\(2\)</span></strong></li>
 </ul>
-<p>集合 $ &amp;#123; , &amp;#123; &amp;#125; &amp;#125; $ 上赋予单位箭头以及 $&amp;#123; &amp;#125; $ 箭头的范畴.</p>
+<p>集合 <span class="math inline">\(\{\varnothing,\{\varnothing\}\}\)</span> 上赋予单位箭头以及 <span class="math inline">\(\varnothing\to\{\varnothing\}\)</span> 箭头的范畴.</p>
 <ul>
 <li>集合范畴</li>
 </ul>
-<p>考虑如下范畴 <span class="math inline">\({\tt Set}\)</span>: 1. 对象: 所有集合<strong>(注意所有集合全体不是一个集合)</strong>; 2. 箭头: 集合间的映射(原文为set-function) <span class="math inline">\(f:X\to Y\)</span>. (1) 单位箭头是恒等映射, 显然存在且唯一; (2) 箭头的复合也是很自然的.</p>
+<p>考虑如下范畴 <span class="math inline">\({\tt Set}\)</span>:</p>
+<ol type="1">
+<li>对象: 所有集合<strong>(注意所有集合全体不是一个集合)</strong>;</li>
+<li>箭头: 集合间的映射(原文为set-function) <span class="math inline">\(f:X\to Y\)</span>.
+<ol type="1">
+<li>单位箭头是恒等映射, 显然存在且唯一;</li>
+<li>箭头的复合也是很自然的.</li>
+</ol></li>
+</ol>
 <p>该范畴被称为集合范畴.</p>
 <ul>
 <li>逻辑范畴</li>
 </ul>
-<p>在形式语言 <span class="math inline">\(T\)</span> 中考虑如下范畴 <span class="math inline">\({\tt Proof}_T\)</span>: 1. 对象: 所有 <span class="math inline">\(T\)</span> 中的语句; 2. 箭头: <span class="math inline">\(\forall\varphi,\psi\in T\)</span>, 存在箭头 <span class="math inline">\(\varphi\to\psi\iff\varphi\vdash\psi\)</span>. (1) 单位箭头是恒等映射, 显然存在且唯一; (2) 箭头的复合根据 <span class="math inline">\(\vdash\)</span> 的定义显然.</p>
+<p>在形式语言 <span class="math inline">\(T\)</span> 中考虑如下范畴 <span class="math inline">\({\tt Proof}_T\)</span>:</p>
+<ol type="1">
+<li>对象: 所有 <span class="math inline">\(T\)</span> 中的语句;</li>
+<li>箭头: <span class="math inline">\(\forall\varphi,\psi\in T\)</span>, 存在箭头 <span class="math inline">\(\varphi\to\psi\iff\varphi\vdash\psi\)</span>.
+<ol type="1">
+<li>单位箭头是恒等映射, 显然存在且唯一;</li>
+<li>箭头的复合根据 <span class="math inline">\(\vdash\)</span> 的定义显然.</li>
+</ol></li>
+</ol>
 <p>该范畴称为 <span class="math inline">\(T\)</span> 上的逻辑范畴.</p>
 <h4 id="一些常见范畴的定义和记号">一些常见范畴的定义和记号</h4>
 <p>如下表所示, 整理自<a href="http://www.logicmatters.net/resources/pdfs/GentleIntro.pdf" target="_blank" rel="noopener">Category Theory: A Gentle Introductio</a>.</p>
@@ -470,7 +486,15 @@
 <h2 id="范畴生范畴">范畴生范畴</h2>
 <p>从已有的一个范畴可以构建出新的范畴, 有以下的一些方法</p>
 <h3 id="逆范畴-opposite-category">逆范畴: opposite category</h3>
-<p>一个范畴 <span class="math inline">\(\mathscr{C}\)</span> 的逆范畴 <span class="math inline">\(\mathscr{C}^{op}\)</span> 定义如下: 1. <span class="math inline">\(\mathscr{C}^{op}\)</span>-对象: <span class="math inline">\(\mathscr{C}\)</span> 的对象; 2. <span class="math inline">\(\mathscr{C}^{op}\)</span>-箭头: <span class="math inline">\(f:B\to A~\text{in}~\mathscr{C}^{op}\iff f:A\to B~\text{in}~\mathscr{C}\)</span> (1) 单位箭头: <span class="math inline">\({\rm id}_A^{op}={\rm id}_A\)</span>, <span class="math inline">\(\forall A\)</span>; (2) 复合箭头: <span class="math inline">\(f\circ^{op}g=g\circ f\)</span>.</p>
+<p>一个范畴 <span class="math inline">\(\mathscr{C}\)</span> 的逆范畴 <span class="math inline">\(\mathscr{C}^{op}\)</span> 定义如下:</p>
+<ol type="1">
+<li><span class="math inline">\(\mathscr{C}^{op}\)</span>-对象: <span class="math inline">\(\mathscr{C}\)</span> 的对象;</li>
+<li><span class="math inline">\(\mathscr{C}^{op}\)</span>-箭头: <span class="math inline">\(f:B\to A~\text{in}~\mathscr{C}^{op}\iff f:A\to B~\text{in}~\mathscr{C}\)</span>
+<ol type="1">
+<li>单位箭头: <span class="math inline">\({\rm id}_A^{op}={\rm id}_A\)</span>, <span class="math inline">\(\forall A\)</span>;</li>
+<li>复合箭头: <span class="math inline">\(f\circ^{op}g=g\circ f\)</span>.</li>
+</ol></li>
+</ol>
 <p>根据定义可知:</p>
 <ol type="1">
 <li>每个范畴 <span class="math inline">\(\mathscr{C}\)</span> 都存在一个对偶 <span class="math inline">\(\mathscr{C}^{op}\)</span>;</li>
@@ -578,7 +602,7 @@ Y_1~~ &amp; \xrightarrow{k} &amp; Y_2~~ \\
         <p><span>本文标题:</span><a href="/2018/03/02/范畴论学习笔记/">范畴论学习笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-03-02, 22:44:36</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 23:23:30</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/03/02/范畴论学习笔记/" title="范畴论学习笔记">http://lizhechen.com/2018/03/02/范畴论学习笔记/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/03/02/范畴论学习笔记/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

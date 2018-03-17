@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="实变函数中一些引起我思考的题目.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T07:34:24.704Z">
+<meta property="og:updated_time" content="2018-03-16T15:20:04.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些实变函数题目">
 <meta name="twitter:description" content="实变函数中一些引起我思考的题目.">
@@ -307,96 +307,95 @@
       
           
         <h2 id="符号说明">符号说明</h2>
-<p><span class="math inline">\(\mathcal{M}(E)\)</span> 表示 <span class="math inline">\(E\)</span> 的外测度; <span class="math inline">\(m(E)\)</span> 表示 <span class="math inline">\(E\)</span> 的测度.</p>
+<p><span class="math inline">\(m^*(E)\)</span> 表示 <span class="math inline">\(E\)</span> 的外测度; <span class="math inline">\(m(E)\)</span> 表示 <span class="math inline">\(E\)</span> 的测度.</p>
 <h2 id="年03月09日">2017年03月09日</h2>
 <h3 id="习题1-第一组-7">习题1 第一组 7</h3>
 <blockquote>
-<p>设 <span class="math inline">\(f(x)\)</span> 是定义在 <span class="math inline">\([0,1]\)</span> 上的实值函数, 且存在常数 <span class="math inline">\(M\)</span>, 使得对于 <span class="math inline">\([0,1]\)</span> 中的任意有限个数 <span class="math inline">\(x_1,x_2,\cdots,x_n\)</span>, 均有 <span class="math inline">\(|f(x_1)+f(x_2)+\cdots+f(x_n)|\leqslant M\)</span>, 试证下述集合是可数集: <span class="math display">\[E= \{ x\in[0,1]~|~f(x)\neq0 \} \]</span></p>
+<p>设 <span class="math inline">\(f(x)\)</span> 是定义在 <span class="math inline">\([0,1]\)</span> 上的实值函数, 且存在常数 <span class="math inline">\(M\)</span>, 使得对于 <span class="math inline">\([0,1]\)</span> 中的任意有限个数 <span class="math inline">\(x_1,x_2,\cdots,x_n\)</span>, 均有 <span class="math inline">\(\vert f(x_1)+f(x_2)+\cdots+f(x_n)\vert\leqslant M\)</span>, 试证下述集合是可数集: <span class="math display">\[E=\{x\in[0,1]~\vert~f(x)\neq0\}\]</span></p>
 </blockquote>
 <p><strong>证明</strong>: 考虑如下的两族集合:</p>
-<p><span class="math display">\[A_n= \{ x\in[0,1]~|~f(x)&gt;\frac{1}{n} \} \]</span> <span class="math display">\[B_n= \{ x\in[0,1]~|~f(x)&lt;-\frac{1}{n} \} \]</span></p>
+<p><span class="math display">\[A_n=\{x\in[0,1]~\vert~f(x)&gt;\frac{1}{n}\}\]</span> <span class="math display">\[B_n=\{x\in[0,1]~\vert~f(x)&lt;-\frac{1}{n}\}\]</span></p>
 <p>则有:</p>
-<p><span class="math display">\[E=\bigcup_{n=1}^\infty \{ x\in[0,1]~|~|f(x)|&gt;\frac{1}{n} \} =\bigcup_{n=1}^\infty(A_n\cup B_n)\]</span></p>
+<p><span class="math display">\[E=\bigcup_{n=1}^\infty\{x\in[0,1]~\vert~\vert f(x)\vert&gt;\frac{1}{n}\}=\bigcup_{n=1}^\infty(A_n\cup B_n)\]</span></p>
 <p>而对于 <span class="math inline">\(A_n\)</span>, 任取其中的 <span class="math inline">\(p\)</span> 个数 <span class="math inline">\(x_1,x_2,\cdots,x_p\)</span>, 均有:</p>
-<p><span class="math display">\[p\times\frac{1}{n}&lt;|f(x_1)+f(x_2)+\cdots+f(x_n)|\leqslant M\]</span></p>
+<p><span class="math display">\[p\times\frac{1}{n}&lt;\vert f(x_1)+f(x_2)+\cdots+f(x_n)\vert\leqslant M\]</span></p>
 <p>于是有 <span class="math inline">\(p&lt;nM\)</span>, 即 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(A_n\)</span> 只含有限个数. 同理 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(B_n\)</span> 也只含有限个数. 故 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(A_n\cup B_n\)</span> 只含有限个数. 于是 <span class="math inline">\(E\)</span> 为可数个有限集合的并, 故 <span class="math inline">\(E\)</span> 是可数集.</p>
 <h3 id="习题1-第一组-12">习题1 第一组 12</h3>
 <blockquote>
-<p>设 <span class="math inline">\(E=\bigcup\limits_{n=1}^\infty A_n\)</span>. 若 <span class="math inline">\(|E|=\aleph\)</span>, 试证明 <span class="math inline">\(\exists~n_0\)</span>, s.t. <span class="math inline">\(|A_{n_0}|=\aleph\)</span>.</p>
+<p>设 <span class="math inline">\(E=\bigcup\limits_{n=1}^\infty A_n\)</span>. 若 <span class="math inline">\(\vert E\vert=\aleph\)</span>, 试证明 <span class="math inline">\(\exists~n_0\)</span>, s.t. <span class="math inline">\(\vertA_{n_0}\vert=\aleph\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 显然 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(|A_n|\leqslant\aleph\)</span>. 若 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(|A_n|&lt;\aleph\)</span>, 则每个 <span class="math inline">\(A_n\)</span> 都是至多可数集. 即 <span class="math inline">\(E\)</span> 为至多可数个至多可数集的并集, 即 <span class="math inline">\(E\)</span> 至多可数, 与 <span class="math inline">\(|E|=\aleph\)</span> 矛盾. 故 <span class="math inline">\(\exists~n_0\)</span>, s.t. <span class="math inline">\(|A_{n_0}|=\aleph\)</span>.</p>
+<p><strong>证明</strong>: 显然 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(\vertA_n\vert\leqslant\aleph\)</span>. 若 <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(\vertA_n\vert&lt;\aleph\)</span>, 则每个 <span class="math inline">\(A_n\)</span> 都是至多可数集. 即 <span class="math inline">\(E\)</span> 为至多可数个至多可数集的并集, 即 <span class="math inline">\(E\)</span> 至多可数, 与 <span class="math inline">\(\vert E\vert=\aleph\)</span> 矛盾. 故 <span class="math inline">\(\exists~n_0\)</span>, s.t. <span class="math inline">\(\vert A_{n_0}\vert=\aleph\)</span>.</p>
 <h3 id="习题1-第一组-13">习题1 第一组 13</h3>
 <blockquote>
-<p>设 <span class="math inline">\(f(x)\)</span> 是定义在 <span class="math inline">\(\mathbf{R}^1\)</span> 上的单调上升函数, 试证明点集 <span class="math display">\[E= \{ x:\forall~\epsilon&gt;0,~f(x+\epsilon)-f(x-\epsilon)&gt;0 \} \]</span> 是 <span class="math inline">\(\mathbf{R}^1\)</span> 中的闭集.</p>
+<p>设 <span class="math inline">\(f(x)\)</span> 是定义在 <span class="math inline">\(\mathbf{R}^1\)</span> 上的单调上升函数, 试证明点集 <span class="math display">\[E=\{x:\forall~\epsilon&gt;0,~f(x+\epsilon)-f(x-\epsilon)&gt;0\}\]</span> 是 <span class="math inline">\(\mathbf{R}^1\)</span> 中的闭集.</p>
 </blockquote>
-<p><strong>证明</strong>: 考虑 <span class="math inline">\(\forall~x\in E&#39;\)</span>, <span class="math inline">\(\exists~ \{ x_n \} \subset E\)</span>, s.t. <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x\)</span>. 故 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N\)</span>, s.t. <span class="math inline">\(\forall~n&gt;N\)</span>, <span class="math inline">\(|x-x_n|&lt;\frac{\epsilon}{2}\)</span>. 于是由条件有 <span class="math inline">\(f(x_{N+1}+\frac{\epsilon}{2})-f(x_{N+1}-\frac{\epsilon}{2})&gt;0\)</span>, 由 <span class="math inline">\(f\)</span> 的单调性, 有 <span class="math display">\[(f(x+\epsilon)-f(x-\epsilon))-(f(x_{N+1}+\frac{\epsilon}{2})-f(x_{N+1}-\frac{\epsilon}{2}))&gt;0\]</span> 即 <span class="math inline">\(x\in E\)</span>. 故 <span class="math inline">\(E\)</span> 为闭集.</p>
+<p><strong>证明</strong>: 考虑 <span class="math inline">\(\forall~x\in E&#39;\)</span>, <span class="math inline">\(\exists~\{x_n\}\subset E\)</span>, s.t. <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x\)</span>. 故 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N\)</span>, s.t. <span class="math inline">\(\forall~n&gt;N\)</span>, <span class="math inline">\(\vert x-x_n\vert&lt;\frac{\epsilon}{2}\)</span>. 于是由条件有 <span class="math inline">\(f(x_{N+1}+\frac{\epsilon}{2})-f(x_{N+1}-\frac{\epsilon}{2})&gt;0\)</span>, 由 <span class="math inline">\(f\)</span> 的单调性, 有 <span class="math display">\[(f(x+\epsilon)-f(x-\epsilon))-(f(x_{N+1}+\frac{\epsilon}{2})-f(x_{N+1}-\frac{\epsilon}{2}))&gt;0\]</span> 即 <span class="math inline">\(x\in E\)</span>. 故 <span class="math inline">\(E\)</span> 为闭集.</p>
 <h3 id="习题1-第一组-14">习题1 第一组 14</h3>
 <blockquote>
 <p>设 <span class="math inline">\(F\subset\mathbf{R}^n\)</span> 为有界闭集, <span class="math inline">\(E\)</span> 是 <span class="math inline">\(F\)</span> 中的一个无限子集, 试证明: <span class="math inline">\(E&#39;\cap F\neq\varnothing\)</span>. 反之, 若 <span class="math inline">\(F\subset\mathbf{R}^n\)</span> 且对 <span class="math inline">\(F\)</span> 中任一无限子集 <span class="math inline">\(E\)</span>, 有 <span class="math inline">\(E&#39;\cap F\neq\varnothing\)</span>, 试证明 <span class="math inline">\(F\)</span> 是有界闭集.</p>
 </blockquote>
-<p><strong>证明</strong>: 一方面, 由于 <span class="math inline">\(E\subset F\)</span>, 故 <span class="math inline">\(E\)</span> 中存在收敛子列, 故 <span class="math inline">\(E&#39;\neq\varnothing\)</span>. 由于 <span class="math inline">\(F\)</span> 是有界闭集, 故 <span class="math inline">\(E&#39;\subset F&#39;\subset F\)</span>, 于是 <span class="math inline">\(E&#39;\cap F\neq\varnothing\)</span>. 另一方面, <strong>首先证明 <span class="math inline">\(F\)</span> 是闭集</strong>: <span class="math inline">\(\forall~x\in F&#39;\)</span>, <span class="math inline">\(\exists~E= \{ x_n \} _{n=1}^{+\infty}\subset F\)</span>, s.t. <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x\)</span>, 即 $E’= { x } $. 又由于 <span class="math inline">\(\forall~E\subset F\)</span>, 均有 <span class="math inline">\(E&#39;\cap F\neq\varnothing\)</span>, 故 <span class="math inline">\(x\in F\)</span>, 即 <span class="math inline">\(F\)</span> 为闭集. <strong>其次证明 <span class="math inline">\(F\)</span> 有界</strong>: 若 <span class="math inline">\(F\)</span> 无界, 则任取 <span class="math inline">\(E\)</span> 为 <span class="math inline">\(F\)</span> 中的发散序列, 即可得到 <span class="math inline">\(E&#39;=\varnothing\)</span>, 此时显然有 <span class="math inline">\(E&#39;\cap F=\varnothing\)</span>, 矛盾. 故 <span class="math inline">\(F\)</span> 有界. <strong>综上</strong>, <span class="math inline">\(F\)</span> 有界闭集.</p>
+<p><strong>证明</strong>: 一方面, 由于 <span class="math inline">\(E\subset F\)</span>, 故 <span class="math inline">\(E\)</span> 中存在收敛子列, 故 <span class="math inline">\(E&#39;\neq\varnothing\)</span>. 由于 <span class="math inline">\(F\)</span> 是有界闭集, 故 <span class="math inline">\(E&#39;\subset F&#39;\subset F\)</span>, 于是 <span class="math inline">\(E&#39;\cap F\neq\varnothing\)</span>. 另一方面, <strong>首先证明 <span class="math inline">\(F\)</span> 是闭集</strong>: <span class="math inline">\(\forall~x\in F&#39;\)</span>, <span class="math inline">\(\exists~E=\{x_n\}_{n=1}^{+\infty}\subset F\)</span>, s.t. <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x\)</span>, 即 <span class="math inline">\(E&#39;=\{x\}\)</span>. 又由于 <span class="math inline">\(\forall~E\subset F\)</span>, 均有 <span class="math inline">\(E&#39;\cap F\neq\varnothing\)</span>, 故 <span class="math inline">\(x\in F\)</span>, 即 <span class="math inline">\(F\)</span> 为闭集. <strong>其次证明 <span class="math inline">\(F\)</span> 有界</strong>: 若 <span class="math inline">\(F\)</span> 无界, 则任取 <span class="math inline">\(E\)</span> 为 <span class="math inline">\(F\)</span> 中的发散序列, 即可得到 <span class="math inline">\(E&#39;=\varnothing\)</span>, 此时显然有 <span class="math inline">\(E&#39;\cap F=\varnothing\)</span>, 矛盾. 故 <span class="math inline">\(F\)</span> 有界. <strong>综上</strong>, <span class="math inline">\(F\)</span> 有界闭集.</p>
 <h3 id="习题1-第一组-15">习题1 第一组 15</h3>
 <blockquote>
-<p>设 <span class="math inline">\(F\subset\mathbf{R}^n\)</span> 为闭集, <span class="math inline">\(r&gt;0\)</span>, 证明点集: <span class="math display">\[E= \{ t\in\mathbf{R^n}:~\exists~x\in F,~|t-x|=r \} \]</span> 是闭集.</p>
+<p>设 <span class="math inline">\(F\subset\mathbf{R}^n\)</span> 为闭集, <span class="math inline">\(r&gt;0\)</span>, 证明点集: <span class="math display">\[E=\{t\in\mathbf{R^n}:~\exists~x\in F,~\vertt-x\vert=r\}\]</span> 是闭集.</p>
 </blockquote>
-<p><strong>证明</strong>: <span class="math inline">\(\forall~t\in E&#39;\)</span>, <span class="math inline">\(\exists~ \{ t_n \} _{n=1}^{+\infty}\subset E\)</span>, s.t. <span class="math inline">\(\lim\limits_{n\to\infty}t_n=t\)</span>, 由 <span class="math inline">\(E\)</span> 的定义: <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(\exists~x_n\in F\)</span>, s.t. <span class="math inline">\(|t_n-x_n|=r\)</span>. 由于 $ { t_n } $ 是收敛子列, 故 $ { t_n } $ 有界, 于是 $ { x_n } $ 也是有界数列, 故 $ { x_n } $ 有收敛子列, 不妨设为 $ { x_{n_k} } $. 取 <span class="math inline">\(x=\lim\limits_{k\to\infty}x_{n_k}\)</span>, 则有 <span class="math inline">\(|t-x|=r\)</span>, 并且 <span class="math inline">\(x\in F\)</span>（由 <span class="math inline">\(F\)</span> 是闭集可知）, 即 <span class="math inline">\(t\in E\)</span>. 即 <span class="math inline">\(E\)</span> 是闭集.</p>
+<p><strong>证明</strong>: <span class="math inline">\(\forall~t\in E&#39;\)</span>, <span class="math inline">\(\exists~\{t_n\}_{n=1}^{+\infty}\subset E\)</span>, s.t. <span class="math inline">\(\lim\limits_{n\to\infty}t_n=t\)</span>, 由 <span class="math inline">\(E\)</span> 的定义: <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(\exists~x_n\in F\)</span>, s.t. <span class="math inline">\(\vert t_n-x_n\vert=r\)</span>. 由于 <span class="math inline">\(\{t_n\}\)</span> 是收敛子列, 故 <span class="math inline">\(\{t_n\}\)</span> 有界, 于是 <span class="math inline">\(\{x_n\}\)</span> 也是有界数列, 故 <span class="math inline">\(\{x_n\}\)</span> 有收敛子列, 不妨设为 <span class="math inline">\(\{x_{n_k}\}\)</span>. 取 <span class="math inline">\(x=\lim\limits_{k\to\infty}x_{n_k}\)</span>, 则有 <span class="math inline">\(\vert t-x\vert=r\)</span>, 并且 <span class="math inline">\(x\in F\)</span>（由 <span class="math inline">\(F\)</span> 是闭集可知）, 即 <span class="math inline">\(t\in E\)</span>. 即 <span class="math inline">\(E\)</span> 是闭集.</p>
 <h2 id="年03月15日">2017年03月15日</h2>
 <h3 id="习题1-第一组-25">习题1 第一组 25</h3>
 <blockquote>
 <p>设 <span class="math inline">\(f:\mathbf{R}\to\mathbf{R}\)</span>, 令$G_1= \{ (x,y):~y&lt;f(x) \} $, $G_2= \{ (x,y):~y&gt;f(x) \} $, 试证明 <span class="math inline">\(f\in C(\mathbf{R})\)</span> 当且仅当 <span class="math inline">\(G_1\)</span> 与 <span class="math inline">\(G_2\)</span> 是开集.</p>
 </blockquote>
 <p><strong>证明</strong>: <strong>必要性</strong>是显然的, 以下证明<strong>充分性</strong>:</p>
-<p>假设 <span class="math inline">\(f\notin C(\mathbf{R})\)</span>, 则 <span class="math inline">\(\exists~x_0\in\mathbf{R}\)</span>, <span class="math inline">\(\epsilon&gt;0\)</span>, 和 <span class="math inline">\(x_n\)</span>, 满足 <span class="math inline">\(|x_n-x_0|&lt;\frac{1}{n}\)</span>, 但 <span class="math inline">\(|f(x_n)-f(x_0)|\geqslant\epsilon\)</span>. 不妨设 <span class="math inline">\(f(x_n)\geqslant f(x_0)+\epsilon\)</span>, 则 <span class="math inline">\((x_n,f(x_0)+\epsilon)\in G_2^c\)</span>. 由于满足条件的 <span class="math inline">\(x_n\)</span> 构成数列 $ { x_n } $ 且满足 <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x_0\)</span>, 故 <span class="math inline">\(\lim\limits_{n\to\infty}(x_n,f(x_0)+\epsilon)=(x_0,f(x_0)+\epsilon)\)</span>, 又由 <span class="math inline">\(G_2\)</span> 为开集可知 <span class="math inline">\(G_2^c\)</span> 为闭集. 即有 <span class="math inline">\((x_0,f(x_0)+\epsilon)\in G_2^c\)</span>. 故 <span class="math inline">\(f(x_0)\geqslant f(x_0)+\epsilon\)</span>, 矛盾. 故 <span class="math inline">\(f\in C(\mathbf{R})\)</span>.</p>
+<p>假设 <span class="math inline">\(f\notin C(\mathbf{R})\)</span>, 则 <span class="math inline">\(\exists~x_0\in\mathbf{R}\)</span>, <span class="math inline">\(\epsilon&gt;0\)</span>, 和 <span class="math inline">\(x_n\)</span>, 满足 <span class="math inline">\(\vert x_n-x_0\vert&lt;\frac{1}{n}\)</span>, 但 <span class="math inline">\(\vert f(x_n)-f(x_0)\vert\geqslant\epsilon\)</span>. 不妨设 <span class="math inline">\(f(x_n)\geqslant f(x_0)+\epsilon\)</span>, 则 <span class="math inline">\((x_n,f(x_0)+\epsilon)\in G_2^c\)</span>. 由于满足条件的 <span class="math inline">\(x_n\)</span> 构成数列 <span class="math inline">\(\{x_n\}\)</span> 且满足 <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x_0\)</span>, 故 <span class="math inline">\(\lim\limits_{n\to\infty}(x_n,f(x_0)+\epsilon)=(x_0,f(x_0)+\epsilon)\)</span>, 又由 <span class="math inline">\(G_2\)</span> 为开集可知 <span class="math inline">\(G_2^c\)</span> 为闭集. 即有 <span class="math inline">\((x_0,f(x_0)+\epsilon)\in G_2^c\)</span>. 故 <span class="math inline">\(f(x_0)\geqslant f(x_0)+\epsilon\)</span>, 矛盾. 故 <span class="math inline">\(f\in C(\mathbf{R})\)</span>.</p>
 <p><strong>综上</strong>, <span class="math inline">\(f\in C(\mathbf{R})\Longleftrightarrow G_1,~G_2\)</span> 为开集.</p>
 <h3 id="证明完全集是不可数集">证明完全集是不可数集</h3>
 <p>这个题目完全是在做周《实变函数论》1.5 的 思考题1 时相到的, <span class="math inline">\(n=2\)</span> 的情况可以参考周《实变函数论》1.5 的 例23.</p>
 <blockquote>
 <p>已知 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 为完全集, 证明 <span class="math inline">\(E\)</span> 不可数.</p>
 </blockquote>
-<p><strong>证明</strong>: 假设 <span class="math inline">\(E\)</span> 是可数集, 令 $E= { x_1,x_2,,x_n } $. 则可如下构造一个开球列 $ { B_n } $:</p>
+<p><strong>证明</strong>: 假设 <span class="math inline">\(E\)</span> 是可数集, 令 <span class="math inline">\(E=\{x_1,x_2,\cdots,x_n\}\)</span>. 则可如下构造一个开球列 <span class="math inline">\(\{B_n\}\)</span>:</p>
 <ol type="1">
 <li>取 <span class="math inline">\(B_1=B(x_1,r_1)\subset E\)</span>, 则 <span class="math inline">\(\exists~x_{k_1}\in E\)</span>, s.t. <span class="math inline">\(x_{k_1}\in B_1\)</span>, 但 <span class="math inline">\(\forall~i\)</span>, s.t. <span class="math inline">\(2\leqslant i\leqslant k_1-1\)</span>, 均有 <span class="math inline">\(x_i\notin E\)</span>;</li>
 <li>取 <span class="math inline">\(B_1=B(x_{k_1},r_2)\)</span>, s.t. <span class="math inline">\(B_2\subset B_1\)</span>, 且 <span class="math inline">\(r_2&lt;\frac{r_1}{2}\)</span>, 则 <span class="math inline">\(\exists~x_{k_2}\in E~(k_2&gt;k_1)\)</span>, s.t. <span class="math inline">\(x_{k_2}\in B_2\)</span>, 但 <span class="math inline">\(\forall~i\)</span>, s.t. <span class="math inline">\(k_1+1\leqslant i\leqslant k_2-1\)</span>, 均有 <span class="math inline">\(x_i\notin E\)</span>;</li>
 <li><span class="math inline">\(\cdots\cdots\)</span></li>
 <li>取 <span class="math inline">\(B_n=B(x_{k_{n-1}},r_n)\)</span>, s.t. <span class="math inline">\(B_n\subset B_{n-1}\)</span>, 且 <span class="math inline">\(r_n&lt;\frac{r_{n-1}}{2}\)</span>, 则 <span class="math inline">\(\exists~x_{k_n}\in E~(k_n&gt;k_{n-1})\)</span>, s.t. <span class="math inline">\(x_{k_n}\in B_n\)</span>, 但 <span class="math inline">\(\forall~i\)</span>, s.t. <span class="math inline">\(k_{n-1}+1\leqslant i\leqslant k_n-1\)</span>, 均有 <span class="math inline">\(x_i\notin E\)</span>;</li>
 </ol>
-<p>考虑 $ { B_n } $ 的闭包构成的集合列 $ {  } $, 显然有 <span class="math inline">\(\lim\limits_{n\to\infty}|\overline{B_n}|=0\)</span>, 即 $ {  } $ 形成了一个闭集套, 令 $_{n=1}^= { a } $.</p>
-<p>则应有 <span class="math inline">\(a\in E\)</span>, 而由 $ { B_n } $ 的定义可知 <span class="math inline">\(a\notin E\)</span>, 矛盾. 故 <span class="math inline">\(E\)</span> 为不可数集.</p>
+<p>考虑 <span class="math inline">\(\{B_n\}\)</span> 的闭包构成的集合列 <span class="math inline">\(\{\overline{B_n}\}\)</span>, 显然有 <span class="math inline">\(\lim\limits_{n\to\infty}\vert\overline{B_n}\vert=0\)</span>, 即 <span class="math inline">\(\{\overline{B_n}\}\)</span> 形成了一个闭集套, 令 <span class="math inline">\(\bigcap\limits_{n=1}^\infty\overline{B_n}=\{a\}\)</span>.</p>
+<p>则应有 <span class="math inline">\(a\in E\)</span>, 而由 <span class="math inline">\(\{B_n\}\)</span> 的定义可知 <span class="math inline">\(a\notin E\)</span>, 矛盾. 故 <span class="math inline">\(E\)</span> 为不可数集.</p>
 <h3 id="习题1-第一组-26">习题1 第一组 26</h3>
 <blockquote>
-<p>设 <span class="math inline">\(\mathbf{R}\)</span> 中的一切开集构成的集合族为 <span class="math inline">\(\mathscr{G}\)</span>, 证明 <span class="math inline">\(|\mathscr{G}|=\aleph\)</span>. （<span class="math inline">\(|\mathscr{G}|\)</span> 表示 <span class="math inline">\(\mathscr{G}\)</span> 的基数）.</p>
+<p>设 <span class="math inline">\(\mathbf{R}\)</span> 中的一切开集构成的集合族为 <span class="math inline">\(\mathscr{G}\)</span>, 证明 <span class="math inline">\(\vert\mathscr{G}\vert=\aleph\)</span>. （<span class="math inline">\(\vert\mathscr{G}\vert\)</span> 表示 <span class="math inline">\(\mathscr{G}\)</span> 的基数）.</p>
 </blockquote>
-<p><strong>证明</strong>: <strong>一方面</strong>, 令 $= { (0,x)<sub>|</sub>x } $, 则 <span class="math inline">\(|\mathscr{A}|\subset\mathscr{G}\)</span>, 且 <span class="math inline">\(|\mathscr{A}|=\aleph\)</span>. 故 <span class="math inline">\(|\mathscr{G}|\geqslant\aleph\)</span>.</p>
-<p><strong>另一方面</strong>, 设 <span class="math inline">\(E\)</span> 为 <span class="math inline">\(\mathbf{R}\)</span> 中以有理数为端点的开区间的全体, 则由 <span class="math inline">\(E\subset\mathbf{Q}^2\)</span> 可知 <span class="math inline">\(E\)</span> 为可数集, 于是有 <span class="math inline">\(|\mathscr{P}(E)|=\aleph\)</span>.</p>
+<p><strong>证明</strong>: <strong>一方面</strong>, 令 <span class="math inline">\(\mathscr{A}=\{(0,x)~\vert~x\in\mathbf{R}\}\)</span>, 则 <span class="math inline">\(\vert\mathscr{A}\vert\subset\mathscr{G}\)</span>, 且 <span class="math inline">\(\vert\mathscr{A}\vert=\aleph\)</span>. 故 <span class="math inline">\(\vert\mathscr{G}\vert\geqslant\aleph\)</span>.</p>
+<p><strong>另一方面</strong>, 设 <span class="math inline">\(E\)</span> 为 <span class="math inline">\(\mathbf{R}\)</span> 中以有理数为端点的开区间的全体, 则由 <span class="math inline">\(E\subset\mathbf{Q}^2\)</span> 可知 <span class="math inline">\(E\)</span> 为可数集, 于是有 <span class="math inline">\(\vert\mathscr{P}(E)\vert=\aleph\)</span>.</p>
 <p>由于 <span class="math inline">\(\mathbf{R}\)</span> 中的每个开区间都可以表示为可数个有理开区间的并, 故对于 <span class="math inline">\(G\in\mathscr{G}\)</span>, 设 <span class="math inline">\(G=\bigcup\limits_{n=1}^\infty(\alpha_n,\beta_n)\)</span>, 其中 <span class="math inline">\((\alpha_n,\beta_n)\in E\)</span>. 据此可构造如下映射:</p>
-<p><span class="math display">\[\varphi:~\mathscr{P}(E)\longrightarrow\mathscr{G},\quad \{ (\alpha_n,\beta_n) \} _{n=1}^{+\infty}\longmapsto G~.\]</span></p>
-<p>由于数列的极限唯一, 故 <span class="math inline">\(\varphi\)</span> 是良好定义的, 又由于 <span class="math inline">\(G\)</span> 的逼近方法不唯一, <span class="math inline">\(\overline{\mathbf{Q}}=\mathbf{R}\)</span>, 故 <span class="math inline">\(\varphi\)</span> 为满射但不为单射. 故 <span class="math inline">\(|\mathscr{G}|\leqslant|\mathscr{P}(E)|=\aleph\)</span>.</p>
-<p><strong>综上</strong>, <span class="math inline">\(|\mathscr{G}|=\aleph\)</span>.</p>
+<p><span class="math display">\[\varphi:~\mathscr{P}(E)\longrightarrow\mathscr{G},\quad\{(\alpha_n,\beta_n)\}_{n=1}^{+\infty}\longmapsto G~.\]</span></p>
+<p>由于数列的极限唯一, 故 <span class="math inline">\(\varphi\)</span> 是良好定义的, 又由于 <span class="math inline">\(G\)</span> 的逼近方法不唯一, <span class="math inline">\(\overline{\mathbf{Q}}=\mathbf{R}\)</span>, 故 <span class="math inline">\(\varphi\)</span> 为满射但不为单射. 故 <span class="math inline">\(\vert\mathscr{G}\vert\leqslant\vert\mathscr{P}(E)\vert=\aleph\)</span>.</p>
+<p><strong>综上</strong>, <span class="math inline">\(\vert\mathscr{G}\vert=\aleph\)</span>.</p>
 <h2 id="年03月27日">2017年03月27日</h2>
 <h3 id="思考题-2-ii">2.1 思考题 2 (ii)</h3>
 <blockquote>
-<p>设 <span class="math inline">\(A,B,C\)</span> 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中的点集, 且有 <span class="math display">\[\mathcal{M}(A\triangle B)=\mathcal{M}(B\triangle C)=0\]</span> 求证 <span class="math inline">\(\mathcal{M}(A\triangle C)=0\)</span>.</p>
+<p>设 <span class="math inline">\(A,B,C\)</span> 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中的点集, 且有 <span class="math display">\[m^*(A\triangle B)=m^*(B\triangle C)=0\]</span> 求证 <span class="math inline">\(m^*(A\triangle C)=0\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 注意到 <span class="math display">\[A\backslash C=(A\cap C^c)\cap(B\cup B^c)=[A\cap (B\backslash C)]\cup[C^c\cap(A\backslash B)]\]</span> 又由条件有 <span class="math display">\[\mathcal{M}(A\backslash B)=\mathcal{M}(B\backslash A)=\mathcal{M}(B\backslash C)=\mathcal{M}(C\backslash B)=0\]</span> 可以很容易地得到 <span class="math inline">\(\mathcal{M}(A\backslash C)=0\)</span>, 类似可得 <span class="math inline">\(\mathcal{M}(C\backslash A)=0\)</span>, 故 <span class="math inline">\(\mathcal{M}(A\triangle C)=0\)</span>.</p>
+<p><strong>证明</strong>: 注意到 <span class="math display">\[A\backslash C=(A\cap C^c)\cap(B\cup B^c)=[A\cap (B\backslash C)]\cup[C^c\cap(A\backslash B)]\]</span> 又由条件有 <span class="math display">\[m^*(A\backslash B)=m^*(B\backslash A)=m^*(B\backslash C)=m^*(C\backslash B)=0\]</span> 可以很容易地得到 <span class="math inline">\(m^*(A\backslash C)=0\)</span>, 类似可得 <span class="math inline">\(m^*(C\backslash A)=0\)</span>, 故 <span class="math inline">\(m^*(A\triangle C)=0\)</span>.</p>
 <h3 id="思考题-3">2.1 思考题 3</h3>
 <blockquote>
-<p>设 <span class="math inline">\(E\subset\mathbf{R}^n\)</span>, 若对于 <span class="math inline">\(\forall~x\in E\)</span>, 总存在开球 <span class="math inline">\(B(x,\delta_x)\)</span>, 使得 <span class="math inline">\(\mathcal{M}(E\cap B(x,\delta_x))=0\)</span>, 试证明 <span class="math inline">\(\mathcal{M}(E)=0\)</span>.</p>
+<p>设 <span class="math inline">\(E\subset\mathbf{R}^n\)</span>, 若对于 <span class="math inline">\(\forall~x\in E\)</span>, 总存在开球 <span class="math inline">\(B(x,\delta_x)\)</span>, 使得 <span class="math inline">\(m^*(E\cap B(x,\delta_x))=0\)</span>, 试证明 <span class="math inline">\(m^*(E)=0\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 有条件, 存在一个开球族 <span class="math inline">\(\mathscr{B}\)</span>, s.t. <span class="math inline">\(x\in E\)</span>, 并且 <span class="math inline">\(E=\bigcup\limits_{B_x\in\mathscr{B}}(E\cap B_x)\)</span>. 可以取适当的 <span class="math inline">\(\delta_x\)</span>, 使得 <span class="math inline">\(B\)</span> 中的开球两两不相交, 此时 <span class="math inline">\(\mathscr{B}\)</span> 为 <span class="math inline">\(\mathbf{R}^n\)</span> 中互不相交的开集族, 即 <span class="math inline">\(\mathscr{B}\)</span> 至多可数, 且 <span class="math inline">\(\forall~B_x\in\mathscr{B}\)</span>, 总有 <span class="math inline">\(\mathcal{M}(B_x\cap E)=0\)</span>.</p>
-<p>故由测度的 <span class="math inline">\(\sigma\)</span>-可加性, <span class="math inline">\(\mathcal{M}(E)=\sum\limits_{B_x\in\mathscr{B}}\mathcal{M}(E\cap B_x)=0\)</span>.</p>
+<p><strong>证明</strong>: 有条件, 存在一个开球族 <span class="math inline">\(\mathscr{B}\)</span>, s.t. <span class="math inline">\(x\in E\)</span>, 并且 <span class="math inline">\(E=\bigcup\limits_{B_x\in\mathscr{B}}(E\cap B_x)\)</span>. 可以取适当的 <span class="math inline">\(\delta_x\)</span>, 使得 <span class="math inline">\(B\)</span> 中的开球两两不相交, 此时 <span class="math inline">\(\mathscr{B}\)</span> 为 <span class="math inline">\(\mathbf{R}^n\)</span> 中互不相交的开集族, 即 <span class="math inline">\(\mathscr{B}\)</span> 至多可数, 且 <span class="math inline">\(\forall~B_x\in\mathscr{B}\)</span>, 总有 <span class="math inline">\(m^*(B_x\cap E)=0\)</span>.</p>
+<p>故由测度的 <span class="math inline">\(\sigma\)</span>-可加性, <span class="math inline">\(m^*(E)=\sum\limits_{B_x\in\mathscr{B}}m^*(E\cap B_x)=0\)</span>.</p>
 <p><strong>这个证法是错误的……以后再修改</strong></p>
 <p>(翻到一个叫 <strong>lindelof 定理</strong> 的东西……这个题目好像就是定理的直接推论.）</p>
 <h3 id="思考题-2">2.2 思考题 2</h3>
 <blockquote>
-<p>设 $ { A_n } $ 是互不相交的可测集列, <span class="math inline">\(B_n\subset A_n~(n=1,2,\cdots)\)</span>, 证明: <span class="math display">\[\mathcal{M}\left(\bigcup\limits_{n=1}^\infty B_n\right)=\sum\limits_{n=1}^\infty \mathcal{M}(B_n).\]</span></p>
+<p>设 <span class="math inline">\(\{A_n\}\)</span> 是互不相交的可测集列, <span class="math inline">\(B_n\subset A_n~(n=1,2,\cdots)\)</span>, 证明: <span class="math display">\[m^*\left(\bigcup\limits_{n=1}^\infty B_n\right)=\sum\limits_{n=1}^\infty m^*(B_n).\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 由于 <span class="math inline">\(\mathcal{M}\left(\bigcup\limits_{n=1}^\infty B_n\right)\leqslant\sum\limits_{n=1}^\infty \mathcal{M}(B_n)\)</span> 显然成立, 故只需证明 <span class="math inline">\(\mathcal{M}\left(\bigcup\limits_{n=1}^\infty B_n\right)\geqslant\sum\limits_{n=1}^\infty \mathcal{M}(B_n)\)</span>.</p>
-<p>对于有限项的 <span class="math inline">\(B_k\)</span>, 由于 <span class="math inline">\(B_k\)</span> 两两不交, 由外测度的定义有 <span class="math inline">\(\sum\limits_{k=1}^n \mathcal{M}(B_k)=\mathcal{M}\left(\bigcup\limits_{k=1}^n B_k\right)\)</span>.</p>
-<p>显然 <span class="math inline">\(\mathcal{M}\left(\bigcup\limits_{k=1}^n B_k\right)\)</span> 对于 <span class="math inline">\(n\)</span> 显然是递增集合列, 故对上式取极限可得:</p>
-<p><span class="math display">\[\sum\limits_{k=1}^n \mathcal{M}(B_k)=\mathcal{M}\left(\bigcup\limits_{k=1}^n B_k\right)\leqslant \mathcal{M}\left(\bigcup\limits_{k=1}^\infty B_k\right).\]</span></p>
-<p>即有 <span class="math inline">\(\forall~n\in\mathbf{N}\)</span>, 均有 <span class="math inline">\(\sum\limits_{k=1}^n \mathcal{M}(B_k)\leqslant \mathcal{M}\left(\bigcup\limits_{k=1}^\infty B_k\right)\)</span>,</p>
-<p>故对上式左侧也取极限, 有 <span class="math inline">\(\sum\limits_{k=1}^\infty \mathcal{M}(B_k)\leqslant \mathcal{M}\left(\bigcup\limits_{k=1}^\infty B_k\right).\)</span></p>
-<p>即结论成立.</p>
+<p><strong>证明</strong>: 由于 <span class="math inline">\(m^*\left(\bigcup\limits_{n=1}^\infty B_n\right)\leqslant\sum\limits_{n=1}^\infty m^*(B_n)\)</span> 显然成立, 故只需证明 <span class="math display">\[m^*\left(\bigcup\limits_{n=1}^\infty B_n\right)\geqslant\sum\limits_{n=1}^\infty m^*(B_n).\]</span></p>
+<p>对于有限项的 <span class="math inline">\(B_k\)</span>, 由于 <span class="math inline">\(B_k\)</span> 两两不交, 由外测度的定义有 <span class="math display">\[\sum\limits_{k=1}^n m^*(B_k)=m^*\left(\bigcup\limits_{k=1}^n B_k\right).\]</span></p>
+<p>显然 <span class="math inline">\(m^*\left(\bigcup\limits_{k=1}^n B_k\right)\)</span> 对于 <span class="math inline">\(n\)</span> 显然是递增集合列, 故对上式取极限可得:</p>
+<p><span class="math display">\[\sum\limits_{k=1}^n m^*(B_k)=m^*\left(\bigcup\limits_{k=1}^n B_k\right)\leqslant m^*\left(\bigcup\limits_{k=1}^\infty B_k\right).\]</span></p>
+<p>即有 <span class="math inline">\(\forall~n\in\mathbf{N}\)</span>, 均有 <span class="math display">\[\sum\limits_{k=1}^n m^*(B_k)\leqslant m^*\left(\bigcup\limits_{k=1}^\infty B_k\right),\]</span></p>
+<p>对上式左侧也取极限, 有 <span class="math display">\[\sum\limits_{k=1}^\infty m^*(B_k)\leqslant m^*\left(\bigcup\limits_{k=1}^\infty B_k\right).\]</span> 即结论成立.</p>
 <h3 id="思考题-3-1">2.2 思考题 3</h3>
 <blockquote>
 <p>设有点集 <span class="math inline">\(E_1,E_2\)</span>, 且 <span class="math inline">\(E_1\in\mathscr{M}\)</span>. 若 <span class="math inline">\(m(E_1\triangle E_2)=0\)</span>, 求证 <span class="math inline">\(E_2\in\mathscr{M}\)</span>, 且 <span class="math inline">\(m(E_1)=m(E_2)\)</span>.</p>
@@ -405,21 +404,21 @@
 <h2 id="年04月20日">2017年04月20日</h2>
 <h3 id="思考题-4">2.2 思考题 4</h3>
 <blockquote>
-<p>设点集 <span class="math inline">\(B\)</span> 满足: 对于 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~A\in\mathscr{M}\)</span>, s.t. <span class="math inline">\(\mathcal{M}(A\triangle B)&lt;\epsilon\)</span>, 试证明 <span class="math inline">\(B\)</span> 是可测集.</p>
+<p>设点集 <span class="math inline">\(B\)</span> 满足: 对于 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~A\in\mathscr{M}\)</span>, s.t. <span class="math inline">\(m^*(A\triangle B)&lt;\epsilon\)</span>, 试证明 <span class="math inline">\(B\)</span> 是可测集.</p>
 </blockquote>
-<p><strong>证明</strong>: 由条件, <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~ \{ A_k \} _{k=1}^{+\infty}\subset\mathscr{M}\)</span>, s.t. <span class="math inline">\(\mathcal{M}(B\triangle A_k)&lt;\frac{\epsilon}{2^k}\)</span>, (<span class="math inline">\(k\in\mathbf{N})\)</span>.</p>
-<p>故 <span class="math inline">\(\mathcal{M}(B\backslash A_k)&lt;\frac{\epsilon}{2^k}\)</span>, 且 <span class="math inline">\(\mathcal{M}(A_k\backslash B)&lt;\frac{\epsilon}{2^k}\)</span>.</p>
+<p><strong>证明</strong>: 由条件, <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~\{A_k\}_{k=1}^{+\infty}\subset\mathscr{M}\)</span>, s.t. <span class="math inline">\(m^*(B\triangle A_k)&lt;\frac{\epsilon}{2^k}\)</span>, (<span class="math inline">\(k\in\mathbf{N})\)</span>.</p>
+<p>故 <span class="math inline">\(m^*(B\backslash A_k)&lt;\frac{\epsilon}{2^k}\)</span>, 且 <span class="math inline">\(m^*(A_k\backslash B)&lt;\frac{\epsilon}{2^k}\)</span>.</p>
 <p>令 <span class="math inline">\(A=\bigcup\limits_{k=1}^{\infty}A_k\)</span>, 则由任意 <span class="math inline">\(A_k\)</span> 均为可测集可知, <span class="math inline">\(A\)</span> 为可测集.</p>
-<p>又有 <span class="math inline">\(B\backslash A=\bigcap\limits_{k=1}^{\infty}(B\backslash A_k)\)</span>, <span class="math inline">\(A\backslash B=\bigcap\limits_{k=1}^{\infty}(A_k\backslash B)\)</span>, 故 <span class="math inline">\(\mathcal{M}(B\backslash A)\leqslant\mathcal{M}(B\backslash A_k)\)</span>, 且 <span class="math inline">\(\mathcal{M}(A\backslash B) \leqslant\sum\limits_{k=1}^{\infty}\mathcal{M}(A_k\backslash B)\)</span>.</p>
-<p>故 <span class="math inline">\(\mathcal{M}(B\backslash A)\leqslant\frac{\epsilon}{2^k}\)</span>, <span class="math inline">\(\mathcal{M}(A\backslash B)\leqslant\sum\limits_{k=1}^{\infty}\frac{\epsilon}{2^k}=\epsilon\)</span>, 即 <span class="math inline">\(\mathcal{M}(A\backslash B)=\mathcal{M}(B\backslash A)=0\)</span>.</p>
+<p>又有 <span class="math inline">\(B\backslash A=\bigcap\limits_{k=1}^{\infty}(B\backslash A_k)\)</span>, <span class="math inline">\(A\backslash B=\bigcap\limits_{k=1}^{\infty}(A_k\backslash B)\)</span>, 故 <span class="math inline">\(m^*(B\backslash A)\leqslant m^*(B\backslash A_k)\)</span>, 且 <span class="math inline">\(m^*(A\backslash B) \leqslant\sum\limits_{k=1}^{\infty}m^*(A_k\backslash B)\)</span>.</p>
+<p>故 <span class="math inline">\(m^*(B\backslash A)\leqslant\frac{\epsilon}{2^k}\)</span>, <span class="math inline">\(m^*(A\backslash B)\leqslant\sum\limits_{k=1}^{\infty}\frac{\epsilon}{2^k}=\epsilon\)</span>, 即 <span class="math inline">\(m^*(A\backslash B)=m^*(B\backslash A)=0\)</span>.</p>
 <p>于是 <span class="math inline">\(A\backslash B\)</span> 和 <span class="math inline">\(B\backslash A\)</span> 可测. 故由 <span class="math inline">\(B=(B\backslash A)\cup(A\backslash(A\backslash B))\)</span>, 故 <span class="math inline">\(B\)</span> 为可测集.</p>
 <h3 id="思考题-8">2.2 思考题 8</h3>
 <blockquote>
-<p>设有 <span class="math inline">\(\mathbf{R}^1\)</span> 中可测集列 $ { E_k } $, 且当 <span class="math inline">\(k\geqslant k_0\)</span> 时, <span class="math inline">\(E_k\subset[a,b]\)</span>. 若存在 <span class="math inline">\(\lim\limits_{k\to\infty}E_k=E\)</span>, 试证明: <span class="math inline">\(m(E)=\lim\limits_{k\to\infty}m(E_k)\)</span>.</p>
+<p>设有 <span class="math inline">\(\mathbf{R}^1\)</span> 中可测集列 <span class="math inline">\(\{E_k\}\)</span>, 且当 <span class="math inline">\(k\geqslant k_0\)</span> 时, <span class="math inline">\(E_k\subset[a,b]\)</span>. 若存在 <span class="math inline">\(\lim\limits_{k\to\infty}E_k=E\)</span>, 试证明: <span class="math inline">\(m(E)=\lim\limits_{k\to\infty}m(E_k)\)</span>.</p>
 </blockquote>
 <p><strong>证明</strong>: <strong>一方面</strong>, 由于 <span class="math inline">\(\varlimsup\limits_{k\to\infty}E_k=\bigcap\limits_{j=1}^{\infty}\bigcup\limits_{k=j}^{\infty}E_k=\lim\limits_{k\to\infty}(\bigcup\limits_{j=k}^{\infty}E_j)\)</span>.</p>
 <p>故 <span class="math inline">\(m\left(\varlimsup\limits_{k\to\infty}E_k\right)=m\left(\lim\limits_{k\to\infty}(\bigcup\limits_{j=k}^{\infty}E_j)\right)\geqslant\varlimsup\limits_{k\to\infty}m(E_k)\)</span>.</p>
-<p>又由于 $ { E_k } $ 收敛, 故有:</p>
+<p>又由于 <span class="math inline">\(\{E_k\}\)</span> 收敛, 故有:</p>
 <p><span class="math display">\[m(E)=m(\lim\limits_{k\to\infty}E_k)=m(\varlimsup\limits_{k\to\infty}E_k)\geqslant\varlimsup\limits_{k\to\infty}m(E_k)\geqslant\lim\limits_{k\to\infty}m(E_k).\]</span></p>
 <p>即 <span class="math inline">\(m(E)\geqslant\lim\limits_{k\to\infty}m(E_k)\)</span>.</p>
 <p><strong>另一方面</strong>, <span class="math inline">\(\varliminf\limits_{k\to\infty}E_k=\bigcup\limits_{j=1}^{\infty}\bigcap\limits_{k=j}^{\infty}E_k=\lim\limits_{k\to\infty}(\bigcup\limits_{j=k}^{\infty}E_j)\)</span>.</p>
@@ -429,16 +428,16 @@
 <h2 id="年04月24日">2017年04月24日</h2>
 <h3 id="习题2-第一组-8">习题2 第一组 8</h3>
 <blockquote>
-<p>设 $ { E_k } $ 是 <span class="math inline">\([0,1]\)</span> 中的可测集列, <span class="math inline">\(m(E_k)=1\)</span>, <span class="math inline">\((k=0,1,\cdots)\)</span>, 试证明: <span class="math inline">\(m\left(\bigcap\limits_{k=1}^{\infty}E_k\right)=1\)</span>.</p>
+<p>设 <span class="math inline">\(\{E_k\}\)</span> 是 <span class="math inline">\([0,1]\)</span> 中的可测集列, <span class="math inline">\(m(E_k)=1\)</span>, <span class="math inline">\((k=0,1,\cdots)\)</span>, 试证明: <span class="math inline">\(m\left(\bigcap\limits_{k=1}^{\infty}E_k\right)=1\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 由于 $ { E_k } $ 可测, 且 <span class="math inline">\(m(E_k)=1\)</span>, <span class="math inline">\(\forall~k\in\mathbf{N}_+\)</span>, 又 <span class="math inline">\(E_k\subset[0,1]\)</span>, 故 <span class="math inline">\(m([0,1]\backslash E_k)=0\)</span>, <span class="math inline">\(\forall~k\in\mathbf{N}_+\)</span>.</p>
+<p><strong>证明</strong>: 由于 <span class="math inline">\(\{E_k\}\)</span> 可测, 且 <span class="math inline">\(m(E_k)=1\)</span>, <span class="math inline">\(\forall~k\in\mathbf{N}_+\)</span>, 又 <span class="math inline">\(E_k\subset[0,1]\)</span>, 故 <span class="math inline">\(m([0,1]\backslash E_k)=0\)</span>, <span class="math inline">\(\forall~k\in\mathbf{N}_+\)</span>.</p>
 <p>于是 <span class="math display">\[m\left(\bigcap\limits_{k=1}^{\infty}E_k\right)=1-\left([0,1]\backslash\bigcap\limits_{k=1}^{\infty}E_k\right)=1-\left(\bigcup\limits_{k=1}^{\infty}([0,1]\backslash E_k)\right)=1-\sum\limits_{k=1}^{\infty}m([0,1]\backslash E_k)=1.\]</span></p>
 <p>又由于 <span class="math inline">\(m(\bigcap\limits_{k=1}^{\infty}E_k)\leqslant m(E_1)=1\)</span>, 故 <span class="math inline">\(m\left(\bigcap\limits_{k=1}^{\infty}E_k\right)=1\)</span>.</p>
 <h3 id="习题2-第一组-11">习题2 第一组 11</h3>
 <blockquote>
-<p>设 $ { B_} _{I}$ 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中一族开球, 记 <span class="math inline">\(G=\bigcup\limits_{\alpha\in I}B_\alpha\)</span>. 若有 <span class="math inline">\(0&lt;\lambda&lt;m(G)\)</span>, 试证明存在有限个互不相交的开球 <span class="math inline">\(B_{\alpha_1},B_{\alpha_2},\cdots,B_{\alpha_m}\)</span>, 使得 <span class="math inline">\(\sum\limits_{k=1}^m m(B_{\alpha_k})\)</span> 大于 <span class="math inline">\(\frac{\lambda}{3^n}.\)</span></p>
+<p>设 <span class="math inline">\(\{B_\alpha\}_{\alpha\in I}\)</span> 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中一族开球, 记 <span class="math inline">\(G=\bigcup\limits_{\alpha\in I}B_\alpha\)</span>. 若有 <span class="math inline">\(0&lt;\lambda&lt;m(G)\)</span>, 试证明存在有限个互不相交的开球 <span class="math inline">\(B_{\alpha_1},B_{\alpha_2},\cdots,B_{\alpha_m}\)</span>, 使得 <span class="math inline">\(\sum\limits_{k=1}^m m(B_{\alpha_k})\)</span> 大于 <span class="math inline">\(\frac{\lambda}{3^n}.\)</span></p>
 </blockquote>
-<p><strong>证明</strong>: 取紧集 <span class="math inline">\(K\subset G\)</span>, s.t. <span class="math inline">\(m(K)&gt;\lambda\)</span>, 则 $ { B_} $ 构成 <span class="math inline">\(K\)</span> 的一个开覆盖. 于是存在有限子覆盖 <span class="math inline">\(B_1,B_2\cdots,B_k\)</span>.</p>
+<p><strong>证明</strong>: 取紧集 <span class="math inline">\(K\subset G\)</span>, s.t. <span class="math inline">\(m(K)&gt;\lambda\)</span>, 则 <span class="math inline">\(\{B_\alpha\}\)</span> 构成 <span class="math inline">\(K\)</span> 的一个开覆盖. 于是存在有限子覆盖 <span class="math inline">\(B_1,B_2\cdots,B_k\)</span>.</p>
 <p>取其中半径最大者为 <span class="math inline">\(B_{\alpha_1}\)</span>, 则将 <span class="math inline">\(B_{\alpha_1}\)</span> 的半径扩大三倍即可将 <span class="math inline">\(B_i\)</span> 中所有与 <span class="math inline">\(B_{\alpha_1}\)</span> 相交的开球全部覆盖;</p>
 <p>再取 <span class="math inline">\(B_i\)</span> 中与 <span class="math inline">\(B_{\alpha_1}\)</span> 不相交的球中半径最大者为 <span class="math inline">\(B_{\alpha_2}\)</span>, 则将其半径扩大三倍即可将与其相交的开球全部覆盖.</p>
 <p>如此继续下去可以选出有限个开球 <span class="math inline">\(B_{\alpha_1},B_{\alpha_2}\cdots,B_{\alpha_m}\)</span>, s.t. 将其中的每一个球半径扩大三倍可以构成 <span class="math inline">\(K\)</span> 的覆盖.</p>
@@ -446,24 +445,24 @@
 <h2 id="年04月25日">2017年04月25日</h2>
 <h3 id="习题2-第一组-12">习题2 第一组 12</h3>
 <blockquote>
-<p>设 $ { B_k } $ 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中递减可测集列, <span class="math inline">\(\mathcal{M}(A)&lt;\infty\)</span>. 令 <span class="math inline">\(E_k=A\cap B_k~(k=0,1,\cdots)\)</span>, <span class="math inline">\(E=\bigcap\limits_{k=1}^\infty E_k\)</span>, 试证明 <span class="math display">\[\lim\limits_{k\to\infty}\mathcal{M}(E_k)=\mathcal{M}(E).\]</span></p>
+<p>设 <span class="math inline">\(\{B_k\}\)</span> 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中递减可测集列, <span class="math inline">\(m^*(A)&lt;\infty\)</span>. 令 <span class="math inline">\(E_k=A\cap B_k~(k=0,1,\cdots)\)</span>, <span class="math inline">\(E=\bigcap\limits_{k=1}^\infty E_k\)</span>, 试证明 <span class="math display">\[\lim\limits_{k\to\infty}m^*(E_k)=m^*(E).\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 令 <span class="math inline">\(A\)</span> 的等测包为 <span class="math inline">\(H\)</span>, 则 $ { B_kH } $ 为递减可测集列.</p>
+<p><strong>证明</strong>: 令 <span class="math inline">\(A\)</span> 的等测包为 <span class="math inline">\(H\)</span>, 则 <span class="math inline">\(\{B_k\cap H\}\)</span> 为递减可测集列.</p>
 <p>于是 <span class="math inline">\(\lim\limits_{k\to\infty} m(H\cap B_k)=m\left(\lim\limits_{k\to\infty}(H\cap B_k)\right)=m\left((\bigcap\limits_{k=1}^\infty B_k)\cap H\right)\)</span>.</p>
 <p>而对于 <span class="math inline">\(\forall~k\)</span>, <span class="math inline">\(m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\cap H\right)=m\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)\)</span>.</p>
-<p>又由于 <span class="math inline">\(H\)</span> 和 <span class="math inline">\(B_k\)</span> 均为可测集, 故 <span class="math inline">\(m\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)=\mathcal{M}\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)\)</span>.</p>
-<p>即 <span class="math inline">\(m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)=\mathcal{M}\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)\)</span>.</p>
+<p>又由于 <span class="math inline">\(H\)</span> 和 <span class="math inline">\(B_k\)</span> 均为可测集, 故 <span class="math inline">\(m\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)=m^*\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)\)</span>.</p>
+<p>即 <span class="math inline">\(m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)=m^*\left((H\cap B_k)\backslash\bigcap\limits_{k=1}^\infty(H\cap B_k)\right)\)</span>.</p>
 <p>由于 <span class="math inline">\(A\subset H\)</span>, 故 <span class="math display">\[
 \begin{align}
-m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\right) &amp;\geqslant \mathcal{M}\left(A\cap (B_k\backslash\bigcap\limits_{k=1}^{\infty}B_k)\right) \\
- &amp;= \mathcal{M}\left((A\cap B_k) \backslash \bigcap\limits_{k=1}^{\infty}(A\cap B_k)\right) \\
- &amp;= \mathcal{M}(E_k\backslash\bigcap\limits_{k=1}^{\infty} E_k) = \mathcal{M}(E_k\backslash E) \\
- &amp;\geqslant \mathcal{M}(E_k)-\mathcal{M}(E).
+m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\right) &amp;\geqslant m^*\left(A\cap (B_k\backslash\bigcap\limits_{k=1}^{\infty}B_k)\right) \\
+ &amp;= m^*\left((A\cap B_k) \backslash \bigcap\limits_{k=1}^{\infty}(A\cap B_k)\right) \\
+ &amp;= m^*(E_k\backslash\bigcap\limits_{k=1}^{\infty} E_k) = m^*(E_k\backslash E) \\
+ &amp;\geqslant m^*(E_k)-m^*(E).
 \end{align}
 \]</span></p>
-<p>由于 <span class="math inline">\(E_k\)</span> 递减, 故 <span class="math inline">\(\mathcal{M}(E_k)\geqslant\mathcal{M}(E)\)</span>, <span class="math inline">\(\forall~k\in\mathbf{N}_+\)</span>, 即 <span class="math inline">\(\mathcal{M}(E_k)-\mathcal{M}(E)\geqslant 0\)</span>.</p>
+<p>由于 <span class="math inline">\(E_k\)</span> 递减, 故 <span class="math inline">\(m^*(E_k)\geqslantm^*(E)\)</span>, <span class="math inline">\(\forall~k\in\mathbf{N}_+\)</span>, 即 <span class="math inline">\(m^*(E_k)-m^*(E)\geqslant 0\)</span>.</p>
 <p>又由于 <span class="math inline">\(\lim\limits_{k\to\infty}\left(m(H\cap B _k)-m(\bigcap\limits_{k=1}^{\infty}(H\cap B_k)\right)=0\)</span>.</p>
-<p>故 <span class="math inline">\(\lim\limits_{k\to\infty}\mathcal{M}(E_k)-\mathcal{M}(E)=0\)</span>, 即 <span class="math inline">\(\lim\limits_{k\to\infty}\mathcal{M}(E_k)=\mathcal{M}(E)\)</span>.</p>
+<p>故 <span class="math inline">\(\lim\limits_{k\to\infty}m^*(E_k)-m^*(E)=0\)</span>, 即 <span class="math inline">\(\lim\limits_{k\to\infty}m^*(E_k)=m^*(E)\)</span>.</p>
 <h2 id="年04月26日">2017年04月26日</h2>
 <h3 id="习题2-第一组-14">习题2 第一组 14</h3>
 <blockquote>
@@ -474,34 +473,34 @@ m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\right) &amp;\geqslant
 <li>存在开集 <span class="math inline">\(G\supset E\)</span>, s.t. <span class="math inline">\(m(G)-m(E)&lt;\frac{\epsilon}{2}\)</span>.</li>
 <li>存在闭集 <span class="math inline">\(F\subset E\)</span>, s.t. <span class="math inline">\(m(E)-m(F)&lt;\frac{\epsilon}{2}\)</span>.</li>
 </ol>
-<p>取 <span class="math inline">\(G_1=G\)</span>, <span class="math inline">\(G_2=F^c\)</span>, 则 <span class="math inline">\(\mathcal{M}(G_1\cap G_2)=m(G\backslash F)=m(G)-m(F)&lt;\epsilon\)</span>.</p>
+<p>取 <span class="math inline">\(G_1=G\)</span>, <span class="math inline">\(G_2=F^c\)</span>, 则 <span class="math inline">\(m^*(G_1\cap G_2)=m(G\backslash F)=m(G)-m(F)&lt;\epsilon\)</span>.</p>
 <p><strong>充分性</strong>: 取递减开集列 <span class="math inline">\(G_{1n}\)</span> 和 <span class="math inline">\(G_{2n}\)</span>, s.t. <span class="math inline">\(\forall~n\)</span>, 有 <span class="math inline">\(E\subset G_{1n}\)</span>, <span class="math inline">\(E^c\subset G_{2n}\)</span> 且 <span class="math inline">\(m(G_{1n}-G_{2n})&lt;\frac{1}{n}\)</span>.</p>
-<p>则取 <span class="math inline">\(G=\lim\limits_{n\to\infty} G_{1n}\)</span>, 即可使得 <span class="math inline">\(G\)</span> 为可测集, 且 <span class="math inline">\(\mathcal{M}(G\backslash E)\leqslant\mathcal{M}(G_{1n}\cap G_{2n})\)</span>. 取极限, 即有 <span class="math inline">\(\mathcal{M}(G\backslash E)=0\)</span>.</p>
+<p>则取 <span class="math inline">\(G=\lim\limits_{n\to\infty} G_{1n}\)</span>, 即可使得 <span class="math inline">\(G\)</span> 为可测集, 且 <span class="math inline">\(m^*(G\backslash E)\leqslant m^*(G_{1n}\cap G_{2n})\)</span>. 取极限, 即有 <span class="math inline">\(m^*(G\backslash E)=0\)</span>.</p>
 <p>于是 <span class="math inline">\(G\backslash E\)</span> 为零测集, 即 <span class="math inline">\(E\)</span> 可测.</p>
 <h3 id="习题2-第一组-15">习题2 第一组 15</h3>
 <blockquote>
-<p>设 <span class="math inline">\(E\subset[0,1]\)</span> 是可测集且有 <span class="math display">\[m(E)\geqslant\epsilon &gt;0,\quad x_i\in[0,1],~i=1,2,\cdots,n,\]</span> 其中 <span class="math inline">\(n&gt;\frac{2}{\epsilon}\)</span>. 试证明 <span class="math inline">\(E\)</span> 中存在两个点, 其距离等于 $ { x_1,x_2,,x_n } $ 中某两个点的距离.</p>
+<p>设 <span class="math inline">\(E\subset[0,1]\)</span> 是可测集且有 <span class="math display">\[m(E)\geqslant\epsilon &gt;0,\quad x_i\in[0,1],~i=1,2,\cdots,n,\]</span> 其中 <span class="math inline">\(n&gt;\frac{2}{\epsilon}\)</span>. 试证明 <span class="math inline">\(E\)</span> 中存在两个点, 其距离等于 <span class="math inline">\(\{x_1,x_2,\cdots,x_n\}\)</span> 中某两个点的距离.</p>
 </blockquote>
-<p><strong>证明</strong>: 由于 <span class="math inline">\(\forall~i\in\mathbf{N}\)</span>, s.t. <span class="math inline">\(1\leqslant i\leqslant n\)</span>, 总有 <span class="math inline">\(x_i\in[0,1]\)</span>. 于是 <span class="math inline">\(E+ \{ x_i \} \subset[0,2]\)</span>, <span class="math inline">\(\forall~i\)</span>.</p>
-<p>故 <span class="math inline">\(\bigcup\limits_{i=1}^n (E+ \{ x_i \} )\subset[0,2]\)</span>, 故 <span class="math inline">\(m\left(\bigcup\limits_{i=1}^n (E+ \{ x_i \} )\right)\leqslant 2\)</span>.</p>
-<p>由于 <span class="math inline">\(n&gt;\frac{2}{\epsilon}\)</span>, 故 <span class="math inline">\(\exists~i\neq j\)</span>, s.t. <span class="math inline">\((E+ \{ x_i \} )\cap(E+ \{ x_j \} )\neq\varnothing\)</span>. （否则 <span class="math inline">\(\sum\limits_{i=1}^n m(E+ \{ x_i \} )\leqslant 2\)</span>, 即 <span class="math inline">\(n\leqslant\frac{\epsilon}{2}\)</span>, 矛盾.） 原命题得证.</p>
+<p><strong>证明</strong>: 由于 <span class="math inline">\(\forall~i\in\mathbf{N}\)</span>, s.t. <span class="math inline">\(1\leqslant i\leqslant n\)</span>, 总有 <span class="math inline">\(x_i\in[0,1]\)</span>. 于是 <span class="math inline">\(E+\{x_i\}\subset[0,2]\)</span>, <span class="math inline">\(\forall~i\)</span>.</p>
+<p>故 <span class="math inline">\(\bigcup\limits_{i=1}^n (E+\{x_i\})\subset[0,2]\)</span>, 故 <span class="math inline">\(m\left(\bigcup\limits_{i=1}^n (E+\{x_i\})\right)\leqslant 2\)</span>.</p>
+<p>由于 <span class="math inline">\(n&gt;\frac{2}{\epsilon}\)</span>, 故 <span class="math inline">\(\exists~i\neq j\)</span>, s.t. <span class="math inline">\((E+\{x_i\})\cap(E+\{x_j\})\neq\varnothing\)</span>. （否则 <span class="math inline">\(\sum\limits_{i=1}^n m(E+\{x_i\})\leqslant 2\)</span>, 即 <span class="math inline">\(n\leqslant\frac{\epsilon}{2}\)</span>, 矛盾.） 原命题得证.</p>
 <h2 id="年05月11日">2017年05月11日</h2>
 <h3 id="思考题-3-2">3.2 思考题 3</h3>
 <blockquote>
-<p>设 $ { f_k(x) } $ 在 <span class="math inline">\(E\)</span>上依测度收敛于零, <span class="math inline">\(g(x)\)</span> 是 <span class="math inline">\(E\)</span> 上实值可测函数. 若 <span class="math inline">\(m(E)=+\infty\)</span>, 试说明 $ { g(x)f_k(x) } $ 在 <span class="math inline">\(E\)</span> 上不一定依测度收敛于零.</p>
+<p>设 <span class="math inline">\(\{f_k(x)\}\)</span> 在 <span class="math inline">\(E\)</span>上依测度收敛于零, <span class="math inline">\(g(x)\)</span> 是 <span class="math inline">\(E\)</span> 上实值可测函数. 若 <span class="math inline">\(m(E)=+\infty\)</span>, 试说明 <span class="math inline">\(\{g(x)f_k(x)\}\)</span> 在 <span class="math inline">\(E\)</span> 上不一定依测度收敛于零.</p>
 </blockquote>
 <p><strong>证明</strong>: 取 <span class="math inline">\(g(x)=x,~f_k(x)=\frac{1}{k}\)</span> 即可.</p>
 <h3 id="习题3-第一组-4">习题3 第一组 4</h3>
 <blockquote>
-<p>设 <span class="math inline">\(f(x)\)</span> 是 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 上几乎处处有限的可测函数, <span class="math inline">\(m(E)&lt;\infty\)</span>, 试证明对于 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 存在 <span class="math inline">\(E\)</span> 上的有界可测函数 <span class="math inline">\(g(x)\)</span>, s.t. <span class="math inline">\(m( \{ x\in E:|f(x)-g(x)|&gt;0 \} )&lt;\epsilon\)</span>.</p>
+<p>设 <span class="math inline">\(f(x)\)</span> 是 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 上几乎处处有限的可测函数, <span class="math inline">\(m(E)&lt;\infty\)</span>, 试证明对于 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 存在 <span class="math inline">\(E\)</span> 上的有界可测函数 <span class="math inline">\(g(x)\)</span>, s.t. <span class="math inline">\(m(\{x\in E:\vert f(x)-g(x)\vert&gt;0\})&lt;\epsilon\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 令 $E_= { xE:|f(x)|=} $, $E_n= { xE:|f(x)|n } $, <span class="math inline">\(n=1,2,\cdots\)</span>, 则 <span class="math inline">\(E\supset E_1\supset E_2\supset\cdots\)</span>, <span class="math inline">\(E_\infty=\bigcap\limits_{n=1}^\infty E_n\)</span>. 又由于 <span class="math inline">\(f(x)\)</span> 几乎处处有限, 故 <span class="math inline">\(\lim\limits_{n\to\infty}m(E_n)=m(\lim\limits_{n\to\infty}E_n)=0\)</span>. 故 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N\)</span>, s.t. <span class="math inline">\(m(E_N)=m( \{ x\in E:|f(x)|\geqslant N \} )&lt;\epsilon\)</span>, 故可以取函数 <span class="math display">\[
+<p><strong>证明</strong>: 令 <span class="math inline">\(E_\infty=\{x\in E:\vert f(x)\vert=\infty\}\)</span>, <span class="math inline">\(E_n=\{x\in E:\vert f(x)\vert\geqslant n\}\)</span>, <span class="math inline">\(n=1,2,\cdots\)</span>, 则 <span class="math inline">\(E\supset E_1\supset E_2\supset\cdots\)</span>, <span class="math inline">\(E_\infty=\bigcap\limits_{n=1}^\infty E_n\)</span>. 又由于 <span class="math inline">\(f(x)\)</span> 几乎处处有限, 故 <span class="math inline">\(\lim\limits_{n\to\infty}m(E_n)=m(\lim\limits_{n\to\infty}E_n)=0\)</span>. 故 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N\)</span>, s.t. <span class="math inline">\(m(E_N)=m(\{x\in E:\vert f(x)\vert\geqslant N\})&lt;\epsilon\)</span>, 故可以取函数 <span class="math display">\[
 g(x)=
    \begin{cases}
    f(x), &amp; x\in E\backslash E_N \\
    0, &amp; x\in E_N
    \end{cases}
-\]</span> 则 <span class="math inline">\(g(x)\)</span> 有界可测, 并且 <span class="math inline">\(m( \{ x\in E:|f(x)-g(x)|&gt;0 \} )\leqslant m(E_N)&lt;\epsilon\)</span>.</p>
+\]</span> 则 <span class="math inline">\(g(x)\)</span> 有界可测, 并且 <span class="math inline">\(m(\{x\in E:\vert f(x)-g(x)\vert&gt;0\})\leqslant m(E_N)&lt;\epsilon\)</span>.</p>
 <h3 id="习题3-第一组-5">习题3 第一组 5</h3>
 <blockquote>
 <p>设 <span class="math inline">\(f(x)\)</span> 及 <span class="math inline">\(f_n(x)~(n=1,2,\cdots)\)</span> 都是 <span class="math inline">\(A\subset\mathbf{R}^1\)</span> 上几乎处处有限的可测函数. 若对于 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 存在 <span class="math inline">\(A\)</span> 的可测子集 <span class="math inline">\(B:m(A\backslash B)&lt;\epsilon\)</span>, s.t. <span class="math inline">\(f_n(x)\)</span> 在 <span class="math inline">\(B\)</span> 上一致收敛于 <span class="math inline">\(f(x)\)</span>, 试证明 <span class="math inline">\(f_n(x)\)</span> 在 <span class="math inline">\(A\)</span> 上几乎处处收敛于 <span class="math inline">\(f(x)\)</span>.</p>
@@ -509,29 +508,29 @@ g(x)=
 <p><strong>证明</strong>: 由条件, 对于 <span class="math inline">\(\epsilon_m=\frac{1}{2^m}\)</span>, 存在 <span class="math inline">\(A\)</span> 的可测子集 <span class="math inline">\(B_m\)</span>, s.t. <span class="math inline">\(m(A\backslash B_m)&lt;\epsilon_m\)</span>, 且 <span class="math inline">\(f_n(x)\)</span> 在 <span class="math inline">\(B_m\)</span> 上一致收敛于 <span class="math inline">\(f(x)\)</span>. 令 <span class="math inline">\(B=\bigcap\limits_{j=1}^\infty\bigcup\limits_{m=j}^\infty(A\backslash B_m)\)</span>, 由于 <span class="math display">\[m(B)\leqslant m(\bigcup\limits_{m=j}^\infty(A\backslash B_m))\leqslant\sum\limits_{m=j}^\infty m(A\backslash B_m)&lt;\sum\limits_{m=j}^\infty\frac{1}{2^m},\quad\forall~j.\]</span> 故 <span class="math inline">\(m(B)=0\)</span>. 故 <span class="math inline">\(\forall~x\in A\backslash B=\bigcap\limits_{j=1}^\infty\bigcup\limits_{m=j}^\infty B_m\)</span>, <span class="math inline">\(\exists~j_0\)</span>, s.t. <span class="math inline">\(x\in\bigcap\limits_{m=j_0}^\infty B_m\)</span>, 由于 <span class="math inline">\(f_n\)</span> 在 <span class="math inline">\(B_m\)</span> 上一致收敛, 故在 <span class="math inline">\(x\)</span> 处应收敛. 由于 <span class="math inline">\(m(B)=0\)</span>, 故 <span class="math inline">\(f_n\)</span> 在 <span class="math inline">\(A\)</span> 上几乎处处收敛于 <span class="math inline">\(f\)</span>.</p>
 <h3 id="习题3-第一组-6">习题3 第一组 6</h3>
 <blockquote>
-<p>设 $ { f_k(x) } $ 是 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 上的实值可测函数列, <span class="math inline">\(m(E)&lt;\infty\)</span>, 试证明 <span class="math display">\[\lim\limits_{k\to\infty}f_k(x)=0,\quad\text{a.e.}~x\in E\]</span> 的充要条件是 <span class="math display">\[\forall~\epsilon&gt;0,~\lim\limits_{k\to\infty}m( \{ x\in E:\sup\limits_{k\geqslant j} \{ |f_k(x)| \} \geqslant\epsilon \} )=0.\]</span></p>
+<p>设 <span class="math inline">\(\{f_k(x)\}\)</span> 是 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 上的实值可测函数列, <span class="math inline">\(m(E)&lt;\infty\)</span>, 试证明 <span class="math display">\[\lim\limits_{k\to\infty}f_k(x)=0,\quad\text{a.e.}~x\in E\]</span> 的充要条件是 <span class="math display">\[\forall~\epsilon&gt;0,~\lim\limits_{k\to\infty}m(\{x\in E:\sup\limits_{k\geqslant j}\{\vert f_k(x)\vert\}\geqslant\epsilon\})=0.\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 记 $I= { xE:f_k(x)0~(k) } $, $I_m=_{k} { |f_k(x)| } $, 则 <span class="math inline">\(I=\bigcup\limits_{m=1}^\infty I_m\)</span>. <strong>充分性</strong>: 若 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 总有 <span class="math inline">\(\lim\limits_{j\to\infty} m\left( \{ x\in E:\sup\limits_{k\geqslant} \{ f_k(x) \} \geqslant\epsilon \} \right)=0\)</span>, 则 <span class="math display">\[
+<p><strong>证明</strong>: 记 <span class="math inline">\(I=\{x\in E:f_k(x)\nrightarrow0~(k\to\infty)\}\)</span>, <span class="math inline">\(I_m=\varlimsup\limits_{k\to\infty}\{\vert f_k(x)\vert\geqslant\frac{1}{m}\}\)</span>, 则 <span class="math inline">\(I=\bigcup\limits_{m=1}^\infty I_m\)</span>. <strong>充分性</strong>: 若 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 总有 <span class="math inline">\(\lim\limits_{j\to\infty} m\left(\{x\in E:\sup\limits_{k\geqslant}\{f_k(x)\}\geqslant\epsilon\}\right)=0\)</span>, 则 <span class="math display">\[
 \begin{align}
-\mathcal{M}(I) 
+m^*(I) 
 &amp;\leqslant \sum\limits_{m=1}^\infty m(I_m) \\
-&amp;= \sum\limits_{m=1}^\infty m\left( \bigcap\limits_{j=1}^\infty\bigcup\limits_{k=j}^\infty \{ x\in E:|f_k(x)|\geqslant\frac{1}{m} \}  \right) \\
-&amp;= \sum\limits_{m=1}^\infty \left( \lim\limits_{j\to\infty}m(\bigcup\limits_{k=j}^\infty  \{ x\in E:|f_k(x)|\geqslant\frac{1}{m} \} ) \right) \\
-&amp;\leqslant \sum\limits_{m=1}^\infty \lim\limits_{j\to\infty}m\left( \{ x\in E:\sup\limits_{k\geqslant j}|f_k(x)|\geqslant\frac{1}{m} \} \right) \\
+&amp;= \sum\limits_{m=1}^\infty m\left( \bigcap\limits_{j=1}^\infty\bigcup\limits_{k=j}^\infty\{x\in E:\vert f_k(x)\vert\geqslant\frac{1}{m}\} \right) \\
+&amp;= \sum\limits_{m=1}^\infty \left( \lim\limits_{j\to\infty}m(\bigcup\limits_{k=j}^\infty \{x\in E:\vert f_k(x)\vert\geqslant\frac{1}{m}\}) \right) \\
+&amp;\leqslant \sum\limits_{m=1}^\infty \lim\limits_{j\to\infty}m\left(\{x\in E:\sup\limits_{k\geqslant j}\vert f_k(x)\vert\geqslant\frac{1}{m}\}\right) \\
 &amp;= 0 \\
 \end{align}
-\]</span> 即有 <span class="math inline">\(\mathcal{M}(I)=0\)</span>, 故 <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=0\)</span>, a.e. <span class="math inline">\(x\in E\)</span>. <strong>必要性</strong>: 由于 <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=0\)</span>, a.e. <span class="math inline">\(x\in E\)</span>, 故 <span class="math inline">\(m(I)=0\)</span>. 而 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 总有 <span class="math display">\[
+\]</span> 即有 <span class="math inline">\(m^*(I)=0\)</span>, 故 <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=0\)</span>, a.e. <span class="math inline">\(x\in E\)</span>. <strong>必要性</strong>: 由于 <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=0\)</span>, a.e. <span class="math inline">\(x\in E\)</span>, 故 <span class="math inline">\(m(I)=0\)</span>. 而 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, 总有 <span class="math display">\[
 \begin{align}
-\varlimsup\limits_{j\to\infty}m\left( \{ x\in E:\sup\limits_{k\geqslant j}|f_k(x)|\geqslant\epsilon \} \right)
-&amp;\geqslant \varlimsup\limits_{j\to\infty}m\left(\bigcup\limits_{k=j}^\infty  \{ x\in E:|f_k(x)|\geqslant\frac{\epsilon}{2} \} \right) \\
-&amp;= m\left(\bigcap\limits_{j=1}^\infty \bigcup\limits_{k=j}^\infty \{ x\in E:|f_k(x)|\geqslant\frac{\epsilon}{2} \} \right) \\
+\varlimsup\limits_{j\to\infty}m\left(\{x\in E:\sup\limits_{k\geqslant j}\vert f_k(x)\vert\geqslant\epsilon\}\right)
+&amp;\geqslant \varlimsup\limits_{j\to\infty}m\left(\bigcup\limits_{k=j}^\infty \{x\in E:\vert f_k(x)\vert\geqslant\frac{\epsilon}{2}\}\right) \\
+&amp;= m\left(\bigcap\limits_{j=1}^\infty \bigcup\limits_{k=j}^\infty\{x\in E:\vert f_k(x)\vert\geqslant\frac{\epsilon}{2}\}\right) \\
 &amp;\leqslant m(I) \\
 &amp; =0 \\
 \end{align}
-\]</span> <strong>综上</strong>: <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=0,~\text{a.e.}~x\in E\Longleftrightarrow\forall~\epsilon&gt;0,~\lim\limits_{k\to\infty}m( \{ x\in E:\sup\limits_{k\geqslant j} \{ |f_k(x)| \} \geqslant\epsilon \} )=0\)</span>.</p>
+\]</span> <strong>综上</strong>: <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=0,~\text{a.e.}~x\in E\Longleftrightarrow\forall~\epsilon&gt;0,~\lim\limits_{k\to\infty}m(\{x\in E:\sup\limits_{k\geqslant j}\{\vert f_k(x)\vert\}\geqslant\epsilon\})=0\)</span>.</p>
 <h3 id="习题3-第一组-7">习题3 第一组 7</h3>
 <blockquote>
-<p>设 <span class="math inline">\(f(x),f_1(x),f_2(x),\cdots\)</span> 是 <span class="math inline">\([a,b]\)</span> 上几乎处处有限的可测函数, 且有 <span class="math display">\[\lim\limits_{k\to\infty}f_k(x)=f(x),\quad\text{a.e.}~x\in[a,b],\]</span> 试证明 <span class="math inline">\(\exists~E_n\subset[a,b]~(n=1,2,\cdots)\)</span>, s.t. <span class="math inline">\(m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)=0\)</span>, 而 $ { f_k(x) } $ 在每个 <span class="math inline">\(E_n\)</span> 上一致收敛于 <span class="math inline">\(f(x)\)</span>.</p>
+<p>设 <span class="math inline">\(f(x),f_1(x),f_2(x),\cdots\)</span> 是 <span class="math inline">\([a,b]\)</span> 上几乎处处有限的可测函数, 且有 <span class="math display">\[\lim\limits_{k\to\infty}f_k(x)=f(x),\quad\text{a.e.}~x\in[a,b],\]</span> 试证明 <span class="math inline">\(\exists~E_n\subset[a,b]~(n=1,2,\cdots)\)</span>, s.t. <span class="math inline">\(m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)=0\)</span>, 而 <span class="math inline">\(\{f_k(x)\}\)</span> 在每个 <span class="math inline">\(E_n\)</span> 上一致收敛于 <span class="math inline">\(f(x)\)</span>.</p>
 </blockquote>
 <p><strong>证明</strong>: 由Egorov定理, <span class="math inline">\(\forall~n\)</span>, <span class="math inline">\(\exists~E_n\subset[a,b]\)</span>, s.t. <span class="math inline">\(m([a,b]\backslash E_n)\leqslant\frac{1}{n}\)</span>, 且在 <span class="math inline">\(E_n\)</span> 上, <span class="math inline">\(f_k(x)\rightrightarrows f(x)\)</span>. 又有 <span class="math display">\[
 \begin{align}
@@ -546,26 +545,26 @@ m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)
 <blockquote>
 <p>设 <span class="math inline">\(f(x)\)</span> 是 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 上几乎处处大于零的可测函数, 且满足 <span class="math inline">\(\int_Ef(x){\rm d}x=0\)</span>, 试证明 <span class="math inline">\(m(E)=0\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: <strong>反证法</strong> 假设 <span class="math inline">\(m(E)&gt;0\)</span>, 记 $E_n= { xE:f(x)&gt; } $, 并令 <span class="math inline">\(F=\bigcup\limits_{n=1}^\infty E_n\)</span>, 则由 <span class="math inline">\(E=(E\backslash F)\cup F\)</span> 且 <span class="math inline">\(m(E\backslash F)=0\)</span> 可知, <span class="math inline">\(\exists n_0\)</span>, s.t. <span class="math inline">\(m(E_{n_0})&gt;0\)</span>. 于是有 <span class="math inline">\(0=\int_Ef(x){\rm d}x\geqslant\int_{E_{n_0}}f(x){\rm d}x\geqslant\frac{1}{n_0}m(E_{n_0})\)</span>, 得 <span class="math inline">\(m(E_{n_0})=0\)</span>, 矛盾. 于是 <span class="math inline">\(m(E)=0\)</span>.</p>
+<p><strong>证明</strong>: <strong>反证法</strong> 假设 <span class="math inline">\(m(E)&gt;0\)</span>, 记 <span class="math inline">\(E_n=\{x\in E:f(x)&gt;\frac{1}{n}\}\)</span>, 并令 <span class="math inline">\(F=\bigcup\limits_{n=1}^\infty E_n\)</span>, 则由 <span class="math inline">\(E=(E\backslash F)\cup F\)</span> 且 <span class="math inline">\(m(E\backslash F)=0\)</span> 可知, <span class="math inline">\(\exists n_0\)</span>, s.t. <span class="math inline">\(m(E_{n_0})&gt;0\)</span>. 于是有 <span class="math inline">\(0=\int_Ef(x){\rm d}x\geqslant\int_{E_{n_0}}f(x){\rm d}x\geqslant\frac{1}{n_0}m(E_{n_0})\)</span>, 得 <span class="math inline">\(m(E_{n_0})=0\)</span>, 矛盾. 于是 <span class="math inline">\(m(E)=0\)</span>.</p>
 <h3 id="习题4-第一组-4">习题4 第一组 4</h3>
 <blockquote>
 <p>设 <span class="math inline">\(f(x)\)</span> 是 <span class="math inline">\(\mathbf{R}^1\)</span> 上的非负可测函数, 令 <span class="math display">\[F(x)=\int\nolimits_{(-\infty,x]}f(t)dt,\quad x\in\mathbf{R}^1.\]</span> 若 <span class="math inline">\(F\in L(\mathbf{R}^1)\)</span>, 试证明 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}f(x)dx=0\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 由于 <span class="math inline">\(F\in L(\mathbf{R}^1)\)</span>, 故 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N\)</span> s.t. <span class="math inline">\(\int\nolimits_{ \{ x:|x|&gt;N \} }F(x)dx&lt;\epsilon\)</span>. 又由于 <span class="math inline">\(f(x)\geqslant0\)</span>, 故 <span class="math inline">\(F(x)\)</span> 随 <span class="math inline">\(x\)</span> 递增, 且 <span class="math inline">\(\lim\limits_{x\to\infty}F(x)=\int\nolimits_{\mathbf{R}^1}f(x)dx\)</span>. 于是 <span class="math inline">\(\forall~y&gt;N\)</span>, 均有: <span class="math display">\[F(y)=\int\nolimits_{y}^{y+1}F(y)dx\leqslant\int\nolimits_y^{y+1}F(x)dx\leqslant\int\nolimits_{ \{ x:|x|&gt;N \} }F(x)dx&lt;\epsilon\]</span>, 于是 <span class="math inline">\(\lim\limits_{y\to\infty}F(y)=0\)</span>. 即 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}f(x)dx=0\)</span>.</p>
+<p><strong>证明</strong>: 由于 <span class="math inline">\(F\in L(\mathbf{R}^1)\)</span>, 故 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N\)</span> s.t. <span class="math inline">\(\int\nolimits_{\{x:\vert x\vert&gt;N\}}F(x)dx&lt;\epsilon\)</span>. 又由于 <span class="math inline">\(f(x)\geqslant0\)</span>, 故 <span class="math inline">\(F(x)\)</span> 随 <span class="math inline">\(x\)</span> 递增, 且 <span class="math inline">\(\lim\limits_{x\to\infty}F(x)=\int\nolimits_{\mathbf{R}^1}f(x)dx\)</span>. 于是 <span class="math inline">\(\forall~y&gt;N\)</span>, 均有: <span class="math display">\[F(y)=\int\nolimits_{y}^{y+1}F(y)dx\leqslant\int\nolimits_y^{y+1}F(x)dx\leqslant\int\nolimits_{\{x:\vert x\vert&gt;N\}}F(x)dx&lt;\epsilon\]</span>, 于是 <span class="math inline">\(\lim\limits_{y\to\infty}F(y)=0\)</span>. 即 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}f(x)dx=0\)</span>.</p>
 <h3 id="习题4-第一组-5">习题4 第一组 5</h3>
 <blockquote>
 <p>设 <span class="math inline">\(f_k(x)~(k=1,2,\cdots)\)</span> 是 <span class="math inline">\(\mathbf{R}^n\)</span> 上非负可积函数列, 若对于任何一可测集 <span class="math inline">\(E\subset\mathbf{R}^n\)</span>, 总有 <span class="math display">\[\int\nolimits_Ef_k(x)dx\leqslant\int\nolimits_Ef_{k+1}(x)dx,\]</span> 试证明 <span class="math display">\[\lim\limits_{k\to\infty}\int\nolimits_Ef_k(x)dx=\int\nolimits_E \lim\limits_{k\to\infty} f_k(x)dx.\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 取 <span class="math inline">\(E_k= \{ x:f_k(x)&gt;f_{k+1}(x) \} ~(k=1,2,\cdots)\)</span>, 则由条件有 <span class="math inline">\(\int\nolimits_{E_k}(f_k(x)-f_{k+1}(x))dx\leqslant0\)</span>. 又由 <span class="math inline">\(E_k\)</span> 的定义可知 <span class="math inline">\(f_k(x)-f_{k+1}(x)&gt;0\)</span>, 故 <span class="math inline">\(m(E_k)=0\)</span>, <span class="math inline">\(\forall~k\)</span>. 于是 <span class="math inline">\(m\left(\bigcup\limits_{k=1}^\infty E_k \right)=0\)</span>, 故 <span class="math inline">\(f_k(x)\)</span> 在 <span class="math inline">\(E\)</span> 上几乎处处满足Levi定理的使用条件, 故在 <span class="math inline">\(E\)</span> 上由Levi定理有 <span class="math display">\[\lim\limits_{k\to\infty}\int\nolimits_Ef_k(x)dx=\int\nolimits_E \lim\limits_{k\to\infty} f_k(x)dx.\]</span></p>
+<p><strong>证明</strong>: 取 <span class="math inline">\(E_k=\{x:f_k(x)&gt;f_{k+1}(x)\}~(k=1,2,\cdots)\)</span>, 则由条件有 <span class="math inline">\(\int\nolimits_{E_k}(f_k(x)-f_{k+1}(x))dx\leqslant0\)</span>. 又由 <span class="math inline">\(E_k\)</span> 的定义可知 <span class="math inline">\(f_k(x)-f_{k+1}(x)&gt;0\)</span>, 故 <span class="math inline">\(m(E_k)=0\)</span>, <span class="math inline">\(\forall~k\)</span>. 于是 <span class="math inline">\(m\left(\bigcup\limits_{k=1}^\infty E_k \right)=0\)</span>, 故 <span class="math inline">\(f_k(x)\)</span> 在 <span class="math inline">\(E\)</span> 上几乎处处满足Levi定理的使用条件, 故在 <span class="math inline">\(E\)</span> 上由Levi定理有 <span class="math display">\[\lim\limits_{k\to\infty}\int\nolimits_Ef_k(x)dx=\int\nolimits_E \lim\limits_{k\to\infty} f_k(x)dx.\]</span></p>
 <h2 id="年06月07日">2017年06月07日</h2>
 <h3 id="习题4-第一组-7">习题4 第一组 7</h3>
 <blockquote>
 <p>假设有定义在 <span class="math inline">\(\mathbf{R}^n\)</span> 上的函数 <span class="math inline">\(f(x)\)</span>, 如果对于 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~g,h\in L(\mathbf{R}^n)\)</span>, s.t. <span class="math inline">\(g(x)\leqslant f(x)\leqslant h(x)~(x\in\mathbf{R}^n)\)</span>, 并且 <span class="math inline">\(\int\nolimits_{\mathbf{R}^n}[h(x)-g(x)]dx&lt;\epsilon\)</span>, 试证明 <span class="math inline">\(f\in L(\mathbf{R}^n).\)</span></p>
 </blockquote>
-<p><strong>证明</strong>: 由条件, 取可积函数列 <span class="math inline">\(g_k(x),h_k(x)\)</span>, s.t. <span class="math inline">\(g_k(x)\leqslant f(x)\leqslant h_k(x)\)</span> 且 <span class="math inline">\(\int\nolimits_{\mathbf{R}^n}[h_k(x)-g_k(x)]dx&lt;\frac{1}{k}\)</span>. 故 $ { h_k(x)-g_k(x) } $ 为非负可积函数列. 又由于 <span class="math inline">\(\lim\limits_{k\to\infty}\int\nolimits_{\mathbf{R}^n}[h_k(x)-g_k(x)]dx=0\)</span>, 故 <span class="math inline">\(h_k(x)-g_k(x)\)</span> 依测度收敛于0. 故由Riesz定理, 存在子列 $ { h_{k_j}-g_{k_j} } $, s.t. <span class="math inline">\(\lim\limits_{j\to\infty}[h_{k_j}(x)-g_{k_j}(x)]=0\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>. 又 <span class="math inline">\(|f(x)|\leqslant \max \{ |g_k(x)|,|h_k(x)| \} \leqslant|g_k(x)|+|h_k(x)|\)</span>. 故 <span class="math inline">\(|f|\in L(\mathbf{R}^n)\)</span>, 故 <span class="math inline">\(f\in L(\mathbf{R}^n)\)</span>.</p>
+<p><strong>证明</strong>: 由条件, 取可积函数列 <span class="math inline">\(g_k(x),h_k(x)\)</span>, s.t. <span class="math inline">\(g_k(x)\leqslant f(x)\leqslant h_k(x)\)</span> 且 <span class="math inline">\(\int\nolimits_{\mathbf{R}^n}[h_k(x)-g_k(x)]dx&lt;\frac{1}{k}\)</span>. 故 <span class="math inline">\(\{h_k(x)-g_k(x)\}\)</span> 为非负可积函数列. 又由于 <span class="math inline">\(\lim\limits_{k\to\infty}\int\nolimits_{\mathbf{R}^n}[h_k(x)-g_k(x)]dx=0\)</span>, 故 <span class="math inline">\(h_k(x)-g_k(x)\)</span> 依测度收敛于0. 故由Riesz定理, 存在子列 <span class="math inline">\(\{h_{k_j}-g_{k_j}\}\)</span>, s.t. <span class="math inline">\(\lim\limits_{j\to\infty}[h_{k_j}(x)-g_{k_j}(x)]=0\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>. 又 <span class="math inline">\(\vert f(x)\vert\leqslant \max\{\vert g_k(x)\vert,\vert h_k(x)\vert\}\leqslant\vert g_k(x)\vert+\vert h_k(x)\vert\)</span>. 故 <span class="math inline">\(\vert f\vert\in L(\mathbf{R}^n)\)</span>, 故 <span class="math inline">\(f\in L(\mathbf{R}^n)\)</span>.</p>
 <h3 id="习题4-第一组-8">习题4 第一组 8</h3>
 <blockquote>
-<p>设 $ { E_k } $ 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中测度有限的可测集列, 且有 <span class="math display">\[\lim\limits_{k\to\infty}\int\nolimits_{\mathbf{R}^n}|\chi_{E_k}(x)-f(x)|=0,\]</span> 试证明存在可测集 <span class="math inline">\(E\)</span> s.t. <span class="math inline">\(f(x)=\chi_E(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>.</p>
+<p>设 <span class="math inline">\(\{E_k\}\)</span> 是 <span class="math inline">\(\mathbf{R}^n\)</span> 中测度有限的可测集列, 且有 <span class="math display">\[\lim\limits_{k\to\infty}\int\nolimits_{\mathbf{R}^n}\vert\chi_{E_k}(x)-f(x)\vert=0,\]</span> 试证明存在可测集 <span class="math inline">\(E\)</span> s.t. <span class="math inline">\(f(x)=\chi_E(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>.</p>
 </blockquote>
 <p><strong>证明</strong>: 由条件, <span class="math inline">\(\chi_{E_k}(x)\)</span> 依 <span class="math inline">\(L^1\)</span> 范数收敛于 <span class="math inline">\(f(x)\)</span>, 故 <span class="math inline">\(\chi_{E_k}(x)\)</span> 依测度收敛于 <span class="math inline">\(f(x)\)</span>. 由Riesz定理, 存在其几乎处处收敛于 <span class="math inline">\(f(x)\)</span> 的子列 <span class="math inline">\(\chi_{E_{k_i}}(x)\)</span>. 令 <span class="math inline">\(E_{k_i}\to E\)</span>, 则应有 <span class="math inline">\(f(x)=\chi_E(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>.</p>
 <h2 id="年06月20日">2017年06月20日</h2>
@@ -573,19 +572,19 @@ m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)
 <blockquote>
 <p>设 <span class="math inline">\(f\in L(\mathbf{R}^1),p&gt;0\)</span>, 试证明 <span class="math display">\[\lim\limits_{n\to\infty}n^{-p}f(nx)=0,\quad\text{a.e.}~x\in\mathbf{R}^1.\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 考虑级数 <span class="math inline">\(\sum\limits_{n=1}^\infty|n^{-p}f(nx)|\)</span>, 则 <span class="math inline">\(n^{-p}f(nx)\)</span> 为非负可测函数, 即 <span class="math display">\[
+<p><strong>证明</strong>: 考虑级数 <span class="math inline">\(\sum\limits_{n=1}^\infty\vert n^{-p}f(nx)\vert\)</span>, 则 <span class="math inline">\(n^{-p}f(nx)\)</span> 为非负可测函数, 即 <span class="math display">\[
 \begin{align}
-\int\nolimits_{\mathbf{R}^1}\left(\sum\limits_{n=1}^\infty|n^{-p}f(nx)|\right)dx
-&amp;= \sum\limits_{n=1}^\infty\int\nolimits_{\mathbf{R}^1}|n^{-p}f(nx)|dx \\
-&amp;= \sum\limits_{n=1}^\infty\int\nolimits_{\mathbf{R}^1}|n^{-p-1}f(nx)|d(nx) \\
-&amp;= \sum\limits_{k=1}^\infty\frac{1}{n^{p+1}}\cdot\int\nolimits_{\mathbf{R}^1}|f(x)|dx \\
+\int\nolimits_{\mathbf{R}^1}\left(\sum\limits_{n=1}^\infty\vert n^{-p}f(nx)\vert\right)dx
+&amp;= \sum\limits_{n=1}^\infty\int\nolimits_{\mathbf{R}^1}\vert n^{-p}f(nx)\vert dx \\
+&amp;= \sum\limits_{n=1}^\infty\int\nolimits_{\mathbf{R}^1}\vert n^{-p-1}f(nx)\vert d(nx) \\
+&amp;= \sum\limits_{k=1}^\infty\frac{1}{n^{p+1}}\cdot\int\nolimits_{\mathbf{R}^1}\vert f(x)\vert dx \\
 \end{align}
-\]</span> 由于 <span class="math inline">\(1+p&gt;1\)</span>, 故 <span class="math inline">\(\sum\limits_{k=1}^\infty\frac{1}{n^{p+1}}\)</span> 收敛, 又由于 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}|f(x)|dx\)</span> 有限, 故 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}\left(\sum\limits_{n=1}^\infty|n^{-p}f(nx)|\right)dx\)</span> 有限, 故 <span class="math inline">\(\sum\limits_{n=1}^\infty|n^{-p}f(nx)|\)</span> 有限, 即有 <span class="math inline">\(\lim\limits_{n\to\infty}n^{-p}f(nx)=0\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^1\)</span>.</p>
+\]</span> 由于 <span class="math inline">\(1+p&gt;1\)</span>, 故 <span class="math inline">\(\sum\limits_{k=1}^\infty\frac{1}{n^{p+1}}\)</span> 收敛, 又由于 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}\vert f(x)\vert dx\)</span> 有限, 故 <span class="math inline">\(\int\nolimits_{\mathbf{R}^1}\left(\sum\limits_{n=1}^\infty\vert n^{-p}f(nx)\vert\right)dx\)</span> 有限, 故 <span class="math inline">\(\sum\limits_{n=1}^\infty\vert n^{-p}f(nx)\vert\)</span> 有限, 即有 <span class="math inline">\(\lim\limits_{n\to\infty}n^{-p}f(nx)=0\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^1\)</span>.</p>
 <h3 id="习题4-第一组-21">习题4 第一组 21</h3>
 <blockquote>
-<p>(依测度收敛的Fatou引理) 设 $ { f_k(X) } $ 是 <span class="math inline">\(E\)</span> 上依测度收敛于 <span class="math inline">\(f(x)\)</span> 的非负可测函数列, 试证明 <span class="math display">\[\int\nolimits_E f(x)dx\leqslant \varliminf\limits_{k\to\infty}\int\nolimits_E f_k(x)dx.\]</span></p>
+<p><strong>依测度收敛的Fatou引理</strong> 设 <span class="math inline">\(\{f_k(X)\}\)</span> 是 <span class="math inline">\(E\)</span> 上依测度收敛于 <span class="math inline">\(f(x)\)</span> 的非负可测函数列, 试证明 <span class="math display">\[\int\nolimits_E f(x)dx\leqslant \varliminf\limits_{k\to\infty}\int\nolimits_E f_k(x)dx.\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 由Riesz定理, 存在子列 $ { f_{k_i}(x) } $, s.t. <span class="math inline">\(\lim\limits_{i\to\infty}f_{k_i}(x)=f(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>. 故由Fatou引理, 有: <span class="math display">\[
+<p><strong>证明</strong>: 由Riesz定理, 存在子列 <span class="math inline">\(\{f_{k_i}(x)\}\)</span>, s.t. <span class="math inline">\(\lim\limits_{i\to\infty}f_{k_i}(x)=f(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>. 故由Fatou引理, 有: <span class="math display">\[
 \begin{align}
 \int\nolimits_Ef(x)dx 
 &amp;= \int\nolimits_E \lim\limits_{i\to\infty}f_{k_i}(x)dx \\
@@ -598,7 +597,7 @@ m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)
 <blockquote>
 <p>设 <span class="math inline">\(f\in L(\mathbf{R}^n)\)</span>, <span class="math inline">\(f_k\in L(\mathbf{R}^n)~(k=1,2,\cdots)\)</span>, 且对任一可测集 <span class="math inline">\(E\subset\mathbf{R}^n\)</span>, 均有 <span class="math display">\[\int\nolimits_Ef_k(x)dx\leqslant \int\nolimits_Ef_{k+1}(x)dx~(k=1,2,\cdots),\]</span> <span class="math display">\[\lim\limits_{k\to\infty}\int\nolimits_Ef_k(x)dx=\int\nolimits_Ef(x)dx,\]</span> 试证明 <span class="math inline">\(\lim\limits_{k\to\infty}f_k(x)=f(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>.</p>
 </blockquote>
-<p><strong>证明</strong>: 易由 <span class="math inline">\(\int\nolimits_Ef_k(x)dx\leqslant \int\nolimits_Ef_{k+1}(x)dx\)</span> 知 <span class="math inline">\(f_k(x)\leqslant f_{k+1}(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>. 于是 $ { f_k(x)-f_1(x) { $ 为非负渐升列, 由Levi定理, 有 <span class="math display">\[
+<p><strong>证明</strong>: 易由 <span class="math inline">\(\int\nolimits_Ef_k(x)dx\leqslant \int\nolimits_Ef_{k+1}(x)dx\)</span> 知 <span class="math inline">\(f_k(x)\leqslant f_{k+1}(x)\)</span>, a.e. <span class="math inline">\(x\in\mathbf{R}^n\)</span>. 于是 <span class="math inline">\(\{f_k(x)-f_1(x)\{\)</span> 为非负渐升列, 由Levi定理, 有 <span class="math display">\[
 \begin{align}
 \int\nolimits_Ef(x)dx-\int\nolimits_Ef_1(x)dx
 &amp;= \lim\limits_{k\to\infty}\int\nolimits_Ef_k(x)dx-\int\nolimits_Ef_1(x)dx \\
@@ -610,9 +609,19 @@ m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)
 <h2 id="年06月21日">2017年06月21日</h2>
 <h3 id="习题4-第一组-30">习题4 第一组 30</h3>
 <blockquote>
-<p>计算下列积分: (1) <span class="math inline">\(\int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{dxdy}{(1+y)(1+x^2Y)}\)</span>;　　　(2)<span class="math inline">\(\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx\)</span></p>
+<p>计算下列积分: 1. <span class="math inline">\(\int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{dxdy}{(1+y)(1+x^2Y)}\)</span>; 2. <span class="math inline">\(\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx\)</span></p>
 </blockquote>
-<p><strong>解答</strong>: (1) 由Tonelli定理, <span class="math inline">\(\int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{dxdy}{(1+y)(1+x^2y)}=\int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{\sqrt{y}dx}{1+x^2y}\frac{dy}{\sqrt{y}(1+y)}=2\int\nolimits_{x&gt;0}\frac{dx}{1+x^2}\int\nolimits_{y&gt;0}\frac{dy}{1+y^2}=\frac{\pi^2}{2}\)</span>. (2) <span class="math inline">\(\frac{\pi^2}{2}=\int\nolimits_{x&gt;0}\frac{1}{x^2-1}\int\nolimits_{y&gt;0}\left(\frac{x^2}{1+x^2y}-\frac{1}{1+y}\right)dxdy=\int\nolimits_{x&gt;0}\frac{1}{x^2-1}\left(\ln \frac{1+x^2y}{1+y}|_0^\infty\right)dx=2\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx\)</span>, 故 <span class="math inline">\(\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx=\frac{\pi^2}{2}\)</span>.</p>
+<p><strong>解答</strong>:</p>
+<ol type="1">
+<li>由Tonelli定理, <span class="math display">\[\begin{align}
+\int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{dxdy}{(1+y)(1+x^2y)} &amp;= \int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{\sqrt{y}dx}{1+x^2y}\frac{dy}{\sqrt{y}(1+y)} \\
+&amp;= 2\int\nolimits_{x&gt;0}\frac{dx}{1+x^2}\int\nolimits_{y&gt;0}\frac{dy}{1+y^2} \\
+&amp;= \frac{\pi^2}{2}.\end{align}\]</span></li>
+<li><span class="math display">\[\begin{align}
+\frac{\pi^2}{2} &amp;= \int\nolimits_{x&gt;0}\frac{1}{x^2-1}\int\nolimits_{y&gt;0}\left(\frac{x^2}{1+x^2y}-\frac{1}{1+y}\right)dxdy \\
+&amp;= \int\nolimits_{x&gt;0}\frac{1}{x^2-1}\left(\ln \frac{1+x^2y}{1+y}\vert_0^\infty\right)dx \\
+&amp;= 2\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx.\end{align}\]</span> 故 <span class="math inline">\(\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx=\frac{\pi^2}{4}\)</span>.</li>
+</ol>
 
       
     </div>
@@ -624,7 +633,7 @@ m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)
         <p><span>本文标题:</span><a href="/2017/03/09/一些实变函数题目/">一些实变函数题目</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-03-09, 23:43:47</p>
-        <p><span>最后更新:</span>2018-03-16, 15:34:24</p>
+        <p><span>最后更新:</span>2018-03-16, 23:20:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/09/一些实变函数题目/" title="一些实变函数题目">http://lizhechen.com/2017/03/09/一些实变函数题目/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/03/09/一些实变函数题目/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

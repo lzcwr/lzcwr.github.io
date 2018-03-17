@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="概率论中一些引起我思考的题目.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.686Z">
+<meta property="og:updated_time" content="2018-03-16T16:04:42.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些概率论题目">
 <meta name="twitter:description" content="概率论中一些引起我思考的题目.">
@@ -331,7 +331,7 @@
 <p>两种情况不会同时发生，并且概率和为 <span class="math inline">\(1\)</span>，又由对称性可知两种情况出现的概率相同，故都为 <span class="math inline">\(\frac{1}{2}\)</span>.</p>
 <h3 id="师大概率论-练习-1.2.9">师大概率论 练习 1.2.9</h3>
 <blockquote>
-<p>在单位圆周上任取三点 <span class="math inline">\(A,B,C\)</span>，试求事件 $E=&amp;#123; ABC &amp;#125; $ 的概率.</p>
+<p>在单位圆周上任取三点 <span class="math inline">\(A,B,C\)</span>，试求事件 <span class="math inline">\(E=\{\triangle ABC\text{成锐角三角形}\}\)</span> 的概率.</p>
 </blockquote>
 <p><strong>解答</strong>：设 <span class="math inline">\(\triangle ABC\)</span> 的三个内角分别为 <span class="math inline">\(x,y,z\)</span>，则能构成三角形的条件为：</p>
 <p><span class="math display">\[x+y+z=\pi\qquad x,y,z&gt;0\]</span></p>
@@ -366,13 +366,13 @@
 <p><span class="math display">\[\mathbb{P}(\hat{A}_{1}\hat{A}_{2}\cdots\hat{A}_{n-1}A_k \overline{A_{k+1}})=\mathbb{P}(\hat{A}_{1})\mathbb{P}(\hat{A}_{2})\cdots\mathbb{P}(\hat{A}_{n-1})\mathbb{P}(A_k)\mathbb{P}(\overline{A_{k+1}}).\]</span></p>
 <p><span class="math display">\[\mathbb{P}(\hat{A}_{1}\hat{A}_{2}\cdots\hat{A}_{n-1}\overline{A_k} \overline{A_{k+1}})=\mathbb{P}(\hat{A}_{1})\mathbb{P}(\hat{A}_{2})\cdots\mathbb{P}(\hat{A}_{n-1})\mathbb{P}(\overline{A_k})\mathbb{P}(\overline{A_{k+1}}).\]</span></p>
 <p>即有 <span class="math inline">\(\mathbb{P}(\bigcap\limits_{i=1}^{k+1}\hat{A}_{i})=\prod\limits_{i=1}^{k+1}\mathbb{P}(\hat{A}_{i})\)</span>. 必要性得证.</p>
-<p><strong>充分性</strong>：对于 <span class="math inline">\(\forall~1&lt;s&lt;k+1\)</span>，<span class="math inline">\(\forall~1\leq i_1&lt;i_2&lt;\cdots&lt;i_s\leq k+1\)</span>，由条件，对于 <span class="math inline">\(\forall~j\)</span> s.t. <span class="math inline">\(1\leq j\leq k+1\)</span> 且 $j&amp;#123; i_1,i_2,,i_s &amp;#125; $，总有：</p>
+<p><strong>充分性</strong>：对于 <span class="math inline">\(\forall~1&lt;s&lt;k+1\)</span>，<span class="math inline">\(\forall~1\leq i_1&lt;i_2&lt;\cdots&lt;i_s\leq k+1\)</span>，由条件，对于 <span class="math inline">\(\forall~j\)</span> s.t. <span class="math inline">\(1\leq j\leq k+1\)</span> 且 <span class="math inline">\(j\notin\{i_1,i_2,\cdots,i_s\}\)</span>，总有：</p>
 <p><span class="math display">\[\mathbb{P}(\hat{A}_{1}\cdots\hat{A}_{j-1}A_j\hat{A}_{j+1}\cdots\hat{A}_{k+1})=\mathbb{P}(\hat{A}_{1})\cdots\mathbb{P}(\hat{A}_{j-1})\mathbb{P}(A_j)\mathbb{P}(\hat{A}_{j+1})\cdots\mathbb{P}(\hat{A}_{k+1})\]</span></p>
 <p>且</p>
 <p><span class="math display">\[\mathbb{P}(\hat{A}_{1}\cdots\hat{A}_{j-1}\overline{A_j}\hat{A}_{j+1}\cdots\hat{A}_{k+1})=\mathbb{P}(\hat{A}_{1})\cdots\mathbb{P}(\hat{A}_{j-1})\mathbb{P}(\overline{A_j})\mathbb{P}(\hat{A}_{j+1})\cdots\mathbb{P}(\hat{A}_{k+1})\]</span></p>
 <p>由于 <span class="math inline">\(\mathbb{P}(A_j)+\mathbb{P}(\overline{A_j})=1\)</span>，将以上两式相加即得：</p>
 <p><span class="math display">\[\mathbb{P}(\hat{A}_{1}\cdots\hat{A}_{j-1}\hat{A}_{j+1}\cdots\hat{A}_{k+1})=\mathbb{P}(\hat{A}_{1})\cdots\mathbb{P}(\hat{A}_{j-1})\mathbb{P}(\hat{A}_{j+1})\cdots\mathbb{P}(\hat{A}_{k+1})\]</span></p>
-<p>式中共有 <span class="math inline">\(k\)</span> 个事件，故由假设可知这 <span class="math inline">\(k\)</span> 个事件相互独立. 又由于 $&amp;#123; <em>{i_1},,</em>{i_s} &amp;#125; &amp;#123; <em>{1},,</em>{k+1} &amp;#125; $，故有 <span class="math inline">\(\mathbb{P}(\bigcap\limits_{j=1}^{s}A_{i_j})=\prod\limits_{j=1}^{s}\mathbb{P}(A_{i_j})\)</span>，<span class="math inline">\(\forall~1\leq i_1&lt;\cdots&lt;i_s\leq k+1\)</span>. 充分性得证.</p>
+<p>式中共有 <span class="math inline">\(k\)</span> 个事件，故由假设可知这 <span class="math inline">\(k\)</span> 个事件相互独立. 又由于 <span class="math inline">\(\{\hat{A}_{i_1},\cdots,\hat{A}_{i_s}\}\subset\{\hat{A}_{1},\cdots,\hat{A}_{k+1}\}\)</span>，故有 <span class="math inline">\(\mathbb{P}(\bigcap\limits_{j=1}^{s}A_{i_j})=\prod\limits_{j=1}^{s}\mathbb{P}(A_{i_j})\)</span>，<span class="math inline">\(\forall~1\leq i_1&lt;\cdots&lt;i_s\leq k+1\)</span>. 充分性得证.</p>
 <p><strong>综上所述</strong>，原命题成立.</p>
 
       
@@ -385,7 +385,7 @@
         <p><span>本文标题:</span><a href="/2017/03/10/一些概率论题目/">一些概率论题目</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-03-10, 15:57:25</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-17, 00:04:42</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/10/一些概率论题目/" title="一些概率论题目">http://lizhechen.com/2017/03/10/一些概率论题目/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/03/10/一些概率论题目/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

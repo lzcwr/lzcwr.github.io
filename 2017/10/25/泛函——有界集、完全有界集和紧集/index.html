@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="有界集, 完全有界集, 紧集的联系和区别.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.700Z">
+<meta property="og:updated_time" content="2018-03-16T15:43:00.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛函——有界集、完全有界集和紧集">
 <meta name="twitter:description" content="有界集, 完全有界集, 紧集的联系和区别.">
@@ -311,25 +311,21 @@
 <p><strong>完全有界</strong>: 集合 <span class="math inline">\(M\)</span> 称为完全有界的, 如果 <span class="math inline">\(\forall\epsilon\)</span>, 存在 <span class="math inline">\(M\)</span> 的一个有穷 <span class="math inline">\(\epsilon\)</span> 网.</p>
 <p><strong>紧集</strong>: 在拓扑空间 <span class="math inline">\(\mathscr{X}\)</span> 中, 集合 <span class="math inline">\(M\)</span> 称为紧集, 如果 <span class="math inline">\(\mathscr{X}\)</span> 中每个覆盖 <span class="math inline">\(M\)</span> 的开集族中都有有限个开集覆盖 <span class="math inline">\(M\)</span>.</p>
 <h2 id="有界与完全有界">有界与完全有界</h2>
-**
 <div class="text" style=" text-align:center;">
-有界集与完全有界集本质上<font color="red">只差维数</font>.
+<strong>有界集与完全有界集本质上<font color="red">只差维数</font></strong>.
 </div>
-<p>**</p>
 <blockquote>
 <p><strong>命题 1</strong> 在度量空间 <span class="math inline">\((\mathscr{X},\rho)\)</span> 中, 完全有界集的子集也是完全有界的.</p>
 </blockquote>
-<p><strong>证明</strong>: 　　设 <span class="math inline">\(M\)</span> 为 <span class="math inline">\(\mathscr{X}\)</span> 中的完全有界集, <span class="math inline">\(S\subset M\)</span>, 下证 <span class="math inline">\(S\)</span> 完全有界: 　　<span class="math inline">\(\forall\epsilon&gt;0\)</span>, 由 <span class="math inline">\(M\)</span> 的完全有界性可知, <span class="math inline">\(\exists N_0\in\mathbb{N}\)</span> 及 $ &amp;#123; x_n &amp;#125; _{n=1}^{N_0}M$, s.t. <span class="math inline">\(S\subset M\subset\bigcup\limits_{N=1}^{N_0}B(x_n,\frac{\epsilon}{2})\)</span>. 　　令 $I_s= &amp;#123; i:B(x_i,)S&amp;#125; $, 显然 <span class="math inline">\(I_s\)</span> 为有限集. 进一步, 对 <span class="math inline">\(\forall i\in I_s\)</span>, 取 <span class="math inline">\(y_i\in S\cap B(x_i,\frac{\epsilon}{2})\)</span>, 易有 <span class="math inline">\(B(x_i,\frac{\epsilon}{2})\subset B(y_i,\epsilon)\)</span>. 　　由此及 <span class="math inline">\(I_s\)</span> 的定义可知 <span class="math inline">\(S\subset\bigcup\limits_{i\in I_s}B(x_i,\frac{\epsilon}{2})\subset\bigcup\limits_{i\in I_s}B(y_i,\epsilon)\)</span>, 即 <span class="math inline">\(S\)</span> 完全有界.</p>
+<p><strong>证明</strong>: 　　设 <span class="math inline">\(M\)</span> 为 <span class="math inline">\(\mathscr{X}\)</span> 中的完全有界集, <span class="math inline">\(S\subset M\)</span>, 下证 <span class="math inline">\(S\)</span> 完全有界: 　　<span class="math inline">\(\forall\epsilon&gt;0\)</span>, 由 <span class="math inline">\(M\)</span> 的完全有界性可知, <span class="math inline">\(\exists N_0\in\mathbb{N}\)</span> 及 <span class="math inline">\(\{x_n\}_{n=1}^{N_0}\subset M\)</span>, s.t. <span class="math inline">\(S\subset M\subset\bigcup\limits_{N=1}^{N_0}B(x_n,\frac{\epsilon}{2})\)</span>. 　　令 <span class="math inline">\(I_s=\{i:B(x_i,\frac{\epsilon}{2})\cap S\neq\varnothing\}\)</span>, 显然 <span class="math inline">\(I_s\)</span> 为有限集. 进一步, 对 <span class="math inline">\(\forall i\in I_s\)</span>, 取 <span class="math inline">\(y_i\in S\cap B(x_i,\frac{\epsilon}{2})\)</span>, 易有 <span class="math inline">\(B(x_i,\frac{\epsilon}{2})\subset B(y_i,\epsilon)\)</span>. 　　由此及 <span class="math inline">\(I_s\)</span> 的定义可知 <span class="math inline">\(S\subset\bigcup\limits_{i\in I_s}B(x_i,\frac{\epsilon}{2})\subset\bigcup\limits_{i\in I_s}B(y_i,\epsilon)\)</span>, 即 <span class="math inline">\(S\)</span> 完全有界.</p>
 <blockquote>
 <p><strong>命题 2</strong> 在有限维 <span class="math inline">\(B^*\)</span> 空间中, 有界集 <span class="math inline">\(\Leftrightarrow\)</span> 完全有界集.</p>
 </blockquote>
 <p><strong>证明</strong>: 　　“<span class="math inline">\(\Leftarrow\)</span>” 是显然的, 以下证明 “<span class="math inline">\(\Rightarrow\)</span>”. 　　由于 <span class="math inline">\(\mathscr{X}\)</span> 为有限维空间, <span class="math inline">\(M\)</span> 有界, 以及<span title="B*空间是有限维的当且仅当其任意有界集列紧."> 课本P37, Col1.4.30 </span>可知 <span class="math inline">\(M\)</span> 列紧. 再由 <span title="Hausdorff: 度量空间中的列紧集一定是完全有界集.">Th1.3.7</span> 知 <span class="math inline">\(M\)</span> 完全有界. 　　综上, 有界 <span class="math inline">\(\Leftrightarrow\)</span> 完全有界.</p>
 <h2 id="紧集与完全有界闭集">紧集与完全有界闭集</h2>
-**
 <div class="text" style=" text-align:center;">
-紧集与完全有界闭集<font color="red">只差完备性</font>.
+<strong>紧集与完全有界闭集<font color="red">只差完备性</font></strong>.
 </div>
-<p>**</p>
 <blockquote>
 <p><strong>命题 3</strong> 在 <span class="math inline">\(B^*\)</span> 空间中, 紧集一定是完全有界闭集, 反之不一定成立.</p>
 </blockquote>
@@ -343,7 +339,7 @@
 　　1, &amp;t\in [a,\frac{a+b}{2});\\
 　　0, &amp;t=\frac{a+b}{2};\\
 　　-1, &amp;t\in (\frac{a+b}{2},b].
-　　\end{cases}\]</span> 　　记 <span class="math inline">\(\mathscr{X}=(C[a,b],\Vert\cdot\Vert_{L^1})\)</span>, 并记 $ &amp;#123; x_n &amp;#125; <em>{n}C[a,b]$, 如下构造: 　　易证 $ &amp;#123; x_n &amp;#125; </em>{n}$ 依 <span class="math inline">\(\Vert\cdot\Vert_{L^1}\)</span> 有极限 <span class="math inline">\(x\)</span>, 且 <span class="math inline">\(x\notin C[a,b]\)</span>. 考虑到 <span class="math inline">\(x\in L^1[a,b]\)</span>, 故 $ &amp;#123; x_n &amp;#125; <em>{n}$ 为 <span class="math inline">\(L^1[a,b]\)</span> 中的列紧集, 从而由 <span title="Hausdorff: 度量空间中的列紧集一定是完全有界集.">Th1.3.7</span>, $ &amp;#123; x_n &amp;#125; </em>{n}$ 为 <span class="math inline">\(L^1[a,b]\)</span> 中的完全有界集. 　　故 <span class="math inline">\(\forall\epsilon&gt;0\)</span>, <span class="math inline">\(\exists N\in\mathbb{N}\)</span> 以及 $ &amp;#123; f_k &amp;#125; <em>{k=1}<sup>NL</sup>1[a,b]$, s.t. $ &amp;#123; x_n &amp;#125; </em>{n}<em>{k=1}^NB(f_k,)$. 不妨设 <span class="math inline">\(B(f_k,\frac{\epsilon}{2})\cap \&amp;#123; x_n \&amp;#125; _{n\in\mathbb{N}}\neq\varnothing\)</span>(否则去掉 <span class="math inline">\(B(f_k,\frac{\epsilon}{2})\)</span> 即可). 对 $k&amp;#123; 1,2,,N &amp;#125; $, 取 <span class="math inline">\(g_k\in \&amp;#123; x_n \&amp;#125; _{n\in\mathbb{N}}\cap B(f_k,\frac{\epsilon}{2})\)</span>, 则 $ &amp;#123; x_n &amp;#125; </em>{n}<em>{k=1}<sup>NB(f_k,)<em>{k=1}^NB(g_k,)$. 从而 $ &amp;#123; g_k &amp;#125; </em>{k=1}</sup>N$ 为 $ &amp;#123; x_n &amp;#125; </em>{n}$ 的有穷 <span class="math inline">\(\epsilon\)</span> 网. 故 $ &amp;#123; x_n &amp;#125; <em>{n}$ 为 <span class="math inline">\(\mathscr{X}\)</span> 的完全有界集. 　　又由于 $ &amp;#123; x_n &amp;#125; </em>{n}$ 在 <span class="math inline">\(\mathscr{X}\)</span> 中闭, 故 $ &amp;#123; x_n &amp;#125; _{n}$ 为 <span class="math inline">\(\mathscr{X}\)</span> 中的完全有界集, 但不紧.</p>
+　　\end{cases}\]</span> 　　记 <span class="math inline">\(\mathscr{X}=(C[a,b],\Vert\cdot\Vert_{L^1})\)</span>, 并记 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\subset C[a,b]\)</span>, 如下构造: 　　易证 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 依 <span class="math inline">\(\Vert\cdot\Vert_{L^1}\)</span> 有极限 <span class="math inline">\(x\)</span>, 且 <span class="math inline">\(x\notin C[a,b]\)</span>. 考虑到 <span class="math inline">\(x\in L^1[a,b]\)</span>, 故 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 为 <span class="math inline">\(L^1[a,b]\)</span> 中的列紧集, 从而由 <span title="Hausdorff: 度量空间中的列紧集一定是完全有界集.">Th1.3.7</span>, <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 为 <span class="math inline">\(L^1[a,b]\)</span> 中的完全有界集. 　　故 <span class="math inline">\(\forall\epsilon&gt;0\)</span>, <span class="math inline">\(\exists N\in\mathbb{N}\)</span> 以及 <span class="math inline">\(\{f_k\}_{k=1}^N\subset L^1[a,b]\)</span>, s.t. <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\subset\bigcup\limits_{k=1}^NB(f_k,\frac{\epsilon}{2})\)</span>. 不妨设 <span class="math inline">\(B(f_k,\frac{\epsilon}{2})\cap\{x_n\}_{n\in\mathbb{N}}\neq\varnothing\)</span>(否则去掉 <span class="math inline">\(B(f_k,\frac{\epsilon}{2})\)</span> 即可). 对 <span class="math inline">\(\forall k\in\{1,2,\cdots,N\}\)</span>, 取 <span class="math inline">\(g_k\in\{x_n\}_{n\in\mathbb{N}}\cap B(f_k,\frac{\epsilon}{2})\)</span>, 则 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\subset\bigcup\limits_{k=1}^NB(f_k,\frac{\epsilon}{2})\subset\bigcup\limits_{k=1}^NB(g_k,\epsilon)\)</span>. 从而 <span class="math inline">\(\{g_k\}_{k=1}^N\)</span> 为 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 的有穷 <span class="math inline">\(\epsilon\)</span> 网. 故 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 为 <span class="math inline">\(\mathscr{X}\)</span> 的完全有界集. 　　又由于 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 在 <span class="math inline">\(\mathscr{X}\)</span> 中闭, 故 <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> 为 <span class="math inline">\(\mathscr{X}\)</span> 中的完全有界集, 但不紧.</p>
 <p><strong>但在完备空间: Banach空间中有更强的结论.</strong></p>
 <blockquote>
 <p><strong>命题 3</strong> 在Banach空间中, 紧集 <span class="math inline">\(\Leftrightarrow\)</span> 完全有界集.</p>
@@ -360,7 +356,7 @@
         <p><span>本文标题:</span><a href="/2017/10/25/泛函——有界集、完全有界集和紧集/">泛函——有界集、完全有界集和紧集</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-10-25, 22:40:37</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 23:43:00</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/25/泛函——有界集、完全有界集和紧集/" title="泛函——有界集、完全有界集和紧集">http://lizhechen.com/2017/10/25/泛函——有界集、完全有界集和紧集/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/10/25/泛函——有界集、完全有界集和紧集/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

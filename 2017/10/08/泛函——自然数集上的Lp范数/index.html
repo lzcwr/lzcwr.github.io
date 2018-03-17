@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="自然数集上的Lp范数与函数空间上的Lp范数.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.701Z">
+<meta property="og:updated_time" content="2018-03-16T15:43:50.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛函——自然数集上的Lp范数">
 <meta name="twitter:description" content="自然数集上的Lp范数与函数空间上的Lp范数.">
@@ -311,13 +311,13 @@
 <p>在 <span class="math inline">\(L^p(\Omega,\mu)\)</span> 中几乎处处相等的函数视为同一个函数后, <span class="math inline">\(L^p(\Omega,\mu)\)</span> 仍为线性空间. 定义 <span class="math display">\[\Vert u\Vert=\left(\int\nolimits_\Omega \vert u(x)^p\vert {\rm d}\mu\right)^\frac{1}{p}\]</span> 则 <span class="math inline">\(\Vert\cdot\Vert\)</span> 为一个范数. 事实上 <span class="math inline">\(L^p(\Omega,\mu)\)</span> 还是一个Banach空间.</p>
 <h2 id="mathbbn-上的-lp-范数"><span class="math inline">\(\mathbb{N}\)</span> 上的 <span class="math inline">\(L^p\)</span> 范数</h2>
 <p>以上的空间在 <span class="math inline">\(\mathbb{N}\)</span> 上的特殊情形如下:</p>
-<p><span class="math inline">\(\Omega=\mathbb{N}, \mu( \&amp;#123; n \&amp;#125; )=1~(\forall n\in\mathbb{N})\)</span>, 此时 <span class="math inline">\(L^p(\Omega,\mu)\)</span> 由满足 <span class="math inline">\(\sum\limits_{n=1}^\infty\vert u_n\vert^p&lt;\infty\)</span> 的所有序列组成, 记为 <span class="math inline">\(l^p\)</span>.</p>
+<p><span class="math inline">\(\Omega=\mathbb{N}, \mu(\{n\})=1~(\forall n\in\mathbb{N})\)</span>, 此时 <span class="math inline">\(L^p(\Omega,\mu)\)</span> 由满足 <span class="math inline">\(\sum\limits_{n=1}^\infty\vert u_n\vert^p&lt;\infty\)</span> 的所有序列组成, 记为 <span class="math inline">\(l^p\)</span>.</p>
 <p>此时其范数为 <span class="math display">\[\Vert u\Vert=\left(\sum\limits_{n=1}^\infty \vert u_n\vert^p\right)^\frac{1}{p}.\]</span></p>
-<p>对于 <span class="math inline">\(\forall N\in\mathbb{N}\)</span>, 记 <span class="math inline">\(f_N(x)=\sum\limits_{n=1}^Nu_n\chi_{ \&amp;#123; n \&amp;#125; }\)</span>, 令 <span class="math inline">\(f(x)=\sum\limits_{n=1}^\infty u_n\chi_{ \&amp;#123; n \&amp;#125; }\)</span>, <span class="math inline">\(x\in\mathbb{N}\)</span>.</p>
+<p>对于 <span class="math inline">\(\forall N\in\mathbb{N}\)</span>, 记 <span class="math inline">\(f_N(x)=\sum\limits_{n=1}^Nu_n\chi_{\{n\}}\)</span>, 令 <span class="math inline">\(f(x)=\sum\limits_{n=1}^\infty u_n\chi_{\{n\}}\)</span>, <span class="math inline">\(x\in\mathbb{N}\)</span>.</p>
 <p>则有 <span class="math display">\[
 \begin{align}
-\int\nolimits_\mathbb{N}\vert f_N(x)\vert^p{\rm d}\mu(x) &amp;= \int\nolimits_\mathbb{N}\sum\limits_{n=1}^Nu_n\chi_{ \&amp;#123; n \&amp;#125; }{\rm d}\mu(x) \\
-&amp;= \sum\limits_{n=1}^N \vert u_n\vert^p\cdot\int\nolimits_\mathbb{N}\chi_{ \&amp;#123; n \&amp;#125; }{\rm d}\mu(x) \\
+\int\nolimits_\mathbb{N}\vert f_N(x)\vert^p{\rm d}\mu(x) &amp;= \int\nolimits_\mathbb{N}\sum\limits_{n=1}^Nu_n\chi_{\{n\}}{\rm d}\mu(x) \\
+&amp;= \sum\limits_{n=1}^N \vert u_n\vert^p\cdot\int\nolimits_\mathbb{N}\chi_{\{n\}}{\rm d}\mu(x) \\
 &amp;= \sum\limits_{n=1}^N \vert u_n\vert^p
 \end{align}
 \]</span></p>
@@ -340,7 +340,7 @@
         <p><span>本文标题:</span><a href="/2017/10/08/泛函——自然数集上的Lp范数/">泛函——自然数集上的Lp范数</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-10-08, 22:12:27</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 23:43:50</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/08/泛函——自然数集上的Lp范数/" title="泛函——自然数集上的Lp范数">http://lizhechen.com/2017/10/08/泛函——自然数集上的Lp范数/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/10/08/泛函——自然数集上的Lp范数/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

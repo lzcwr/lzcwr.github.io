@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="拓扑期末复习.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.694Z">
+<meta property="og:updated_time" content="2018-03-16T15:29:39.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拓扑学复习重点">
 <meta name="twitter:description" content="拓扑期末复习.">
@@ -315,10 +315,10 @@
 </ul>
 <h4 id="几个拓扑的例子">几个拓扑的例子</h4>
 <ol type="1">
-<li><p><strong>平凡拓扑</strong>: $ &amp;#123; , X &amp;#125; $(最粗拓扑);</p></li>
-<li><p><strong>离散拓扑</strong>: $ &amp;#123; U: UX &amp;#125; $(最细拓扑);</p></li>
-<li><p><strong>欧式拓扑</strong>: $ &amp;#123; U: xUB(x,)U &amp;#125; $;</p></li>
-<li><p><strong>余有限拓扑</strong>: $ &amp;#123; U: U=或 U^c 是有限集 &amp;#125; $(类似有余可数拓扑).</p></li>
+<li><p><strong>平凡拓扑</strong>: <span class="math inline">\(\{\varnothing, X\}\)</span>(最粗拓扑);</p></li>
+<li><p><strong>离散拓扑</strong>: <span class="math inline">\(\{U: U\subset X\}\)</span>(最细拓扑);</p></li>
+<li><p><strong>欧式拓扑</strong>: <span class="math inline">\(\{U: x\in U\Leftrightarrow B(x,\delta)\subset U\}\)</span>;</p></li>
+<li><p><strong>余有限拓扑</strong>: <span class="math inline">\(\{U: U=\varnothing 或 U^c 是有限集\}\)</span>(类似有余可数拓扑).</p></li>
 </ol>
 <h3 id="邻域与开集">邻域与开集</h3>
 <h4 id="邻域">邻域</h4>
@@ -334,14 +334,14 @@
 </ul>
 <h4 id="导集">导集</h4>
 <ul>
-<li><strong>聚点</strong>: 若 <span class="math inline">\(p\)</span> 的任意邻域都包含 $A- &amp;#123; p &amp;#125; $ 中的至少一点, 则称 <span class="math inline">\(p\)</span> 为 <span class="math inline">\(A\)</span> 的聚点;</li>
+<li><strong>聚点</strong>: 若 <span class="math inline">\(p\)</span> 的任意邻域都包含 <span class="math inline">\(A-\{p\}\)</span> 中的至少一点, 则称 <span class="math inline">\(p\)</span> 为 <span class="math inline">\(A\)</span> 的聚点;</li>
 <li><strong>导集</strong>: <span class="math inline">\(A\)</span> 的聚点全体称为 <span class="math inline">\(A\)</span> 的导集, 记作 <span class="math inline">\(A&#39;\)</span>;</li>
 <li><strong>闭包</strong>: <span class="math inline">\(\overline{A}=A\cup A&#39;\)</span>.</li>
 </ul>
-<p>一个例子: <span class="math display">\[A= \&amp;#123; (x,\sin(\frac{\pi}{x}))~\vert~0&amp;#60;x\leqslant 1 \&amp;#125; ,\quad B= \&amp;#123; (0,y)~\vert~-1\leqslant y\leqslant 1 \&amp;#125; \Rightarrow \]</span></p>
+<p>一个例子: <span class="math display">\[A=\{(x,\sin(\frac{\pi}{x}))~\vert~0&lt;x\leqslant 1\},\quad B=\{(0,y)~\vert~-1\leqslant y\leqslant 1\}\Rightarrow \]</span></p>
 <p>关于闭集, 容易得到下列命题:</p>
 <blockquote>
-<p><strong>命题</strong> <span class="math inline">\(A\)</span> 闭 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\overline{A}=A\)</span>.</p>
+<p><strong>命题</strong> <span class="math inline">\(A\)</span> 闭 <span class="math inline">\(\iff\)</span> <span class="math inline">\(\overline{A}=A\)</span>.</p>
 </blockquote>
 <h4 id="拓扑基">拓扑基</h4>
 <ul>
@@ -395,7 +395,7 @@
 </ul>
 <p>一些分离性的例子如下:</p>
 <ol type="1">
-<li><p>$X= &amp;#123; 0,1 &amp;#125; $, $= &amp;#123; X,, &amp;#123; 0 &amp;#125; &amp;#125; $: 是 <span class="math inline">\(T_0\)</span> 但不是 <span class="math inline">\(T_1\)</span>;</p></li>
+<li><p><span class="math inline">\(X=\{0,1\}\)</span>, <span class="math inline">\(\mathcal{T}=\{X,\varnothing,\{0\}\}\)</span>: 是 <span class="math inline">\(T_0\)</span> 但不是 <span class="math inline">\(T_1\)</span>;</p></li>
 <li><p><span class="math inline">\(\mathbb{R}^1\)</span> 上的余有限拓扑是 <span class="math inline">\(T_1\)</span> 但不是 <span class="math inline">\(T_2\)</span>.</p></li>
 </ol>
 <p>对于Hausdorff空间还有如下命题:</p>
@@ -404,7 +404,7 @@
 </blockquote>
 <h4 id="tietze-扩张定理">Tietze 扩张定理</h4>
 <blockquote>
-<p><strong>Urysohn引理</strong> 设 <span class="math inline">\(X\)</span> 是Hausdorff空间, 则 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(T_4\)</span> 的当且仅当对于 <span class="math inline">\(X\)</span> 内任意不相交的闭集 <span class="math inline">\(A,B\)</span>, 存在 <span class="math inline">\(X\)</span> 上的连续实函数 <span class="math inline">\(f\)</span>, s.t. <span class="math display">\[f\vert_A=1,~f\vert_B=-1,~-1 &amp;#60; f\vert_{X-(A\cup B)} &amp;#60; 1.\]</span></p>
+<p><strong>Urysohn引理</strong> 设 <span class="math inline">\(X\)</span> 是Hausdorff空间, 则 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(T_4\)</span> 的当且仅当对于 <span class="math inline">\(X\)</span> 内任意不相交的闭集 <span class="math inline">\(A,B\)</span>, 存在 <span class="math inline">\(X\)</span> 上的连续实函数 <span class="math inline">\(f\)</span>, s.t. <span class="math display">\[f\vert_A=1,~f\vert_B=-1,~-1 &lt; f\vert_{X-(A\cup B)} &lt; 1.\]</span></p>
 </blockquote>
 <p>进一步有 Tietze 扩张定理:</p>
 <blockquote>
@@ -540,7 +540,7 @@
 </ol>
 <h4 id="拓扑锥与双角锥">拓扑锥与双角锥</h4>
 <ul>
-<li>拓扑锥: <span class="math inline">\(X\times I\)</span> 上定义 <span class="math display">\[(x,1)\sim (x&#39;,1),~\forall x,x&#39;\in X;\]</span> <span class="math display">\[(x,t)\sim(x,t), ~\forall x,\forall t&amp;#60;1.\]</span> 而成的商空间称为 <span class="math inline">\(X\)</span> 的拓扑锥, 记作 <span class="math inline">\(CX\)</span>.</li>
+<li>拓扑锥: <span class="math inline">\(X\times I\)</span> 上定义 <span class="math display">\[(x,1)\sim (x&#39;,1),~\forall x,x&#39;\in X;\]</span> <span class="math display">\[(x,t)\sim(x,t), ~\forall x,\forall t&lt;1.\]</span> 而成的商空间称为 <span class="math inline">\(X\)</span> 的拓扑锥, 记作 <span class="math inline">\(CX\)</span>.</li>
 </ul>
 <p>容易知道 <span class="math inline">\(C\mathbb{S}^{n-1}\cong B^n\)</span>.</p>
 <ul>
@@ -575,11 +575,11 @@
 </ol>
 <h4 id="轨道空间">轨道空间</h4>
 <ul>
-<li><strong>轨道</strong>: $O(x)= &amp;#123; gx<sub></sub>gG &amp;#125; $, 显然轨道相交等价于轨道重合;</li>
+<li><strong>轨道</strong>: <span class="math inline">\(O(x)=\{gx~\vert~g\in G\}\)</span>, 显然轨道相交等价于轨道重合;</li>
 <li><strong>轨道空间</strong>: <span class="math inline">\(x\sim y: O(x)=O(y)\)</span>. 记作 <span class="math inline">\(X/G\)</span>.</li>
 <li><strong>可迁作用</strong>: <span class="math inline">\(\forall x,y\in X\)</span>, <span class="math inline">\(\exists g\in G\)</span>, s.t. <span class="math inline">\(gx=y\)</span>;</li>
 <li><strong>自由作用</strong>: <span class="math inline">\(\forall g\neq h\in G\)</span>, <span class="math inline">\(\forall x\in X\)</span>, <span class="math inline">\(gx\neq hx\)</span>.</li>
-<li><strong>迷向群</strong>: <span class="math inline">\(G_x= \&amp;#123; g\in G~\vert~gx=x \&amp;#125; \subset G\)</span>.</li>
+<li><strong>迷向群</strong>: <span class="math inline">\(G_x=\{g\in G~\vert~gx=x\}\subset G\)</span>.</li>
 </ul>
 <blockquote>
 <p><span class="math inline">\(G\)</span> 是自由作用当且仅当每点的迷向群是平凡群.</p>
@@ -597,7 +597,7 @@
 <li><strong>线性同伦</strong>: <span class="math inline">\(C\)</span> 是 <span class="math inline">\(\mathbb{E}^n\)</span> 中的凸集, 映射 <span class="math inline">\(f,g: X\to C\)</span> 连续, 取 <span class="math display">\[F(x,t)=(1-t)f(x)+tg(x),\]</span> 则 <span class="math inline">\(f\underset{F}{\simeq} g\)</span>.</li>
 <li><strong>零伦</strong>: 同伦于常值映射的映射称为是零伦的. <strong><span class="math inline">\(X\)</span> 到 <span class="math inline">\(\mathbb{E}^n\)</span> 中凸集的连续映射是零伦的.</strong></li>
 <li><strong>环路</strong>: <span class="math inline">\(\alpha: I\to X\)</span> 是一条道路, 且 <span class="math inline">\(\alpha(0)=\alpha(1)=p\)</span>, 则称 <span class="math inline">\(\alpha\)</span> 是以 <span class="math inline">\(p\)</span> 为基点的环路.</li>
-<li><strong>保基点同伦</strong>: $,~rel &amp;#123; 0,1 &amp;#125; $.</li>
+<li><strong>保基点同伦</strong>: <span class="math inline">\(\alpha\simeq \beta,~rel\{0,1\}\)</span>.</li>
 </ul>
 <h4 id="空间的同伦等价">空间的同伦等价</h4>
 <ul>
@@ -605,8 +605,8 @@
 </ul>
 <p>几个例子如下:</p>
 <ol type="1">
-<li><span class="math inline">\(\mathbb{E}^n- \&amp;#123; 0 \&amp;#125; \simeq\mathbb{S}^{n-1}\)</span>, <span class="math inline">\(f(x)=\frac{x}{\Vert x\Vert}\)</span>, <span class="math inline">\(g(x)=x\)</span>;</li>
-<li>$CX&amp;#123; p(锥顶) &amp;#125; $, <span class="math inline">\(f(x)=p\)</span>, <span class="math inline">\(g(p)\)</span> 为包含映射.</li>
+<li><span class="math inline">\(\mathbb{E}^n-\{0\}\simeq\mathbb{S}^{n-1}\)</span>, <span class="math inline">\(f(x)=\frac{x}{\Vert x\Vert}\)</span>, <span class="math inline">\(g(x)=x\)</span>;</li>
+<li><span class="math inline">\(CX\simeq \{p(锥顶)\}\)</span>, <span class="math inline">\(f(x)=p\)</span>, <span class="math inline">\(g(p)\)</span> 为包含映射.</li>
 </ol>
 <h4 id="收缩">收缩</h4>
 <ul>
@@ -618,14 +618,14 @@
 <blockquote>
 <p><strong>命题</strong> <span class="math inline">\(X\)</span> 可缩 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(X\)</span> 可形变收缩到其中一点.</p>
 </blockquote>
-<p>几个例子: 1. <span class="math inline">\(\mathbb{S}^1\)</span> 是平环和Mobius带的强形变收缩核; 2. <span class="math inline">\(\mathbb{S}^{n-1}\)</span> 是 $^n- &amp;#123; 0 &amp;#125; $ 的强形变收缩核.</p>
+<p>几个例子: 1. <span class="math inline">\(\mathbb{S}^1\)</span> 是平环和Mobius带的强形变收缩核; 2. <span class="math inline">\(\mathbb{S}^{n-1}\)</span> 是 <span class="math inline">\(\mathbb{E}^n-\{0\}\)</span> 的强形变收缩核.</p>
 <h3 id="基本群">基本群</h3>
 <h4 id="基本群-1">基本群</h4>
 <ul>
 <li><strong>基本群</strong>: 拓扑空间上以 <span class="math inline">\(p\)</span> 点为基点的环路的保基点同伦类关于同伦类的乘积构成一个群, 称为基本群 <span class="math inline">\(\pi_1(X,p)\)</span>. &gt; <strong>道路连通空间的基本群</strong> 若 <span class="math inline">\(X\)</span> 道路连通, 则 <span class="math inline">\(\pi_1(X,p)\cong \pi_1(X,q)\)</span>, <span class="math inline">\(\forall p,q\)</span>.</li>
 </ul>
 <h4 id="基本群的不变性">基本群的不变性</h4>
-<p>设 <span class="math inline">\(f: X\to Y\)</span> 连续, 且 <span class="math inline">\(f(p)=q\)</span>, 则 <span class="math inline">\(f\)</span> 可以诱导映射 <span class="math display">\[g: \pi_1(X,p)\to \pi_1(Y,q),~&amp;#60;\alpha &amp;#62; \mapsto &amp;#60;f\circ\alpha &amp;#62; .\]</span> 且由 <span class="math display">\[g\circ(\alpha\cdot\beta)=(f\circ\alpha)\cdot(f\circ\beta)\]</span> 可知 <span class="math inline">\(g\)</span> 是同态.</p>
+<p>设 <span class="math inline">\(f: X\to Y\)</span> 连续, 且 <span class="math inline">\(f(p)=q\)</span>, 则 <span class="math inline">\(f\)</span> 可以诱导映射 <span class="math display">\[g: \pi_1(X,p)\to \pi_1(Y,q),~\langle\alpha\rangle\mapsto \langle f\circ\alpha\rangle.\]</span> 且由 <span class="math display">\[g\circ(\alpha\cdot\beta)=(f\circ\alpha)\cdot(f\circ\beta)\]</span> 可知 <span class="math inline">\(g\)</span> 是同态.</p>
 <h4 id="乘积空间的基本群">乘积空间的基本群</h4>
 <blockquote>
 <p><strong>命题</strong> 若 <span class="math inline">\(X,Y\)</span> 道路连通, 则 <span class="math display">\[\pi_1(X\times Y,(x_0,y_0))\cong \pi_1(X,x_0)\times \pi_1(Y,y_0).\]</span></p>
@@ -651,11 +651,11 @@
 </ol>
 <h4 id="van-kampen-定理">Van Kampen 定理</h4>
 <blockquote>
-<p><strong>van kampen</strong> 设 <span class="math inline">\(X\)</span> 可以写成非空开集 <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> 的并集且 <span class="math inline">\(X_0=X_1\cap X_2\neq\varnothing\)</span>. 设 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(X_0\)</span> 道路连通, 取 <span class="math inline">\(x_0\in X_0\)</span>, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)*\pi_1(X_2,x_0)/\sim,\]</span> 其中 <span class="math inline">\(\sim\)</span> 是等价关系 <span class="math display">\[ \&amp;#123; i_{1 &amp;#42; }(\alpha)=i_{2 &amp;#42; }(\alpha)~\vert~\alpha\in\pi_1(X_0,x_0) \&amp;#125; ~(i_k~是~X_0\to X_k~的包含映射).\]</span></p>
+<p><strong>van kampen</strong> 设 <span class="math inline">\(X\)</span> 可以写成非空开集 <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> 的并集且 <span class="math inline">\(X_0=X_1\cap X_2\neq\varnothing\)</span>. 设 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(X_0\)</span> 道路连通, 取 <span class="math inline">\(x_0\in X_0\)</span>, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)*\pi_1(X_2,x_0)/\sim,\]</span> 其中 <span class="math inline">\(\sim\)</span> 是等价关系 <span class="math display">\[\{i_{1*}(\alpha)=i_{2*}(\alpha)~\vert~\alpha\in\pi_1(X_0,x_0)\}~(i_k~是~X_0\to X_k~的包含映射).\]</span></p>
 </blockquote>
 <p>两个特殊情形如下:</p>
 <blockquote>
-<p><strong>推论 1</strong> 若 <span class="math inline">\(X_0\)</span> 单连通, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0) &amp;#42; \pi_1(X_2,x_0).\]</span> <strong>推论 2</strong> 若 <span class="math inline">\(X_2\)</span> 单连通, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)/\sim,\]</span> 其中 <span class="math inline">\(\sim\)</span> 为等价关系 $ &amp;#123; i_{1 * }()=e<sub></sub>_1(X_0,x_0) &amp;#125; $.</p>
+<p><strong>推论 1</strong> 若 <span class="math inline">\(X_0\)</span> 单连通, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)*\pi_1(X_2,x_0).\]</span> <strong>推论 2</strong> 若 <span class="math inline">\(X_2\)</span> 单连通, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)/\sim,\]</span> 其中 <span class="math inline">\(\sim\)</span> 为等价关系 <span class="math inline">\(\{i_{1*}(\alpha)=e~\vert~\alpha\in\pi_1(X_0,x_0)\}\)</span>.</p>
 </blockquote>
 <h4 id="闭曲面分类定理">闭曲面分类定理</h4>
 <ul>
@@ -679,7 +679,7 @@
 <h3 id="复叠空间">复叠空间</h3>
 <h4 id="复叠空间-1">复叠空间</h4>
 <ul>
-<li><strong>复叠映射</strong>: 设 <span class="math inline">\(E,B\)</span> 是道路连通且局部道路连通的空间, <span class="math inline">\(p: E\to B\)</span> 是连续映射. 若对 <span class="math inline">\(\forall b\in B\)</span>, 存在 <span class="math inline">\(b\)</span> 的开邻域 <span class="math inline">\(U\)</span>, s.t. <span class="math inline">\(p^{-1}(U)\)</span> 是 <span class="math inline">\(E\)</span> 中一族两两不交的开集 $ &amp;#123; V_&amp;#125; $ 的并集, 且 <span class="math inline">\(p\vert_{V_\alpha}: V_\alpha\to U\)</span> 是同胚, 则称 <span class="math inline">\(p\)</span> 是复叠映射.</li>
+<li><strong>复叠映射</strong>: 设 <span class="math inline">\(E,B\)</span> 是道路连通且局部道路连通的空间, <span class="math inline">\(p: E\to B\)</span> 是连续映射. 若对 <span class="math inline">\(\forall b\in B\)</span>, 存在 <span class="math inline">\(b\)</span> 的开邻域 <span class="math inline">\(U\)</span>, s.t. <span class="math inline">\(p^{-1}(U)\)</span> 是 <span class="math inline">\(E\)</span> 中一族两两不交的开集 <span class="math inline">\(\{V_\alpha\}\)</span> 的并集, 且 <span class="math inline">\(p\vert_{V_\alpha}: V_\alpha\to U\)</span> 是同胚, 则称 <span class="math inline">\(p\)</span> 是复叠映射.</li>
 <li><strong>复叠空间</strong>: <span class="math inline">\((E,p)\)</span> 称为 <span class="math inline">\(B\)</span> 上的复叠空间.</li>
 <li><strong>基本邻域</strong>: 上述定义中的 <span class="math inline">\(U\)</span> 称为基本邻域. <span class="math inline">\(U\)</span> 的逆像可以拆成若干与 <span class="math inline">\(U\)</span> 同胚的集合的不交并.</li>
 <li><strong>纤维</strong>: <span class="math inline">\(b\in B\)</span>, 称 <span class="math inline">\(p^{-1}(b)\)</span> 为 <span class="math inline">\(b\)</span> 的纤维. 其基数称为复叠空间的重数/叶数.</li>
@@ -687,14 +687,14 @@
 <p>简单来说, 复叠映射就是把一族同胚的不交开集映射到同一开集的映射, 原空间就称为复叠空间. 如果该映射是 <span class="math inline">\(n\)</span> 对 <span class="math inline">\(1\)</span> 的, 则该空间是 <span class="math inline">\(n\)</span> 重的.</p>
 <h4 id="复叠空间上的道路提升与同伦提升">复叠空间上的道路提升与同伦提升</h4>
 <blockquote>
-<p><strong>道路提升</strong> 若 <span class="math inline">\(\alpha\)</span> 是以 <span class="math inline">\(b_0\in B\)</span> 为起点的一条道路, <span class="math inline">\(e_0\in p^{-1}(b_0)\)</span>, 则存在 <span class="math inline">\(E\)</span> 内唯一一条以 <span class="math inline">\(e_0\)</span> 为起点的道路 <span class="math inline">\(\tilde{\alpha}\)</span>, s.t. <span class="math display">\[\alpha=p\circ\tilde{\alpha}.\]</span> <font color="red"> <strong>这说明 <span class="math inline">\(B\)</span> 中以 <span class="math inline">\(b_0\)</span> 为起点的道路与 <span class="math inline">\(E\)</span> 中以 <span class="math inline">\(e_0\)</span> 为起点的道路一一对应.</strong></font> <strong>同伦提升</strong> 若 <span class="math inline">\(\alpha_1,\alpha_2\)</span> 是 <span class="math inline">\(B\)</span> 内两条道路, 且 <span class="math display">\[\alpha_1\underset{F}{\simeq}\alpha_2.\]</span> 设 <span class="math inline">\(\tilde{\alpha}_1\)</span> 是 <span class="math inline">\(\alpha_1\)</span> 的提升, 且 <span class="math inline">\(\tilde{\alpha}_1(0)=e_0\in E\)</span>, 则 <span class="math inline">\(F\)</span> 有唯一提升 <span class="math display">\[\tilde{F}: I\times I\to E,~\text{s.t.}~\tilde{F}(0,0)=e_0.\]</span> <strong>推论</strong> 若 <span class="math inline">\(\alpha_1,\alpha_2\)</span> 是 <span class="math inline">\(B\)</span> 内两条道路, 且 <span class="math display">\[\alpha_1\simeq\alpha_2,~rel \&amp;#123; 0,1 \&amp;#125; .\]</span> 设 <span class="math inline">\(\tilde{\alpha}_i\)</span> 是 <span class="math inline">\(\alpha_i\)</span> 的提升, 且 <span class="math inline">\(\tilde{\alpha_1}(0)=\tilde{\alpha_2}(0)\)</span>, 则 <span class="math display">\[\alpha_1\simeq\alpha_2,~rel \&amp;#123; 0,1 \&amp;#125; .\]</span> <font color="red"><strong>这说明道路提升中产生的一一对应能够保持保端点同伦.</strong></font></p>
+<p><strong>道路提升</strong> 若 <span class="math inline">\(\alpha\)</span> 是以 <span class="math inline">\(b_0\in B\)</span> 为起点的一条道路, <span class="math inline">\(e_0\in p^{-1}(b_0)\)</span>, 则存在 <span class="math inline">\(E\)</span> 内唯一一条以 <span class="math inline">\(e_0\)</span> 为起点的道路 <span class="math inline">\(\tilde{\alpha}\)</span>, s.t. <span class="math display">\[\alpha=p\circ\tilde{\alpha}.\]</span> <font color="red"> <strong>这说明 <span class="math inline">\(B\)</span> 中以 <span class="math inline">\(b_0\)</span> 为起点的道路与 <span class="math inline">\(E\)</span> 中以 <span class="math inline">\(e_0\)</span> 为起点的道路一一对应.</strong></font> <strong>同伦提升</strong> 若 <span class="math inline">\(\alpha_1,\alpha_2\)</span> 是 <span class="math inline">\(B\)</span> 内两条道路, 且 <span class="math display">\[\alpha_1\underset{F}{\simeq}\alpha_2.\]</span> 设 <span class="math inline">\(\tilde{\alpha}_1\)</span> 是 <span class="math inline">\(\alpha_1\)</span> 的提升, 且 <span class="math inline">\(\tilde{\alpha}_1(0)=e_0\in E\)</span>, 则 <span class="math inline">\(F\)</span> 有唯一提升 <span class="math display">\[\tilde{F}: I\times I\to E,~\text{s.t.}~\tilde{F}(0,0)=e_0.\]</span> <strong>推论</strong> 若 <span class="math inline">\(\alpha_1,\alpha_2\)</span> 是 <span class="math inline">\(B\)</span> 内两条道路, 且 <span class="math display">\[\alpha_1\simeq\alpha_2,~rel\{0,1\}.\]</span> 设 <span class="math inline">\(\tilde{\alpha}_i\)</span> 是 <span class="math inline">\(\alpha_i\)</span> 的提升, 且 <span class="math inline">\(\tilde{\alpha_1}(0)=\tilde{\alpha_2}(0)\)</span>, 则 <span class="math display">\[\alpha_1\simeq\alpha_2,~rel\{0,1\}.\]</span> <font color="red"><strong>这说明道路提升中产生的一一对应能够保持保端点同伦.</strong></font></p>
 </blockquote>
 <h4 id="复叠空间的基本群">复叠空间的基本群</h4>
 <ul>
-<li>复叠映射 <span class="math inline">\(p\)</span> 可诱导单同态 <span class="math inline">\(p_&amp;#42;: \pi_1(E,e_0)\to\pi_1(B,b_0)\)</span>, 且 <span class="math inline">\(p_&amp;#42;(\pi_1(E,e_0))\)</span> 在 <span class="math inline">\(\pi_1(B,b_0)\)</span> 中的指数等于 <span class="math inline">\((E,p)\)</span> 的重数.</li>
+<li>复叠映射 <span class="math inline">\(p\)</span> 可诱导单同态 <span class="math inline">\(p_*: \pi_1(E,e_0)\to\pi_1(B,b_0)\)</span>, 且 <span class="math inline">\(p_*(\pi_1(E,e_0))\)</span> 在 <span class="math inline">\(\pi_1(B,b_0)\)</span> 中的指数等于 <span class="math inline">\((E,p)\)</span> 的重数.</li>
 </ul>
 <blockquote>
-<p><strong>命题</strong> 集合 $ &amp;#123; p_*(_1(E,e))<sub></sub>ep^{-1}(b_0) &amp;#125; $ 是 <span class="math inline">\(\pi_1(B,b_0)\)</span> 的某个子群的共轭类. <font color="red"> <strong>这说明复叠空间 <span class="math inline">\((E,p)\)</span> 决定了 <span class="math inline">\(\pi_1(B,b_0)\)</span> 中的一个子群共轭类.</strong> </font></p>
+<p><strong>命题</strong> 集合 <span class="math inline">\(\{p_*(\pi_1(E,e))~\vert~e\in p^{-1}(b_0)\}\)</span> 是 <span class="math inline">\(\pi_1(B,b_0)\)</span> 的某个子群的共轭类. <font color="red"> <strong>这说明复叠空间 <span class="math inline">\((E,p)\)</span> 决定了 <span class="math inline">\(\pi_1(B,b_0)\)</span> 中的一个子群共轭类.</strong> </font></p>
 </blockquote>
 <h4 id="映射的提升">映射的提升</h4>
 <blockquote>
@@ -702,7 +702,7 @@
 </blockquote>
 <p>对于提升的存在性, 有如下定理:</p>
 <blockquote>
-<p><strong>映射提升定理</strong> 设 <span class="math inline">\(X\)</span> 是道路连通且局部道路连通空间, <span class="math inline">\(f: X\to B\)</span> 连续, <span class="math inline">\(f(x_0)=b_0\)</span>, <span class="math inline">\(e_0\in p^{-1}(b_0)\)</span>, 则: <span class="math display">\[\exists~提升~\tilde{f},~\text{s.t.}~\tilde{f}(x_0)=e_0~\Leftrightarrow~f_ &amp;#42; (\pi_1(X, x_0))\subset p_ &amp;#42; (\pi_1(E,e_0)).\]</span></p>
+<p><strong>映射提升定理</strong> 设 <span class="math inline">\(X\)</span> 是道路连通且局部道路连通空间, <span class="math inline">\(f: X\to B\)</span> 连续, <span class="math inline">\(f(x_0)=b_0\)</span>, <span class="math inline">\(e_0\in p^{-1}(b_0)\)</span>, 则: <span class="math display">\[\exists~提升~\tilde{f},~\text{s.t.}~\tilde{f}(x_0)=e_0~\Leftrightarrow~f_*(\pi_1(X, x_0))\subset p_*(\pi_1(E,e_0)).\]</span></p>
 </blockquote>
 <h4 id="复叠空间的分类">复叠空间的分类</h4>
 <ul>
@@ -720,8 +720,8 @@
 <p>以下命题等价:</p>
 <ol type="1">
 <li><span class="math inline">\((E,p)\)</span> 是正则复叠空间;</li>
-<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e\in p^{-1}(b)\)</span>, <span class="math inline">\(p_&amp;#42;(\pi_1(E,e))\)</span> 是 <span class="math inline">\(\pi_1(B,p(e))\)</span> 的正规子群;</li>
-<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e,e&#39;\in p^{-1}(b)\)</span>, <span class="math inline">\(p_&amp;#42;(\pi_1(E,e))=p_&amp;#42;(\pi_1(E,e&#39;))\)</span>;</li>
+<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e\in p^{-1}(b)\)</span>, <span class="math inline">\(p_*(\pi_1(E,e))\)</span> 是 <span class="math inline">\(\pi_1(B,p(e))\)</span> 的正规子群;</li>
+<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e,e&#39;\in p^{-1}(b)\)</span>, <span class="math inline">\(p_*(\pi_1(E,e))=p_*(\pi_1(E,e&#39;))\)</span>;</li>
 <li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e,e&#39;\in p^{-1}(b)\)</span>, <span class="math inline">\(\exists h\in D(E,p)\)</span>, s.t. <span class="math inline">\(h(e)=e&#39;\)</span>.</li>
 </ol>
 <h4 id="万有复叠空间">万有复叠空间</h4>
@@ -742,7 +742,7 @@
         <p><span>本文标题:</span><a href="/2018/01/08/拓扑学复习重点/">拓扑学复习重点</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-01-08, 20:27:14</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-16, 23:29:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/08/拓扑学复习重点/" title="拓扑学复习重点">http://lizhechen.com/2018/01/08/拓扑学复习重点/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/01/08/拓扑学复习重点/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

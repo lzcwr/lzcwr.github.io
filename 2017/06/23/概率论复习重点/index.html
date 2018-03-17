@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="概率论期末复习.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.699Z">
+<meta property="og:updated_time" content="2018-03-16T16:00:25.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率论复习重点">
 <meta name="twitter:description" content="概率论期末复习.">
@@ -310,13 +310,13 @@
 <h3 id="性质和定理">性质和定理</h3>
 <p>设 <span class="math inline">\((\Omega,\mathscr{F},\mathbb{P})\)</span> 为概率空间, 有如下性质和定理成立.</p>
 <h4 id="可列可加性和次可加性">可列可加性和次可加性</h4>
-<p><span class="math inline">\(\forall~ \&amp;#123; A_n \&amp;#125; \subset\mathscr{F}\)</span>, 有 <span class="math display">\[\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right)\leqslant\sum\limits_{n=1}^\infty \mathbb{P}(A_n).\]</span> 对于两两不相容的集合列 $ &amp;#123; A_n &amp;#125; $, 有 <span class="math display">\[\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right)=\sum\limits_{n=1}^\infty \mathbb{P}(A_n).\]</span></p>
+<p><span class="math inline">\(\forall~\{A_n\}\subset\mathscr{F}\)</span>, 有 <span class="math display">\[\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right)\leqslant\sum\limits_{n=1}^\infty \mathbb{P}(A_n).\]</span> 对于两两不相容的集合列 <span class="math inline">\(\{A_n\}\subset\mathscr{F}\)</span>, 有 <span class="math display">\[\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right)=\sum\limits_{n=1}^\infty \mathbb{P}(A_n).\]</span></p>
 <h4 id="连续性">连续性</h4>
 <p>若事件 <span class="math inline">\(A_n\subset A_{n+1}\)</span>, <span class="math inline">\(n\geqslant 1\)</span>, 则 <span class="math display">\[\mathbb{P}\left(\bigcup\limits_{n=1}^\infty A_n\right)=\lim\limits_{n\to\infty}\mathbb{P}(A_n).\]</span> 若事件 <span class="math inline">\(A_n\supset A_{n+1}\)</span>, <span class="math inline">\(n\geqslant 1\)</span>, 则 <span class="math display">\[\mathbb{P}\left(\bigcap\limits_{n=1}^\infty A_n\right)=\lim\limits_{n\to\infty}\mathbb{P}(A_n).\]</span></p>
 <h4 id="全概率公式">全概率公式</h4>
-<p>设 $ &amp;#123; B_n &amp;#125; $ 为 <span class="math inline">\(\Omega\)</span> 的一个分割, 则 <span class="math display">\[\mathbb{P}(A)=\sum\limits_n \mathbb{P}(B_n)\mathbb{P}(A|B_n),\quad\forall~A\in\mathscr{F}.\]</span></p>
+<p>设 <span class="math inline">\(\{B_n\}\)</span> 为 <span class="math inline">\(\Omega\)</span> 的一个分割, 则 <span class="math display">\[\mathbb{P}(A)=\sum\limits_n \mathbb{P}(B_n)\mathbb{P}(A|B_n),\quad\forall~A\in\mathscr{F}.\]</span></p>
 <h4 id="bayes公式">Bayes公式</h4>
-<p>设 $ &amp;#123; B_n &amp;#125; $ 为 <span class="math inline">\(\Omega\)</span> 的一个分割, 对于 <span class="math inline">\(\forall~A\in\mathscr{F}\)</span>, 如果 <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span>, 则对于 <span class="math inline">\(\forall~1\leqslant k\leqslant n\)</span>, 有 <span class="math display">\[\mathbb{P}(B_k|A)=\frac{\mathbb{P}(B_k)\mathbb{P}(A|B_k)}{\sum\limits_{n=1}^\infty \mathbb{P}(B_n)\mathbb{P}(A|B_n)}.\]</span></p>
+<p>设 <span class="math inline">\(\{B_n\}\)</span> 为 <span class="math inline">\(\Omega\)</span> 的一个分割, 对于 <span class="math inline">\(\forall~A\in\mathscr{F}\)</span>, 如果 <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span>, 则对于 <span class="math inline">\(\forall~1\leqslant k\leqslant n\)</span>, 有 <span class="math display">\[\mathbb{P}(B_k|A)=\frac{\mathbb{P}(B_k)\mathbb{P}(A|B_k)}{\sum\limits_{n=1}^\infty \mathbb{P}(B_n)\mathbb{P}(A|B_n)}.\]</span></p>
 <h4 id="事件的独立性">事件的独立性</h4>
 <p>若 <span class="math inline">\(\mathbb{P}(AB)=\mathbb{P}(A)\mathbb{P}(B)\)</span>, 则称 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 独立.</p>
 <h2 id="第三章-随机变量及其分布">第三章 随机变量及其分布</h2>
@@ -398,7 +398,7 @@
 <h4 id="辛钦大数定律">辛钦大数定律</h4>
 <p>设 <span class="math inline">\(\xi_n\)</span> 为独立同分布随机变量列, 弱大数定律成立的充要条件是 <span class="math inline">\(\mathbb{E}(\xi_1)=a\)</span> 为有限实数.</p>
 <h4 id="kolmogorov强大数定律">Kolmogorov强大数定律</h4>
-<p>设 $ &amp;#123; _n &amp;#125; $ 是独立随机变量列, 满足 <span class="math inline">\(\sum\limits_{k=1}^\infty \frac{D(\xi_n)}{n^2}&lt;\infty\)</span>, 则 $ &amp;#123; _n &amp;#125; $ 满足大数定律.</p>
+<p>设 <span class="math inline">\(\{\xi_n\}\)</span> 是独立随机变量列, 满足 <span class="math inline">\(\sum\limits_{k=1}^\infty \frac{D(\xi_n)}{n^2}&lt;\infty\)</span>, 则 <span class="math inline">\(\{\xi_n\}\)</span> 满足大数定律.</p>
 
       
     </div>
@@ -410,7 +410,7 @@
         <p><span>本文标题:</span><a href="/2017/06/23/概率论复习重点/">概率论复习重点</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2017-06-23, 10:24:58</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>最后更新:</span>2018-03-17, 00:00:25</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/23/概率论复习重点/" title="概率论复习重点">http://lizhechen.com/2017/06/23/概率论复习重点/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/06/23/概率论复习重点/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
