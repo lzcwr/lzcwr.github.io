@@ -15,14 +15,18 @@
 
 
 
+<meta name="description" content="Jordan标准型相关理论: \(\lambda\) 矩阵, 初等因子, 不变因子.  默认已经了解了Jordan标准型的相关定义.">
+<meta name="keywords" content="线性代数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性代数拾遗[2]——Jordan标准型">
 <meta property="og:url" content="http://lizhechen.com/2018/03/22/线性代数拾遗-2-——Jordan标准型/index.html">
 <meta property="og:site_name" content="Zhechen的博客">
+<meta property="og:description" content="Jordan标准型相关理论: \(\lambda\) 矩阵, 初等因子, 不变因子.  默认已经了解了Jordan标准型的相关定义.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T16:51:24.798Z">
+<meta property="og:updated_time" content="2018-03-23T15:53:30.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数拾遗[2]——Jordan标准型">
+<meta name="twitter:description" content="Jordan标准型相关理论: \(\lambda\) 矩阵, 初等因子, 不变因子.  默认已经了解了Jordan标准型的相关定义.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -198,7 +202,9 @@
                     
                       <a class="main-nav-link switch-friends-link" href="http://www.bufan.xyz/">卜凡的博客</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                      <a class="main-nav-link switch-friends-link" href="https://easezyc.github.io/">朱勇椿的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE的博客</a>
                     
                       <a class="main-nav-link switch-friends-link" href="https://zhuanlan.zhihu.com/typetheory">Arjuna的类型论驿站</a>
                     
@@ -289,8 +295,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数学/">数学</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性代数/">线性代数</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -298,8 +312,84 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="section"></h2>
+        <p>Jordan标准型相关理论: <span class="math inline">\(\lambda\)</span> 矩阵, 初等因子, 不变因子.</p>
+<blockquote>
+<p>默认已经了解了Jordan标准型的相关定义.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="jordan标准形定理">Jordan标准形定理</h2>
+<p>Jordan标准型定理是线性代数李最深刻的结果</p>
+<blockquote>
+<p><strong>定理</strong> 复数域上任意一个 <span class="math inline">\(n\)</span> 阶方阵 <span class="math inline">\(A\)</span> 都相似于一个Jordan标准型. 即 <span class="math inline">\(\forall A\in\mathbb{C}^{n\times n}\)</span>, <span class="math inline">\(\exists\)</span> 可逆阵 <span class="math inline">\(P\)</span>, s.t. <span class="math display">\[P^{-1}AP=\begin{bmatrix}J_{m_1}(\lambda_1)&amp;&amp;\\ &amp;\ddots&amp;\\ &amp;&amp;J_{m_s}(\lambda_s)\end{bmatrix},\]</span> 其中 <span class="math inline">\(J_{m_t}(\lambda_t)\)</span> <span class="math inline">\((t=1,\cdots,s)\)</span> 为 <span class="math inline">\(A\)</span> 的特征<span class="math inline">\(\lambda\)</span>矩阵 <span class="math inline">\(\lambda I-A\)</span> 的初等因子 <span class="math inline">\((\lambda-\lambda_t)^{m_t}\)</span> 所对应的 <span class="math inline">\(m_t\)</span> 阶Jordan块 <span class="math display">\[\begin{bmatrix}\lambda_t&amp;1&amp;0&amp;\cdots&amp;0\\ &amp;\lambda_t&amp;1&amp;\ddots&amp;\vdots\\ &amp;&amp;\ddots&amp;\ddots&amp;0\\ &amp;&amp;&amp;\lambda_t&amp;1\\ &amp;&amp;&amp;&amp;\lambda_t\\ \end{bmatrix}_{m_t\times m_t}.\]</span></p>
+</blockquote>
+<blockquote>
+<p>在不考虑Jordan块顺序的情况下, Jordan标准型是唯一的.</p>
+</blockquote>
+<h2 id="lambda--矩阵"><span class="math inline">\(\lambda-\)</span> 矩阵</h2>
+<h3 id="lambda--矩阵-1"><span class="math inline">\(\lambda-\)</span> 矩阵</h3>
+<blockquote>
+<p><strong>定义</strong> 设 <span class="math inline">\(F\)</span> 是一个数域, <span class="math inline">\(\lambda\)</span> 是一个未定元, <span class="math inline">\(f_{ij}(\lambda)\in F[\lambda]\)</span>, <span class="math inline">\(i=1,\cdots,m\)</span>, <span class="math inline">\(j=1,\cdots,n\)</span>. 一元多项式环 <span class="math inline">\(F[\lambda]\)</span> 上的矩阵 <span class="math display">\[\begin{bmatrix}f_{11}(\lambda)&amp;f_{12}(\lambda)&amp;\cdots&amp;f_{1n}(\lambda)\\ f_{21}(\lambda)&amp;f_{22}(\lambda)&amp;\cdots&amp;f_{2n}(\lambda)\\ \vdots&amp;\vdots&amp;&amp;\vdots\\ f_{m1}(\lambda)&amp;f_{m2}(\lambda)&amp;\cdots&amp;f_{mn}(\lambda)\\ \end{bmatrix}\]</span> 是一个 <span class="math inline">\(\lambda-\)</span> 矩阵.</p>
+</blockquote>
+<h3 id="lambda--矩阵的初等变换"><span class="math inline">\(\lambda-\)</span> 矩阵的初等变换</h3>
+<ol type="1">
+<li>交换两行/两列;</li>
+<li>用一个非零常数乘某行/某列;</li>
+<li>用一个多项式 <span class="math inline">\(g(\lambda)\)</span> 乘以某一行/列加到另一行/列上.</li>
+</ol>
+<h3 id="lambda--矩阵的等价标准型"><span class="math inline">\(\lambda-\)</span> 矩阵的等价标准型</h3>
+<blockquote>
+<p><strong>定理</strong> 任一个非零的 <span class="math inline">\(m\times n\)</span> 的 <span class="math inline">\(\lambda-\)</span> 矩阵 <span class="math inline">\(A(\lambda)\)</span> 都可以变换成以下形式的一个矩阵 <span class="math display">\[\begin{bmatrix}D(\lambda)_{r\times r}&amp; \\ &amp;0\\ \end{bmatrix}\]</span> 其中 <span class="math display">\[D(\lambda)_{r\times r}=\begin{bmatrix}d_1(\lambda)&amp;&amp;&amp;\\ &amp;d_2(\lambda)&amp;&amp;\\ &amp;&amp;\ddots&amp;\\ &amp;&amp;&amp;d_r(\lambda)\\ \end{bmatrix}\]</span> 其中 <span class="math inline">\(r={\rm rank}A(\lambda)\)</span>, <span class="math inline">\(d_i\)</span> 是首一多项式, 且满足 <span class="math display">\[d_i(\lambda)\vert d_{i+1}(\lambda),~i=1,2,\cdots,r-1.\]</span> 这样的矩阵被称为 <span class="math inline">\(A(\lambda)\)</span> 的<strong>等价标准型</strong>.</p>
+</blockquote>
+<h2 id="不变因子和初等因子">不变因子和初等因子</h2>
+<h3 id="行列式因子">行列式因子</h3>
+<h4 id="定义">定义</h4>
+<blockquote>
+<p><strong>定义</strong> 设 <span class="math inline">\(A(\lambda)\)</span> 是 <span class="math inline">\(m\times n\)</span> 的 <span class="math inline">\(\lambda-\)</span> 矩阵. 对于 <span class="math inline">\(k\leqslant \min\{m,n\}\)</span>, <span class="math inline">\(A(\lambda)\)</span> 的所有 <span class="math inline">\(k\)</span> 阶子式的首一最大公因式 <span class="math inline">\(D_k(\lambda)\)</span> 称为 <span class="math inline">\(A(\lambda)\)</span> 的 <span class="math inline">\(k\)</span> 阶行列式因子.</p>
+</blockquote>
+<h4 id="性质">性质</h4>
+<ul>
+<li>行列式因子在 <span class="math inline">\(\lambda-\)</span> 矩阵的初等变换下不变.</li>
+<li>上条可直接推出 <span class="math inline">\(\lambda-\)</span> 矩阵的等价标准型是唯一的.</li>
+</ul>
+<h3 id="不变因子">不变因子</h3>
+<h4 id="定义-1">定义</h4>
+<blockquote>
+<p><strong>定义</strong> <span class="math inline">\(\lambda-\)</span> 矩阵 <span class="math inline">\(A(\lambda)\)</span> 对角线的非零元素 <span class="math inline">\(d_i(\lambda)\)</span>, <span class="math inline">\((i=1,\cdots,r)\)</span> 称为 <span class="math inline">\(A(\lambda)\)</span> 的不变因子.</p>
+</blockquote>
+<h4 id="与行列式因子的关系">与行列式因子的关系</h4>
+<p>不变因子与行列式因子有如下关系: <span class="math display">\[d_1(\lambda)=D_1(\lambda),d_2(\lambda)=\frac{D_2(\lambda)}{D_1(\lambda)},\cdots,d_r(\lambda)=\frac{D_r(\lambda)}{D_{r-1}(\lambda)}\]</span></p>
+<h3 id="初等因子">初等因子</h3>
+<blockquote>
+<p><strong>定义</strong> 设 <span class="math inline">\(n\)</span> 阶 <span class="math inline">\(\lambda-\)</span> 矩阵 <span class="math inline">\(A(\lambda)\)</span> 的不变因子 <span class="math inline">\(d_1,\cdots,d_r\)</span> 的标准分解为 <span class="math display">\[d_1(\lambda)=p_1(\lambda)^{k_{11}}p_2(\lambda)^{k_{12}}\cdots p_s(\lambda)^{k_{1s}},\]</span> <span class="math display">\[d_2(\lambda)=p_1(\lambda)^{k_{21}}p_2(\lambda)^{k_{22}}\cdots p_s(\lambda)^{k_{2s}},\]</span> <span class="math display">\[\cdots\cdots\cdots\cdots\]</span> <span class="math display">\[d_r(\lambda)=p_1(\lambda)^{k_{r1}}p_2(\lambda)^{k_{r2}}\cdots p_s(\lambda)^{k_{rs}},\]</span> 其中 <span class="math inline">\(r={\rm rank}A(\lambda)\)</span>, <span class="math inline">\(p_i(\lambda)\)</span> 是两两不同的首一不可约多项式, 且 <span class="math display">\[0\leqslant k_{1i}\leqslant k_{2i}\leqslant \cdots\leqslant k_{ri},~i=1,2,\cdots,s.\]</span> 分解式中的 <span class="math inline">\(p_i(\lambda)\)</span> 的非零次幂, 叫做 <span class="math inline">\(A(\lambda)\)</span> 的初等因子.</p>
+</blockquote>
+<ul>
+<li>当 <span class="math inline">\(F=\mathbb{C}\)</span> 时, <span class="math inline">\(p_i(\lambda)\)</span> 都是形如 <span class="math inline">\(\lambda-\lambda_i\)</span> 的一次因式.</li>
+</ul>
+<h2 id="jordan标准型的求法lambda--矩阵">Jordan标准型的求法——<span class="math inline">\(\lambda-\)</span> 矩阵</h2>
+<h3 id="lambda--矩阵法"><span class="math inline">\(\lambda-\)</span> 矩阵法</h3>
+<p>按照以下步骤进行:</p>
+<h4 id="求出a-的特征-lambda--矩阵">1. 求出<span class="math inline">\(A\)</span> 的特征 <span class="math inline">\(\lambda-\)</span> 矩阵</h4>
+<p>直接求 <span class="math inline">\(\lambda I-A\)</span> 即可.</p>
+<h4 id="求-lambda-i-a-的等价标准型">2. 求 <span class="math inline">\(\lambda I-A\)</span> 的等价标准型</h4>
+<p>利用 <span class="math inline">\(\lambda-\)</span> 矩阵的初等变换求出 <span class="math inline">\(\lambda I-A\)</span> 的等价标准型, 记为 <span class="math display">\[\begin{bmatrix}d_1(\lambda)&amp;&amp;&amp;\\ &amp;d_2(\lambda)&amp;&amp;\\ &amp;&amp;\ddots&amp;\\ &amp;&amp;&amp;d_n(\lambda)\\ \end{bmatrix}\]</span> 则 <span class="math inline">\(d_i(\lambda)\)</span> 是 <span class="math inline">\(A\)</span> 的不变因子.</p>
+<h4 id="根据初等因子求jordan块">3. 根据初等因子求Jordan块</h4>
+<p>对 <span class="math inline">\(d_i(\lambda)\)</span> 进行标准分解<span class="math display">\[d_i(\lambda)=(\lambda-\lambda_{i_1})^{m_{i_1}}(\lambda-\lambda_{i_2})^{m_{i_2}}\cdots (\lambda-\lambda_{i_t})^{m_{i_t}}\]</span> 其中 <span class="math inline">\(\lambda_{i_j}\)</span> 互不相等, 则在 <span class="math inline">\(A\)</span> 的Jordan标准型中, <span class="math inline">\(d_i(\lambda)\)</span> 所对应的 <span class="math inline">\(t\)</span> 个Jordan块分别为 <span class="math display">\[J_{m_{i_1}}(\lambda_{i_1}),J_{m_{i_2}}(\lambda_{i_2}),\cdots,J_{m_{i_t}}(\lambda_{i_t}).\]</span></p>
+<h3 id="一个例子">一个例子</h3>
+<h4 id="题目内容">题目内容</h4>
+<blockquote>
+<p><strong>题目</strong> 求 <span class="math display">\[\begin{bmatrix}-1&amp;-2&amp;6\\ -1&amp;0&amp;3\\ -1&amp;-1&amp;4\\ \end{bmatrix}\]</span> 的Jordan标准型.</p>
+</blockquote>
+<h4 id="简略解答">简略解答</h4>
+<p>特征 <span class="math inline">\(\lambda-\)</span> 矩阵为 <span class="math display">\[\lambda I-A=\begin{bmatrix}\lambda+1&amp;2&amp;-6\\ 1&amp;\lambda&amp;-3\\ 1&amp;1&amp;\lambda-4\\ \end{bmatrix}\]</span> 初等变换得到其等价标准型为 <span class="math display">\[\begin{bmatrix}1&amp;0&amp;0\\ 0&amp;\lambda-1&amp;0\\ 0&amp;0&amp;(\lambda-1)^2\\ \end{bmatrix}\]</span> 不变因子为 <span class="math inline">\(\lambda-1\)</span>, <span class="math inline">\((\lambda-1)^2\)</span>, 于是初等因子为 <span class="math inline">\(\lambda-1\)</span>, <span class="math inline">\((\lambda-1)^2\)</span>, 故 <span class="math inline">\(A\)</span> 有一个一阶块, 一个二阶块. 其Jordan标准型为 <span class="math display">\[\begin{bmatrix}1&amp;0&amp;0\\ 0&amp;1&amp;1\\ 0&amp;0&amp;1\\ \end{bmatrix}.\]</span></p>
+<h2 id="jordan标准型的求法">Jordan标准型的求法</h2>
+<p>累死, 以后再写==</p>
+<h2 id="参考资料">参考资料</h2>
+<ol type="1">
+<li>王卿文. 线性代数核心思想及应用[M]. 科学出版社, 2012.</li>
+<li>丘维声. 高等代数-第2版[M]. 高等教育出版社, 2002.</li>
+<li>王萼芳. 高等代数教程.下册[M]. 清华大学出版社, 1997.</li>
+<li>霍元极. 高等代数[M]. 北京师范大学出版社, 2009.</li>
+</ol>
 
       
     </div>
@@ -311,7 +401,7 @@
         <p><span>本文标题:</span><a href="/2018/03/22/线性代数拾遗-2-——Jordan标准型/">线性代数拾遗[2]——Jordan标准型</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-03-22, 21:59:55</p>
-        <p><span>最后更新:</span>2018-03-23, 00:51:24</p>
+        <p><span>最后更新:</span>2018-03-23, 23:53:30</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/03/22/线性代数拾遗-2-——Jordan标准型/" title="线性代数拾遗[2]——Jordan标准型">http://lizhechen.com/2018/03/22/线性代数拾遗-2-——Jordan标准型/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/03/22/线性代数拾遗-2-——Jordan标准型/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -341,7 +431,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#section"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jordan标准形定理"><span class="toc-number">1.</span> <span class="toc-text">Jordan标准形定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lambda--矩阵"><span class="toc-number">2.</span> <span class="toc-text">\(\lambda-\) 矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda--矩阵-1"><span class="toc-number">2.1.</span> <span class="toc-text">\(\lambda-\) 矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda--矩阵的初等变换"><span class="toc-number">2.2.</span> <span class="toc-text">\(\lambda-\) 矩阵的初等变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda--矩阵的等价标准型"><span class="toc-number">2.3.</span> <span class="toc-text">\(\lambda-\) 矩阵的等价标准型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不变因子和初等因子"><span class="toc-number">3.</span> <span class="toc-text">不变因子和初等因子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#行列式因子"><span class="toc-number">3.1.</span> <span class="toc-text">行列式因子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">3.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性质"><span class="toc-number">3.1.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不变因子"><span class="toc-number">3.2.</span> <span class="toc-text">不变因子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#与行列式因子的关系"><span class="toc-number">3.2.2.</span> <span class="toc-text">与行列式因子的关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初等因子"><span class="toc-number">3.3.</span> <span class="toc-text">初等因子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jordan标准型的求法lambda--矩阵"><span class="toc-number">4.</span> <span class="toc-text">Jordan标准型的求法——\(\lambda-\) 矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda--矩阵法"><span class="toc-number">4.1.</span> <span class="toc-text">\(\lambda-\) 矩阵法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#求出a-的特征-lambda--矩阵"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. 求出\(A\) 的特征 \(\lambda-\) 矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#求-lambda-i-a-的等价标准型"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 求 \(\lambda I-A\) 的等价标准型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#根据初等因子求jordan块"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. 根据初等因子求Jordan块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个例子"><span class="toc-number">4.2.</span> <span class="toc-text">一个例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题目内容"><span class="toc-number">4.2.1.</span> <span class="toc-text">题目内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简略解答"><span class="toc-number">4.2.2.</span> <span class="toc-text">简略解答</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jordan标准型的求法"><span class="toc-number">5.</span> <span class="toc-text">Jordan标准型的求法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
         
     </div>
     <style>
