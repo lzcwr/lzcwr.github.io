@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="拓扑习题/不会做的题.">
-<meta name="keywords" content="拓扑学">
+<meta name="description" content="多元函数的极值问题: 通常极值与条件极值">
+<meta name="keywords" content="数学分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="拓扑学题目">
-<meta property="og:url" content="http://lizhechen.com/2017/10/08/拓扑学题目/index.html">
+<meta property="og:title" content="数学分析拾遗[5]——多元函数的极值">
+<meta property="og:url" content="http://lizhechen.com/2018/03/28/数学分析拾遗-5-——多元函数的极值/index.html">
 <meta property="og:site_name" content="Zhechen的博客">
-<meta property="og:description" content="拓扑习题/不会做的题.">
+<meta property="og:description" content="多元函数的极值问题: 通常极值与条件极值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T15:21:39.597Z">
+<meta property="og:updated_time" content="2018-03-28T16:02:05.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="拓扑学题目">
-<meta name="twitter:description" content="拓扑习题/不会做的题.">
+<meta name="twitter:title" content="数学分析拾遗[5]——多元函数的极值">
+<meta name="twitter:description" content="多元函数的极值问题: 通常极值与条件极值">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>拓扑学题目 | Zhechen的博客</title>
+<title>数学分析拾遗[5]——多元函数的极值 | Zhechen的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-拓扑学题目" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-数学分析拾遗-5-——多元函数的极值" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/08/拓扑学题目/" class="article-date">
-      <time datetime="2017-10-08T14:10:39.000Z" itemprop="datePublished">2017-10-08</time>
+      <a href="/2018/03/28/数学分析拾遗-5-——多元函数的极值/" class="article-date">
+      <time datetime="2018-03-28T14:52:41.000Z" itemprop="datePublished">2018-03-28</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      拓扑学题目
+      数学分析拾遗[5]——多元函数的极值
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拓扑学/">拓扑学</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学分析/">数学分析</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,71 +312,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="乘积空间">乘积空间</h2>
-<h3 id="hausdorff空间与对角映射">Hausdorff空间与对角映射</h3>
+        <p>多元函数的极值问题: 通常极值与条件极值</p>
+<a id="more"></a>
+<h2 id="通常极值">通常极值</h2>
 <blockquote>
-<p>映射 <span class="math display">\[\Delta: X\rightarrow X\times X,~\Delta(x)=(x,x)\]</span> 称为<strong>对角映射</strong>. 证明: <span class="math inline">\(X\)</span> 是Hausdorff空间当且仅当 <span class="math inline">\(\Delta(X)\)</span> 是 <span class="math inline">\(X\times X\)</span> 的闭集.</p>
+<p><strong>定理</strong> 设函数 <span class="math inline">\(f(\boldsymbol{x})=f(x_1,\cdots,x_n)\)</span> 在区域 <span class="math inline">\(D\subset\mathbb{R}^n\)</span> 内具有二阶连续偏导数, 且 <span class="math inline">\(f&#39;(\boldsymbol{x}_0)\)</span> <span class="math inline">\((\boldsymbol{x}_0\in D)\)</span>, 再设 <span class="math inline">\(f(\boldsymbol{x})\)</span> 在 <span class="math inline">\(\boldsymbol{x}_0\)</span> 处的Hessi矩阵满秩, 则<br>
+　　(1) 当 <span class="math inline">\(\boldsymbol{H}_f(\boldsymbol{x}_0)\)</span> 正定时, <span class="math inline">\(f(\boldsymbol{x})\)</span> 在 <span class="math inline">\(\boldsymbol{x}_0\)</span> 取极小值;<br>
+　　(2) 当 <span class="math inline">\(\boldsymbol{H}_f(\boldsymbol{x}_0)\)</span> 负定时, <span class="math inline">\(f(\boldsymbol{x})\)</span> 在 <span class="math inline">\(\boldsymbol{x}_0\)</span> 取极大值;<br>
+　　(3) 当 <span class="math inline">\(\boldsymbol{H}_f(\boldsymbol{x}_0)\)</span> 不定时, <span class="math inline">\(f(\boldsymbol{x})\)</span> 在 <span class="math inline">\(\boldsymbol{x}_0\)</span> 不是极值;</p>
 </blockquote>
-<p><strong>证明</strong>:</p>
-<p><strong>充分性</strong>: <span class="math inline">\(\forall x\neq y\in X\)</span>, 有 <span class="math inline">\((x,y)\in \Delta^c\)</span>. 由 <span class="math inline">\(\Delta\)</span> 为闭集有 <span class="math inline">\(\Delta^c\)</span> 为开集. 故由乘积拓扑的定义, 存在 <span class="math inline">\(X\)</span> 的开子集 <span class="math inline">\(U,V\)</span>, s.t. <span class="math inline">\((x,y)\in U\times V\subset\Delta^c\)</span>. (<span class="math inline">\(X\)</span> 上的开集<span class="math inline">\(\times\)</span><span class="math inline">\(X\)</span>上的开集为 <span class="math inline">\(X\times X\)</span> 乘积拓扑的一组拓扑基). 于是此时, <span class="math inline">\(U,V\)</span> 是 <span class="math inline">\(x,y\)</span> 的开邻域并且易得 <span class="math inline">\(U\cap V=\varnothing\)</span>.</p>
-<p><strong>必要性</strong>: 由于 <span class="math inline">\(X\)</span> 是Hausdorff空间, 故 <span class="math inline">\(\forall x\neq y\in X\)</span>, 存在 <span class="math inline">\(X\)</span> 的开子集 <span class="math inline">\(U,V\)</span>, s.t. <span class="math inline">\(x\in U\)</span>, <span class="math inline">\(y\in V\)</span>, 且 <span class="math inline">\(U\cap V=\varnothing\)</span>. 故 <span class="math inline">\((x,y)\in U\times V\)</span>, 又由 <span class="math inline">\(U\cap V=\varnothing\)</span>, 知 <span class="math inline">\((U\times V)\cap\Delta=\varnothing\)</span>, 即 <span class="math inline">\(U\times V\subset\Delta^c\)</span>, 故 <span class="math inline">\(U\times V\)</span> 为 <span class="math inline">\((x,y)\)</span> 在 <span class="math inline">\(\Delta^c\)</span> 中的开邻域. 故 <span class="math inline">\(\Delta^c\)</span> 为开集, 即 <span class="math inline">\(\Delta\)</span> 为闭集.</p>
-<p><strong>综上所述</strong>, <span class="math inline">\(X\)</span> 是Hausdorff空间 <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(\Delta(X)\)</span> 是 <span class="math inline">\(X\times X\)</span> 的闭集.</p>
-<h3 id="自然投影不一定是闭映射">自然投影不一定是闭映射</h3>
+<ul>
+<li>Hessi矩阵定义如下: <span class="math display">\[\boldsymbol{H}_f(\boldsymbol{x}_0)=\begin{bmatrix}\frac{\partial f(\boldsymbol{x}_0)}{\partial x_1^2} &amp; \frac{\partial f(\boldsymbol{x}_0)}{\partial x_1\partial x_2} &amp; \cdots &amp; \frac{\partial f(\boldsymbol{x}_0)}{\partial x_1\partial x_n}\\
+\frac{\partial f(\boldsymbol{x}_0)}{\partial x_2\partial x_1} &amp; \frac{\partial f(\boldsymbol{x}_0)}{\partial x_2^2} &amp; \cdots &amp; \frac{\partial f(\boldsymbol{x}_0)}{\partial x_2\partial x_n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\frac{\partial f(\boldsymbol{x}_0)}{\partial x_n\partial x_1} &amp; \frac{\partial f(\boldsymbol{x}_0)}{\partial x_n\partial x_1} &amp; \cdots &amp; \frac{\partial f(\boldsymbol{x}_0)}{\partial x_n^2}\\
+\end{bmatrix}.\]</span></li>
+</ul>
+<h2 id="条件极值">条件极值</h2>
 <blockquote>
-<p>举例说明 <span class="math inline">\(p_1:X\times Y\to Y\)</span> 不一定是闭映射.</p>
+<p><strong>定理</strong> 设函数 <span class="math inline">\(f(\boldsymbol{x})\)</span>, <span class="math inline">\(\boldsymbol{\varphi}(\boldsymbol{x})=(\varphi_1(\boldsymbol{x}),\cdots,\varphi_m(\boldsymbol{x}))\)</span> 在区域 <span class="math inline">\(D\subset\mathbb{R}^n~(m&lt;n)\)</span> 内具有各个连续偏导数, 再设 <span class="math inline">\(\boldsymbol{x}_0=(x_1^0,\cdots,x_n^0)\in D\)</span> 为 <span class="math inline">\(f(\boldsymbol{x})\)</span> 在约束条件 <span class="math display">\[\begin{cases}\varphi_1(\boldsymbol{x})=0,\\ \varphi_2(\boldsymbol{x})=0,\\ \cdots\cdots\\ \varphi_m(\boldsymbol{x})=0.\end{cases}\]</span> 下的极值点, 且 <span class="math inline">\(\boldsymbol{\varphi}&#39;(\boldsymbol{x}_0)\)</span> 的秩为 <span class="math inline">\(m\)</span>, 则存在常数 <span class="math inline">\(\lambda_1,\cdots,\lambda_m\in\mathbb{R}\)</span>, s.t. 在 <span class="math inline">\(\boldsymbol{x}_0\)</span> 处有如下等式成立: <span class="math display">\[\begin{cases}
+\frac{\partial f(\boldsymbol{x}_0)}{\partial x_i}+\sum\limits_{j=1}^m \lambda_j\frac{\partial \varphi_j(\boldsymbol{x}_0)}{\partial x_i}=0, &amp; i=1,2,\cdots,n, \\
+\varphi_j(\boldsymbol{x}_0)=0, &amp; j=1,2,\cdots,m.
+\end{cases}\]</span></p>
 </blockquote>
-<p><strong>证明</strong>: 取 <span class="math inline">\(\mathbb{E}^2\)</span> 中的闭集 <span class="math inline">\(F=\{(x,\frac{1}{x}):x&gt;0\in\mathbb{R}\}\)</span>, 则 <span class="math inline">\(p_1(F)=\mathbb{R}^+\)</span> 为开集.</p>
-<h2 id="连通性">连通性</h2>
-<h3 id="mathbbe2-上的非无理点集连通"><span class="math inline">\(\mathbb{E}^2\)</span> 上的非无理点集连通</h3>
-<blockquote>
-<p>设 <span class="math inline">\(X=\{(r,s)\in\mathbb{E}^2\vert r\in\mathbb{Q}~或~s\in\mathbb{Q}\}\)</span>, 证明 <span class="math inline">\(X\)</span> 连通.</p>
-</blockquote>
-<p>有各种神奇的想法.</p>
-<p><strong>证明1</strong>: <strong>通过道路连通性考虑</strong>. 取 <span class="math inline">\(x_1=(r_1,s_1),x_2=(r_2,s_2)\in X\)</span>, 有以下两种情况.</p>
+<h3 id="lagrange乘数法">Lagrange乘数法</h3>
 <ol type="1">
-<li>若 <span class="math inline">\(r_1,r_2\in\mathbb{Q}\)</span>, 则存在 <span class="math inline">\(x_1\to x_2\)</span> 的道路 <span class="math inline">\((r_1,s_1)\to(r_1,r_2)\to(r_2,r_2)\to(r_2,s_2)\)</span>;</li>
-<li>若 <span class="math inline">\(r_1,s_2\in\mathbb{Q}\)</span>, 则存在 <span class="math inline">\(x_1\to x_2\)</span> 的道路 <span class="math inline">\((r_1,s_1)\to(r_1,s_2)\to(r_2,s_2)\)</span>.</li>
+<li><p>构造函数 <span class="math display">\[F(x_1,\cdots,x_n,\lambda_1,\cdots,\lambda_m)=f(\boldsymbol{x})+\sum_{j=1}^m\lambda_j\varphi_j(\boldsymbol{x}),\]</span></p></li>
+<li><p>则 <span class="math inline">\(\boldsymbol{x}_0\)</span> 是极值点的必要条件如下: <span class="math display">\[\begin{cases}\frac{\partial F(\boldsymbol{x}_0)}{\partial x_i}=0 &amp; (i=1,2,\cdots,n),\\ 
+\frac{\partial F(\boldsymbol{x}_0)}{\partial\lambda_j}=0 &amp; (j=1,2,\cdots,m).\\
+\end{cases}\]</span></p></li>
 </ol>
-<p><strong>综上所述</strong>, <span class="math inline">\(X\)</span> 是道路连通的, 因此 <span class="math inline">\(X\)</span> 连通.</p>
-<p><strong>证明2</strong>: <strong>反证法</strong>. 假设 <span class="math inline">\(X\)</span> 可以写成两个不相交非空开集 <span class="math inline">\(A,B\)</span> 的并. 取 <span class="math inline">\(q\in\mathbb{Q}\)</span>, 则 <span class="math inline">\(X_q=\{(x,q),(q,x)\vert x\in\mathbb{R}\}\)</span> 构成 <span class="math inline">\(X\)</span> 的连通子集. 显然有 <span class="math inline">\(X_q\subset A\)</span> 或者 <span class="math inline">\(X_q\subset B\)</span>, 否则 <span class="math inline">\(X_q\)</span> 可分成不相交的两部分 <span class="math inline">\(X_{q_A}\)</span> 和 <span class="math inline">\(X_{q_B}\)</span>, s.t. <span class="math inline">\(\overline{X_{q_A}}\cap X_{q_B}=\overline{X_{q_B}}\cap X_{q_A}=\varnothing\)</span>, 这与 <span class="math inline">\(X\)</span> 的连通性矛盾. 于是 <span class="math inline">\(\exists q_1,q_2\in\mathbb{Q}\)</span>, s.t. <span class="math inline">\(X_{q_1}\subset A\)</span>, <span class="math inline">\(X_{q_2}\subset B\)</span>. 但 <span class="math inline">\((q_1,q_2)\in X_{q_1}\cap X_{q_2}\)</span>, 与 <span class="math inline">\(A\cap B=\varnothing\)</span> 矛盾. 故 <span class="math inline">\(X\)</span> 连通.</p>
-<p>考虑一个引理:</p>
-<blockquote>
-<p><strong>引理</strong> 若 <span class="math inline">\(X_0\)</span> 是 <span class="math inline">\(X\)</span> 的既开又闭子集, <span class="math inline">\(A\)</span> 是 <span class="math inline">\(X\)</span> 的连通子集, 则 <span class="math inline">\(A\cap X_0=\varnothing\)</span> 或 <span class="math inline">\(A\subset X_0\)</span>.</p>
-</blockquote>
-<p><strong>引理的证明</strong>: <span class="math inline">\(A\cap X_0\)</span> 是 <span class="math inline">\(A\)</span> 的既开又闭子集. 由于 <span class="math inline">\(A\)</span> 连通, 故 <span class="math inline">\(A\cap X_0=\varnothing\)</span> 或 <span class="math inline">\(A\cap X_0=A\)</span>, 即 <span class="math inline">\(A\subset X_0\)</span>.</p>
-<p>由引理可得出以下命题（北大拓扑学讲义P63 Prop 2.23）进而可证原命题.</p>
-<blockquote>
-<p><strong>命题 2.23</strong> 如果 <span class="math inline">\(X\)</span> 有一个连通覆盖 <span class="math inline">\(\mathscr{U}\)</span>, 并且 <span class="math inline">\(X\)</span> 有一连通子集 <span class="math inline">\(A\)</span>, 它与 <span class="math inline">\(\mathscr{U}\)</span> 中每个成员都相交, 则 <span class="math inline">\(X\)</span> 连通.</p>
-</blockquote>
-<p><strong>命题的证明</strong>: 设 <span class="math inline">\(X_0\)</span> 是 <span class="math inline">\(X\)</span> 的既开又闭子集, 只需证明 <span class="math inline">\(X_0=\varnothing\)</span> 或 <span class="math inline">\(X_0=X\)</span>. 由引理, <span class="math inline">\(A\cap X_0=\varnothing\)</span> 或 <span class="math inline">\(A\subset X_0\)</span>.</p>
-<ol type="1">
-<li>若 <span class="math inline">\(A\cap X_0=\varnothing\)</span>, 则 <span class="math inline">\(\forall U\in\mathscr{U}\)</span>, 由于 <span class="math inline">\(U\cap A\neq\varnothing\)</span>, 故 <span class="math inline">\(U\nsubseteq X_0\)</span>. 由引理, <span class="math inline">\(U\cap X_0=\varnothing\)</span>, 则 <span class="math inline">\(X_0=(\bigcup\limits_{U\in\mathscr{U}}U)\cap X_0=\bigcup\limits_{U\in\mathscr{U}}(U\cap X_0)=\varnothing\)</span>.</li>
-<li>若 <span class="math inline">\(A\subset X_0\)</span>, 则 <span class="math inline">\(\forall U\in\mathscr{U}\)</span>, <span class="math inline">\(U\cap X_0\supset U\cap A\neq\varnothing\)</span>. 由引理, <span class="math inline">\(U\subset X_0\)</span>, 则 <span class="math inline">\(X=\bigcup\limits_{U\in\mathscr{U}}U\subset X_0\)</span>, 即有 <span class="math inline">\(X_0=X\)</span>.</li>
-</ol>
-<p><strong>综上所述</strong>, <span class="math inline">\(X\)</span> 连通.</p>
-<p><strong>证明3</strong>: 仍然考虑 <span class="math inline">\(A_q=\{(x,y)\vert x=q~或~y=q\}\)</span>, 则 <span class="math inline">\(A_q\)</span> 连通且 <span class="math inline">\(X=\bigcup\limits_{q\in\mathbb{Q}}A_q\)</span>, 即 <span class="math inline">\(\{A_q\}_{q\in\mathbb{Q}}\)</span> 构成 <span class="math inline">\(X\)</span> 的连通覆盖, 而 <span class="math inline">\(A_q\cap A_0\neq\varnothing, \forall q\in\mathbb{Q}\)</span>, 故由命题2.23, <span class="math inline">\(X\)</span> 连通.</p>
-<p>结合引理, 证法2也会有不同的写法, 不再赘述.</p>
-<h3 id="mathbbr1-上左开右闭区间生成的拓扑不是-c_2-空间"><span class="math inline">\(\mathbb{R}^1\)</span> 上左开右闭区间生成的拓扑不是 <span class="math inline">\(C_2\)</span> 空间</h3>
-<blockquote>
-<p>设 <span class="math inline">\(\mathbb{R}^1\)</span> 的子集族 <span class="math inline">\(\mathcal{B}=\{(a,b]:a,b\in\mathbb{R}^1,a&lt;b\}\)</span>, 则 <span class="math inline">\(\mathcal{B}\)</span> 构成 <span class="math inline">\(\mathbb{R}^1\)</span> 上的一个拓扑基且该拓扑不是第二可数空间.</p>
-</blockquote>
-<p><strong>证明</strong>: <span class="math inline">\(\mathcal{B}\)</span> 构成拓扑基的证明是平凡的, 不再赘述. 以下证明该空间不是第二可数的. <strong>反证法.</strong> 设有可数拓扑基 <span class="math inline">\(\{\alpha_i\}\)</span>, 设 <span class="math inline">\(a_i=\sup\limits_{x\in\alpha_i}x\)</span> (<span class="math inline">\(a_i\)</span> 可取 <span class="math inline">\(\infty\)</span>), 则 <span class="math inline">\(a_i\)</span> 只有可数个, 于是 <span class="math inline">\(\exists\)</span> 无理数 <span class="math inline">\(\beta\notin\{a_i\}_{i\in\mathbb{N}}\)</span>. 由条件, 可设 <span class="math inline">\((\beta^{-1},\beta]=\bigcup\limits_{j} \alpha_j\)</span>. 于是 <span class="math inline">\(\beta=\sup\limits_{x\in\bigcup_j\alpha_j}x=\max\limits_j a_j\)</span>, 与 <span class="math inline">\(\beta\notin\{a_i\}_{i\in\mathbb{N}}\)</span> 矛盾. 于是不存在可数拓扑基, 因而不是 <span class="math inline">\(C_2\)</span> 空间.</p>
-<h3 id="mathbbq-作为-mathbbe1-的子空间不是局部紧的"><span class="math inline">\(\mathbb{Q}\)</span> 作为 <span class="math inline">\(\mathbb{E}^1\)</span> 的子空间不是局部紧的</h3>
-<blockquote>
-<p>证明有理数作为 <span class="math inline">\(\mathbb{E}^1\)</span> 不是局部紧致的.</p>
-</blockquote>
-<p><strong>证明</strong>: 取 <span class="math inline">\(q\in \mathbb{Q}\)</span>, 只需要证明 <span class="math inline">\(q\)</span> 的任意邻域都不紧即可. 任取 <span class="math inline">\(\mathbb{Q}\)</span> 中包含 <span class="math inline">\(q\)</span> 的一个邻域, 则该邻域具有 <span class="math inline">\(U_q\cap\mathbb{Q}\)</span> 的形式, 其中 <span class="math inline">\(U_q\)</span> 是 <span class="math inline">\(q\)</span> 在 <span class="math inline">\(\mathbb{R}\)</span> 中的邻域. 故 <span class="math inline">\(U_q\)</span> 包含 <span class="math inline">\(q\)</span> 的连通分支必定具有区间 <span class="math inline">\(|a,b|\)</span> 的形式（开区间或闭区间）. 取无理数 <span class="math inline">\(\xi\in|a,b|\)</span>, 记 <span class="math inline">\(|a,b|\)</span> 中比 <span class="math inline">\(\xi\)</span> 小的有理数为 <span class="math inline">\(\{a_1,a_2\cdots\}\)</span>, 比 <span class="math inline">\(\xi\)</span> 大的有理数为 <span class="math inline">\(\{b_1,b_2,\cdots\}\)</span>, 则 <span class="math inline">\(\{\mathbb{Q}\cap|a,a_i)\}_{i\in\mathbb{N}}\cup\{\mathbb{Q}\cap(b_j,b|\}_{j\in\mathbb{N}}\)</span> 构成 <span class="math inline">\(|a,b|\)</span> 的一个开覆盖, 且没有有限子覆盖. 于是 <span class="math inline">\(|a,b|\)</span> 不紧. 命题得证.</p>
-<h3 id="师大拓扑学p47-8.">师大《拓扑学》P47 8.</h3>
-<blockquote>
-<p>设拓扑空间 <span class="math inline">\(X\)</span> 可以写成两个开集 <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> 的并, 并且 <span class="math inline">\(X_0=X_1\cap X_2\neq\varnothing\)</span> 道路连通, 证明 <span class="math inline">\(X\)</span> 道路连通当且仅当 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 都道路连通.</p>
-</blockquote>
-<p><strong>证明</strong>: 只需要证明 <span class="math inline">\(X_1\)</span> 道路连通. 由于 <span class="math inline">\(X_1\cap X_2\)</span> 道路连通, 以下只需证明 <span class="math inline">\(\forall p\in X_1\backslash X_2\)</span>, 存在 <span class="math inline">\(p\)</span> 到 <span class="math inline">\(X_1\cap X_2\)</span> 中某点的道路. 取 <span class="math inline">\(q\in X_2\)</span>, 则由 <span class="math inline">\(X\)</span> 道路连通, 任取 <span class="math inline">\(q\in X_2\)</span>, <span class="math inline">\(X\)</span> 中存在 <span class="math inline">\(p\to q\)</span> 的一条道路 <span class="math inline">\(a\)</span>, 即 <span class="math inline">\(a:X\to I\)</span>, s.t. <span class="math inline">\(a(0)=p\)</span>, <span class="math inline">\(a(1)=q\)</span>. 则 <span class="math inline">\(a^{-1}(X_1\cap X_2)\neq\varnothing\)</span>, 否则由 <span class="math inline">\(a\)</span> 的连续性, <span class="math inline">\(a^{-1}(X_1)\)</span> 和 <span class="math inline">\(a^{-1}(X_2)\)</span> 为 <span class="math inline">\(I\)</span> 的两个非空开集且 <span class="math inline">\(a^{-1}(X_1)\cup a^{-1}(X_2)=I\)</span>, 从而与 <span class="math inline">\(I\)</span> 的连通性矛盾. 取 <span class="math inline">\(t=\inf a^{-1}(X_1)\cap a^{-1}(X_2)\)</span>, 则 <span class="math inline">\([0,t]\subset a^{-1}(X_1)\)</span>. 由 <span class="math inline">\(a^{-1}(X_1)\)</span> 是开集知 <span class="math inline">\(\exists\epsilon&gt;0\)</span>, s.t. <span class="math inline">\([t,t+\epsilon)\subset a^{-1}(X_1)\)</span>. 于是 <span class="math inline">\(\exists t_1\in[t,t+\epsilon)\)</span>, s.t. <span class="math inline">\(a(t_1)\in X_1\cap X_2\)</span>. 即存在 <span class="math inline">\(p\to t_1\)</span> 的道路, 因而 <span class="math inline">\(X_1\)</span> 道路连通.</p>
-<h3 id="粘合拓扑与并集的子空间拓扑">粘合拓扑与并集的子空间拓扑</h3>
-<blockquote>
-<p>若 <span class="math inline">\(X_\alpha\)</span> 是 <span class="math inline">\(Z\)</span> 的子空间, 给 <span class="math inline">\(\bigcup\limits_\alpha X_\alpha\)</span> 以 <span class="math inline">\(Z\)</span> 的子空间拓扑. 若 <span class="math inline">\(\alpha\)</span> 个数有限, 并且每个 <span class="math inline">\(X_\alpha\)</span> 在 <span class="math inline">\(\bigcup\limits_\alpha X_\alpha\)</span> 中闭, 则 <span class="math inline">\(\bigcup\limits_\alpha X_\alpha\)</span> 的子空间拓扑与粘合拓扑一致. 若 <span class="math inline">\(\alpha\)</span> 个数无限, 则结论不一定成立.</p>
-</blockquote>
-<p><strong>证明1</strong>: 平凡的构造是很容易的: 考虑 <span class="math inline">\(Z=\mathbb{E}^1\)</span>, <span class="math inline">\(X_\alpha=\{\alpha\}\)</span>, <span class="math inline">\(\forall\alpha\in\mathbb{R}\)</span>, 则 <span class="math inline">\(Z=\bigcup\limits_\alpha X_\alpha\)</span>. 并集的子空间拓扑显然就是欧氏拓扑, 但粘合拓扑为 <span class="math inline">\(\mathbb{R}\)</span> 上的离散拓扑, 因而不相同.</p>
-<p><strong>证明2</strong>: 非平凡的例子: 待补.</p>
 
       
     </div>
@@ -385,13 +350,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/10/08/拓扑学题目/">拓扑学题目</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/28/数学分析拾遗-5-——多元函数的极值/">数学分析拾遗[5]——多元函数的极值</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
-        <p><span>发布时间:</span>2017-10-08, 22:10:39</p>
-        <p><span>最后更新:</span>2018-03-16, 23:21:39</p>
+        <p><span>发布时间:</span>2018-03-28, 22:52:41</p>
+        <p><span>最后更新:</span>2018-03-29, 00:02:05</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/08/拓扑学题目/" title="拓扑学题目">http://lizhechen.com/2017/10/08/拓扑学题目/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/10/08/拓扑学题目/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/28/数学分析拾遗-5-——多元函数的极值/" title="数学分析拾遗[5]——多元函数的极值">http://lizhechen.com/2018/03/28/数学分析拾遗-5-——多元函数的极值/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/03/28/数学分析拾遗-5-——多元函数的极值/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -403,16 +368,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/10/08/泛函——自然数集上的Lp范数/">
-                    泛函——自然数集上的Lp范数
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/09/21/单调类定理/">
-                    单调类定理
+                <a href="/2018/03/27/数学分析拾遗-4-——Abel判别法与Dirichlet判别法/">
+                    数学分析拾遗[4]——含参广义积分的一致收敛
                 </a>
             </div>
         
@@ -424,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#乘积空间"><span class="toc-number">1.</span> <span class="toc-text">乘积空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hausdorff空间与对角映射"><span class="toc-number">1.1.</span> <span class="toc-text">Hausdorff空间与对角映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自然投影不一定是闭映射"><span class="toc-number">1.2.</span> <span class="toc-text">自然投影不一定是闭映射</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连通性"><span class="toc-number">2.</span> <span class="toc-text">连通性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mathbbe2-上的非无理点集连通"><span class="toc-number">2.1.</span> <span class="toc-text">\(\mathbb{E}^2\) 上的非无理点集连通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mathbbr1-上左开右闭区间生成的拓扑不是-c_2-空间"><span class="toc-number">2.2.</span> <span class="toc-text">\(\mathbb{R}^1\) 上左开右闭区间生成的拓扑不是 \(C_2\) 空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mathbbq-作为-mathbbe1-的子空间不是局部紧的"><span class="toc-number">2.3.</span> <span class="toc-text">\(\mathbb{Q}\) 作为 \(\mathbb{E}^1\) 的子空间不是局部紧的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#师大拓扑学p47-8."><span class="toc-number">2.4.</span> <span class="toc-text">师大《拓扑学》P47 8.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粘合拓扑与并集的子空间拓扑"><span class="toc-number">2.5.</span> <span class="toc-text">粘合拓扑与并集的子空间拓扑</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#通常极值"><span class="toc-number">1.</span> <span class="toc-text">通常极值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件极值"><span class="toc-number">2.</span> <span class="toc-text">条件极值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lagrange乘数法"><span class="toc-number">2.1.</span> <span class="toc-text">Lagrange乘数法</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -460,7 +419,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"拓扑学题目　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"数学分析拾遗[5]——多元函数的极值　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -480,15 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/10/08/泛函——自然数集上的Lp范数/" title="上一篇: 泛函——自然数集上的Lp范数">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/09/21/单调类定理/" title="下一篇: 单调类定理">
+            <a href="/2018/03/27/数学分析拾遗-4-——Abel判别法与Dirichlet判别法/" title="下一篇: 数学分析拾遗[4]——含参广义积分的一致收敛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
