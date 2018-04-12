@@ -15,20 +15,18 @@
 
 
 
-<meta name="description" content="对积分中值定理的粗浅讨论.">
+<meta name="description" content="大致分为两部分:  多值函数解析分支的定义; 多值函数解析分支的讨论.">
 <meta name="keywords" content="数学分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学分析拾遗[2]——积分的中值定理">
-<meta property="og:url" content="http://lizhechen.com/2018/03/13/数学分析拾遗-2-——积分中值定理/index.html">
+<meta property="og:title" content="复变函数拾遗[2]——多值函数的解析分支">
+<meta property="og:url" content="http://lizhechen.com/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/index.html">
 <meta property="og:site_name" content="Zhechen的博客">
-<meta property="og:description" content="对积分中值定理的粗浅讨论.">
+<meta property="og:description" content="大致分为两部分:  多值函数解析分支的定义; 多值函数解析分支的讨论.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://olgwnj89q.bkt.clouddn.com/1st%20m-v%20theorem%20of%20int.png">
-<meta property="og:updated_time" content="2018-03-27T08:04:32.003Z">
+<meta property="og:updated_time" content="2018-04-12T08:24:46.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数学分析拾遗[2]——积分的中值定理">
-<meta name="twitter:description" content="对积分中值定理的粗浅讨论.">
-<meta name="twitter:image" content="http://olgwnj89q.bkt.clouddn.com/1st%20m-v%20theorem%20of%20int.png">
+<meta name="twitter:title" content="复变函数拾遗[2]——多值函数的解析分支">
+<meta name="twitter:description" content="大致分为两部分:  多值函数解析分支的定义; 多值函数解析分支的讨论.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -60,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>数学分析拾遗[2]——积分的中值定理 | Zhechen的博客</title>
+<title>复变函数拾遗[2]——多值函数的解析分支 | Zhechen的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +283,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-数学分析拾遗-2-——积分中值定理" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-复变函数拾遗-2-——多值函数的解析分支" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/13/数学分析拾遗-2-——积分中值定理/" class="article-date">
-      <time datetime="2018-03-13T01:57:17.000Z" itemprop="datePublished">2018-03-13</time>
+      <a href="/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/" class="article-date">
+      <time datetime="2018-04-12T03:31:21.000Z" itemprop="datePublished">2018-04-12</time>
 </a>
 
 
@@ -304,7 +302,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数学分析拾遗[2]——积分的中值定理
+      复变函数拾遗[2]——多值函数的解析分支
     </h1>
   
 
@@ -329,26 +327,84 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="积分第一中值定理">积分第一中值定理</h2>
-<h3 id="定理内容">定理内容</h3>
+        <p>大致分为两部分:</p>
+<ul>
+<li>多值函数解析分支的定义;</li>
+<li>多值函数解析分支的讨论.</li>
+</ul>
+<a id="more"></a>
+<h2 id="多值函数解析分支的定义">多值函数解析分支的定义</h2>
+<h3 id="解析分支定义">解析分支定义</h3>
 <blockquote>
-<p><strong>积分第一中值定理</strong> 设函数 <span class="math inline">\(f(x)\in C[a,b]\)</span>, <span class="math inline">\(g(x)\in R[a,b]\)</span> <font color="red"><strong>且在 <span class="math inline">\([a,b]\)</span> 不变号</strong></font>, 则 <span class="math inline">\(\exists\xi\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(\xi)\int_a^b g(x){\rm d}x.\]</span></p>
+<p><strong>DEFINITION 1.</strong> 设 <span class="math inline">\(\Omega\)</span> 为区域, <span class="math inline">\(\mathbf{F}(z)\)</span> 为 <span class="math inline">\(\Omega\)</span> 上的多值函数, 如果 <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 解析, 且对 <span class="math inline">\(\forall z\in\Omega\)</span>, 有 <span class="math inline">\(f(z)\in\mathbf{F}(z)\)</span>, 则称 <span class="math inline">\(f\)</span> 为 <span class="math inline">\(\mathbf{F}\)</span> 在 <span class="math inline">\(\Omega\)</span> 上的解析分支.</p>
 </blockquote>
-<h3 id="几何意义的探讨">几何意义的探讨</h3>
-<p><span class="math inline">\(g(x)\equiv 1\)</span> 且 <span class="math inline">\(f(x)\geqslant 0\)</span> 时, 其形式变为: <span class="math display">\[\int_a^b f(x){\rm d}x=f(\xi)(b-a).\]</span> 此时几何意义是很显然的: 由 <span class="math inline">\(x=a\)</span>, <span class="math inline">\(x=b\)</span>, <span class="math inline">\(y=f(x)\)</span> 所围成的曲边梯形的面积与由 <span class="math inline">\(x=a,\)</span>, <span class="math inline">\(x=b\)</span>, <span class="math inline">\(y=f(\xi)\)</span> 围成的矩形面积相等, 如图所示:</p>
-<center>
-<img src="http://olgwnj89q.bkt.clouddn.com/1st%20m-v%20theorem%20of%20int.png">
-</center>
-<h2 id="积分第二中值定理">积分第二中值定理</h2>
-<h3 id="定理内容-1">定理内容</h3>
+<h3 id="多值函数的本质">多值函数的本质</h3>
+<p>这里的论述可能不太严格.</p>
+<p>考虑复数的三角式: <span class="math display">\[z=\vert z\vert e^{i~{\rm arg}~z}.\]</span> 由于 <span class="math inline">\(e^{2\pi i}=1\)</span>, 故 <span class="math inline">\(\vert z\vert e^{i~{\rm arg}~z}=\vert z\vert e^{i~({\rm arg}~z+2k\pi)}\)</span>. 即 <span class="math inline">\(z\)</span> 的辐角 <span class="math inline">\(\mathbf{Arg}~z\)</span> 是一个多值函数.<br>
+由于辐角函数是一个多值函数, 这就导致了多值函数的存在. 多值函数的不同解析分支实际上也对应了 <span class="math inline">\(\mathbf{Arg}~z\)</span> 的不同取值.</p>
+<h3 id="辐角函数的连续分支">辐角函数的连续分支</h3>
 <blockquote>
-<p><strong>积分第二中值定理</strong> 设函数 <span class="math inline">\(g(x)\in R[a,b]\)</span>, 有以下三种情况: (1) 若函数 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([a,b]\)</span> <font color="red"><strong>单调增</strong></font>, 且对于 <span class="math inline">\(\forall x\in[a,b]\)</span>, 有 <span class="math inline">\(f(x)\geqslant 0\)</span>, 则 <span class="math inline">\(\exists\xi_1\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(b)\int_{\xi_1}^b g(x){\rm d}x.\]</span> (2) 若函数 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([a,b]\)</span> <font color="red"><strong>单调减</strong></font>, 且对于 <span class="math inline">\(\forall x\in[a,b]\)</span>, 有 <span class="math inline">\(f(x)\geqslant 0\)</span>, 则 <span class="math inline">\(\exists\xi_2\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(a)\int_a^{\xi_2} g(x){\rm d}x.\]</span> (3) 若函数 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([a,b]\)</span> <font color="red"><strong>单调</strong></font>, 则 <span class="math inline">\(\exists\xi\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(a)\int_a^\xi g(x){\rm d}x+f(b)\int_\xi^b g(x){\rm d}x.\]</span></p>
+<p><strong>PROPOSITION 1.</strong> 设 <span class="math inline">\(\Omega\)</span> 为单连通区域, <span class="math inline">\(z_0\notin\Omega\)</span>, 则 <span class="math inline">\(\mathbf{Arg}~(z-z_0)\)</span> 在区域 <span class="math inline">\(\Omega\)</span> 上有连续分支 <span class="math inline">\({\rm arg}~(z-z_0)\)</span>, 且 <span class="math inline">\(\mathbf{Arg}~(z-z_0)\)</span> 在 <span class="math inline">\(\Omega\)</span> 上的所有连续分支如下: <span class="math display">\[\mathbf{Arg}~(z-z_0)=\{ {\rm arg}~(z-z_0)+2k\pi:k\in\mathbb{Z}\}.\]</span> 于是 <span class="math inline">\(\mathbf{Arg}~(z-z_0)\)</span> 在 <span class="math inline">\(\Omega\)</span> 内有无穷多个连续分支.</p>
 </blockquote>
-<h2 id="参考文献">参考文献</h2>
+<h2 id="几个解析分支的例子">几个解析分支的例子</h2>
+<h3 id="对数函数的解析分支">对数函数的解析分支</h3>
+<blockquote>
+<p><strong>THEOREM 1.</strong> 设 <span class="math inline">\(\Omega\)</span> 为单连通区域, <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 中解析且处处不为零, 则 <span class="math inline">\(\mathbf{Ln}~f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 有解析分支 <span class="math inline">\(g(z)\)</span>, s.t. <span class="math display">\[e^{g(z)}=f(z),\]</span> 且 <span class="math inline">\(\mathbf{Ln}~f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 上所有的解析分支都具有形式 <span class="math inline">\(g(z)+2k\pi i\)</span>, 即: <span class="math display">\[\mathbf{Ln}~f(z)=\{g(z)+2k\pi i:k\in\mathbb{Z}\}.\]</span> 即 <span class="math inline">\(\mathbf{Ln}~f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 有无穷多个解析分支.</p>
+</blockquote>
+<p><strong>简略证明:</strong><br>
+　　从三角式的角度考虑非常显然:<br>
+<span class="math display">\[\begin{align}
+{\bf Ln}~(z-z_0) &amp;= {\bf Ln}~(\vert z-z_0\vert e^{i~({\rm arg}~z+2k\pi)}) \\
+ &amp;= {\bf Ln}~\vert z-z_0\vert+ i({\rm arg}~z+2k\pi) \\
+ &amp;= \{\ln\vert z-z_0\vert +i~{\rm arg}~z+2k\pi i:k\in\mathbb{Z}\}.
+\end{align}\]</span> 　　令 <span class="math inline">\(\ln\vert z-z_0\vert+i~{\rm arg}~z=\ln(z-z_0)\)</span>, 即可满足 <span class="math display">\[e^{\ln(z-z_0)}=z-z_0.\]</span></p>
+<h3 id="幂函数的解析分支">幂函数的解析分支</h3>
+<h4 id="解析函数-n-次方根的解析分支">解析函数 <span class="math inline">\(n\)</span> 次方根的解析分支</h4>
+<blockquote>
+<p><strong>THEOREM 2.</strong> 设 <span class="math inline">\(n\geqslant 2\in\mathbb{N}\)</span>, <span class="math inline">\(\Omega\)</span> 为单连通区域, <span class="math inline">\(z_0\notin\Omega\)</span>, <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 中解析且处处不为零, 则 <span class="math inline">\((f(z))^\frac{1}{n}\)</span> 在 <span class="math inline">\(\Omega\)</span> 上有解析分支 <span class="math inline">\(g(z)\)</span>, 其所有解析分支为 <span class="math inline">\(g(z)e^{\frac{2k\pi i}{n}}\)</span>. 即: <span class="math display">\[(f(z))^\frac{1}{n}=\{g(z)e^{\frac{2k\pi i}{n}}: k=0,1,\cdots,n-1\}.\]</span> 即 <span class="math inline">\((f(z))^\frac{1}{n}\)</span> 在 <span class="math inline">\(\Omega\)</span> 有 <span class="math inline">\(n\)</span> 个解析分支.</p>
+</blockquote>
+<p><strong>简略证明:</strong><br>
+　　从三角式的角度考虑也是非常显然的. 细节略去.</p>
+<ul>
+<li>解析函数 <span class="math inline">\(n\)</span> 次方根的解析分支可进一步推广为幂函数的解析分支. 懒得细写了, 以后再说.</li>
+</ul>
+<h4 id="幂函数的解析分支-1">幂函数的解析分支</h4>
+<p>再说吧..</p>
+<h2 id="三角函数">三角函数</h2>
+<h3 id="三角函数-1">三角函数</h3>
+<p>只讨论 <span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span>:</p>
 <ol style="list-style-type: decimal">
-<li>伍胜建. 数学分析.第2册[M]. 北京大学出版社, 2010.</li>
-<li>裴礼文. 数学分析中的典型问题与方法-第2版[M]. 高等教育出版社, 2006.</li>
+<li><span class="math inline">\(2i\sin z=e^{iz}-e^{-iz}\)</span>, <span class="math inline">\(2\cos z=e^{iz}+e^{-iz}\)</span>.</li>
+<li><span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> 在复平面上都是解析的. 更一般地, 所有三角函数在有意义的点都是解析的.</li>
+<li><span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span> 都以 <span class="math inline">\(2\pi\)</span> 为周期.</li>
+<li><span class="math inline">\(\sin z\)</span> 的零点为 <span class="math inline">\(z=n\pi~n\in\mathbb{Z}\)</span>.</li>
+<li><span class="math inline">\(\cos z\)</span> 的零点为 <span class="math inline">\(z=(n+\frac{1}{2})\pi~n\in\mathbb{Z}\)</span>.</li>
+<li>大部分实数中的结论(如导数, 三角恒等式)都仍然适用.</li>
 </ol>
+<h3 id="双曲函数">双曲函数</h3>
+<p>只讨论 <span class="math inline">\(\sinh z\)</span> 和 <span class="math inline">\(\cosh\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\sinh z=\frac{e^{z}-e^{-z}}{2}\)</span>, <span class="math inline">\(\cosh z=\frac{e^{z}+e^{-z}}{2}\)</span>;</li>
+<li>由 <span class="math inline">\(e^{z}\)</span> 的周期性, 二者都以 <span class="math inline">\(2\pi i\)</span> 为周期.</li>
+</ol>
+<h3 id="反三角函数">反三角函数</h3>
+<p>反三角函数是多值函数.</p>
+<blockquote>
+<p><strong>DEFINITION 2.</strong> 反三角函数定义如下:<br>
+　　反正弦函数: <span class="math inline">\({\bf Arcsin}~z=\{w\in\mathbb{C}:\sin w=z\}\)</span>;<br>
+　　反余弦函数: <span class="math inline">\({\bf Arccos}~z=\{w\in\mathbb{C}:\cos w=z\}\)</span>;<br>
+　　反正切函数: <span class="math inline">\({\bf Arctan}~z=\{w\in\mathbb{C}:\tan w=z\}\)</span>;</p>
+</blockquote>
+<p>有如下表示:</p>
+<blockquote>
+<p><strong>PROPOSITION 2.</strong> 反三角函数有如下表示: <span class="math display">\[
+\begin{align}
+{\bf Arcsin}~z &amp;= -i{\bf Ln}(iz+(1-z^2)^\frac{1}{2}), \\
+{\bf Arccos}~z &amp;= -i{\bf Ln}(z+(1-z^2)^\frac{1}{2}), \\
+{\bf Arctan}~z &amp;= \frac{1}{2i}{\bf Ln}~\frac{1+iz}{1-iz}.
+\end{align}
+\]</span></p>
+</blockquote>
 
       
     </div>
@@ -357,13 +413,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/13/数学分析拾遗-2-——积分中值定理/">数学分析拾遗[2]——积分的中值定理</a></p>
+        <p><span>本文标题:</span><a href="/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/">复变函数拾遗[2]——多值函数的解析分支</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
-        <p><span>发布时间:</span>2018-03-13, 09:57:17</p>
-        <p><span>最后更新:</span>2018-03-27, 16:04:32</p>
+        <p><span>发布时间:</span>2018-04-12, 11:31:21</p>
+        <p><span>最后更新:</span>2018-04-12, 16:24:46</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/13/数学分析拾遗-2-——积分中值定理/" title="数学分析拾遗[2]——积分的中值定理">http://lizhechen.com/2018/03/13/数学分析拾遗-2-——积分中值定理/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/03/13/数学分析拾遗-2-——积分中值定理/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/" title="复变函数拾遗[2]——多值函数的解析分支">http://lizhechen.com/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -375,16 +431,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/03/18/数学分析拾遗-3-——隐函数定理/">
-                    数学分析拾遗[3]——隐函数定理
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/03/13/数学分析拾遗-1-——一些不等式/">
-                    数学分析拾遗[1]——一些不等式
+                <a href="/2018/04/11/复变函数拾遗-1-——Cauchy高阶求导公式/">
+                    复变函数拾遗[1]——Cauchy定理与最大模原理
                 </a>
             </div>
         
@@ -396,7 +446,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#积分第一中值定理"><span class="toc-number">1.</span> <span class="toc-text">积分第一中值定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定理内容"><span class="toc-number">1.1.</span> <span class="toc-text">定理内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几何意义的探讨"><span class="toc-number">1.2.</span> <span class="toc-text">几何意义的探讨</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#积分第二中值定理"><span class="toc-number">2.</span> <span class="toc-text">积分第二中值定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定理内容-1"><span class="toc-number">2.1.</span> <span class="toc-text">定理内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多值函数解析分支的定义"><span class="toc-number">1.</span> <span class="toc-text">多值函数解析分支的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解析分支定义"><span class="toc-number">1.1.</span> <span class="toc-text">解析分支定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多值函数的本质"><span class="toc-number">1.2.</span> <span class="toc-text">多值函数的本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辐角函数的连续分支"><span class="toc-number">1.3.</span> <span class="toc-text">辐角函数的连续分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#几个解析分支的例子"><span class="toc-number">2.</span> <span class="toc-text">几个解析分支的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对数函数的解析分支"><span class="toc-number">2.1.</span> <span class="toc-text">对数函数的解析分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#幂函数的解析分支"><span class="toc-number">2.2.</span> <span class="toc-text">幂函数的解析分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解析函数-n-次方根的解析分支"><span class="toc-number">2.2.1.</span> <span class="toc-text">解析函数 \(n\) 次方根的解析分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#幂函数的解析分支-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">幂函数的解析分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角函数"><span class="toc-number">3.</span> <span class="toc-text">三角函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三角函数-1"><span class="toc-number">3.1.</span> <span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双曲函数"><span class="toc-number">3.2.</span> <span class="toc-text">双曲函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反三角函数"><span class="toc-number">3.3.</span> <span class="toc-text">反三角函数</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -432,7 +482,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"数学分析拾遗[2]——积分的中值定理　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"复变函数拾遗[2]——多值函数的解析分支　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -452,15 +502,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/18/数学分析拾遗-3-——隐函数定理/" title="上一篇: 数学分析拾遗[3]——隐函数定理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/03/13/数学分析拾遗-1-——一些不等式/" title="下一篇: 数学分析拾遗[1]——一些不等式">
+            <a href="/2018/04/11/复变函数拾遗-1-——Cauchy高阶求导公式/" title="下一篇: 复变函数拾遗[1]——Cauchy定理与最大模原理">
                 <i class="fa fa-angle-right"></i>
             </a>
         
