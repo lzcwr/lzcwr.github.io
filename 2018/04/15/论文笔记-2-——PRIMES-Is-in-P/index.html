@@ -24,7 +24,7 @@
 <meta property="og:description" content="文章: Agrawal M, Kayal N, Saxena N. PRIMES Is in P[J]. Annals of Mathematics, 2004, 160(2):781-793.   太长不看版     文章分为正确性和复杂度两部分:  正确性: 素数显然会返回 PRIME, 只需证返回 PRIME 的是素数. 返回素数的地方只有 Step 2 和 Step">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://olgwnj89q.bkt.clouddn.com/poly%20algo.png">
-<meta property="og:updated_time" content="2018-04-18T02:53:23.017Z">
+<meta property="og:updated_time" content="2018-04-23T12:46:22.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[2]——多项式时间内判定素性">
 <meta name="twitter:description" content="文章: Agrawal M, Kayal N, Saxena N. PRIMES Is in P[J]. Annals of Mathematics, 2004, 160(2):781-793.   太长不看版     文章分为正确性和复杂度两部分:  正确性: 素数显然会返回 PRIME, 只需证返回 PRIME 的是素数. 返回素数的地方只有 Step 2 和 Step">
@@ -346,7 +346,7 @@
 <li><code>Step 6</code>: 分段考虑.
 <ol style="list-style-type: decimal">
 <li>先考虑 <code>Step 2</code> 中 <span class="math inline">\(r\)</span> 的范围, 可得 <span class="math inline">\(r\leqslant\lceil\log^5n\rceil\)</span>.</li>
-<li>定义多项式之间的关系introspective: <span class="math inline">\([f(x)]^m(x)=f(x^m)~({\rm mod}~x^r-1,p)\)</span>, 则该性质对 <span class="math inline">\(m\)</span> 和 <span class="math inline">\(f\)</span> 都满乘积性质.</li>
+<li>定义多项式之间的关系introspective: <span class="math inline">\([f(x)]^m=f(x^m)~({\rm mod}~x^r-1,p)\)</span>, 则该性质对 <span class="math inline">\(m\)</span> 和 <span class="math inline">\(f\)</span> 都满乘积性质.</li>
 <li>由于在 <code>Step 5</code> 没有返回 <code>COMPOSITE</code>, 故 <span class="math inline">\(\frac{n}{p},p\)</span> 对 <span class="math inline">\(x+a\)</span> 是introspective的. 故 <span class="math inline">\(\frac{n}{p}\)</span> 与 <span class="math inline">\(p^j\)</span> 的任意乘积对 <span class="math inline">\(x+a~(0\leqslant a\leqslant l)\)</span> 的任意乘积是introspective的.</li>
 <li>进一步, 通过建立两个群 <span class="math inline">\(G\)</span> 和 <span class="math inline">\(\mathcal{G}\)</span>, 可得到 <span class="math inline">\(|\mathcal{G}|\)</span> 的下界和一个由条件的上界. 并可最终得到 <span class="math inline">\(n=p\)</span>, 即 <span class="math inline">\(n\)</span> 是素数.</li>
 </ol></li>
@@ -546,7 +546,7 @@
         <p><span>本文标题:</span><a href="/2018/04/15/论文笔记-2-——PRIMES-Is-in-P/">论文笔记[2]——多项式时间内判定素性</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-04-15, 20:37:41</p>
-        <p><span>最后更新:</span>2018-04-18, 10:53:23</p>
+        <p><span>最后更新:</span>2018-04-23, 20:46:22</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/04/15/论文笔记-2-——PRIMES-Is-in-P/" title="论文笔记[2]——多项式时间内判定素性">http://lizhechen.com/2018/04/15/论文笔记-2-——PRIMES-Is-in-P/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/04/15/论文笔记-2-——PRIMES-Is-in-P/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
