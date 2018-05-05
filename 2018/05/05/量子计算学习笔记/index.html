@@ -15,20 +15,18 @@
 
 
 
-<meta name="description" content="对积分中值定理的粗浅讨论.">
-<meta name="keywords" content="数学分析">
+<meta name="description" content="最近一个月在读两本书:    Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.  Nielsen M A, Chuang I L. Quantum Computation">
+<meta name="keywords" content="泛函分析,线性代数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学分析拾遗[2]——积分的中值定理">
-<meta property="og:url" content="http://lizhechen.com/2018/03/13/数学分析拾遗-2-——积分中值定理/index.html">
+<meta property="og:title" content="量子计算学习笔记">
+<meta property="og:url" content="http://lizhechen.com/2018/05/05/量子计算学习笔记/index.html">
 <meta property="og:site_name" content="Zhechen的博客">
-<meta property="og:description" content="对积分中值定理的粗浅讨论.">
+<meta property="og:description" content="最近一个月在读两本书:    Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.  Nielsen M A, Chuang I L. Quantum Computation">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://olgwnj89q.bkt.clouddn.com/1st%20m-v%20theorem%20of%20int.png">
-<meta property="og:updated_time" content="2018-03-27T08:04:32.003Z">
+<meta property="og:updated_time" content="2018-05-05T04:34:34.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数学分析拾遗[2]——积分的中值定理">
-<meta name="twitter:description" content="对积分中值定理的粗浅讨论.">
-<meta name="twitter:image" content="http://olgwnj89q.bkt.clouddn.com/1st%20m-v%20theorem%20of%20int.png">
+<meta name="twitter:title" content="量子计算学习笔记">
+<meta name="twitter:description" content="最近一个月在读两本书:    Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.  Nielsen M A, Chuang I L. Quantum Computation">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -60,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>数学分析拾遗[2]——积分的中值定理 | Zhechen的博客</title>
+<title>量子计算学习笔记 | Zhechen的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +283,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-数学分析拾遗-2-——积分中值定理" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-量子计算学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/13/数学分析拾遗-2-——积分中值定理/" class="article-date">
-      <time datetime="2018-03-13T01:57:17.000Z" itemprop="datePublished">2018-03-13</time>
+      <a href="/2018/05/05/量子计算学习笔记/" class="article-date">
+      <time datetime="2018-05-04T16:22:07.000Z" itemprop="datePublished">2018-05-05</time>
 </a>
 
 
@@ -304,7 +302,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数学分析拾遗[2]——积分的中值定理
+      量子计算学习笔记
     </h1>
   
 
@@ -313,13 +311,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/数学/">数学</a>
+    <a class="article-category-link" href="/categories/数学/">数学</a><a class="article-category-link" href="/categories/数学/计算机/">计算机</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学分析/">数学分析</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/泛函分析/">泛函分析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性代数/">线性代数</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,25 +327,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="积分第一中值定理">积分第一中值定理</h2>
-<h3 id="定理内容">定理内容</h3>
+        <ul>
+<li>最近一个月在读两本书:</li>
+</ul>
 <blockquote>
-<p><strong>积分第一中值定理</strong> 设函数 <span class="math inline">\(f(x)\in C[a,b]\)</span>, <span class="math inline">\(g(x)\in R[a,b]\)</span> <font color="red"><strong>且在 <span class="math inline">\([a,b]\)</span> 不变号</strong></font>, 则 <span class="math inline">\(\exists\xi\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(\xi)\int_a^b g(x){\rm d}x.\]</span></p>
-</blockquote>
-<h3 id="几何意义的探讨">几何意义的探讨</h3>
-<p><span class="math inline">\(g(x)\equiv 1\)</span> 且 <span class="math inline">\(f(x)\geqslant 0\)</span> 时, 其形式变为: <span class="math display">\[\int_a^b f(x){\rm d}x=f(\xi)(b-a).\]</span> 此时几何意义是很显然的: 由 <span class="math inline">\(x=a\)</span>, <span class="math inline">\(x=b\)</span>, <span class="math inline">\(y=f(x)\)</span> 所围成的曲边梯形的面积与由 <span class="math inline">\(x=a,\)</span>, <span class="math inline">\(x=b\)</span>, <span class="math inline">\(y=f(\xi)\)</span> 围成的矩形面积相等, 如图所示:</p>
-<center>
-<img src="http://olgwnj89q.bkt.clouddn.com/1st%20m-v%20theorem%20of%20int.png">
-</center>
-<h2 id="积分第二中值定理">积分第二中值定理</h2>
-<h3 id="定理内容-1">定理内容</h3>
-<blockquote>
-<p><strong>积分第二中值定理</strong> 设函数 <span class="math inline">\(g(x)\in R[a,b]\)</span>, 有以下三种情况: (1) 若函数 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([a,b]\)</span> <font color="red"><strong>单调增</strong></font>, 且对于 <span class="math inline">\(\forall x\in[a,b]\)</span>, 有 <span class="math inline">\(f(x)\geqslant 0\)</span>, 则 <span class="math inline">\(\exists\xi_1\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(b)\int_{\xi_1}^b g(x){\rm d}x.\]</span> (2) 若函数 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([a,b]\)</span> <font color="red"><strong>单调减</strong></font>, 且对于 <span class="math inline">\(\forall x\in[a,b]\)</span>, 有 <span class="math inline">\(f(x)\geqslant 0\)</span>, 则 <span class="math inline">\(\exists\xi_2\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(a)\int_a^{\xi_2} g(x){\rm d}x.\]</span> (3) 若函数 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([a,b]\)</span> <font color="red"><strong>单调</strong></font>, 则 <span class="math inline">\(\exists\xi\in[a,b]\)</span>, s.t. <span class="math display">\[\int_a^b f(x)g(x){\rm d}x=f(a)\int_a^\xi g(x){\rm d}x+f(b)\int_\xi^b g(x){\rm d}x.\]</span></p>
-</blockquote>
-<h2 id="参考文献">参考文献</h2>
 <ol style="list-style-type: decimal">
-<li>伍胜建. 数学分析.第2册[M]. 北京大学出版社, 2010.</li>
-<li>裴礼文. 数学分析中的典型问题与方法-第2版[M]. 高等教育出版社, 2006.</li>
+<li>Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.<br>
+</li>
+<li>Nielsen M A, Chuang I L. Quantum Computation and Quantum Information: 10th Anniversary Edition[M]. Cambridge University Press, 2011.</li>
+</ol>
+</blockquote>
+<p>初识量子计算, 很多内容还非常生疏. 借此做一些笔记, 记录一些学习的心得.</p>
+<a id="more"></a>
+<h2 id="quantum-mechanics">Quantum Mechanics</h2>
+<p>书 (1) 中提及的量子公设共有如下四条:</p>
+<ul>
+<li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 1</u>:</font></strong> The <strong><font color="#B5495B" face="">state space</font></strong> of a closed Q system is represented by a Hilbert space, and a <strong><font color="#B5495B" face="">pure state</font></strong> of the system is described by a unit vector in its state space.<br>
+</li>
+<li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 2</u>:</font></strong> Suppose that the states of a closed Q system at times <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t\)</span> are <span class="math inline">\(\vert\psi_0\rangle\)</span> and <span class="math inline">\(\vert\psi\rangle\)</span> respectively. Then they are related to each other by a <strong><font color="#B5495B" face="">unitary operator</font></strong> <span class="math inline">\(U\)</span> which depends only on the time <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t\)</span>, s.t. <span class="math display">\[\vert\psi\rangle=U\vert\psi_0\rangle.\]</span></li>
+<li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 3</u>:</font></strong> <strong><font color="#B5495B" face="">A quantum measurement</font></strong> on a system with state Hilbert space <span class="math inline">\(\mathcal{H}\)</span> is described by a collection of operators <span class="math inline">\(\{M_m\}\subseteq\mathcal{L}(\mathcal{H})\)</span> satisfying the normalization condition: <span class="math display">\[\sum\limits_m M_m^\dagger M_m=1_\mathcal{H}.\]</span>
+<ul>
+<li><span class="math inline">\(M_m\)</span> are called <strong><font color="#B5495B" face="">measurement operators</font></strong>, and the index <span class="math inline">\(m\)</span> stands for the measurement outcomes that may occur in the experiment.</li>
+<li>If the state of a quantum system is <span class="math inline">\(\vert\psi\rangle\)</span> immediately before the measurement, then for each <span class="math inline">\(m\)</span>, the <strong><font color="#B5495B" face="">probability that the result <span class="math inline">\(m\)</span> occurs in the measurement</font></strong> is <span class="math display">\[p(m)=\Vert M_m\vert\psi\rangle\Vert^2=\langle\psi\vert M_m^\dagger M_m\vert\psi\rangle.\quad\text{(Born rule)}\]</span></li>
+<li>the <strong><font color="#B5495B" face="">state of the system after the measurement with outcome <span class="math inline">\(m\)</span></font></strong> is <span class="math display">\[\vert\psi_m\rangle=\frac{M_m\vert\psi\rangle}{\sqrt{p(m)}}.\]</span></li>
+</ul></li>
+<li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 4</u>:</font></strong> The state space of a composite quantum system is the <strong><font color="#B5495B" face="">tensor product</font></strong> of the state spaces of its components.</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ol class="example" style="list-style-type: decimal">
+<li>Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.</li>
+<li>Nielsen M A, Chuang I L. Quantum Computation and Quantum Information: 10th Anniversary Edition[M]. Cambridge University Press, 2011.</li>
 </ol>
 
       
@@ -357,13 +366,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/13/数学分析拾遗-2-——积分中值定理/">数学分析拾遗[2]——积分的中值定理</a></p>
+        <p><span>本文标题:</span><a href="/2018/05/05/量子计算学习笔记/">量子计算学习笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
-        <p><span>发布时间:</span>2018-03-13, 09:57:17</p>
-        <p><span>最后更新:</span>2018-03-27, 16:04:32</p>
+        <p><span>发布时间:</span>2018-05-05, 00:22:07</p>
+        <p><span>最后更新:</span>2018-05-05, 12:34:34</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/13/数学分析拾遗-2-——积分中值定理/" title="数学分析拾遗[2]——积分的中值定理">http://lizhechen.com/2018/03/13/数学分析拾遗-2-——积分中值定理/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/03/13/数学分析拾遗-2-——积分中值定理/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/05/量子计算学习笔记/" title="量子计算学习笔记">http://lizhechen.com/2018/05/05/量子计算学习笔记/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/05/05/量子计算学习笔记/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -375,16 +384,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/03/18/数学分析拾遗-3-——隐函数定理/">
-                    数学分析拾遗[3]——隐函数定理
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/03/13/数学分析拾遗-1-——一些不等式/">
-                    数学分析拾遗[1]——一些不等式
+                <a href="/2018/04/24/荒野行动回忆录/">
+                    荒野行动回忆录
                 </a>
             </div>
         
@@ -396,7 +399,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#积分第一中值定理"><span class="toc-number">1.</span> <span class="toc-text">积分第一中值定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定理内容"><span class="toc-number">1.1.</span> <span class="toc-text">定理内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几何意义的探讨"><span class="toc-number">1.2.</span> <span class="toc-text">几何意义的探讨</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#积分第二中值定理"><span class="toc-number">2.</span> <span class="toc-text">积分第二中值定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定理内容-1"><span class="toc-number">2.1.</span> <span class="toc-text">定理内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quantum-mechanics"><span class="toc-number">1.</span> <span class="toc-text">Quantum Mechanics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">2.</span> <span class="toc-text">Reference</span></a></li></ol>
         
     </div>
     <style>
@@ -432,7 +435,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"数学分析拾遗[2]——积分的中值定理　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"量子计算学习笔记　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -452,15 +455,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/18/数学分析拾遗-3-——隐函数定理/" title="上一篇: 数学分析拾遗[3]——隐函数定理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/03/13/数学分析拾遗-1-——一些不等式/" title="下一篇: 数学分析拾遗[1]——一些不等式">
+            <a href="/2018/04/24/荒野行动回忆录/" title="下一篇: 荒野行动回忆录">
                 <i class="fa fa-angle-right"></i>
             </a>
         
