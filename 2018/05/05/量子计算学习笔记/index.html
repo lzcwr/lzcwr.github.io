@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="最近一个月在读两本书:    Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.  Nielsen M A, Chuang I L. Quantum Computation">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T04:34:34.862Z">
+<meta property="og:updated_time" content="2018-05-06T16:31:39.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="量子计算学习笔记">
 <meta name="twitter:description" content="最近一个月在读两本书:    Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.  Nielsen M A, Chuang I L. Quantum Computation">
@@ -341,7 +341,7 @@
 <a id="more"></a>
 <h2 id="quantum-mechanics">Quantum Mechanics</h2>
 <p>书 (1) 中提及的量子公设共有如下四条:</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 1</u>:</font></strong> The <strong><font color="#B5495B" face="">state space</font></strong> of a closed Q system is represented by a Hilbert space, and a <strong><font color="#B5495B" face="">pure state</font></strong> of the system is described by a unit vector in its state space.<br>
 </li>
 <li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 2</u>:</font></strong> Suppose that the states of a closed Q system at times <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t\)</span> are <span class="math inline">\(\vert\psi_0\rangle\)</span> and <span class="math inline">\(\vert\psi\rangle\)</span> respectively. Then they are related to each other by a <strong><font color="#B5495B" face="">unitary operator</font></strong> <span class="math inline">\(U\)</span> which depends only on the time <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t\)</span>, s.t. <span class="math display">\[\vert\psi\rangle=U\vert\psi_0\rangle.\]</span></li>
@@ -352,7 +352,16 @@
 <li>the <strong><font color="#B5495B" face="">state of the system after the measurement with outcome <span class="math inline">\(m\)</span></font></strong> is <span class="math display">\[\vert\psi_m\rangle=\frac{M_m\vert\psi\rangle}{\sqrt{p(m)}}.\]</span></li>
 </ul></li>
 <li><strong><font color="black" face="Impact" size="4"><u>POSTULATE of Q mechanics 4</u>:</font></strong> The state space of a composite quantum system is the <strong><font color="#B5495B" face="">tensor product</font></strong> of the state spaces of its components.</li>
-</ul>
+</ol>
+<h2 id="quantum-operations">Quantum Operations</h2>
+<p>关羽量子操作, 以下命题等价:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathcal{E}\)</span> 是 <span class="math inline">\(\mathcal{H}\)</span> 上的 Q operation.<br>
+</li>
+<li>(<font face="Monaco">System-environment model</font>) There is an environment system <span class="math inline">\(E\)</span> with state Hilbert space <span class="math inline">\(\mathcal{H}_E\)</span>, and a unitary transformation <span class="math inline">\(U\)</span> in <span class="math inline">\(\mathcal{H}_E\otimes\mathcal{H}\)</span> and a projector <span class="math inline">\(P\)</span> onto some closed subspace of <span class="math inline">\(\mathcal{H}_E\otimes\mathcal{H}\)</span>, s.t. <span class="math display">\[\mathcal{E}(\rho)=tr_E\left[PU(\vert e_0\rangle\langle e_0\vert)U^\dagger P\right]\]</span> for all density operators <span class="math inline">\(\rho\)</span> in <span class="math inline">\(\mathcal{H}\)</span>, where <span class="math inline">\(\vert e_0\rangle\)</span> is a fixed state in <span class="math inline">\(\mathcal{H}_E\)</span>.<br>
+</li>
+<li>(<font face="Monaco">Kraus operator-sum representation</font>) <span class="math inline">\(\exists\)</span> a finite or countably infinite set of operators <span class="math inline">\(\{E_i\}\in\mathcal{H}\)</span>, s.t. <span class="math display">\[\sum\limits_i E_i^\dagger E_i\sqsubseteq 1~~且~~\mathcal{E}(\rho)=\sum\limits_i E_i\rho E_i^\dagger\]</span> for all density operators <span class="math inline">\(\rho\in\mathcal{H}\)</span>. 一般记为: <span class="math display">\[\mathcal{E}=\sum\limits_i E_i\circ E_i^\dagger.\]</span></li>
+</ol>
 <h2 id="reference">Reference</h2>
 <ol class="example" style="list-style-type: decimal">
 <li>Ying M. Foundations of quantum programming[C]// Asian Conference on Programming Languages and Systems. Springer-Verlag, 2010:16-20.</li>
@@ -369,7 +378,7 @@
         <p><span>本文标题:</span><a href="/2018/05/05/量子计算学习笔记/">量子计算学习笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-05-05, 00:22:07</p>
-        <p><span>最后更新:</span>2018-05-05, 12:34:34</p>
+        <p><span>最后更新:</span>2018-05-07, 00:31:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/05/量子计算学习笔记/" title="量子计算学习笔记">http://lizhechen.com/2018/05/05/量子计算学习笔记/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/05/05/量子计算学习笔记/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -399,7 +408,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quantum-mechanics"><span class="toc-number">1.</span> <span class="toc-text">Quantum Mechanics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">2.</span> <span class="toc-text">Reference</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quantum-mechanics"><span class="toc-number">1.</span> <span class="toc-text">Quantum Mechanics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#quantum-operations"><span class="toc-number">2.</span> <span class="toc-text">Quantum Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">3.</span> <span class="toc-text">Reference</span></a></li></ol>
         
     </div>
     <style>
