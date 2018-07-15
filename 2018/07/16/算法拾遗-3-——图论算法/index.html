@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="在Mathematica中永久性修改输入和输出字体.">
-<meta name="keywords" content="Mathematica">
+<meta name="description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  并查集 Dijkstra 算法 Floyd 算法 Kruskal 算法">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mathematica技巧[2]——修改输入和输出字体">
-<meta property="og:url" content="http://lizhechen.com/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/index.html">
+<meta property="og:title" content="算法拾遗[3]——图论算法">
+<meta property="og:url" content="http://lizhechen.com/2018/07/16/算法拾遗-3-——图论算法/index.html">
 <meta property="og:site_name" content="Zhechen的博客">
-<meta property="og:description" content="在Mathematica中永久性修改输入和输出字体.">
+<meta property="og:description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  并查集 Dijkstra 算法 Floyd 算法 Kruskal 算法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.684Z">
+<meta property="og:updated_time" content="2018-07-15T16:48:31.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mathematica技巧[2]——修改输入和输出字体">
-<meta name="twitter:description" content="在Mathematica中永久性修改输入和输出字体.">
+<meta name="twitter:title" content="算法拾遗[3]——图论算法">
+<meta name="twitter:description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  并查集 Dijkstra 算法 Floyd 算法 Kruskal 算法">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Mathematica技巧[2]——修改输入和输出字体 | Zhechen的博客</title>
+<title>算法拾遗[3]——图论算法 | Zhechen的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -283,11 +283,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Mathematica技巧[2]——修改输入和输出字体" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-算法拾遗-3-——图论算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/" class="article-date">
-      <time datetime="2017-05-09T12:55:31.000Z" itemprop="datePublished">2017-05-09</time>
+      <a href="/2018/07/16/算法拾遗-3-——图论算法/" class="article-date">
+      <time datetime="2018-07-15T16:38:22.000Z" itemprop="datePublished">2018-07-16</time>
 </a>
 
 
@@ -302,7 +302,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mathematica技巧[2]——修改输入和输出字体
+      算法拾遗[3]——图论算法
     </h1>
   
 
@@ -311,13 +311,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/代码学习/">代码学习</a>
+    <a class="article-category-link" href="/categories/数学/">数学</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mathematica/">Mathematica</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -327,13 +327,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><code>Mathematica</code>自带的修改字体功能似乎并没有什么用……如果想修改的话，需要手动运行代码修改。代码分为两部分</p>
-<h2 id="函数定义">函数定义</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">setFont[fontFamily_, fontSize_] := With[</span><br><span class="line">    &#123;</span><br><span class="line">        styleNB = Notebook[</span><br><span class="line">            &#123;</span><br><span class="line">                Cell[StyleData[StyleDefinitions -&gt; &quot;Default.nb&quot;]],</span><br><span class="line">                Cell[StyleData[&quot;StandardForm&quot;],</span><br><span class="line">                FontFamily -&gt; ToString[fontFamily],</span><br><span class="line">                FontSize -&gt; ToExpression[fontSize]]</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        styleSheetName = FileNameJoin[</span><br><span class="line">            &#123;</span><br><span class="line">                $UserBaseDirectory, </span><br><span class="line">                &quot;SystemFiles&quot;, </span><br><span class="line">                &quot;FrontEnd&quot;, </span><br><span class="line">                &quot;StyleSheets&quot;, </span><br><span class="line">                &quot;myStyle.nb&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    If[</span><br><span class="line">    	FileExistsQ[styleSheetName], </span><br><span class="line">    	SetOptions[$FrontEnd,</span><br><span class="line">    	DefaultStyleDefinitions -&gt; &quot;Default.nb&quot;]</span><br><span class="line">    ];</span><br><span class="line">    Export[styleSheetName, styleNB];</span><br><span class="line">    SetOptions[$FrontEnd, DefaultStyleDefinitions -&gt; styleSheetName]</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-<h2 id="函数运行">函数运行</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setFont[&quot;字体名称&quot;, 字体大小]</span><br><span class="line">比如：</span><br><span class="line">setFont[&quot;Consolas&quot;, 12]</span><br><span class="line">或者</span><br><span class="line">setFont[&quot;Monaco&quot;, 13]</span><br></pre></td></tr></table></figure>
-<h2 id="用法">用法</h2>
-<p>将以上函数和运行的代码粘贴进一个<code>.nb</code>文档，运行即可修改字体。</p>
+        <p>夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.</p>
+<ul>
+<li>并查集</li>
+<li>Dijkstra 算法</li>
+<li>Floyd 算法</li>
+<li>Kruskal 算法</li>
+</ul>
+<a id="more"></a>
+<h2 id="dijkstra-算法">Dijkstra 算法</h2>
+<p>单源最短路, 适用于权值非负的图.</p>
+<h3 id="实现代码">实现代码</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// g 需要初始化, 下标从0 开始.</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pre[maxn], d[maxn];</span><br><span class="line"><span class="keyword">int</span> g[maxn][maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> g[][maxn], <span class="keyword">int</span> d[], <span class="keyword">int</span> n, <span class="keyword">int</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        pre[i] = <span class="number">-1</span>;</span><br><span class="line">        vis[i] = <span class="literal">false</span>;</span><br><span class="line">        d[i] = inf;</span><br><span class="line">    &#125;</span><br><span class="line">    d[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">-1</span>, Min = inf;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; d[i] &lt; Min)</span><br><span class="line">            &#123;</span><br><span class="line">                Min = d[i];</span><br><span class="line">                k = i;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">        vis[k] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; d[k] + g[k][i] &lt; d[i])</span><br><span class="line">            &#123;</span><br><span class="line">                d[i] = d[k] + g[k][i];</span><br><span class="line">                pre[i] = k;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="hdu-2544-最短路">HDU 2544: 最短路</h3>
+<h4 id="problem-description">Problem Description</h4>
+<p>在每年的校赛里，所有进入决赛的同学都会获得一件很漂亮的t-shirt。但是每当我们的工作人员把上百件的衣服从商店运回到赛场的时候，却是非常累的！所以现在他们想要寻找最短的从商店到赛场的路线，你可以帮助他们吗？</p>
+<h4 id="input">Input</h4>
+<p>输入包括多组数据。每组数据第一行是两个整数N、M（N&lt;=100，M&lt;=10000），N表示成都的大街上有几个路口，标号为1的路口是商店所在地，标号为N的路口是赛场所在地，M则表示在成都有几条路。N=M=0表示输入结束。接下来M行，每行包括3个整数A，B，C（1&lt;=A,B&lt;=N,1&lt;=C&lt;=1000）,表示在路口A与路口B之间有一条路，我们的工作人员需要C分钟的时间走过这条路。 输入保证至少存在1条商店到赛场的路线。</p>
+<h4 id="output">Output</h4>
+<p>对于每组输入，输出一行，表示工作人员从商店走到赛场的最短时间</p>
+<h4 id="sample-input">Sample Input</h4>
+<p>2 1<br>
+1 2 3<br>
+3 3<br>
+1 2 5<br>
+2 3 5<br>
+3 1 2<br>
+0 0</p>
+<h4 id="sample-output">Sample Output</h4>
+<p>3<br>
+2</p>
+<h4 id="大致思路">大致思路</h4>
+<p>注意题目中下标从 1 开始.</p>
+<h4 id="ac代码">AC代码</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pre[maxn], d[maxn];</span><br><span class="line"><span class="keyword">int</span> g[maxn][maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> g[][maxn], <span class="keyword">int</span> d[], <span class="keyword">int</span> n, <span class="keyword">int</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        pre[i] = <span class="number">-1</span>;</span><br><span class="line">        vis[i] = <span class="literal">false</span>;</span><br><span class="line">        d[i] = inf;</span><br><span class="line">    &#125;</span><br><span class="line">    d[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">-1</span>, Min = inf;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; d[i] &lt; Min)</span><br><span class="line">            &#123;</span><br><span class="line">                Min = d[i];</span><br><span class="line">                k = i;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">        vis[k] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; d[k] + g[k][i] &lt; d[i])</span><br><span class="line">            &#123;</span><br><span class="line">                d[i] = d[k] + g[k][i];</span><br><span class="line">                pre[i] = k;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> &amp;&amp; m == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">                g[i][j] = (i == j) ? <span class="number">0</span> : inf;</span><br><span class="line">        <span class="keyword">while</span> (m--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> u, v, w;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">            g[u - <span class="number">1</span>][v - <span class="number">1</span>] = g[v - <span class="number">1</span>][u - <span class="number">1</span>] = w;</span><br><span class="line">        &#125;</span><br><span class="line">        Dijkstra(g, d, n, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; d[n - <span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -342,13 +369,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/">Mathematica技巧[2]——修改输入和输出字体</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/16/算法拾遗-3-——图论算法/">算法拾遗[3]——图论算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
-        <p><span>发布时间:</span>2017-05-09, 20:55:31</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>发布时间:</span>2018-07-16, 00:38:22</p>
+        <p><span>最后更新:</span>2018-07-16, 00:48:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/" title="Mathematica技巧[2]——修改输入和输出字体">http://lizhechen.com/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/16/算法拾遗-3-——图论算法/" title="算法拾遗[3]——图论算法">http://lizhechen.com/2018/07/16/算法拾遗-3-——图论算法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/07/16/算法拾遗-3-——图论算法/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -360,16 +387,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/">
-                    北京师范大学2017年复变函数期中考试试卷
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/04/13/几篇TOEFL独立写作范文/">
-                    几篇TOEFL独立写作范文
+                <a href="/2018/07/15/算法拾遗-2-——数论算法/">
+                    算法拾遗[2]——数论算法
                 </a>
             </div>
         
@@ -381,7 +402,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数定义"><span class="toc-number">1.</span> <span class="toc-text">函数定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数运行"><span class="toc-number">2.</span> <span class="toc-text">函数运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法"><span class="toc-number">3.</span> <span class="toc-text">用法</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#dijkstra-算法"><span class="toc-number">1.</span> <span class="toc-text">Dijkstra 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码"><span class="toc-number">1.1.</span> <span class="toc-text">实现代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hdu-2544-最短路"><span class="toc-number">1.2.</span> <span class="toc-text">HDU 2544: 最短路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#problem-description"><span class="toc-number">1.2.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input"><span class="toc-number">1.2.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output"><span class="toc-number">1.2.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sample-input"><span class="toc-number">1.2.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sample-output"><span class="toc-number">1.2.5.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大致思路"><span class="toc-number">1.2.6.</span> <span class="toc-text">大致思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ac代码"><span class="toc-number">1.2.7.</span> <span class="toc-text">AC代码</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -417,7 +438,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Mathematica技巧[2]——修改输入和输出字体　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"算法拾遗[3]——图论算法　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -437,15 +458,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/" title="上一篇: 北京师范大学2017年复变函数期中考试试卷">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/04/13/几篇TOEFL独立写作范文/" title="下一篇: 几篇TOEFL独立写作范文">
+            <a href="/2018/07/15/算法拾遗-2-——数论算法/" title="下一篇: 算法拾遗[2]——数论算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         

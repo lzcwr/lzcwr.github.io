@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="在Mathematica中永久性修改输入和输出字体.">
-<meta name="keywords" content="Mathematica">
+<meta name="description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  素数筛法 快速幂取模 扩展欧几里得/求逆元 约瑟夫环">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mathematica技巧[2]——修改输入和输出字体">
-<meta property="og:url" content="http://lizhechen.com/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/index.html">
+<meta property="og:title" content="算法拾遗[2]——数论算法">
+<meta property="og:url" content="http://lizhechen.com/2018/07/15/算法拾遗-2-——数论算法/index.html">
 <meta property="og:site_name" content="Zhechen的博客">
-<meta property="og:description" content="在Mathematica中永久性修改输入和输出字体.">
+<meta property="og:description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  素数筛法 快速幂取模 扩展欧几里得/求逆元 约瑟夫环">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T02:52:44.684Z">
+<meta property="og:updated_time" content="2018-07-15T16:50:05.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mathematica技巧[2]——修改输入和输出字体">
-<meta name="twitter:description" content="在Mathematica中永久性修改输入和输出字体.">
+<meta name="twitter:title" content="算法拾遗[2]——数论算法">
+<meta name="twitter:description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  素数筛法 快速幂取模 扩展欧几里得/求逆元 约瑟夫环">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Mathematica技巧[2]——修改输入和输出字体 | Zhechen的博客</title>
+<title>算法拾遗[2]——数论算法 | Zhechen的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -283,11 +283,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Mathematica技巧[2]——修改输入和输出字体" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-算法拾遗-2-——数论算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/" class="article-date">
-      <time datetime="2017-05-09T12:55:31.000Z" itemprop="datePublished">2017-05-09</time>
+      <a href="/2018/07/15/算法拾遗-2-——数论算法/" class="article-date">
+      <time datetime="2018-07-15T14:50:56.000Z" itemprop="datePublished">2018-07-15</time>
 </a>
 
 
@@ -302,7 +302,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mathematica技巧[2]——修改输入和输出字体
+      算法拾遗[2]——数论算法
     </h1>
   
 
@@ -311,13 +311,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/代码学习/">代码学习</a>
+    <a class="article-category-link" href="/categories/数学/">数学</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mathematica/">Mathematica</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -327,13 +327,51 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><code>Mathematica</code>自带的修改字体功能似乎并没有什么用……如果想修改的话，需要手动运行代码修改。代码分为两部分</p>
-<h2 id="函数定义">函数定义</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">setFont[fontFamily_, fontSize_] := With[</span><br><span class="line">    &#123;</span><br><span class="line">        styleNB = Notebook[</span><br><span class="line">            &#123;</span><br><span class="line">                Cell[StyleData[StyleDefinitions -&gt; &quot;Default.nb&quot;]],</span><br><span class="line">                Cell[StyleData[&quot;StandardForm&quot;],</span><br><span class="line">                FontFamily -&gt; ToString[fontFamily],</span><br><span class="line">                FontSize -&gt; ToExpression[fontSize]]</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        styleSheetName = FileNameJoin[</span><br><span class="line">            &#123;</span><br><span class="line">                $UserBaseDirectory, </span><br><span class="line">                &quot;SystemFiles&quot;, </span><br><span class="line">                &quot;FrontEnd&quot;, </span><br><span class="line">                &quot;StyleSheets&quot;, </span><br><span class="line">                &quot;myStyle.nb&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    If[</span><br><span class="line">    	FileExistsQ[styleSheetName], </span><br><span class="line">    	SetOptions[$FrontEnd,</span><br><span class="line">    	DefaultStyleDefinitions -&gt; &quot;Default.nb&quot;]</span><br><span class="line">    ];</span><br><span class="line">    Export[styleSheetName, styleNB];</span><br><span class="line">    SetOptions[$FrontEnd, DefaultStyleDefinitions -&gt; styleSheetName]</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-<h2 id="函数运行">函数运行</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setFont[&quot;字体名称&quot;, 字体大小]</span><br><span class="line">比如：</span><br><span class="line">setFont[&quot;Consolas&quot;, 12]</span><br><span class="line">或者</span><br><span class="line">setFont[&quot;Monaco&quot;, 13]</span><br></pre></td></tr></table></figure>
-<h2 id="用法">用法</h2>
-<p>将以上函数和运行的代码粘贴进一个<code>.nb</code>文档，运行即可修改字体。</p>
+        <p>夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.</p>
+<ul>
+<li>素数筛法</li>
+<li>快速幂取模</li>
+<li>扩展欧几里得/求逆元</li>
+<li>约瑟夫环</li>
+</ul>
+<a id="more"></a>
+<h2 id="素数筛法">素数筛法</h2>
+<p>一种用已知的小素数 <span class="math inline">\(p\)</span> 来筛掉更大的合数, 最终留下素数的算法. 实践复杂度 <span class="math inline">\(O(n\log\log n)\)</span>.</p>
+<h3 id="实现代码-1-打标记">实现代码 1: 打标记</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> notprime[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(notprime, <span class="literal">false</span>, <span class="keyword">sizeof</span>(notprime));</span><br><span class="line">    notprime[<span class="number">0</span>] = notprime[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!notprime[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; maxn / i) <span class="keyword">continue</span>; <span class="comment">// 防止i * i 溢出</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i * i; j &lt; maxn; j += i)</span><br><span class="line">                notprime[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现代码-2-直接存素数">实现代码 2: 直接存素数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prime[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getPrime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(prime, <span class="number">0</span>, <span class="keyword">sizeof</span>(prime));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!prime[i]) prime[++prime[<span class="number">0</span>]] = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= prime[<span class="number">0</span>] &amp;&amp; prime[j] &lt;= maxn / i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            prime[prime[j] * i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>事实上也可以先打标记, 再 <code>for</code> 一遍把素数拿出来.</p>
+<h3 id="百练-3177-判决素数个数">百练 3177: 判决素数个数</h3>
+<p>总时间限制: 1000ms 内存限制: 65536kB</p>
+<h4 id="描述">描述</h4>
+<p>输入两个整数X和Y，输出两者之间的素数个数（包括X和Y）。</p>
+<h4 id="输入">输入</h4>
+<p>两个整数X和Y（1 &lt;= X,Y &lt;= 105）。</p>
+<h4 id="输出">输出</h4>
+<p>输出一个整数，表示X，Y之间的素数个数（包括X和Y）。</p>
+<h4 id="样例输入">样例输入</h4>
+<p>1 100</p>
+<h4 id="样例输出">样例输出</h4>
+<p>25</p>
+<h4 id="大致思路">大致思路</h4>
+<p>有个坑点... 题目没有保证 <span class="math inline">\(x\leqslant y\)</span>.. 所以需要 <code>swap</code> 一下.</p>
+<h4 id="ac代码">AC代码</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prime[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getPrime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(prime, <span class="number">0</span>, <span class="keyword">sizeof</span>(prime));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!prime[i]) prime[++prime[<span class="number">0</span>]] = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= prime[<span class="number">0</span>] &amp;&amp; prime[j] &lt;= maxn / i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            prime[prime[j] * i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> notprime[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(notprime, <span class="literal">false</span>, <span class="keyword">sizeof</span>(notprime));</span><br><span class="line">    notprime[<span class="number">0</span>] = notprime[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!notprime[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; maxn / i) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i * i; j &lt; maxn; j += i)</span><br><span class="line">                notprime[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &gt; y) swap(x, y);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = x; i &lt;= y; i++)</span><br><span class="line">            <span class="keyword">if</span>(!notprime[i]) ans++;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="扩展欧几里得算法">扩展欧几里得算法</h2>
+<p>求解 <span class="math inline">\(ax+by=d\)</span> 中的 <span class="math inline">\(x, y\)</span>, 其中 <span class="math inline">\(\gcd(a, b)~|~d\)</span> 才有解.</p>
+<h3 id="实现代码">实现代码</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回d = gcd(a, b); 和对应于等式ax + by = d 中的x, y</span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">extend_gcd</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">long</span> <span class="keyword">long</span> &amp;x, <span class="keyword">long</span> <span class="keyword">long</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">0</span> &amp;&amp; b == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 无最大公约数</span></span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> d = extend_gcd(b, a % b, y, x);</span><br><span class="line">    y -= a / b * x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速幂取模">快速幂取模</h2>
+<p>在 <span class="math inline">\(O(\log n)\)</span> 时间内求 <span class="math inline">\(a^b\%m\)</span> 的值.</p>
+<h3 id="实现代码-1">实现代码</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">pow_mod</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            ret = ret * a % mod;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="求逆元">求逆元</h2>
+<p>求 <span class="math inline">\(a\)</span>, s.t. <span class="math inline">\(ax=1~({\rm mod}~m)\)</span>.</p>
+<h3 id="实现代码-1-利用扩展欧几里得">实现代码 1: 利用扩展欧几里得</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ax = 1(mod n)</span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mod_reverse</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x, y;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> d = extend_gcd(a, n, x, y);</span><br><span class="line">    <span class="keyword">if</span> (d == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> (x % n + n) % n;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现代码-2-利用费马小定理">实现代码 2: 利用费马小定理</h3>
+<p>由于模数 <span class="math inline">\(m\)</span> 一般为素数, 当 <span class="math inline">\((a,m)=1\)</span> 时, 由费马小定理有: <span class="math display">\[a^{m-1}=1({\rm mod}~m)\Rightarrow a^{-1}=a^{m-2}.\]</span> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">inv</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> pow_mod(a, mod - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -342,13 +380,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/">Mathematica技巧[2]——修改输入和输出字体</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/15/算法拾遗-2-——数论算法/">算法拾遗[2]——数论算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
-        <p><span>发布时间:</span>2017-05-09, 20:55:31</p>
-        <p><span>最后更新:</span>2018-03-16, 10:52:44</p>
+        <p><span>发布时间:</span>2018-07-15, 22:50:56</p>
+        <p><span>最后更新:</span>2018-07-16, 00:50:05</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/" title="Mathematica技巧[2]——修改输入和输出字体">http://lizhechen.com/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/15/算法拾遗-2-——数论算法/" title="算法拾遗[2]——数论算法">http://lizhechen.com/2018/07/15/算法拾遗-2-——数论算法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/07/15/算法拾遗-2-——数论算法/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -361,15 +399,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/">
-                    北京师范大学2017年复变函数期中考试试卷
+                <a href="/2018/07/16/算法拾遗-3-——图论算法/">
+                    算法拾遗[3]——图论算法
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/04/13/几篇TOEFL独立写作范文/">
-                    几篇TOEFL独立写作范文
+                <a href="/2018/07/14/算法拾遗-1-——动态规划/">
+                    算法拾遗[1]——动态规划
                 </a>
             </div>
         
@@ -381,7 +419,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数定义"><span class="toc-number">1.</span> <span class="toc-text">函数定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数运行"><span class="toc-number">2.</span> <span class="toc-text">函数运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法"><span class="toc-number">3.</span> <span class="toc-text">用法</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#素数筛法"><span class="toc-number">1.</span> <span class="toc-text">素数筛法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-1-打标记"><span class="toc-number">1.1.</span> <span class="toc-text">实现代码 1: 打标记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-2-直接存素数"><span class="toc-number">1.2.</span> <span class="toc-text">实现代码 2: 直接存素数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#百练-3177-判决素数个数"><span class="toc-number">1.3.</span> <span class="toc-text">百练 3177: 判决素数个数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#描述"><span class="toc-number">1.3.1.</span> <span class="toc-text">描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入"><span class="toc-number">1.3.2.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出"><span class="toc-number">1.3.3.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输入"><span class="toc-number">1.3.4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输出"><span class="toc-number">1.3.5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大致思路"><span class="toc-number">1.3.6.</span> <span class="toc-text">大致思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ac代码"><span class="toc-number">1.3.7.</span> <span class="toc-text">AC代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展欧几里得算法"><span class="toc-number">2.</span> <span class="toc-text">扩展欧几里得算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码"><span class="toc-number">2.1.</span> <span class="toc-text">实现代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速幂取模"><span class="toc-number">3.</span> <span class="toc-text">快速幂取模</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-1"><span class="toc-number">3.1.</span> <span class="toc-text">实现代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求逆元"><span class="toc-number">4.</span> <span class="toc-text">求逆元</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-1-利用扩展欧几里得"><span class="toc-number">4.1.</span> <span class="toc-text">实现代码 1: 利用扩展欧几里得</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-2-利用费马小定理"><span class="toc-number">4.2.</span> <span class="toc-text">实现代码 2: 利用费马小定理</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -417,7 +455,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Mathematica技巧[2]——修改输入和输出字体　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"算法拾遗[2]——数论算法　| Zhechen的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -437,7 +475,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/" title="上一篇: 北京师范大学2017年复变函数期中考试试卷">
+            <a href="/2018/07/16/算法拾遗-3-——图论算法/" title="上一篇: 算法拾遗[3]——图论算法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -445,7 +483,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/04/13/几篇TOEFL独立写作范文/" title="下一篇: 几篇TOEFL独立写作范文">
+            <a href="/2018/07/14/算法拾遗-1-——动态规划/" title="下一篇: 算法拾遗[1]——动态规划">
                 <i class="fa fa-angle-right"></i>
             </a>
         
