@@ -317,16 +317,45 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
-
+              <p>比较重要的几条是:</p>
+<ul>
+<li><code>add, subtract, multiply, divide, mod, remainder</code> 加减乘除取模取余<font color="red">---注意取模中 <span class="math inline">\(b\)</span> 必须为正!</font></li>
+<li><code>a.compareTo(b)</code> <span class="math inline">\(a=b\)</span> 返回 <span class="math inline">\(0\)</span>, 否则返回 <span class="math inline">\(a&gt;b\)</span> 的值.</li>
+<li><code>a.toString(b)</code> 将 <span class="math inline">\(a\)</span> 转换为 <span class="math inline">\(b\)</span> 进制字符串.</li>
+</ul>
+<p>另外注意 <code>Scanner</code> 的写法:</p>
+<ul>
+<li>输入接口: <code>Scanner cin = new Scanner(System.in);</code></li>
+<li>EOF写法: <code>while(cin.hasNext()) {}</code></li>
+<li>输入:<code>BigInteger a = cin.nextBigInteger();</code></li>
+</ul>
+<p>以及变量的声明(注意 <code>new</code>):</p>
+<ul>
+<li>单个变量: <code>BigInteger a = new BigInteger(&quot;0&quot;);</code></li>
+<li>声明数组: <code>BigInteger a[] = new BigInteger[size];</code></li>
+<li>静态方法: <code>BigInteger a = BigInteger.valueOf(x);</code></li>
+</ul>
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数学/">数学</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/07/17/算法拾遗-5-——Java大数/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -520,7 +549,6 @@
 <li>素数筛法</li>
 <li>快速幂取模</li>
 <li>扩展欧几里得/求逆元</li>
-<li>约瑟夫环</li>
 </ul>
           
       
