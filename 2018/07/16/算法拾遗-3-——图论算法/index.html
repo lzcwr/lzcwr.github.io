@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Zhechen的博客">
 <meta property="og:description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  并查集 Dijkstra 算法 Floyd 算法 Kruskal 算法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T01:32:21.773Z">
+<meta property="og:updated_time" content="2018-07-17T08:06:30.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法拾遗[3]——图论算法">
 <meta name="twitter:description" content="夏令营复习算法, 感到自己对之前学过的算法略有生疏, 写篇流水账, 权当复习.  并查集 Dijkstra 算法 Floyd 算法 Kruskal 算法">
@@ -338,7 +338,7 @@
 <h2 id="并查集">并查集</h2>
 <p>处理连通关系的一种手段.</p>
 <h3 id="查询所属连通分支">查询所属连通分支</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fa[i] 表示i 所属的连通分支的代表元</span></span><br><span class="line"><span class="comment">// rnk[j] 表示j 号连通分支的结点个数, 注意这里的j 必须是所取的代表元(根结点)</span></span><br><span class="line"><span class="comment">// 使用前注意fa[] 的初始化</span></span><br><span class="line"><span class="keyword">int</span> fa[maxn], rnk[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (fa[x] == <span class="number">-1</span>) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> fa[x] = Find(fa[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fa[i] 表示i 所属的连通分支的代表元</span></span><br><span class="line"><span class="comment">// rnk[j] 表示j 号连通分支的结点个数, 注意这里的j 必须是所取的代表元(根结点)</span></span><br><span class="line"><span class="comment">// 使用前注意fa[] 的初始化, rnk[] 初始为1.</span></span><br><span class="line"><span class="keyword">int</span> fa[maxn], rnk[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (fa[x] == <span class="number">-1</span>) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> fa[x] = Find(fa[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="合并操作">合并操作</h3>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t1 = Find(x);</span><br><span class="line">    <span class="keyword">int</span> t2 = Find(y);</span><br><span class="line">    <span class="keyword">if</span>(t1 != t2)</span><br><span class="line">    &#123;</span><br><span class="line">        fa[t1] = t2;</span><br><span class="line">        rnk[t2] += rnk[t1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="dijkstra-算法">Dijkstra 算法</h2>
@@ -430,7 +430,7 @@
         <p><span>本文标题:</span><a href="/2018/07/16/算法拾遗-3-——图论算法/">算法拾遗[3]——图论算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
         <p><span>发布时间:</span>2018-07-16, 00:38:22</p>
-        <p><span>最后更新:</span>2018-07-17, 09:32:21</p>
+        <p><span>最后更新:</span>2018-07-17, 16:06:30</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/07/16/算法拾遗-3-——图论算法/" title="算法拾遗[3]——图论算法">http://lizhechen.com/2018/07/16/算法拾遗-3-——图论算法/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/07/16/算法拾遗-3-——图论算法/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
