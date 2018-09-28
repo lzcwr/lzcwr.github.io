@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="lzcwr" />
+
+
+
+<meta name="description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
+<meta name="keywords" content="师大,计算机,统计学,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习[1]——时间序列分析">
+<meta property="og:url" content="http://lizhechen.com/2018/09/26/Python学习-1-——时间序列分析/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-28T17:12:35.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习[1]——时间序列分析">
+<meta name="twitter:description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhechen&#39;s Personal Website" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python学习[1]——时间序列分析 | Zhechen&#39;s Personal Website</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">lzcwr</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Primes are lonely.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/catalogue/">导航</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/diary/">日记</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/lzcwr/activities" title="知乎"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE/">GRE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL/">TOEFL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/保研/">保研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/保研复习/">保研复习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/北大/">北大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/各种试卷/">各种试卷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图论/">图论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复变函数/">复变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实变函数/">实变函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/师大/">师大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微分几何/">微分几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿/">志愿</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抽象代数/">抽象代数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/拓扑学/">拓扑学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学分析/">数学分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期末复习/">期末复习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率论/">概率论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毕业/">毕业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛函分析/">泛函分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测度论/">测度论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/王者荣耀/">王者荣耀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/白鸽/">白鸽</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/篮球/">篮球</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性代数/">线性代数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经济学/">经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/统计学/">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英语/">英语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范畴论/">范畴论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/荒野行动/">荒野行动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解析几何/">解析几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机/">计算机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/论文笔记/">论文笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件所/">软件所</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件配置/">软件配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运动/">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/马拉松/">马拉松</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://xuhongxu96.github.io">许宏旭的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://bufan.xyz">卜凡的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://easezyc.github.io">朱勇椿的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://zhuanlan.zhihu.com/typetheory">Arjuna的类型论驿站</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://blog.comen.org">何岳寰的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://njuwfang.github.io">方望的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://blog.csdn.net/quailty">曾耀辉的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://blog.csdn.net/skywalkert">糖老师的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/clrs97/">HDU-Claris的博客</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">师大信科 -&gt; 数学, 喜欢数学和计算机. 业余爱好广泛, 篮球乒乓球各种运动, dota吃鸡各种游戏...</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">lzcwr</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">lzcwr</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Primes are lonely.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/catalogue/">导航</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/diary/">日记</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:lzcwr@lizhechen.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="http://www.github.com/lzcwr" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/lzcwr/activities" title="知乎"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Python学习-1-——时间序列分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/26/Python学习-1-——时间序列分析/" class="article-date">
+      <time datetime="2018-09-26T15:20:17.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python学习[1]——时间序列分析
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/学习/">学习</a><a class="article-category-link" href="/categories/学习/瞎折腾/">瞎折腾</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/师大/">师大</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/统计学/">统计学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机/">计算机</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ul>
+<li>做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz...</li>
+<li><code>tsa</code> 的官方文档：<a href="http://www.statsmodels.org/dev/tsa.html" class="uri" target="_blank" rel="noopener">http://www.statsmodels.org/dev/tsa.html</a></li>
+</ul>
+<blockquote>
+<p>面向乱搞的程序设计？</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="序列的分析">序列的分析</h2>
+<h3 id="序列的平稳性">序列的平稳性</h3>
+<p>如果时间序列 <span class="math inline">\(x_t\)</span> 在某一常数附近波动并且范围不大，方差和均值为常数，且延迟 <span class="math inline">\(k\)</span> 期的子自协方差和自相关系数是相等的，则称 <span class="math inline">\(x_t\)</span> 是平稳序列. <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>自协方差和自相关系数的定义如下：</p>
+<ul>
+<li>自协方差：<span class="math inline">\(\gamma(t,s) = \mathbb{E}[(x_t-\mu_t)(x_s-\mu_s)]\)</span></li>
+<li>自相关系数：<span class="math inline">\(\rho(t,s) = \frac{cov(x_t, x_s)}{\sigma_t\sigma_s}\)</span></li>
+</ul>
+<h4 id="平稳序列的判定平稳性检验">平稳序列的判定：平稳性检验</h4>
+<p>一般有以下两种方法：</p>
+<ol style="list-style-type: decimal">
+<li>时序图检验：根据平稳序列的均值和方差都为常数的性质，平稳时间序列的时序图应当显示该序列始终在一个常数附近随机波动，且波动范围有限；</li>
+<li>自相关检验：平稳时间序列具有短期相关性，故平稳时间序列通常只有近期的项才对当前值的影响较为明显。随着间隔 <span class="math inline">\(k\)</span> 的增大，平稳序列的自相关系数会不断衰减至 <span class="math inline">\(0\)</span>，而非平稳序列的衰减较慢。</li>
+</ol>
+<h3 id="白噪声序列">白噪声序列</h3>
+<ul>
+<li>白噪声序列指的是纯随机序列，序列的各项之间毫无关系，从中无法获取任何有用的信息。</li>
+</ul>
+<h4 id="白噪声序列的判定纯随机性检验">白噪声序列的判定：纯随机性检验</h4>
+<p>纯随机序列满足 <span class="math inline">\(\gamma(k) = 0\)</span>，其样本自相关系数很接近零，并且在零附近随机扰动。一般构造 <span class="math inline">\(Q\)</span> 统计量和 <span class="math inline">\(LB\)</span> 统计量来进行检验.</p>
+<ul>
+<li>在 <code>Python</code> 中可以使用 <code>acorr_ljungbox</code> 方法来检验.</li>
+</ul>
+<h2 id="常用的模型原理">常用的模型原理</h2>
+<p>时间序列趋势主要受到总体趋势 <span class="math inline">\(T\)</span>、季节性因素 <span class="math inline">\(S\)</span>、周期性波动 <span class="math inline">\(C\)</span> 和随机扰动 <span class="math inline">\(\varepsilon\)</span> 的影响，一般来说有加法和乘法两种模型。</p>
+<ol style="list-style-type: decimal">
+<li>加法模型(additive model): <span class="math inline">\(x_t = T_t+S_t+C_t+\varepsilon_t\)</span>;</li>
+<li>乘法模型(multiplicative model): <span class="math inline">\(x_t = T_t\times S_t\times C_t\times\varepsilon_t\)</span>.</li>
+</ol>
+<p>在作分析时，常常采用的是AR-MA模型：</p>
+<ol style="list-style-type: decimal">
+<li>AR模型 <span class="math inline">\(AR(p)\)</span>：每一项都与前 <span class="math inline">\(p\)</span> 项线性相关, 与随机扰动项无关. <span class="math display">\[x_t=\varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t-p}+\varepsilon_t = \varphi_0+ \sum\limits_{k=1}^p \varphi_k x_{t-k}+\varepsilon_t\]</span> 其中随机扰动项 <span class="math inline">\(\varepsilon_t\)</span> 为均值为 <span class="math inline">\(0\)</span> 的白噪声序列. 均值方差均为常数，ACF拖尾，PACF <span class="math inline">\(q\)</span> 阶截尾.</li>
+<li>MA模型 <span class="math inline">\(MA(q)\)</span>：每一项都与前 <span class="math inline">\(q\)</span> 项的随机扰动线性相关, 与真实值无关. <span class="math display">\[x_t = \mu + \varepsilon_t-\theta_1 \varepsilon_{t-1}-\theta_2\varepsilon_{t-2}-\cdots-\theta_q \varepsilon_{t-q} = \mu + \varepsilon_t - \sum\limits_{k=1}^q \theta_k\varepsilon_{t-k}\]</span> 其中随机扰动项 <span class="math inline">\(\varepsilon_t\)</span> 为均值为 <span class="math inline">\(0\)</span> 的白噪声序列，<span class="math inline">\(\mu\)</span> 为序列均值. 均值方差为常数，ACF为 <span class="math inline">\(q\)</span> 阶截尾，PACF拖尾.</li>
+<li>ARMA模型 <span class="math inline">\(ARMA(p,q)\)</span>：每一项都与前 <span class="math inline">\(p\)</span> 项线性相关, 同时与前 <span class="math inline">\(q\)</span> 项的随机扰动有关. <span class="math display">\[
+\begin{align}
+x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t-p} + \varepsilon_t-\theta_1 \varepsilon_{t-1}-\theta_2\varepsilon_{t-2}-\cdots-\theta_q \varepsilon_{t-q} \\
+&amp;= \varphi_0 + \sum\limits_{i=1}^p \varphi_i x_{t-i} + \varepsilon_t - \sum\limits_{j=1}^q \theta_j\varepsilon_{t-j}
+\end{align}
+\]</span> 其中随机扰动项 <span class="math inline">\(\varepsilon_t\)</span> 为均值为 <span class="math inline">\(0\)</span> 的白噪声序列，<span class="math inline">\(\mu\)</span> 为序列均值. 均值方差为常数，ACF为 <span class="math inline">\(q\)</span> 阶截尾，PACF <span class="math inline">\(p\)</span> 阶截尾.</li>
+</ol>
+<blockquote>
+<p>容易看出AR模型和MA模型分别是ARMA在 <span class="math inline">\(p=0\)</span> 和 <span class="math inline">\(q=0\)</span> 时的特例.</p>
+</blockquote>
+<p>一般在分析时分析的多是平稳序列，可以考虑用ARMA模型。有一些序列本身不是平稳序列，但做一阶差分之后成为平稳序列，这种序列被称为差分平稳序列，可以使用ARIMA模型进行拟合.</p>
+<h2 id="python中的amra模型">Python中的AMRA模型</h2>
+<h3 id="导入库">导入库</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_acf <span class="comment"># 自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_pacf <span class="comment"># 偏自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.stats.diagnostic <span class="keyword">import</span> acorr_ljungbox <span class="comment"># 白噪声检验</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.stattools <span class="keyword">import</span> adfuller <span class="keyword">as</span> ADF <span class="comment"># 平稳性检测</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.seasonal <span class="keyword">import</span> seasonal_decompose <span class="comment"># 季节性分解</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARMA</span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARIMA</span><br></pre></td></tr></table></figure>
+<h3 id="乱码问题处理">乱码问题处理</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>] <span class="comment"># 显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span> <span class="comment"># 显示负号</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据读取与处理">数据读取与处理</h3>
+<p>按照我的习惯会将日期一列命名为 <code>date</code>.</p>
+<h4 id="数据读取">数据读取</h4>
+<p>一般数据的格式为 <code>XLS</code> 或者 <code>CSV</code>.</p>
+<ol style="list-style-type: decimal">
+<li><p>数据为CSV格式 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'文件地址'</span>, encoding = <span class="string">'utf-8'</span>, indeax_col = <span class="string">'date'</span>)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>数据为XLS格式 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'文件地址'</span>, encoding = <span class="string">'utf-8'</span>, index_col = <span class="string">'data'</span>)</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<p>若数据为数据库形式(如 <code>MySQL</code>), 则可以直接用 <code>SQL</code> 语句从数据库中提取.</p>
+<h4 id="数据格式的处理">数据格式的处理</h4>
+<p>以上读取数据的函数只会将读入的数据保存为 <code>DataFrame</code> 对象，但我们做预测所需要的数据类型是 <code>Series</code>，故需要将其转换为该格式，并将 <code>date</code> 指定为索引.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.index = pd.to_datetime(df.index)  <span class="comment"># 指定 date 为索引</span></span><br><span class="line">ts = df[<span class="string">'x'</span>]  <span class="comment"># 生成Series对象</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<center>
+<font color="red"><strong>注意此处数据文件中的日期必须为日期格式. </strong></font>如 (yyyy/mm/dd) 是合法的，但 &quot;20080808&quot; 就是不合法的，必须进行处理.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>
+</center>
+</blockquote>
+<p>如此得到的 <code>ts</code> 即为一个可用的时间序列，不仅可以用类似于 <code>2014-1-1</code> 的字符串进行访问，也可以用时间对象 <code>datetime(2014, 1, 1)</code> 进行访问. 即以下两种访问方式都是可行的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ts[<span class="string">'2014-1-1'</span>]</span><br><span class="line">ts[datetime(<span class="number">2014</span>, <span class="number">1</span>, <span class="number">1</span>)]</span><br><span class="line">ts[<span class="string">'2014-1-1'</span> : <span class="string">'2014-5-1'</span>] <span class="comment"># 切片操作. 注意此处的切片为闭区间, 端点都包括.</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>关于 <code>Series</code> 的更多内容参见 https://blog.csdn.net/zutsoft/article/details/51482573</p>
+</blockquote>
+<h3 id="数据的趋势分析">数据的趋势分析</h3>
+<h4 id="平稳性检验">平稳性检验</h4>
+<p>可以进行 <code>ADF</code> 检验. 弱鸡还不理解其原理...暂且放在这里.</p>
+<h4 id="平稳性处理季节性分解">平稳性处理：季节性分解</h4>
+<blockquote>
+<p>为了使序列更平稳，在做计算时经常对其取对数: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ts_log = np.log(ts)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>若原始数据有很强的周期性，则可以考虑对其进行季节性的分解，即将元素数据分离为总体趋势，季节性趋势以及残差三部分.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">decomposition = seasonal_decompose(ts_log, model=<span class="string">"additive"</span>)</span><br><span class="line">trend = decomposition.trend</span><br><span class="line">seasonal = decomposition.seasonal</span><br><span class="line">residual = decomposition.resid</span><br></pre></td></tr></table></figure>
+<p>将三种因素分离后，即可分别做预测，再相加. <code>statsmodels</code> 中还提供了乘法模型，只需将上述代码中的 <code>additive</code> 改为 <code>multiplicative</code> 即可.</p>
+<h3 id="模型识别">模型识别</h3>
+<p>只需要对所要拟合的数据集绘制其 ACF(自相关) 与 PACF(偏自相关) 图，观察其截尾与拖尾性质即可确定模型阶数.<br>
+相关图的绘制代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot_acf(ts_log).show()</span><br><span class="line">plot.pacf(ts_log).show()</span><br></pre></td></tr></table></figure>
+<p>例如最终识别为 <span class="math inline">\(p=q=1\)</span>，则预测模型为 <span class="math inline">\(ARMA(1,1)\)</span>，实现代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model = ARMA(ts_log, order = (<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">result = model.fit(disp = <span class="number">-1</span>, method = <span class="string">'css'</span>)</span><br></pre></td></tr></table></figure>
+<p>随后用以下代码即可预测：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict = result.predict(begin, end) <span class="comment"># begin 和 end 表示所需预测的起点与终点</span></span><br><span class="line">predict = np.exp(predict) <span class="comment"># 若之前取了对数 or 做了差分, 预测之后应还原</span></span><br></pre></td></tr></table></figure>
+<h2 id="python中的arima模型">Python中的ARIMA模型</h2>
+<p>根本不会，学会再写。</p>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>参见 https://zhuanlan.zhihu.com/p/35128342<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>python时间序列分析: https://www.cnblogs.com/foley/p/5582358.html<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>将 &quot;yyyymmdd&quot; 转换为 &quot;yyyy/mm/dd&quot; 的方法很简单，以下给出 <code>C++</code> 代码： <figure class="highlight c++"><figcaption><span>date_format.cpp 处理日期格式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">char</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> c - <span class="string">'0'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"out.txt"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>); <span class="comment">// 输入到文件里, 方便使用</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> s; <span class="comment">// 输入格式为 yyyymmdd 字符串</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; s)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> y = <span class="number">1000</span> * f(s[<span class="number">0</span>]) + <span class="number">100</span> * f(s[<span class="number">1</span>]) + <span class="number">10</span> * f(s[<span class="number">2</span>]) + f(s[<span class="number">3</span>]);</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">10</span> * f(s[<span class="number">4</span>]) + f(s[<span class="number">5</span>]);</span><br><span class="line">        <span class="keyword">int</span> d = <span class="number">10</span> * f(s[<span class="number">6</span>]) + f(s[<span class="number">7</span>]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d/%d/%d\n"</span>, y, m, d);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/09/26/Python学习-1-——时间序列分析/">Python学习[1]——时间序列分析</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">lzcwr</a></p>
+        <p><span>发布时间:</span>2018-09-26, 23:20:17</p>
+        <p><span>最后更新:</span>2018-09-29, 01:12:35</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/26/Python学习-1-——时间序列分析/" title="Python学习[1]——时间序列分析">http://lizhechen.com/2018/09/26/Python学习-1-——时间序列分析/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lizhechen.com/2018/09/26/Python学习-1-——时间序列分析/　　作者: lzcwr" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/09/23/Cmder配置/">
+                    Windows下用Shell——Cmder配置
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序列的分析"><span class="toc-number">1.</span> <span class="toc-text">序列的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列的平稳性"><span class="toc-number">1.1.</span> <span class="toc-text">序列的平稳性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#平稳序列的判定平稳性检验"><span class="toc-number">1.1.1.</span> <span class="toc-text">平稳序列的判定：平稳性检验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#白噪声序列"><span class="toc-number">1.2.</span> <span class="toc-text">白噪声序列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#白噪声序列的判定纯随机性检验"><span class="toc-number">1.2.1.</span> <span class="toc-text">白噪声序列的判定：纯随机性检验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的模型原理"><span class="toc-number">2.</span> <span class="toc-text">常用的模型原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python中的amra模型"><span class="toc-number">3.</span> <span class="toc-text">Python中的AMRA模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入库"><span class="toc-number">3.1.</span> <span class="toc-text">导入库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码问题处理"><span class="toc-number">3.2.</span> <span class="toc-text">乱码问题处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据读取与处理"><span class="toc-number">3.3.</span> <span class="toc-text">数据读取与处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据读取"><span class="toc-number">3.3.1.</span> <span class="toc-text">数据读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据格式的处理"><span class="toc-number">3.3.2.</span> <span class="toc-text">数据格式的处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据的趋势分析"><span class="toc-number">3.4.</span> <span class="toc-text">数据的趋势分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#平稳性检验"><span class="toc-number">3.4.1.</span> <span class="toc-text">平稳性检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平稳性处理季节性分解"><span class="toc-number">3.4.2.</span> <span class="toc-text">平稳性处理：季节性分解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型识别"><span class="toc-number">3.5.</span> <span class="toc-text">模型识别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python中的arima模型"><span class="toc-number">4.</span> <span class="toc-text">Python中的ARIMA模型</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python学习[1]——时间序列分析　| Zhechen's Personal Website　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/09/23/Cmder配置/" title="下一篇: Windows下用Shell——Cmder配置">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/Python学习-1-——时间序列分析/">Python学习[1]——时间序列分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/23/Cmder配置/">Windows下用Shell——Cmder配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/组合数学——球放入盒子的方案数/">组合数学[1]——球放入盒子的方案数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/北京师范大学2015年近世代数期末考试试卷/">北京师范大学2015年近世代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/16/2018北京马拉松小记/">2018北京马拉松小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018毕业季留念/">2018毕业季留念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/28/保研夏令营二三事/">保研夏令营二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/26/点估计——极大似然估计、最大后验估计和贝叶斯估计/">点估计——最大似然估计、最大后验概率估计和贝叶斯估计</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/17/算法拾遗-5-——Java大数/">算法拾遗[5]——Java大数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/17/算法拾遗-4-——STL用法/">算法拾遗[4]——STL用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/16/算法拾遗-3-——图论算法/">算法拾遗[3]——图论算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/算法拾遗-2-——数论算法/">算法拾遗[2]——数论算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/算法拾遗-1-——动态规划/">算法拾遗[1]——动态规划</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/北京师范大学2015年组合数学期末考试试卷/">北京师范大学2015年组合数学期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/24/荒野行动回忆录/">荒野行动回忆录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/农药相关记录/">图说农药</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/论文笔记-2-——PRIMES-Is-in-P/">论文笔记[2]——AKS素性测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/12/复变函数拾遗-2-——多值函数的解析分支/">复变函数拾遗[2]——多值函数的解析分支</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/复变函数拾遗-1-——Cauchy高阶求导公式/">复变函数拾遗[1]——Cauchy定理与最大模原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/05/论文笔记-1-——A New Solution to the Random Assignment Problem/">论文笔记[1]——随机分配问题的PS算法和依次有效性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/01/北京大学数学科学学院2018年直博生考试题目/">北京大学数学科学学院2018年直博生考试题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/01/北京大学数学科学学院2016年直博生考试题目/">北京大学数学科学学院2016年直博生考试题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/28/数学分析拾遗-5-——多元函数的极值/">数学分析拾遗[5]——多元函数的极值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/数学分析拾遗-4-——Abel判别法与Dirichlet判别法/">数学分析拾遗[4]——含参广义积分的一致收敛</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/线性代数拾遗-2-——Jordan标准型/">线性代数拾遗[2]——Jordan标准形</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/线性代数拾遗-1-——分块矩阵/">线性代数拾遗[1]——分块矩阵</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/hexo博客迁移/">hexo博客的傻瓜式迁移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/18/数学分析拾遗-3-——隐函数定理/">数学分析拾遗[3]——隐函数定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/数学分析拾遗-2-——积分中值定理/">数学分析拾遗[2]——积分的中值定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/数学分析拾遗-1-——一些不等式/">数学分析拾遗[1]——一些不等式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/02/范畴论学习笔记/">范畴论学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/11/北京师范大学2017年拓扑学期末考试试卷/">北京师范大学2017年拓扑学期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/11/北京师范大学2017年泛函分析期末考试试卷/">北京师范大学2017年泛函分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/拓扑学复习重点/">拓扑学复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/数理统计复习重点/">数理统计复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/测度与概率复习重点/">测度与概率复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/24/泛函——复习重点/">泛函——复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/北京师范大学2017年概率测度小测二题目/">北京师范大学2017年概率测度小测二题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/明月杯回忆录/">明月杯回忆录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/2016-2017学年春季学期志愿时长录入/">2016-2017学年春季学期志愿时长录入</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/泛函——有界集、完全有界集和紧集/">泛函——有界集、完全有界集和紧集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/北京师范大学2017年概率测度小测一题目/">北京师范大学2017年概率测度小测一题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/次序统计量的联合分布/">次序统计量的联合分布</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/泛函——自然数集上的Lp范数/">泛函——自然数集上的Lp范数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/拓扑学题目/">拓扑学题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/单调类定理/">单调类定理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/GRE阅读题目分析[4]/">GRE阅读题目分析[4]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/GRE填空思路分析[3]——推理的线索来源·同义线索/">GRE填空思路分析[3]——推理的线索来源·同义线索</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/GRE阅读题目分析[3]/">GRE阅读题目分析[3]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/GRE填空思路分析[2]——推理的线索来源·反义线索/">GRE填空思路分析[2]——推理的线索来源·反义线索</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/GRE填空思路分析[1]/">GRE填空思路分析[1]——词句推理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/GRE阅读题目分析[2]/">GRE阅读题目分析[2]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/GRE阅读题目分析[1]/">GRE阅读题目分析[1]</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2015年数学分析期末考试试卷/">北京师范大学2015年数学分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2016年高等代数期中考试试卷/">北京师范大学2016年高等代数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/北京师范大学2016年数学分析期中考试试卷/">北京师范大学2016年数学分析期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年数学分析期末考试试卷/">北京师范大学2016年数学分析期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年近世代数期末考试试卷/">北京师范大学2016年近世代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/03/北京师范大学2016年近世代数期中考试试卷/">北京师范大学2016年近世代数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/北京师范大学2017年实变函数期末考试试卷/">北京师范大学2017年实变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/北京师范大学2017年复变函数期末考试试卷/">北京师范大学2017年复变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/24/组合数学复习重点/">组合数学复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/微分几何复习重点/">微分几何复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/概率论复习重点/">概率论复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/复变复习重点/">复变复习重点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/北京师范大学2015年复变函数期末考试试卷/">北京师范大学2015年复变函数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/北京师范大学2011年概率论期末考试试卷/">北京师范大学2011年概率论期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/北京师范大学2016年高等代数期末考试试卷/">北京师范大学2016年高等代数期末考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/北京师范大学2017年复变函数期中考试试卷/">北京师范大学2017年复变函数期中考试试卷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Mathematica技巧[2]——修改输入和输出字体/">Mathematica技巧[2]——修改输入和输出字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/几篇TOEFL独立写作范文/">几篇TOEFL独立写作范文</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/LaTeX技巧[2]——打生僻字/">LaTeX技巧[1]——打生僻字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/LaTeX技巧[1]——修改数学公式字体/">LaTeX技巧[2]——修改数学公式字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/组合杂题/">组合杂题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/一些概率论题目/">一些概率论题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/一些实变函数题目/">一些实变函数题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/Hexo与Mathjax的冲突及（部分）解决/">Hexo与Mathjax的冲突及（部分）解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/数学系转专业考试题及解答不完全版（2015-04）/">数学系转专业考试题及解答不完全版（2015.04）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/数据结构——树状数组 Binary Indexed Tree/">数据结构——树状数组 Binary Indexed Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/数据结构——平衡树 Treap/">数据结构——平衡树 Treap</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/数据结构——线段树 Segment Tree/">数据结构——线段树 Segment Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/16/Mathematica技巧[1]——图像复原与处理/">Mathematica技巧[1]——图像复原与处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/github-hexo-搭建个人博客/">github+hexo 搭建个人博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 lzcwr
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
