@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="其实大概是因为我太笨Orz... 又双叒叕是一篇没有营养的文章.  很早就发现之前用的 yelee 主题中的 git 图标不能用了，前几日又发现无序列表的符号也挂掉了？？ 这可不能忍... 然而我又不想花时间折腾主题本身，加上搜索功能一直没有配好的积怨，决定干脆换一个主题. 这个 NexT 主题好像看起来不错！就是它了！ 随后就是很多问题...佛了.  所以在这里把一些（能想起来的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-04T16:27:09.082Z">
+<meta property="og:updated_time" content="2018-10-04T16:53:57.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次费劲的改版...">
 <meta name="twitter:description" content="其实大概是因为我太笨Orz... 又双叒叕是一篇没有营养的文章.  很早就发现之前用的 yelee 主题中的 git 图标不能用了，前几日又发现无序列表的符号也挂掉了？？ 这可不能忍... 然而我又不想花时间折腾主题本身，加上搜索功能一直没有配好的积怨，决定干脆换一个主题. 这个 NexT 主题好像看起来不错！就是它了！ 随后就是很多问题...佛了.  所以在这里把一些（能想起来的">
@@ -465,10 +465,14 @@
 <p>三个我认为比较可能的问题都不存在... 这让我陷入了短暂的蒙蔽... 回过神来以后，我感到我对于我最初做的假设“主题本身没有错”产生了一丝怀疑，联想到 <code>yelee</code> 主题仍然能正常显示 <code>LaTeX</code> 公式，我查了一发 <code>mathjax</code> 的配置方法，然后发现 <code>cdn</code> 和这里的不一样...</p>
 <p>于是我在某篇文章中加了另一个 <code>cdn</code>，这篇文章便能正确加载 <code>mathjax</code> 了... 我简直佛了，于是进行了如下修改，<code>mathjax</code> 即能正确加载. <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MathJax Support</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  per_page:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  cdn:</span> <span class="string">//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="动画特效canvas-nest配置">动画特效canvas-nest配置</h2>
-<p>文档中提供的方法为：在配置文件中将 <code>canvas_nest</code> 一项改为 <code>true</code> 没有什么效果.</p>
-<p>由于懒...至今没有在全站点配置成功Orz. 只在 <a href="/about/">“关于我”</a> 页面成功配置了该动画...</p>
+<p>文档中提供的方法为：在配置文件中将 <code>canvas_nest</code> 一项改为 <code>true</code> ，我照做了，然而并没有什么效果.</p>
 <p>单页的配置方法很简单：在文章中加入以下字段即可：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/lib/canvas-nest/canvas-nest.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>若想在所有页面均启用该特效，则须修改 <code>_layout.swig</code> 文件：</p>
+<ul>
+<li><p>在<code>_layout.swig</code> 的 <code>body</code> 中添加如下字段： <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.canvas_nest %&#125;</span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"/lib/canvas-nest/canvas-nest.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后依次运行 <code>hexo clean</code>, <code>hexo g</code> 和 <code>hexo s</code> / <code>hexo d</code> 即可看到特效.</p></li>
+</ul>
 <h2 id="搜索功能的配置">搜索功能的配置</h2>
 <p>按照文档中的方法进行操作即可成功配置，治好了我多时没有在 <code>yelee</code> 中配好搜索功能的心病...</p>
 <p><strong>注意：</strong>不需要在 <code>_config.yml</code> 中添加 <code>search</code> 项，否则侧栏中将会出现两个“搜索”.</p>
