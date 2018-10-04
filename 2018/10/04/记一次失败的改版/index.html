@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="其实大概是因为我太笨Orz... 又双叒叕是一篇没有营养的文章.  很早就发现之前用的 yelee 主题中的 git 图标不能用了，前几日又发现无序列表的符号也挂掉了？？ 这可不能忍... 然而我又不想花时间折腾主题本身，加上搜索功能一直没有配好的积怨，决定干脆换一个主题. 这个 NexT 主题好像看起来不错！就是它了！ 随后就是很多问题...佛了.  所以在这里把一些（能想起来的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-04T12:32:46.103Z">
+<meta property="og:updated_time" content="2018-10-04T16:27:09.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次费劲的改版...">
 <meta name="twitter:description" content="其实大概是因为我太笨Orz... 又双叒叕是一篇没有营养的文章.  很早就发现之前用的 yelee 主题中的 git 图标不能用了，前几日又发现无序列表的符号也挂掉了？？ 这可不能忍... 然而我又不想花时间折腾主题本身，加上搜索功能一直没有配好的积怨，决定干脆换一个主题. 这个 NexT 主题好像看起来不错！就是它了！ 随后就是很多问题...佛了.  所以在这里把一些（能想起来的">
@@ -379,6 +379,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/04/记一次失败的改版/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/10/04/记一次失败的改版/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -462,6 +472,14 @@
 <h2 id="搜索功能的配置">搜索功能的配置</h2>
 <p>按照文档中的方法进行操作即可成功配置，治好了我多时没有在 <code>yelee</code> 中配好搜索功能的心病...</p>
 <p><strong>注意：</strong>不需要在 <code>_config.yml</code> 中添加 <code>search</code> 项，否则侧栏中将会出现两个“搜索”.</p>
+<h2 id="评论功能的配置">评论功能的配置</h2>
+<p>之前的版本配置了多说评论，然而不就多说就GG了，加上 <code>disqus</code> 疑似被墙... 之后一直没有再弄评论. 既然改版了，顺手配了一个 <code>gitment</code> 评论，如有错误欢迎批评.</p>
+<p>配置很简单：</p>
+<ul>
+<li><p>在 <a href="https://github.com/settings/developers" class="uri" target="_blank" rel="noopener">https://github.com/settings/developers</a> 申请一个 application, 按照如下内容填写申请即可： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Application</span> <span class="string">name：Gitment</span></span><br><span class="line"><span class="string">Homepage</span> <span class="string">URL：https://网站地址/</span></span><br><span class="line"><span class="string">Application</span> <span class="string">description：Blog</span> <span class="string">comment</span> <span class="string">system</span></span><br><span class="line"><span class="string">Authorization</span> <span class="string">callback</span> <span class="string">URL：https://网站地址/</span></span><br></pre></td></tr></table></figure></p></li>
+<li>然后在 <code>github</code> 新建一个仓库用来存评论，比如叫做 <code>gitment-comments</code>.</li>
+<li><p>在主题配置文件 <code>_config.yml</code> 中填写 <code>gitment</code> 相关内容即可完成配置. <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gitment:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  mint:</span> <span class="literal">true</span> <span class="comment"># RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway</span></span><br><span class="line"><span class="attr">  count:</span> <span class="literal">true</span> <span class="comment"># Show comments count in post meta area</span></span><br><span class="line"><span class="attr">  lazy:</span> <span class="literal">false</span> <span class="comment"># Comments lazy loading with a button</span></span><br><span class="line"><span class="attr">  cleanly:</span> <span class="literal">false</span> <span class="comment"># Hide 'Powered by ...' on footer, and more</span></span><br><span class="line"><span class="attr">  language:</span> <span class="string">zh-Hans</span> <span class="comment"># Force language, or auto switch by theme</span></span><br><span class="line"><span class="attr">  github_user:</span> <span class="string">lzcwr</span> <span class="comment"># MUST HAVE, Your Github ID</span></span><br><span class="line"><span class="attr">  github_repo:</span> <span class="string">gitment-comments</span> <span class="comment"># MUST HAVE, The repo you use to store Gitment comments</span></span><br><span class="line"><span class="attr">  client_id:</span> <span class="string">在申请好application的页面中有</span> <span class="comment"># MUST HAVE, Github client id for the Gitment</span></span><br><span class="line"><span class="attr">  client_secret:</span> <span class="string">在申请好application的页面中有</span> <span class="comment"># EITHER this or proxy_gateway, Github access secret token for the Gitment</span></span><br><span class="line"><span class="attr">  proxy_gateway:</span> <span class="comment"># Address of api proxy, See: https://github.com/aimingoo/intersect</span></span><br><span class="line"><span class="attr">  redirect_protocol:</span> <span class="comment"># Protocol of redirect_uri with force_redirect_protocol when mint enabled</span></span><br></pre></td></tr></table></figure></p></li>
+</ul>
 
       
     </div>
@@ -530,6 +548,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -720,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags和categories页面无法正常显示的问题"><span class="nav-number">1.</span> <span class="nav-text">Tags和Categories页面无法正常显示的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mathjax显示问题"><span class="nav-number">2.</span> <span class="nav-text">Mathjax显示问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画特效canvas-nest配置"><span class="nav-number">3.</span> <span class="nav-text">动画特效canvas-nest配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索功能的配置"><span class="nav-number">4.</span> <span class="nav-text">搜索功能的配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags和categories页面无法正常显示的问题"><span class="nav-number">1.</span> <span class="nav-text">Tags和Categories页面无法正常显示的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mathjax显示问题"><span class="nav-number">2.</span> <span class="nav-text">Mathjax显示问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画特效canvas-nest配置"><span class="nav-number">3.</span> <span class="nav-text">动画特效canvas-nest配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索功能的配置"><span class="nav-number">4.</span> <span class="nav-text">搜索功能的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论功能的配置"><span class="nav-number">5.</span> <span class="nav-text">评论功能的配置</span></a></li></ol></div>
             
 
           </div>
@@ -931,6 +956,43 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'lzcwr',
+            repo: 'gitment-comments',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '8819e4b767c191ea05e66b182bb65c3b7da4775b',
+            
+                client_id: 'dff096993b699e0805a8'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 

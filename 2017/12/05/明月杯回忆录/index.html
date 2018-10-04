@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="师大,运动,篮球," />
+  <meta name="keywords" content="运动,师大,篮球," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="谨以此文记录四年明月杯的所见，与明月杯做个简短的告别.">
-<meta name="keywords" content="师大,运动,篮球">
+<meta name="keywords" content="运动,师大,篮球">
 <meta property="og:type" content="article">
 <meta property="og:title" content="明月杯回忆录">
 <meta property="og:url" content="http://lizhechen.com/2017/12/05/明月杯回忆录/index.html">
@@ -425,6 +425,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/05/明月杯回忆录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/12/05/明月杯回忆录/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -748,9 +758,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/师大/" rel="tag"># 师大</a>
-          
             <a href="/tags/运动/" rel="tag"># 运动</a>
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
           
             <a href="/tags/篮球/" rel="tag"># 篮球</a>
           
@@ -805,6 +815,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -1206,6 +1223,43 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'lzcwr',
+            repo: 'gitment-comments',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '8819e4b767c191ea05e66b182bb65c3b7da4775b',
+            
+                client_id: 'dff096993b699e0805a8'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
