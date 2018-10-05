@@ -379,16 +379,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/10/09/次序统计量的联合分布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/10/09/次序统计量的联合分布/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -513,11 +503,7 @@ f_{(X_{(i)}, X_{(j)})}(x,y) &amp;= \idotsint\limits_{x_k\in\mathbb{R},k\neq i,j}
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
+    <div id="gitalk-container"></div>
 
   
 
@@ -896,46 +882,25 @@ f_{(X_{(i)}, X_{(j)})}(x,y) &amp;= \idotsint\limits_{x_k\in\mathbb{R},k\neq i,j}
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'lzcwr',
-            repo: 'gitment-comments',
-            
-            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '8819e4b767c191ea05e66b182bb65c3b7da4775b',
-            
-                client_id: 'dff096993b699e0805a8'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   
