@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="师大,运动,篮球," />
+  <meta name="keywords" content="运动,师大,篮球," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="谨以此文记录四年明月杯的所见，与明月杯做个简短的告别.">
-<meta name="keywords" content="师大,运动,篮球">
+<meta name="keywords" content="运动,师大,篮球">
 <meta property="og:type" content="article">
 <meta property="og:title" content="明月杯回忆录">
 <meta property="og:url" content="http://lizhechen.com/2017/12/05/明月杯回忆录/index.html">
@@ -748,9 +748,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/师大/" rel="tag"># 师大</a>
-          
             <a href="/tags/运动/" rel="tag"># 运动</a>
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
           
             <a href="/tags/篮球/" rel="tag"># 篮球</a>
           
@@ -1217,15 +1217,16 @@
 
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: '8338cf91e7bad4fae36a',
           clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
           repo: 'Gitalk-comments',
           owner: 'lzcwr',
           admin: ['lzcwr'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           

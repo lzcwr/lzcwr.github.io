@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="统计学,数学,概率论,北大,经济学," />
+  <meta name="keywords" content="统计学,数学,北大,概率论,经济学," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="在北大听夏立荣老师的《经济与计算》课程时有一个小问题没有搞明白, 课后花了一些时间, 算是复习了之前数理统计学的MLE, 顺便研究了一下MAP和Bayes估计.  一枚硬币，掷14次，有10次正面向上. 请估计接下来两次都出现正面向上的概率. (如下图所示)">
-<meta name="keywords" content="统计学,数学,概率论,北大,经济学">
+<meta name="keywords" content="统计学,数学,北大,概率论,经济学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点估计——最大似然估计、最大后验概率估计和贝叶斯估计">
 <meta property="og:url" content="http://lizhechen.com/2018/07/26/点估计——极大似然估计、最大后验估计和贝叶斯估计/index.html">
@@ -519,9 +519,9 @@
           
             <a href="/tags/数学/" rel="tag"># 数学</a>
           
-            <a href="/tags/概率论/" rel="tag"># 概率论</a>
-          
             <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/概率论/" rel="tag"># 概率论</a>
           
             <a href="/tags/经济学/" rel="tag"># 经济学</a>
           
@@ -988,15 +988,16 @@
 
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: '8338cf91e7bad4fae36a',
           clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
           repo: 'Gitalk-comments',
           owner: 'lzcwr',
           admin: ['lzcwr'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           

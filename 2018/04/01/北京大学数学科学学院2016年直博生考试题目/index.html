@@ -926,15 +926,16 @@
 
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: '8338cf91e7bad4fae36a',
           clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
           repo: 'Gitalk-comments',
           owner: 'lzcwr',
           admin: ['lzcwr'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
