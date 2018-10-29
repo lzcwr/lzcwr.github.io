@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-03T16:29:06.000Z">
+<meta property="og:updated_time" content="2018-10-27T14:23:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习[1]——时间序列分析">
 <meta name="twitter:description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
@@ -433,6 +433,7 @@
 <p>纯随机序列满足 <span class="math inline">\(\gamma(k) = 0\)</span>，其样本自相关系数很接近零，并且在零附近随机扰动。一般构造 <span class="math inline">\(Q\)</span> 统计量和 <span class="math inline">\(LB\)</span> 统计量来进行检验.</p>
 <ul>
 <li>在 <code>Python</code> 中可以使用 <code>acorr_ljungbox</code> 方法来检验.</li>
+<li>直接 <code>print(acorr_ljungbox(ts, lags = 1))</code>.</li>
 </ul>
 <h2 id="常用的模型原理">常用的模型原理</h2>
 <p>时间序列趋势主要受到总体趋势 <span class="math inline">\(T\)</span>、季节性因素 <span class="math inline">\(S\)</span>、周期性波动 <span class="math inline">\(C\)</span> 和随机扰动 <span class="math inline">\(\varepsilon\)</span> 的影响，一般来说有加法和乘法两种模型。</p>
@@ -457,7 +458,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
 <p>一般在分析时分析的多是平稳序列，可以考虑用ARMA模型。有一些序列本身不是平稳序列，但做一阶差分之后成为平稳序列，这种序列被称为差分平稳序列，可以使用ARIMA模型进行拟合.</p>
 <h2 id="python中的amra模型">Python中的AMRA模型</h2>
 <h3 id="导入库">导入库</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_acf <span class="comment"># 自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_pacf <span class="comment"># 偏自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.stats.diagnostic <span class="keyword">import</span> acorr_ljungbox <span class="comment"># 白噪声检验</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.stattools <span class="keyword">import</span> adfuller <span class="keyword">as</span> ADF <span class="comment"># 平稳性检测</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.seasonal <span class="keyword">import</span> seasonal_decompose <span class="comment"># 季节性分解</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARMA</span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARIMA</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_acf <span class="comment"># 自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_pacf <span class="comment"># 偏自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.stats.diagnostic <span class="keyword">import</span> acorr_ljungbox <span class="comment"># 白噪声检验</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.stattools <span class="keyword">import</span> adfuller <span class="comment"># 平稳性检测</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.seasonal <span class="keyword">import</span> seasonal_decompose <span class="comment"># 季节性分解</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARMA</span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARIMA</span><br></pre></td></tr></table></figure>
 <h3 id="乱码问题处理">乱码问题处理</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>] <span class="comment"># 显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span> <span class="comment"># 显示负号</span></span><br></pre></td></tr></table></figure>
 <h3 id="数据读取与处理">数据读取与处理</h3>
@@ -465,7 +466,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
 <h4 id="数据读取">数据读取</h4>
 <p>一般数据的格式为 <code>XLS</code> 或者 <code>CSV</code>.</p>
 <ol style="list-style-type: decimal">
-<li><p>数据为CSV格式 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'文件地址'</span>, encoding = <span class="string">'utf-8'</span>, indeax_col = <span class="string">'date'</span>)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>数据为CSV格式 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'文件地址'</span>, encoding = <span class="string">'utf-8'</span>, index_col = <span class="string">'date'</span>)</span><br></pre></td></tr></table></figure></p></li>
 <li><p>数据为XLS格式 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'文件地址'</span>, encoding = <span class="string">'utf-8'</span>, index_col = <span class="string">'data'</span>)</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <p>若数据为数据库形式(如 <code>MySQL</code>), 则可以直接用 <code>SQL</code> 语句从数据库中提取.</p>
@@ -484,7 +485,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
 </blockquote>
 <h3 id="数据的趋势分析">数据的趋势分析</h3>
 <h4 id="平稳性检验">平稳性检验</h4>
-<p>可以进行 <code>ADF</code> 检验. 弱鸡还不理解其原理...暂且放在这里.</p>
+<p>可以进行 <code>ADF</code> 检验. 弱鸡还不理解其原理...暂且放在这里. 直接 <code>print(adfuller(ts))</code> ，输出有一大串. 第一个值比后面带百分号的都小说明比较平稳.</p>
 <h4 id="平稳性处理季节性分解">平稳性处理：季节性分解</h4>
 <blockquote>
 <p>为了使序列更平稳，在做计算时经常对其取对数: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ts_log = np.log(ts)</span><br></pre></td></tr></table></figure></p>
@@ -556,8 +557,8 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/04/记一次失败的改版/" rel="prev" title="记一次费劲的改版...">
-                记一次费劲的改版... <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/04/记一次失败的改版/" rel="prev" title="调教Hexo[4]——记一次费劲的改版...">
+                调教Hexo[4]——记一次费劲的改版... <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -642,7 +643,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -664,7 +665,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

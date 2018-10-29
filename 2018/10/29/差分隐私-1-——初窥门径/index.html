@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机,数学,差分隐私," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
+<meta name="keywords" content="计算机,数学,差分隐私">
+<meta property="og:type" content="article">
+<meta property="og:title" content="差分隐私[1]——初窥门径">
+<meta property="og:url" content="http://lizhechen.com/2018/10/29/差分隐私-1-——初窥门径/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-29T07:19:41.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="差分隐私[1]——初窥门径">
+<meta name="twitter:description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2018/10/29/差分隐私-1-——初窥门径/"/>
+
+
+
+
+
+  <title>差分隐私[1]——初窥门径 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Primes are lonely.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/diary/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/10/29/差分隐私-1-——初窥门径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzcwr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">差分隐私[1]——初窥门径</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T11:20:46+08:00">
+                2018-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>暑假以来一直在读一本书《Differential Privacy and Applications》<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，做一点简单的记录.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="何为差分隐私">何为差分隐私</h2>
+<h3 id="乱谈隐私">乱谈隐私</h3>
+<blockquote>
+<p>真·乱谈... 如有错误之处请留言指正，Orz.</p>
+</blockquote>
+<p>什么是隐私呢？我们通常把某一特定个体的一些个人信息称为是隐私，比方说我代数做了几个题，泛函考了多少分，大学挂了几门课，最喜欢听哪个老师讲课等等... 那么在以上信息不能直接查询到，并且我们也不透露这些信息的前提下，我们的上述隐私是否会泄露？</p>
+<p>答案是会.</p>
+<p>为了说明这些隐私是如何丢掉的，我们就先来谈谈查询的问题. 查询一般是针对某一数据库的，比方说学校的教务网就是一个很好的例子. 那么，数据库如何从最简单的方面来保护隐私呢？一般有发布数据集和提供查询两种场合，分述如下.</p>
+<h4 id="数据集的匿名化">数据集的匿名化</h4>
+<table border="1">
+<tr>
+<th>
+姓名
+</th>
+<th>
+学号
+</th>
+<th>
+数学分析
+</th>
+<th>
+高等代数
+</th>
+<th>
+微分几何
+</th>
+<th>
+泛函分析
+</th>
+</tr>
+<tr>
+<td>
+郭犇
+</td>
+<td>
+201401
+</td>
+<td>
+100
+</td>
+<td>
+100
+</td>
+<td>
+100
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<td>
+丁丁
+</td>
+<td>
+201402
+</td>
+<td>
+100
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<td>
+小兔子
+</td>
+<td>
+201403
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<td>
+数分哥
+</td>
+<td>
+201404
+</td>
+<td>
+100
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<td>
+代数哥
+</td>
+<td>
+201405
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<td>
+几何哥
+</td>
+<td>
+201406
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<td>
+泛函哥
+</td>
+<td>
+201407
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<td>
+LZC
+</td>
+<td>
+201408
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+0
+</td>
+<td>
+90
+</td>
+</tr>
+<caption>
+成绩数据示例
+</caption>
+</table>
+<p>我们都知道数据库中，有“主键”的概念，它能唯一地标识数据库中的某一条记录（比如学号）. 那么保护隐私最直接的办法，就是在给人看数据的时候，将具有标识功能的属性全部删掉，比如在成绩单中将姓名学号删掉，只留下成绩，即得到如下的表格.</p>
+<table border="1">
+<tr>
+<th>
+序号
+</th>
+<th>
+数学分析
+</th>
+<th>
+高等代数
+</th>
+<th>
+微分几何
+</th>
+<th>
+泛函分析
+</th>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+100
+</td>
+<td>
+100
+</td>
+<td>
+100
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+100
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+100
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+90
+</td>
+<td>
+100
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+90
+</td>
+<td>
+90
+</td>
+<td>
+0
+</td>
+<td>
+90
+</td>
+</tr>
+<caption>
+去掉姓名学号的成绩单
+</caption>
+</table>
+<p>如果攻击者本人什么都不知道，那么这帮人的隐私就算是得到了保护——攻击者无法得知某一学生（如“丁丁”）的具体成绩信息.</p>
+<p>但隐私保护显然不能建立在如此侥幸的情形之上. 比如某一攻击者已知郭犇数分，代数和微分几何都考了100分，想知道他的泛函成绩，那么就可以从表中轻松获取该信息，因为表中只有郭犇一个人在这三门课都拿到100分. 又如某一攻击者已知LZC挂了一科，同样可以查询到关于LZC的更多隐私信息. 但这样的保护机制也不能说是毫无作用——它成功保护了“小兔子”的所有成绩信息：即便你知道小兔子的三科成绩，也无法确定她的第四科成绩.</p>
+<p>那么如何改进这种匿名化方法呢？答案就是时下颇为流行的k-匿名算法.</p>
+<p>k-匿名算法将一些属性概化，以保证：<strong>任一条数据库中的记录，任取其一属性，在库中都有k条记录的该属性值与其相同.</strong> 比如我们要保护LZC的泛函分析成绩，那么我们将7号和8号的微分几何成绩凑成一个元组，统一写为[0-90]，攻击者即无法分辨二者的区别.</p>
+<p>以上的匿名化过程看起来很美好，但k-匿名算法仍有缺陷，可能会遭受同质化攻击和背景知识攻击的挑战，所以需要更多的隐私化处理，不再详谈.</p>
+<h4 id="查询中的差分攻击与差分隐私">查询中的差分攻击与差分隐私</h4>
+<p>我们现在抛掉匿名性的问题，考虑数据库的查询问题. 此时我们不会把整个数据集暴露给攻击者，而是给攻击者提供一些查询的机会. 在查询的同时，保护单条记录的敏感属性值（比如在此处设定为保护“泛函”的成绩隐私）.</p>
+<p>如果我们的数据库管理员总是说实话，那么我们必须拒绝单条记录的查询. 比如，你不能询问“丁丁的泛函成绩是多少”，因为我们要保护的正是泛函的成绩.</p>
+<p>那么，阻止单条记录的查询是否就能很好地保护隐私？答案是不能. 这种攻击的手法就称为<strong>差分攻击</strong>.</p>
+<p>攻击者想知道LZC的泛函成绩，于是进行了两步查询：</p>
+<ol style="list-style-type: decimal">
+<li>求1-8所有人的泛函成绩之和. <code>SUM(1, 8)</code>.</li>
+<li>求1-7所有人的泛函成绩之和. <code>SUM(1, 7)</code>.</li>
+</ol>
+<p>然后做差，就得到了LZC的泛函成绩. <code>SUM(1, 8) - SUM(1, 7)</code>.</p>
+<p>隐私泄露了！这种局面当然不是我们希望看到的，于是我们需要一些机制来抵御这种“差分攻击”.</p>
+<p>差分攻击的核心做法就是找两个只差一条记录的数据集，分别做查询，再比较结果的差异，来获取两个集合所相差的记录的敏感信息. 所以我们最直接的想法也就是，通过随机化的查询（即管理员不能总说实话），使得攻击者无法区分只差一条记录的两个集合. 这便是<strong>差分隐私</strong>.</p>
+<h3 id="差分隐私的数学框架">差分隐私的数学框架</h3>
+<blockquote>
+<p><strong>DEFINITION</strong> 差分隐私：若机制 <span class="math inline">\(M\)</span> 对于任一输出集合 <span class="math inline">\(S\)</span> 和任意邻近集 <span class="math inline">\(D,D&#39;\)</span> 总有： <span class="math display">\[Pr[M(D)\in S] \leqslant e^{\varepsilon}\cdot Pr[M(D&#39;)\in S] + \delta\]</span> 则称 <span class="math inline">\(M\)</span> 满足 <span class="math inline">\((\varepsilon,\delta)\)</span>-(近似)差分隐私. 当 <span class="math inline">\(\delta=0\)</span> 时，称为 <span class="math inline">\(\varepsilon\)</span>-差分隐私. 其中 <span class="math inline">\(\varepsilon\)</span> 称为隐私预算.</p>
+</blockquote>
+<ul>
+<li>记号说明：
+<ul>
+<li>数据集：数据全体记作 <span class="math inline">\(\mathscr{X}\)</span>，其子集 <span class="math inline">\(D\subset\mathscr{X}\)</span> 称为数据集.</li>
+<li>邻近集：只相差一条记录的一对数据集. 即 <span class="math inline">\(|D\triangle D&#39;|=1\)</span>.</li>
+<li>查询：映射 <span class="math inline">\(f:D\to\mathbb{R}\)</span>. 全体查询记作 <span class="math inline">\(F\)</span>.
+<ul>
+<li>查询的敏感度：
+<ul>
+<li>局部敏感度：<span class="math inline">\(\Delta f_{LS}=\max\limits_{D&#39;}\Vert f(D)-f(D&#39;)\Vert_1\)</span>.</li>
+<li>全局敏感度：<span class="math inline">\(\Delta f_{LS}=\max\limits_{D,D&#39;}\Vert f(D)-f(D&#39;)\Vert_1\)</span>.</li>
+</ul></li>
+<li>容易看出，局部敏感度会与数据分布有很强的关联，但全局敏感度一般较大. 故在需要使用局部敏感度时，常采用局部敏感度的平滑上界.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="如何实现差分隐私">如何实现差分隐私</h2>
+<p>差分隐私是通过随机化的方式来干扰正常的查询，或是对数据集做一些处理. 那么最常规的干扰查询/处理数据的手法，就是加噪音.</p>
+<p>一般情况下，数据库的查询可分为两类：数值查询和非数值查询.</p>
+<ol style="list-style-type: decimal">
+<li>数值查询：小兔子的微分几何考了多少分？</li>
+<li>非数值查询：LZC分最高的是哪一门课？</li>
+</ol>
+<p>应对这两种查询，分别有Laplace机制和指数机制.</p>
+<h3 id="laplace机制">Laplace机制</h3>
+<blockquote>
+<p><strong>Laplace分布</strong>：这里只考虑均值为 <span class="math inline">\(0\)</span> 的Laplace分布. 尺度参数为 <span class="math inline">\(b\)</span> 的Laplace分布记为 <span class="math inline">\(Lap(b)\)</span>，其密度函数为： <span class="math display">\[p(x) = \frac{1}{2b}\exp(-\frac{|x|}{b}).\]</span></p>
+</blockquote>
+<p>Laplace机制就是给查询结果添加服从Laplace分布的噪声，即： <span class="math display">\[M(D) = f(D)+\xi\]</span> 若 <span class="math inline">\(\xi\sim Lap(\frac{\Delta f}{\varepsilon})\)</span>，则该算法可提供 <span class="math inline">\(\varepsilon\)</span>-差分隐私保护.</p>
+<blockquote>
+<p>从过程即可知道，Laplace机制只适合数值查询.</p>
+</blockquote>
+<h3 id="指数机制">指数机制</h3>
+<p>对于非数值查询，需要用指数机制来干扰. 具体的办法是（以查询LZC分最高的课程为例）：</p>
+<ol style="list-style-type: decimal">
+<li>先给所有可能的答案一个打分，称为效用函数 <span class="math inline">\(q\)</span>，<span class="math inline">\(q\)</span> 越大表示这个答案越接近真实答案.
+<ul>
+<li>此处可能的答案为：数学分析、高等代数、微分几何、泛函分析.</li>
+<li>此处的效用可以用成绩表示：90，90，0，90.</li>
+</ul></li>
+<li>给所有可能答案分别分配一个概率，规则为： <span class="math display">\[Pr[\text{return }\phi] \propto \exp(\frac{\varepsilon q(D,\varphi)}{2\Delta q}).\]</span></li>
+</ol>
+<p>此时算法提供 <span class="math inline">\(\varepsilon\)</span>-差分隐私保护.</p>
+<p>网上关于指数机制有非常多的例子，不多赘述.</p>
+<h3 id="可用性评估">可用性评估</h3>
+<p>给数据加噪声必定会降低数据的可用性，对可用性的评估一般有以下几种：</p>
+<ol style="list-style-type: decimal">
+<li>直接看噪声大小：噪声 <span class="math inline">\(\downarrow\)</span>，可用性 <span class="math inline">\(\uparrow\)</span>.</li>
+<li>对误差进行度量：单次查询误差为 <span class="math inline">\(\Vert f(D)-\hat{f}(D)\Vert\)</span>. （<span class="math inline">\(\hat{f}\)</span> 表示加了噪音的 <span class="math inline">\(f\)</span>.）</li>
+<li><span class="math inline">\((\alpha,\beta)\)</span>-可用性：当 <span class="math inline">\(F\)</span> 满足 <span class="math display">\[Pr[\max\limits_{f\in F}|f(D)-\hat{f}(D)| \leqslant \alpha] &gt; 1-\beta\]</span> 称 <span class="math inline">\(D\)</span> 是 <span class="math inline">\((\alpha,\beta)\)</span>-可用的.</li>
+</ol>
+<h2 id="数据发布">数据发布</h2>
+<p>数据发布所指的，就是数据库中的数据对于外界访问的支持. 一般有两种情形：</p>
+<ol style="list-style-type: decimal">
+<li>交互式发布：一问一答.</li>
+<li>非交互式发布：问完再答/发布处理过的数据集.</li>
+</ol>
+<h3 id="交互式数据发布">交互式数据发布</h3>
+<p>给定预算 <span class="math inline">\(\varepsilon\)</span>，然后进行一问一答，直至预算耗尽.</p>
+<ul>
+<li>Laplace机制
+<ul>
+<li>能回答问题的数较少，与数据库大小成次线性关系.</li>
+<li>时间复杂度低，算法简单.</li>
+</ul></li>
+<li>K-norm：将查询结果转为高维多面体研究
+<ul>
+<li>能回答指数级别的问题.</li>
+<li>时间复杂度高.</li>
+</ul></li>
+<li>中位数：将查询分为难易两类，简单问题的结果可由难问题的答案确定.
+<ul>
+<li>困难的查询大约只有 <span class="math inline">\(O(\log |F|\log|\mathscr{X}|)\)</span> 个，故能回答指数级别个问题.</li>
+<li>时间复杂度高，样本复杂度也很高.</li>
+</ul></li>
+<li>PMW，IDC：将数据集视为直方图进行迭代查询
+<ul>
+<li>能回答指数级别的问题.</li>
+<li>只能处理计数类查询.</li>
+</ul></li>
+</ul>
+<h4 id="基于直方图的数据发布">基于直方图的数据发布</h4>
+<blockquote>
+<p>将数据集 <span class="math inline">\(D\)</span> 视为 <span class="math inline">\(\mathscr{X}\)</span> 上的直方图 <span class="math inline">\(x\in N^{|\mathscr{X}|}\)</span>，其中 <span class="math inline">\(N\)</span> 为所有可能的属性值组合.</p>
+</blockquote>
+<p>主要手段： - Laplace机制：每次查询都给涉及到的所有格子添加噪声. - 格子较多会累积大量噪声 - 将格子分为若干区域，区域内部取平均，再给每个区域分别添加噪声，减少添加噪声的次数. （分区可借助kd-tree）</p>
+<p>会面临一致性的问题：可能不能维持原先的大小关系.</p>
+<h4 id="流数据的差分隐私">流数据的差分隐私</h4>
+<p>流数据是用一个0-1串来表示的数据，每一位代表一个时间节点，0表示这个时刻没有事情发生，1表示这个时刻有事情发生. 这里输出的数据主要是某一段的1的个数，于是有两种隐私的级别：</p>
+<ul>
+<li>用户层面（user-level）：将与单个用户相关的所有事件隐藏起来.</li>
+<li>事件层面（event-level）：将单个事件隐藏起来.</li>
+</ul>
+<p>由于用户层面的隐私会导致查询的敏感度过高，故一般只考虑事件层面的隐私. 在预算一定的前提下尽可能提高任一时间节点 <span class="math inline">\(t_k\)</span> 的前缀 <span class="math inline">\(D(t_k)\)</span> 中的事件计数 <span class="math inline">\(\hat{\iota}(t_k)\)</span> 的精确度. 主要手段如下：</p>
+<ul>
+<li>Laplace机制：给每个时间步都添加噪声.
+<ul>
+<li>噪声过大</li>
+</ul></li>
+<li>分割数据集：p-sum机制.</li>
+<li>迭代</li>
+</ul>
+<h4 id="图数据的差分隐私">图数据的差分隐私</h4>
+<ul>
+<li>点的差分隐私：将点藏起来</li>
+<li>边的差分隐私：将边藏起来</li>
+</ul>
+<h3 id="非交互式数据发布">非交互式数据发布</h3>
+<h4 id="批查询">批查询</h4>
+<h4 id="列联表数据发布">列联表数据发布</h4>
+<h4 id="匿名化数据集发布">匿名化数据集发布</h4>
+<h4 id="差分隐私pac学习">差分隐私PAC学习</h4>
+<h2 id="隐私性算法">隐私性算法</h2>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Zhu, T., Li, G., Zhou, W., &amp; Yu, P. S. (2017). Differential Privacy and Applications.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/差分隐私/" rel="tag"># 差分隐私</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/vscode配置：插件与设置/" rel="next" title="VSCode配置：插件与设置">
+                <i class="fa fa-chevron-left"></i> VSCode配置：插件与设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="lzcwr" />
+            
+              <p class="site-author-name" itemprop="name">lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU 数学 ACM 篮球 乒乓球</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://devhui.com/" title="陈辉的技术博客" target="_blank">陈辉的技术博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.comen.org" title="何岳寰的博客" target="_blank">何岳寰的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easezyc.github.io" title="朱勇椿的博客" target="_blank">朱勇椿的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/skywalkert" title="糖老师的博客" target="_blank">糖老师的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris的博客" target="_blank">Claris的博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#何为差分隐私"><span class="nav-number">1.</span> <span class="nav-text">何为差分隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乱谈隐私"><span class="nav-number">1.1.</span> <span class="nav-text">乱谈隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据集的匿名化"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据集的匿名化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询中的差分攻击与差分隐私"><span class="nav-number">1.1.2.</span> <span class="nav-text">查询中的差分攻击与差分隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差分隐私的数学框架"><span class="nav-number">1.2.</span> <span class="nav-text">差分隐私的数学框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现差分隐私"><span class="nav-number">2.</span> <span class="nav-text">如何实现差分隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#laplace机制"><span class="nav-number">2.1.</span> <span class="nav-text">Laplace机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指数机制"><span class="nav-number">2.2.</span> <span class="nav-text">指数机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可用性评估"><span class="nav-number">2.3.</span> <span class="nav-text">可用性评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据发布"><span class="nav-number">3.</span> <span class="nav-text">数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交互式数据发布"><span class="nav-number">3.1.</span> <span class="nav-text">交互式数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于直方图的数据发布"><span class="nav-number">3.1.1.</span> <span class="nav-text">基于直方图的数据发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流数据的差分隐私"><span class="nav-number">3.1.2.</span> <span class="nav-text">流数据的差分隐私</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图数据的差分隐私"><span class="nav-number">3.1.3.</span> <span class="nav-text">图数据的差分隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非交互式数据发布"><span class="nav-number">3.2.</span> <span class="nav-text">非交互式数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#批查询"><span class="nav-number">3.2.1.</span> <span class="nav-text">批查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列联表数据发布"><span class="nav-number">3.2.2.</span> <span class="nav-text">列联表数据发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名化数据集发布"><span class="nav-number">3.2.3.</span> <span class="nav-text">匿名化数据集发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差分隐私pac学习"><span class="nav-number">3.2.4.</span> <span class="nav-text">差分隐私PAC学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐私性算法"><span class="nav-number">4.</span> <span class="nav-text">隐私性算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
