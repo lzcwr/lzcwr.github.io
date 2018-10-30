@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-29T07:19:41.563Z">
+<meta property="og:updated_time" content="2018-10-29T14:16:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="差分隐私[1]——初窥门径">
 <meta name="twitter:description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
@@ -866,7 +866,14 @@ LZC
 <blockquote>
 <p>将数据集 <span class="math inline">\(D\)</span> 视为 <span class="math inline">\(\mathscr{X}\)</span> 上的直方图 <span class="math inline">\(x\in N^{|\mathscr{X}|}\)</span>，其中 <span class="math inline">\(N\)</span> 为所有可能的属性值组合.</p>
 </blockquote>
-<p>主要手段： - Laplace机制：每次查询都给涉及到的所有格子添加噪声. - 格子较多会累积大量噪声 - 将格子分为若干区域，区域内部取平均，再给每个区域分别添加噪声，减少添加噪声的次数. （分区可借助kd-tree）</p>
+<p>主要手段：</p>
+<ul>
+<li>Laplace机制：每次查询都给涉及到的所有格子添加噪声.
+<ul>
+<li>格子较多会累积大量噪声</li>
+</ul></li>
+<li>将格子分为若干区域，区域内部取平均，再给每个区域分别添加噪声，减少添加噪声的次数. （分区可借助kd-tree）</li>
+</ul>
 <p>会面临一致性的问题：可能不能维持原先的大小关系.</p>
 <h4 id="流数据的差分隐私">流数据的差分隐私</h4>
 <p>流数据是用一个0-1串来表示的数据，每一位代表一个时间节点，0表示这个时刻没有事情发生，1表示这个时刻有事情发生. 这里输出的数据主要是某一段的1的个数，于是有两种隐私的级别：</p>
