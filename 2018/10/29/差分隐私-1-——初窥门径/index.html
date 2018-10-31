@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-29T14:16:29.000Z">
+<meta property="og:updated_time" content="2018-10-31T02:30:00.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="差分隐私[1]——初窥门径">
 <meta name="twitter:description" content="暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录.">
@@ -892,19 +892,148 @@ LZC
 </ul>
 <h4 id="图数据的差分隐私">图数据的差分隐私</h4>
 <ul>
-<li>点的差分隐私：将点藏起来</li>
-<li>边的差分隐私：将边藏起来</li>
+<li>边的差分隐私：将边藏起来
+<ul>
+<li>主要解决的问题：与子图相关的问题.</li>
+<li>参考：Nissim K, Raskhodnikova S. Smooth sensitivity and sampling in private data analysis.</li>
+</ul></li>
+<li>点的差分隐私：将点藏起来
+<ul>
+<li>参考： J. Blocki, A. Blum, A. Datta, and O. Sheffet. Differentially private data analysis of social networks via restricted sensitivity.</li>
+</ul></li>
 </ul>
 <h3 id="非交互式数据发布">非交互式数据发布</h3>
+<p>非交互式的数据发布要比交互式的更困难，因为需要考虑多个问题之间的联系. 发布处理后的数据集则更为困难，在隐私预算固定的情况下，常常需要加入巨量的噪声来保证安全性.</p>
 <h4 id="批查询">批查询</h4>
-<h4 id="列联表数据发布">列联表数据发布</h4>
+<blockquote>
+<p>批查询：给出多个查询，然后一并回答.</p>
+</blockquote>
+<ul>
+<li>面对的挑战：查询之间的相关性会导致敏感度升高，进而导致噪声过大.</li>
+<li>处理的手段：一般是对查询做一些变换，或是一些迭代的方法.</li>
+</ul>
+<h4 id="列联表">列联表</h4>
+<blockquote>
+<p>列联表：对数据集按照属性分类时列出的频数表. <strong>注意和直方图并不太一样，一个是列频数，一个是列属性.</strong></p>
+</blockquote>
+<ul>
+<li>最直接的Laplace机制
+<ul>
+<li>直接向每个格子添加Laplace噪声，再求边缘频数</li>
+<li>缺点：噪声过大</li>
+</ul></li>
+<li>改进的Laplace机制
+<ul>
+<li>先求边缘频数，再向边缘频数添加Laplace噪声，减少噪声添加次数</li>
+<li>缺点：不能维持一致性</li>
+</ul></li>
+<li>Fourier变换：
+<ul>
+<li>先进行Fourier变换，再添加噪声</li>
+<li>由于Fourier变换后的每一个系数都对应一个满足一致性的列联表，故不会破坏一致性，同时还能减小噪声.</li>
+</ul></li>
+</ul>
 <h4 id="匿名化数据集发布">匿名化数据集发布</h4>
+<center>
+<strong>这是一种发布处理过的数据集的非交互式数据发布方法.</strong>
+</center>
+<blockquote>
+<p>在最初的“乱谈隐私”中提到了匿名化数据集的方法，由于最终发布的数据集中的一些记录，会包含有与原数据集完全相同的部分属性信息，故可能会泄露用户的隐私.<br>
+所以我们需要将传统的匿名化方法进行处理，使其满足差分隐私的要求.</p>
+</blockquote>
+<ul>
+<li>根据差分隐私的串行组合性质，我们知道如果算法的每一步都能够满足差分隐私的要求，则整个算法也能够提供差分隐私保护.</li>
+<li>于是我们只需要将传统的匿名化方法的每一步都变得满足差分隐私要求.</li>
+<li>DiffGen算法. 不详细解释.</li>
+</ul>
 <h4 id="差分隐私pac学习">差分隐私PAC学习</h4>
+<center>
+<strong>这也是一种发布处理过的数据集的非交互式数据发布方法.</strong>
+</center>
+<blockquote>
+<p>PAC学习：设有 <span class="math inline">\(\mathscr{X}\)</span> 上的概念类 <span class="math inline">\(\mathscr{C}\)</span> 上的算法 <span class="math inline">\(\mathscr{A}\)</span>，使用假设空间 <span class="math inline">\(H\)</span>. 若 <span class="math inline">\(\mathscr{A}\)</span> 对所有概念 <span class="math inline">\(c\in\mathscr{C}\)</span> 和所有 <span class="math inline">\(\mathscr{X}\)</span> 上的分布 <span class="math inline">\(D\)</span>，给定 <span class="math inline">\(D\)</span> 中 <span class="math inline">\(n\)</span> 个 i.i.d. 样本作为输入，算法 <span class="math inline">\(\mathscr{A}\)</span> 输出假设 <span class="math inline">\(h\in H\)</span>，s.t. <span class="math display">\[Pr[error_D (c,h)\leqslant\alpha]\geqslant 1 − \beta.\]</span> 则称算法 <span class="math inline">\(\mathscr{A}\)</span> 是一个 <span class="math inline">\(\mathscr{X}\)</span> 上概念类 <span class="math inline">\(\mathscr{C}\)</span> 上的 PAC 学习算法.</p>
+</blockquote>
+<ul>
+<li>如果一个概念类别在无隐私保护要求和多项式样本复杂度下是可学习的，那么在差分隐私保护条件下就是可学习的.</li>
+<li>差分隐私PAC学习的效率比较低下，且只适用于离散情形.</li>
+</ul>
 <h2 id="隐私性算法">隐私性算法</h2>
+<blockquote>
+<p>传统的数据挖掘/数据分析算法都有可能泄露用户隐私，若我们将其每一个步骤都视为一次查询，然后改进之使其满足差分隐私要求，则整个算法也可满足差分隐私要求.</p>
+</blockquote>
+<h3 id="laplace与指数机制的直接应用sulq与pinq接口">Laplace与指数机制的直接应用：SuLQ与PINQ接口</h3>
+<blockquote>
+<p>提供接口来满足数据挖掘和分析的需求.</p>
+</blockquote>
+<ul>
+<li>SuLQ 框架：以 SuLQ 原语为基本单元，设计隐私化的复杂算法.
+<ul>
+<li>SuLQ 原语：单属性布尔查询 → 连续值.</li>
+</ul></li>
+<li>PINQ 框架：在数值询问使用 Laplace，选择操作使用指数机制.
+<ul>
+<li>Partition：对数据集进行分割 ⇒ 可利用并行组合提高预算利用率.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>以上接口不考虑算法的目标和性能，故分析效果可能不理想.</p>
+</blockquote>
+<p><strong>适用情形：监督学习，无监督学习，频繁项集挖掘.</strong></p>
+<h4 id="监督学习决策树">监督学习：决策树</h4>
+<ul>
+<li>SuLQ-based ID3：在计算信息增益时，加入噪声.
+<ul>
+<li>缺点：噪声过大，可用性很差.</li>
+</ul></li>
+<li>SuLQ-based ID3-PINQ 改进：利用 Partition.
+<ul>
+<li>利用 Partition 减少不必要的预算损耗.</li>
+<li>但由于每次查询都需要提供预算来进行计数，故分配的预算仍然较少，无法显著减少噪声.</li>
+</ul></li>
+<li>DiffID3：利用指数机制，一次运算评估所有属性.
+<ul>
+<li>指数机制的优越性：决策树分裂一次只需要一次运算.</li>
+<li>提高了单次查询分配的预算，有效提高精确度.</li>
+</ul></li>
+</ul>
+<h4 id="无监督学习聚类">无监督学习：聚类</h4>
+<blockquote>
+<p>以k-means为例，计算每个元素到质心的距离可能会泄露隐私.</p>
+</blockquote>
+<ul>
+<li>SuLQ k-means：发布质心和元素数量的估计值
+<ul>
+<li>缺点：查询质心的敏感度为聚类的最大直径，噪声过大.</li>
+</ul></li>
+<li>有更好的框架，此处不再详谈.</li>
+</ul>
+<h4 id="频繁项集挖掘">频繁项集挖掘</h4>
+<blockquote>
+<p>频繁项集定义不清楚的自觉面壁...</p>
+</blockquote>
+<p>基于截断支持度的 FIM 算法：求长度为 <span class="math inline">\(l\)</span> 的前 <span class="math inline">\(k\)</span> 频繁项集.</p>
+<ol style="list-style-type: decimal">
+<li>预处理：挖掘到所有 <span class="math inline">\(l\)</span>-项集，计算其截断支持度.</li>
+<li>求前 k 频繁项集.
+<ul>
+<li>Laplace-FIM：为每个截断支持度添加噪声，再取前 <span class="math inline">\(k\)</span> 个项集.</li>
+<li>指数 FIM：以截断支持度为效用函数用指数机制选出 <span class="math inline">\(k\)</span> 个项集.</li>
+</ul></li>
+<li>输出：上一步得到的项集，以及加噪声后的真实支持度.</li>
+</ol>
+<h3 id="完全访问差分隐私与机器学习">完全访问：差分隐私与机器学习</h3>
+<blockquote>
+<p>用原始数据集来做机器学习显然有可能会泄露用户的隐私，所以我们要在传统的机器学习算法上进行改进，使其满足差分隐私的要求.</p>
+</blockquote>
+<p>一般有两种实现方法：在输出时加噪声，以及在损失函数上加噪声.</p>
+<hr>
+<p>更多复杂的内容不再详谈. <strong>作者水平有限且落笔仓促，如有错误之处，恳请指正.</strong></p>
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Zhu, T., Li, G., Zhou, W., &amp; Yu, P. S. (2017). Differential Privacy and Applications.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Zhu, T., Li, G., Zhou, W., &amp; Yu, P. S. (2017). Differential Privacy and Applications. （其实这本书很难看...）<br>
+&gt; 空口无凭...请看这个句子：In addition, for a dataset with size n, the Laplace mechanism can only answer, at most, sub-linear in n number of queries to a certain level of accuracy.<br>
+&gt; 小子不才，初次看到这句话是暑假，10月份才明白其意思... Orz.<a href="#fnref1">↩</a></p></li>
 </ol>
 </div>
 
@@ -1170,7 +1299,7 @@ LZC
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#何为差分隐私"><span class="nav-number">1.</span> <span class="nav-text">何为差分隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乱谈隐私"><span class="nav-number">1.1.</span> <span class="nav-text">乱谈隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据集的匿名化"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据集的匿名化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询中的差分攻击与差分隐私"><span class="nav-number">1.1.2.</span> <span class="nav-text">查询中的差分攻击与差分隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差分隐私的数学框架"><span class="nav-number">1.2.</span> <span class="nav-text">差分隐私的数学框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现差分隐私"><span class="nav-number">2.</span> <span class="nav-text">如何实现差分隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#laplace机制"><span class="nav-number">2.1.</span> <span class="nav-text">Laplace机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指数机制"><span class="nav-number">2.2.</span> <span class="nav-text">指数机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可用性评估"><span class="nav-number">2.3.</span> <span class="nav-text">可用性评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据发布"><span class="nav-number">3.</span> <span class="nav-text">数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交互式数据发布"><span class="nav-number">3.1.</span> <span class="nav-text">交互式数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于直方图的数据发布"><span class="nav-number">3.1.1.</span> <span class="nav-text">基于直方图的数据发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流数据的差分隐私"><span class="nav-number">3.1.2.</span> <span class="nav-text">流数据的差分隐私</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图数据的差分隐私"><span class="nav-number">3.1.3.</span> <span class="nav-text">图数据的差分隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非交互式数据发布"><span class="nav-number">3.2.</span> <span class="nav-text">非交互式数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#批查询"><span class="nav-number">3.2.1.</span> <span class="nav-text">批查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列联表数据发布"><span class="nav-number">3.2.2.</span> <span class="nav-text">列联表数据发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名化数据集发布"><span class="nav-number">3.2.3.</span> <span class="nav-text">匿名化数据集发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差分隐私pac学习"><span class="nav-number">3.2.4.</span> <span class="nav-text">差分隐私PAC学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐私性算法"><span class="nav-number">4.</span> <span class="nav-text">隐私性算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#何为差分隐私"><span class="nav-number">1.</span> <span class="nav-text">何为差分隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乱谈隐私"><span class="nav-number">1.1.</span> <span class="nav-text">乱谈隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据集的匿名化"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据集的匿名化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询中的差分攻击与差分隐私"><span class="nav-number">1.1.2.</span> <span class="nav-text">查询中的差分攻击与差分隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差分隐私的数学框架"><span class="nav-number">1.2.</span> <span class="nav-text">差分隐私的数学框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现差分隐私"><span class="nav-number">2.</span> <span class="nav-text">如何实现差分隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#laplace机制"><span class="nav-number">2.1.</span> <span class="nav-text">Laplace机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指数机制"><span class="nav-number">2.2.</span> <span class="nav-text">指数机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可用性评估"><span class="nav-number">2.3.</span> <span class="nav-text">可用性评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据发布"><span class="nav-number">3.</span> <span class="nav-text">数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交互式数据发布"><span class="nav-number">3.1.</span> <span class="nav-text">交互式数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于直方图的数据发布"><span class="nav-number">3.1.1.</span> <span class="nav-text">基于直方图的数据发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流数据的差分隐私"><span class="nav-number">3.1.2.</span> <span class="nav-text">流数据的差分隐私</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图数据的差分隐私"><span class="nav-number">3.1.3.</span> <span class="nav-text">图数据的差分隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非交互式数据发布"><span class="nav-number">3.2.</span> <span class="nav-text">非交互式数据发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#批查询"><span class="nav-number">3.2.1.</span> <span class="nav-text">批查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列联表"><span class="nav-number">3.2.2.</span> <span class="nav-text">列联表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名化数据集发布"><span class="nav-number">3.2.3.</span> <span class="nav-text">匿名化数据集发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差分隐私pac学习"><span class="nav-number">3.2.4.</span> <span class="nav-text">差分隐私PAC学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐私性算法"><span class="nav-number">4.</span> <span class="nav-text">隐私性算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#laplace与指数机制的直接应用sulq与pinq接口"><span class="nav-number">4.1.</span> <span class="nav-text">Laplace与指数机制的直接应用：SuLQ与PINQ接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#监督学习决策树"><span class="nav-number">4.1.1.</span> <span class="nav-text">监督学习：决策树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习聚类"><span class="nav-number">4.1.2.</span> <span class="nav-text">无监督学习：聚类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频繁项集挖掘"><span class="nav-number">4.1.3.</span> <span class="nav-text">频繁项集挖掘</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全访问差分隐私与机器学习"><span class="nav-number">4.2.</span> <span class="nav-text">完全访问：差分隐私与机器学习</span></a></li></ol></li></ol></div>
             
 
           </div>
