@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-27T14:23:55.000Z">
+<meta property="og:updated_time" content="2018-12-02T11:15:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习[1]——时间序列分析">
 <meta name="twitter:description" content="做了一个数据预测的东西, 对这方面的内容过于生疏, 顺手简单学习了一波Orz... tsa 的官方文档：http://www.statsmodels.org/dev/tsa.html   面向乱搞的程序设计？">
@@ -168,7 +168,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">戳兔兔(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
       
   </div>
 
@@ -317,7 +317,7 @@
     <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/09/26/Python学习-1-——时间序列分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzcwr">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
@@ -502,7 +502,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
 <p>随后用以下代码即可预测：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict = result.predict(begin, end) <span class="comment"># begin 和 end 表示所需预测的起点与终点</span></span><br><span class="line">predict = np.exp(predict) <span class="comment"># 若之前取了对数 or 做了差分, 预测之后应还原</span></span><br></pre></td></tr></table></figure>
 <h2 id="python中的arima模型">Python中的ARIMA模型</h2>
-<p>根本不会，学会再写。</p>
+<p>没有什么卵用的模型... 多了个参数表示差分的阶数. 手动差分效果应当完全没差.</p>
 <div class="footnotes">
 <hr>
 <ol>
@@ -630,10 +630,10 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="lzcwr" />
+                alt="戳兔专家 lzcwr" />
             
-              <p class="site-author-name" itemprop="name">lzcwr</p>
-              <p class="site-description motion-element" itemprop="description">BNU 数学 ACM 篮球 乒乓球</p>
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -643,7 +643,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -665,7 +665,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -753,14 +753,6 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
                     <a href="http://easezyc.github.io" title="朱勇椿的博客" target="_blank">朱勇椿的博客</a>
                   </li>
                 
-                  <li class="links-of-blogroll-item">
-                    <a href="http://blog.csdn.net/skywalkert" title="糖老师的博客" target="_blank">糖老师的博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.cnblogs.com/clrs97/" title="Claris的博客" target="_blank">Claris的博客</a>
-                  </li>
-                
               </ul>
             </div>
           
@@ -800,7 +792,7 @@ x_t &amp;= \varphi_0 + \varphi_1 x_{t-1}+\varphi_2 x_{t-2}+\cdots+\varphi_p x_{t
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

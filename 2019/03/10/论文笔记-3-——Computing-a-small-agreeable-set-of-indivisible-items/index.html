@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,计算机,数学,北大,组合数学,论文笔记,社会计算," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.">
+<meta name="keywords" content="师大,计算机,数学,北大,组合数学,论文笔记,社会计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记[3]——Computing a small agreeable set of indivisible items">
+<meta property="og:url" content="http://lizhechen.com/2019/03/10/论文笔记-3-——Computing-a-small-agreeable-set-of-indivisible-items/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/kneser-petersen.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/KneserGraphs_700.gif">
+<meta property="og:updated_time" content="2019-03-11T06:01:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记[3]——Computing a small agreeable set of indivisible items">
+<meta name="twitter:description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/kneser-petersen.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2019/03/10/论文笔记-3-——Computing-a-small-agreeable-set-of-indivisible-items/"/>
+
+
+
+
+
+  <title>论文笔记[3]——Computing a small agreeable set of indivisible items | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/diary/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2019/03/10/论文笔记-3-——Computing-a-small-agreeable-set-of-indivisible-items/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记[3]——Computing a small agreeable set of indivisible items</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T16:25:16+08:00">
+                2019-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="记号说明">记号说明</h3>
+<ul>
+<li><span class="math inline">\([n]\)</span>：代理人，编号为 <span class="math inline">\(1,2,\cdots,n\)</span>；</li>
+<li><span class="math inline">\(S=\{x_1,\cdots,x_m\}\)</span>：物品集合，<span class="math inline">\(\mathcal{S}\)</span> 表示其幂集；</li>
+<li>偏好：每个代理人 <span class="math inline">\(i\)</span> 都被赋予了一个偏好关系 <span class="math inline">\(\succeq_i\)</span>，用以比较 <span class="math inline">\(S\)</span> 子集之间的好坏关系. 偏好关系是自反、完全、和传递的；</li>
+</ul>
+<h3 id="相关定义">相关定义</h3>
+<blockquote>
+<p><strong>Def. 0.</strong> 分配问题是把 <span class="math inline">\(S\)</span> 分给 <span class="math inline">\(n\)</span> 个代理人的问题.</p>
+</blockquote>
+<blockquote>
+<p><strong>Def. 1.</strong> 单调性：<span class="math inline">\(\mathcal{S}\)</span> 上的一个偏好关系 <span class="math inline">\(\succeq\)</span> 是单调的，当且仅当 <span class="math inline">\(T\cup\{x\}\succeq T\)</span>，<span class="math inline">\(\forall T\subset S\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Def. 2.</strong> Agreeable：<span class="math inline">\(T\subset S\)</span> 对代理人 <span class="math inline">\(i\)</span> 来说是agreeable的，当且仅当 <span class="math inline">\(T\succeq_i S\backslash T\)</span>. （越大的集合越好）</p>
+</blockquote>
+<ul>
+<li>Agreeable set有时也指对所有代理人都agreeable的集合. 当偏好单调时，显然一定存在这样的集合（<span class="math inline">\(S\)</span> 就是这样的集合）；当偏好不单调时则可能不存在.</li>
+</ul>
+<blockquote>
+<p><strong>Def. 3.</strong> Responsive：<span class="math inline">\(\mathcal{S}\)</span> 上的偏好关系是responsive的，当且仅当：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\succeq\)</span> 是单调的；<br>
+</li>
+<li><span class="math inline">\((T\backslash\{y\})\cup\{x\}\succeq T\)</span>，<span class="math inline">\(\forall T\subset S\)</span>，其中 <span class="math inline">\(x\succeq y\)</span>，<span class="math inline">\(x\notin T\)</span>，<span class="math inline">\(y\in T\)</span>. （扔掉一个不好的，再拿来一个好的，情况会变好）</li>
+</ol>
+</blockquote>
+<ul>
+<li>一般来说，判断集合对代理人 <span class="math inline">\(i\)</span> 是否agreeable，需要访问其完整偏好，仅凭单物品偏好无法判断；</li>
+<li>但只要偏好是responsive的，便可以仅通过单物品偏好来判断集合是否agreeable.</li>
+</ul>
+<blockquote>
+<p><strong>Def. 4.</strong> Necessarily agreeable：取定 <span class="math inline">\(\mathcal{S}\)</span> 上的一个单物品偏好 <span class="math inline">\(\succeq^{sing}\)</span>（即物品的一个排列）. 称<span class="math inline">\(T\subset S\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下是necessarily agreeable的，若 <span class="math inline">\(T\succeq S\backslash T\)</span>，其中 <span class="math inline">\(\succeq\)</span> 是与 <span class="math inline">\(\succeq^{sing}\)</span> 相容的任意偏好.</p>
+</blockquote>
+<ul>
+<li>简单起见，若 <span class="math inline">\(T\)</span> 对代理人 <span class="math inline">\(i\)</span> 的单物品偏好是necessarily agreeable的，则称 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(i\)</span> 是necessarily agreeable的.</li>
+</ul>
+<blockquote>
+<p><strong>Def.</strong> 效用函数：效用函数 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathcal{S}\to\mathbb{R}_{\geqslant 0}\)</span> 的映射. <span class="math inline">\(f\)</span> 的大小标志着集合的好坏.</p>
+</blockquote>
+<ul>
+<li>由于每个代理的偏好是自反、完全和传递的，故 <span class="math inline">\(\forall T_1,T_2\subset S\)</span>，<span class="math inline">\(T_1\succeq T2\)</span> 当且仅当 <span class="math inline">\(f(T_1)\geqslant f(T_2)\)</span>.</li>
+<li>对于单调的偏好，<span class="math inline">\(\forall T_1\subset T_2\)</span>，总有 <span class="math inline">\(f(T_1)\leqslant f(T_2)\)</span>.</li>
+<li>可加效用：效用函数 <span class="math inline">\(u\)</span> 称为是可加的，当且仅当 <span class="math inline">\(u(T_1\cup T_2)=u(T_1)+u(T_2)\)</span>，其中 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>.</li>
+<li>次可加效用：<span class="math inline">\(u\)</span> 称为是次可加的，当且仅当 <span class="math inline">\(u(T_1\cup T_2)\leqslant u(T_1)+u(T_2)\)</span>，<span class="math inline">\(\forall T_1,T_2\)</span>. <font color="red"><strong>任何单调的效用函数都是次可加的.</strong></font></li>
+</ul>
+<h3 id="necessarily-agreeable-set">Necessarily agreeable set</h3>
+<p>对于necessarily agreeable set，有一个重要的命题：</p>
+<blockquote>
+<p><strong>Prop. 1.</strong> 取定 <span class="math inline">\(\mathcal{S}\)</span> 上的单物品偏好 <span class="math inline">\(\succeq^{sing}\)</span>，不妨设为 <span class="math display">\[x_1\succeq^{sing} x_2\succeq^{sing}\cdots\succeq^{sing} x_m.\]</span> 令 <span class="math inline">\(T\subset S\)</span>，记 <span class="math inline">\(I_k=\{x_1,x_2,\cdots,x_m\}\)</span>，<span class="math inline">\(\forall k=1,\cdots,m\)</span>，则有：<br>
+若 <span class="math inline">\(\vert I_k\cap T \vert\geqslant k/2\)</span>，<span class="math inline">\(\forall k=1,\cdots,m\)</span>，则 <span class="math inline">\(T\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下是necessarily agreeable的.<br>
+当偏好 <span class="math inline">\(\succeq^{sing}\)</span> 是严格的，其逆命题也成立.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> <strong>先证 <span class="math inline">\(\Rightarrow\)</span></strong>：由条件可知 <span class="math inline">\(|I_m\cap T|\geqslant m/2\)</span>，于是 <span class="math inline">\(|T|\geqslant |S\backslash T|\)</span>. 取 <span class="math inline">\(T&#39;\in\begin{bmatrix}T \\ |S\backslash T|\end{bmatrix}\)</span> 且 <span class="math inline">\(T&#39;\)</span> 是其中下标最小的.<br>
+由此即可在 <span class="math inline">\(T&#39;\)</span> 与 <span class="math inline">\(S\backslash T\)</span> 间定义一个保序的双射 <span class="math inline">\(f:T&#39;\to S\backslash T\)</span>，即下标最小的映射到下标最小的. 由于 <span class="math inline">\(|I_k\cap T|\geqslant k/2\)</span>，<span class="math inline">\(\forall k=1,\cdots,m\)</span>，故 <span class="math inline">\(f\)</span> 必定将 <span class="math inline">\(x_k\)</span> 映射到某个 <span class="math inline">\(l&gt;k\)</span> 的 <span class="math inline">\(x_l\)</span>. 由responsive的定义可知，任意一个与 <span class="math inline">\(\succeq^{sing}\)</span> 相容的responsive的偏好，都保持 <span class="math inline">\(T&#39;\succeq S\backslash T\)</span>. 又由于所有responsive的偏好都是单调的，故 <span class="math inline">\(T\succeq S\backslash T\)</span>，即 <span class="math inline">\(T\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 之下是necessarily agreeable的.<br>
+<strong>再证 <span class="math inline">\(\Leftarrow\)</span></strong>：<strong>用反证法：假设存在 <span class="math inline">\(l\)</span>，s.t. <span class="math inline">\(|I_l\cap T|&lt;1/2\)</span>. 取一个小常数 <span class="math inline">\(\epsilon&gt;0\)</span>，假设偏好 <span class="math inline">\(\succeq\)</span> 由可加效用函数 <span class="math inline">\(u\)</span> 给出：</strong> <span class="math display">\[u(x_i)=\begin{cases}
+1+(l-i)\epsilon,&amp; 1\leqslant i\leqslant l;\\
+(m-i)\epsilon,&amp; l&lt;i\leqslant m.
+\end{cases}\]</span> 由于“所有由可加效用函数给出的偏好都是responsive的”，故 <span class="math inline">\(\succeq\)</span> 是responsive的. 进一步，当 <span class="math inline">\(\epsilon\)</span> 足够小时，有 <span class="math inline">\(u(S\backslash T)&gt;1/2\)</span>，同时 <span class="math inline">\(u(T)&lt;1/2\)</span>. 由于 <span class="math inline">\(\succeq\)</span> 是responsive的，且与 <span class="math inline">\(\succeq^{sing}\)</span> 相容，故有 <span class="math inline">\(S\backslash T\succ T\)</span>. 因此 <span class="math inline">\(T\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下不死necessarily agreeable的. 矛盾！故逆命题得证.<br>
+<strong>综上，原命题得证.</strong></p>
+</blockquote>
+<h2 id="最坏情况的上界">最坏情况的上界</h2>
+<h3 id="普适的最坏上界">普适的最坏上界</h3>
+<blockquote>
+<p><strong>Th. 1.</strong> 对于 <span class="math inline">\(n\)</span> 个代理人，<span class="math inline">\(m\)</span> 个物品的分配问题，存在 <span class="math inline">\(T\subseteq S\)</span>，s.t. <span class="math display">\[|T|\leqslant\min\left(\lfloor\frac{m+n}{2}\rfloor,m\right)\]</span> 且 <span class="math inline">\(T\)</span> 对所有代理人都是agreeable的. 进一步，存在特定的偏好，使得该界是紧的.</p>
+</blockquote>
+<p>一般情况的证明较为复杂，先给出了 <span class="math inline">\(n=2\)</span> 的情形：</p>
+<h4 id="两个代理人的情形">两个代理人的情形</h4>
+<blockquote>
+<p><strong>Proof when <span class="math inline">\(n=2\)</span>.</strong> 此时上界为 <span class="math inline">\(\lfloor\frac{m+2}{2}\rfloor\)</span>. 记两个代理人的偏好分别是 <span class="math inline">\(\succeq_1\)</span> 和 <span class="math inline">\(\succeq_2\)</span>.<br>
+<strong>当 <span class="math inline">\(m=2k+1\)</span> 为奇数时，用反证法：</strong>假设不存在<font color="red"><strong>至多</strong></font> <span class="math inline">\(k+1\)</span> 元子集对两个代理人同时保持agreeable.<br>
+取 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|=k\)</span>. 以下先证明一个引理：</p>
+<blockquote>
+<p><strong>引理</strong> 若 <span class="math inline">\(T\succ_1 S\backslash T\)</span>，则 <span class="math display">\[(T\cup\{x\})\backslash\{x&#39;\}\succ_1 ((S\backslash T)\backslash \{x\})\cup\{x&#39;\}.\]</span> <span class="math inline">\(\forall x\in S\backslash T\)</span>，<span class="math inline">\(x&#39;\in T\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 由单调性，有： <span class="math display">\[T\cup\{x\}\succ_1(S\backslash T)\backslash\{x\}.\]</span> 此时 <span class="math inline">\(|T\cup\{x\}|=k+1\)</span>，由于不存在 <span class="math inline">\(k+1\)</span> 元的agreeable set，故 <span class="math display">\[(S\backslash T)\backslash\{x\}\succ_2T\cup\{x\}.\]</span> 进一步，由单调性，有： <span class="math display">\[((S\backslash T)\backslash\{x\})\cup\{x&#39;\}\succ_2(T\cup\{x\})\backslash\{x&#39;\}.\]</span> 此时 <span class="math inline">\(|((S\backslash T)\backslash\{x\})\cup\{x&#39;\}|=k+1\)</span>，再由不存在 <span class="math inline">\(k+1\)</span> 元的agreeable set，有： <span class="math display">\[(T\cup\{x\})\backslash\{x&#39;\}\succ_2((S\backslash T)\backslash\{x\})\cup\{x&#39;\}.\]</span> 至此，引理得证. <font color="red"><strong>（只要 <span class="math inline">\(T\)</span> 比其补集更好，则任意与补集交换一件物品后仍然更好.）</strong></font></p>
+</blockquote>
+<p>继续，不失一般性，设 <span class="math inline">\(\{x_1,\cdots,x_k\}\succ_1\{x_{k+1},\cdots,x_{2k+1}\}\)</span>. 反复使用引理，可得： <span class="math display">\[\{x_{k+1},x_2,\cdots,x_k\}\succ_1\{x_1,x_{k+2},\cdots,x_{2k+1}\},\]</span> <span class="math display">\[\{x_{k+1},x_{k+2},x_3,\cdots,x_k\}\succ_1\{x_1,x_2,x_{k+3},\cdots,x_{2k+1}\},\]</span> <span class="math display">\[\cdots\cdots\]</span> <span class="math display">\[\{x_{k+1},x_{k+2},\cdots,x_{2k}\}\succ_1\{x_1,x_2,\cdots,x_k,x_{2k+1}\}.\]</span> 由单调性，<span class="math inline">\(\{x_{k+1},x_{k+2},\cdots,x_{2k+1}\}\succ_1\{x_1,x_2,\cdots,x_k\}\)</span>，与假设矛盾！<strong>奇数情形得证.</strong><br>
+<strong>当 <span class="math inline">\(m=2k\)</span> 为偶数时，</strong>令 <span class="math inline">\(S1=S\backslash\{x_1\}\)</span>. 由奇数情形下的结果，存在 <span class="math inline">\(T\subset S&#39;\)</span>，s.t. <span class="math inline">\(|T|\leqslant k\)</span> 且 <span class="math inline">\(T\succeq_{1,2} S&#39;\backslash T\)</span>. 于是由单调性即可知，<span class="math inline">\(T\cup \{x_1\}\)</span> 即为所求的 <span class="math inline">\(k+1\)</span> 元集合.<br>
+<strong>综上，命题得证.</strong></p>
+</blockquote>
+<ul>
+<li>上述证明实际上给出了一个多项式时间的算法，可以得到一个至多 <span class="math inline">\(\lfloor\frac{m+2}{2}\rfloor\)</span> 元的agreeable set. 具体过程参见证明，不多赘述.</li>
+</ul>
+<h4 id="一般情形的证明">一般情形的证明</h4>
+<p>一般情形的证明需要用到所谓Kneser猜想：</p>
+<blockquote>
+<p><strong>Lemma. 1.</strong> (Kneser 猜想) Kneser图 <span class="math inline">\(KG_{n,k}\)</span> 的染色数为： <span class="math display">\[\chi(G)=\begin{cases}
+n-2k+2, &amp; n\geqslant 2k;\\
+1, &amp; \text{otherwise.}
+\end{cases}\]</span></p>
+</blockquote>
+<p>Kneser图的定义如下：</p>
+<blockquote>
+<p><strong>Def. X.</strong> Kneser图：考虑 <span class="math inline">\([n]=\{1,\cdots,n\}\)</span> 的 <span class="math inline">\(k\)</span> 元子集族 <span class="math inline">\(\begin{bmatrix} [n] \\ k \end{bmatrix}\)</span>，以 <span class="math inline">\(\begin{bmatrix} [n] \\ k \end{bmatrix}\)</span> 为顶点，建立一个 <span class="math inline">\(\binom{n}{k}\)</span> 阶图，结点 <span class="math inline">\(T_1\)</span>，<span class="math inline">\(T_2\)</span> 之间有边相连，当且仅当 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>. 这样的图称为Kneser图.</p>
+</blockquote>
+<ul>
+<li><span class="math inline">\(KG_{5,2}\)</span> 即是大名鼎鼎的Petersen图.
+<center>
+<img src="/img/blog-graph/kneser-petersen.png" width="300" alt="Petersen Graph">
+</center></li>
+<li>更多Kneser图的形状如下图所示（来源：Wolfram mathworld）
+<center>
+<img src="/img/blog-graph/KneserGraphs_700.gif" alt="Kneser Graph">
+</center></li>
+</ul>
+<p>有了这个猜想，即可证明Th 1.</p>
+<blockquote>
+<p><strong>Proof of Th 1.</strong> 令 <span class="math inline">\(k=\lfloor\frac{m+n}{2}\rfloor\)</span>. 显然 <span class="math inline">\(k\geqslant m\)</span> 的情况是平凡的，只须取 <span class="math inline">\(S\)</span> 为agreeable set即可，故以下只讨论 <span class="math inline">\(k&lt;m\)</span> 的情形.</p>
+<p>考虑 <span class="math inline">\(\{x_1,\cdots,x_m\}\)</span> 的 <span class="math inline">\(m-k\)</span> 元子集生成的Kneser图 <span class="math inline">\(KG_{m,m-k}\)</span>. 若存在 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|=m-k\)</span>，且 <span class="math inline">\(S\backslash T\succeq_i T\)</span>，<span class="math inline">\(\forall i\)</span>，则 <span class="math inline">\(S\backslash T\)</span> 即为所求的 <span class="math inline">\(k\)</span> 元agreeable set.<br>
+<strong>假设不存在上述这样的 <span class="math inline">\(T\)</span>，即 <span class="math inline">\(\forall T\in\begin{bmatrix}S \\ m-k\end{bmatrix}\)</span>，都存在 <span class="math inline">\(i\)</span>，s.t. <span class="math inline">\(T\succ_i S\backslash T\)</span>.</strong> <font color="red"><strong>对图 <span class="math inline">\(KG_{m,m-k}\)</span> 染色，给结点 <span class="math inline">\(T\)</span> 染上颜色 <span class="math inline">\(i\)</span>，其中 <span class="math inline">\(T\succ_i S\backslash T\)</span>.</strong></font> 若有多个 <span class="math inline">\(i\)</span> 对应，任选其一即可.<br>
+由于 <span class="math inline">\(k\geqslant m/2\)</span>，故 <span class="math inline">\(m\geqslant 2(m-k)\)</span>. 由Kneser猜想（<strong>Lemma. 1.</strong>），<span class="math inline">\(KG_{m,m-k}\)</span> 的染色数为： <span class="math display">\[\begin{align}\chi(KG_{m,m-k}) &amp;= m-2(m-k)+2 \\ &amp;= 2k-m-2 \\ &amp;\geqslant 2(\frac{m+n-1}{2})-m+2=n+1.\end{align}\]</span> 而上述染色过程只使用了 <span class="math inline">\(n\)</span> 种颜色，故由染色数的定义，至少存在一条边，其两端点共色. 不妨设这两个端点为 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span>. 即有，对于某个 <span class="math inline">\(i\in[n]\)</span>，<span class="math inline">\(T_1\succ_i S\backslash T_1\)</span>，<span class="math inline">\(T_2\succ_i S\backslash T_2\)</span>. 但由 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span> 之间有边相连，有 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>，故 T_1ST_2<span class="math inline">\(，\)</span>T_2ST_1$. 由单调性立得矛盾： <span class="math display">\[S\backslash T_1\succeq_i T_2\succ_i S\backslash T_2\succeq_i T_1\succ_i S\backslash T_1.\]</span> 因此必定存在上述的 <span class="math inline">\(T\)</span>，即命题得证.</p>
+</blockquote>
+<blockquote>
+<p><strong>一组偏好，使得该界是紧的</strong> 分为两种情况，以下效用函数均是可加的：</p>
+<ul>
+<li><span class="math inline">\(n\geqslant m\)</span>，此时 <span class="math inline">\(\min(k,m)=m\)</span>. 取 <span class="math inline">\(u_i(x_j)=\begin{cases} 1, &amp; j=\min(i,m) \\ 0, &amp; j\neq\min(i,m) \end{cases}\)</span>，则对代理人 <span class="math inline">\(i\)</span> agreeable的集合必定得包含 <span class="math inline">\(x_{\min(i,m)}\)</span>，此时agreeable set必须包含所有物品，共计 <span class="math inline">\(m\)</span> 个；</li>
+<li><span class="math inline">\(n&lt;m\)</span>，此时 <span class="math inline">\(\min(k,m)=k\)</span>. 对 <span class="math inline">\(i=1,\cdots,n-1\)</span>，取 <span class="math inline">\(u_i(x_j)=\begin{cases} 1, &amp; j=i \\ 0, &amp; j\neq i \end{cases}\)</span>；同时 <span class="math inline">\(u_n(x_j)=\begin{cases} 1, &amp; j\geqslant n \\ 0, &amp; j&lt; n \end{cases}\)</span>. 此时，一个集合若对所有代理人都是agreeable的，则必须包含 <span class="math inline">\(x_1,\cdots,x_{n-1}\)</span>，以及 <span class="math inline">\(\{x_n,\cdots,x_m\}\)</span> 的至少一半，共计 <span class="math inline">\(n-1+\lceil\frac{m-n+1}{2}\rceil=\lceil\frac{m+n-1}{2}\rceil=\lfloor\frac{m+n}{2}\rfloor\)</span>.</li>
+</ul>
+</blockquote>
+<p>至此，我们已经完成了一般情形的证明，接下来文章对如何获得这样的agreeable set进行了讨论.</p>
+<h3 id="获取最坏上界的agreeable-set">获取最坏上界的agreeable set</h3>
+<h4 id="二人情形">二人情形</h4>
+<p>二人情形中，我们只需知道单物品偏好即可得到对二人都necessarily agreeable的集合. 在此我们假设所有偏好是responsive的，并且可以将单物品偏好扩展为 <span class="math inline">\(\mathcal{S}\)</span> 上的偏序.</p>
+<ul>
+<li>算法的思路是：按 <span class="math inline">\(1\)</span> 的偏好排序，然后分组，按照 <span class="math inline">\(2\)</span> 的偏好进行选择.</li>
+</ul>
+<p>具体的内容由下面的定理给出：</p>
+<blockquote>
+<p><strong>Th. 2.</strong> （两人情形）给定两个代理人在 <span class="math inline">\(S\)</span> 上的单物品偏好 <span class="math inline">\(\succeq_1^{sing}\)</span> 和 <span class="math inline">\(\succeq_2^{sing}\)</span>，存在 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|\leqslant \lfloor\frac{m+2}{2}\rfloor\)</span>，且 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(\succeq_1^{sing}\)</span> 和 <span class="math inline">\(\succeq_2^{sing}\)</span> 都是necessarily agreeable的. 并且可在多项式时间内求得一个这样的 <span class="math inline">\(T\)</span>.<br>
+进一步，存在一组偏好，使得这个界是紧的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 分奇偶性来讨论：</p>
+<ol style="list-style-type: decimal">
+<li>当 <span class="math inline">\(m=2k+1\)</span> 时，不妨设 <span class="math inline">\(x_1\succeq_1^{sing} x_2\succeq_1^{sing}\cdots\succeq_1^{sing}x_{2k+1}\)</span>. 此时按照如下方法进行选择：</li>
+</ol>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x_1\)</span> 加入集合 <span class="math inline">\(T\)</span>；</li>
+<li>在 <span class="math inline">\((x_2,x_3),(x_4,x_5),\cdots,(x_{2k},x_{2k+1})\)</span> 中，每一对都选取 <span class="math inline">\(2\)</span> 更喜欢的那个，加入集合 <span class="math inline">\(T\)</span>.</li>
+</ol>
+</blockquote>
+<p>这样选择得到的集合 <span class="math inline">\(T\)</span> 显然对 <span class="math inline">\(\forall j=1,\cdots,m\)</span> 都满足 <span class="math inline">\(|T\cap I_j|\geqslant j/2\)</span>，因此由 <strong>Prop 1</strong> 可知 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(1\)</span> 是necessarily agreeable的. 进一步，由于算法的第2步在每一对中都选择了 <span class="math inline">\(2\)</span> 更喜欢的物品，所以同样可由 <strong>Prop 1</strong> 知，<span class="math inline">\(T\)</span> 对 <span class="math inline">\(2\)</span> 是necessarily agreeable的.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>当 <span class="math inline">\(m=2k\)</span> 时，令 <span class="math inline">\(S&#39;=S\backslash\{x_1\}\)</span>. 则由奇数的结果可知，<span class="math inline">\(S&#39;\)</span> 中可以取出一个子集 <span class="math inline">\(T\)</span>，s.t. <span class="math inline">\(|T|=k\)</span>，且 <span class="math inline">\(T\)</span> 对两位代理人都是necessarily agreeable的. 此时只需将 <span class="math inline">\(x_1\)</span> 也添加进集合，即有 <span class="math inline">\(|T\cup\{x_1\}|=k+1=\lfloor\frac{m+2}{2}\rfloor\)</span>，且对二者都是necessarily agreeable的.</li>
+</ol>
+<p>综上，命题得证.</p>
+</blockquote>
+<blockquote>
+<p><strong>一组偏好，使得界是紧的</strong> 先不写了，有空再补.</p>
+</blockquote>
+<h4 id="三人情形">三人情形</h4>
+<p>三人情形下，无法只使用单物品偏好得到最坏上界的necessarily agreeable set. 以下是一个例子：</p>
+<blockquote>
+<p><strong>Ex. 1.</strong> 令 <span class="math inline">\(m=6\)</span>，三个人的单物品偏好如下：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x_1\succ_1^{sing} x_4\succ_1^{sing} x_5\succ_1^{sing} x_6\succ_1^{sing} x_2\succ_1^{sing} x_3\)</span>;</li>
+<li><span class="math inline">\(x_2\succ_2^{sing} x_5\succ_2^{sing} x_6\succ_2^{sing} x_4\succ_2^{sing} x_3\succ_2^{sing} x_1\)</span>;</li>
+<li><span class="math inline">\(x_3\succ_3^{sing} x_6\succ_3^{sing} x_4\succ_3^{sing} x_5\succ_3^{sing} x_1\succ_3^{sing} x_2\)</span>.</li>
+</ol>
+<p>若 <span class="math inline">\(T\subset S\)</span> 对三人都是necessarily agreeable的，则必须包含 <span class="math inline">\(\{x_1,x_2,x_3\}\)</span> 以及 <span class="math inline">\(\{x_4,x_5,x_6\}\)</span> 中的至少两个，这样有 <span class="math inline">\(|T|\geqslant 5\)</span>. 但是，若知道完整的偏好，由 <strong>Th 1</strong> 可知，<span class="math inline">\(|T|\leqslant 4\)</span> 即可.</p>
+</blockquote>
+<p>于是三人的情形不能再只使用单物品偏好，需要访问其完整偏好. 考虑到单单是读取完整偏好就已不能在多项式时间内完成，故认为存在一个偏好数据库，我们的多项式时间算法实际上是对该数据库进行多项式次数的访问，每次获取两个集合对于某个代理人的好坏关系.</p>
+<blockquote>
+<p><strong>Th. 3.</strong> （三人情形）假设存在三个代理人，在 <span class="math inline">\(\mathcal{S}\)</span> 上的偏好分别为 <span class="math inline">\(\succeq_1\)</span>，<span class="math inline">\(\succeq_2\)</span>，<span class="math inline">\(\succeq_3\)</span>. 则存在多项式算法，在多项式时间内可以求得一个 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|\leqslant \lfloor\frac{m+3}{2}\rfloor\)</span>，且 <span class="math inline">\(T\)</span> 对三个人都是agreeable的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof</strong> 仍然分奇偶性来讨论：</p>
+<ol style="list-style-type: decimal">
+<li>当 <span class="math inline">\(m=2k\)</span> 为偶数：我们的目标是找到一个大小为 <span class="math inline">\(\lfloor\frac{m+3}{2}\rfloor=k+1\)</span> 的集合 <span class="math inline">\(T\)</span>，使其对三个代理人都是agreeable的. 不妨设 <span class="math inline">\(x_{2k-1}\)</span> 是 <span class="math inline">\(1\)</span> 最喜欢的，<span class="math inline">\(x_{2k}\)</span> 是 <span class="math inline">\(2\)</span> （除 <span class="math inline">\(x_{2k-1}\)</span> 外）最喜欢的，且对于剩下的 <span class="math inline">\(2k-2\)</span> 个元素，有 <span class="math inline">\(x_1\succeq_1\cdots\succeq_1 x_{2k-2}\)</span>. （按 <span class="math inline">\(1\)</span> 排序）<br>
+记 <span class="math inline">\(A=\{x_1,\cdots,x_{2k-2}\}\)</span>，考虑 <span class="math inline">\((x_1,x_2),(x_3,x_4),\cdots,(x_{2k-3},x_{2k-2})\)</span>. 令 <span class="math inline">\(B\)</span> 为上述二元组中 <span class="math inline">\(2\)</span> 不喜欢的元素所构成的 <span class="math inline">\(k-1\)</span> 元集合，则由responsive可知，<span class="math inline">\(A\backslash B\succeq_2 B\)</span>.<br>
+现考虑一个过程：</li>
+</ol>
+<blockquote>
+<p>只要 <span class="math inline">\(A\backslash B\succeq_2 B\)</span>，就取 <span class="math inline">\(B\)</span> 中的一个元素以及 <span class="math inline">\(A\backslash B\)</span> 中与其曾在同一个二元组中的元素，二者交换，形成新的 <span class="math inline">\(B\)</span> 和 <span class="math inline">\(A\backslash B\)</span>.</p>
+</blockquote>
+<p>在这个操作中，我们至多进行 <span class="math inline">\(k-1\)</span> 步，就一定能得到一个 <span class="math inline">\(B\succeq_2 A\backslash B\)</span> 的状态. 此时有两种情况，分述如下：</p>
+<blockquote>
+<ul>
+<li>我们根本无需进行任何操作：即 <span class="math inline">\(B\sim_2 A\backslash B\)</span></li>
+<li>我们进行了至少一步的操作：</li>
+</ul>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>当 <span class="math inline">\(m=2k+1\)</span> 为奇数：</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+            <a href="/tags/社会计算/" rel="tag"># 社会计算</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/14/来自雁栖湖的最大流问题/" rel="next" title="来自雁栖湖的最大流问题">
+                <i class="fa fa-chevron-left"></i> 来自雁栖湖的最大流问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="戳兔专家 lzcwr" />
+            
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://devhui.com/" title="陈辉的技术博客" target="_blank">陈辉的技术博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.comen.org" title="何岳寰的博客" target="_blank">何岳寰的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://easezyc.github.io" title="朱勇椿的博客" target="_blank">朱勇椿的博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#记号说明"><span class="nav-number">1.1.</span> <span class="nav-text">记号说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关定义"><span class="nav-number">1.2.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#necessarily-agreeable-set"><span class="nav-number">1.3.</span> <span class="nav-text">Necessarily agreeable set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最坏情况的上界"><span class="nav-number">2.</span> <span class="nav-text">最坏情况的上界</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普适的最坏上界"><span class="nav-number">2.1.</span> <span class="nav-text">普适的最坏上界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两个代理人的情形"><span class="nav-number">2.1.1.</span> <span class="nav-text">两个代理人的情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般情形的证明"><span class="nav-number">2.1.2.</span> <span class="nav-text">一般情形的证明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最坏上界的agreeable-set"><span class="nav-number">2.2.</span> <span class="nav-text">获取最坏上界的agreeable set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二人情形"><span class="nav-number">2.2.1.</span> <span class="nav-text">二人情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三人情形"><span class="nav-number">2.2.2.</span> <span class="nav-text">三人情形</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="泛函分析 期末 杨大春.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T16:04:21.000Z">
+<meta property="og:updated_time" content="2019-02-28T04:03:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="北京师范大学2017年泛函分析期末考试试卷">
 <meta name="twitter:description" content="泛函分析 期末 杨大春.">
@@ -168,7 +168,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">戳兔兔(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
       
   </div>
 
@@ -317,7 +317,7 @@
     <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/01/11/北京师范大学2017年泛函分析期末考试试卷/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzcwr">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
@@ -437,9 +437,28 @@
 <li><p>用复 Hahn-Banach 定理, 参见习题2.4.3;</p></li>
 <li><p>用 Ascoli 定理, 参见习题2.4.10;</p></li>
 <li><p>利用自然映射和共轭算子, 参见习题2.5.5;</p></li>
-<li><p>对于 <span class="math inline">\(T\in\mathscr{L}(\mathscr{X},\mathscr{Y})\)</span>, 取 <span class="math inline">\(\epsilon&lt; \inf\limits_{x\in B(0,1)}\Vert Tx\Vert\)</span> 即可.</p></li>
+<li><p>--这是一个差不多的题目的解答<br>
+先证明一个引理：</p>
+<blockquote>
+<p><strong>LEMMA 1.</strong> <span class="math inline">\(\mathscr{X}\)</span> 是Banach空间，设 <span class="math inline">\(A\in\mathscr{L}(\mathscr{X})\)</span> 且 <span class="math inline">\(\Vert A\Vert_{\mathscr{L}(\mathscr{X} )}&lt;1\)</span>，则 <span class="math inline">\((I-A)^{-1}\in\mathscr{L}(\mathscr{X})\)</span> 且 <span class="math display">\[\Vert (I-A)^{-1}\Vert_{\mathscr{L}(\mathscr{X})}\leqslant \frac{1}{1-\Vert A\Vert_  {\mathscr{L}(\mathscr{X})}}.\]</span> 证明略...（</p>
+</blockquote>
+<p>然后仍然是证明开集的正统方法：<span class="math inline">\(\forall A\)</span>，s.t. <span class="math inline">\(A\in\mathscr{L}(\mathscr{X})\)</span> 且 <span class="math inline">\(A^{-1}\in \mathscr{L}(\mathscr{X})\)</span><font color="red">（1. 取集合里的一个元素）</font>，取 <span class="math inline">\(\forall T\in\mathscr{L}(\mathscr{X})\)</span>，s.t. <span class="math inline">\(\Vert T-A\Vert_{\mathscr{L}(\mathscr{X})} &lt;\frac{1}{\Vert A^{-1}\Vert_{\mathscr{L}(\mathscr{X})}}\)</span><font color="red">（2. 取一个半径，考虑以 <span class="math inline">\(A\)</span> 为心的开球）</font>，由 <strong>LEMMA</strong>，有： <span class="math display">\[
+\begin{align}
+\Vert T^{-1}\Vert_{\mathscr{L}(\mathscr{X})} &amp;= \Vert (T-A+A)^{-1}\Vert_{\mathscr{L}    (\mathscr{X})} = \Vert (I+(T-A)A^{-1})^{-1}A^{-1} \Vert_{\mathscr{L}(\mathscr{X})} \\
+&amp;\leqslant \Vert A^{-1}\Vert_{\mathscr{L}(\mathscr{X})}\cdot \Vert (I+(T-A)A^{-1})^{-1} \Vert_{\mathscr{L}(\mathscr{X})} \\
+&amp;\leqslant \Vert A^{-1}\Vert_{\mathscr{L}(\mathscr{X})}\cdot \frac{1}{1+\Vert (T-A)A^{-1}   \Vert_{\mathscr{L}(\mathscr{X})}}\quad （由上述引理可得）\\
+&amp;&lt; \infty\quad（这里实际上是在证明~T^{-1}~有界）
+\end{align}
+\]</span> 其中，<span class="math inline">\(\Vert (T-A)A^{-1}\Vert_{\mathscr{L}(\mathscr{X})}\leqslant \Vert T-A\Vert_{\mathscr {L}(\mathscr{X})}\cdot \Vert A^{-1}\Vert_{\mathscr{L}(\mathscr{X})}&lt;1\)</span>. 至此，我们证明了 <span class="math inline">\(\forall A\in &quot;\mathscr{L}(\mathscr{X})中的连续线性算子集&quot;\)</span>，<span class="math inline">\(A\)</span> 的邻域 <span class="math inline">\(B (A,\frac{1}{\Vert A^{-1}\Vert_{\mathscr{L}(\mathscr{X})}})\subset&quot;\mathscr{L}(\mathscr{X}) 中的连续线性算子集&quot;\)</span>.<font color="red">（3. 证明 <span class="math inline">\(\forall A\)</span>，开球都包含在集合里，Over.）</font><br>
+因此，<span class="math inline">\(\mathscr{L}(\mathscr{X})\)</span> 中的连续线性算子构成一个闭集.</p></li>
 <li><p>由闭图像定理, 只需证明 <span class="math inline">\(A\)</span> 是闭算子且定义域闭. 考虑到定义域 <span class="math inline">\(\mathscr{H}\)</span> 显然闭, 只需要证明 <span class="math inline">\(A\)</span> 是闭算子. 取 <span class="math inline">\(x_n\to x\in \mathscr{H}\)</span>, 设 <span class="math inline">\(Ax_n\to z\)</span>, 则只需证 <span class="math inline">\(Ax=z\)</span>. (由闭算子的定义即可得, 参见课本P96: Def 2.3.9) <strong>一方面</strong>, 由内积的连续性, 即有 <span class="math inline">\((Ax_n,y)\to (z,y)\)</span>. 而<strong>另一方面</strong>又由条件有 <span class="math inline">\((Ax_n,y)=(x_n,By)\to (x,By)=(Ax,y)\)</span>. 于是由极限的唯一性即有 <span class="math inline">\(Ax=y\)</span>, 得证.</p></li>
 <li><p>(瞎写的) 设 <span class="math inline">\(d=\inf\limits_{x\in E}\Vert x\Vert\)</span>, 由定义可取 <span class="math inline">\(x_n\in E\)</span>, s.t. <span class="math inline">\(d&lt;\Vert x_n\Vert&lt;d+\frac{1}{n}\)</span>. 由于自反空间中闭集是弱自列紧的, 取其收敛子列的弱极限即可.</p></li>
+</ol>
+<h2 id="泛函题目">2019.01泛函题目</h2>
+<p>只有两个附加题，不保证题目完全一致且没有解答。感谢李菁泽同学供题。</p>
+<ol style="list-style-type: decimal">
+<li>设 <span class="math inline">\(\mathscr{X}\)</span> 是 <span class="math inline">\(B^*\)</span> 空间，<span class="math inline">\(\forall x\in\mathscr{X}\)</span>，<span class="math inline">\(\varepsilon_n\)</span> 为一个极限为 <span class="math inline">\(0\)</span> 的序列，且有 <span class="math display">\[f_n(x)\leqslant \varepsilon_n\Vert f_n\Vert_{\mathscr{X}^*}+C(x).\]</span> 其中 <span class="math inline">\(C(x)\)</span> 是一个函数（小李同学表示这个条件很懵B...），证明：<span class="math inline">\(\Vert f_n\Vert_{\mathscr{X}^*}\)</span> 一致有界.</li>
+<li><span class="math inline">\(B^*\)</span> 空间 <span class="math inline">\(\mathscr{X}\)</span> 上有 <span class="math inline">\(n\)</span> 个半模 <span class="math inline">\(p_k(x)~k=1,\cdots,n\)</span>，设线性泛函 <span class="math inline">\(\varphi(x)\)</span> 满足 <span class="math display">\[\vert \varphi(x)\vert\leqslant \sum\limits_{k=1}^n p_k(x),\]</span> 试证：存在线性泛函 <span class="math inline">\(\varphi_k(x),~(k=1,\cdots,n)\)</span>，s.t. <span class="math inline">\(\varphi(x)=\sum\limits_{k=1}^n\varphi_k(x)\)</span>，且 <span class="math inline">\(\vert\varphi_k(x)\vert\leqslant p_k(x),~(k=1,\cdots,n)\)</span>.</li>
 </ol>
 
       
@@ -560,10 +579,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="lzcwr" />
+                alt="戳兔专家 lzcwr" />
             
-              <p class="site-author-name" itemprop="name">lzcwr</p>
-              <p class="site-description motion-element" itemprop="description">BNU 数学 ACM 篮球 乒乓球</p>
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -573,7 +592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -595,7 +614,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -683,14 +702,6 @@
                     <a href="http://easezyc.github.io" title="朱勇椿的博客" target="_blank">朱勇椿的博客</a>
                   </li>
                 
-                  <li class="links-of-blogroll-item">
-                    <a href="http://blog.csdn.net/skywalkert" title="糖老师的博客" target="_blank">糖老师的博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.cnblogs.com/clrs97/" title="Claris的博客" target="_blank">Claris的博客</a>
-                  </li>
-                
               </ul>
             </div>
           
@@ -710,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#试题"><span class="nav-number">1.</span> <span class="nav-text">试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分简略解答"><span class="nav-number">2.</span> <span class="nav-text">部分简略解答</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#试题"><span class="nav-number">1.</span> <span class="nav-text">试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分简略解答"><span class="nav-number">2.</span> <span class="nav-text">部分简略解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛函题目"><span class="nav-number">3.</span> <span class="nav-text">2019.01泛函题目</span></a></li></ol></div>
             
 
           </div>
@@ -730,7 +741,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
