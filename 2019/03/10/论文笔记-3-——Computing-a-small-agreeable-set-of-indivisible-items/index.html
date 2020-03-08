@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="师大,计算机,数学,北大,组合数学,论文笔记,社会计算," />
+  <meta name="keywords" content="师大,数学,计算机,北大,组合数学,社会计算,论文笔记," />
 
 
 
@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.">
-<meta name="keywords" content="师大,计算机,数学,北大,组合数学,论文笔记,社会计算">
+<meta name="description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.  Agreeable set -- necessarily agreeable set --">
+<meta name="keywords" content="师大,数学,计算机,北大,组合数学,社会计算,论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记[3]——Computing a small agreeable set of indivisible items">
 <meta property="og:url" content="http://lizhechen.com/2019/03/10/论文笔记-3-——Computing-a-small-agreeable-set-of-indivisible-items/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.">
+<meta property="og:description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.  Agreeable set -- necessarily agreeable set --">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/kneser-petersen.png">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/KneserGraphs_700.gif">
-<meta property="og:updated_time" content="2019-03-11T06:01:46.000Z">
+<meta property="og:updated_time" content="2019-03-28T15:46:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[3]——Computing a small agreeable set of indivisible items">
-<meta name="twitter:description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.">
+<meta name="twitter:description" content="文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.  Agreeable set -- necessarily agreeable set --">
 <meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/kneser-petersen.png">
 
 
@@ -240,16 +240,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/diary/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
-            
-            日程
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -322,7 +312,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="戳兔专家 lzcwr">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -409,6 +399,7 @@
         <blockquote>
 <p>文章：Pasin Manurangsi, Warut Suksompong, Computing a small agreeable set of indivisible items, Artificial Intelligence, Volume 268, 2019, Pages 96-114.</p>
 </blockquote>
+<p>Agreeable set -- necessarily agreeable set -- agreeable set 一个最坏上界（证明 and 2和3情况的构造） -- 计算necessarily agreeable set -- 一般情形下求最小的agreeable set -- 可加效用函数下的探讨.</p>
 <a id="more"></a>
 <h2 id="准备工作">准备工作</h2>
 <h3 id="记号说明">记号说明</h3>
@@ -416,22 +407,23 @@
 <li><span class="math inline">\([n]\)</span>：代理人，编号为 <span class="math inline">\(1,2,\cdots,n\)</span>；</li>
 <li><span class="math inline">\(S=\{x_1,\cdots,x_m\}\)</span>：物品集合，<span class="math inline">\(\mathcal{S}\)</span> 表示其幂集；</li>
 <li>偏好：每个代理人 <span class="math inline">\(i\)</span> 都被赋予了一个偏好关系 <span class="math inline">\(\succeq_i\)</span>，用以比较 <span class="math inline">\(S\)</span> 子集之间的好坏关系. 偏好关系是自反、完全、和传递的；</li>
+<li><span class="math inline">\(\begin{bmatrix}V \\ t\end{bmatrix}\)</span> 表示集合 <span class="math inline">\(V\)</span> 的 <span class="math inline">\(t\)</span> 元子集族；</li>
 </ul>
 <h3 id="相关定义">相关定义</h3>
 <blockquote>
-<p><strong>Def. 0.</strong> 分配问题是把 <span class="math inline">\(S\)</span> 分给 <span class="math inline">\(n\)</span> 个代理人的问题.</p>
+<p><strong>Def 0.</strong> 分配问题是把 <span class="math inline">\(S\)</span> 分给 <span class="math inline">\(n\)</span> 个代理人的问题.</p>
 </blockquote>
 <blockquote>
-<p><strong>Def. 1.</strong> 单调性：<span class="math inline">\(\mathcal{S}\)</span> 上的一个偏好关系 <span class="math inline">\(\succeq\)</span> 是单调的，当且仅当 <span class="math inline">\(T\cup\{x\}\succeq T\)</span>，<span class="math inline">\(\forall T\subset S\)</span>.</p>
+<p><strong>Def 1.</strong> 单调性：<span class="math inline">\(\mathcal{S}\)</span> 上的一个偏好关系 <span class="math inline">\(\succeq\)</span> 是单调的，当且仅当 <span class="math inline">\(T\cup\{x\}\succeq T\)</span>，<span class="math inline">\(\forall T\subset S\)</span>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Def. 2.</strong> Agreeable：<span class="math inline">\(T\subset S\)</span> 对代理人 <span class="math inline">\(i\)</span> 来说是agreeable的，当且仅当 <span class="math inline">\(T\succeq_i S\backslash T\)</span>. （越大的集合越好）</p>
+<p><strong>Def 2.</strong> Agreeable：<span class="math inline">\(T\subset S\)</span> 对代理人 <span class="math inline">\(i\)</span> 来说是agreeable的，当且仅当 <span class="math inline">\(T\succeq_i S\backslash T\)</span>. （越大的集合越好）</p>
 </blockquote>
 <ul>
 <li>Agreeable set有时也指对所有代理人都agreeable的集合. 当偏好单调时，显然一定存在这样的集合（<span class="math inline">\(S\)</span> 就是这样的集合）；当偏好不单调时则可能不存在.</li>
 </ul>
 <blockquote>
-<p><strong>Def. 3.</strong> Responsive：<span class="math inline">\(\mathcal{S}\)</span> 上的偏好关系是responsive的，当且仅当：</p>
+<p><strong>Def 3.</strong> Responsive：<span class="math inline">\(\mathcal{S}\)</span> 上的偏好关系是responsive的，当且仅当：</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\succeq\)</span> 是单调的；<br>
 </li>
@@ -443,13 +435,13 @@
 <li>但只要偏好是responsive的，便可以仅通过单物品偏好来判断集合是否agreeable.</li>
 </ul>
 <blockquote>
-<p><strong>Def. 4.</strong> Necessarily agreeable：取定 <span class="math inline">\(\mathcal{S}\)</span> 上的一个单物品偏好 <span class="math inline">\(\succeq^{sing}\)</span>（即物品的一个排列）. 称<span class="math inline">\(T\subset S\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下是necessarily agreeable的，若 <span class="math inline">\(T\succeq S\backslash T\)</span>，其中 <span class="math inline">\(\succeq\)</span> 是与 <span class="math inline">\(\succeq^{sing}\)</span> 相容的任意偏好.</p>
+<p><strong>Def 4.</strong> Necessarily agreeable：取定 <span class="math inline">\(\mathcal{S}\)</span> 上的一个单物品偏好 <span class="math inline">\(\succeq^{sing}\)</span>（即物品的一个排列）. 称<span class="math inline">\(T\subset S\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下是necessarily agreeable的，若对与 <span class="math inline">\(\succeq^{sing}\)</span> 相容的任意偏好 <span class="math inline">\(\succeq\)</span>，都有 <span class="math inline">\(T\succeq S\backslash T\)</span>.</p>
 </blockquote>
 <ul>
 <li>简单起见，若 <span class="math inline">\(T\)</span> 对代理人 <span class="math inline">\(i\)</span> 的单物品偏好是necessarily agreeable的，则称 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(i\)</span> 是necessarily agreeable的.</li>
 </ul>
 <blockquote>
-<p><strong>Def.</strong> 效用函数：效用函数 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathcal{S}\to\mathbb{R}_{\geqslant 0}\)</span> 的映射. <span class="math inline">\(f\)</span> 的大小标志着集合的好坏.</p>
+<p><strong>Def</strong> 效用函数：效用函数 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathcal{S}\to\mathbb{R}_{\geqslant 0}\)</span> 的映射. <span class="math inline">\(f\)</span> 的大小标志着集合的好坏.</p>
 </blockquote>
 <ul>
 <li>由于每个代理的偏好是自反、完全和传递的，故 <span class="math inline">\(\forall T_1,T_2\subset S\)</span>，<span class="math inline">\(T_1\succeq T2\)</span> 当且仅当 <span class="math inline">\(f(T_1)\geqslant f(T_2)\)</span>.</li>
@@ -470,13 +462,13 @@
 <strong>再证 <span class="math inline">\(\Leftarrow\)</span></strong>：<strong>用反证法：假设存在 <span class="math inline">\(l\)</span>，s.t. <span class="math inline">\(|I_l\cap T|&lt;1/2\)</span>. 取一个小常数 <span class="math inline">\(\epsilon&gt;0\)</span>，假设偏好 <span class="math inline">\(\succeq\)</span> 由可加效用函数 <span class="math inline">\(u\)</span> 给出：</strong> <span class="math display">\[u(x_i)=\begin{cases}
 1+(l-i)\epsilon,&amp; 1\leqslant i\leqslant l;\\
 (m-i)\epsilon,&amp; l&lt;i\leqslant m.
-\end{cases}\]</span> 由于“所有由可加效用函数给出的偏好都是responsive的”，故 <span class="math inline">\(\succeq\)</span> 是responsive的. 进一步，当 <span class="math inline">\(\epsilon\)</span> 足够小时，有 <span class="math inline">\(u(S\backslash T)&gt;1/2\)</span>，同时 <span class="math inline">\(u(T)&lt;1/2\)</span>. 由于 <span class="math inline">\(\succeq\)</span> 是responsive的，且与 <span class="math inline">\(\succeq^{sing}\)</span> 相容，故有 <span class="math inline">\(S\backslash T\succ T\)</span>. 因此 <span class="math inline">\(T\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下不死necessarily agreeable的. 矛盾！故逆命题得证.<br>
+\end{cases}\]</span> 由于“所有由可加效用函数给出的偏好都是responsive的”，故 <span class="math inline">\(\succeq\)</span> 是responsive的. 进一步，当 <span class="math inline">\(\epsilon\)</span> 足够小时，有 <span class="math inline">\(u(S\backslash T)&gt;1/2\)</span>，同时 <span class="math inline">\(u(T)&lt;1/2\)</span>. 由于 <span class="math inline">\(\succeq\)</span> 是responsive的，且与 <span class="math inline">\(\succeq^{sing}\)</span> 相容，故有 <span class="math inline">\(S\backslash T\succ T\)</span>. 因此 <span class="math inline">\(T\)</span> 在 <span class="math inline">\(\succeq^{sing}\)</span> 下不是necessarily agreeable的. 矛盾！故逆命题得证.<br>
 <strong>综上，原命题得证.</strong></p>
 </blockquote>
 <h2 id="最坏情况的上界">最坏情况的上界</h2>
 <h3 id="普适的最坏上界">普适的最坏上界</h3>
 <blockquote>
-<p><strong>Th. 1.</strong> 对于 <span class="math inline">\(n\)</span> 个代理人，<span class="math inline">\(m\)</span> 个物品的分配问题，存在 <span class="math inline">\(T\subseteq S\)</span>，s.t. <span class="math display">\[|T|\leqslant\min\left(\lfloor\frac{m+n}{2}\rfloor,m\right)\]</span> 且 <span class="math inline">\(T\)</span> 对所有代理人都是agreeable的. 进一步，存在特定的偏好，使得该界是紧的.</p>
+<p><strong>Th 1.</strong> 对于 <span class="math inline">\(n\)</span> 个代理人，<span class="math inline">\(m\)</span> 个物品的分配问题，存在 <span class="math inline">\(T\subseteq S\)</span>，s.t. <span class="math display">\[|T|\leqslant\min\left(\lfloor\frac{m+n}{2}\rfloor,m\right)\]</span> 且 <span class="math inline">\(T\)</span> 对所有代理人都是agreeable的. 进一步，存在特定的偏好，使得该界是紧的.</p>
 </blockquote>
 <p>一般情况的证明较为复杂，先给出了 <span class="math inline">\(n=2\)</span> 的情形：</p>
 <h4 id="两个代理人的情形">两个代理人的情形</h4>
@@ -500,14 +492,14 @@
 <h4 id="一般情形的证明">一般情形的证明</h4>
 <p>一般情形的证明需要用到所谓Kneser猜想：</p>
 <blockquote>
-<p><strong>Lemma. 1.</strong> (Kneser 猜想) Kneser图 <span class="math inline">\(KG_{n,k}\)</span> 的染色数为： <span class="math display">\[\chi(G)=\begin{cases}
+<p><strong>Lemma 1.</strong> (Kneser 猜想) Kneser图 <span class="math inline">\(KG_{n,k}\)</span> 的染色数为： <span class="math display">\[\chi(G)=\begin{cases}
 n-2k+2, &amp; n\geqslant 2k;\\
 1, &amp; \text{otherwise.}
 \end{cases}\]</span></p>
 </blockquote>
 <p>Kneser图的定义如下：</p>
 <blockquote>
-<p><strong>Def. X.</strong> Kneser图：考虑 <span class="math inline">\([n]=\{1,\cdots,n\}\)</span> 的 <span class="math inline">\(k\)</span> 元子集族 <span class="math inline">\(\begin{bmatrix} [n] \\ k \end{bmatrix}\)</span>，以 <span class="math inline">\(\begin{bmatrix} [n] \\ k \end{bmatrix}\)</span> 为顶点，建立一个 <span class="math inline">\(\binom{n}{k}\)</span> 阶图，结点 <span class="math inline">\(T_1\)</span>，<span class="math inline">\(T_2\)</span> 之间有边相连，当且仅当 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>. 这样的图称为Kneser图.</p>
+<p><strong>Def X.</strong> Kneser图：考虑 <span class="math inline">\([n]=\{1,\cdots,n\}\)</span> 的 <span class="math inline">\(k\)</span> 元子集族 <span class="math inline">\(\begin{bmatrix} [n] \\ k \end{bmatrix}\)</span>，以 <span class="math inline">\(\begin{bmatrix} [n] \\ k \end{bmatrix}\)</span> 为顶点，建立一个 <span class="math inline">\(\binom{n}{k}\)</span> 阶图，结点 <span class="math inline">\(T_1\)</span>，<span class="math inline">\(T_2\)</span> 之间有边相连，当且仅当 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>. 这样的图称为Kneser图.</p>
 </blockquote>
 <ul>
 <li><span class="math inline">\(KG_{5,2}\)</span> 即是大名鼎鼎的Petersen图.
@@ -524,7 +516,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
 <p><strong>Proof of Th 1.</strong> 令 <span class="math inline">\(k=\lfloor\frac{m+n}{2}\rfloor\)</span>. 显然 <span class="math inline">\(k\geqslant m\)</span> 的情况是平凡的，只须取 <span class="math inline">\(S\)</span> 为agreeable set即可，故以下只讨论 <span class="math inline">\(k&lt;m\)</span> 的情形.</p>
 <p>考虑 <span class="math inline">\(\{x_1,\cdots,x_m\}\)</span> 的 <span class="math inline">\(m-k\)</span> 元子集生成的Kneser图 <span class="math inline">\(KG_{m,m-k}\)</span>. 若存在 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|=m-k\)</span>，且 <span class="math inline">\(S\backslash T\succeq_i T\)</span>，<span class="math inline">\(\forall i\)</span>，则 <span class="math inline">\(S\backslash T\)</span> 即为所求的 <span class="math inline">\(k\)</span> 元agreeable set.<br>
 <strong>假设不存在上述这样的 <span class="math inline">\(T\)</span>，即 <span class="math inline">\(\forall T\in\begin{bmatrix}S \\ m-k\end{bmatrix}\)</span>，都存在 <span class="math inline">\(i\)</span>，s.t. <span class="math inline">\(T\succ_i S\backslash T\)</span>.</strong> <font color="red"><strong>对图 <span class="math inline">\(KG_{m,m-k}\)</span> 染色，给结点 <span class="math inline">\(T\)</span> 染上颜色 <span class="math inline">\(i\)</span>，其中 <span class="math inline">\(T\succ_i S\backslash T\)</span>.</strong></font> 若有多个 <span class="math inline">\(i\)</span> 对应，任选其一即可.<br>
-由于 <span class="math inline">\(k\geqslant m/2\)</span>，故 <span class="math inline">\(m\geqslant 2(m-k)\)</span>. 由Kneser猜想（<strong>Lemma. 1.</strong>），<span class="math inline">\(KG_{m,m-k}\)</span> 的染色数为： <span class="math display">\[\begin{align}\chi(KG_{m,m-k}) &amp;= m-2(m-k)+2 \\ &amp;= 2k-m-2 \\ &amp;\geqslant 2(\frac{m+n-1}{2})-m+2=n+1.\end{align}\]</span> 而上述染色过程只使用了 <span class="math inline">\(n\)</span> 种颜色，故由染色数的定义，至少存在一条边，其两端点共色. 不妨设这两个端点为 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span>. 即有，对于某个 <span class="math inline">\(i\in[n]\)</span>，<span class="math inline">\(T_1\succ_i S\backslash T_1\)</span>，<span class="math inline">\(T_2\succ_i S\backslash T_2\)</span>. 但由 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span> 之间有边相连，有 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>，故 T_1ST_2<span class="math inline">\(，\)</span>T_2ST_1$. 由单调性立得矛盾： <span class="math display">\[S\backslash T_1\succeq_i T_2\succ_i S\backslash T_2\succeq_i T_1\succ_i S\backslash T_1.\]</span> 因此必定存在上述的 <span class="math inline">\(T\)</span>，即命题得证.</p>
+由于 <span class="math inline">\(k\geqslant m/2\)</span>，故 <span class="math inline">\(m\geqslant 2(m-k)\)</span>. 由Kneser猜想（<strong>Lemma 1.</strong>），<span class="math inline">\(KG_{m,m-k}\)</span> 的染色数为： <span class="math display">\[\begin{align}\chi(KG_{m,m-k}) &amp;= m-2(m-k)+2 \\ &amp;= 2k-m-2 \\ &amp;\geqslant 2(\frac{m+n-1}{2})-m+2=n+1.\end{align}\]</span> 而上述染色过程只使用了 <span class="math inline">\(n\)</span> 种颜色，故由染色数的定义，至少存在一条边，其两端点共色. 不妨设这两个端点为 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span>. 即有，对于某个 <span class="math inline">\(i\in[n]\)</span>，<span class="math inline">\(T_1\succ_i S\backslash T_1\)</span>，<span class="math inline">\(T_2\succ_i S\backslash T_2\)</span>. 但由 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span> 之间有边相连，有 <span class="math inline">\(T_1\cap T_2=\varnothing\)</span>，故 <span class="math inline">\(T_1\subset S\backslash T_2\)</span>，<span class="math inline">\(T_2\subset S\backslash T_1\)</span>. 由单调性立得矛盾： <span class="math display">\[S\backslash T_1\succeq_i T_2\succ_i S\backslash T_2\succeq_i T_1\succ_i S\backslash T_1.\]</span> 因此必定存在上述的 <span class="math inline">\(T\)</span>，即命题得证.</p>
 </blockquote>
 <blockquote>
 <p><strong>一组偏好，使得该界是紧的</strong> 分为两种情况，以下效用函数均是可加的：</p>
@@ -542,7 +534,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
 </ul>
 <p>具体的内容由下面的定理给出：</p>
 <blockquote>
-<p><strong>Th. 2.</strong> （两人情形）给定两个代理人在 <span class="math inline">\(S\)</span> 上的单物品偏好 <span class="math inline">\(\succeq_1^{sing}\)</span> 和 <span class="math inline">\(\succeq_2^{sing}\)</span>，存在 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|\leqslant \lfloor\frac{m+2}{2}\rfloor\)</span>，且 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(\succeq_1^{sing}\)</span> 和 <span class="math inline">\(\succeq_2^{sing}\)</span> 都是necessarily agreeable的. 并且可在多项式时间内求得一个这样的 <span class="math inline">\(T\)</span>.<br>
+<p><strong>Th 2.</strong> （两人情形）给定两个代理人在 <span class="math inline">\(S\)</span> 上的单物品偏好 <span class="math inline">\(\succeq_1^{sing}\)</span> 和 <span class="math inline">\(\succeq_2^{sing}\)</span>，存在 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|\leqslant \lfloor\frac{m+2}{2}\rfloor\)</span>，且 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(\succeq_1^{sing}\)</span> 和 <span class="math inline">\(\succeq_2^{sing}\)</span> 都是necessarily agreeable的. 并且可在多项式时间内求得一个这样的 <span class="math inline">\(T\)</span>.<br>
 进一步，存在一组偏好，使得这个界是紧的.</p>
 </blockquote>
 <blockquote>
@@ -578,12 +570,12 @@ n-2k+2, &amp; n\geqslant 2k;\\
 </blockquote>
 <p>于是三人的情形不能再只使用单物品偏好，需要访问其完整偏好. 考虑到单单是读取完整偏好就已不能在多项式时间内完成，故认为存在一个偏好数据库，我们的多项式时间算法实际上是对该数据库进行多项式次数的访问，每次获取两个集合对于某个代理人的好坏关系.</p>
 <blockquote>
-<p><strong>Th. 3.</strong> （三人情形）假设存在三个代理人，在 <span class="math inline">\(\mathcal{S}\)</span> 上的偏好分别为 <span class="math inline">\(\succeq_1\)</span>，<span class="math inline">\(\succeq_2\)</span>，<span class="math inline">\(\succeq_3\)</span>. 则存在多项式算法，在多项式时间内可以求得一个 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|\leqslant \lfloor\frac{m+3}{2}\rfloor\)</span>，且 <span class="math inline">\(T\)</span> 对三个人都是agreeable的.</p>
+<p><strong>Th 3.</strong> （三人情形）假设存在三个代理人，在 <span class="math inline">\(\mathcal{S}\)</span> 上的偏好分别为 <span class="math inline">\(\succeq_1\)</span>，<span class="math inline">\(\succeq_2\)</span>，<span class="math inline">\(\succeq_3\)</span>. 则存在多项式算法，在多项式时间内可以求得一个 <span class="math inline">\(T\subset S\)</span>，s.t. <span class="math inline">\(|T|\leqslant \lfloor\frac{m+3}{2}\rfloor\)</span>，且 <span class="math inline">\(T\)</span> 对三个人都是agreeable的.</p>
 </blockquote>
 <blockquote>
 <p><strong>Proof</strong> 仍然分奇偶性来讨论：</p>
 <ol style="list-style-type: decimal">
-<li>当 <span class="math inline">\(m=2k\)</span> 为偶数：我们的目标是找到一个大小为 <span class="math inline">\(\lfloor\frac{m+3}{2}\rfloor=k+1\)</span> 的集合 <span class="math inline">\(T\)</span>，使其对三个代理人都是agreeable的. 不妨设 <span class="math inline">\(x_{2k-1}\)</span> 是 <span class="math inline">\(1\)</span> 最喜欢的，<span class="math inline">\(x_{2k}\)</span> 是 <span class="math inline">\(2\)</span> （除 <span class="math inline">\(x_{2k-1}\)</span> 外）最喜欢的，且对于剩下的 <span class="math inline">\(2k-2\)</span> 个元素，有 <span class="math inline">\(x_1\succeq_1\cdots\succeq_1 x_{2k-2}\)</span>. （按 <span class="math inline">\(1\)</span> 排序）<br>
+<li>当 <span class="math inline">\(m=2k\)</span> 为偶数：我们的目标是找到一个大小为 <span class="math inline">\(\lfloor\frac{m+3}{2}\rfloor=k+1\)</span> 的集合 <span class="math inline">\(T\)</span>，使其对三个代理人都是agreeable的. 不妨设 <span class="math inline">\(x_{2k-1}\)</span> 是 <span class="math inline">\(1\)</span> 最喜欢的，<span class="math inline">\(x_{2k}\)</span> 是 <span class="math inline">\(2\)</span> （除 <span class="math inline">\(x_{2k-1}\)</span> 外）最喜欢的，且对于剩下的 <span class="math inline">\(2k-2\)</span> 个元素，有 <span class="math inline">\(x_1\succeq_1\cdots\succeq_1 x_{2k-2}\)</span>. <font color="red">（按 <span class="math inline">\(1\)</span> 排序）</font><br>
 记 <span class="math inline">\(A=\{x_1,\cdots,x_{2k-2}\}\)</span>，考虑 <span class="math inline">\((x_1,x_2),(x_3,x_4),\cdots,(x_{2k-3},x_{2k-2})\)</span>. 令 <span class="math inline">\(B\)</span> 为上述二元组中 <span class="math inline">\(2\)</span> 不喜欢的元素所构成的 <span class="math inline">\(k-1\)</span> 元集合，则由responsive可知，<span class="math inline">\(A\backslash B\succeq_2 B\)</span>.<br>
 现考虑一个过程：</li>
 </ol>
@@ -593,13 +585,238 @@ n-2k+2, &amp; n\geqslant 2k;\\
 <p>在这个操作中，我们至多进行 <span class="math inline">\(k-1\)</span> 步，就一定能得到一个 <span class="math inline">\(B\succeq_2 A\backslash B\)</span> 的状态. 此时有两种情况，分述如下：</p>
 <blockquote>
 <ul>
-<li>我们根本无需进行任何操作：即 <span class="math inline">\(B\sim_2 A\backslash B\)</span></li>
-<li>我们进行了至少一步的操作：</li>
+<li>我们根本无需进行任何操作：即 <span class="math inline">\(B\sim_2 A\backslash B\)</span>，于是由单调性，可得 <span class="math inline">\((A\backslash B)\cup\{x_{2k}\}\succeq_2 B\)</span>，以及 <span class="math inline">\(B\cup\{x_{2k}\}\succeq_2 A\backslash B\)</span>.</li>
+<li>我们进行了至少一步的操作：此时，不妨设我们的最后一步操作是将 <span class="math inline">\(x_{2i-1}\)</span> 插入 <span class="math inline">\(B\)</span>，并将 <span class="math inline">\(x_{2i}\)</span> 移出 <span class="math inline">\(B\)</span>. 令 <span class="math inline">\(C=(A\backslash B\backslash \{x_{2i}\})\cup\{x_{2i-1}\}\)</span>，<span class="math inline">\(D=(B\backslash \{x_{2i-1}\})\cup\{x_{2i}\}\)</span>，则我们有 <span class="math inline">\(C\succ_2 D\)</span>，且 <span class="math inline">\(B\succeq_2 A\backslash B\)</span>，并由单调性可得 <span class="math inline">\(C\cup\{x_{2k}\}\succeq_2 D\)</span>，且 <span class="math inline">\(B\cup\{x_{2k}\}\succeq_2 A\backslash B\)</span>. <strong>至此，我们断言 <span class="math inline">\(D\cup\{x_{2k}\}\succeq_2 C\)</span> 和 <span class="math inline">\((A\backslash B)\succeq_2 B\cup\{x_{2k}\}\)</span> 中至少有一个成立.</strong></li>
 </ul>
+<blockquote>
+<p><strong>断言的正确性：</strong>事实上，若 <span class="math inline">\(C\succ_2 D\cup\{x_{2k}\}\)</span>，且 <span class="math inline">\(B\succ_2 (A\backslash B)\cup\{x_{2k}\}\)</span>，则 <span class="math display">\[C\succ_2 D\cup\{x_{2k}\}\succeq_2 B\succ_2 (A\backslash B)\cup\{x_{2k}\} \succeq_2 C.\]</span> 矛盾！于是断言成立.</p>
+</blockquote>
+</blockquote>
+<p>至此，两种情况我们都在多项式时间内找到了一个集合 <span class="math inline">\(E\in \begin{bmatrix} A \\ k-1 \end{bmatrix}\)</span>，s.t. 包含 <span class="math inline">\((x_1,x_2),(x_3,x_4),\cdots,(x_{2k-3},x_{2k-2})\)</span> 每个二元组中的恰好一个元素，且满足 <span class="math display">\[E\cup \{x_{2k}\}\succeq_2 A\backslash E,~(A\backslash E)\cup\{x_{2k}\}\succeq_2 E.\]</span> <font color="red">（用 <span class="math inline">\(2\)</span> 的偏好调节平衡）</font><br>
+我们即可以如下选取 <span class="math inline">\(k+1\)</span> 元的agreeable set：</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>选取 <span class="math inline">\(x_{2k-1}\)</span> 和 <span class="math inline">\(x_{2k}\)</span>.</li>
+<li>按照 <span class="math inline">\(3\)</span> 的喜好选择 <span class="math inline">\(E\)</span> 和 <span class="math inline">\(A\backslash E\)</span> 中较好的那个. <font color="red">（让 <span class="math inline">\(3\)</span> 来选取）</font></li>
+</ol>
+</blockquote>
+<p>以下证明如此选出的集合 <span class="math inline">\(T\)</span> 对三个代理人都是agreeable的：</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\forall j=1,2,\cdots,m\)</span>，<span class="math inline">\(T\)</span> 在 <span class="math inline">\(1\)</span> 最喜欢的前 <span class="math inline">\(j\)</span> 个物品中都至少包含了 <span class="math inline">\(j/2\)</span> 个，故 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(1\)</span> 来说是necessarily agreeable的；</li>
+<li>由于 <span class="math inline">\(E\cup\{x_{2k}\}\succeq_2 A\backslash E\)</span>，<span class="math inline">\(A\backslash E\cup\{x_{2k}\}\succeq_2 E\)</span>，且 <span class="math inline">\(x_{2k-1},x_{2k}\in T\)</span>，故 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(2\)</span> 是agreeable的；</li>
+<li>由于在 <span class="math inline">\(E\)</span> 和 <span class="math inline">\(A\backslash E\)</span> 中我们选择了 <span class="math inline">\(3\)</span> 偏爱的那个，同时我们选择了剩余的所有元素（<span class="math inline">\(x_{2k-1}\)</span> 和 <span class="math inline">\(x_{2k}\)</span>），故 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(3\)</span> 也是agreeable的.</li>
+</ol>
 </blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li>当 <span class="math inline">\(m=2k+1\)</span> 为奇数：</li>
+<li>当 <span class="math inline">\(m=2k+1\)</span> 为奇数：此时 <span class="math inline">\(\lfloor\frac{m+3}{2}\rfloor=k+2\)</span>，于是只需考虑 <span class="math inline">\(S&#39;=S\backslash\{x_1\}\)</span>，利用偶数情形的结果求得满足条件的 <span class="math inline">\(T\subset S&#39;\)</span>，此时 <span class="math inline">\(|T|=k+1\)</span>. 于是只需取 <span class="math inline">\(T\cup \{x_1\}\)</span> 即可.</li>
 </ol>
+<p>综上，命题得证.</p>
+</blockquote>
+<h3 id="求necessarily-agreeable的集合">求necessarily agreeable的集合</h3>
+<center>
+又到了我不喜欢但绕不开的估计和逼近...一大波不等式即将来袭Orz
+</center>
+<ul>
+<li>在此处的讨论中，只需访问每个代理人的单物品偏好即可.</li>
+</ul>
+<blockquote>
+<p><strong>Th 4.</strong> 对任意常数个代理人，存在 <span class="math inline">\(T\in\begin{bmatrix}S\\ \frac{m}{2}+O(\log m)\end{bmatrix}\)</span>，s.t. <span class="math inline">\(T\)</span> 对所有代理人都是necessarily agreeable的. 这样的集合可在多项式时间内找出.</p>
+</blockquote>
+<p>要证明这个定理，需要一个引理做支持：</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> 令 <span class="math inline">\(\sigma_1,\cdots,\sigma_n\)</span> 是集合 <span class="math inline">\(M=\{1,\cdots,m\}\)</span> 的排列. 则存在函数 <span class="math inline">\(f:M\to \{-1,1\}\)</span>，.s.t. <span class="math display">\[\left| \sum\limits_{i=p}^q f(\sigma_j(i)) \right|\leqslant 8n\log m,~~\forall 1\leqslant p\leqslant q\leqslant m~and~1\leqslant j\leqslant n.\]</span> 进一步，这样的函数可以在多项式时间内被找到.</p>
+</blockquote>
+<p>有了这个引理，即可证明 <strong>Th 4</strong>.</p>
+<blockquote>
+<p><strong>Proof to Th 4.</strong> 设代理人 <span class="math inline">\(j\)</span> 的单物品偏好为 <span class="math inline">\(x_{\sigma_j(1)}\succeq_j^{sing}x_{\sigma_j(2)}\succeq_j^{sing}\cdots\succeq_j^{sing}x_{\sigma_j(m)}\)</span>. 由 <strong>Lemma 2</strong>，我们可以在多项式时间内找到一个函数 <span class="math inline">\(f:S\to\{-1,1\}\)</span>，s.t. <span class="math display">\[\left| \sum\limits_{i=1}^q f(x_{\sigma_j(i)}) \right|\leqslant 8n\log m,~~\forall q=1,\cdots,m~and~j=1,\cdots,n.\]</span> 现按照如下方法建立一个集合：</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>将所有满足 <span class="math inline">\(f(x_i)=1\)</span> 的 <span class="math inline">\(x_i\)</span> 加入集合<span class="math inline">\(T\)</span>；</li>
+<li>剩余物品中，将每个代理人偏好中的前 <span class="math inline">\(\lceil 4n\log m \rceil\)</span> 也加入集合<span class="math inline">\(T\)</span>（若某个代理人的偏好中，剩余物品已不足，则全加入集合）.</li>
+</ol>
+</blockquote>
+<p>对 <span class="math inline">\(i=1,\cdots,m\)</span>，令 <span class="math inline">\(X_i\)</span> 为指示变量：<span class="math inline">\(X_i=\begin{cases}1, &amp; x_i\in T \\ -1, &amp; x_i\notin T\end{cases}\)</span>，则对任意代理人 <span class="math inline">\(j\)</span> 和 <span class="math inline">\(\forall i=1,2,\cdots,m\)</span>，有： <span class="math display">\[X_{\sigma_j(1)}+X_{\sigma_j(2)}+\cdots+X_{\sigma_j(i)}\geqslant \min\{i, -8n\log m+2\cdot\lceil 4n\log m \rceil\}\geqslant 0.\]</span> 上式意味着：<strong>前 <span class="math inline">\(i\)</span> 个物品中<font color="red">在</font> <span class="math inline">\(T\)</span> 内的个数</strong> <span class="math inline">\(-\)</span> <strong>前 <span class="math inline">\(i\)</span> 个物品中<font color="red">不在</font> <span class="math inline">\(T\)</span> 内的个数</strong> <span class="math inline">\(\geqslant 0\)</span>，即 <span class="math inline">\(\forall i\)</span>，<span class="math inline">\(|T\cap I_i|\geqslant i/2\)</span>，故由 <strong>Prop 1.</strong> 可知，<span class="math inline">\(T\)</span> 对 <span class="math inline">\(\forall j\)</span> 都是necessarily agreeable的.</p>
+<p>进一步，集合 <span class="math inline">\(T\)</span> 的规模至多为： <span class="math display">\[\frac{m}{2}+(n+1)\cdot \lceil 4n\log m \rceil = \frac{m}{2}+O(\log m).\]</span></p>
+<p>综上，命题得证.</p>
+</blockquote>
+<p>进一步，这个界是渐进紧的：</p>
+<blockquote>
+<p><strong>Th 5.</strong> 假设 <span class="math inline">\(m=3^k\)</span>，<span class="math inline">\(k&gt;0\)</span>，则存在三个代理人的单物品偏好，s.t. 所有对三个人都necessarily agreeable的集合都至少具有 <span class="math inline">\(\frac{m}{2}+\Omega(\log m)\)</span> 的规模.</p>
+</blockquote>
+<p>要证明该定理，需要一个引理.</p>
+<blockquote>
+<p><strong>Lemma 3.</strong> 给定 <span class="math inline">\(k\in\mathbb{R}^+\)</span>，令 <span class="math inline">\(m=3^k\)</span>，<span class="math inline">\(M=\{1,2,\cdots,m\}\)</span>. 存在三个排列 <span class="math inline">\(\sigma_1,\sigma_2,\sigma_3\)</span>，s.t. <span class="math inline">\(\forall f:M\to \{-1,1\}\)</span>，记 <span class="math inline">\(\Delta =\sum\nolimits_{i\in M} f(i)\geqslant 1\)</span>，则存在 <span class="math inline">\(1\leqslant q\leqslant m\)</span> 和 <span class="math inline">\(1\leqslant j\leqslant 3\)</span>，s.t. <span class="math display">\[\sum\limits_{i=1}^q f(\sigma_j(i))\leqslant \frac{-k+2\Delta-2}{3}.\]</span></p>
+</blockquote>
+<p>有了这个引理，即可证明 <strong>Th 5</strong>：</p>
+<blockquote>
+<p><strong>Proof to Th 5.</strong> 设 <span class="math inline">\(\sigma_1,\sigma_2,\sigma_3\)</span> 是 <span class="math inline">\(S=\{x_1,\cdots,x_m\}\)</span> 满足 <strong>Lemma 3</strong> 的三个排列，对于 <span class="math inline">\(\forall j=1,2,3\)</span>，设代理人 <span class="math inline">\(j\)</span> 的偏好是 <span class="math inline">\(x_{\sigma_j(1)}\succeq_j^{sing}x_{\sigma_j(2)}\succeq_j^{sing}\cdots\succeq_j^{sing}x_{\sigma_j(m)}\)</span>.<br>
+考虑 <span class="math inline">\(\forall T\subset\)</span>，s.t. <span class="math inline">\(|T|\leqslant m/2+k/4\)</span>. 以下证明 <span class="math inline">\(T\)</span> 不可能同时对三个都是necessarily agreeable的：</p>
+<p>构造指示器函数 <span class="math inline">\(f_T:S\to\{-1,1\}\)</span>，<span class="math inline">\(f_T(x_i)=\begin{cases}1, &amp; x_i\in T \\ -1, &amp; x_i\notin T\end{cases}\)</span>，由于 <span class="math inline">\(|T|\leqslant m/2+k/4\)</span>，故 <span class="math inline">\(\Delta_T=\sum\limits_{i=1}^m f(x_i)=|T|-|S\backslash T|\leqslant k/2\)</span>.</p>
+<blockquote>
+<ul>
+<li>若 <span class="math inline">\(\Delta_T&lt;0\)</span>，则 <span class="math inline">\(T\)</span> 显然不是necessarily agreeable的；</li>
+<li>若 <span class="math inline">\(\Delta_T\geqslant 0\)</span>，由 <span class="math inline">\(T\)</span> 是奇数且 <span class="math inline">\(\Delta\in\mathbb{Z}\)</span>，可知 <span class="math inline">\(\Delta_T\geqslant 1\)</span>. 此时由 <strong>Lemma 3</strong> 可知，<span class="math inline">\(\exists 1\leqslant q\leqslant m\)</span> 和 <span class="math inline">\(1\leqslant j\leqslant 3\)</span>，s.t. <span class="math display">\[\sum\limits_{i=1}^q f_T(\sigma_j(x_i))\leqslant \frac{-k+2\Delta-2}{3}\leqslant \frac{-k+k-2}{3}&lt;0.\]</span> 即此时 <span class="math inline">\(T\)</span> 也不是necessarily agreeable的.</li>
+</ul>
+</blockquote>
+<p>综上，<span class="math inline">\(T\)</span> 不是necessarily agreeable的. 又由于 <span class="math inline">\(k=\log_3 m\)</span>，故necessarily agreeable的集合至少具有 <span class="math inline">\(m/2+\Omega(\log m)\)</span> 的规模. 命题得证.</p>
+</blockquote>
+<h4 id="计算necessarily-agreeable-set的随机算法">计算necessarily agreeable set的随机算法</h4>
+<p>该算法的分析和证明将用到概率论中著名的 Chernoff bound 和 Levy's inequality：</p>
+<blockquote>
+<p><strong>Lemma 4.</strong> (Chernoff bound) 令 <span class="math inline">\(X_1,X_2,\cdots,X_r\)</span> 是 i.i.d. 的随机变量，都服从 <span class="math inline">\({\rm Pr}[X_i=1]={\rm Pr}[X_i=-1]=1/2\)</span> 的两点分布，记 <span class="math inline">\(X=X_1+\cdots+X_r\)</span>，则有： <span class="math display">\[{\rm Pr}[|X|\geqslant a]\leqslant \exp(-\frac{a^2}{2r}),~~\forall a\geqslant 0.\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>Lemma 5.</strong> (Levy 不等式) 令 <span class="math inline">\(X_1,X_2,\cdots,X_r\)</span> 是 i.i.d. 的随机变量，都服从 <span class="math inline">\({\rm Pr}[X_i=1]={\rm Pr}[X_i=-1]=1/2\)</span> 的两点分布，记 <span class="math inline">\(Y_i=X_1+\cdots+X_i\)</span>，<span class="math inline">\(\forall i\)</span>. 则有： <span class="math display">\[{\rm Pr}\left[ \max\limits_{1\leqslant i\leqslant r}|Y_i|\geqslant x \right]\leqslant 2{\rm Pr}[|Yr|\geqslant x],~~\forall x\in\mathbb{R}.\]</span></p>
+</blockquote>
+<p>具体的算法由下述的 <strong>Th 6</strong> 给出：</p>
+<blockquote>
+<p><strong>Th 6.</strong> 假设代理人的数目是常数，取常数 <span class="math inline">\(\epsilon\in (0,1)\)</span>，<span class="math inline">\(c&gt;0\)</span>，s.t. <span class="math inline">\(\exp(-\frac{c^2}{2})\leqslant \frac{\epsilon}{2n}\)</span><font color="red">（我认为这只是个技术性的条件，用来调节平衡）</font>. 考虑下述的多项式时间算法：</p>
+<ol style="list-style-type: decimal">
+<li><code>FOR</code> 每个元素，每个元素都有 <span class="math inline">\(1/2\)</span> 概率加入集合 <span class="math inline">\(T\)</span>，<span class="math inline">\(1/2\)</span> 概率不加入. 并且当前元素是否加入与其他元素无关；</li>
+<li>对每个代理人，将剩余物品中，他们偏好的前 <span class="math inline">\(\lfloor c\sqrt{m}\rfloor\)</span> 位加入集合 <span class="math inline">\(T\)</span>.</li>
+</ol>
+<p>上述算法至少能以 <span class="math inline">\(1-\epsilon\)</span> 的概率求出一个规模为 <span class="math inline">\(m/2+O(\sqrt{m})\)</span> 的necessarily agreeable的集合.</p>
+</blockquote>
+<p><font color="red">一点粗浅的理解：</font><br>
+<font color="red">1. 第一步借用 <strong>Lemma 4,5</strong> 构造一个集合；</font><br>
+<font color="red">2. 第二步补一些元素，把元素个数凑够，满足 <strong>Prop 1</strong> 的要求.</font></p>
+<blockquote>
+<p><strong>Proof.</strong> 设 <span class="math inline">\(X_1,\cdots,X_m\)</span> 分别是 <span class="math inline">\(x_1,\cdots,x_m\)</span> 的指示变量，<span class="math inline">\(X_i=\begin{cases}1, &amp; x_i\in T\\ -1, &amp; x_i\notin T\end{cases}\)</span>，则 <span class="math inline">\(X_1,\cdots,x_m\)</span> 是 i.i.d. 的变量，且都服从 <span class="math inline">\((1/2,1/2)\)</span> 的两点分布.<br>
+对于 <span class="math inline">\(j=1,\cdots,m\)</span>，记代理人 <span class="math inline">\(j\)</span> 的单物品偏好为 <span class="math inline">\(x_{\sigma_j(1)}\succeq^{sing}_jx_{\sigma_j(2)}\succeq^{sing}_j\cdots \succeq^{sing}_jx_{\sigma_j(m)}\)</span>. 令 <span class="math inline">\(Y_i^j=X_{\sigma_j(1)}+\cdots+X_{\sigma_j(i)}\)</span>，<span class="math inline">\(i\in\{1,2,\cdots,n\}\)</span>. 取 <span class="math inline">\(a=c\sqrt{m}\)</span>，由 <strong>Lemma 4</strong>，有： <span class="math display">\[{\rm Pr}\left[ |Y_m^j|\geqslant c\sqrt{m} \right]\leqslant \exp(-\frac{c^2}{2}).\]</span> 又由 <strong>Lemma 5</strong>，<span class="math inline">\(X_{\sigma_j(i)}\)</span> 满足：<font color="red">（给 <span class="math inline">\(|T\cap I_i|-|T^c\cap I_i|\)</span> 估界）</font> <span class="math display">\[{\rm Pr}\left[ \max\limits_{1\leqslant i\leqslant m} |Y_i^j|\geqslant c\sqrt{m} \right]\leqslant 2\exp(-\frac{c^2}{2}).\]</span> 由于一共有 <span class="math inline">\(n\)</span> 个代理人，每个代理人都满足以上式子，故 <span class="math display">\[{\rm Pr}\left[\exists j,~\max\limits_{1\leqslant i\leqslant m} |Y_i^j| \right]\leqslant 2n\cdot c\sqrt{m}\leqslant \epsilon.\]</span> 于是，至少有 <span class="math inline">\(1-\epsilon\)</span> 的概率 <span class="math inline">\(\forall i,j\)</span>，<span class="math inline">\(Y_i^j\in [-\lfloor c\sqrt{m}\rfloor,\lfloor c\sqrt{m}\rfloor]\)</span>. 考虑到我们在算法的第二步中将所有代理人偏好的前 <span class="math inline">\(\lfloor c\sqrt{m}\rfloor\)</span> 个物品都加入了集合 <span class="math inline">\(T\)</span> 中，这使得 <span class="math inline">\(Y_i^j\geqslant\)</span>，<span class="math inline">\(\forall j\)</span>. 结合 <strong>Prop 1</strong> 可知，<span class="math inline">\(T\)</span> 对于所有代理人都是necessarily agreeable的.</p>
+<p>由于我们在第一步至多加入了 <span class="math inline">\(m/2+c\sqrt{m}\)</span> 个物品，第二步每个代理人至多加入了 <span class="math inline">\(c\sqrt{m}\)</span>，即集合 <span class="math inline">\(T\)</span> 的规模至多是 <span class="math display">\[\frac{m}{2}+(n+1)\cdot c\sqrt{m}=\frac{m}{2}+O(\sqrt{m}).\]</span> 命题得证~</p>
+</blockquote>
+<h2 id="一般情形">一般情形</h2>
+<h3 id="一般情形下的近似">一般情形下的近似</h3>
+<p>前文讨论的全部都是一个对所有情况普适的结果，这里我们开始讨论一般的情形. 即，具体的一组偏好，如何找到规模最小的agreeable set？事实上，这个问题可能是困难的，因此这里只提供了一个近似的解.</p>
+<p>要解决这个问题，我们首先要处理的就是偏好的问题. 对于给定的 <span class="math inline">\(S\)</span>，其子集数量是指数级别，故我们也需要指数级别的空间来存储偏好. 因而任何多项式的算法都无法读取完整的效用函数. 在这里使用value oracle model，即算法可以在确定了 <span class="math inline">\(T\subset S\)</span> 以及 <span class="math inline">\(i=1,2,\cdots,n\)</span> 的情况下，查询 <span class="math inline">\(u_i(T)\)</span> 的值.</p>
+<p>文章给出的结果是一个多项式时间的算法，能够计算出近似比为 <span class="math inline">\(O(m/\log m)\)</span> 的近似最优解. 尽管看起来并不好（前文所述的普适上界只有 <span class="math inline">\(O(m)\)</span>，此处只优化了 <span class="math inline">\(\Omega(\log m)\)</span>），但文章认为这已是多项式时间内可达到的最好情况.</p>
+<p>具体的算法分析由以下定理给出：</p>
+<blockquote>
+<p><strong>Th 7.</strong> 存在一个多项式时间的 <span class="math inline">\(O(m/\log m)\)</span> 近似算法，能在value oracle model下求出近似最小的agreeable set.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 将 <span class="math inline">\(S\)</span> 分为 <span class="math inline">\(\lceil\log m\rceil\)</span> 组（注意是不交并），记为 <span class="math inline">\(S_1,\cdots,S_{\lceil\log m\rceil}\)</span>，每个组的大小不超过 <span class="math inline">\(\lceil m/\log m \rceil\)</span>. 对于每个 <span class="math inline">\(A\subset \{1,2,\cdots,\lceil\log m\rceil\}\)</span>，判断 <span class="math inline">\(\bigcup_{i\in A} S_i\)</span> 是否是agreeable的（与其补集比较即可）， 最后算法输出上述步骤所得到的规模最小的agreeable set. 由于算法中 <span class="math inline">\(A\)</span> 的选取只有 $ m$ 的指数，即 <span class="math inline">\(m\)</span> 的多项式种可能，于是整个算法复杂度是关于 <span class="math inline">\(m,n\)</span> 的多项式.</p>
+<p>以下证明算法的近似比是 <span class="math inline">\(O(m/\log m)\)</span>：<br>
+记最小的agreeable set为 <span class="math inline">\(S^*\)</span>，其规模为 <span class="math inline">\(k\)</span>. 构造集合 <span class="math inline">\(T=\bigcup_{x\in S^*} (S_i:x\in S_i)\)</span>（把 <span class="math inline">\(S^*\)</span> 中所有元素所属的 <span class="math inline">\(S_i\)</span> 并起来），则 <span class="math inline">\(T\)</span> 是我们在算法中检查过的集合，故算法输出的集合规模一定不大于 <span class="math inline">\(T\)</span>. 由单调性，<span class="math inline">\(T\)</span> 显然是agreeable的，结合 <span class="math inline">\(|T|\leqslant k\cdot \lceil\log m\rceil\)</span>，可知算法输出的集合的规模不会超过最小集合的 <span class="math inline">\(O(m/\log m)\)</span>.</p>
+<p>得证！</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 8.</strong> 对于每个常数 <span class="math inline">\(c&gt;0\)</span>，<span class="math inline">\(\exists m_0\)</span>，s.t. <span class="math inline">\(\forall m&gt;m_0\)</span>，不存在：只进行不超过 <span class="math inline">\(m^{c/8}\)</span> 次询问，却能得到规模至多是最优解 <span class="math inline">\(m/(c\log m)\)</span> 倍的agreeable set的算法. 即使只有一个代理人，也不行！</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 构造函数 <span class="math inline">\(g(T)=\begin{cases}1,&amp; |T|\geqslant \frac{m}{2};\\ 0,&amp; otherwise.\end{cases}\)</span>，进一步，定义 <span class="math inline">\(f_{T^*}(T)=\begin{cases}1, &amp; |T|\geqslant\frac{m}{2}~or~T^*\subset T， \\ 0, &amp; otherwise.\end{cases}\)</span>.<br>
+考虑只能进行至多 <span class="math inline">\(m^{c/8}\)</span> 次询问的算法 <span class="math inline">\(\mathcal{A}\)</span>（暂时假定 <span class="math inline">\(A\)</span> 是确定性的算法），进行如下讨论：</p>
+<blockquote>
+<ul>
+<li>当 <span class="math inline">\(g\)</span> 作为效用函数：设 <span class="math inline">\(\mathcal{A}\)</span> 在运算中查询的所有集合为 <span class="math inline">\(T_1,T_2,\cdots,T_{\lfloor m^{c/8} \rfloor}\)</span>；</li>
+<li>当 <span class="math inline">\(f_{T^*}\)</span> 作为效用函数：在 <span class="math inline">\(S\)</span> 中随机取一个含 <span class="math inline">\(\lfloor c\log m/4 \rfloor\)</span> 个元素的子集作为 <span class="math inline">\(T^*\)</span>，设 <span class="math inline">\(\mathcal{A}\)</span> 在运算中查询的所有集合为 <span class="math inline">\(T&#39;_1,T&#39;_2,\cdots,T&#39;_{\lfloor m^{c/8} \rfloor}\)</span>.</li>
+</ul>
+</blockquote>
+<p>考虑任意的 <span class="math inline">\(j=1,2,\cdots,\lfloor m^{c/8} \rfloor\)</span>，若 <span class="math inline">\(T_i=T_i&#39;\)</span> 且 <span class="math inline">\(g(T_i)=f_{T^*}(T_i&#39;)\)</span>，<span class="math inline">\(\forall i=1,\cdots,j-1\)</span>，则 <span class="math inline">\(\mathcal{A}\)</span> 在两种效用函数下的计算路径是一样的，因此有 <span class="math inline">\(T_j=T_j&#39;\)</span><font color="red">（？）</font> 进一步，若目前为止，两种情况下算法的计算路径相同且 <span class="math inline">\(T_j=T_j&#39;\)</span>，我们对 <span class="math inline">\({\rm Pr}[g(T_j)\neq f_{T^*}(T_j&#39;)]\)</span> 有如下估计：</p>
+<blockquote>
+<p>首先，若 <span class="math inline">\(|T_j|\geqslant m/2\)</span>，则 <span class="math inline">\(g(T_j)\)</span> 显然与 <span class="math inline">\(f_{T^*}(T_j&#39;)\)</span> 相等； 若不然，有： <span class="math display">\[{\rm Pr}[g(T_j)\neq f_{T^*}(T_j&#39;)]=Pr[T^*\subset T_j].\]</span> 若 <span class="math inline">\(|T_j|&lt;|T^*|\)</span>，这个概率显然为 <span class="math inline">\(0\)</span>. 若不然，由于 <span class="math inline">\(T_j\)</span> 与 <span class="math inline">\(T^*\)</span> 无关，故有： <span class="math display">\[\begin{align} {\rm Pr}[T^*\subset T_j] &amp;= \frac{ \binom{|T_j|}{\lfloor c\log m/4 \rfloor} }{ \binom{m}{\lfloor c\log m/4 \rfloor} } \\ &amp;= \left(\frac{|T_j|}{m}\right)\left(\frac{|T_j|-1}{m-1}\right)\cdots\left(\frac{|T_j|-\lfloor c\log m/4 \rfloor+1}{m-\lfloor c\log m/4 \rfloor+1}\right) \\ &amp;\leqslant \frac{|T_j|}{m}^{\lfloor c\log m/4 \rfloor} \\ &amp;\leqslant 2^{-\lfloor c\log m/4 \rfloor} \\ &amp;\leqslant 2m^{-c/4}. \end{align}\]</span></p>
+</blockquote>
+<p>由 Boole 不等式（union bound），两个序列不完全相同的概率至多是 <span class="math inline">\((2m^{-c/4})\cdot m^{c/8}\)</span>，当 <span class="math inline">\(m\)</span> 较大时显然小于 <span class="math inline">\(1/2\)</span>. 进一步，当序列完全相同时，考虑算法 <span class="math inline">\(\mathcal{A}\)</span> 的输出应当是一个在效用函数 <span class="math inline">\(g\)</span> 下也agreeable的集合<font color="red">（？）</font>，而由 <span class="math inline">\(g\)</span> 定义即知这样的集合规模至少为 <span class="math inline">\(m/2\)</span>. 因此，<span class="math inline">\(\mathcal{A}\)</span> 在效用函数 <span class="math inline">\(f_{T^*}\)</span> 下所输出的集合的规模的期望也至少是 <span class="math inline">\(m/2\cdot 1/2=m/4\)</span>. 然而，在 <span class="math inline">\(f_{T^*}\)</span> 下的最优解规模只有 <span class="math inline">\(\lfloor c\log m/4 \rfloor\)</span>. 于是，<span class="math inline">\(\mathcal{A}\)</span> 的近似比要大于 <span class="math inline">\(m/(c\log m)\)</span>.<br>
+最后，当 <span class="math inline">\(\mathcal{A}\)</span> 是随机算法时，也可以对每依次选择的随机性和所有选择的平均值使用以上的方法，并得到类似的结果.</p>
+</blockquote>
+<p>事实上，即使我们要求效用函数是次模函数或次可加函数，上述结果仍然保持. 证明思路类似.</p>
+<h3 id="可加效用函数下的情形">可加效用函数下的情形</h3>
+<ul>
+<li>是否存在给定大小的agreeable set是NP问题；
+<ul>
+<li>当 <span class="math inline">\(n\geqslant 2\)</span> 时：是NP完全的；</li>
+<li>当 <span class="math inline">\(n=1\)</span> 时：贪心即可...</li>
+</ul></li>
+<li><span class="math inline">\(n\geqslant 2\)</span> 时的证明思路：规约到问题 <code>BALANCED 2-PARTITION</code>.
+<ul>
+<li><code>BALANCED 2-PARTITION</code>：给定一个多重集非负整数 <span class="math inline">\(A\)</span>，判断是否存在 <span class="math inline">\(B\subset A\)</span>，s.t. <span class="math display">\[|B|=|A\backslash B|=|A|/2,~且~\sum\limits_{x\in B} x=\sum\limits_{x\in A\backslash B}x=\frac{\sum\limits_{x\in A} x}{2}.\]</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Lemma 6.</strong> <code>BALANCED 2-PARTITION</code> 是NP完全的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 从 <code>2-PARTITION</code> 进行规约. （思路：补 <span class="math inline">\(0\)</span>）</p>
+<ul>
+<li><code>2-PARTITION</code> 实例：考虑可重集合 <span class="math inline">\(B\)</span>，求 <span class="math inline">\(T\subset B\)</span>，s.t. <span class="math inline">\(\sum_{x\in T}x=\sum_{x\in B\backslash T} x\)</span>.<br>
+</li>
+<li><code>BALANCED 2-PARTITION</code> 实例：给 <span class="math inline">\(B\)</span> 补 <span class="math inline">\(|B|\)</span> 个 <span class="math inline">\(0\)</span>，构成重集 <span class="math inline">\(A\)</span>，求 <span class="math inline">\(A\)</span> 的 <code>BALANCED 2-PARTITION</code>.</li>
+</ul>
+<p><span class="math inline">\(\Rightarrow\)</span>：设存在 <span class="math inline">\(B\)</span> 的一个 <code>2-PARTITION</code> 解 <span class="math inline">\(T\)</span>，则给 <span class="math inline">\(T\)</span> 补上 <span class="math inline">\(|B|-|T|\)</span> 个 <span class="math inline">\(0\)</span>，构成集合 <span class="math inline">\(S\subset A\)</span>，显然 <span class="math inline">\(S\)</span> 是 <span class="math inline">\(A\)</span> 的一个 <code>BALANCED 2-PARTITION</code>.</p>
+<p><span class="math inline">\(\Leftarrow\)</span>：同样，设存在 <span class="math inline">\(A\)</span> 的一个 <code>BALANCED 2-PARTITION</code> 解 <span class="math inline">\(S\)</span>，将 <span class="math inline">\(S\)</span> 中原本不在 <span class="math inline">\(B\)</span> 中的元素扔掉（显然都是 <span class="math inline">\(0\)</span>），得到 <span class="math inline">\(T\subset B\)</span>，则 <span class="math inline">\(T\)</span> 是 <span class="math inline">\(B\)</span> 的一个 <code>2-PARTITION</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 9.</strong> 设有<font color="red">两个</font>代理人，其偏好都以可加效用函数给出，则“找到一个大小恰好为 <span class="math inline">\(m/2\)</span> 的agreeable set”的问题是NP的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof</strong> 从 <code>BALANCED 2-PARTITION</code> 进行规约.</p>
+<ul>
+<li><code>BALANCED 2-PARTITION</code> 实例：<span class="math inline">\(A=\{a_1,\cdots,a_{|A|}\}\)</span>.</li>
+<li>寻找agreeable set的实例：<span class="math inline">\(S=\{x_1,\cdots,x_{|A|}\}\)</span>，<span class="math inline">\(\forall i\)</span>，<span class="math inline">\(u_1(x_i)=a_i\)</span>，<span class="math inline">\(u_2(x_i)=M-a_i\)</span>，其中 <span class="math inline">\(M=\sum_{a\in A}a\)</span>.</li>
+</ul>
+<p><span class="math inline">\(\Rightarrow\)</span>：若存在 <span class="math inline">\(B\subset A\)</span>，s.t. <span class="math inline">\(\sum_{x\in B}x=\frac{\sum_{x\in A} x}{2}\)</span> 且 $|B|=|A|/2. 取 <span class="math inline">\(T=\{x_i:i\in B\}\)</span>，则 <span class="math inline">\(T\)</span> 是一个agreeable set（<span class="math inline">\(u_1(T)=u_1(T^c),~u_2(T)=u_2(T^c)\)</span>） 且 <span class="math inline">\(|T|=|S|/2\)</span>.</p>
+<p><span class="math inline">\(\Leftarrow\)</span>：设存在一个规模为 <span class="math inline">\(m/2\)</span> 的agreeable set <span class="math inline">\(T\)</span>，令 <span class="math inline">\(B\)</span> 为 <span class="math inline">\(T\)</span> 中元素下标所构成的集合. 由于 <span class="math inline">\(T\)</span> 是agreeable set，故 <span class="math inline">\(\sum_{x\in T}u_i(x)\geqslant \sum_{x\in S\backslash T} u_i(x)\)</span>，<span class="math inline">\(i=1,2\)</span>. <span class="math inline">\(i=1\)</span>时，上式意味着 <span class="math inline">\(\sum_{a\in B}a\geqslant \frac{\sum_{a\in A}a}{2}\)</span>. <span class="math inline">\(i=2\)</span> 时，上式意味着 <span class="math inline">\(\sum_{a\in B}a\leqslant \frac{\sum_{a\in A}}{2}\)</span>. 又易知 <span class="math inline">\(B\)</span> 元素个数为 <span class="math inline">\(A\)</span> 的一半，故 <span class="math inline">\(B\)</span> 是 <span class="math inline">\(A\)</span> 的一个 <code>BALANCED 2-PARTIION</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 10.</strong> 对任意常数个代理人，其偏好都以可加效用函数给出，则存在一个伪多项式时间的算法（pseudo-polynomial time algorithm），能够求得规模最小的agreeable set.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof</strong> 用动态规划来解决：</p>
+<p>记代理人 <span class="math inline">\(i\)</span> 对所有物品的效用总和为 <span class="math inline">\(\sigma_i\)</span>，用 <span class="math inline">\(\Sigma(m&#39;,y_1,\cdots,y_n)\)</span> 表示前 <span class="math inline">\(m&#39;\)</span> 个物品 <span class="math inline">\(\{x_1,\cdots,x_{m&#39;}\}\)</span> 中，要使代理人 <span class="math inline">\(i\)</span> 的效用恰好达到 <span class="math inline">\(\y_i\)</span> 的最小所需物品数，其中 <span class="math inline">\(0\leqslant m&#39;\leqslant m\)</span>，<span class="math inline">\(0\leqslant y_i\leqslant \sigma_i\)</span>，<span class="math inline">\(\forall i\)</span>.</p>
+<ul>
+<li>初值：
+<ul>
+<li><span class="math inline">\(\Sigma(m&#39;,y_1,\cdots,y_n)=\begin{cases} 0, &amp; m&#39;=y_1=\cdots=y_n=0 \\ \infty, &amp; Otherwise \end{cases}\)</span>；</li>
+</ul></li>
+<li>转移：
+<ul>
+<li>若 <span class="math inline">\(\forall i\)</span>，<span class="math inline">\(u_i(x_{m&#39;})\leqslant y_i\)</span>，且 <span class="math inline">\(1+\Sigma(m&#39;-1,y_1-u_1(x_{m&#39;}),\cdots,y_n-u_n(x_{m&#39;}))&lt;\Sigma(m&#39;-1,y_1,\cdots,y_n)\)</span>，则<font color="red">（选了 <span class="math inline">\(x_{m&#39;}\)</span>）</font> <span class="math display">\[\Sigma(m&#39;,y_1,\cdots,y_n)=1+\Sigma(m&#39;-1,y_1-u_1(x_{m&#39;}),\cdots,y_n-u_n(x_{m&#39;}))\]</span></li>
+<li>否则，<font color="red">（不选 <span class="math inline">\(x_{m&#39;}\)</span>）</font><span class="math display">\[\Sigma(m&#39;,y_1,\cdots,y_n)=\Sigma(m&#39;-1,y_1,\cdots,y_n).\]</span></li>
+</ul></li>
+</ul>
+<p>最终，我们查找在 <span class="math inline">\(\sigma(...)\)</span> 中是否存在对 <span class="math inline">\(\forall i\)</span> 都有 <span class="math inline">\(y_i\geqslant \sigma_i/2\)</span> 的项，若存在多个，取值最小者即可. 算法复杂度 <span class="math inline">\(O(m\sigma_1\cdots\sigma_n)\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 11.</strong> 若代理人数量不是常数，判断是否存在规模为 <span class="math inline">\(\frac{m+1}{2}\)</span> 的agreeable set 的问题是强NP完全的. （强NP完全指不存在伪多项式时间算法，除非 <span class="math inline">\(P=NP\)</span>.）</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof</strong> 从 <code>3SAT</code> 进行规约.</p>
+<ul>
+<li><code>3SAT</code> 实例 <span class="math inline">\(\phi\)</span>：<span class="math inline">\(n&#39;\)</span> 个变量 <span class="math inline">\(y_1,\cdots,y_{n&#39;}\)</span>，<span class="math inline">\(m&#39;\)</span> 个约束 <span class="math inline">\(C_1,\cdots,C_{m&#39;}\)</span>.</li>
+<li>判断agreeable set存在性的实例：
+<ul>
+<li><span class="math inline">\(n=m&#39;+n&#39;\)</span> 个代理人，记为 <span class="math inline">\([n]=\{C_1,\cdots,C_{m&#39;},y_1,\cdots,y_{n&#39;}\}\)</span>；</li>
+<li><span class="math inline">\(m=2n&#39;+1\)</span> 个物品：
+<ul>
+<li>只有涉及到的代理人才会喜欢的 <span class="math inline">\(\{y_i,\lnot y_i:1\leqslant i\leqslant n&#39;\}\)</span> （共 <span class="math inline">\(2n&#39;\)</span> 个）；</li>
+<li>人见人爱的 <span class="math inline">\(a\)</span> （<span class="math inline">\(1\)</span> 个）.</li>
+</ul></li>
+<li>效用函数：
+<ul>
+<li><span class="math inline">\(u_{C_i}(b)=\begin{cases} 1, &amp; b=a~或~b~在~C_i~中出现\\ 0, &amp; otherwise \end{cases}\)</span></li>
+<li><span class="math inline">\(u_{y_i}(b)=\begin{cases} 1, &amp; b=y_i~或~\lnot y_i~或~a \\ 0, &amp; otherwise \end{cases}\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\Rightarrow\)</span>：设 <span class="math inline">\(\phi\)</span> 是可满足的，存在一个解，其中 <span class="math inline">\(y_i\)</span> 的值为 <span class="math inline">\(b_i\)</span>. 考虑集合 <span class="math inline">\(T=\{a,b_1,\cdots,b_{n&#39;}\}\)</span>. 则对于 <span class="math inline">\(\forall C_j\)</span>，<span class="math inline">\(T\)</span> 包含了 <span class="math inline">\(C_j\)</span> 所喜欢的 <span class="math inline">\(y_i\)</span> 的一半，以及 <span class="math inline">\(a\)</span>，因而对 <span class="math inline">\(C_j\)</span> 是agreeable的. 另一方面，对 <span class="math inline">\(y_j\)</span> 来说，全集的效用也只有 <span class="math inline">\(3\)</span>，而 <span class="math inline">\(u_{y_j}(T)=2\)</span>，因而也是agreeable的. 综上，<span class="math inline">\(T\)</span> 是一个规模为 <span class="math inline">\(\frac{m+1}{2}\)</span> 的agreeable set.</p>
+<p><span class="math inline">\(\Leftarrow\)</span>：设 <span class="math inline">\(T\)</span> 是一个 <span class="math inline">\(\frac{m+1}{2}\)</span> 元agreeable set. 则 <span class="math inline">\(a\in T\)</span>，若不然，可用 <span class="math inline">\(a\)</span> 替换其中任一元素，集合仍是agreeable的.<br>
+由于 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(\forall y_i\)</span> 是agreeable的，故对每个 <span class="math inline">\(i\)</span>，<span class="math inline">\(T\)</span> 至少包含 <span class="math inline">\(y_i\)</span> 和 <span class="math inline">\(\lnot y_i\)</span> 中至少一者，又由于 <span class="math inline">\(T\)</span> 只有 <span class="math inline">\(n&#39;+1\)</span> 元，故只能对每个 <span class="math inline">\(i\)</span> 恰好包含一者，记为 <span class="math inline">\(b_i\)</span>. 现令 <span class="math inline">\(b_i\)</span> 全为真.<br>
+又由于 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(\forall C_j\)</span> 是agreeable的，且 <span class="math inline">\(C_j\)</span> 至少涉及到两个 <span class="math inline">\(y_i\)</span>，这两个 <span class="math inline">\(y_i\)</span> 至少有一个被设置为真，因此 <span class="math inline">\(\phi\)</span> 被满足.</p>
+</blockquote>
+<p>至此，求最小的agreeable set已经是一个NP问题，因此一个很自然的想法就是求近似解：</p>
+<blockquote>
+<p><strong>Lemma 7.</strong> 对任意常数 <span class="math inline">\(\epsilon&gt;0\)</span>，存在一个从 任意<code>3-SAT</code>条件 <span class="math inline">\(\phi\)</span> 到一个 <code>SET-COVER</code>问题 的多项式时间规约 <span class="math inline">\((U,\mathcal{C}\)</span>，以及一个关于 <span class="math inline">\(|U|\)</span> 的多项式函数 <span class="math inline">\(f(U)\)</span>，s.t.</p>
+<ul>
+<li>(完全性) 若 <span class="math inline">\(\phi\)</span> 是可满足的，则 <span class="math inline">\((U,\mathcal{C})\)</span> 的最佳值至多为 <span class="math inline">\(f(U)\)</span>；</li>
+<li>(稳定性) 若 <span class="math inline">\(\phi\)</span> 是不可满足的，则 <span class="math inline">\((U,\mathcal{C}\)</span> 的最佳值至少为 <span class="math inline">\(((1-\epsilon)\ln|U|)f(U)\)</span>.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Th 12.</strong> 对任意常数 <span class="math inline">\(\delta&gt;0\)</span>，寻找一个规模不大于最优解 <span class="math inline">\((1-\delta)\ln n\)</span> 倍的agreeable set 的问题 是NP完全的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 13.</strong> 在偏好函数是可加函数的情形下，求规模不大于最优解 <span class="math inline">\(O(\log n)\)</span> 倍的agreeable set是存在多项式时间解法的.</p>
 </blockquote>
 
       
@@ -620,17 +837,17 @@ n-2k+2, &amp; n\geqslant 2k;\\
           
             <a href="/tags/师大/" rel="tag"># 师大</a>
           
-            <a href="/tags/计算机/" rel="tag"># 计算机</a>
-          
             <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
           
             <a href="/tags/北大/" rel="tag"># 北大</a>
           
             <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
           
-            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
-          
             <a href="/tags/社会计算/" rel="tag"># 社会计算</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
           
         </div>
       
@@ -652,6 +869,10 @@ n-2k+2, &amp; n\geqslant 2k;\\
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/15/论文笔记-4-——On-social-envy-freeness-in-multi-unit-markets/" rel="prev" title="论文笔记[4]——On social envy-freeness in multi-unit markets">
+                论文笔记[4]——On social envy-freeness in multi-unit markets <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -721,7 +942,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
+                src="/images/avatar.jpg"
                 alt="戳兔专家 lzcwr" />
             
               <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
@@ -735,7 +956,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -757,7 +978,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -834,15 +1055,11 @@ n-2k+2, &amp; n\geqslant 2k;\\
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://devhui.com/" title="陈辉的技术博客" target="_blank">陈辉的技术博客</a>
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://blog.comen.org" title="何岳寰的博客" target="_blank">何岳寰的博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://easezyc.github.io" title="朱勇椿的博客" target="_blank">朱勇椿的博客</a>
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
                   </li>
                 
               </ul>
@@ -864,7 +1081,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#记号说明"><span class="nav-number">1.1.</span> <span class="nav-text">记号说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关定义"><span class="nav-number">1.2.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#necessarily-agreeable-set"><span class="nav-number">1.3.</span> <span class="nav-text">Necessarily agreeable set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最坏情况的上界"><span class="nav-number">2.</span> <span class="nav-text">最坏情况的上界</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普适的最坏上界"><span class="nav-number">2.1.</span> <span class="nav-text">普适的最坏上界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两个代理人的情形"><span class="nav-number">2.1.1.</span> <span class="nav-text">两个代理人的情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般情形的证明"><span class="nav-number">2.1.2.</span> <span class="nav-text">一般情形的证明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最坏上界的agreeable-set"><span class="nav-number">2.2.</span> <span class="nav-text">获取最坏上界的agreeable set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二人情形"><span class="nav-number">2.2.1.</span> <span class="nav-text">二人情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三人情形"><span class="nav-number">2.2.2.</span> <span class="nav-text">三人情形</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#记号说明"><span class="nav-number">1.1.</span> <span class="nav-text">记号说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关定义"><span class="nav-number">1.2.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#necessarily-agreeable-set"><span class="nav-number">1.3.</span> <span class="nav-text">Necessarily agreeable set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最坏情况的上界"><span class="nav-number">2.</span> <span class="nav-text">最坏情况的上界</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普适的最坏上界"><span class="nav-number">2.1.</span> <span class="nav-text">普适的最坏上界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两个代理人的情形"><span class="nav-number">2.1.1.</span> <span class="nav-text">两个代理人的情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般情形的证明"><span class="nav-number">2.1.2.</span> <span class="nav-text">一般情形的证明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最坏上界的agreeable-set"><span class="nav-number">2.2.</span> <span class="nav-text">获取最坏上界的agreeable set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二人情形"><span class="nav-number">2.2.1.</span> <span class="nav-text">二人情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三人情形"><span class="nav-number">2.2.2.</span> <span class="nav-text">三人情形</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求necessarily-agreeable的集合"><span class="nav-number">2.3.</span> <span class="nav-text">求necessarily agreeable的集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算necessarily-agreeable-set的随机算法"><span class="nav-number">2.3.1.</span> <span class="nav-text">计算necessarily agreeable set的随机算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般情形"><span class="nav-number">3.</span> <span class="nav-text">一般情形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般情形下的近似"><span class="nav-number">3.1.</span> <span class="nav-text">一般情形下的近似</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可加效用函数下的情形"><span class="nav-number">3.2.</span> <span class="nav-text">可加效用函数下的情形</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -884,7 +1101,7 @@ n-2k+2, &amp; n\geqslant 2k;\\
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机,北大,社会计算,论文笔记,经济学," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文章：Allocating Indivisible Items in Categorized Domains">
+<meta name="keywords" content="计算机,北大,社会计算,论文笔记,经济学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记[8]——Allocating Indivisible Items in Categorized Domains">
+<meta property="og:url" content="http://lizhechen.com/2019/09/21/论文笔记-8-——Allocating-Indivisible-Items-in-Categorized-Domains/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="文章：Allocating Indivisible Items in Categorized Domains">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/Allocating%20Indivisible%20Items%20in%20Categorized%20Domains%20-%20The%206%20steps.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/Allocating%20Indivisible%20Items%20in%20Categorized%20Domains%20-%20%20CSAM%20protocol.png">
+<meta property="og:updated_time" content="2019-10-17T11:51:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记[8]——Allocating Indivisible Items in Categorized Domains">
+<meta name="twitter:description" content="文章：Allocating Indivisible Items in Categorized Domains">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/Allocating%20Indivisible%20Items%20in%20Categorized%20Domains%20-%20The%206%20steps.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2019/09/21/论文笔记-8-——Allocating-Indivisible-Items-in-Categorized-Domains/"/>
+
+
+
+
+
+  <title>论文笔记[8]——Allocating Indivisible Items in Categorized Domains | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2019/09/21/论文笔记-8-——Allocating-Indivisible-Items-in-Categorized-Domains/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记[8]——Allocating Indivisible Items in Categorized Domains</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-21T15:15:44+08:00">
+                2019-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>文章：Allocating Indivisible Items in Categorized Domains</p>
+</blockquote>
+<a id="more"></a>
+<ul>
+<li><strong>CDAP</strong> (categorized domain allocation problem)：多个类别的不可分物品被分配给若干 agent，每个 agent 在每一类中至少获得一个物品。
+<ul>
+<li>本文讨论的是常见的情形：一个 agent 只获取每一类的一个物品</li>
+</ul></li>
+<li><strong>CSAM</strong> (categorial sequential allocation mechanism)：serial dictatorship 的推广，将分配拆分成多个轮次，每轮每个候选人从指定类别中选取一个 bundle。
+<ul>
+<li>Serial dictatorship 的刻画：三个公理化特征
+<ul>
+<li>Strategyproofness;</li>
+<li>Non-bossiness;</li>
+<li>Category-wise neutrality.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>分配问题的相关研究所面临的三大障碍：</p>
+<ul>
+<li><strong>偏好瓶颈</strong>（Preference bottleneck）：当物品个数较多时，bundle 的偏好情况将以指数级别增长；</li>
+<li><strong>计算瓶颈</strong>（Computational bottleneck）：即便能够使用某种偏好语言简洁地表达他们的偏好，计算“最优”分配通常也是困难的；</li>
+<li><strong>Agent 的策略</strong>（Threats of agents' strategic behavior）：agent 可能谎报偏好，以获得更好的 bundle。这可能导致社会效率低下的分配。</li>
+</ul>
+<h2 id="主要工作">主要工作</h2>
+<ol style="list-style-type: decimal">
+<li>关于 Basic CDAP：每个类别中的物品数量都等于 agent 数量。
+<ul>
+<li>首先用三条公理化特征来描述 serial dictatorship：
+<ul>
+<li><strong>Strategyproofness</strong>：不能通过谎报偏好来获取更大好处；</li>
+<li><strong>Non-bossiness</strong>：不能在不改变自己偏好的情况下改变其他 agent 的分配；</li>
+<li><strong>Category-wise neutrality</strong>：类别标记不改变分配结果；</li>
+</ul></li>
+<li>上述三条特征可以帮我们克服“Agent 的策略”带来的影响。</li>
+</ul></li>
+<li>为克服偏好和计算瓶颈，并且防止 serial dictatorship，定义 CSAM
+<ul>
+<li>CSAM 是一类间接机制，前文描述过其过程。</li>
+</ul></li>
+<li>两种 myopic agent 下 CSAM 最坏情况下的效率：
+<ul>
+<li><strong>Optimistic agent</strong>：总是选择当前可选的最优 bundle 中的物品；</li>
+<li><strong>Pessimistic agent</strong>：总是选择最坏情形下的最优项目。</li>
+</ul></li>
+</ol>
+<h2 id="categorized-domain-allocation-problems">Categorized Domain Allocation Problems</h2>
+<blockquote>
+<p><strong>Def 1.</strong> 一个 categorized domain 由 <span class="math inline">\(p\geqslant 1\)</span> 个不可分的物品类构成，用 <span class="math inline">\(\{D_1,\ldots,D_p\}\)</span>。在一个 <strong>CDAP</strong> 中，物品被分配给 <span class="math inline">\(n\)</span> 个 agent，每个 agent 至少获取每类中的一个物品。</p>
+<ul>
+<li>对于一个 basic categorized domain，<span class="math inline">\(\forall i\)</span>，<span class="math inline">\(|D_i|=n\)</span>，<span class="math inline">\(\mathfrak{D}=D_1\times\cdots\times D_p\)</span>，agent 的偏好为 <span class="math inline">\(\mathfrak{D}\)</span> 上的一个序。</li>
+<li>在 basic CDAP 中，每个 agent 在每一类中恰好得到一个物品。</li>
+</ul>
+</blockquote>
+<ul>
+<li>我们研究的主要对象是 non-sharable items，即每个物品只能分配给一个 agent；</li>
+<li><span class="math inline">\(\mathfrak{D}\)</span> 中的元素被称为一个 bundle；</li>
+<li>对 <span class="math inline">\(\forall j\in \{1,2,\ldots,n\}\)</span>，令 <span class="math inline">\(R_j\)</span> 表示一个 <span class="math inline">\(\mathfrak{D}\)</span> 上的序；
+<ul>
+<li>用 <span class="math inline">\(P=(R_1,\ldots,R_n)\)</span> 表示所有 agent 的偏好构成的 profile.</li>
+</ul></li>
+<li>分配 <span class="math inline">\(A\)</span> 是 <span class="math inline">\(\{1,2,\ldots,n\}\to \mathfrak{D}\)</span> 的一个映射，s.t. <span class="math display">\[\bigcup\limits_{j=1}^nA(j)_i=D_i\]</span></li>
+<li>一个分配机制是一个函数，输入为 profile，输出为一个分配
+<ul>
+<li>用 <span class="math inline">\(f^j(P)\)</span> 表示机制 <span class="math inline">\(f\)</span> 在 profile <span class="math inline">\(P\)</span> 下分配给 agent <span class="math inline">\(j\)</span> 的 bundle.</li>
+</ul></li>
+</ul>
+<h3 id="三条公理化性质">三条公理化性质</h3>
+<h4 id="strategyproofness">Strategyproofness</h4>
+<blockquote>
+<p>对于 <span class="math inline">\(\forall\)</span> profile <span class="math inline">\(P\)</span>，<span class="math inline">\(\forall\)</span> agent <span class="math inline">\(j\)</span>，以及 <span class="math inline">\(\mathfrak{D}\)</span> 上的序 <span class="math inline">\(R_j&#39;\)</span>，都有： <span class="math display">\[f^j(P)\succ_{R_j} f^j(R_j&#39;,R_{-j}).\]</span></p>
+</blockquote>
+<h4 id="non-bossiness">Non-bossiness</h4>
+<ul>
+<li><span class="math inline">\(f\)</span> 满足 non-bossiness 当且仅当 agent 中不存在黑社会；
+<ul>
+<li>黑社会：通过谎报自己的偏好来改变他人的分配结果，但不改变自己的分配结果。</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>对于 <span class="math inline">\(\forall\)</span> profile <span class="math inline">\(P\)</span>，<span class="math inline">\(\forall\)</span> agent <span class="math inline">\(j\)</span>，以及 <span class="math inline">\(\mathfrak{D}\)</span> 上的序 <span class="math inline">\(R_j&#39;\)</span>，都有： <span class="math display">\[[f^j(P)=f^j(R_j&#39;,R_{-j})]\Rightarrow [f(P)=f(R_j&#39;,R_{-j})].\]</span></p>
+</blockquote>
+<h4 id="category-wise-neutrality">Category-wise neutrality</h4>
+<blockquote>
+<p>对 <span class="math inline">\(\forall P\)</span>，<span class="math inline">\(\forall i\)</span>，取置换 <span class="math inline">\(\sigma\in S_n\)</span>，将其作用在 <span class="math inline">\(D_i\)</span> 上不改变分配结果，即总有： <span class="math display">\[f(\sigma(P))=\sigma(f(P)).\]</span></p>
+</blockquote>
+<hr>
+<p><strong>Serial dictatorship</strong> 由一个 <span class="math inline">\(\{1,2,\ldots,n\}\)</span> 上的序 <span class="math inline">\(\mathcal{K}\)</span> 来表达，所有 agent 按照 <span class="math inline">\(\mathcal{K}\)</span> 所规定的顺序选取物品，每次都选择当前所能选取的物品中，他所认为优先级最高的物品。</p>
+<hr>
+<h2 id="serial-dictatorship-的公理化特征">Serial dictatorship 的公理化特征</h2>
+<blockquote>
+<p><strong>Th 1.</strong> 对于任意满足 <span class="math inline">\(p\geqslant 2\)</span>，<span class="math inline">\(n\geqslant 2\)</span> 的 basic CDAP，一个分配机制是 strategyproof, non-bossy, 且 category-wise neutral 的，<strong>当且仅当</strong>它是 serial dictatorship. 进一步，这三条公理是刻画 serial dictatorship 的最低要求。</p>
+</blockquote>
+<hr>
+<ul>
+<li>以下引理表明，对于任何 strategyproof 且 non-bossy 的机制 <span class="math inline">\(f\)</span>，以及任意 profile <span class="math inline">\(P\)</span>。若某些 agent <span class="math inline">\(j\)</span> 谎报了偏好，但未扩大比 <span class="math inline">\(f^j(P)\)</span> 顺位更高的 bundle 集合，则分配结果不会改变。</li>
+</ul>
+<blockquote>
+<p><strong>Lemma 1.</strong> 令 <span class="math inline">\(f\)</span> 为一个 <span class="math inline">\(p\geqslant 2\)</span> 的 basic categorized domain 上的一个 strategyproof 且 non-bossy 的分配机制。对任意 profile <span class="math inline">\(P,P&#39;\)</span>，若 <span class="math inline">\(\forall j\leqslant n\)</span>，总有： <span class="math display">\[\{\vec{d}\in\mathfrak{D}: \vec{d}\succ_{R_j&#39;} f^j(P)\}\subseteq \{ \vec{d}\in\mathfrak{D}:\vec{d}\succ_{R_j} f^j(P) \}\]</span> 则 <span class="math inline">\(f(P)=f(P&#39;)\)</span>.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>对于一个 <span class="math inline">\(\mathfrak{D}\)</span> 上的序 <span class="math inline">\(R\)</span>以及 bundle <span class="math inline">\(\vec{d}\in\mathfrak{D}\)</span>，若序 <span class="math inline">\(R&#39;\)</span> 相比 <span class="math inline">\(R\)</span> 只提升了 <span class="math inline">\(\vec{d}\)</span> 的位置，而不改变其他 bundle 的相对位置，则称 <span class="math inline">\(R&#39;\)</span> 为 <span class="math inline">\(\vec{d}\)</span> 在 <span class="math inline">\(R\)</span> 上的一个 <strong>pushup</strong>.</p>
+</blockquote>
+<ul>
+<li>以下引理表明，对于任意 strategyproof 且 non-bossy 的机制 <span class="math inline">\(f\)</span>, 若某个 agent 在谎报偏好时，报告的偏好是 <span class="math inline">\(\vec{d}\)</span> 的 pushup，则只会导致以下两种结果之一：
+<ul>
+<li>其他 agent 获得的东西都不改变；</li>
+<li>该 agent 获得 <span class="math inline">\(\vec{d}\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Lemma 2.</strong> 令 <span class="math inline">\(f\)</span> 是一个 <span class="math inline">\(p\geqslant 2\)</span> 的 basic categorized domain 上的 strategyproof，non-bossy 的分配机制，则对任意 profile <span class="math inline">\(P\)</span>，<span class="math inline">\(\forall j\leqslant n\)</span>，以及 <span class="math inline">\(\forall \vec{d}\)</span> 和 <span class="math inline">\(\vec{d}\)</span> 在 <span class="math inline">\(R_j\)</span> 上的一个 pushup，只有以下两种结果之一会发生：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(R_j&#39;,R_{-j})=f(R)\)</span> （什么都没变）;</li>
+<li><span class="math inline">\(f^j(R_j&#39;,R_{-j})=\vec{d}\)</span> （agent <span class="math inline">\(j\)</span> 得到了 <span class="math inline">\(\vec{d}\)</span>）.</li>
+</ol>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>Lemma 3.</strong> 对任意 <span class="math inline">\(p\geqslant 2\)</span> 的 basic categorized domain，所有 strategyproof，non-bossy，category-wise neutral 的分配机制都是帕累托最优的。</p>
+</blockquote>
+<hr>
+<ul>
+<li>以下引理表明，对任意 strategyproof 且 non-bossy 的机制 <span class="math inline">\(f\)</span>, 以及任意 profile <span class="math inline">\(P\)</span> 中的一对 agent <span class="math inline">\(j_1\)</span>，<span class="math inline">\(j_2\)</span>，不存在这样的 bundle <span class="math inline">\(\vec{c}\)</span>：它由 <span class="math inline">\(j_1\)</span>，<span class="math inline">\(j_2\)</span> 在 <span class="math inline">\(f\)</span> 下得到的物品构成，同时 <span class="math inline">\(j_1\)</span> 和 <span class="math inline">\(j_2\)</span> 都更喜欢 <span class="math inline">\(\vec{c}\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>Lemma 4.</strong> 令 <span class="math inline">\(f\)</span> 是一个 <span class="math inline">\(p\geqslant 2\)</span>，<span class="math inline">\(n\geqslant 2\)</span> 的 basic categorized domain 上的 strategyproof，non-bossy 的分配机制。<span class="math inline">\(\forall\)</span> profile <span class="math inline">\(P\)</span> 以及 <span class="math inline">\(\forall j_1\neq j_2\leqslant n\)</span>，令 <span class="math inline">\(\vec{a}=f^{j_1}(P)\)</span>，<span class="math inline">\(\vec{b}=f^{j_2}(P)\)</span>，则： <span class="math display">\[不存在  \vec{c}\in(a_1,b_1)\times\{a_2,b_2\}\times\cdots\times\{a_p,b_p\} ，s.t.~~\vec{c}\succ_{R_{j_1}} \vec{a}~~且~~\vec{c}\succ_{R_{j_2}} \vec{b}\]</span> 其中 <span class="math inline">\(a_i\)</span> 是 <span class="math inline">\(\vec{a}\)</span> 的第 <span class="math inline">\(i\)</span> 位的物品。</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> <strong>用反证法：</strong>假设对某个 profile <span class="math inline">\(P\)</span>，存在这样的 <span class="math inline">\(j_1\)</span>，<span class="math inline">\(j_2\)</span>，和 <span class="math inline">\(c\)</span>. 设 <span class="math inline">\(\vec{d}\)</span> 表示 <span class="math inline">\(\vec{c}\)</span> 在 <span class="math inline">\(\vec{a}\cup\vec{b}\)</span> 中的补集，则 <span class="math inline">\(\forall i\)</span>，都有 <span class="math inline">\(\{a_i,b_i\}=\{c_i,d_i\}\)</span>. 我们按照如下步骤构造反例：</p>
+<ol style="list-style-type: decimal">
+<li>令 <span class="math inline">\(\hat{R}_{j_1}=[\vec{c}\succ\vec{a}\succ\vec{d}\succ\vec{b}\succ 其他]\)</span>，<span class="math inline">\(\hat{R}_{j_2}=[\vec{c}\succ\vec{b}\succ\vec{a}\succ\vec{d}\succ 其他]\)</span>，其余 <span class="math inline">\(j\)</span> 满足 <span class="math inline">\(\hat{R}_j=[f^j(P)\succ 其他]\)</span>. 则由 Lemma 1，有 <span class="math inline">\(f(\hat{P})=f(P)\)</span>.</li>
+<li>令 <span class="math inline">\(\bar{R}_{j_2}=[\vec{c}\succ\vec{a}\succ\vec{b}\succ\vec{d}\succ 其他]\)</span>，由于 <span class="math inline">\(\bar{R}_{j_2}\)</span> 为 <span class="math inline">\(\vec{a}\)</span> 在 <span class="math inline">\(\hat{R}_{j_2}\)</span> 上的 pushup，故由 Lemma 2，<span class="math inline">\(f^{j_2}(\bar{R}_{j_2},\hat{R}_{-j_2})\)</span> 为 <span class="math inline">\(\vec{a}\)</span> 或 <span class="math inline">\(\vec{b}\)</span>. 可由帕累托最优性（Lemma 3）得知不可能是 <span class="math inline">\(\vec{a}\)</span>，故只能有 <span class="math inline">\(f^{j_2}(\bar{R}_{j_2},\hat{R}_{-j_2})=\vec{b}=f^{j_2}(\hat{P})\)</span>. 故由 non-bossiness，可得 <span class="math inline">\(f(\bar{R}_{j_2},\hat{R}_{-j_2})=f(\hat{P})=f(P)\)</span>.</li>
+<li>令 <span class="math inline">\(\bar{R}_{j_1}=[\vec{c}\succ\vec{b}\succ\vec{a}\succ\vec{d}\succ 其他]\)</span>，与 2 类似可得 <span class="math inline">\(f(\bar{R}_{j_1},\bar{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})=f(P)\)</span>.</li>
+<li>令 <span class="math inline">\(\mathring{R}_{j_2}=[\vec{c}\succ\vec{a}\succ\vec{d}\succ\vec{b}\succ 其他]\)</span>，由 Lemma 1 可得 <span class="math inline">\(f(\bar{R}_{j_1},\mathring{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})\)</span> 中，<span class="math inline">\(j_1\)</span> 获得 <span class="math inline">\(\vec{b}\)</span>，<span class="math inline">\(j_2\)</span> 获得 <span class="math inline">\(\vec{a}\)</span>，其余 <span class="math inline">\(j\)</span> 所得与 <span class="math inline">\(f(P)\)</span> 相同.</li>
+<li>令 <span class="math inline">\(\mathring{R}_{j_1}=[\vec{c}\succ\vec{a}\succ\vec{b}\succ\vec{d}\succ 其他]\)</span>，与 2 类似可得 <span class="math inline">\(f(\mathring{R}_{j_1},\mathring{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})=f(\bar{R}_{j_1},\mathring{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})\)</span>.</li>
+<li>由于 <span class="math inline">\(\mathring{R}_{j_1}\)</span> 是 <span class="math inline">\(\vec{b}\)</span> 在 <span class="math inline">\(\hat{R}_{j_1}\)</span> 上的一个 pushup，故由 Lemma 1，可得 <span class="math inline">\(f(\mathring{R}_{j_1},\bar{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})=f(\hat{R}_{j_1},\bar{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})\)</span>. 式子的右端便是 2 中的 profile.</li>
+</ol>
+<p>由 5 和 6 得到的结果，若 agent 们的偏好为 <span class="math inline">\(\mathring{R}_{j_1}\)</span> 和 <span class="math inline">\(\bar{R}_{j_2}\)</span>，则 <span class="math inline">\(j_2\)</span> 可通过将自己的偏好谎报为 <span class="math inline">\(\mathring{R}_{j_2}\)</span> 以获取更大利益。这与 strategyproof 矛盾。Lemma 4 得证。</p>
+</blockquote>
+<p><img src="/img/blog-graph/Allocating Indivisible Items in Categorized Domains - The 6 steps.png" alt="证明 Lemma 4 的 6 步"></p>
+<hr>
+<ul>
+<li>容易验证 serial dictatorship 是 strategyproof，non-bossy，且 category-wise neutral 的，接下来我们证明满足以上三条的性质只有 serial dictatorship.</li>
+</ul>
+<p>令 <span class="math inline">\(R^*\)</span> 是 <span class="math inline">\(\mathfrak{D}\)</span> 上满足以下几条的序：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\((1,\ldots,1)\succ (2,\ldots,2)\succ\cdots\succ (n,\ldots,n)\)</span>;</li>
+<li><span class="math inline">\(\forall j&lt;n\)</span>，<span class="math inline">\((j,\ldots,j)\)</span> 与 <span class="math inline">\((j+1,\ldots,j+1)\)</span> 之间的 bundle 都满足以下两条（记为 <span class="math inline">\(B_j\)</span>）：
+<ol style="list-style-type: decimal">
+<li>至少有一维是 <span class="math inline">\(j\)</span>；</li>
+<li>所有维度的值都在 <span class="math inline">\(\{j,j+1,\ldots,n\}\)</span> 中.</li>
+</ol></li>
+<li><span class="math inline">\(\forall j\)</span> 以及 <span class="math inline">\(\forall \vec{d},\vec{e}\in B_j\)</span>，若 <span class="math inline">\(\vec{d}\)</span> 中 <span class="math inline">\(j\)</span> 的数量严格多余 <span class="math inline">\(\vec{e}\)</span>，则 <span class="math inline">\(\vec{d}\succ\vec{e}\)</span>.</li>
+</ol>
+<p>Thenextclaimstatesthatf agreeswithaserialdictatorship on the profile (R ∗ ,...,R ∗ ) where all agents have the same preferences R ∗ that we have just defined. We will later show that f agrees with the same serial dictatorship on all profiles.</p>
+<blockquote>
+<p><strong>Claim 1.</strong> 令 <span class="math inline">\(P^*=(R^*,\ldots,R^*)\)</span>，则对 <span class="math inline">\(\forall l\leqslant n\)</span>，存在 <span class="math inline">\(j_l\leqslant n\)</span>，s.t. <span class="math inline">\(f^{j_1}(P)=(l,\ldots,l)\)</span>.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>事实上，这个定理是比较负面的一个结果。因为它意味着同时满足三条的分配机制并不好，因此我们需要舍弃其中至少一条。其中 non-bossy 是比较不自然的。</p>
+</blockquote>
+<h2 id="categorial-sequencial-allocation-mechanisms-csam">Categorial Sequencial Allocation Mechanisms (CSAM)</h2>
+<p>给定 <span class="math inline">\(\{1,\ldots,n\}\times\{1,\ldots,p\}\)</span> 上的序 <span class="math inline">\(\mathcal{O}\)</span>，由 <span class="math inline">\(\mathcal{O}\)</span> 生成的 <strong>CSAM</strong> <span class="math inline">\(f_\mathcal{O}\)</span> 的过程分为 <span class="math inline">\(np\)</span> 个步骤：</p>
+<ul>
+<li>在第 <span class="math inline">\(t\)</span> 步中，设 <span class="math inline">\(\mathcal{O}\)</span> 的第 <span class="math inline">\(t\)</span> 顺位为 <span class="math inline">\((j,i)\)</span>.</li>
+<li>Agent <span class="math inline">\(j\)</span> 被称为第 <span class="math inline">\(t\)</span> 步中的 active agent，他将选择（可选择的）物品 <span class="math inline">\(d_{j,i}\in D_i\)</span>；</li>
+<li>将 <span class="math inline">\(d_{j,i}\)</span> 广播给所有的 agent.</li>
+</ul>
+<p><img src="/img/blog-graph/Allocating Indivisible Items in Categorized Domains -  CSAM protocol.png" alt="Protocol of CSAM"></p>
+<p>后面是一些效率的问题，先略过。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/社会计算/" rel="tag"># 社会计算</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+            <a href="/tags/经济学/" rel="tag"># 经济学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/26/表示论在投票中的应用/" rel="next" title="表示论在投票理论中的应用">
+                <i class="fa fa-chevron-left"></i> 表示论在投票理论中的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/06/群表示论龟速学习/" rel="prev" title="群表示论龟速学习">
+                群表示论龟速学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="戳兔专家 lzcwr" />
+            
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要工作"><span class="nav-number">1.</span> <span class="nav-text">主要工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#categorized-domain-allocation-problems"><span class="nav-number">2.</span> <span class="nav-text">Categorized Domain Allocation Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三条公理化性质"><span class="nav-number">2.1.</span> <span class="nav-text">三条公理化性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#strategyproofness"><span class="nav-number">2.1.1.</span> <span class="nav-text">Strategyproofness</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#non-bossiness"><span class="nav-number">2.1.2.</span> <span class="nav-text">Non-bossiness</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#category-wise-neutrality"><span class="nav-number">2.1.3.</span> <span class="nav-text">Category-wise neutrality</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#serial-dictatorship-的公理化特征"><span class="nav-number">3.</span> <span class="nav-text">Serial dictatorship 的公理化特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#categorial-sequencial-allocation-mechanisms-csam"><span class="nav-number">4.</span> <span class="nav-text">Categorial Sequencial Allocation Mechanisms (CSAM)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

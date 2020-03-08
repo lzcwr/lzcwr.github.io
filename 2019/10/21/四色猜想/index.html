@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数学,计算机,北大,图论," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="许进老师《现代图论》课中所讲授的四色猜想的相关内容.">
+<meta name="keywords" content="数学,计算机,北大,图论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Something about 四色猜想">
+<meta property="og:url" content="http://lizhechen.com/2019/10/21/四色猜想/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="许进老师《现代图论》课中所讲授的四色猜想的相关内容.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/delta=3.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/delta=4.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/delta=5.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/Heawood4ColorGraph.gif">
+<meta property="og:updated_time" content="2019-10-30T15:22:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Something about 四色猜想">
+<meta name="twitter:description" content="许进老师《现代图论》课中所讲授的四色猜想的相关内容.">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/delta=3.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2019/10/21/四色猜想/"/>
+
+
+
+
+
+  <title>Something about 四色猜想 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2019/10/21/四色猜想/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Something about 四色猜想</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T23:13:53+08:00">
+                2019-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>许进老师《现代图论》课中所讲授的四色猜想的相关内容.</p>
+<a id="more"></a>
+<h2 id="基础知识">基础知识</h2>
+<center>
+这里只讨论有限平面图，且无自环、重边.
+</center>
+<p>一些相关概念介绍如下（图的定义、Euler公式、Kuratowski定理等不再赘述）：</p>
+<blockquote>
+<p><strong>图的染色（着色）</strong> 给图的顶点赋权（一般为整数，当然，不是整数也可以强行调整为整数...），相邻顶点不同权.</p>
+</blockquote>
+<blockquote>
+<p><strong>四色猜想</strong> 任意平面图都是可以 <span class="math inline">\(4\)</span>-染色的.</p>
+</blockquote>
+<blockquote>
+<p><strong>导出子图</strong> 设有图 <span class="math inline">\(G=(V,E)\)</span>，及其顶点集的子集 <span class="math inline">\(V&#39;\subset V\)</span>，记 <span class="math inline">\(E&#39;=\{(u,v)\in E:u,v\in W\}\)</span>，则称 <span class="math inline">\(G&#39;(V&#39;)=(V&#39;,E&#39;)\)</span> 为 <span class="math inline">\(V&#39;\)</span> 的导出子图.</p>
+</blockquote>
+<ul>
+<li>随便举个例子吧：<span class="math inline">\(K_n\)</span> 的任意 <span class="math inline">\(m\)</span> 元子集的导出子图都是 <span class="math inline">\(K_m\)</span>. （当然，<span class="math inline">\(m\leqslant n\)</span> ...）</li>
+</ul>
+<blockquote>
+<p><strong>极大平面图</strong> 顾名思义，就是边已经多到极限的平面图，以至于再加一条边，它就不是平面图了.</p>
+</blockquote>
+<ul>
+<li>极大平面图又称三角剖分图，其每个面都是三角（二维单形就是三角，课上许老师没有提单形的故事，但其实单形剖分是在任何维度存在的）；</li>
+<li>任何一个图都可以通过不断加边而变成一个极大平面图。</li>
+</ul>
+<h3 id="符号说明">符号说明</h3>
+<ul>
+<li><span class="math inline">\(n\)</span>：点数；</li>
+<li><span class="math inline">\(m\)</span>：边数；</li>
+<li><span class="math inline">\(\delta\)</span>：图中顶点的最小度数.</li>
+</ul>
+<blockquote>
+<p><strong>关键术语：</strong></p>
+<ul>
+<li><strong>Kempe 链</strong>：只含两种颜色的链.</li>
+<li><strong>Kempe 变换</strong>：一种通过换色来减少颜色的技巧.</li>
+</ul>
+</blockquote>
+<h2 id="kempe-的证明思路">Kempe 的证明思路</h2>
+<p>用数学归纳法：</p>
+<ul>
+<li>容易验证 <span class="math inline">\(n\leqslant 5\)</span> 时，所有的极大平面图都可以被 <span class="math inline">\(4\)</span>-染色.</li>
+<li>设 <span class="math inline">\(n\leqslant p\)</span> 时，所有 <span class="math inline">\(n\)</span> 个顶点的极大平面图都可以被 <span class="math inline">\(4\)</span>-染色，考虑 <span class="math inline">\(p+1\)</span> 的情. 由 Euler 公式可知，对于极大平面图，有 <span class="math inline">\(3\leqslant \delta\leqslant 5\)</span>，故分三种情况讨论：
+<ul>
+<li><span class="math inline">\(\delta=3\)</span>： <img src="/img/blog-graph/delta=3.png" alt="delta=3情形" width="300"> 由于 <span class="math inline">\(\delta=3\)</span>，故必定会存在一个 <span class="math inline">\(3\)</span> 度顶点，即有图中所示的结构. 记 <span class="math inline">\(G&#39;=G-D\)</span>，则 <span class="math inline">\(|G&#39;|=p\)</span>，因而可以被 <span class="math inline">\(4\)</span>-染色. 而 <span class="math inline">\(D\)</span> 相邻的 <span class="math inline">\(A,B,C\)</span> 点也至多占掉三种颜色，故此时的图 <span class="math inline">\(G\)</span> 是可以被 <span class="math inline">\(4\)</span>-染色的.</li>
+<li><span class="math inline">\(\delta=4\)</span>： <img src="/img/blog-graph/delta=4.png" alt="delta=4情形" width="300"> 同上，会存在一个图示的结构，记 <span class="math inline">\(G&#39;=G-E\)</span>，则 <span class="math inline">\(G&#39;\)</span> 有一个 <span class="math inline">\(4\)</span>-染色. 若 <span class="math inline">\(A,B,C,D\)</span> 只用了至多 <span class="math inline">\(3\)</span> 种颜色，则可以完全沿用上述方法. 因此只讨论 <span class="math inline">\(A,B,C,D\)</span> 分别用了颜色 <span class="math inline">\(1,2,3,4\)</span> 的情形. 此时采用的办法被称为 <strong>Kempe 变换</strong>：<br>
+考虑 <span class="math inline">\(G&#39;\)</span> 中，颜色 <span class="math inline">\(1\)</span> 和 <span class="math inline">\(3\)</span> 的导出子图 <span class="math inline">\(G&#39;[1,3]\)</span>：
+<ul>
+<li>若 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(C\)</span> 不在 <span class="math inline">\(G&#39;[1,3]\)</span> 的同一个连通分支内，则可以将其中一者（不妨设是 <span class="math inline">\(A\)</span>）所在的连通分支上的 <span class="math inline">\(1\)</span> 与 <span class="math inline">\(3\)</span> 全部交换，该种转换不会产生颜色的冲突. 转换完毕后，<span class="math inline">\(A\)</span> 与 <span class="math inline">\(C\)</span> 将变为同色，即 <span class="math inline">\(A,B,C,D\)</span> 只占三种颜色；</li>
+<li>若 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(C\)</span> 在 <span class="math inline">\(G&#39;[1,3]\)</span> 的同一连通分支内，则必定存在一条连接 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(1-3-1-3-\cdots\)</span> 路径（这样的路径称为 Kempe 链）. 此时考虑 <span class="math inline">\(G&#39;[2,4]\)</span>，则 <span class="math inline">\(B\)</span> 和 <span class="math inline">\(D\)</span> 一定不在 <span class="math inline">\(G&#39;[2,4]\)</span> 的同一连通分支内（有点像 Jordan 闭曲线定理的那种感觉，<span class="math inline">\(B\)</span> 和 <span class="math inline">\(D\)</span> 一个在内一个在外），即可以对 <span class="math inline">\(G&#39;[2,4]\)</span> 做变换，此时也可转换为 <span class="math inline">\(A,B,C,D\)</span> 只占三种颜色的情形.</li>
+</ul></li>
+<li><span class="math inline">\(\delta=5\)</span>： <img src="/img/blog-graph/delta=5.png" alt="delta=5情形" width="300"> 同样会存在一个图示的结构，记 <span class="math inline">\(G&#39;=G-F\)</span>，则 <span class="math inline">\(G&#39;\)</span> 存在一个 <span class="math inline">\(4\)</span>-染色. 若 <span class="math inline">\(A,B,C,D,E\)</span> 只用了至多 <span class="math inline">\(3\)</span> 种颜色，则很容易给出该种情形的一个 <span class="math inline">\(4\)</span>-染色. 当 <span class="math inline">\(A,B,C,D,E\)</span> 恰好用了 <span class="math inline">\(4\)</span> 种颜色时，必定有且仅有两个顶点同色，不失一般性，设 <span class="math inline">\(f(A)=1,f(B)=f(E)=2,f(C)=3,f(D)=4\)</span>. 此时考虑 <span class="math inline">\(G&#39;[1,3]\)</span> 和 <span class="math inline">\(G&#39;[1,4]\)</span>：
+<ul>
+<li>若 <span class="math inline">\(A,C\)</span> 和 <span class="math inline">\(A,D\)</span> 至少有一对在相应的导出子图上不连通，则可以直接采取换色的方式消灭掉颜色 <span class="math inline">\(1\)</span>，此时在 <span class="math inline">\(G\)</span> 中给 <span class="math inline">\(F\)</span> 染颜色 <span class="math inline">\(1\)</span> 即可.</li>
+<li>若 <span class="math inline">\(A,C\)</span> 和 <span class="math inline">\(A,D\)</span> 在相应的导出子图上都连通，则在 <span class="math inline">\(G&#39;\)</span> 中存在一条连接 <span class="math inline">\(A,C\)</span> 的 <span class="math inline">\(1-3-1-3\cdots\)</span> 链和一条连接 <span class="math inline">\(A,D\)</span> 的 <span class="math inline">\(2-4-2-4\cdots\)</span> 链，分别将 <span class="math inline">\(B\)</span> 与 <span class="math inline">\(E\)</span> 包围. 故类似 <span class="math inline">\(\delta=4\)</span> 的情况，不难发现此时不存在 <span class="math inline">\(E\to C\)</span> 和 <span class="math inline">\(B\to C\)</span> 的 Kempe 链，因而进行两次换色，即可将颜色 <span class="math inline">\(2\)</span> 消除. 进一步给 <span class="math inline">\(F\)</span> 染颜色 <span class="math inline">\(4\)</span> 即可得到 <span class="math inline">\(G\)</span> 的 <span class="math inline">\(4\)</span>-染色.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>听起来很简单，不是吗？但很遗憾这个证法是错误的. 错误的关键就在于：虽然图中有一条 <span class="math inline">\(A\to C\)</span> 和一条 <span class="math inline">\(A\to D\)</span> 的 Kempe 链，但这两条链可能在处 <span class="math inline">\(A\)</span> 点之外的其他地方也有交点，这可能会导致我们在后面消除颜色 <span class="math inline">\(2\)</span> 的换色过程中失败.</p>
+<p>听起来好绕啊！那就详细说说...</p>
+<p>当 <span class="math inline">\(\delta=5\)</span>，且 <span class="math inline">\(|f\{A,B,C,D,E\}|=4\)</span>，且 <span class="math inline">\(A,C\)</span> 在 <span class="math inline">\(G&#39;[1,3]\)</span> 中连通，<span class="math inline">\(A,D\)</span> 在 <span class="math inline">\(G&#39;[1,4]\)</span> 中连通时，我们需要进行两次换色：</p>
+<ol style="list-style-type: decimal">
+<li>在 <span class="math inline">\(G&#39;[2,3]\)</span> 中，将 <span class="math inline">\(E\)</span> 所在的连通分支中的所有 <span class="math inline">\(2\)</span> 和 <span class="math inline">\(3\)</span> 对换，即可将 <span class="math inline">\(E\)</span> 换为颜色 <span class="math inline">\(3\)</span>.</li>
+<li>在 <span class="math inline">\(G&#39;[2,4]\)</span> 中，将 <span class="math inline">\(B\)</span> 所在的连通分支中的所有 <span class="math inline">\(2\)</span> 和 <span class="math inline">\(4\)</span> 对换，即可将 <span class="math inline">\(B\)</span> 换为颜色 <span class="math inline">\(4\)</span>.</li>
+</ol>
+<p>两次换色后，<span class="math inline">\(A,B,C,D,E\)</span> 的颜色分别为 <span class="math inline">\(1,4,3,4,3\)</span>，成功减少了一种颜色！</p>
+<p>那么，问题出在哪里呢？</p>
+<p>就是上述过程中，第一次换色完全可能影响到第二次换色.</p>
+<p>试想，如果第一次换色使得 <span class="math inline">\(B\)</span> 和 <span class="math inline">\(D\)</span> 在 <span class="math inline">\(G&#39;[2,4]\)</span> 中连通了怎么办？第二次换色就无法进行了！！那我们构造 <span class="math inline">\(G\)</span> 的 <span class="math inline">\(4\)</span>-染色的计划就失败了（</p>
+<p>那么，什么情况会导致第二次换色失败呢？</p>
+<p>我们要让第一次和第二次换色产生关系. 因此我们努力让它们换色的前提产生关系. 那就是说，我们要让 <span class="math inline">\(A\to C\)</span> 的 Kempe 链与 <span class="math inline">\(A\to D\)</span> 的 Kempe 链在 <span class="math inline">\(A\)</span> 以外的一点相交，这样两次换色就可以互相干扰了.</p>
+<p>事实上，Heawood 给出的反例正是应用了这个思路. 其具体的反例如下图所示：</p>
+<p><img src="/img/blog-graph/Heawood4ColorGraph.gif" alt="Heawood 的反例" width="300"></p>
+<hr>
+<p>虽然 Kempe 没有成功证明四色定理，但 Kempe 的工作仍然是非常有意义的，在其做法的基础上稍加改动，即可证明比四色定理稍弱的五色定理. 后来 Appel–Haken 对 Kempe 变换失效的不可约情形进行了研究，并利用计算机给出了证明.</p>
+<h2 id="对-kempe-工作的进一步思考">对 Kempe 工作的进一步思考</h2>
+<p>既然两条 Kempe 链相交会导致 Kempe 变换失效，那么我们就需要寻找不相交的 Kempe 链.</p>
+<blockquote>
+<p><strong>Mr. Xu 的猜想！</strong> 对于 <span class="math inline">\(\delta=5\)</span> 的情形，对任意一个 <span class="math inline">\(5\)</span> 度顶点 <span class="math inline">\(v_0\)</span>（<span class="math inline">\(N(v_0)=\{v_1,v_2,v_3,v_4,v_5\}\)</span>），都存在 <span class="math inline">\(G&#39;\)</span> 的一种染色方案 <span class="math inline">\(f\)</span>，s.t. 存在 <span class="math inline">\(v_1\to v_3\)</span> 和 <span class="math inline">\(v_1\to v_4\)</span> 两条 Kempe 链，且这两条链仅在 <span class="math inline">\(v_1\)</span> 相交.</p>
+</blockquote>
+<p>若能证明这个猜想，那当然能修复 Kempe 的证明.（不过我8太看好...</p>
+<ul>
+<li>貌似 Heawood 的图中，中心的 <span class="math inline">\(5\)</span> 度顶点就根本不行...</li>
+<li>我始终觉得这个猜想只需要存在性就行了（存在一个 <span class="math inline">\(5\)</span> 度顶点...），但 Mr. Xu 课上说的的确是任意... 迷惑...</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/图论/" rel="tag"># 图论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/16/2019算法分析和复杂性理论课程作业/" rel="next" title="2019算法分析和复杂性理论课程作业">
+                <i class="fa fa-chevron-left"></i> 2019算法分析和复杂性理论课程作业
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/23/论文笔记-9-——Strategy-proof-allocation-of-indivisible-goods/" rel="prev" title="论文笔记[9]——Strategy-proof allocation of indivisible goods">
+                论文笔记[9]——Strategy-proof allocation of indivisible goods <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="戳兔专家 lzcwr" />
+            
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#符号说明"><span class="nav-number">1.1.</span> <span class="nav-text">符号说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kempe-的证明思路"><span class="nav-number">2.</span> <span class="nav-text">Kempe 的证明思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对-kempe-工作的进一步思考"><span class="nav-number">3.</span> <span class="nav-text">对 Kempe 工作的进一步思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

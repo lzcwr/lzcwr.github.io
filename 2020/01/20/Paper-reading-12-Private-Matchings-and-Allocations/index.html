@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机,北大,社会计算,论文笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
+<meta name="keywords" content="计算机,北大,社会计算,论文笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记[12]——Private Matchings and Allocations">
+<meta property="og:url" content="http://lizhechen.com/2020/01/20/Paper-reading-12-Private-Matchings-and-Allocations/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/private-matchings-and-allocations-PMatch.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/Algo-PAlloc.png">
+<meta property="og:updated_time" content="2020-03-06T13:13:32.122Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记[12]——Private Matchings and Allocations">
+<meta name="twitter:description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/private-matchings-and-allocations-PMatch.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2020/01/20/Paper-reading-12-Private-Matchings-and-Allocations/"/>
+
+
+
+
+
+  <title>论文笔记[12]——Private Matchings and Allocations | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2020/01/20/Paper-reading-12-Private-Matchings-and-Allocations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记[12]——Private Matchings and Allocations</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-20T23:03:56+08:00">
+                2020-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.</p>
+</blockquote>
+<blockquote>
+<p>Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocations. STOC 2014.</p>
+</blockquote>
+<ul>
+<li>Differential Privacy &amp; Resource Allocation</li>
+</ul>
+<a id="more"></a>
+<h2 id="文章概要">文章概要</h2>
+<ul>
+<li><span class="math inline">\(k\)</span> goods：<span class="math inline">\(j\in \{1,\ldots,k\}\)</span>，<span class="math inline">\(n\)</span> buyers：<span class="math inline">\(i\in \{1,\ldots,n\}\)</span>;
+<ul>
+<li>Each <span class="math inline">\(i\)</span> has a value <span class="math inline">\(v_{ij}\in[0,1]\)</span> for each good <span class="math inline">\(j\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Our goal</strong> 找到 buyer-good 匹配 <span class="math inline">\(\mu\)</span>，s.t. 最大化社会总福利 <span class="math inline">\(SW=\sum\limits_{i=1}^nv_{i,\mu(i)}\)</span>.</p>
+</blockquote>
+<ul>
+<li>隐私性问题：<strong>values 是敏感信息，会涉及隐私.</strong></li>
+</ul>
+<p>因此，需要一个不会泄露 values 的匹配机制.</p>
+<h3 id="dp在此问题上的局限性">DP在此问题上的局限性</h3>
+<blockquote>
+<p>It is not hard to see that this goal is impossible under the standard notion of differential privacy.</p>
+</blockquote>
+<p>作者认为，DP 要求分配方案（输出）对 <span class="math inline">\(v_{ij}\)</span> （输入）不敏感，但这是不可能的..</p>
+<ul>
+<li>解决方法：使用 Kearns 等在 2014 年提出的联合差分隐私（Joint DP）</li>
+</ul>
+<h3 id="思路将-market-clearing-prices-与-dp-结合">思路：将 Market Clearing prices 与 DP 结合</h3>
+<ul>
+<li>使用 Walrasian equilibrium prices：
+<ul>
+<li>在 Joint DP 的要求下计算 Walrasian equilibrium prices.</li>
+<li>Kelso 和 Crawford 在 1982 的经典分析：用递增价格拍卖来计算 Walrasian...</li>
+</ul></li>
+</ul>
+<h2 id="基础知识">基础知识</h2>
+<ul>
+<li>物品集 <span class="math inline">\(G\)</span>，以及 agent 集合 <span class="math inline">\([n]\)</span>：
+<ul>
+<li>每个 agent <span class="math inline">\(i\in[n]\)</span> 都有一个估值函数 <span class="math inline">\(v_i:2^G\to [0,1]\)</span>；</li>
+<li>一个可行的分配是一列集合 <span class="math inline">\(S_1,\ldots,s_n\subseteq G\)</span>，s.t. <span class="math inline">\(S_i\cap S_j=\varnothing\)</span>，<span class="math inline">\(\forall i\neq j\)</span>.</li>
+<li>上述分配的社会总福利为 <span class="math inline">\(\sum\limits_{i=1}^n v_i(S_i)\)</span>.
+<ul>
+<li>最大社会总福利 <span class="math inline">\(OPT=\max\limits_{S_1,\ldots,S_n}\sum\limits_{i=1}^n v_i(S_i)\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>我们考虑一个比较简单的估值函数：一个人只要一个物品.(unit demand valuation)</p>
+<ul>
+<li>但本文的结果对于 gross substitute valuation 也同样成立(简言之，就是物品 <span class="math inline">\(i\)</span> 涨价会使得其他物品更受欢迎，参见 <a href="https://en.wikipedia.org/wiki/Gross_substitutes" target="_blank" rel="noopener">wiki: Gross substitutes</a>).</li>
+</ul>
+<h3 id="形式化描述">形式化描述</h3>
+<ul>
+<li>价格向量 <span class="math inline">\(\{p_g\}_{g\in G}\)</span>，物品集 <span class="math inline">\(S\)</span> 对参与者 <span class="math inline">\(i\)</span> 的效用为 <span class="math inline">\(u_i(S,p)=v_i(S)-\sum\limits_{j\in S}p_j\)</span>.
+<ul>
+<li>若定价 <span class="math inline">\(p\)</span> 和 <span class="math inline">\(p&#39;\)</span> 满足 <span class="math inline">\(p_g\leqslant p&#39;_g\)</span>，<span class="math inline">\(\forall g\in G\)</span>，则记为 <span class="math inline">\(p \preceq p^{\prime}\)</span>.</li>
+<li>在定价 <span class="math inline">\(p\)</span> 下，参与者 <span class="math inline">\(i\in[n]\)</span> 最想要的物品集为 <span class="math inline">\(\omega(p)=\arg \max\limits _{S \subseteq G} u_{i}(S, p)\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Def</strong> 现有估值函数 <span class="math inline">\(v_i: 2^G\to [0,1]\)</span>，如果对于定价向量 <span class="math inline">\(p\preceq p&#39;\)</span> 以及 <span class="math inline">\(\forall S\in\omega(p)\)</span>，若 <span class="math inline">\(S&#39;\subseteq S\)</span> 满足 <span class="math inline">\(p&#39;_g=p_g\)</span>，<span class="math inline">\(\forall g\in S&#39;\)</span>，则存在 <span class="math inline">\(S^*\in\omega(p)\)</span>，s.t. <span class="math inline">\(S&#39;\subset S^*\)</span>，则称 <span class="math inline">\(v_i\)</span> 满足 gross substitutes.</p>
+</blockquote>
+<ul>
+<li><font color="red">这个定义很别扭...我没懂</font></li>
+<li><p>本文的工作还是只考虑了一人一个物品的情况.</p></li>
+<li>设共有 <span class="math inline">\(k\)</span> 种物品，代表元为 <span class="math inline">\(g_1,\ldots,g_k\in G\)</span>
+<ul>
+<li>若所有人都认为两个物品 <span class="math inline">\(g_1,g_2\in G\)</span> 等值，则这两个物品就被认为是相同的.</li>
+</ul></li>
+</ul>
+<h3 id="差分隐私">差分隐私</h3>
+<blockquote>
+<p><strong>Def of DP</strong> 若算法 <span class="math inline">\(\mathcal{M}: C^{n} \rightarrow \mathcal{R}\)</span> 满足 <span class="math inline">\(\forall D,D&#39;\in C^n\)</span>，s.t. <span class="math inline">\(|D\triangle D&#39;|=1\)</span>，以及 <span class="math inline">\(\forall S\subseteq \mathcal{R}\)</span>，总有<span class="math display">\[\operatorname{Pr}[\mathcal{M}(D) \in S] \leq e^{\epsilon} \operatorname{Pr}\left[\mathcal{M}\left(D^{\prime}\right) \in S\right]+\delta\]</span>则称 <span class="math inline">\(\mathcal{M}\)</span> 是 <span class="math inline">\((\epsilon,\delta)\)</span>-差分隐私的. 若 <span class="math inline">\(\delta=0\)</span>，则称为 <span class="math inline">\(\epsilon\)</span>-差分隐私.</p>
+</blockquote>
+<ul>
+<li>由于在资源分配问题中，输出结果是 <span class="math inline">\(n\)</span> 元集列，因而 <span class="math inline">\(\mathcal{M}\)</span> 的陪域为 <span class="math inline">\((2^G)^n\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>Joint DP</strong> 若算法 <span class="math inline">\(\mathcal{M}: C^n\to (2^G)^n\)</span> 满足：对 <span class="math inline">\(\forall i\)</span> 以及 <span class="math inline">\(i\)</span>-neighbors <span class="math inline">\(D,D&#39;\in C^n\)</span>，以及 <span class="math inline">\(S\subseteq (2^G)^n\)</span>，总有： <span class="math display">\[\operatorname{Pr}\left[\mathcal{M}(D)_{-i} \in S\right] \leq e^{\epsilon} \operatorname{Pr}\left[\mathcal{M}\left(D^{\prime}\right)_{-i} \in S\right]+\delta\]</span> 则称其满足 <span class="math inline">\((\epsilon,\delta)\)</span>-联合差分隐私.</p>
+</blockquote>
+<h3 id="dp-counter">DP Counter</h3>
+<ul>
+<li>一个二进制串 <span class="math inline">\(\sigma=(\sigma_1,\ldots,\sigma_T)\in\{0,1\}^T\)</span>，计数器 <span class="math inline">\(\mathcal{M}\)</span> 给出了 <span class="math inline">\(c_\sigma(t)=\sum\limits_{i=1}^t \sigma_i\)</span> 的一个近似.</li>
+</ul>
+<blockquote>
+<p><strong>计数器的 <span class="math inline">\(\alpha,\beta\)</span>-有效性</strong> 若 <span class="math inline">\(\forall t\in [T]\)</span>，<span class="math inline">\(\operatorname{Pr}[|\mathcal{M}(\sigma)(t)-c_\sigma(t)|\leqslant\alpha]\geqslant 1-\beta\)</span>，则称 <span class="math inline">\(\mathcal{M}\)</span> 是 <span class="math inline">\((\alpha,\beta)\)</span>-有效的.</p>
+</blockquote>
+<blockquote>
+<p><strong>定理</strong> Chen 等在2011 年提出的计数器 <span class="math inline">\(\mathbf{Counter}(\epsilon,T)\)</span> 对于01串的每一位，是 <span class="math inline">\(\epsilon\)</span>-差分隐私的，且是 <span class="math inline">\((\alpha,\beta)\)</span>-有效的，其中 <span class="math display">\[\alpha=\frac{2 \sqrt{2}}{\epsilon} \ln (2 / \beta) \log (T)^{5 / 2}.\]</span></p>
+</blockquote>
+<h3 id="隐私化的最大匹配">隐私化的最大匹配</h3>
+<ul>
+<li><span class="math inline">\(n\)</span> 个人，<span class="math inline">\(k\)</span> 种物品，每种 <span class="math inline">\(s\)</span> 个. 估值函数 <span class="math inline">\(v_{ij}\in[0,1]\)</span></li>
+<li>定价向量 <span class="math inline">\(p\in[0,1]^k\)</span>，分配方案 <span class="math inline">\(\mu: [n]\to[k]\cup\{\perp\}\)</span>
+<ul>
+<li><span class="math inline">\(\perp\)</span> 的解释：未匹配到物品的人被统一匹配到一个虚拟物品，记作 <span class="math inline">\(\perp\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Def</strong> 给定定价向量 <span class="math inline">\(p\in[0,1]^k\)</span> 以及从人到物的匹配 <span class="math inline">\(\mu:[n]\to[k]\cup\{\perp\}\)</span>，若 <span class="math inline">\(\mu\)</span> 满足：</p>
+<ul>
+<li>至少 <span class="math inline">\((1-\rho)\)</span> 比例的人匹配到的物品是 <span class="math inline">\(\alpha\)</span>-最优的；
+<ul>
+<li>即对至少 <span class="math inline">\((1-\rho)\)</span> 比例的 <span class="math inline">\(i\)</span> 而言，有 <span class="math inline">\(v_{i \mu(i)}-p_{\mu(i)} \geq v_{i j}-p_{j}-\alpha\)</span>，<span class="math inline">\(\forall j\)</span>.</li>
+</ul></li>
+<li>每种物品被分配的量不能超过总供应量；</li>
+<li>每种供不应求的物品(over-demanded)都会被抢光，除非其供应量不超过 <span class="math inline">\(\beta\)</span>.
+<ul>
+<li>原文：each over-demanded good clears except for at most β supply.</li>
+</ul></li>
+</ul>
+<p>则称其是一个 <span class="math inline">\((\alpha,\beta,\rho)\)</span>-近似匹配.</p>
+</blockquote>
+<h4 id="算法描述pmatch-algorithm">算法描述：PMatch Algorithm</h4>
+<blockquote>
+<p>修改版的延迟认可(deferred acceptance)算法 [Kelso and Crawford 1982]</p>
+</blockquote>
+<hr>
+<p><strong>Propose Function</strong></p>
+<ul>
+<li>同时进行 <span class="math inline">\(k\)</span> 场竞价选举，每场代表一种物品.
+<ul>
+<li>任意时刻，每种物品的 proposal price 为 <span class="math inline">\(p_j\)</span>.</li>
+</ul></li>
+<li>给所有参与者规定一个（大家都知道的）顺序，依次访问每一个人.
+<ul>
+<li>给访问到的未被匹配到物品的参与者分配一个对他而言效用最大的物品.</li>
+</ul></li>
+</ul>
+<hr>
+<p><strong>Bid Function</strong></p>
+<blockquote>
+<p>很想吐槽一下。。。文章写得不像人话...</p>
+</blockquote>
+<ul>
+<li>对每类物品来说：申请与某类物品匹配的前 <span class="math inline">\(s\)</span> 名暂时获得该类物品
+<ul>
+<li>对某物品而言，若某个人比其当前持有者出价更高，则该物品将易主.</li>
+<li>对每个物品的出价每次上涨固定值 <span class="math inline">\(\alpha\)</span>.</li>
+</ul></li>
+</ul>
+<center>
+<img src="/img/blog-graph/private-matchings-and-allocations-PMatch.png" width="500"" alt="Algorithm PMatch">
+</center>
+<blockquote>
+<p><font size="4" color="F596AA"><strong>隐私性分析</strong></font> 当某个人改变自己的valuation时，数据对其他人而言服从Joint DP.<br>
+  这篇文章使用的是所谓“广告牌模型”（Billboard Model）<br>
+<strong>广告牌模型</strong> 若某些信息被广播了，那么这些信息必须是DP的.<br>
+<strong>广告牌引理</strong> 设 <span class="math inline">\(\mathcal{M}:\mathcal{D}\to\mathcal{R}\)</span> 是 <span class="math inline">\((\epsilon,\delta)\)</span>-DP 的. 考虑函数族 <span class="math inline">\(f_i:\mathcal{D}_i\times\mathcal{R}\to\mathcal{R}&#39;\)</span>，其中 <span class="math inline">\(\mathcal{D}_i\)</span> 是与 <span class="math inline">\(i\)</span> 相关的数据集，则 <span class="math inline">\(\{f_i(\Pi_iD,\mathcal{M}(D))\}\)</span> 是 <span class="math inline">\((\epsilon,\delta)\)</span>-Joint DP 的，其中 <span class="math inline">\(\Pi_i\)</span> 表示向 <span class="math inline">\(i\)</span> 数据集的投影.</p>
+</blockquote>
+<p>借助上述引理，我们可以得到：</p>
+<blockquote>
+<p><strong>定理 2</strong> PMatch<span class="math inline">\((\alpha,\beta,\epsilon)\)</span> 满足 <span class="math inline">\(\epsilon\)</span>-联合差分隐私.</p>
+</blockquote>
+<blockquote>
+<p><font size="4" color="F596AA"><strong>有效性分析</strong></font> 事实上PMatch算法会在以下三个方面损失有效性：</p>
+<ol style="list-style-type: decimal">
+<li>可能有 <span class="math inline">\(\rho\)</span> 比例的人在算法结束时仍处于未匹配状态；</li>
+<li>被匹配了物品的人也未必得到了自己最想要的的物品；</li>
+<li>整个拍卖过程会分出一部分物品来应对 Counters 中的噪音可能带来的过量分配. 而这些物品有可能会卖不出去.</li>
+</ol>
+</blockquote>
+<p>事实上，有如下定理成立：</p>
+<blockquote>
+<p><strong>定理 3</strong> 设 <span class="math inline">\(\alpha&gt;0\)</span>，<span class="math inline">\(\mu\)</span> 是由 <span class="math inline">\(\mathbf{PMatch}(\frac{\alpha}{3},\frac{\alpha}{3},\epsilon)\)</span> 导出的分配，令 <span class="math inline">\(OPT\)</span> 是最大匹配，若满足： <span class="math display">\[s \geq \frac{16 E^{\prime}+4}{\alpha}=O\left(\frac{1}{\alpha^{3} \varepsilon} \cdot \operatorname{polylog}\left(n, k, \frac{1}{\alpha}, \frac{1}{\gamma}\right)\right)\]</span> 且 <span class="math inline">\(n&gt;s\)</span>，则 <span class="math inline">\(\mu\)</span> 的 social welfare 至少为 <span class="math inline">\(OPT-\alpha n\)</span> 的概率不会低于 <span class="math inline">\(1-\gamma\)</span>. 其中 <span class="math display">\[E^{\prime}=\frac{288 \sqrt{2}}{\alpha^{2} \varepsilon}\left(\log \left(\frac{72 n}{\alpha^{2}}\right)\right)^{5 / 2} \log \left(\frac{4 k}{\gamma}\right).\]</span></p>
+</blockquote>
+<h2 id="推广">推广</h2>
+<p>正如前文所述，算法 PMatch 可以推广为算法 PAlloc，应用于 Gross Substitute Valuations 情形.</p>
+<center>
+<img src="/img/blog-graph/Algo-PAlloc.png" width="500" alt="Private Algorithm: PAlloc">
+</center>
+<p>作者同样给出了如下定理：</p>
+<blockquote>
+<p><strong>定理 4</strong> <span class="math inline">\(\mathbf{PAlloc}(\alpha,\rho,\epsilon)\)</span> 满足 <span class="math inline">\(\epsilon\)</span>-联合DP.</p>
+</blockquote>
+<hr>
+<p>本文还有很多其他结果，暂时还没有理清...</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/社会计算/" rel="tag"># 社会计算</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/07/北京大学群表示论试题/" rel="next" title="北京大学群表示论试题">
+                <i class="fa fa-chevron-left"></i> 北京大学群表示论试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/01/Paper-reading-13-Mechanism-design-via-differential-privacy/" rel="prev" title="论文笔记[13]——Mechanism design via differential privacy">
+                论文笔记[13]——Mechanism design via differential privacy <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="戳兔专家 lzcwr" />
+            
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章概要"><span class="nav-number">1.</span> <span class="nav-text">文章概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dp在此问题上的局限性"><span class="nav-number">1.1.</span> <span class="nav-text">DP在此问题上的局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路将-market-clearing-prices-与-dp-结合"><span class="nav-number">1.2.</span> <span class="nav-text">思路：将 Market Clearing prices 与 DP 结合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">2.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形式化描述"><span class="nav-number">2.1.</span> <span class="nav-text">形式化描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差分隐私"><span class="nav-number">2.2.</span> <span class="nav-text">差分隐私</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dp-counter"><span class="nav-number">2.3.</span> <span class="nav-text">DP Counter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐私化的最大匹配"><span class="nav-number">2.4.</span> <span class="nav-text">隐私化的最大匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述pmatch-algorithm"><span class="nav-number">2.4.1.</span> <span class="nav-text">算法描述：PMatch Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推广"><span class="nav-number">3.</span> <span class="nav-text">推广</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

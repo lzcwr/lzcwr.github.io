@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,数学,计算机,算法,北大,组合数学,社会计算,论文笔记,经济学," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Brams S J, Kilgour D M, Klamler C. The undercut procedure: an algorithm for the envy-free division of indivisible items[J]. Social Choice and Welfare, 2012, 39(2-3): 615-631.   离散资源，无嫉妒划分">
+<meta name="keywords" content="师大,数学,计算机,算法,北大,组合数学,社会计算,论文笔记,经济学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记[5]——The undercut procedure: an algorithm for the envy-free division of indivisible items">
+<meta property="og:url" content="http://lizhechen.com/2019/05/25/论文笔记-5-——The-undercut-procedure-an-algorithm-for-the-envy-free-division-of-indivisible-items/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="Brams S J, Kilgour D M, Klamler C. The undercut procedure: an algorithm for the envy-free division of indivisible items[J]. Social Choice and Welfare, 2012, 39(2-3): 615-631.   离散资源，无嫉妒划分">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-29T14:52:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记[5]——The undercut procedure: an algorithm for the envy-free division of indivisible items">
+<meta name="twitter:description" content="Brams S J, Kilgour D M, Klamler C. The undercut procedure: an algorithm for the envy-free division of indivisible items[J]. Social Choice and Welfare, 2012, 39(2-3): 615-631.   离散资源，无嫉妒划分">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2019/05/25/论文笔记-5-——The-undercut-procedure-an-algorithm-for-the-envy-free-division-of-indivisible-items/"/>
+
+
+
+
+
+  <title>论文笔记[5]——The undercut procedure: an algorithm for the envy-free division of indivisible items | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2019/05/25/论文笔记-5-——The-undercut-procedure-an-algorithm-for-the-envy-free-division-of-indivisible-items/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="戳兔专家 lzcwr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记[5]——The undercut procedure: an algorithm for the envy-free division of indivisible items</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T09:37:39+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Brams S J, Kilgour D M, Klamler C. The undercut procedure: an algorithm for the envy-free division of indivisible items[J]. Social Choice and Welfare, 2012, 39(2-3): 615-631.</p>
+</blockquote>
+<blockquote>
+<p>离散资源，无嫉妒划分</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="概要">概要</h2>
+<ul>
+<li>两位参与者 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span>，分割一整个物品集 <span class="math inline">\(X\)</span>；</li>
+<li>二者的偏好均是 <span class="math inline">\(X\)</span> 幂集 <span class="math inline">\(\mathcal{X}\)</span> 上的全序；</li>
+<li>文中提出UP算法，必定能得到一个 <span class="math inline">\(X\)</span> 的无嫉妒划分：
+<ul>
+<li>无嫉妒的定义：每个人都觉得自己的比对方的好；</li>
+<li>即使 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 的偏好完全相同也可以得到；</li>
+</ul></li>
+<li>基本思路：Undercut：
+<ul>
+<li>一人提出proposal，另一人undercut。</li>
+</ul></li>
+</ul>
+<h2 id="基础知识">基础知识</h2>
+<p>记号：</p>
+<ul>
+<li><span class="math inline">\(i\)</span> 的单物品偏好用 <span class="math inline">\(P_i\)</span> 表示，每个 <span class="math inline">\(P_i\)</span> 都是 <code>严格</code>、 <code>完全</code> 的；</li>
+<li><span class="math inline">\(i\)</span> 的偏好用 <span class="math inline">\(\succeq_i\)</span> 表示；</li>
+<li><span class="math inline">\(S\)</span> 的补集用 <span class="math inline">\(-S\)</span> 表示。</li>
+</ul>
+<p>相关定义：</p>
+<blockquote>
+<p><strong>Def 1.</strong> <span class="math inline">\(\mathcal{X}\)</span> 上的偏好 <span class="math inline">\(\succeq\)</span> 称为是<strong>合理</strong>（responsive）的，若 <span class="math inline">\(\forall S\in\mathcal{X}\)</span> 和 <span class="math inline">\(\forall x\in X\)</span>，<span class="math inline">\(y\in X\backslash S\)</span>，总有：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(S\succ S\backslash \{x\}\cup\{y\}\iff x~P~y\)</span>；</li>
+<li><span class="math inline">\(S\backslash \{x\}\cup\{y\}\succ S\iff y~P~x\)</span>；</li>
+<li><span class="math inline">\(S\succ S\backslash\{x\}\)</span>。（<strong>单调性</strong>，monotonic）</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>Def 2.</strong> 令 <span class="math inline">\(S,T\subseteq X\)</span>，<span class="math inline">\(S\neq T\)</span>，令 <span class="math inline">\(P\)</span> 是 <span class="math inline">\(X\)</span> 上的一个严格的序。如果：</p>
+<ul>
+<li>存在一个单射 <span class="math inline">\(\sigma_{T,S}: T\backslash S\to S\backslash T\)</span>，s.t. <span class="math inline">\(\forall x\in T\backslash S, \sigma_{T,S}(x)~P~x\)</span>；</li>
+</ul>
+<p>则称 <span class="math inline">\(T\)</span> <strong>依次劣于</strong>（ordinally less）<span class="math inline">\(S\)</span>，记作 <span class="math inline">\(T\leqslant_{OL} S\)</span>。</p>
+</blockquote>
+<ul>
+<li>简言之，<span class="math inline">\(S\leqslant _{OL}T\)</span> 的意思就是存在 <span class="math inline">\(S\to T\)</span> 的一个映射，按照这种对应，<span class="math inline">\(S\)</span> 中的每个物品都不如 <span class="math inline">\(T\)</span> 中的对应物品。（是 <span class="math inline">\(S\)</span> 比 <span class="math inline">\(T\)</span> 差了很多的意思）</li>
+</ul>
+<blockquote>
+<p><strong>Def 3.</strong> 参与者 <span class="math inline">\(i\)</span> 认为 <span class="math inline">\(S\subseteq X\)</span> 是<strong>至少值50%</strong> 的，如果 <span class="math inline">\(S\succeq_i -S\)</span>。</p>
+</blockquote>
+<blockquote>
+<p><strong>Def 4.</strong> 集合 <span class="math inline">\(S\subseteq X\)</span> 对 <span class="math inline">\(i\)</span> 来说是一个<strong>minimal bundle</strong>，如果：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(S\succeq_i -S\)</span>；</li>
+<li><span class="math inline">\(\forall T\leqslant _{OL} S\)</span>，总有 <span class="math inline">\(-T\succeq_i T\)</span>。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>Def 5.</strong> <span class="math inline">\(\forall S\subseteq X\)</span>，划分 <span class="math inline">\((S,-S)\)</span> 是<strong>无嫉妒</strong>的，如果：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(S\succeq_A -S\)</span>；</li>
+<li><span class="math inline">\(-S\succeq_B S\)</span>。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>Def 6.</strong> 一个无嫉妒划分 <span class="math inline">\((S,-S)\)</span> 称为是<strong>平凡</strong>（trivial）的，如果：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(S\sim_A -S\)</span>；</li>
+<li><span class="math inline">\(S\sim_B -S\)</span>。</li>
+</ol>
+</blockquote>
+<h2 id="upundercut-procedure">UP：Undercut Procedure</h2>
+<h3 id="up算法的步骤">UP算法的步骤</h3>
+<ol style="list-style-type: decimal">
+<li>初始物品堆为 <span class="math inline">\(X\)</span>，<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 分别取当前物品堆中选取各自当前最喜欢的物品 <span class="math inline">\(x_A\)</span> 和 <span class="math inline">\(x_B\)</span>：
+<ul>
+<li>若 <span class="math inline">\(x_A\neq x_B\)</span>：将 <span class="math inline">\(x_A\)</span> 分配给 <span class="math inline">\(A\)</span>，<span class="math inline">\(x_B\)</span> 分配给 <span class="math inline">\(B\)</span>；</li>
+<li>若 <span class="math inline">\(x_A=x_B\)</span>：将该物品放入待定区，记为 <span class="math inline">\(I_c\subseteq X\)</span>；</li>
+</ul></li>
+<li>继续执行 1，直到所有物品都被标记为 <span class="math inline">\(A\)</span>，<span class="math inline">\(B\)</span> 或 <span class="math inline">\(I_c\)</span>；</li>
+<li>考察 <span class="math inline">\(I_c\)</span>：
+<ul>
+<li>若 <span class="math inline">\(I_c\)</span> 为空，则分配结束...（这应该是 <del>废话</del> 显然的）；</li>
+<li>若 <span class="math inline">\(I_c\)</span> 非空，记参与者 <span class="math inline">\(i\)</span>（<span class="math inline">\(i=A,B\)</span>）在 <span class="math inline">\(I_c\)</span> 中的minimal bundle集合为 <span class="math inline">\(MB_i\)</span>，<span class="math inline">\(i\)</span> 将 <span class="math inline">\(MB_i\)</span> （私密地）提交给裁判；</li>
+</ul></li>
+<li>若 <span class="math inline">\(MB_A\neq MB_B\)</span>，则 <span class="math inline">\(i\)</span> 将 <span class="math inline">\(i\)</span> 将 <span class="math inline">\(MB_i\)</span> 中的偏好顺序提交给裁判。
+<ul>
+<li>任取一名选手（例如是 <span class="math inline">\(A\)</span>）；</li>
+<li>取 <span class="math inline">\(MB_A\)</span> 中排名最高的集合，记为 <span class="math inline">\(T\)</span>：
+<ul>
+<li>若 <span class="math inline">\(T\notin MB_B\)</span>，则称其为一个proposal，此时称 <span class="math inline">\(A\)</span> 为一个proposer；</li>
+<li>若 <span class="math inline">\(T\in MB_B\)</span>，则转而考虑 <span class="math inline">\(MB_B\)</span> 中排名最高的集合，判断其是否属于 MB_A$...反复进行；</li>
+<li>由于 <span class="math inline">\(MB_A\neq MB_B\)</span>，故反复进行上述步骤一定能得到一个 <font color="blue"><span class="math inline">\(MB_A\)</span> 中的排第一，但 <span class="math inline">\(MB_B\)</span> 中不排第一</font> 或者 <font color="red"><span class="math inline">\(MB_B\)</span> 中的排第一，但 <span class="math inline">\(MB_A\)</span> 中不排第一</font> 的集合，将其作为proposal。</li>
+</ul></li>
+</ul></li>
+<li>若 <span class="math inline">\(MB_A=MB_B\)</span>：
+<ul>
+<li>若 <span class="math inline">\(\exists i\)</span>，<span class="math inline">\(\exists S\in MB_i\)</span>，s.t. <span class="math inline">\(-S\in MB_i\)</span>，则此时将 <span class="math inline">\(S\)</span> 做为 proposal，<span class="math inline">\(i\)</span> 为proposer；</li>
+<li>若 <span class="math inline">\(\forall i\)</span>，<span class="math inline">\(\not\exists S\in MB_i\)</span>，s.t. <span class="math inline">\(-S\in MB_i\)</span>，则此时随意选择一个minimal bundle <span class="math inline">\(S\)</span> 做为 proposal；</li>
+</ul></li>
+<li>假设 <span class="math inline">\(S\)</span> 是proposal，<span class="math inline">\(A\)</span> 是proposer，则 <span class="math inline">\(B\)</span> 的undercut操作为：
+<ol style="list-style-type: decimal">
+<li><strong>（Accepting）</strong>若 <span class="math inline">\(-S\)</span> 对于 <span class="math inline">\(B\)</span> 是至少价值 50% 的，则 <span class="math inline">\(B\)</span> 可以同意 <span class="math inline">\(I_c\)</span> 的划分 <span class="math inline">\((S,-S)\)</span>；</li>
+<li><strong>（Undercutting）</strong>在所有比 <span class="math inline">\(S\)</span> ordinally less的集合中，取 <span class="math inline">\(B\)</span> 最喜欢的集合 <span class="math inline">\(T\)</span>，重新提出划分 <span class="math inline">\((-T,T)\)</span>；</li>
+</ol></li>
+<li>最终得到一个划分 <span class="math inline">\((F,-F)\)</span>，将 <span class="math inline">\(F\)</span> 分配给 <span class="math inline">\(A\)</span>，<span class="math inline">\(-F\)</span> 分配给 <span class="math inline">\(B\)</span>。</li>
+</ol>
+<h3 id="关于up的讨论">关于UP的讨论</h3>
+<blockquote>
+<p><strong>Th 1.</strong> 存在一个非平凡的无嫉妒划分，当且仅当 <span class="math inline">\(MB_A\neq MB_B\)</span>。并且该情形下，UP给出的是一个无嫉妒划分。</p>
+<blockquote>
+<p><strong>Proof.</strong> <span class="math inline">\(\Leftarrow\)</span>：假设存在一个无嫉妒划分 <span class="math inline">\((S,-S)\)</span>，则必定存在一个参与者更喜欢 <span class="math inline">\(S\)</span>（不妨设为 <span class="math inline">\(A\)</span>），即 <span class="math inline">\(S\succ_A -S\)</span>。 - 若 <span class="math inline">\(S\notin MB_B\)</span>，则 <span class="math inline">\(MB_A\neq MB_B\)</span>，<span class="math inline">\(\Rightarrow\)</span> 得证； - 若 <span class="math inline">\(S\in MB_B\)</span>，则 <span class="math inline">\(S\succeq_B -S\)</span>，结合 <span class="math inline">\((S,-S)\)</span> 是一个无嫉妒划分，应有 <span class="math inline">\(-S\succeq_B S\)</span>，因此 <span class="math inline">\(S\sim_B -S\)</span>。现取 <span class="math inline">\(T\subset X\)</span>，s.t. 对 <span class="math inline">\(B\)</span> 而言有 <span class="math inline">\(T\leqslant_{OL} -S\)</span>（同时亦有 <span class="math inline">\(S\leqslant_{OL} -T\)</span>），则若 <span class="math inline">\(\succeq_B\)</span> 是 <code>合理</code> 的，应有 <span class="math inline">\(-T\succ_B T\)</span>，因此 <span class="math inline">\(-S\)</span> 是 <span class="math inline">\(B\)</span> 的 <code>minimal bundle</code>。即 <span class="math inline">\(-S\in MB_B\)</span>，但 <span class="math inline">\(-S\)</span> 显然不在 <span class="math inline">\(MB_A\)</span> 中，因此 <span class="math inline">\(MB_B\neq MB_A\)</span>。</p>
+<p><span class="math inline">\(\Rightarrow\)</span>：若存在 <span class="math inline">\(S\)</span>，s.t. <span class="math inline">\(S\in MB_A\)</span> 但 <span class="math inline">\(S\notin MB_B\)</span>，则有且仅有以下两种互斥的情形：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(S\succ_B -S\)</span>，此时存在一个 <span class="math inline">\(T\leqslant_{OL} S\)</span>，s.t. <span class="math inline">\(T\succeq _B -T\)</span>，即 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(B\)</span> 来说 <code>至少价值50%</code>；</li>
+<li><span class="math inline">\(-S\succ_B T\)</span>。</li>
+</ol>
+<p>由于以上两种情况是互斥的，因此有且仅有一个发生。然而，在以上两种中的每一种情况下，<span class="math inline">\(B\)</span> 都得到了 <code>至少价值50%</code> 的集合。同时，<span class="math inline">\(A\)</span> 也得到了 <code>至少价值50%</code> 的集合：</p>
+<ul>
+<li>若 <span class="math inline">\(B\)</span> 接受了 <span class="math inline">\(A\)</span> 的proposal，则 <span class="math inline">\(A\)</span> 得到了 <code>至少价值50%</code> 的集合；</li>
+<li>若 <span class="math inline">\(B\)</span> undercut了<span class="math inline">\(A\)</span> 的proposal，则<span class="math inline">\(B\)</span> 的每一种undercut操作都会使得 <span class="math inline">\(A\)</span> 得到 <code>价值至少50%</code> 的集合。</li>
+</ul>
+<p>因此，此时一定能得到一个无嫉妒划分。</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>Cor 1.</strong> 在待定区的划分中，一个参与者（例如是 <span class="math inline">\(A\)</span>）的 maximin 策略是给出自己所有的minimal bundle。若 <span class="math inline">\(MB_A\neq MB_B\)</span>，则 <span class="math inline">\(A\)</span> 的收益不会低于 50%，如果他的proposal是一个自己的minimal bundle。但若存在未提交的minimal bundle，或是提交了非minimal bundle 的集合，则可能导致他的收益低于 50%。</p>
+</blockquote>
+<!-- > **Proof.** 若 $MB_A=MB_B$，则 $A$ 的收益不会超过50%。
+> 若 $MB_A\neq MB_B$，则 -->
+<blockquote>
+<p><strong>Def 7.</strong> 称 <span class="math inline">\(\mathcal{X}\)</span> 上的偏好 <span class="math inline">\(\succeq\)</span> 满足<strong>扩展单调性</strong>，如果：</p>
+<ul>
+<li><span class="math inline">\(\forall S,T\in\mathcal{X}\)</span>，所有单物品偏好 <span class="math inline">\(P\)</span>，以及所有 <span class="math inline">\(x,y\in X\backslash(S\cup T)\)</span>，总有： <span class="math display">\[\begin{cases}
+   S\succeq T \\
+   x~P~y
+\end{cases}\Rightarrow S\cup\{x\}\succ T\cup\{y\}.\]</span></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Prop 1.</strong> 假设参与者的偏好都是 <code>合理</code> 且 <code>扩展单调</code> 的，给定待定区的一个无嫉妒划分，则UP给出的整体划分是无嫉妒的。</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 这个命题基本上一听就是个废话。</p>
+</blockquote>
+<h2 id="两个参与者偏好完全相同的情形">两个参与者偏好完全相同的情形</h2>
+<ul>
+<li><span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 在 <span class="math inline">\(I_c\)</span> 上的单物偏好相同，均为 <span class="math inline">\(1~P~2~P\cdots P~c\)</span>；</li>
+<li>记 <span class="math inline">\(I_c=\{1,2,\cdots,c\}\)</span>。</li>
+</ul>
+<blockquote>
+<p><strong>Def 8.</strong> 集合 <span class="math inline">\(S\subseteq I_c\)</span> 称为是<strong>可行</strong>的，如果存在一个 <code>合理</code> 的偏好 <span class="math inline">\(\succeq\)</span>，s.t. <span class="math inline">\(S\succ -S\)</span>。</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 2.</strong> 令 <span class="math inline">\(S\subseteq I_c\)</span>，且 <span class="math inline">\(S\neq\varnothing\)</span>。则 <span class="math inline">\(S\)</span> 是 <code>可行</code> 的，当且仅当存在 <span class="math inline">\(k\leqslant c\)</span>，s.t. <span class="math inline">\(|I_k\cap S|&gt; \frac{k}{2}\)</span>。</p>
+<blockquote>
+<p><strong>Proof.</strong> 这个定理的样子类似于 &quot;Computing a small agreeable set of indivisible items&quot; 一文中的 Prop 1，证明也比较显然。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>Cor 2.</strong> 对 <span class="math inline">\(\forall c\)</span>，<span class="math inline">\(\{1\}\)</span> 和 <span class="math inline">\(\forall S\)</span>，s.t. <span class="math inline">\(1\in S\)</span> 都是 <code>可行</code> 的。</p>
+</blockquote>
+<blockquote>
+<p><strong>Cor 3.</strong> 假设 <span class="math inline">\(S\subseteq I_c\)</span> 且 <span class="math inline">\(1\notin S\)</span>。若 <span class="math inline">\(S\)</span> 是 <code>可行</code> 的，则 <span class="math inline">\((S,-S)\)</span> 和 <span class="math inline">\((-S,S)\)</span> 都可能是无嫉妒的划分。</p>
+</blockquote>
+<ul>
+<li>以上两个推论都很容易理解和证明...不再赘述。</li>
+</ul>
+<hr>
+<p>除此之外，还有一个很有意思的结论：</p>
+<ul>
+<li>用 <span class="math inline">\(f(c)\)</span> 表示待定区包含 <span class="math inline">\(c\)</span> 个物品时，<span class="math inline">\(I_c\)</span> 的无嫉妒划分方案数，则有： <span class="math display">\[f(c)=\begin{cases}
+2^{c-1}-\binom{c}{(c-1)/2}, &amp; 2\not| ~c \\
+2^{c-1}-\binom{c}{c/2},&amp; 2~|~c
+\end{cases}\]</span></li>
+</ul>
+<hr>
+<h2 id="待定区大小的估计">待定区大小的估计</h2>
+<ul>
+<li>用 <span class="math inline">\(n\)</span> 表示物品数量，参与者 <span class="math inline">\(A\)</span> 的偏好为 <span class="math inline">\(1P_A 2P_A\cdots P_A n\)</span>，且该偏好是严格的；</li>
+<li><p>记 <span class="math inline">\(c(n)\)</span> 为待定区中物品个数的期望。</p></li>
+<li>若 <span class="math inline">\(n=1\)</span>，显然物品 <span class="math inline">\(1\)</span> 会被丢入待定区，因此 <span class="math inline">\(c(1)=1\)</span>；</li>
+<li>若 <span class="math inline">\(n=2\)</span>，则 <span class="math inline">\(B\)</span> 的可能偏好有两种，每种情况的概率为 <span class="math inline">\(1/2\)</span>，因此 <span class="math inline">\(c(2)=\frac{1}{2}\cdot 0+\frac{1}{2}\cdot 2=1\)</span>。</li>
+<li>若 <span class="math inline">\(n\geqslant 3\)</span>，则：
+<ul>
+<li><span class="math inline">\(B\)</span> 最喜欢物品 <span class="math inline">\(1\)</span> 的概率为 <span class="math inline">\(\frac{1}{n}\)</span>，此时 <span class="math inline">\(1\)</span> 会被置入待定区，随后进入 <span class="math inline">\(c(n-1)\)</span> 情形；</li>
+<li><span class="math inline">\(B\)</span> 最喜欢的不是 <span class="math inline">\(1\)</span> 的概率为 <span class="math inline">\(\frac{n-1}{n}\)</span>，此时 <span class="math inline">\(1\)</span> 会被送给 <span class="math inline">\(A\)</span>，<span class="math inline">\(B\)</span> 也会得到他最喜欢的物品，随后进入 <span class="math inline">\(c(n-2)\)</span> 情形。</li>
+</ul></li>
+<li><p>综上所述，在 <span class="math inline">\(n\geqslant 3\)</span> 时，有： <span class="math display">\[c(n)=\frac{1}{n}[1+c(n-1)]+\frac{n-1}{n}c(n-2).\]</span></p></li>
+</ul>
+<blockquote>
+<p><strong>Lemma 1.</strong> 若 <span class="math inline">\(c(n-1)=c(n-2)=x\)</span>，则 <span class="math inline">\(c(n)=c(n+1)=x+\frac{1}{n}\)</span>。</p>
+<blockquote>
+<p><strong>Proof.</strong> 这个证明是不是过于简单了...</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>Th 3.</strong> 若 <span class="math inline">\(k\geqslant 1\)</span>，则 <span class="math display">\[c(2k+1)=c(2k+2)=1+\frac{1}{3}+\frac{1}{5}+\cdots+\frac{1}{2k+1}.\]</span></p>
+<blockquote>
+<p><strong>Proof.</strong> 这个证明也很简单（</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Th 3 表明，<span class="math inline">\(c(n)\)</span> 是发散的。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
+          
+            <a href="/tags/社会计算/" rel="tag"># 社会计算</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+            <a href="/tags/经济学/" rel="tag"># 经济学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/15/论文笔记-4-——On-social-envy-freeness-in-multi-unit-markets/" rel="next" title="论文笔记[4]——On social envy-freeness in multi-unit markets">
+                <i class="fa fa-chevron-left"></i> 论文笔记[4]——On social envy-freeness in multi-unit markets
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/04/论文笔记-6-——Fair-assignment-of-indivisible-objects-under-ordinal-preferences/" rel="prev" title="论文笔记[6]——Fair assignment of indivisible objects under ordinal preferences">
+                论文笔记[6]——Fair assignment of indivisible objects under ordinal preferences <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="戳兔专家 lzcwr" />
+            
+              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概要"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">2.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#upundercut-procedure"><span class="nav-number">3.</span> <span class="nav-text">UP：Undercut Procedure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#up算法的步骤"><span class="nav-number">3.1.</span> <span class="nav-text">UP算法的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于up的讨论"><span class="nav-number">3.2.</span> <span class="nav-text">关于UP的讨论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个参与者偏好完全相同的情形"><span class="nav-number">4.</span> <span class="nav-text">两个参与者偏好完全相同的情形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待定区大小的估计"><span class="nav-number">5.</span> <span class="nav-text">待定区大小的估计</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
