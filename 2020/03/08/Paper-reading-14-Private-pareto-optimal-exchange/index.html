@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  Sampath Kannan, et al. Priva">
+<meta name="description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
 <meta name="keywords" content="计算机,北大,社会计算,论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记[14]——Private Pareto Optimal Exchange">
 <meta property="og:url" content="http://lizhechen.com/2020/03/08/Paper-reading-14-Private-pareto-optimal-exchange/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  Sampath Kannan, et al. Priva">
+<meta property="og:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-08T09:35:17.985Z">
+<meta property="og:updated_time" content="2020-03-08T14:34:41.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[14]——Private Pareto Optimal Exchange">
-<meta name="twitter:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  Sampath Kannan, et al. Priva">
+<meta name="twitter:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
 
 
 
@@ -394,10 +394,34 @@
 
       
         <p>Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.</p>
+<ul>
+<li><font color="red">注意，本文中的市场是一个以物易物（barter）的市场.</font></li>
+</ul>
 <blockquote>
 <p>Sampath Kannan, et al. Private pareto optimal exchange. ACM Transactions on Economics and Computation (TEAC), 2018.</p>
 </blockquote>
 <a id="more"></a>
+<h2 id="model">MODEL</h2>
+<ul>
+<li><span class="math inline">\(k\)</span> 种类型的物品，类型集合记为 <span class="math inline">\(\mathcal{G}=\{g_1,\ldots,g_k\}\)</span>. <span class="math inline">\(n\)</span> 个 agent，记为 <span class="math inline">\(N\)</span>；
+<ul>
+<li>初始状态下，每个人都有每个物品恰好一个；</li>
+<li>每个人都对所有物品有一个偏好，记为 <span class="math inline">\(\succ_i\)</span>；</li>
+</ul></li>
+<li>记 <span class="math inline">\(N_j=\{i: g_i=j\}\)</span>，<span class="math inline">\(n_i=|N_j|\)</span>，用以表示把物品 <span class="math inline">\(j\in\mathcal{G}\)</span> 带入市场的 agent.
+<ul>
+<li>由于每个人每种物品只带一个，故 <span class="math inline">\(\sum_{g\in\mathcal{G}} n_j=n\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>定义 2.3 (IR)</strong> 一个分配 <span class="math inline">\(\pi\)</span> 若满足 <span class="math inline">\(\pi(i)\succeq_i g_i,~\forall i\in N\)</span>，则称其是 Individual Rational（IR）的.</p>
+</blockquote>
+<blockquote>
+<p><strong>定义 2.4 (<span class="math inline">\(\alpha\)</span>-PO)</strong> 一个分配 <span class="math inline">\(\pi\)</span>，若对其他任何分配 <span class="math inline">\(\pi&#39;\)</span>，若存在 <span class="math inline">\(S\subset N\)</span>，s.t. <span class="math inline">\(|S|&gt;\alpha n\)</span> 且 <span class="math inline">\(\pi&#39;(i)\succ_i \pi(i)\)</span>，<span class="math inline">\(\forall i\in S\)</span>，则必定存在一些 <span class="math inline">\(j\in N\backslash S\)</span>，s.t. <span class="math inline">\(\pi(j)\succ_j \pi&#39;(j)\)</span>，则称 <span class="math inline">\(\pi\)</span> 是 <span class="math inline">\(\alpha\)</span>-Pareto Optimal（PO）的.</p>
+</blockquote>
+<ul>
+<li>In other word, an allocation is α-PO if strictly improving the allocation for more than anα-fraction of agents necessarily requires strictly harming the allocation of at least 1 agent.</li>
+</ul>
 
       
     </div>
@@ -497,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -632,6 +665,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">1.</span> <span class="nav-text">MODEL</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
