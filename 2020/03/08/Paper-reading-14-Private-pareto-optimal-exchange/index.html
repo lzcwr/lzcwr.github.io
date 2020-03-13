@@ -94,10 +94,12 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-08T14:34:41.619Z">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/Private%20Pareto%20optimal%20exchange-PTTC.png">
+<meta property="og:updated_time" content="2020-03-12T13:57:05.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[14]——Private Pareto Optimal Exchange">
 <meta name="twitter:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/Private%20Pareto%20optimal%20exchange-PTTC.png">
 
 
 
@@ -410,7 +412,7 @@
 </ul></li>
 <li>记 <span class="math inline">\(N_j=\{i: g_i=j\}\)</span>，<span class="math inline">\(n_i=|N_j|\)</span>，用以表示把物品 <span class="math inline">\(j\in\mathcal{G}\)</span> 带入市场的 agent.
 <ul>
-<li>由于每个人每种物品只带一个，故 <span class="math inline">\(\sum_{g\in\mathcal{G}} n_j=n\)</span></li>
+<li>由于每个人每种物品只带一个，故 <span class="math inline">\(\sum_{j\in\mathcal{G}} n_j=n\)</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -420,8 +422,92 @@
 <p><strong>定义 2.4 (<span class="math inline">\(\alpha\)</span>-PO)</strong> 一个分配 <span class="math inline">\(\pi\)</span>，若对其他任何分配 <span class="math inline">\(\pi&#39;\)</span>，若存在 <span class="math inline">\(S\subset N\)</span>，s.t. <span class="math inline">\(|S|&gt;\alpha n\)</span> 且 <span class="math inline">\(\pi&#39;(i)\succ_i \pi(i)\)</span>，<span class="math inline">\(\forall i\in S\)</span>，则必定存在一些 <span class="math inline">\(j\in N\backslash S\)</span>，s.t. <span class="math inline">\(\pi(j)\succ_j \pi&#39;(j)\)</span>，则称 <span class="math inline">\(\pi\)</span> 是 <span class="math inline">\(\alpha\)</span>-Pareto Optimal（PO）的.</p>
 </blockquote>
 <ul>
-<li>In other word, an allocation is α-PO if strictly improving the allocation for more than anα-fraction of agents necessarily requires strictly harming the allocation of at least 1 agent.</li>
+<li>换言之, 一个分配是 <span class="math inline">\(\alpha-PO\)</span> 的，如果严格提升 <span class="math inline">\(\alpha\)</span> 比例的 agent 的收益，会严格损害至少一个 agent 的利益.</li>
 </ul>
+<blockquote>
+<p><strong>定义 2.5（Joint dp）</strong> 机制 <span class="math inline">\(M:\mathcal{X}^n\to O^n\)</span> 满足 <span class="math inline">\((\epsilon,\delta)\)</span>-joint dp，如果 <span class="math inline">\(\forall i\in[n]\)</span>，以及 <span class="math inline">\(x_i,x_i&#39;\in\mathcal{X}\)</span>，<span class="math inline">\(\mathbf{x}_{-i}\in\mathcal{X}^{n-1}\)</span>，以及 <span class="math inline">\(\forall B_{-i}\subseteq O^{n-1}\)</span>，总有： <span class="math display">\[\left.\mathbb{P}\left(M\left(\mathbf{x}_{-i}, x_{i}\right)_{-i} \in B_{-i}\right) \leq e^{\epsilon} \mathbb{P}\left(M\left(\mathbf{x}_{-i}, x_{i}^{\prime}\right)\right)_{-i} \in B_{-i}\right)+\delta.\]</span></p>
+</blockquote>
+<p>本文提出了一个比联合差分隐私更宽松的隐私：边缘差分隐私：</p>
+<blockquote>
+<p><strong>定义 2.6 （Marginal dp）</strong> 机制 <span class="math inline">\(M:\mathcal{X}^n\to O^n\)</span> 满足 <span class="math inline">\((\epsilon,\delta)\)</span>-marginal dp，如果 <span class="math inline">\(\forall i\neq j\)</span>，<span class="math inline">\(\forall \mathbf{x}_{-i}\in\mathcal{X}^{n-1}\)</span>，<span class="math inline">\(\forall x_i,x_i&#39;\in\mathcal{X}\)</span>，以及 <span class="math inline">\(\forall B\subset O\)</span>，总有： <span class="math display">\[\mathbb{P}\left(M\left(\mathbf{x}_{-i}, x_{i}\right)_{j} \in B\right) \leq e^{\epsilon} \mathbb{P}\left(M\left(\mathbf{x}_{-i}, x_{i}^{\prime}\right)_{j} \in B\right)+\delta.\]</span></p>
+</blockquote>
+<h2 id="lower-bounds">LOWER BOUNDS</h2>
+<ol style="list-style-type: decimal">
+<li>在 Joint-dp 下，无法同时满足 IR 和 渐进PO.</li>
+<li>在 Marginal-dp 下，所有 IR 且 <span class="math inline">\(\alpha\)</span>-PO 的分配都需要满足 <span class="math inline">\(\alpha=\Omega(k/n)\)</span>. 其中 <span class="math inline">\(k\)</span> 表示物品种类数.</li>
+</ol>
+<h3 id="在-joint-dp-下的不可能结果">在 Joint-dp 下的不可能结果</h3>
+<p>不可能结果是基于如下断言来证明的：</p>
+<blockquote>
+<p><strong>CLAIM 3.1</strong> 不存在 <span class="math inline">\((\epsilon,\delta)\)</span>-dp 机制 <span class="math inline">\(M:\{0,1\}\to \{0,1\}\)</span>，s.t. <span class="math inline">\(\mathbb{P}(M(b)=b)&gt;\frac{e^\epsilon+\delta}{e^\epsilon+1}\)</span>，<span class="math inline">\(b=0,1\)</span>.</p>
+</blockquote>
+<ul>
+<li>利用 dp 的定义即可证明.</li>
+</ul>
+<p>在 exchange markets 中，设 <span class="math inline">\(\mathcal{X}=\mathcal{G}\times\mathcal{T}\)</span>，其中 <span class="math inline">\(\mathcal{G}\)</span> 是物品的类型，<span class="math inline">\(\mathcal{T}\)</span> 是 <span class="math inline">\(\mathcal{G}\)</span> 上的线性序.</p>
+<ul>
+<li>下面的定理说明了不能同时保证隐私性、IR、和 <span class="math inline">\(o(1)\)</span>-PO.</li>
+</ul>
+<blockquote>
+<p><strong>定理 3.2</strong> 对 <span class="math inline">\(\forall \epsilon,\delta,\beta&gt;0\)</span>，若有一个机制 <span class="math inline">\(M_J:\mathcal{X}^n\to\mathcal{G}^n\)</span> 满足 <span class="math inline">\((\epsilon,\delta)\)</span>-Joint dp，满足 IR，且有至少 <span class="math inline">\(1-\beta\)</span> 的概率满足 <span class="math inline">\(\alpha\)</span>-PO，则： <span class="math display">\[\alpha \geq 1-\frac{e^{\epsilon}+\delta}{(1-\beta)\left(e^{\epsilon}+1\right)}.\]</span></p>
+</blockquote>
+<ul>
+<li><strong>证明</strong>：利用 Claim 3.1 进行归约. 若存在满足条件且 <span class="math inline">\(\alpha&gt;...\)</span> 的机制，则可以构造出与 Claim 3.1 矛盾的 <span class="math inline">\(M:\{0,1\}\to\{0,1\}\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>定理 3.3</strong> 对 <span class="math inline">\(\forall \epsilon,\delta,\beta&gt;0\)</span>，若有一个机制 <span class="math inline">\(M_S:\mathcal{X}^n\to\mathcal{G}^n\)</span> 满足 <span class="math inline">\((\epsilon,\delta)\)</span>-Marginal dp，满足 IR，且有至少 <span class="math inline">\(1-\beta\)</span> 的概率满足 <span class="math inline">\(\alpha\)</span>-PO，则： <span class="math display">\[\alpha \geq \frac{k(1-\beta)}{n}\left(1-\frac{e^{\epsilon}+\delta}{e^{\epsilon}+1}\right).\]</span></p>
+</blockquote>
+<ul>
+<li><strong>证明思路与 3.2 类似</strong>.</li>
+</ul>
+<h2 id="private-top-trading-cyclettc">PRIVATE TOP TRADING CYCLE（TTC）</h2>
+<blockquote>
+<p>本节主要提出了一个算法 PTTC，能够在 marginal-dp 下得到 IR 且 <span class="math inline">\(\alpha\)</span>-PO 的分配.</p>
+</blockquote>
+<p>首先，什么是 TTC？</p>
+<ul>
+<li>TTC 是一种 exchange market 的分配机制. 具体算法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">初始状态：n 个人 1,...,n，每个人有一个物品 a_1,...,a_n. </span><br><span class="line">初始状态下 a_i 在 i 手中，且可被分配的物品池为所有物品.</span><br><span class="line"></span><br><span class="line">1. 从某个人 i 出发，找到他在当前物品池中最喜欢的物品 a_j;</span><br><span class="line">2. 找到 a_j 的主人，当然是 j;</span><br><span class="line">3. 重复进行步骤 1,2 直至成环;</span><br><span class="line">4. 若 i -&gt; j -&gt; ... -&gt; i 构成一个环，则给环上的所有人分配他们最喜欢的物品;</span><br><span class="line">5. 并把这些物品从物品池中删除;</span><br><span class="line">6. 若物品池非空，继续进行上述步骤，直到物品池空.</span><br></pre></td></tr></table></figure>
+<p>接下来是 PTTC：</p>
+<ul>
+<li>输入是一个 Exchange market：<span class="math inline">\(\mathbf{x}=(g_i,\succ)_{i=1}^n\)</span></li>
+<li>考虑有向完全图 <span class="math inline">\(G=(V,A)\)</span>
+<ul>
+<li>结点 <span class="math inline">\(u\in V\)</span> 代表一个 <span class="math inline">\(\mathcal{G}\)</span> 中的物品. <span class="math inline">\(\forall e=(u,v)\in A\)</span>。</li>
+<li>定义 <span class="math inline">\(P_{(u,v)}\)</span> 为拥有物品 <span class="math inline">\(u\)</span>，但最喜欢 <span class="math inline">\(v\)</span> 的人所构成的集合，i.e. <span class="math inline">\(P_{(u,v)}=\{i\in N: g_i=u~且~v\succeq_i g,~\forall g\in V\}\)</span></li>
+</ul></li>
+<li>弧的权重(Arc weight)：<span class="math inline">\(w_e=|P_e|\)</span>，<span class="math inline">\(\forall e\in A\)</span>.</li>
+<li>令 <span class="math inline">\(N_u\)</span> 表示拥有物品 <span class="math inline">\(u\)</span> 的人构成的集合. 易有 <span class="math inline">\(N=\bigcup_{u\in V} N_u\)</span>.</li>
+</ul>
+<p>其具体步骤如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">step 1. 计算 arc-weights，并且加噪音（保护隐私）;</span><br><span class="line">step 2. 把在每条边上权重都足够大的环清除掉，这一步确定哪些物品需要被交易（dp）;</span><br><span class="line">step 3. 执行交易（只能满足 marginal-dp）;</span><br><span class="line">step 4. 把交易涉及的物品从物品池中删去. 有必要的话，返回 step 1.</span><br></pre></td></tr></table></figure>
+<p>具体分析：</p>
+<p><strong>Step 1</strong>：给 arc-weight 加入参数为 <span class="math inline">\(1/\epsilon&#39;\)</span> 的 Laplace 噪声 <span class="math inline">\(Z_e\)</span>，其中： <span class="math display">\[\epsilon^{\prime}=\frac{\epsilon \log \left(k^{3} / \beta\right)}{2 \sqrt{8}\left(\log \left(k^{3} / \beta\right) \sqrt{k \log \left(1 / \delta_{1}\right)}+k \sqrt{k \log \left(1 / \delta_{2}\right)}\right)}.\]</span></p>
+<p><strong>Step 2</strong>：若存在环 <span class="math inline">\(C\)</span>，其中的边都满足 <span class="math inline">\(\lfloor\hat{w}_e\rfloor&gt;0\)</span>，则令 <span class="math inline">\(\hat{W}=\min_{e\in C}\{\lfloor\hat{w}_e\rfloor\}\)</span> 为 <span class="math inline">\(C\)</span> 的权重. 若无环，则到 <strong>Step 4</strong>.</p>
+<p><strong>Step 3</strong>：若 <strong>Step 2</strong> 中得到了权重为 <span class="math inline">\(\hat{W}\)</span> 的环 <span class="math inline">\(C\)</span>，则 <span class="math inline">\(\forall e\in C\)</span>，都从 <span class="math inline">\(P_e\)</span> 中选取 <span class="math inline">\(\hat{W}\)</span> 个 agent，分别沿着边 <span class="math inline">\(e\)</span> 进行交易，称这些 agent 为 satisfied agents，记为 <span class="math inline">\(S_e\)</span>.</p>
+<p><strong>Step 4</strong>：若 <strong>Step 2</strong> 中没有满足条件的环，则必定存在结点 <span class="math inline">\(v\)</span>，s.t. <span class="math inline">\(\hat{n}_v=\sum\limits_{e:e=(v,z),z\in V}\hat{w}_e&lt;k\)</span></p>
+<p><strong>Step 5</strong> 若我们分配了超量的物品，或者我们选择进行交易的人超过了想要交易的人的数量，则取消这些物品的交易，并把这些人初始拥有的物品还给他们.</p>
+<p>原文 Appendix 中的伪代码如下：</p>
+<center>
+<img src="/img/blog-graph/Private Pareto optimal exchange-PTTC.png" width="600" alt="A pseudo-code for PTTC">
+</center>
+<p>以下为本文的核心结果之一：</p>
+<blockquote>
+<p><strong>定理 4.1</strong> 对 <span class="math inline">\(\epsilon,\delta_1,\delta_2,\beta&gt;0\)</span>，PTTC 提供 <span class="math inline">\((\epsilon,\delta_1+\delta_2+\beta)\)</span>-marginal dp 保护，输出的结果为 IR，同时有 <span class="math inline">\(1-\beta\)</span> 的概率输出 <span class="math inline">\(\alpha\)</span>-PO 的结果，其中： <span class="math display">\[\alpha=O\left(\frac{k^{3}}{\epsilon n} \cdot\left(\sqrt{k \log \left(1 / \delta_{1}\right)} \log \left(k^{3} / \beta\right)+k \sqrt{k \log \left(1 / \delta_{2}\right)}\right)\right).\]</span></p>
+</blockquote>
+<h3 id="效率的证明po-and-ir">效率的证明（PO and IR）</h3>
+<blockquote>
+<p><strong>引理 4.2</strong> PTTC 输出的结果是 IR 的.</p>
+</blockquote>
+<blockquote>
+<p><strong>定理 4.6</strong> 对 <span class="math inline">\(\epsilon,\delta_1,\delta_2,\beta&gt;0\)</span>，PTTC 以 <span class="math inline">\(1-\beta\)</span> 的概率输出 <span class="math inline">\(\alpha\)</span>-PO 的分配，其中 <span class="math display">\[\alpha=\tilde{O}\left( \frac{k^{9/2}}{\epsilon n} \right).\]</span> 因此，PTTC 是渐进 PO 的.</p>
+</blockquote>
+<h3 id="隐私性分析">隐私性分析</h3>
+<blockquote>
+<p><strong>定理 4.14</strong> 对 <span class="math inline">\(\epsilon,\delta_1,\delta_2,\beta&gt;0\)</span>，PTTC: <span class="math inline">\(\mathcal{X}^n\to\mathcal{G}^n\)</span> 提供 <span class="math inline">\((\epsilon,\delta_1+\delta_2+\beta)\)</span>-marginal dp.</p>
+</blockquote>
+<h2 id="allowing-a-small-supply-of-goods-to-be-injected">ALLOWING A SMALL SUPPLY OF GOODS TO BE INJECTED</h2>
 
       
     </div>
@@ -467,6 +553,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/11/Some-Cmd-skills-for-Windows/" rel="prev" title="Windows Cmd 的一些使用技巧">
+                Windows Cmd 的一些使用技巧 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -550,7 +640,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">98</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +662,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -675,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">1.</span> <span class="nav-text">MODEL</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">1.</span> <span class="nav-text">MODEL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lower-bounds"><span class="nav-number">2.</span> <span class="nav-text">LOWER BOUNDS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-joint-dp-下的不可能结果"><span class="nav-number">2.1.</span> <span class="nav-text">在 Joint-dp 下的不可能结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#private-top-trading-cyclettc"><span class="nav-number">3.</span> <span class="nav-text">PRIVATE TOP TRADING CYCLE（TTC）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#效率的证明po-and-ir"><span class="nav-number">3.1.</span> <span class="nav-text">效率的证明（PO and IR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐私性分析"><span class="nav-number">3.2.</span> <span class="nav-text">隐私性分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#allowing-a-small-supply-of-goods-to-be-injected"><span class="nav-number">4.</span> <span class="nav-text">ALLOWING A SMALL SUPPLY OF GOODS TO BE INJECTED</span></a></li></ol></div>
             
 
           </div>
