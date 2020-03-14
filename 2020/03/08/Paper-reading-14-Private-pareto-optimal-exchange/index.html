@@ -95,7 +95,7 @@
 <meta property="og:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/Private%20Pareto%20optimal%20exchange-PTTC.png">
-<meta property="og:updated_time" content="2020-03-12T13:57:05.121Z">
+<meta property="og:updated_time" content="2020-03-14T14:48:36.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[14]——Private Pareto Optimal Exchange">
 <meta name="twitter:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
@@ -504,10 +504,37 @@
 <p><strong>定理 4.6</strong> 对 <span class="math inline">\(\epsilon,\delta_1,\delta_2,\beta&gt;0\)</span>，PTTC 以 <span class="math inline">\(1-\beta\)</span> 的概率输出 <span class="math inline">\(\alpha\)</span>-PO 的分配，其中 <span class="math display">\[\alpha=\tilde{O}\left( \frac{k^{9/2}}{\epsilon n} \right).\]</span> 因此，PTTC 是渐进 PO 的.</p>
 </blockquote>
 <h3 id="隐私性分析">隐私性分析</h3>
+<p>首先是一个引理，它展示了证明 marginal-dp 的一个途径：</p>
+<blockquote>
+<p><strong>引理 4.11</strong> 令 <span class="math inline">\(M^1:\mathcal{X}\to O\)</span> 为 <span class="math inline">\((\epsilon_1,\delta_1)\)</span>-dp 的，<span class="math inline">\(M_j^2:\mathcal{X}^{n-1}\times\mathcal{X}\times O\to R\)</span>，<span class="math inline">\(\j=1,\ldots,n\)</span> 对其第一个变量为 <span class="math inline">\((\epsilon_2,\delta_2)\)</span>-dp 的，则 <span class="math inline">\(M:\mathcal{X}^n\to R^n\)</span> 是 <span class="math inline">\((\epsilon_1+\epsilon_2,\delta_1+\delta_2)\)</span>-marginal dp 的. 其中： <span class="math display">\[M(\mathbf{x})=\left(M_{j}^{2}\left(\mathbf{x}_{-j}, x_{j}, M^{1}(\mathbf{x})\right)\right)_{j=1}^{n}.\]</span></p>
+</blockquote>
 <blockquote>
 <p><strong>定理 4.14</strong> 对 <span class="math inline">\(\epsilon,\delta_1,\delta_2,\beta&gt;0\)</span>，PTTC: <span class="math inline">\(\mathcal{X}^n\to\mathcal{G}^n\)</span> 提供 <span class="math inline">\((\epsilon,\delta_1+\delta_2+\beta)\)</span>-marginal dp.</p>
 </blockquote>
 <h2 id="allowing-a-small-supply-of-goods-to-be-injected">ALLOWING A SMALL SUPPLY OF GOODS TO BE INJECTED</h2>
+<p>抛开隐私性的限制，也不使用 TTC 算法，我们可以通过解如下问题来获得 IR 且 PO 的 exchange： <span class="math display">\[\begin{aligned}
+&amp;\max _{z}~~\sum_{i \in[n]} \sum_{ j \in \mathcal{G}} r_{i j} z_{i j}\\
+&amp;\text { s.t. } \quad \sum_{j \in \mathcal{G}} z_{i j}=n_{j} \quad \forall i \in[n]\\
+&amp;\qquad~~~ \forall j \in \mathcal{G} \text { s.t. } g_{i}&gt;_{i} j \quad z_{i, j}=0 \quad \forall i \in[n] \\
+&amp;\qquad~~~ \sum_{i \in[n]} z_{i j}=1 \quad \forall j \in G \\
+&amp;\qquad~~~ z_{i j} \in\{0,1\}
+\end{aligned}\]</span> 其中：</p>
+<ul>
+<li>若 <span class="math inline">\(j\succeq_i g_i\)</span> 且 <span class="math inline">\(j\)</span> 是 <span class="math inline">\(i\)</span> 的第 <span class="math inline">\(r\)</span> 选择，则 <span class="math inline">\(r_{ij}=k-r+1\)</span>.</li>
+<li>若 <span class="math inline">\(g_i\succ_i j\)</span>，则 <span class="math inline">\(w_{ij}=0\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>定理 5.1</strong> 上述约束问题的解是 IR 且 PO 的.</p>
+<blockquote>
+<p><strong>证明：</strong> 由第二个约束条件，每个人都不会选择比自己初始拥有的物品辣鸡的物品来交换，因此是 IR 的. 另一方面，如果上述规划问题的一个解存在 Pareto 改进，将破坏该规划问题的最优性，因此是 PO 的.</p>
+</blockquote>
+</blockquote>
+<p>接下来作者改进了 Justin Hsu 在 2014 年的工作，获得了渐进PO，IR 且满足 Joint-dp 的分配，但需要允许我们注入一些额外的物品.</p>
+<blockquote>
+<p><strong>定理 5.3</strong> 在 exchange markets 中，存在满足 <span class="math inline">\((\epsilon, \delta)\)</span> Joint-dp 的分配机制，使得导出的分配至少有 <span class="math inline">\(1-\beta\)</span> 的概率满足 <span class="math inline">\(\alpha\)</span>-PO 且总是 IR 的, 但可能需要 <span class="math inline">\(\Lambda\)</span> 个额外的物品，以使得每个人都至少得到一个物品，其中： <span class="math display">\[
+\alpha=O\left(\frac{k^{2} \log ^{3 / 2}(n k / \beta) \log ^{1 / 2}(n / \delta)}{\sqrt{n} \epsilon}\right) \quad \text { and } \quad \Lambda=O\left(\frac{k \sqrt{n} \log ^{3 / 2}(n k / \beta) \log ^{1 / 2}(n / \delta)}{\epsilon}\right)
+\]</span></p>
+</blockquote>
 
       
     </div>
