@@ -89,14 +89,14 @@
 <meta name="description" content="常用系统还是windows，在使用过程中记录一些实用的技巧.">
 <meta name="keywords" content="Cmd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows Cmd 的一些使用技巧">
+<meta property="og:title" content="Windows 命令行的一些使用技巧">
 <meta property="og:url" content="http://lizhechen.com/2020/03/11/Some-Cmd-skills-for-Windows/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="常用系统还是windows，在使用过程中记录一些实用的技巧.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-11T01:26:54.268Z">
+<meta property="og:updated_time" content="2020-03-19T06:57:26.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows Cmd 的一些使用技巧">
+<meta name="twitter:title" content="Windows 命令行的一些使用技巧">
 <meta name="twitter:description" content="常用系统还是windows，在使用过程中记录一些实用的技巧.">
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>Windows Cmd 的一些使用技巧 | Zhechen's Personal Website</title>
+  <title>Windows 命令行的一些使用技巧 | Zhechen's Personal Website</title>
   
 
 
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Windows Cmd 的一些使用技巧</h1>
+          <h1 class="post-title" itemprop="name headline">Windows 命令行的一些使用技巧</h1>
         
 
         <div class="post-meta">
@@ -402,6 +402,10 @@
 <p>下述代码会给当前目录下的所有 <code>.jpg</code> 文件加一个 <code>图像_</code> 的前缀.</p>
 </blockquote>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> /f "delims=-" %i <span class="keyword">in</span> ('<span class="built_in">dir</span> *.jpg /b') <span class="keyword">do</span> <span class="built_in">move</span> %i 图像_%i</span><br></pre></td></tr></table></figure>
+<ul>
+<li>卸载 Windows 10 自带的 Groove 音乐</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">首先运行：Get-AppxPackage -AllUsers &gt; a.txt 如此即可将所有应用打在 a.txt 中.</span><br><span class="line"></span><br><span class="line">打开 a.txt，找到 ZuneMusic 一项，例如我这里的长这个样子：</span><br><span class="line">    Name                   : Microsoft.ZuneMusic</span><br><span class="line">    Publisher              : CN=Microsoft Corporation....</span><br><span class="line">    Architecture           : X64</span><br><span class="line">    ResourceId             : </span><br><span class="line">    Version                : <span class="number">10.20022</span>.<span class="number">11011.0</span></span><br><span class="line">    PackageFullName        : Microsoft.ZuneMusic_10.<span class="number">20022.11011</span>.<span class="number">0</span>_x64__8wekyb3d8bbwe</span><br><span class="line">    .....</span><br><span class="line">    </span><br><span class="line">找到其中的 PackageFullName 一项，这里是 Microsoft.ZuneMusic_10.<span class="number">20022.11011</span>.<span class="number">0</span>_x64__8wekyb3d8bbwe</span><br><span class="line">接下来运行 Remove-AppxPackage Microsoft.ZuneMusic_10.<span class="number">20022.11011</span>.<span class="number">0</span>_x64__8wekyb3d8bbwe 即可</span><br></pre></td></tr></table></figure>
 
       
     </div>
