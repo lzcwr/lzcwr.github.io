@@ -424,7 +424,7 @@
 <p>相关定义：</p>
 <blockquote>
 <p><strong>Def 1.</strong> <span class="math inline">\(\mathcal{X}\)</span> 上的偏好 <span class="math inline">\(\succeq\)</span> 称为是<strong>合理</strong>（responsive）的，若 <span class="math inline">\(\forall S\in\mathcal{X}\)</span> 和 <span class="math inline">\(\forall x\in X\)</span>，<span class="math inline">\(y\in X\backslash S\)</span>，总有：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(S\succ S\backslash \{x\}\cup\{y\}\iff x~P~y\)</span>；</li>
 <li><span class="math inline">\(S\backslash \{x\}\cup\{y\}\succ S\iff y~P~x\)</span>；</li>
 <li><span class="math inline">\(S\succ S\backslash\{x\}\)</span>。（<strong>单调性</strong>，monotonic）</li>
@@ -445,28 +445,28 @@
 </blockquote>
 <blockquote>
 <p><strong>Def 4.</strong> 集合 <span class="math inline">\(S\subseteq X\)</span> 对 <span class="math inline">\(i\)</span> 来说是一个<strong>minimal bundle</strong>，如果：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(S\succeq_i -S\)</span>；</li>
 <li><span class="math inline">\(\forall T\leqslant _{OL} S\)</span>，总有 <span class="math inline">\(-T\succeq_i T\)</span>。</li>
 </ol>
 </blockquote>
 <blockquote>
 <p><strong>Def 5.</strong> <span class="math inline">\(\forall S\subseteq X\)</span>，划分 <span class="math inline">\((S,-S)\)</span> 是<strong>无嫉妒</strong>的，如果：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(S\succeq_A -S\)</span>；</li>
 <li><span class="math inline">\(-S\succeq_B S\)</span>。</li>
 </ol>
 </blockquote>
 <blockquote>
 <p><strong>Def 6.</strong> 一个无嫉妒划分 <span class="math inline">\((S,-S)\)</span> 称为是<strong>平凡</strong>（trivial）的，如果：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(S\sim_A -S\)</span>；</li>
 <li><span class="math inline">\(S\sim_B -S\)</span>。</li>
 </ol>
 </blockquote>
 <h2 id="upundercut-procedure">UP：Undercut Procedure</h2>
 <h3 id="up算法的步骤">UP算法的步骤</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>初始物品堆为 <span class="math inline">\(X\)</span>，<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 分别取当前物品堆中选取各自当前最喜欢的物品 <span class="math inline">\(x_A\)</span> 和 <span class="math inline">\(x_B\)</span>：
 <ul>
 <li>若 <span class="math inline">\(x_A\neq x_B\)</span>：将 <span class="math inline">\(x_A\)</span> 分配给 <span class="math inline">\(A\)</span>，<span class="math inline">\(x_B\)</span> 分配给 <span class="math inline">\(B\)</span>；</li>
@@ -475,7 +475,7 @@
 <li>继续执行 1，直到所有物品都被标记为 <span class="math inline">\(A\)</span>，<span class="math inline">\(B\)</span> 或 <span class="math inline">\(I_c\)</span>；</li>
 <li>考察 <span class="math inline">\(I_c\)</span>：
 <ul>
-<li>若 <span class="math inline">\(I_c\)</span> 为空，则分配结束...（这应该是 <del>废话</del> 显然的）；</li>
+<li>若 <span class="math inline">\(I_c\)</span> 为空，则分配结束…（这应该是 <del>废话</del> 显然的）；</li>
 <li>若 <span class="math inline">\(I_c\)</span> 非空，记参与者 <span class="math inline">\(i\)</span>（<span class="math inline">\(i=A,B\)</span>）在 <span class="math inline">\(I_c\)</span> 中的minimal bundle集合为 <span class="math inline">\(MB_i\)</span>，<span class="math inline">\(i\)</span> 将 <span class="math inline">\(MB_i\)</span> （私密地）提交给裁判；</li>
 </ul></li>
 <li>若 <span class="math inline">\(MB_A\neq MB_B\)</span>，则 <span class="math inline">\(i\)</span> 将 <span class="math inline">\(i\)</span> 将 <span class="math inline">\(MB_i\)</span> 中的偏好顺序提交给裁判。
@@ -484,7 +484,7 @@
 <li>取 <span class="math inline">\(MB_A\)</span> 中排名最高的集合，记为 <span class="math inline">\(T\)</span>：
 <ul>
 <li>若 <span class="math inline">\(T\notin MB_B\)</span>，则称其为一个proposal，此时称 <span class="math inline">\(A\)</span> 为一个proposer；</li>
-<li>若 <span class="math inline">\(T\in MB_B\)</span>，则转而考虑 <span class="math inline">\(MB_B\)</span> 中排名最高的集合，判断其是否属于 MB_A$...反复进行；</li>
+<li>若 <span class="math inline">\(T\in MB_B\)</span>，则转而考虑 <span class="math inline">\(MB_B\)</span> 中排名最高的集合，判断其是否属于 MB_A$…反复进行；</li>
 <li>由于 <span class="math inline">\(MB_A\neq MB_B\)</span>，故反复进行上述步骤一定能得到一个 <font color="blue"><span class="math inline">\(MB_A\)</span> 中的排第一，但 <span class="math inline">\(MB_B\)</span> 中不排第一</font> 或者 <font color="red"><span class="math inline">\(MB_B\)</span> 中的排第一，但 <span class="math inline">\(MB_A\)</span> 中不排第一</font> 的集合，将其作为proposal。</li>
 </ul></li>
 </ul></li>
@@ -494,7 +494,7 @@
 <li>若 <span class="math inline">\(\forall i\)</span>，<span class="math inline">\(\not\exists S\in MB_i\)</span>，s.t. <span class="math inline">\(-S\in MB_i\)</span>，则此时随意选择一个minimal bundle <span class="math inline">\(S\)</span> 做为 proposal；</li>
 </ul></li>
 <li>假设 <span class="math inline">\(S\)</span> 是proposal，<span class="math inline">\(A\)</span> 是proposer，则 <span class="math inline">\(B\)</span> 的undercut操作为：
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>（Accepting）</strong>若 <span class="math inline">\(-S\)</span> 对于 <span class="math inline">\(B\)</span> 是至少价值 50% 的，则 <span class="math inline">\(B\)</span> 可以同意 <span class="math inline">\(I_c\)</span> 的划分 <span class="math inline">\((S,-S)\)</span>；</li>
 <li><strong>（Undercutting）</strong>在所有比 <span class="math inline">\(S\)</span> ordinally less的集合中，取 <span class="math inline">\(B\)</span> 最喜欢的集合 <span class="math inline">\(T\)</span>，重新提出划分 <span class="math inline">\((-T,T)\)</span>；</li>
 </ol></li>
@@ -506,7 +506,7 @@
 <blockquote>
 <p><strong>Proof.</strong> <span class="math inline">\(\Leftarrow\)</span>：假设存在一个无嫉妒划分 <span class="math inline">\((S,-S)\)</span>，则必定存在一个参与者更喜欢 <span class="math inline">\(S\)</span>（不妨设为 <span class="math inline">\(A\)</span>），即 <span class="math inline">\(S\succ_A -S\)</span>。 - 若 <span class="math inline">\(S\notin MB_B\)</span>，则 <span class="math inline">\(MB_A\neq MB_B\)</span>，<span class="math inline">\(\Rightarrow\)</span> 得证； - 若 <span class="math inline">\(S\in MB_B\)</span>，则 <span class="math inline">\(S\succeq_B -S\)</span>，结合 <span class="math inline">\((S,-S)\)</span> 是一个无嫉妒划分，应有 <span class="math inline">\(-S\succeq_B S\)</span>，因此 <span class="math inline">\(S\sim_B -S\)</span>。现取 <span class="math inline">\(T\subset X\)</span>，s.t. 对 <span class="math inline">\(B\)</span> 而言有 <span class="math inline">\(T\leqslant_{OL} -S\)</span>（同时亦有 <span class="math inline">\(S\leqslant_{OL} -T\)</span>），则若 <span class="math inline">\(\succeq_B\)</span> 是 <code>合理</code> 的，应有 <span class="math inline">\(-T\succ_B T\)</span>，因此 <span class="math inline">\(-S\)</span> 是 <span class="math inline">\(B\)</span> 的 <code>minimal bundle</code>。即 <span class="math inline">\(-S\in MB_B\)</span>，但 <span class="math inline">\(-S\)</span> 显然不在 <span class="math inline">\(MB_A\)</span> 中，因此 <span class="math inline">\(MB_B\neq MB_A\)</span>。</p>
 <p><span class="math inline">\(\Rightarrow\)</span>：若存在 <span class="math inline">\(S\)</span>，s.t. <span class="math inline">\(S\in MB_A\)</span> 但 <span class="math inline">\(S\notin MB_B\)</span>，则有且仅有以下两种互斥的情形：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(S\succ_B -S\)</span>，此时存在一个 <span class="math inline">\(T\leqslant_{OL} S\)</span>，s.t. <span class="math inline">\(T\succeq _B -T\)</span>，即 <span class="math inline">\(T\)</span> 对 <span class="math inline">\(B\)</span> 来说 <code>至少价值50%</code>；</li>
 <li><span class="math inline">\(-S\succ_B T\)</span>。</li>
 </ol>
@@ -528,8 +528,8 @@
 <p><strong>Def 7.</strong> 称 <span class="math inline">\(\mathcal{X}\)</span> 上的偏好 <span class="math inline">\(\succeq\)</span> 满足<strong>扩展单调性</strong>，如果：</p>
 <ul>
 <li><span class="math inline">\(\forall S,T\in\mathcal{X}\)</span>，所有单物品偏好 <span class="math inline">\(P\)</span>，以及所有 <span class="math inline">\(x,y\in X\backslash(S\cup T)\)</span>，总有： <span class="math display">\[\begin{cases}
-   S\succeq T \\
-   x~P~y
+S\succeq T \\
+x~P~y
 \end{cases}\Rightarrow S\cup\{x\}\succ T\cup\{y\}.\]</span></li>
 </ul>
 </blockquote>
@@ -550,7 +550,7 @@
 <blockquote>
 <p><strong>Th 2.</strong> 令 <span class="math inline">\(S\subseteq I_c\)</span>，且 <span class="math inline">\(S\neq\varnothing\)</span>。则 <span class="math inline">\(S\)</span> 是 <code>可行</code> 的，当且仅当存在 <span class="math inline">\(k\leqslant c\)</span>，s.t. <span class="math inline">\(|I_k\cap S|&gt; \frac{k}{2}\)</span>。</p>
 <blockquote>
-<p><strong>Proof.</strong> 这个定理的样子类似于 &quot;Computing a small agreeable set of indivisible items&quot; 一文中的 Prop 1，证明也比较显然。</p>
+<p><strong>Proof.</strong> 这个定理的样子类似于 “Computing a small agreeable set of indivisible items” 一文中的 Prop 1，证明也比较显然。</p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -560,14 +560,14 @@
 <p><strong>Cor 3.</strong> 假设 <span class="math inline">\(S\subseteq I_c\)</span> 且 <span class="math inline">\(1\notin S\)</span>。若 <span class="math inline">\(S\)</span> 是 <code>可行</code> 的，则 <span class="math inline">\((S,-S)\)</span> 和 <span class="math inline">\((-S,S)\)</span> 都可能是无嫉妒的划分。</p>
 </blockquote>
 <ul>
-<li>以上两个推论都很容易理解和证明...不再赘述。</li>
+<li>以上两个推论都很容易理解和证明…不再赘述。</li>
 </ul>
 <hr>
 <p>除此之外，还有一个很有意思的结论：</p>
 <ul>
 <li>用 <span class="math inline">\(f(c)\)</span> 表示待定区包含 <span class="math inline">\(c\)</span> 个物品时，<span class="math inline">\(I_c\)</span> 的无嫉妒划分方案数，则有： <span class="math display">\[f(c)=\begin{cases}
-2^{c-1}-\binom{c}{(c-1)/2}, &amp; 2\not| ~c \\
-2^{c-1}-\binom{c}{c/2},&amp; 2~|~c
+  2^{c-1}-\binom{c}{(c-1)/2}, &amp; 2\not| ~c \\
+  2^{c-1}-\binom{c}{c/2},&amp; 2~|~c
 \end{cases}\]</span></li>
 </ul>
 <hr>
@@ -587,7 +587,7 @@
 <blockquote>
 <p><strong>Lemma 1.</strong> 若 <span class="math inline">\(c(n-1)=c(n-2)=x\)</span>，则 <span class="math inline">\(c(n)=c(n+1)=x+\frac{1}{n}\)</span>。</p>
 <blockquote>
-<p><strong>Proof.</strong> 这个证明是不是过于简单了...</p>
+<p><strong>Proof.</strong> 这个证明是不是过于简单了…</p>
 </blockquote>
 </blockquote>
 <blockquote>

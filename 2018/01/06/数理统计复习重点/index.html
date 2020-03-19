@@ -404,7 +404,7 @@
 <p><span class="math display">\[\xi=\sum\limits_{i=1}^nX_i^2\]</span></p>
 <p>所服从的分布为自由度为 <span class="math inline">\(n\)</span> 的 <span class="math inline">\(\chi^2\)</span> 分布, 记为 <span class="math inline">\(\xi\sim\chi^2(n)\)</span>.</p>
 <h4 id="性质">性质</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p><span class="math inline">\(E\xi=n\)</span>, <span class="math inline">\({\rm Var}~\xi=2n\)</span>;</p></li>
 <li><p>设 <span class="math inline">\(\xi\sim\chi^2(m)\)</span>, <span class="math inline">\(\eta\sim\chi^2(n)\)</span>, 且二者独立, 则 <span class="math inline">\(\xi+\eta\sim\chi^2(m+n)\)</span>;</p></li>
 <li><p><font color="red"><span class="math inline">\((n-1)S_n^2/\sigma^2\sim\chi^2(n-1)\)</span></font>.</p></li>
@@ -415,7 +415,7 @@
 <p><span class="math display">\[T=\frac{\xi}{\sqrt{\eta/n}}\]</span></p>
 <p>服从自由度为 <span class="math inline">\(n\)</span> 的 <span class="math inline">\(t\)</span> 分布, 记为 <span class="math inline">\(T\sim t(n)\)</span>.</p>
 <h4 id="性质-1">性质</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>设 <span class="math inline">\(\xi\sim t(n)\)</span>, <span class="math inline">\(n&gt;2\)</span>, 则 <span class="math inline">\(E\xi=0\)</span>, <span class="math inline">\({\rm Var}~\xi=\frac{n}{n-2}\)</span>;</p></li>
 <li><p><span class="math inline">\(t(1)\)</span> 分布为Cauchy分布, 期望不存在;</p></li>
 <li><p><font color="red"> <span class="math inline">\(\frac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)\)</span> </font>;</p></li>
@@ -426,14 +426,14 @@
 <p><span class="math display">\[F=\frac{\xi/m}{\eta/n}\]</span></p>
 <p>服从自由度为 <span class="math inline">\((m,n)\)</span> 的 <span class="math inline">\(F\)</span> 分布, 记为 <span class="math inline">\(F\sim F(m,n)\)</span>.</p>
 <h4 id="性质-2">性质</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(X\sim F(m,n) \Longleftrightarrow \frac{1}{X}\sim F(n,m)\)</span>.</li>
 </ol>
 <h3 id="gamma-分布族"><span class="math inline">\(\Gamma\)</span> 分布族</h3>
 <h4 id="定义-3">定义</h4>
 <p>PDF 为 <span class="math display">\[\Gamma(x;\alpha,\lambda)=\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x},\quad x&gt;0\]</span> 的分布称为 <span class="math inline">\(\Gamma\)</span> 分布, 记作 <span class="math inline">\(\Gamma(\alpha,\lambda)\)</span>.</p>
 <h4 id="性质-3">性质</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p><font color="red"><span class="math inline">\(\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2(n)\)</span></font>;</p></li>
 <li><p><font color="red"><span class="math inline">\(\Gamma(1,\lambda)=E(\lambda)\)</span>, PDF 为 <span class="math inline">\(f(x)=\lambda e^{-\lambda x},~x&gt;0\)</span></font>;</p></li>
 <li><p><font color="red"><span class="math inline">\(\xi\sim\Gamma(\alpha_1,\lambda)\)</span>, <span class="math inline">\(\eta\sim\Gamma(\alpha_2,\lambda)\)</span>, <span class="math inline">\(\eta\)</span> 与 <span class="math inline">\(\xi\)</span> 独立 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\xi+\eta\sim\Gamma(\alpha_1+\alpha_2,\lambda)\)</span></font>;</p></li>
@@ -445,7 +445,7 @@
 <p><strong>定理</strong> 对于参数分布族 <span class="math display">\[\mathcal{F}=\{f_\theta(x):\theta\in\Theta\},\]</span> 设 <span class="math inline">\(X_1,\cdots,X_n\)</span> 是其中一组iid样本, <span class="math inline">\(T\)</span> 是一统计量, 且其样本分布 <span class="math inline">\(f_\theta\)</span> 满足 <span class="math display">\[f_\theta(x_1,\cdots,x_n)=g_\theta(T(x_1,\cdots,x_n))\cdot h(x_1,\cdots,x_n),\]</span> 其中 <span class="math inline">\(h(x)\)</span> 不依赖于 <span class="math inline">\(\theta\)</span>.</p>
 </blockquote>
 <h4 id="常见的充分统计量">常见的充分统计量</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>均匀分布 <span class="math inline">\(U(0,\theta)\)</span> 中 , <span class="math inline">\(X_{(n)}\)</span> 为 <span class="math inline">\(\theta\)</span> 的充分统计量;</p></li>
 <li><p>正态分布 <span class="math inline">\(N(\mu,\sigma^2)\)</span> 中, <span class="math inline">\((\overline{X},\sum\limits_{i=1}^n (X_i-\overline{X})^2)\)</span> 为 <span class="math inline">\((\mu,\sigma^2)\)</span> 的充分统计量;</p></li>
 <li><p>均匀分布 <span class="math inline">\(U(-\frac{1}{2}+\theta, \frac{1}{2}+\theta)\)</span> 中, <span class="math inline">\((X_{(1)},X_{(n)})\)</span> 为 <span class="math inline">\(\theta\)</span> 的充分统计量.</p></li>
@@ -457,7 +457,7 @@
 <p>而总体的原点矩和中心矩分别为 <span class="math display">\[\mu_k=\mathbb{E}X^k,\quad \nu_k=\mathbb{E}(X-\mu_1)^k\]</span></p>
 <p>矩估计就是用样本矩来估计总体矩, 即令 <span class="math inline">\(a_k=\mu_k\)</span>, <span class="math inline">\(m_k=\nu_k\)</span>.</p>
 <h4 id="几个矩估计的例子">几个矩估计的例子</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>总体均值和总体方差: <span class="math display">\[\hat{\mu}=\overline{X},\quad \hat{\sigma}^2=\frac{n-1}{n}S_n^2;\]</span></p></li>
 <li><p>正态分布 <span class="math inline">\(U(0,\theta)\)</span> 中, <span class="math inline">\(\theta\)</span> 的矩估计为 <span class="math inline">\(\hat{\theta}=2\overline{X}\)</span>;</p></li>
 </ol>

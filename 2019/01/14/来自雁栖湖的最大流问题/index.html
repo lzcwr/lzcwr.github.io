@@ -404,23 +404,23 @@
 <a id="more"></a>
 <p>一个和卜凡约饭的中午，突然接到春哥求助这个题.</p>
 <p>卜凡瞟了一眼，想都没想，淡定开口：“爆搜.”</p>
-<p>一看数据立刻傻了眼：<span class="math inline">\(200\times 200\)</span>，爆搜必定 <code>TLE</code>... 场面一度十分尴尬（</p>
+<p>一看数据立刻傻了眼：<span class="math inline">\(200\times 200\)</span>，爆搜必定 <code>TLE</code>… 场面一度十分尴尬（</p>
 <p>饭后看手机，发现春哥补刀：有人说是最大独立集，我没搞懂.</p>
-<p>于是立刻想明白了...然而春哥自己没有写过.</p>
+<p>于是立刻想明白了…然而春哥自己没有写过.</p>
 <p>吃完晚饭突然感到手痒，于是上手写了一发，测过样例直接自信提交，70分！（太菜了吧）</p>
 <p><img src="/img/blog-graph/knight_70.png" alt="70分！菜鸡！"></p>
 <p>前七个点 <code>AC</code> 了，后三个点竟然是 <code>RE</code>？</p>
 <p>想来想去没有别的地方可能 <code>RE</code> 了，开大边数，直接100分 <code>AC</code> 了.</p>
 <p><img src="/img/blog-graph/knight_100.png" alt="终于AC..."></p>
 <blockquote>
-<p>所以，容我bb一下这道题...</p>
+<p>所以，容我bb一下这道题…</p>
 </blockquote>
 <h2 id="题面">题面</h2>
 <h3 id="description">Description</h3>
 <p>Given a <span class="math inline">\(N\times N\)</span> chessboard. There are <span class="math inline">\(M\)</span> obstacles in the chessboard and the position of <span class="math inline">\(i\)</span>-th obstacle is <span class="math inline">\((X_i,Y_i)\)</span>. You are asked to find the maximum number of knights which can be placed in the chessboard at the same time, satisfied that,</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>No two knights can attack each other.</li>
-<li>Knights can't be placed in obstacle.</li>
+<li>Knights can’t be placed in obstacle.</li>
 <li>There can be at most one knight in a grid.</li>
 </ol>
 <p>(A Knight in chess can attack 8 positions, as shown in following figure)</p>
@@ -454,7 +454,7 @@ For all tests, <span class="math inline">\(0\leqslant M\leqslant N^2-1\)</span>,
 <ul>
 <li>直接用匈牙利算法求解.</li>
 <li>最大流方法：（我觉得我不应该说这么详细）
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(X\)</span> 左侧增加一个源点 <span class="math inline">\(S\)</span>，向 <span class="math inline">\(X\)</span> 中每一点都连入容量为 <span class="math inline">\(1\)</span> 的边；</li>
 <li><span class="math inline">\(Y\)</span> 右侧增加一个汇点 <span class="math inline">\(T\)</span>，<span class="math inline">\(Y\)</span> 中每一点都向其连入容量为 <span class="math inline">\(1\)</span> 的边；</li>
 <li><span class="math inline">\(X,Y\)</span> 之间的边容量也为 <span class="math inline">\(1\)</span>（无穷大应该也是有道理的，毕竟源点最多出来 <span class="math inline">\(1\)</span>）；</li>
@@ -462,7 +462,7 @@ For all tests, <span class="math inline">\(0\leqslant M\leqslant N^2-1\)</span>,
 </ol></li>
 </ul>
 <h2 id="代码">代码</h2>
-<p>第一次因为错误估计了边的数量而 <code>RE</code> 了后三个点，只得70分...后来实在想不到 <code>RE</code> 的点，就开大了很多边数，直接就 <code>AC</code> 了… 细想一下，确实是低估了边数.</p>
+<p>第一次因为错误估计了边的数量而 <code>RE</code> 了后三个点，只得70分…后来实在想不到 <code>RE</code> 的点，就开大了很多边数，直接就 <code>AC</code> 了… 细想一下，确实是低估了边数.</p>
 <p><img src="\img\blog-graph\knight_result.png" alt="提交结果"></p>
 <p><strong>这里简单说一下正确的边数估计：</strong></p>
 <p>棋盘边长是 <span class="math inline">\(N\)</span>，所以点数大约是 <span class="math inline">\(N^2\)</span> 级别，考虑到每个点最多 <span class="math inline">\(8\)</span> 条边，所以总边数绝不超过 <span class="math inline">\(8N^2\)</span>.</p>

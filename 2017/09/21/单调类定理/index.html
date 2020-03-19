@@ -400,7 +400,7 @@
         <h2 id="基础定义">基础定义</h2>
 <h3 id="sigma-代数"><span class="math inline">\(\sigma\)</span> 代数</h3>
 <p>称 <span class="math inline">\(\Omega\)</span> 的子集类 <span class="math inline">\(\mathscr{F}\)</span> 为 <span class="math inline">\(\Omega\)</span> 的 <span class="math inline">\(\sigma\)</span> 代数, 如果它满足:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\Omega\in\mathcal{F}\)</span>;</li>
 <li>若 <span class="math inline">\(A\in\mathcal{F}\)</span>, 则 <span class="math inline">\(A^c\in\mathcal{F}\)</span>;</li>
 <li>若 <span class="math inline">\(A_n\in\mathcal{F}\)</span>, <span class="math inline">\(n\in\mathbf{N}\)</span>, 则 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\mathcal{F}\)</span>.</li>
@@ -410,7 +410,7 @@
 <p>称 <span class="math inline">\(\Omega\)</span> 的子集类 <span class="math inline">\(\Pi\)</span> 称为 <span class="math inline">\(\pi\)</span> 系, 如果它对交运算封闭.</p>
 <h4 id="lambda-系"><span class="math inline">\(\lambda\)</span> 系</h4>
 <p>称 <span class="math inline">\(\Omega\)</span> 的子集类 <span class="math inline">\(\Lambda\)</span> 称为 <span class="math inline">\(\lambda\)</span> 系, 如果:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\Omega\in\Lambda\)</span>;</li>
 <li>对真差封闭: 即 <span class="math inline">\(\forall~A,B\in\Lambda\)</span>, s.t. <span class="math inline">\(A\subset B\)</span>, 总有 <span class="math inline">\(B\backslash A\in\Lambda\)</span>;</li>
 <li>对不降序列的并封闭: 即 <span class="math inline">\(\{A_n:n\in\mathbf{N}\}\)</span>, <span class="math inline">\(A_n\uparrow\)</span>, 则 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\Lambda\)</span>.</li>
@@ -431,13 +431,13 @@
 <p>即只需证明 <span class="math inline">\(\forall~A, B\in\Lambda(\mathcal{C})\)</span>, <span class="math inline">\(A\cap B\in\Lambda(\mathcal{C})\)</span>.</p>
 <p><strong>令 <span class="math inline">\(\Lambda_A=\{B\in\Lambda(\mathcal{C}): A\cap B\in\Lambda(\mathcal{C})\}\)</span>, 则只需证明 <span class="math inline">\(\forall~A\in\Lambda(\mathcal{C})\)</span>, 有 <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span> 即可.</strong> 由于显然有 <span class="math inline">\(\Lambda_A\subset\Lambda(\mathcal{C})\)</span>, 故只需要证明 <span class="math inline">\(\Lambda_A\supset\Lambda(\mathcal{C})\)</span>.</p>
 <p>考虑到 <span class="math inline">\(\Lambda(\mathcal{C})\)</span> 的最小性, 可按照如下三步证明:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\forall~A\in\Lambda(\mathcal{C})\)</span>, <span class="math inline">\(\Lambda_A\)</span> 是 <span class="math inline">\(\lambda\)</span> 系;</li>
 <li><span class="math inline">\(\forall~A\in\mathcal{C}\)</span>, <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span>;</li>
 <li><span class="math inline">\(\forall~A\in\Lambda(\mathcal{C})\)</span>, <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span>.</li>
 </ol>
 <p>证明第一条:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>由 <span class="math inline">\(\Lambda_A\)</span> 的定义, <span class="math inline">\(\Omega\in\Lambda_A\)</span>;</li>
 <li><span class="math inline">\(\forall~B, C\in\Lambda_A\)</span>, s.t. <span class="math inline">\(B\subset C\)</span>, 则由 <span class="math inline">\(\Lambda_A\)</span> 的定义有 <span class="math inline">\(A\cap C,A\cap B\in\Lambda(\mathcal{C})\)</span>, 同时易得 <span class="math inline">\(A\cap B\subset A\cap C\)</span>. 由于 <span class="math inline">\(\Lambda(\mathcal{C})\)</span> 是 <span class="math inline">\(\lambda\)</span> 系, 故对真差封闭, 即 <span class="math inline">\(A\cap(C\backslash B)=(A\cap C)\backslash(A\cap B)\in\Lambda(\mathcal{C})\)</span>, 于是 <span class="math inline">\(C\backslash B\in\Lambda_A\)</span>;</li>
 <li><span class="math inline">\(\forall~\{A_n\}\subset\Lambda_A\)</span>, <span class="math inline">\(A_n\uparrow\)</span>, 则 <span class="math inline">\(A\cap A_n\in\Lambda(\mathcal{C})\)</span> 且 <span class="math inline">\(A\cap A_n\uparrow\)</span>. 因此有 <span class="math inline">\(A\cap(\bigcup_{n=1}^\infty A_n)=\bigcup_{n=1}^\infty(A\cap A_n)\in\Lambda(\mathcal{C})\)</span>.</li>
@@ -449,7 +449,7 @@
 <p>综上所述, 原命题得证.</p>
 <h2 id="lambda-pi-系方法"><span class="math inline">\(\lambda-\pi\)</span> 系方法</h2>
 <h3 id="lambda-pi-系方法-1"><span class="math inline">\(\lambda-\pi\)</span> 系方法</h3>
-<p>在定理的证明过程中, &quot;要证明一些元素的集合满足性质 <span class="math inline">\(p\)</span>, 就先把满足性质 <span class="math inline">\(p\)</span> 的元素集合设出来, 再证明该集合与原集合相等&quot; 的方法常常按照如下方法操作:</p>
+<p>在定理的证明过程中, “要证明一些元素的集合满足性质 <span class="math inline">\(p\)</span>, 就先把满足性质 <span class="math inline">\(p\)</span> 的元素集合设出来, 再证明该集合与原集合相等” 的方法常常按照如下方法操作:</p>
 <p>已知 <span class="math inline">\(\mathcal{C}\)</span> 中元素具有性质 <span class="math inline">\(p\)</span>, 要证明 <span class="math inline">\(\sigma(\mathcal{C})\)</span> 中元素也具有性质 <span class="math inline">\(p\)</span>, 则可以令 <span class="math inline">\(\Lambda=\{B\subset\Omega:B\text{具有性质}p\}\)</span>, 则 <span class="math inline">\(\Lambda\supset\mathcal{C}\)</span>, 然后证明 <span class="math inline">\(\mathcal{C}\)</span> 是 <span class="math inline">\(\pi\)</span> 系, 再证明 <span class="math inline">\(\Lambda\)</span> 是 <span class="math inline">\(\lambda\)</span> 系, 即可证明 <span class="math inline">\(\sigma(\mathcal{C})\)</span> 中元素满足性质 <span class="math inline">\(p\)</span>.</p>
 <p>这样的方法称为 <span class="math inline">\(\lambda-\pi\)</span> 系方法.</p>
 <h3 id="lambda-pi-系方法的应用"><span class="math inline">\(\lambda-\pi\)</span> 系方法的应用</h3>
@@ -466,7 +466,7 @@
 <p>　<span class="math inline">\(\Omega\)</span> 的子集类 <span class="math inline">\(\mathscr{M}\)</span> 称为 <span class="math inline">\(\Omega\)</span> 的<strong>单调类</strong>, 如果它满足:</p>
 </blockquote>
 <blockquote>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>对不降集列的并封闭: 即 <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\uparrow\subset\mathscr{M}\)</span>, 有 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\mathscr{M}\)</span>;</li>
 <li>对不降集列的并封闭: 即 <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\downarrow\subset\mathscr{M}\)</span>, 有 <span class="math inline">\(\bigcap\limits_{n=1}^\infty A_n\in\mathscr{M}\)</span>; 若 <span class="math inline">\(\mathscr{A}\)</span> 为 <span class="math inline">\(\Omega\)</span> 的集代数, 记包含 <span class="math inline">\(\mathscr{A}\)</span> 的最小单调类为 <span class="math inline">\(\mathfrak{M}(\mathscr{A})\)</span>, 则 <span class="math inline">\(\mathfrak{M}(\mathscr{A})=\sigma(\mathscr{A})\)</span>. 因而包含 <span class="math inline">\(\mathscr{A}\)</span> 的单调类必定包含 <span class="math inline">\(\sigma(\mathscr{A})\)</span>.</li>
 </ol>
@@ -478,7 +478,7 @@
 <p>　　为此只需证明 <span class="math inline">\(\mathfrak{M}(\mathscr{A})\)</span> 为包含 <span class="math inline">\(\sigma(\mathscr{A})\)</span> 的<span class="math inline">\(\sigma\)</span> 代数, 由命题 2, 只需证明 <span class="math inline">\(\mathfrak{M}(\mathscr{A})\)</span> 为集代数;</p>
 <p>　　显然有 <span class="math inline">\(\Omega\in\mathscr{A}\subset\mathfrak{M}(\mathscr{A})\)</span>, 故只需证明 <span class="math inline">\(\mathfrak{M}(\mathscr{A})\)</span> 对差运算封闭.</p>
 <p>接下来便是 <span class="math inline">\(\lambda-\pi\)</span> 证明的标准技巧: 　　令 <span class="math inline">\(M_A=\{B:B\in\mathfrak{M}(\mathscr{A}), A-B,B-A\in\mathfrak{M}(\mathscr{A})\}\)</span>, 接下来分三步证明:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>证明 <span class="math inline">\(M_A\)</span> 是单调类, <span class="math inline">\(\forall A\)</span>;</li>
 <li><span class="math inline">\(\forall A\in\mathscr{A}\)</span>, <span class="math inline">\(M_A=\mathfrak{M}(\mathscr{A})\)</span>;</li>
 <li><span class="math inline">\(\forall A\in\mathfrak{M}(\mathscr{A})\)</span>, <span class="math inline">\(M_A=\mathfrak{M}(\mathscr{A})\)</span>.</li>
@@ -498,7 +498,7 @@
 <p>　　综上, 包含 <span class="math inline">\(\mathcal{C}\)</span> 的最小单调类存在且为所有包含 <span class="math inline">\(\mathcal{C}\)</span> 的单调类的交.</p>
 <p>由这两个引理即可证明定理:</p>
 <p>　　令 <span class="math inline">\(M_A=\{B:B\in\mathfrak{M}(\mathscr{A}), A-B,B-A\in\mathfrak{M}(\mathscr{A})\}\)</span>, 只需证明 <span class="math inline">\(M_A=\mathfrak{M}(\mathscr{A})\)</span>, <span class="math inline">\(\forall A\in\mathfrak{M}(\mathscr{A})\)</span>. 接下来分三步证明:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>证明 <span class="math inline">\(M_A\)</span> 是单调类, <span class="math inline">\(\forall A\)</span>;</li>
 <li><span class="math inline">\(\forall A\in\mathscr{A}\)</span>, 证明 <span class="math inline">\(M_A=\mathfrak{M}(\mathscr{A})\)</span>;</li>
 <li><span class="math inline">\(\forall A\in\mathfrak{M}(\mathscr{A})\)</span>, 证明 <span class="math inline">\(M_A=\mathfrak{M}(\mathscr{A})\)</span>. 　　 <strong>1. 证明 <span class="math inline">\(M_A\)</span> 是单调类, <span class="math inline">\(\forall A\)</span></strong> 　　取 <span class="math inline">\(A\in\mathfrak{M}(\mathscr{A})\)</span>, <span class="math inline">\(\forall\{B_n\}_{n\in\mathbb{N}}\uparrow\subset M_A\)</span>, 由 <span class="math inline">\(\mathfrak{M}(\mathscr{A})\)</span> 的定义即有 <span class="math inline">\(A-B_n,B_n-A,B_n\in\)</span>, 同时显然有 <span class="math inline">\(B_n-A\uparrow\)</span>, <span class="math inline">\(A-B_n\downarrow\)</span>. 由于 <span class="math inline">\(\mathfrak{M}(\mathscr{A})\)</span> 是单调类, 故 <span class="math inline">\(\bigcup\limits_{n=1}^\infty B_n\in\mathfrak{M}(\mathscr{A})\)</span>.</li>
@@ -523,7 +523,7 @@ A-\bigcup\limits_{n=1}^\infty B_n &amp;= A\cap\left(\bigcap\limits_{n=1}^\infty 
 <h2 id="函数形式的单调类定理">函数形式的单调类定理</h2>
 <h3 id="mathscrl-系"><span class="math inline">\(\mathscr{L}\)</span> 系</h3>
 <p>设 <span class="math inline">\(\mathscr{L}\)</span> 是定义在 <span class="math inline">\(\Omega\)</span> 上的广义实函数类, 满足: <span class="math inline">\(f\in\mathscr{L}\Rightarrow f^+,f^-\in\mathscr{L}\)</span>. 函数族 <span class="math inline">\(L\)</span> 称为 <span class="math inline">\(\mathscr{L}\)</span> 系, 如果满足:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(1\in L\)</span>;</li>
 <li><span class="math inline">\(L\)</span> 中有限个函数的线性组合(如果有意义)属于 <span class="math inline">\(L\)</span>;</li>
 <li>若 <span class="math inline">\(f_n\in L\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(0\leqslant f_n\uparrow f\)</span>, <span class="math inline">\(f\)</span> 有界或 <span class="math inline">\(f\in\mathscr{L}\)</span>, 则 <span class="math inline">\(f\in L\)</span>.</li>

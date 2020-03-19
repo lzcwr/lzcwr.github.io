@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
+<meta name="description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
 <meta name="keywords" content="计算机,北大,社会计算,论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记[12]——Private Matchings and Allocations">
 <meta property="og:url" content="http://lizhechen.com/2020/01/20/Paper-reading-12-Private-Matchings-and-Allocations/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
+<meta property="og:description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/private-matchings-and-allocations-PMatch.png">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/Algo-PAlloc.png">
 <meta property="og:updated_time" content="2020-03-06T13:13:32.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[12]——Private Matchings and Allocations">
-<meta name="twitter:description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
+<meta name="twitter:description" content="Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.   Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocati">
 <meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/private-matchings-and-allocations-PMatch.png">
 
 
@@ -397,7 +397,7 @@
 
       
         <blockquote>
-<p>Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.</p>
+<p>Justin Hsu, et al. Private matchings and allocations. SIAM Journal on Computing, 2016.</p>
 </blockquote>
 <blockquote>
 <p>Justin Hsu, Zhiyi Huang, Aaron Roth, Tim Roughgarden, and Zhiwei Steven Wu. Private matchings and allocations. STOC 2014.</p>
@@ -433,7 +433,7 @@
 <li>使用 Walrasian equilibrium prices：
 <ul>
 <li>在 Joint DP 的要求下计算 Walrasian equilibrium prices.</li>
-<li>Kelso 和 Crawford 在 1982 的经典分析：用递增价格拍卖来计算 Walrasian...</li>
+<li>Kelso 和 Crawford 在 1982 的经典分析：用递增价格拍卖来计算 Walrasian…</li>
 </ul></li>
 </ul>
 <h2 id="基础知识">基础知识</h2>
@@ -464,7 +464,7 @@
 <p><strong>Def</strong> 现有估值函数 <span class="math inline">\(v_i: 2^G\to [0,1]\)</span>，如果对于定价向量 <span class="math inline">\(p\preceq p&#39;\)</span> 以及 <span class="math inline">\(\forall S\in\omega(p)\)</span>，若 <span class="math inline">\(S&#39;\subseteq S\)</span> 满足 <span class="math inline">\(p&#39;_g=p_g\)</span>，<span class="math inline">\(\forall g\in S&#39;\)</span>，则存在 <span class="math inline">\(S^*\in\omega(p)\)</span>，s.t. <span class="math inline">\(S&#39;\subset S^*\)</span>，则称 <span class="math inline">\(v_i\)</span> 满足 gross substitutes.</p>
 </blockquote>
 <ul>
-<li><font color="red">这个定义很别扭...我没懂</font></li>
+<li><font color="red">这个定义很别扭…我没懂</font></li>
 <li><p>本文的工作还是只考虑了一人一个物品的情况.</p></li>
 <li>设共有 <span class="math inline">\(k\)</span> 种物品，代表元为 <span class="math inline">\(g_1,\ldots,g_k\in G\)</span>
 <ul>
@@ -502,15 +502,9 @@
 <blockquote>
 <p><strong>Def</strong> 给定定价向量 <span class="math inline">\(p\in[0,1]^k\)</span> 以及从人到物的匹配 <span class="math inline">\(\mu:[n]\to[k]\cup\{\perp\}\)</span>，若 <span class="math inline">\(\mu\)</span> 满足：</p>
 <ul>
-<li>至少 <span class="math inline">\((1-\rho)\)</span> 比例的人匹配到的物品是 <span class="math inline">\(\alpha\)</span>-最优的；
-<ul>
-<li>即对至少 <span class="math inline">\((1-\rho)\)</span> 比例的 <span class="math inline">\(i\)</span> 而言，有 <span class="math inline">\(v_{i \mu(i)}-p_{\mu(i)} \geq v_{i j}-p_{j}-\alpha\)</span>，<span class="math inline">\(\forall j\)</span>.</li>
-</ul></li>
+<li>至少 <span class="math inline">\((1-\rho)\)</span> 比例的人匹配到的物品是 <span class="math inline">\(\alpha\)</span>-最优的； - 即对至少 <span class="math inline">\((1-\rho)\)</span> 比例的 <span class="math inline">\(i\)</span> 而言，有 <span class="math inline">\(v_{i \mu(i)}-p_{\mu(i)} \geq v_{i j}-p_{j}-\alpha\)</span>，<span class="math inline">\(\forall j\)</span>.</li>
 <li>每种物品被分配的量不能超过总供应量；</li>
-<li>每种供不应求的物品(over-demanded)都会被抢光，除非其供应量不超过 <span class="math inline">\(\beta\)</span>.
-<ul>
-<li>原文：each over-demanded good clears except for at most β supply.</li>
-</ul></li>
+<li>每种供不应求的物品(over-demanded)都会被抢光，除非其供应量不超过 <span class="math inline">\(\beta\)</span>. - 原文：each over-demanded good clears except for at most β supply.</li>
 </ul>
 <p>则称其是一个 <span class="math inline">\((\alpha,\beta,\rho)\)</span>-近似匹配.</p>
 </blockquote>
@@ -533,7 +527,7 @@
 <hr>
 <p><strong>Bid Function</strong></p>
 <blockquote>
-<p>很想吐槽一下。。。文章写得不像人话...</p>
+<p>很想吐槽一下。。。文章写得不像人话…</p>
 </blockquote>
 <ul>
 <li>对每类物品来说：申请与某类物品匹配的前 <span class="math inline">\(s\)</span> 名暂时获得该类物品
@@ -557,7 +551,7 @@
 </blockquote>
 <blockquote>
 <p><font size="4" color="F596AA"><strong>有效性分析</strong></font> 事实上PMatch算法会在以下三个方面损失有效性：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>可能有 <span class="math inline">\(\rho\)</span> 比例的人在算法结束时仍处于未匹配状态；</li>
 <li>被匹配了物品的人也未必得到了自己最想要的的物品；</li>
 <li>整个拍卖过程会分出一部分物品来应对 Counters 中的噪音可能带来的过量分配. 而这些物品有可能会卖不出去.</li>
@@ -577,7 +571,7 @@
 <p><strong>定理 4</strong> <span class="math inline">\(\mathbf{PAlloc}(\alpha,\rho,\epsilon)\)</span> 满足 <span class="math inline">\(\epsilon\)</span>-联合DP.</p>
 </blockquote>
 <hr>
-<p>本文还有很多其他结果，暂时还没有理清...</p>
+<p>本文还有很多其他结果，暂时还没有理清…</p>
 
       
     </div>

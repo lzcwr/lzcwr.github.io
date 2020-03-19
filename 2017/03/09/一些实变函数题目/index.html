@@ -434,7 +434,7 @@
 <h2 id="年03月15日">2017年03月15日</h2>
 <h3 id="习题1-第一组-25">习题1 第一组 25</h3>
 <blockquote>
-<p>设 <span class="math inline">\(f:\mathbf{R}\to\mathbf{R}\)</span>, 令$G_1= \{ (x,y):~y<f(x) \\}="" $,="" $g_2="\\{" (x,y):~y="">f(x) \} $, 试证明 <span class="math inline">\(f\in C(\mathbf{R})\)</span> 当且仅当 <span class="math inline">\(G_1\)</span> 与 <span class="math inline">\(G_2\)</span> 是开集.</f(x)></p>
+<p>设 <span class="math inline">\(f:\mathbf{R}\to\mathbf{R}\)</span>, 令$G_1= \{ (x,y):~y&lt;f(x) \} $, $G_2= \{ (x,y):~y&gt;f(x) \} $, 试证明 <span class="math inline">\(f\in C(\mathbf{R})\)</span> 当且仅当 <span class="math inline">\(G_1\)</span> 与 <span class="math inline">\(G_2\)</span> 是开集.</p>
 </blockquote>
 <p><strong>证明</strong>: <strong>必要性</strong>是显然的, 以下证明<strong>充分性</strong>:</p>
 <p>假设 <span class="math inline">\(f\notin C(\mathbf{R})\)</span>, 则 <span class="math inline">\(\exists~x_0\in\mathbf{R}\)</span>, <span class="math inline">\(\epsilon&gt;0\)</span>, 和 <span class="math inline">\(x_n\)</span>, 满足 <span class="math inline">\(\vert x_n-x_0\vert &lt;\frac{1}{n}\)</span>, 但 <span class="math inline">\(\vert f(x_n)-f(x_0)\vert \geqslant\epsilon\)</span>. 不妨设 <span class="math inline">\(f(x_n)\geqslant f(x_0)+\epsilon\)</span>, 则 <span class="math inline">\((x_n,f(x_0)+\epsilon)\in G_2^c\)</span>. 由于满足条件的 <span class="math inline">\(x_n\)</span> 构成数列 <span class="math inline">\(\{x_n\}\)</span> 且满足 <span class="math inline">\(\lim\limits_{n\to\infty}x_n=x_0\)</span>, 故 <span class="math inline">\(\lim\limits_{n\to\infty}(x_n,f(x_0)+\epsilon)=(x_0,f(x_0)+\epsilon)\)</span>, 又由 <span class="math inline">\(G_2\)</span> 为开集可知 <span class="math inline">\(G_2^c\)</span> 为闭集. 即有 <span class="math inline">\((x_0,f(x_0)+\epsilon)\in G_2^c\)</span>. 故 <span class="math inline">\(f(x_0)\geqslant f(x_0)+\epsilon\)</span>, 矛盾. 故 <span class="math inline">\(f\in C(\mathbf{R})\)</span>.</p>
@@ -445,7 +445,7 @@
 <p>已知 <span class="math inline">\(E\subset\mathbf{R}^n\)</span> 为完全集, 证明 <span class="math inline">\(E\)</span> 不可数.</p>
 </blockquote>
 <p><strong>证明</strong>: 假设 <span class="math inline">\(E\)</span> 是可数集, 令 <span class="math inline">\(E=\{x_1,x_2,\cdots,x_n\}\)</span>. 则可如下构造一个开球列 <span class="math inline">\(\{B_n\}\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>取 <span class="math inline">\(B_1=B(x_1,r_1)\subset E\)</span>, 则 <span class="math inline">\(\exists~x_{k_1}\in E\)</span>, s.t. <span class="math inline">\(x_{k_1}\in B_1\)</span>, 但 <span class="math inline">\(\forall~i\)</span>, s.t. <span class="math inline">\(2\leqslant i\leqslant k_1-1\)</span>, 均有 <span class="math inline">\(x_i\notin E\)</span>;</li>
 <li>取 <span class="math inline">\(B_1=B(x_{k_1},r_2)\)</span>, s.t. <span class="math inline">\(B_2\subset B_1\)</span>, 且 <span class="math inline">\(r_2&lt;\frac{r_1}{2}\)</span>, 则 <span class="math inline">\(\exists~x_{k_2}\in E~(k_2&gt;k_1)\)</span>, s.t. <span class="math inline">\(x_{k_2}\in B_2\)</span>, 但 <span class="math inline">\(\forall~i\)</span>, s.t. <span class="math inline">\(k_1+1\leqslant i\leqslant k_2-1\)</span>, 均有 <span class="math inline">\(x_i\notin E\)</span>;</li>
 <li><span class="math inline">\(\cdots\cdots\)</span></li>
@@ -560,7 +560,7 @@ m(H\cap B_k)-m\left(\bigcap\limits_{k=1}^\infty(H\cap B_k)\right) &amp;\geqslant
 <p>试证明点集 <span class="math inline">\(E\)</span>　可测的充要条件是: 对任意 <span class="math inline">\(\epsilon&gt;0\)</span>, 存在开集 <span class="math inline">\(G_1,G_2\)</span>: <span class="math display">\[G_1\supset E,\quad G_2\supset E^c,\]</span> 使得 <span class="math inline">\(m(G_1\cap G_2)&lt;\epsilon\)</span>.</p>
 </blockquote>
 <p><strong>证明</strong>: <strong>必要性</strong>: 由于 <span class="math inline">\(E\)</span> 为可测集, 故:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>存在开集 <span class="math inline">\(G\supset E\)</span>, s.t. <span class="math inline">\(m(G)-m(E)&lt;\frac{\epsilon}{2}\)</span>.</li>
 <li>存在闭集 <span class="math inline">\(F\subset E\)</span>, s.t. <span class="math inline">\(m(E)-m(F)&lt;\frac{\epsilon}{2}\)</span>.</li>
 </ol>
@@ -703,7 +703,7 @@ m\left([a,b]\backslash\bigcup\limits_{n=1}^\infty E_n\right)
 <p>计算下列积分: 1. <span class="math inline">\(\int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{dxdy}{(1+y)(1+x^2Y)}\)</span>; 2. <span class="math inline">\(\int\nolimits_0^\infty\frac{\ln x}{x^2-1}dx\)</span></p>
 </blockquote>
 <p><strong>解答</strong>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>由Tonelli定理, <span class="math display">\[\begin{align}
 \int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{dxdy}{(1+y)(1+x^2y)} &amp;= \int\nolimits_{x&gt;0}\int\nolimits_{y&gt;0}\frac{\sqrt{y}dx}{1+x^2y}\frac{dy}{\sqrt{y}(1+y)} \\
 &amp;= 2\int\nolimits_{x&gt;0}\frac{dx}{1+x^2}\int\nolimits_{y&gt;0}\frac{dy}{1+y^2} \\

@@ -400,60 +400,60 @@
 <table>
 <thead>
 <tr class="header">
-<th align="center">球</th>
-<th align="center">盒</th>
-<th align="center">允许空</th>
-<th align="center">方案数</th>
+<th style="text-align: center;">球</th>
+<th style="text-align: center;">盒</th>
+<th style="text-align: center;">允许空</th>
+<th style="text-align: center;">方案数</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">不同</td>
-<td align="center">不同</td>
-<td align="center">是</td>
-<td align="center"><span class="math inline">\(m^n\)</span></td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;"><span class="math inline">\(m^n\)</span></td>
 </tr>
 <tr class="even">
-<td align="center">不同</td>
-<td align="center">不同</td>
-<td align="center">否</td>
-<td align="center"><span class="math inline">\(m!\cdot S(n,m)\)</span></td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;"><span class="math inline">\(m!\cdot S(n,m)\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center">不同</td>
-<td align="center">相同</td>
-<td align="center">是</td>
-<td align="center"><span class="math inline">\(\sum\limits_{k=0}^m S(n,k)\)</span></td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;"><span class="math inline">\(\sum\limits_{k=0}^m S(n,k)\)</span></td>
 </tr>
 <tr class="even">
-<td align="center">不同</td>
-<td align="center">相同</td>
-<td align="center">否</td>
-<td align="center"><span class="math inline">\(S(n,m)\)</span></td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;"><span class="math inline">\(S(n,m)\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center">相同</td>
-<td align="center">不同</td>
-<td align="center">是</td>
-<td align="center"><span class="math inline">\(\binom{n+m-1}{m-1}\)</span></td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;"><span class="math inline">\(\binom{n+m-1}{m-1}\)</span></td>
 </tr>
 <tr class="even">
-<td align="center">相同</td>
-<td align="center">不同</td>
-<td align="center">否</td>
-<td align="center"><span class="math inline">\(\binom{n-1}{m-1}\)</span></td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">不同</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;"><span class="math inline">\(\binom{n-1}{m-1}\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center">相同</td>
-<td align="center">相同</td>
-<td align="center">是</td>
-<td align="center"><span class="math inline">\(dp(n,m)\)</span></td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;"><span class="math inline">\(dp(n,m)\)</span></td>
 </tr>
 <tr class="even">
-<td align="center">相同</td>
-<td align="center">相同</td>
-<td align="center">否</td>
-<td align="center"><span class="math inline">\(dp(n-m,m)\)</span></td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">相同</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;"><span class="math inline">\(dp(n-m,m)\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -476,7 +476,7 @@
 <p><span class="math inline">\(n\)</span> 个不同的球放入 <span class="math inline">\(m\)</span> 个相同的盒子, 盒子不允许为空, 方案数为第二类Stirling数 <span class="math inline">\(S(n,m)\)</span>.</p>
 </blockquote>
 <p><strong>简略证明:</strong> 对于第 <span class="math inline">\(n\)</span> 个球, 有且仅有如下两种情况:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>前 <span class="math inline">\(n-1\)</span> 个球的放法已经保证了 <span class="math inline">\(m\)</span> 个盒子都不空:</strong> 此时只需将 <span class="math inline">\(n\)</span> 号球随意放即可, 方案数为 <span class="math inline">\(mS(n-1,m)\)</span>;</li>
 <li><strong>前 <span class="math inline">\(n-1\)</span> 个球放好后有且仅有一个盒子是空的:</strong> 此时必须将 <span class="math inline">\(n\)</span> 号球放入空盒中, 方案数为 <span class="math inline">\(S(n-1,m-1)\)</span>.</li>
 </ol>
@@ -515,7 +515,7 @@
 <p><span class="math inline">\(n\)</span> 个相同的球放入 <span class="math inline">\(m\)</span> 个相同的盒子, 盒子允许为空, 方案数为 <span class="math inline">\(dp(n,m)\)</span>.</p>
 </blockquote>
 <p><strong>计算思路:</strong>: 在放置 <span class="math inline">\(n\)</span> 个球的时候, 有且仅有如下两种策略:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>给每个盒子放一个球:</strong> 还剩下 <span class="math inline">\(n-m\)</span> 个球, 故此时的方案数为 <span class="math inline">\(dp(n-m,m)\)</span>;</li>
 <li><strong>至少一个盒子不放球:</strong> 可以扔掉一个空盒子, 故此时的方案数为 <span class="math inline">\(dp(n,m-1)\)</span>.</li>
 </ol>
@@ -524,7 +524,7 @@
 <li><span class="math inline">\(S(0,m)=1\)</span>. (没球的方案只有一种)</li>
 <li><span class="math inline">\(S(n,1)=1\)</span>. (一个盒子的方案只有一种)</li>
 </ul>
-<p>上述推导过程中我们做了 <span class="math inline">\(n\geqslant m\)</span>, 即&quot;球不少于盒子&quot;的假设. 当该假设不成立时, <span class="math inline">\(n\)</span> 个苹果至多放满 <span class="math inline">\(n\)</span> 个盘子, 故此时方案数实际上为 <span class="math inline">\(dp(n,n)\)</span>.</p>
+<p>上述推导过程中我们做了 <span class="math inline">\(n\geqslant m\)</span>, 即“球不少于盒子”的假设. 当该假设不成立时, <span class="math inline">\(n\)</span> 个苹果至多放满 <span class="math inline">\(n\)</span> 个盘子, 故此时方案数实际上为 <span class="math inline">\(dp(n,n)\)</span>.</p>
 <p>一段计算该情况方案数的代码如下（递归版本）:</p>
 <figure class="highlight c++"><figcaption><span>球相同, 盒相同, 允许空 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span> || m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(m &lt; n) <span class="keyword">return</span> dp(m, m);</span><br><span class="line">    <span class="keyword">return</span> dp(m, n - <span class="number">1</span>) + dp(m - n, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

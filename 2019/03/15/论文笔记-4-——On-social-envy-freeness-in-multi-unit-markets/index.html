@@ -416,15 +416,17 @@
 </ul></li>
 <li>定价函数（向量）是指一个 <span class="math inline">\(m\)</span> 元组 <span class="math inline">\(\overline{p}=(\overline{p}(1),\cdots,\overline{p}(m))\)</span>，s.t. <span class="math inline">\(1\leqslant j\leqslant m\)</span>，<span class="math inline">\(\overline{p}(j)\geqslant 0\)</span> 表示 <span class="math inline">\(j\)</span> 个物品的价格,
 <ul>
-<li>对于商品的定价模式，也有两种假定：</li>
+<li>对于商品的定价模式，也有两种假定：
+<ul>
 <li>item-pricing：按照物品来定价，例如单个物品价格是 <span class="math inline">\(p\)</span>，则 <span class="math inline">\(\overline{p}(X)=|X|\cdot p\)</span>.</li>
 <li>bundle-pricing：对一捆物品直接定价，并且该价格与物品数量不是成比例的（否则同item-pricing）.</li>
+</ul></li>
 </ul></li>
 <li>消费者的效用（utility）是指：消费者对所得物品的估价 <span class="math inline">\(-\)</span> 消费者为此付出的价格. 即：<span class="math display">\[u_i(X,\overline{p})=v_i(|X|)-\overline{p}(X).\]</span></li>
 <li>一个分配向量是指一个 <span class="math inline">\(n\)</span> 元组 <span class="math inline">\(\overline(X)=\{X_1,\cdots,X_n\}\)</span>，其中 <span class="math inline">\(X_i\subset M\)</span> 表示分配给买家 <span class="math inline">\(i\)</span> 的商品.
 <ul>
 <li>称一个分配是可行的，如果：
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>货物够分：<span class="math inline">\(\sum\limits_{i=1}^n |X_i|\leqslant |X|\)</span>；</li>
 <li>买家不傻：<span class="math inline">\(u_i(X_i,\overline{p})\geqslant 0\)</span>.</li>
 </ol></li>
@@ -522,7 +524,7 @@
 </ul>
 <p>以下对该算法进行证明：</p>
 <blockquote>
-<p><strong>Proof.</strong> 由 <strong>Lemma 3</strong>，对每个 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\)</span>，<span class="math inline">\(i\in N\)</span>，我们建立一个多重背包问题 <span class="math inline">\(K(\mu\)</span>)...（具体构建方法见上述算法）<br>
+<p><strong>Proof.</strong> 由 <strong>Lemma 3</strong>，对每个 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\)</span>，<span class="math inline">\(i\in N\)</span>，我们建立一个多重背包问题 <span class="math inline">\(K(\mu\)</span>)…（具体构建方法见上述算法）<br>
 构建完成后，我们来证明：一个 <span class="math inline">\(K(\mu)\)</span> 的解 <span class="math inline">\(T\)</span>，对应着一个 <span class="math inline">\(\mu\)</span> 的稳定输出 <span class="math inline">\((\overline{X},p)\)</span>. 事实上，<span class="math inline">\(T\)</span> 所装载的物品不会超过背包容量，而背包容量恰好就是商品的总量. 进一步，<span class="math inline">\(\overline{X},p)\)</span> 是稳定的，因为当我们分配了一捆数量为 <span class="math inline">\(j\)</span> 商品时，只有 <span class="math inline">\(N_j^+\)</span> 里的人可能会因此产生嫉妒. 于是对于确定的 <span class="math inline">\(p\)</span>，<span class="math inline">\(K(\mu)\)</span> 的 <span class="math inline">\((1-\epsilon)\)</span>-近似解 <span class="math inline">\(T\)</span>，都对应了一个 <span class="math inline">\(\mu\)</span> 的 <span class="math inline">\((1-\epsilon)\)</span>-近似解 <span class="math inline">\((\overline{X},p)\)</span>，并且这个解是稳定的.</p>
 </blockquote>
 <blockquote>
@@ -538,36 +540,26 @@
 <blockquote>
 <p><strong>Proof.</strong> 进行如下考虑：</p>
 <ul>
-<li>对市场 <span class="math inline">\(\mu\)</span>：
-<ul>
-<li>对每个 <span class="math inline">\(u\in V\)</span>，将其与 <span class="math inline">\(|F|+1\)</span> 个买家对应（记为 <span class="math inline">\(N_u\)</span>）. 进一步，对每个 <span class="math inline">\(i\in N_u\)</span>，都有 <span class="math inline">\(v_i(1)=1+\epsilon\)</span>，其中 <span class="math inline">\(\epsilon=\frac{k}{|V|+1}\)</span>；</li>
-<li>对图 <span class="math inline">\(G\)</span> 的每条边 <span class="math inline">\(e\in F\)</span>，存在一个买家 <span class="math inline">\(i_e\)</span>，s.t. <span class="math inline">\(v_{i_e}=1\)</span>；</li>
-<li>再来一个买家 <span class="math inline">\(w\)</span>，s.t. <span class="math inline">\(v_w(|V|(|F|+1))=|V|(|F|+1)\)</span>；</li>
-<li>总共有 <span class="math inline">\(m=(|V|+k)(|F|+1)+|F|\)</span> 件商品.</li>
-</ul></li>
-<li>对社会关系图 <span class="math inline">\(G(N,E)\)</span>：
-<ul>
-<li>设 <span class="math inline">\(u\in V\)</span>，则对所有 <span class="math inline">\(i,i&#39;\in N_u\)</span>，有 <span class="math inline">\(\{i,i&#39;\}\in E\)</span>；</li>
-<li>对 <span class="math inline">\(\forall i\in N_u\)</span>，<span class="math inline">\(\{i,i_e\}\in E\)</span>，其中 <span class="math inline">\(e\)</span> 在 <span class="math inline">\(H\)</span> 中是由 <span class="math inline">\(u\)</span> 引出的.</li>
-</ul></li>
+<li>对市场 <span class="math inline">\(\mu\)</span>： - 对每个 <span class="math inline">\(u\in V\)</span>，将其与 <span class="math inline">\(|F|+1\)</span> 个买家对应（记为 <span class="math inline">\(N_u\)</span>）. 进一步，对每个 <span class="math inline">\(i\in N_u\)</span>，都有 <span class="math inline">\(v_i(1)=1+\epsilon\)</span>，其中 <span class="math inline">\(\epsilon=\frac{k}{|V|+1}\)</span>； - 对图 <span class="math inline">\(G\)</span> 的每条边 <span class="math inline">\(e\in F\)</span>，存在一个买家 <span class="math inline">\(i_e\)</span>，s.t. <span class="math inline">\(v_{i_e}=1\)</span>； - 再来一个买家 <span class="math inline">\(w\)</span>，s.t. <span class="math inline">\(v_w(|V|(|F|+1))=|V|(|F|+1)\)</span>； - 总共有 <span class="math inline">\(m=(|V|+k)(|F|+1)+|F|\)</span> 件商品.</li>
+<li>对社会关系图 <span class="math inline">\(G(N,E)\)</span>： - 设 <span class="math inline">\(u\in V\)</span>，则对所有 <span class="math inline">\(i,i&#39;\in N_u\)</span>，有 <span class="math inline">\(\{i,i&#39;\}\in E\)</span>； - 对 <span class="math inline">\(\forall i\in N_u\)</span>，<span class="math inline">\(\{i,i_e\}\in E\)</span>，其中 <span class="math inline">\(e\)</span> 在 <span class="math inline">\(H\)</span> 中是由 <span class="math inline">\(u\)</span> 引出的.</li>
 </ul>
 <p>以下证明 <span class="math inline">\(H\)</span> 存在一个有 <span class="math inline">\(h\)</span> 条边的 <span class="math inline">\(k\)</span> 阶子图，当且仅当上述市场 <span class="math inline">\(\mu\)</span> 在 <span class="math inline">\(G\)</span> 下有一个稳定的输出 <span class="math inline">\((\overline{X},p)\)</span>，s.t. <span class="math inline">\(r(\overline{X},p)=(|V|+k)(|F|+1)+h\)</span>.</p>
 <blockquote>
 <p><font color="red">简单来说，就是：</font></p>
 <p><font color="red">买家一共有 <span class="math inline">\((|V|+1)(|F|+1)\)</span> 个：</font></p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><font color="red">给 <span class="math inline">\(V\)</span> 里的每个点分别配 <span class="math inline">\(|F|+1\)</span> 个未来在 <span class="math inline">\(G\)</span> 中的邻居，记作 <span class="math inline">\(N_u\)</span>，这些邻居都只喜欢一个物品，并且效用只比 <span class="math inline">\(0\)</span> 严格大一点点；（这里共 <span class="math inline">\(|V|(|F|+1)\)</span> 个）</font></li>
 <li><font color="red"><span class="math inline">\(H\)</span> 里的每条边，都对应一个买家，只喜欢一个物品，且效用是 <span class="math inline">\(0\)</span>；（这里共 <span class="math inline">\(|F|\)</span> 个）</font></li>
 <li><font color="red">有一个超级买家，喜欢很多物品，但效用是 <span class="math inline">\(0\)</span>；（这里共 <span class="math inline">\(1\)</span> 个）</font></li>
 </ol>
 <p><font color="red">物品总量是 <span class="math inline">\((|V|+k)(|F|+1)+|F|\)</span>，小于总需求量：</font></p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><font color="red">上述第1步，共需要物品 <span class="math inline">\(|V|(|F|+1)\)</span> 个；</font></li>
 <li><font color="red">上述第2步，共需要物品 <span class="math inline">\(|F|\)</span> 个；</font></li>
 <li><font color="red">上述第3步，共需要物品 <span class="math inline">\(|V|(|F|+1)\)</span> 个；</font></li>
 </ol>
 <p><font color="red">图 <span class="math inline">\(G\)</span> 是这样规划的：</font></p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><font color="red">所有 <span class="math inline">\(N_u\)</span> 内部的点两两相连；</font></li>
 <li><font color="red">点 <span class="math inline">\(u\)</span> 在 <span class="math inline">\(H\)</span> 中的所有邻居，在 <span class="math inline">\(G\)</span> 中都要与 <span class="math inline">\(u\)</span> 现在的所有邻居相连；</font></li>
 </ol>
@@ -599,7 +591,7 @@
 <li>于是由 <strong>Lemma 3</strong>，对每个 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\)</span> 跑一次 FPTAS，选取最大的总收益，这样就得到了一个多项式时间的 <span class="math inline">\((1-\epsilon)\)</span>-近似. 即一个 <code>(SINGLE, ITEM)</code> 的FPTAS.</li>
 </ul></li>
 </ul>
-<p>然而，由 <strong>Th 6</strong>，上述思路的基本假设就是不成立的...换言之，受限制的子问题是不可能在多项式时间内解决的. 然而，以下的近似结果仍能保持：</p>
+<p>然而，由 <strong>Th 6</strong>，上述思路的基本假设就是不成立的…换言之，受限制的子问题是不可能在多项式时间内解决的. 然而，以下的近似结果仍能保持：</p>
 <blockquote>
 <p><strong>Lemma 7.</strong> 给定一个 <code>(SINGLE, ITEM)</code> 分配问题的实例和一组固定的价格 <span class="math inline">\(p\)</span>，<span class="math inline">\(j\leqslant m\)</span>，<span class="math inline">\(h\leqslant n\)</span>，则求一个</p>
 <ul>
@@ -610,25 +602,11 @@
 <p>这样的问题，存在一个 PTAS.</p>
 </blockquote>
 <blockquote>
-<p><strong>Proof.</strong> 记 <span class="math inline">\(N_j^+\)</span> 和 <span class="math inline">\($N_j^0\)</span> 分别为在价格 <span class="math inline">\(p\)</span> 下对 <span class="math inline">\(j\)</span> 持严格正效用的买家以和持零效用的买家，记 <span class="math inline">\(G_j^*\)</span> 为 <span class="math inline">\(N_j^+\)</span> 引导的子图，则对于任意 <span class="math inline">\(\mu\)</span> 的稳定（文中用了optimal）输出 <span class="math inline">\((\overline{X},p)\)</span>，<span class="math inline">\(G_j^+\)</span> 的所有连通分支中的买家要不都获得 <span class="math inline">\(j\)</span> 个商品，要不都没有得到 <span class="math inline">\(j\)</span> 个商品. （由稳定性易得）<br>
+<p><strong>Proof.</strong> 记 <span class="math inline">\(N_j^+\)</span> 和 $<span class="math inline">\(N_j^0\)</span> 分别为在价格 <span class="math inline">\(p\)</span> 下对 <span class="math inline">\(j\)</span> 持严格正效用的买家以和持零效用的买家，记 <span class="math inline">\(G_j^*\)</span> 为 <span class="math inline">\(N_j^+\)</span> 引导的子图，则对于任意 <span class="math inline">\(\mu\)</span> 的稳定（文中用了optimal）输出 <span class="math inline">\((\overline{X},p)\)</span>，<span class="math inline">\(G_j^+\)</span> 的所有连通分支中的买家要不都获得 <span class="math inline">\(j\)</span> 个商品，要不都没有得到 <span class="math inline">\(j\)</span> 个商品. （由稳定性易得）<br>
 取定 <span class="math inline">\(\epsilon&gt;0\)</span>，记 big 为 <span class="math inline">\(G_j^+\)</span> 的至少包含 <span class="math inline">\(\epsilon\cdot h\)</span> 个买家的连通分支（可能有多个），small 为其余的连通分支. 则，<font color="red">任意的optimal输出 <span class="math inline">\((\overline{X},o)\)</span> 至多分给 <span class="math inline">\(h\)</span> 个人</font>每人 <span class="math inline">\(j\)</span> 个商品，于是 <span class="math inline">\((\overline{X},p)\)</span> 至多给 <span class="math inline">\(O(\lfloor\frac{1}{\epsilon}\rfloor)\)</span> 个 big 连通分支分配商品. 当然，此外它还可以给一些 small 的连通分支分配商品. 再次，也可以给 <span class="math inline">\(N_j^0\)</span> 中的买家分配，但仅限通过 <span class="math inline">\(G_j^+\)</span> 与 <span class="math inline">\(G\)</span> 相连的买家. （否则可能引起嫉妒） 考虑以下步骤：</p>
 <ul>
 <li>给所有 big 连通块分配商品；</li>
-<li>不停地给 small 连通块分配商品，直到无法分配. 无法分配有两种情况：
-<ul>
-<li>商品不够分了：
-<ul>
-<li>此时至少有 <span class="math inline">\((1-\epsilon)h\)</span> 个买家被分配了商品；</li>
-</ul></li>
-<li>所有small都被分配了商品：
-<ul>
-<li>继续给 <span class="math inline">\(N_j^0\)</span> 中的弟兄们分配商品，直到无法继续，有以下两种情况：
-<ul>
-<li>总共已经分配了 <span class="math inline">\(h\)</span> 个买家：如此便是一个optimal分配；</li>
-<li>所有 <span class="math inline">\(N_j^0\)</span> 中的买家都被分配了商品：我们也得到了最优的结果.</li>
-</ul></li>
-</ul></li>
-</ul></li>
+<li>不停地给 small 连通块分配商品，直到无法分配. 无法分配有两种情况： - 商品不够分了： - 此时至少有 <span class="math inline">\((1-\epsilon)h\)</span> 个买家被分配了商品； - 所有small都被分配了商品： - 继续给 <span class="math inline">\(N_j^0\)</span> 中的弟兄们分配商品，直到无法继续，有以下两种情况： - 总共已经分配了 <span class="math inline">\(h\)</span> 个买家：如此便是一个optimal分配； - 所有 <span class="math inline">\(N_j^0\)</span> 中的买家都被分配了商品：我们也得到了最优的结果.</li>
 </ul>
 <p>综上所述，以上算法可以产出一个 <span class="math inline">\((1-\epsilon)\)</span>-近似最优结果，并且是多项式时间的.</p>
 </blockquote>

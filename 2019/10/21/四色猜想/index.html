@@ -406,7 +406,7 @@
 </center>
 <p>一些相关概念介绍如下（图的定义、Euler公式、Kuratowski定理等不再赘述）：</p>
 <blockquote>
-<p><strong>图的染色（着色）</strong> 给图的顶点赋权（一般为整数，当然，不是整数也可以强行调整为整数...），相邻顶点不同权.</p>
+<p><strong>图的染色（着色）</strong> 给图的顶点赋权（一般为整数，当然，不是整数也可以强行调整为整数…），相邻顶点不同权.</p>
 </blockquote>
 <blockquote>
 <p><strong>四色猜想</strong> 任意平面图都是可以 <span class="math inline">\(4\)</span>-染色的.</p>
@@ -415,7 +415,7 @@
 <p><strong>导出子图</strong> 设有图 <span class="math inline">\(G=(V,E)\)</span>，及其顶点集的子集 <span class="math inline">\(V&#39;\subset V\)</span>，记 <span class="math inline">\(E&#39;=\{(u,v)\in E:u,v\in W\}\)</span>，则称 <span class="math inline">\(G&#39;(V&#39;)=(V&#39;,E&#39;)\)</span> 为 <span class="math inline">\(V&#39;\)</span> 的导出子图.</p>
 </blockquote>
 <ul>
-<li>随便举个例子吧：<span class="math inline">\(K_n\)</span> 的任意 <span class="math inline">\(m\)</span> 元子集的导出子图都是 <span class="math inline">\(K_m\)</span>. （当然，<span class="math inline">\(m\leqslant n\)</span> ...）</li>
+<li>随便举个例子吧：<span class="math inline">\(K_n\)</span> 的任意 <span class="math inline">\(m\)</span> 元子集的导出子图都是 <span class="math inline">\(K_m\)</span>. （当然，<span class="math inline">\(m\leqslant n\)</span> …）</li>
 </ul>
 <blockquote>
 <p><strong>极大平面图</strong> 顾名思义，就是边已经多到极限的平面图，以至于再加一条边，它就不是平面图了.</p>
@@ -458,9 +458,9 @@
 </ul></li>
 </ul>
 <p>听起来很简单，不是吗？但很遗憾这个证法是错误的. 错误的关键就在于：虽然图中有一条 <span class="math inline">\(A\to C\)</span> 和一条 <span class="math inline">\(A\to D\)</span> 的 Kempe 链，但这两条链可能在处 <span class="math inline">\(A\)</span> 点之外的其他地方也有交点，这可能会导致我们在后面消除颜色 <span class="math inline">\(2\)</span> 的换色过程中失败.</p>
-<p>听起来好绕啊！那就详细说说...</p>
+<p>听起来好绕啊！那就详细说说…</p>
 <p>当 <span class="math inline">\(\delta=5\)</span>，且 <span class="math inline">\(|f\{A,B,C,D,E\}|=4\)</span>，且 <span class="math inline">\(A,C\)</span> 在 <span class="math inline">\(G&#39;[1,3]\)</span> 中连通，<span class="math inline">\(A,D\)</span> 在 <span class="math inline">\(G&#39;[1,4]\)</span> 中连通时，我们需要进行两次换色：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>在 <span class="math inline">\(G&#39;[2,3]\)</span> 中，将 <span class="math inline">\(E\)</span> 所在的连通分支中的所有 <span class="math inline">\(2\)</span> 和 <span class="math inline">\(3\)</span> 对换，即可将 <span class="math inline">\(E\)</span> 换为颜色 <span class="math inline">\(3\)</span>.</li>
 <li>在 <span class="math inline">\(G&#39;[2,4]\)</span> 中，将 <span class="math inline">\(B\)</span> 所在的连通分支中的所有 <span class="math inline">\(2\)</span> 和 <span class="math inline">\(4\)</span> 对换，即可将 <span class="math inline">\(B\)</span> 换为颜色 <span class="math inline">\(4\)</span>.</li>
 </ol>
@@ -477,12 +477,12 @@
 <h2 id="对-kempe-工作的进一步思考">对 Kempe 工作的进一步思考</h2>
 <p>既然两条 Kempe 链相交会导致 Kempe 变换失效，那么我们就需要寻找不相交的 Kempe 链.</p>
 <blockquote>
-<p><strong>Mr. Xu 的猜想！</strong> 对于 <span class="math inline">\(\delta=5\)</span> 的情形，对任意一个 <span class="math inline">\(5\)</span> 度顶点 <span class="math inline">\(v_0\)</span>（<span class="math inline">\(N(v_0)=\{v_1,v_2,v_3,v_4,v_5\}\)</span>），都存在 <span class="math inline">\(G&#39;\)</span> 的一种染色方案 <span class="math inline">\(f\)</span>，s.t. 存在 <span class="math inline">\(v_1\to v_3\)</span> 和 <span class="math inline">\(v_1\to v_4\)</span> 两条 Kempe 链，且这两条链仅在 <span class="math inline">\(v_1\)</span> 相交.</p>
+<p><strong>Mr. Xu 的猜想！</strong> 对于 <span class="math inline">\(\delta=5\)</span> 的情形，对任意一个 <span class="math inline">\(5\)</span> 度顶点 <span class="math inline">\(v_0\)</span>（<span class="math inline">\(N(v_0)=\{v_1,v_2,v_3,v_4,v_5\}\)</span>），都存在 <span class="math inline">\(G&#39;\)</span> 的一种染色方案 <span class="math inline">\(f\)</span>，s.t. 存在 <span class="math inline">\(v_1\to v_3\)</span> 和 <span class="math inline">\(v_1\to v_4\)</span> 两条 Kempe 链，且这两条链仅在 <span class="math inline">\(v_1\)</span> 相交.</p>
 </blockquote>
-<p>若能证明这个猜想，那当然能修复 Kempe 的证明.（不过我8太看好...</p>
+<p>若能证明这个猜想，那当然能修复 Kempe 的证明.（不过我8太看好…</p>
 <ul>
-<li>貌似 Heawood 的图中，中心的 <span class="math inline">\(5\)</span> 度顶点就根本不行...</li>
-<li>我始终觉得这个猜想只需要存在性就行了（存在一个 <span class="math inline">\(5\)</span> 度顶点...），但 Mr. Xu 课上说的的确是任意... 迷惑...</li>
+<li>貌似 Heawood 的图中，中心的 <span class="math inline">\(5\)</span> 度顶点就根本不行…</li>
+<li>我始终觉得这个猜想只需要存在性就行了（存在一个 <span class="math inline">\(5\)</span> 度顶点…），但 Mr. Xu 课上说的的确是任意… 迷惑…</li>
 </ul>
 
       

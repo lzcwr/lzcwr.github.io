@@ -419,10 +419,10 @@
 <ul>
 <li><strong>偏好瓶颈</strong>（Preference bottleneck）：当物品个数较多时，bundle 的偏好情况将以指数级别增长；</li>
 <li><strong>计算瓶颈</strong>（Computational bottleneck）：即便能够使用某种偏好语言简洁地表达他们的偏好，计算“最优”分配通常也是困难的；</li>
-<li><strong>Agent 的策略</strong>（Threats of agents' strategic behavior）：agent 可能谎报偏好，以获得更好的 bundle。这可能导致社会效率低下的分配。</li>
+<li><strong>Agent 的策略</strong>（Threats of agents’ strategic behavior）：agent 可能谎报偏好，以获得更好的 bundle。这可能导致社会效率低下的分配。</li>
 </ul>
 <h2 id="主要工作">主要工作</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>关于 Basic CDAP：每个类别中的物品数量都等于 agent 数量。
 <ul>
 <li>首先用三条公理化特征来描述 serial dictatorship：
@@ -510,7 +510,7 @@
 </ul>
 <blockquote>
 <p><strong>Lemma 2.</strong> 令 <span class="math inline">\(f\)</span> 是一个 <span class="math inline">\(p\geqslant 2\)</span> 的 basic categorized domain 上的 strategyproof，non-bossy 的分配机制，则对任意 profile <span class="math inline">\(P\)</span>，<span class="math inline">\(\forall j\leqslant n\)</span>，以及 <span class="math inline">\(\forall \vec{d}\)</span> 和 <span class="math inline">\(\vec{d}\)</span> 在 <span class="math inline">\(R_j\)</span> 上的一个 pushup，只有以下两种结果之一会发生：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(f(R_j&#39;,R_{-j})=f(R)\)</span> （什么都没变）;</li>
 <li><span class="math inline">\(f^j(R_j&#39;,R_{-j})=\vec{d}\)</span> （agent <span class="math inline">\(j\)</span> 得到了 <span class="math inline">\(\vec{d}\)</span>）.</li>
 </ol>
@@ -528,7 +528,7 @@
 </blockquote>
 <blockquote>
 <p><strong>Proof.</strong> <strong>用反证法：</strong>假设对某个 profile <span class="math inline">\(P\)</span>，存在这样的 <span class="math inline">\(j_1\)</span>，<span class="math inline">\(j_2\)</span>，和 <span class="math inline">\(c\)</span>. 设 <span class="math inline">\(\vec{d}\)</span> 表示 <span class="math inline">\(\vec{c}\)</span> 在 <span class="math inline">\(\vec{a}\cup\vec{b}\)</span> 中的补集，则 <span class="math inline">\(\forall i\)</span>，都有 <span class="math inline">\(\{a_i,b_i\}=\{c_i,d_i\}\)</span>. 我们按照如下步骤构造反例：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>令 <span class="math inline">\(\hat{R}_{j_1}=[\vec{c}\succ\vec{a}\succ\vec{d}\succ\vec{b}\succ 其他]\)</span>，<span class="math inline">\(\hat{R}_{j_2}=[\vec{c}\succ\vec{b}\succ\vec{a}\succ\vec{d}\succ 其他]\)</span>，其余 <span class="math inline">\(j\)</span> 满足 <span class="math inline">\(\hat{R}_j=[f^j(P)\succ 其他]\)</span>. 则由 Lemma 1，有 <span class="math inline">\(f(\hat{P})=f(P)\)</span>.</li>
 <li>令 <span class="math inline">\(\bar{R}_{j_2}=[\vec{c}\succ\vec{a}\succ\vec{b}\succ\vec{d}\succ 其他]\)</span>，由于 <span class="math inline">\(\bar{R}_{j_2}\)</span> 为 <span class="math inline">\(\vec{a}\)</span> 在 <span class="math inline">\(\hat{R}_{j_2}\)</span> 上的 pushup，故由 Lemma 2，<span class="math inline">\(f^{j_2}(\bar{R}_{j_2},\hat{R}_{-j_2})\)</span> 为 <span class="math inline">\(\vec{a}\)</span> 或 <span class="math inline">\(\vec{b}\)</span>. 可由帕累托最优性（Lemma 3）得知不可能是 <span class="math inline">\(\vec{a}\)</span>，故只能有 <span class="math inline">\(f^{j_2}(\bar{R}_{j_2},\hat{R}_{-j_2})=\vec{b}=f^{j_2}(\hat{P})\)</span>. 故由 non-bossiness，可得 <span class="math inline">\(f(\bar{R}_{j_2},\hat{R}_{-j_2})=f(\hat{P})=f(P)\)</span>.</li>
 <li>令 <span class="math inline">\(\bar{R}_{j_1}=[\vec{c}\succ\vec{b}\succ\vec{a}\succ\vec{d}\succ 其他]\)</span>，与 2 类似可得 <span class="math inline">\(f(\bar{R}_{j_1},\bar{R}_{j_2},\hat{R}_{-\{j_1,j_2\}})=f(P)\)</span>.</li>
@@ -544,16 +544,16 @@
 <li>容易验证 serial dictatorship 是 strategyproof，non-bossy，且 category-wise neutral 的，接下来我们证明满足以上三条的性质只有 serial dictatorship.</li>
 </ul>
 <p>令 <span class="math inline">\(R^*\)</span> 是 <span class="math inline">\(\mathfrak{D}\)</span> 上满足以下几条的序：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\((1,\ldots,1)\succ (2,\ldots,2)\succ\cdots\succ (n,\ldots,n)\)</span>;</li>
 <li><span class="math inline">\(\forall j&lt;n\)</span>，<span class="math inline">\((j,\ldots,j)\)</span> 与 <span class="math inline">\((j+1,\ldots,j+1)\)</span> 之间的 bundle 都满足以下两条（记为 <span class="math inline">\(B_j\)</span>）：
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>至少有一维是 <span class="math inline">\(j\)</span>；</li>
 <li>所有维度的值都在 <span class="math inline">\(\{j,j+1,\ldots,n\}\)</span> 中.</li>
 </ol></li>
 <li><span class="math inline">\(\forall j\)</span> 以及 <span class="math inline">\(\forall \vec{d},\vec{e}\in B_j\)</span>，若 <span class="math inline">\(\vec{d}\)</span> 中 <span class="math inline">\(j\)</span> 的数量严格多余 <span class="math inline">\(\vec{e}\)</span>，则 <span class="math inline">\(\vec{d}\succ\vec{e}\)</span>.</li>
 </ol>
-<p>Thenextclaimstatesthatf agreeswithaserialdictatorship on the profile (R ∗ ,...,R ∗ ) where all agents have the same preferences R ∗ that we have just defined. We will later show that f agrees with the same serial dictatorship on all profiles.</p>
+<p>Thenextclaimstatesthatf agreeswithaserialdictatorship on the profile (R ∗ ,…,R ∗ ) where all agents have the same preferences R ∗ that we have just defined. We will later show that f agrees with the same serial dictatorship on all profiles.</p>
 <blockquote>
 <p><strong>Claim 1.</strong> 令 <span class="math inline">\(P^*=(R^*,\ldots,R^*)\)</span>，则对 <span class="math inline">\(\forall l\leqslant n\)</span>，存在 <span class="math inline">\(j_l\leqslant n\)</span>，s.t. <span class="math inline">\(f^{j_1}(P)=(l,\ldots,l)\)</span>.</p>
 </blockquote>

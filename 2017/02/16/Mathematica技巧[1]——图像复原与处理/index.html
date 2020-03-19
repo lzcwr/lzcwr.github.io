@@ -422,82 +422,82 @@
 <table>
 <thead>
 <tr class="header">
-<th align="center">方法</th>
-<th align="center">含义</th>
+<th style="text-align: center;">方法</th>
+<th style="text-align: center;">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">&quot;Diffusion&quot;</td>
-<td align="center">迭代各向同性扩散方法</td>
+<td style="text-align: center;">“Diffusion”</td>
+<td style="text-align: center;">迭代各向同性扩散方法</td>
 </tr>
 <tr class="even">
-<td align="center">&quot;TotalVariation&quot;</td>
-<td align="center">迭代全变差方法</td>
+<td style="text-align: center;">“TotalVariation”</td>
+<td style="text-align: center;">迭代全变差方法</td>
 </tr>
 <tr class="odd">
-<td align="center">&quot;FastMarching&quot;</td>
-<td align="center">快速行进方法</td>
+<td style="text-align: center;">“FastMarching”</td>
+<td style="text-align: center;">快速行进方法</td>
 </tr>
 <tr class="even">
-<td align="center">&quot;NavierStokes&quot;</td>
-<td align="center">Navier-Stokes 方法</td>
+<td style="text-align: center;">“NavierStokes”</td>
+<td style="text-align: center;">Navier-Stokes 方法</td>
 </tr>
 <tr class="odd">
-<td align="center">&quot;TextureSynthesis&quot;</td>
-<td align="center">利用随机采样的最佳拟合纹理合成方法</td>
+<td style="text-align: center;">“TextureSynthesis”</td>
+<td style="text-align: center;">利用随机采样的最佳拟合纹理合成方法</td>
 </tr>
 </tbody>
 </table>
 <p>默认情况下，使用TextureSynthesis方法。</p>
 <hr>
-<p>设置 Method-&gt;{&quot;TotalVariation&quot;, <em>subopt</em>} 下，可以指定下列子选项：</p>
+<p>设置 Method-&gt;{“TotalVariation”, <em>subopt</em>} 下，可以指定下列子选项：</p>
 <table>
 <thead>
 <tr class="header">
-<th align="center">子操作</th>
-<th align="center">值</th>
-<th align="center">含义</th>
+<th style="text-align: center;">子操作</th>
+<th style="text-align: center;">值</th>
+<th style="text-align: center;">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">&quot;NoiseModel&quot;</td>
-<td align="center">&quot;Gaussian&quot;</td>
-<td align="center">&quot;Gaussian&quot;、&quot;Laplacian&quot;或&quot;Poisson&quot;</td>
+<td style="text-align: center;">“NoiseModel”</td>
+<td style="text-align: center;">“Gaussian”</td>
+<td style="text-align: center;">“Gaussian”、“Laplacian”或“Poisson”</td>
 </tr>
 <tr class="even">
-<td align="center">&quot;Regularization&quot;</td>
-<td align="center">Automatic</td>
-<td align="center">正则化参数</td>
+<td style="text-align: center;">“Regularization”</td>
+<td style="text-align: center;">Automatic</td>
+<td style="text-align: center;">正则化参数</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<p>设置 Method-&gt;{&quot;TextureSynthesis&quot;, <em>subopt</em>} 下，可以指定下列子选项：</p>
+<p>设置 Method-&gt;{“TextureSynthesis”, <em>subopt</em>} 下，可以指定下列子选项：</p>
 <table>
 <thead>
 <tr class="header">
-<th align="center">子操作</th>
-<th align="center">值</th>
-<th align="center">含义</th>
+<th style="text-align: center;">子操作</th>
+<th style="text-align: center;">值</th>
+<th style="text-align: center;">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">Masking</td>
-<td align="center">Automatic</td>
-<td align="center">为二元掩模，可指定用于求出最佳拟合纹理的像素</td>
+<td style="text-align: center;">Masking</td>
+<td style="text-align: center;">Automatic</td>
+<td style="text-align: center;">为二元掩模，可指定用于求出最佳拟合纹理的像素</td>
 </tr>
 <tr class="even">
-<td align="center">&quot;MaxSamples&quot;</td>
-<td align="center">300</td>
-<td align="center">用于求出最佳拟合纹理的样本最大数量</td>
+<td style="text-align: center;">“MaxSamples”</td>
+<td style="text-align: center;">300</td>
+<td style="text-align: center;">用于求出最佳拟合纹理的样本最大数量</td>
 </tr>
 <tr class="odd">
-<td align="center">&quot;NeighborCount&quot;</td>
-<td align="center">30</td>
-<td align="center">用于纹理比较的邻近像素的数目</td>
+<td style="text-align: center;">“NeighborCount”</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">用于纹理比较的邻近像素的数目</td>
 </tr>
 </tbody>
 </table>
@@ -507,15 +507,13 @@
 <p>Inpaint函数有着强大的功能，在图形处理中有着不可思议的作用，以下依据<a href="http://reference.wolfram.com/language/ref/Inpaint.html" target="_blank" rel="noopener">官方文档</a>介绍Inpaint的两个较为直接的应用。</p>
 <h3 id="修复图像损坏的部分">修复图像损坏的部分</h3>
 <p>用合适的Mask图片传入Inpaint可以修复图像的损坏部分：</p>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/acvr1e10vda50lld9excuywm/image_1b95789ipkjg1gudqgq9mqrmg57.png" alt="image_1b95789ipkjg1gudqgq9mqrmg57.png-182.4kB">
-<p class="caption">image_1b95789ipkjg1gudqgq9mqrmg57.png-182.4kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/acvr1e10vda50lld9excuywm/image_1b95789ipkjg1gudqgq9mqrmg57.png" alt="image_1b95789ipkjg1gudqgq9mqrmg57.png-182.4kB"><figcaption>image_1b95789ipkjg1gudqgq9mqrmg57.png-182.4kB</figcaption>
+</figure>
 <p>在处理中也可以使用其他的Method选项：</p>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/xzw3f225yjm0ggjr98sfi3sr/image_1b9579v3t1mvv1nc0163e18ps27q5k.png" alt="image_1b9579v3t1mvv1nc0163e18ps27q5k.png-83.3kB">
-<p class="caption">image_1b9579v3t1mvv1nc0163e18ps27q5k.png-83.3kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/xzw3f225yjm0ggjr98sfi3sr/image_1b9579v3t1mvv1nc0163e18ps27q5k.png" alt="image_1b9579v3t1mvv1nc0163e18ps27q5k.png-83.3kB"><figcaption>image_1b9579v3t1mvv1nc0163e18ps27q5k.png-83.3kB</figcaption>
+</figure>
 <h3 id="去除图片中较大的对象">去除图片中较大的对象</h3>
 <p>通过调整Mask图片的形状和黑白区域分配，可以去除图片中较大的对象。以下是官方文档中的两个例子：</p>
 <p><img src="http://static.zybuluo.com/lzcwr/3qjuejedy1c4s4ztljrc40h7/image_1b957fb3hjgqv46l3q1af9l761.png" alt="image_1b957fb3hjgqv46l3q1af9l761.png-55.6kB"> <img src="http://static.zybuluo.com/lzcwr/xbwvvxwxmytb0o8rl9uyc159/image_1b957g7671akai2lt7hsu358n6e.png" alt="image_1b957g7671akai2lt7hsu358n6e.png-99.4kB"></p>
@@ -523,10 +521,9 @@
 <p>从以上例子中可以看出，关于图像的修复和改动，最关键最核心的就是函数中的region参数，也就是Mask图片的生成。以下讨论两种生成Mask图片的方法：</p>
 <h3 id="掩模工具">掩模工具</h3>
 <p>利用“去除较大对象”的功能以及<code>Mathematica</code>自带的掩模工具，可以去除图片上的水印。 例如下面这张图片，也就是我的头像。来源是<a href="http://baike.baidu.com/link?url=KT1OSCvJNCAtnTD8lciSq6sfiH8Zd2hDvqy93GIykGWVhQ2sDAVivz4fyu41sHA-vu1ZWB_LDp61jTpd6GodvrEWPS9Fndw9lrQ_ek6-0xDlHnj7v4LuH5S9TmCUUIHnfPhhmYJogwklspdtxiq-HeAaWAdvJ2MZDjM3Y8v8klW" target="_blank" rel="noopener">百度百科-正一百二十胞体</a>。但图片左下角带有百度百科的水印：</p>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/xh1jopg1uuaq5f5k2uqoamvn/image_1b93g3b6r1ac3qugnj33q4pgj1f.png" alt="image_1b93g3b6r1ac3qugnj33q4pgj1f.png-75kB">
-<p class="caption">image_1b93g3b6r1ac3qugnj33q4pgj1f.png-75kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/xh1jopg1uuaq5f5k2uqoamvn/image_1b93g3b6r1ac3qugnj33q4pgj1f.png" alt="image_1b93g3b6r1ac3qugnj33q4pgj1f.png-75kB"><figcaption>image_1b93g3b6r1ac3qugnj33q4pgj1f.png-75kB</figcaption>
+</figure>
 <p>利用Inpaint函数可以很好地处理这件事情，以下是处理的方法：</p>
 <ul>
 <li>先将图片导入<code>Mathematica</code>：<img src="http://static.zybuluo.com/lzcwr/s4c1yxtq4yrk05qzuqr0wcnr/mma1-1.jpg" alt="mma1-1.jpg-20kB"></li>
@@ -534,17 +531,15 @@
 <li>掩模完成后就可以直接调用Inpaint函数将左下角的水印去掉了（<code>Mathematica</code>可以直接把图片作为参数，非常便捷）：<img src="http://static.zybuluo.com/lzcwr/hunbysi0g3gojegdgdlmmuay/mma1-3.jpg" alt="mma1-3.jpg-9.7kB"></li>
 <li>然后将图像导出，即可得到一个没有水印的图片（如下图所示）。</li>
 </ul>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/05x06nkjuw8oztloswld5zgs/image_1b93giupt1321lqv26p1b2r183p3j.png" alt="image_1b93giupt1321lqv26p1b2r183p3j.png-75.7kB">
-<p class="caption">image_1b93giupt1321lqv26p1b2r183p3j.png-75.7kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/05x06nkjuw8oztloswld5zgs/image_1b93giupt1321lqv26p1b2r183p3j.png" alt="image_1b93giupt1321lqv26p1b2r183p3j.png-75.7kB"><figcaption>image_1b93giupt1321lqv26p1b2r183p3j.png-75.7kB</figcaption>
+</figure>
 <p>在很多情况下，用掩模工具生成Mask图片作为region参数对图像进行处理都是非常方便的。</p>
 <h3 id="利用颜色的值自动从原图生成mask">利用颜色的值自动从原图生成Mask</h3>
 <p>还有一种方法能够直接从原图中生成Mask图片，以下是官方文档中非常具有启发性的一个例子：</p>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/qfsl33sfd2l7a44mv4cdnz8a/image_1b958k6rv1mg1ai41lafg3abd26r.png" alt="image_1b958k6rv1mg1ai41lafg3abd26r.png-104.6kB">
-<p class="caption">image_1b958k6rv1mg1ai41lafg3abd26r.png-104.6kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/qfsl33sfd2l7a44mv4cdnz8a/image_1b958k6rv1mg1ai41lafg3abd26r.png" alt="image_1b958k6rv1mg1ai41lafg3abd26r.png-104.6kB"><figcaption>image_1b958k6rv1mg1ai41lafg3abd26r.png-104.6kB</figcaption>
+</figure>
 <p>在这个例子中，非常完美地地去掉了图片右下的日期标记，而且在命令中没有直接出现Mask图片，而是用了一行命令来自动生成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dilation[Binarize[ColorSeparate[img][[1]], 0.93], 1]</span><br></pre></td></tr></table></figure>
 <p>其含义是：用ColorSeperate函数将图片分为RGB三层，然后将Red层像素值大于255×0.93的设为白色，其余为黑色，然后用二值化函数Binarize来生成黑白图片作为region参数。其中的Dilation函数是一个处理函数，本文不多赘述。</p>
@@ -561,17 +556,15 @@
 <ul>
 <li>纹理合成：</li>
 </ul>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/1od15epr9dwdghtqpttbo7jz/image_1b95a50op1m0h14pbs74fjdp6978.png" alt="image_1b95a50op1m0h14pbs74fjdp6978.png-125.8kB">
-<p class="caption">image_1b95a50op1m0h14pbs74fjdp6978.png-125.8kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/1od15epr9dwdghtqpttbo7jz/image_1b95a50op1m0h14pbs74fjdp6978.png" alt="image_1b95a50op1m0h14pbs74fjdp6978.png-125.8kB"><figcaption>image_1b95a50op1m0h14pbs74fjdp6978.png-125.8kB</figcaption>
+</figure>
 <ul>
 <li>画作分析：</li>
 </ul>
-<div class="figure">
-<img src="http://static.zybuluo.com/lzcwr/00ngpy90vzmlfb2zgn2jw2l0/image_1b95auqqggfh1lic1f5k1qsq16tc7l.png" alt="image_1b95auqqggfh1lic1f5k1qsq16tc7l.png-267.5kB">
-<p class="caption">image_1b95auqqggfh1lic1f5k1qsq16tc7l.png-267.5kB</p>
-</div>
+<figure>
+<img src="http://static.zybuluo.com/lzcwr/00ngpy90vzmlfb2zgn2jw2l0/image_1b95auqqggfh1lic1f5k1qsq16tc7l.png" alt="image_1b95auqqggfh1lic1f5k1qsq16tc7l.png-267.5kB"><figcaption>image_1b95auqqggfh1lic1f5k1qsq16tc7l.png-267.5kB</figcaption>
+</figure>
 <p>有关<code>Mathematica</code>的其他资料请自行查阅。本文只做普及，不做详解。</p>
 
       

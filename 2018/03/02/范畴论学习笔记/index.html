@@ -401,18 +401,18 @@
 <h3 id="范畴-category">范畴: category</h3>
 <h4 id="范畴的定义">范畴的定义</h4>
 <p>一个范畴 <span class="math inline">\(\mathscr{C}\)</span> 包含一些对象和一些箭头:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>对象</strong>(Objects): 记作 <span class="math inline">\(A,B,C,\cdots\)</span>;</li>
 <li><strong>箭头</strong>(Morphism): 记作 <span class="math inline">\(f,g,h,\cdots\)</span>.</li>
 </ol>
 <p>这些对象和箭头需要满足以下几个条件:</p>
 <ul>
 <li><strong>箭头有唯一的源和目标</strong>: <span class="math inline">\(\forall f\in\mathscr{C}\)</span>, <span class="math inline">\(\exists\)</span> 唯一 <span class="math inline">\({\rm src}f,{\rm tar} f\in\mathscr{C}\)</span>. 若 <span class="math inline">\({\rm scr}f = A\)</span>, <span class="math inline">\({\rm tar}f = B\)</span>, 则可以记为 <span class="math inline">\(f:A\to B\)</span>.</li>
-<li><strong>箭头可以复合</strong>: <span class="math inline">\(\forall f,g\in\mathscr{C}\)</span>, 设 <span class="math inline">\(f:A\to B\)</span>, <span class="math inline">\(g:B\to C\)</span>, <span class="math inline">\(\exists h=g\circ f:A\to C\)</span>. 称为 &quot;<span class="math inline">\(g\)</span> following <span class="math inline">\(f\)</span>&quot;, 即二者的复合.</li>
+<li><strong>箭头可以复合</strong>: <span class="math inline">\(\forall f,g\in\mathscr{C}\)</span>, 设 <span class="math inline">\(f:A\to B\)</span>, <span class="math inline">\(g:B\to C\)</span>, <span class="math inline">\(\exists h=g\circ f:A\to C\)</span>. 称为 “<span class="math inline">\(g\)</span> following <span class="math inline">\(f\)</span>”, 即二者的复合.</li>
 <li><strong>每个对象必须有单位箭头</strong>: <span class="math inline">\(\forall A\in\mathscr{C}\)</span>, <span class="math inline">\(\exists {\rm id}_A:A\to A\in\mathscr{C}\)</span>.</li>
 </ul>
 <p>箭头还满足以下两条性质:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong><span class="math inline">\(\circ\)</span> 的结合律</strong>: <span class="math inline">\(\forall f:A\to B,~g:B\to C,~h:C\to D\)</span>, 有 <span class="math display">\[h\circ(g\circ f)=(h\circ g)\circ f.\]</span></li>
 <li><strong><span class="math inline">\({\rm id}_A\)</span> 是 <span class="math inline">\(\circ\)</span> 运算的单位元</strong>: <span class="math inline">\(\forall f:A\to B\)</span>, 有 <span class="math display">\[f\circ {\rm id}_A=f={\rm id}_B\circ f.\]</span></li>
 </ol>
@@ -421,15 +421,15 @@
 <li><strong>幺半群 Monoid</strong></li>
 </ul>
 <p>幺半群 <span class="math inline">\((M,\cdot)\)</span> 指不满足“所有元素可逆”的群:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>存在单位元</strong>: <span class="math inline">\(\exists e\)</span>, s.t. <span class="math inline">\(\forall a\in M\)</span>, <span class="math inline">\(a\cdot e=a=e\cdot a\)</span>;</li>
 <li><strong>乘法结合律</strong>: <span class="math inline">\(\forall a,b,c\in M\)</span>, <span class="math inline">\((a\cdot b)\cdot c=a\cdot (b\cdot c)\)</span>.</li>
 </ol>
 <p>在幺半群 <span class="math inline">\(M\)</span> 的基础上, 可定义范畴 <span class="math inline">\(\mathscr{M}\)</span> 如下:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong><span class="math inline">\(\mathscr{M}\)</span>-对象</strong>: 任取一个集合 <span class="math inline">\(S\)</span> 作为 <span class="math inline">\(\mathscr{M}\)</span> 的对象;</li>
 <li><strong><span class="math inline">\(\mathscr{M}\)</span>-箭头</strong>: 用 <span class="math inline">\(M\)</span> 中的元素表示 <span class="math inline">\(\mathscr{M}\)</span> 上的箭头:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>箭头的复合定义为元素的乘积: <span class="math display">\[(a\circ b)_\mathscr{M}=(a\cdot b)_M;\]</span></li>
 <li>单位箭头定义为 <span class="math inline">\(M\)</span> 的单位元: <span class="math display">\[{\rm id}_\mathscr{M}=e_M.\]</span></li>
 </ol></li>
@@ -438,7 +438,7 @@
 <li><strong>幺半范畴</strong></li>
 </ul>
 <p>考虑所有幺半群组成的集合, 可如下定义范畴 <span class="math inline">\(\mathscr{M}\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong><span class="math inline">\(\mathscr{M}\)</span>-对象</strong>: 幺半群全体作为 <span class="math inline">\(\mathscr{M}\)</span> 的对象;</li>
 <li><strong><span class="math inline">\(\mathscr{M}\)</span>-箭头</strong>: 所有的幺半群同态作为 <span class="math inline">\(\mathscr{M}\)</span> 的箭头.</li>
 </ol>
@@ -447,13 +447,13 @@
 <li><strong>偏序集</strong></li>
 </ul>
 <p>在一个集合 <span class="math inline">\(S\)</span> 上, 一个偏序 <span class="math inline">\(\leqslant\)</span> 的定义如下:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>自反性</strong>: <span class="math inline">\(\forall x\in S\)</span>, <span class="math inline">\(x\leqslant x\)</span>;</li>
 <li><strong>反对称性</strong>: <span class="math inline">\(x\leqslant y~\text{且}~y\leqslant x\iff x=y\)</span>;</li>
 <li><strong>传递性</strong>: <span class="math inline">\(x\leqslant y,~y\leqslant z\Longrightarrow x\leqslant z\)</span>.</li>
 </ol>
 <p>集合 <span class="math inline">\(S\)</span> 定义了偏序后, 就称为一个<strong>偏序集</strong>. 在偏序集 <span class="math inline">\(S\)</span> 的基础上可以如下定义范畴 <span class="math inline">\(\mathscr{C}\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong><span class="math inline">\(\mathscr{C}\)</span>-对象</strong>: <span class="math inline">\(S\)</span> 中的元素作为 <span class="math inline">\(\mathscr{C}\)</span> 的对象;</li>
 <li><strong><span class="math inline">\(\mathscr{C}\)</span>-箭头</strong>: 若 <span class="math inline">\(A\leqslant B\in S\)</span>, 则存在唯一的箭头 <span class="math inline">\(f:A\to B\)</span>.</li>
 </ol>
@@ -462,7 +462,7 @@
 <li><strong>偏序范畴</strong></li>
 </ul>
 <p>考虑所有偏序集组成的集合, 可如下定义范畴 <span class="math inline">\(\mathscr{C}\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong><span class="math inline">\(\mathscr{C}\)</span>-对象</strong>: 偏序集全体作为 <span class="math inline">\(\mathscr{C}\)</span> 的对象;</li>
 <li><strong><span class="math inline">\(\mathscr{C}\)</span>-箭头</strong>: 所有的保序映射作为 <span class="math inline">\(\mathscr{C}\)</span> 的箭头.</li>
 </ol>
@@ -484,10 +484,10 @@
 <li>集合范畴</li>
 </ul>
 <p>考虑如下范畴 <span class="math inline">\({\tt Set}\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>对象: 所有集合<strong>(注意所有集合全体不是一个集合)</strong>;</li>
 <li>箭头: 集合间的映射(原文为set-function) <span class="math inline">\(f:X\to Y\)</span>.
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>单位箭头是恒等映射, 显然存在且唯一;</li>
 <li>箭头的复合也是很自然的.</li>
 </ol></li>
@@ -497,10 +497,10 @@
 <li>逻辑范畴</li>
 </ul>
 <p>在形式语言 <span class="math inline">\(T\)</span> 中考虑如下范畴 <span class="math inline">\({\tt Proof}_T\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>对象: 所有 <span class="math inline">\(T\)</span> 中的语句;</li>
 <li>箭头: <span class="math inline">\(\forall\varphi,\psi\in T\)</span>, 存在箭头 <span class="math inline">\(\varphi\to\psi\iff\varphi\vdash\psi\)</span>.
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>单位箭头是恒等映射, 显然存在且唯一;</li>
 <li>箭头的复合根据 <span class="math inline">\(\vdash\)</span> 的定义显然.</li>
 </ol></li>
@@ -511,66 +511,66 @@
 <table>
 <thead>
 <tr class="header">
-<th align="center">范畴</th>
-<th align="center">记号</th>
-<th align="center">对象</th>
-<th align="center">箭头</th>
+<th style="text-align: center;">范畴</th>
+<th style="text-align: center;">记号</th>
+<th style="text-align: center;">对象</th>
+<th style="text-align: center;">箭头</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">群范畴</td>
-<td align="center"><span class="math inline">\({\tt Grp}\)</span></td>
-<td align="center">所有的群</td>
-<td align="center">群同态</td>
+<td style="text-align: center;">群范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Grp}\)</span></td>
+<td style="text-align: center;">所有的群</td>
+<td style="text-align: center;">群同态</td>
 </tr>
 <tr class="even">
-<td align="center">交换群范畴</td>
-<td align="center"><span class="math inline">\({\tt Ab}\)</span></td>
-<td align="center">所有的交换群</td>
-<td align="center">群同态</td>
+<td style="text-align: center;">交换群范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Ab}\)</span></td>
+<td style="text-align: center;">所有的交换群</td>
+<td style="text-align: center;">群同态</td>
 </tr>
 <tr class="odd">
-<td align="center">环范畴</td>
-<td align="center"><span class="math inline">\({\tt Rng}\)</span></td>
-<td align="center">所有的环</td>
-<td align="center">环同态</td>
+<td style="text-align: center;">环范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Rng}\)</span></td>
+<td style="text-align: center;">所有的环</td>
+<td style="text-align: center;">环同态</td>
 </tr>
 <tr class="even">
-<td align="center">布尔范畴</td>
-<td align="center"><span class="math inline">\({\tt Bool}\)</span></td>
-<td align="center">所有的布尔代数</td>
-<td align="center">结构保存映射</td>
+<td style="text-align: center;">布尔范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Bool}\)</span></td>
+<td style="text-align: center;">所有的布尔代数</td>
+<td style="text-align: center;">结构保存映射</td>
 </tr>
 <tr class="odd">
-<td align="center">偏序/全序范畴</td>
-<td align="center"><span class="math inline">\({\tt Pos/Tot}\)</span></td>
-<td align="center">所有的偏序/全序集</td>
-<td align="center">保序映射</td>
+<td style="text-align: center;">偏序/全序范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Pos/Tot}\)</span></td>
+<td style="text-align: center;">所有的偏序/全序集</td>
+<td style="text-align: center;">保序映射</td>
 </tr>
 <tr class="even">
-<td align="center">拓扑/度量空间范畴</td>
-<td align="center"><span class="math inline">\({\tt Top/Met}\)</span></td>
-<td align="center">所有的拓扑/度量空间</td>
-<td align="center">连续映射</td>
+<td style="text-align: center;">拓扑/度量空间范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Top/Met}\)</span></td>
+<td style="text-align: center;">所有的拓扑/度量空间</td>
+<td style="text-align: center;">连续映射</td>
 </tr>
 <tr class="odd">
-<td align="center">场 <span class="math inline">\(K\)</span> 上的向量空间范畴</td>
-<td align="center"><span class="math inline">\({\tt Vect}_K\)</span></td>
-<td align="center">所有的向量空间</td>
-<td align="center">线性映射</td>
+<td style="text-align: center;">场 <span class="math inline">\(K\)</span> 上的向量空间范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Vect}_K\)</span></td>
+<td style="text-align: center;">所有的向量空间</td>
+<td style="text-align: center;">线性映射</td>
 </tr>
 <tr class="even">
-<td align="center">集合/有限集范畴</td>
-<td align="center"><span class="math inline">\({\tt Set/FinSet}\)</span></td>
-<td align="center">所有的集合/有限集</td>
-<td align="center">集合映射 <span class="math inline">\(f:X\to Y\)</span></td>
+<td style="text-align: center;">集合/有限集范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Set/FinSet}\)</span></td>
+<td style="text-align: center;">所有的集合/有限集</td>
+<td style="text-align: center;">集合映射 <span class="math inline">\(f:X\to Y\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center">逻辑范畴</td>
-<td align="center"><span class="math inline">\({\tt Proof}_T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span> 中的所有语句</td>
-<td align="center">按照逻辑推出关系 <span class="math inline">\(\vdash\)</span> 定义箭头</td>
+<td style="text-align: center;">逻辑范畴</td>
+<td style="text-align: center;"><span class="math inline">\({\tt Proof}_T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span> 中的所有语句</td>
+<td style="text-align: center;">按照逻辑推出关系 <span class="math inline">\(\vdash\)</span> 定义箭头</td>
 </tr>
 </tbody>
 </table>
@@ -578,27 +578,27 @@
 <p>从已有的一个范畴可以构建出新的范畴, 有以下的一些方法</p>
 <h3 id="逆范畴-opposite-category">逆范畴: opposite category</h3>
 <p>一个范畴 <span class="math inline">\(\mathscr{C}\)</span> 的逆范畴 <span class="math inline">\(\mathscr{C}^{op}\)</span> 定义如下:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\mathscr{C}^{op}\)</span>-对象: <span class="math inline">\(\mathscr{C}\)</span> 的对象;</li>
 <li><span class="math inline">\(\mathscr{C}^{op}\)</span>-箭头: <span class="math inline">\(f:B\to A~\text{in}~\mathscr{C}^{op}\iff f:A\to B~\text{in}~\mathscr{C}\)</span>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>单位箭头: <span class="math inline">\({\rm id}_A^{op}={\rm id}_A\)</span>, <span class="math inline">\(\forall A\)</span>;</li>
 <li>复合箭头: <span class="math inline">\(f\circ^{op}g=g\circ f\)</span>.</li>
 </ol></li>
 </ol>
 <p>根据定义可知:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>每个范畴 <span class="math inline">\(\mathscr{C}\)</span> 都存在一个对偶 <span class="math inline">\(\mathscr{C}^{op}\)</span>;</li>
 <li>对偶的对偶就是自身: <span class="math inline">\((\mathscr{C}^{op})^{op}=\mathscr{C}\)</span>.</li>
 </ol>
 <h3 id="子范畴-subcategory">子范畴: subcategory</h3>
 <p>对于一个范畴 <span class="math inline">\(\mathscr{C}\)</span>, 若 <span class="math inline">\(\exists\)</span> 范畴 <span class="math inline">\(\mathscr{S}\)</span>, s.t.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\mathscr{S}\)</span> 的对象全部都是 <span class="math inline">\(\mathscr{C}\)</span> 的(全部或部分)对象;</li>
 <li><span class="math inline">\(\mathscr{S}\)</span> 的箭头全部都是 <span class="math inline">\(\mathscr{C}\)</span> 的(全部或部分)箭头.</li>
 </ol>
 <p>且满足:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\mathscr{S}\)</span> 继承 <span class="math inline">\(\mathscr{C}\)</span> 中的单位箭头;</li>
 <li><span class="math inline">\(\mathscr{S}\)</span> 继承 <span class="math inline">\(\mathscr{C}\)</span> 的结合律.</li>
 </ol>
@@ -611,10 +611,10 @@
 <p>特别地, 若对于 <span class="math inline">\(\forall\mathscr{S}\)</span> 对象 <span class="math inline">\(A,B\)</span>, <span class="math inline">\(\mathscr{S}\)</span> 中包含了 <span class="math inline">\(\mathscr{C}\)</span> 中所有的 <span class="math inline">\(A\to B\)</span> 的箭头, 则称 <span class="math inline">\(\mathscr{S}\)</span> 是 <span class="math inline">\(\mathscr{C}\)</span> 的一个<strong>满子范畴</strong>.</p>
 <h3 id="积范畴-product-category">积范畴: product category</h3>
 <p>设 <span class="math inline">\(\mathscr{C}\)</span> 和 <span class="math inline">\(\mathscr{D}\)</span> 是范畴, 如下定义二者的积范畴 <span class="math inline">\(\mathscr{C}\times\mathscr{D}\)</span>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\mathscr{C}\times\mathscr{D}\)</span>-对象: <span class="math inline">\((C,D)\)</span>, 其中 <span class="math inline">\(C,D\)</span> 分别是 <span class="math inline">\(\mathscr{C},\mathscr{D}\)</span> 的对象;</li>
 <li><span class="math inline">\(\mathscr{C}\times\mathscr{D}\)</span>-箭头: <span class="math inline">\((f,g):(C_1,D_1)\to (C_2,D_2)\iff f:C_1\to C_2~\text{in}~\mathscr{C},g:D_1\to D_2~\text{in}~\mathscr{D}\)</span>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>单位箭头: <span class="math inline">\({\rm id}_{(C,D)}=({\rm id}_C,{\rm id}_D)\)</span>;</li>
 <li>复合箭头: <span class="math inline">\((f_1,g_1)\circ (f_2,g_2)=(f_1\circ_\mathscr{C} f_2,g_1\circ_\mathscr{D} g_2)\)</span>.</li>
 </ol></li>
@@ -624,7 +624,7 @@
 <p>例如对于拓扑范畴 <span class="math inline">\({\tt Top}\)</span>, 考虑其上的同伦关系, 所得的商空间 <span class="math inline">\({\tt Top}/\sim\)</span> 称为同伦拓扑范畴, 记作 <span class="math inline">\({\tt hTop}\)</span>.</p>
 <h3 id="箭头范畴-arrow-category">箭头范畴: arrow category</h3>
 <p>设 <span class="math inline">\(\mathscr{C}\)</span> 是一个范畴, 其箭头范畴 <span class="math inline">\(\mathscr{C}^\to\)</span> 定义如下:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\mathscr{C}^\to\)</span>-对象: <span class="math inline">\(\mathscr{C}\)</span> 中的箭头;</li>
 <li><span class="math inline">\(\mathscr{C}^\to\)</span>-箭头: 对于两个 <span class="math inline">\(\mathscr{C}^\to\)</span> 对象 <span class="math inline">\(f_1, f_2\)</span>, 一个 <span class="math inline">\(\mathscr{C}^\to\)</span> 箭头 <span class="math inline">\(f_1\to f_2\)</span> 是一个使得下图交换的一个二元组 <span class="math inline">\((j,k)\)</span>:<span class="math display">\[
 \begin{matrix}
@@ -633,17 +633,17 @@ X_1~~ &amp; \xrightarrow{j} &amp; X_2~~ \\
 Y_1~~ &amp; \xrightarrow{k} &amp; Y_2~~ \\
 \end{matrix}
 \]</span>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>单位箭头: <span class="math inline">\(f:X\to Y\)</span> 的单位箭头为 <span class="math inline">\(({\rm id}_X,{\rm id}_Y)\)</span>;</li>
 <li>复合箭头: <span class="math inline">\((j_1,k_1):f_1 \to f_2\)</span> 和 <span class="math inline">\((j_2,k_2):f_2 \to f_3\)</span> 的复合为:<span class="math display">\[(j_2\circ j_1,~k_2\circ k_1):f_1\to f_3.\]</span></li>
 </ol></li>
 </ol>
 <h3 id="切片范畴-slice-category">切片范畴: slice category</h3>
 <p>设 <span class="math inline">\(\mathscr{C}\)</span> 是一个范畴, <span class="math inline">\(I\)</span> 是 <span class="math inline">\(\mathscr{C}\)</span> 的一个对象, 则 <span class="math inline">\(\mathscr{C}\)</span> 在 <span class="math inline">\(I\)</span> 的切片范畴 <span class="math inline">\(\mathscr{C}/I\)</span> 定义如下:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\mathscr{C}/I\)</span>-对象: 二元组 <span class="math inline">\((A,f)\)</span>, 其中 <span class="math inline">\(A\)</span> 是 <span class="math inline">\(\mathscr{C}\)</span> 的对象, <span class="math inline">\(f:A\to I\)</span> 是 <span class="math inline">\(\mathscr{C}\)</span> 的箭头;</li>
 <li><span class="math inline">\(\mathscr{C}/I\)</span>-箭头: 箭头 <span class="math inline">\((A,f)\to (B,g)\)</span> 是在 <span class="math inline">\(\mathscr{C}\)</span> 中满足 <span class="math inline">\(g\circ j=f\)</span> 的箭头 <span class="math inline">\(j:A\to B\)</span>.
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>单位箭头: 对象 <span class="math inline">\((A,f)\)</span> 的单位箭头是 <span class="math inline">\(\mathscr{C}\)</span> 的单位箭头 <span class="math inline">\({\rm id}_A\)</span>;</li>
 <li>复合箭头: 箭头 <span class="math inline">\(j:(A,f)\to(B,g)\)</span> 和 <span class="math inline">\(k:(B,g)\to(C,h)\)</span> 的复合为 <span class="math display">\[k\circ_{\mathscr{C}/I} j:(A,f)\to(C,h)=k\circ_\mathscr{C} j:A\to C.\]</span></li>
 </ol></li>
@@ -656,13 +656,13 @@ Y_1~~ &amp; \xrightarrow{k} &amp; Y_2~~ \\
 <p><strong>单态</strong>: 设 <span class="math inline">\(\mathscr{C}\)</span> 是一个范畴, 其中的一个箭头 <span class="math inline">\(f:B\to C\)</span> 是一个单态<strong>当且仅当</strong>它满足左消去律. 即对于 <span class="math inline">\(\forall\)</span> 映射 <span class="math inline">\(g:A\to B,~h:A\to B\)</span>, 有<span class="math display">\[f\circ g=f\circ h\iff g=h.\]</span></p>
 </blockquote>
 <h4 id="例子">例子</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\({\tt Set}\)</span> 中的箭头是单态当且仅当其对应的映射是单射;</li>
 <li><span class="math inline">\({\tt Grp}\)</span> 中的箭头是单态当且仅当其对应的同态是单同态;</li>
 <li>单位箭头 <span class="math inline">\({\rm id}_A\)</span> 是单态.</li>
 </ol>
 <h4 id="性质">性质</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>如果 <span class="math inline">\(f,g\)</span> 是单态, 则 <span class="math inline">\(f\circ g\)</span> 是单态;</li>
 <li>如果 <span class="math inline">\(f\circ g\)</span> 是单态, 则 <span class="math inline">\(g\)</span> 是单态.</li>
 </ol>
@@ -672,13 +672,13 @@ Y_1~~ &amp; \xrightarrow{k} &amp; Y_2~~ \\
 <p><strong>满态</strong>: 设 <span class="math inline">\(\mathscr{C}\)</span> 是一个范畴, 其中的一个箭头 <span class="math inline">\(f:B\to C\)</span> 是一个满态<strong>当且仅当</strong>它满足右消去律. 即对于 <span class="math inline">\(\forall\)</span> 映射 <span class="math inline">\(g:C\to D,~h:C\to D\)</span>, 有<span class="math display">\[g\circ f=h\circ f\iff g=h.\]</span></p>
 </blockquote>
 <h4 id="例子-1">例子</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\({\tt Set}\)</span> 中的箭头是满态当且仅当其对应的映射是满射;</li>
 <li><span class="math inline">\({\tt Grp}\)</span> 中的箭头是满态当且仅当其对应的同态是满同态;</li>
 <li>单位箭头 <span class="math inline">\({\rm id}_A\)</span> 是满态.</li>
 </ol>
 <h4 id="性质-1">性质</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>如果 <span class="math inline">\(f,g\)</span> 是满态, 则 <span class="math inline">\(f\circ g\)</span> 是满态;</li>
 <li>如果 <span class="math inline">\(f\circ g\)</span> 是满态, 则 <span class="math inline">\(f\)</span> 是满态.</li>
 </ol>
