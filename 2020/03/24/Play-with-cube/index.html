@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="师大,数学,抽象代数,各种试卷," />
+  <meta name="keywords" content="算法,魔方," />
 
 
 
@@ -86,18 +86,27 @@
 
 
 
-<meta name="description" content="2015 期末试题 刘玉明 2016 期中试题 胡维 刘玉明 2016 期末试题 胡维 刘玉明">
-<meta name="keywords" content="师大,数学,抽象代数,各种试卷">
+<meta name="description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   233 魔方还原方法（网上的相关资源不多，且质量不高）">
+<meta name="keywords" content="算法,魔方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="北京师范大学近世代数试卷">
-<meta property="og:url" content="http://lizhechen.com/2017/07/03/BNU-Abstract-Algebra-Exam/index.html">
+<meta property="og:title" content="魔方杂记">
+<meta property="og:url" content="http://lizhechen.com/2020/03/24/Play-with-cube/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="2015 期末试题 刘玉明 2016 期中试题 胡维 刘玉明 2016 期末试题 胡维 刘玉明">
+<meta property="og:description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   233 魔方还原方法（网上的相关资源不多，且质量不高）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-30T12:14:10.000Z">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-1L-Corner.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-2L-Corner.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-2L-Edge1.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-2L-Edge2.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-Other1.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-2L-Edge3.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-2L-Edge4.png">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/5Cube-Edge1.png">
+<meta property="og:updated_time" content="2020-03-25T15:19:09.347Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="北京师范大学近世代数试卷">
-<meta name="twitter:description" content="2015 期末试题 刘玉明 2016 期中试题 胡维 刘玉明 2016 期末试题 胡维 刘玉明">
+<meta name="twitter:title" content="魔方杂记">
+<meta name="twitter:description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   233 魔方还原方法（网上的相关资源不多，且质量不高）">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/233Cube-1L-Corner.png">
 
 
 
@@ -127,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://lizhechen.com/2017/07/03/BNU-Abstract-Algebra-Exam/"/>
+  <link rel="canonical" href="http://lizhechen.com/2020/03/24/Play-with-cube/"/>
 
 
 
 
 
-  <title>北京师范大学近世代数试卷 | Zhechen's Personal Website</title>
+  <title>魔方杂记 | Zhechen's Personal Website</title>
   
 
 
@@ -304,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2017/07/03/BNU-Abstract-Algebra-Exam/">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2020/03/24/Play-with-cube/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="戳兔专家 lzcwr">
@@ -321,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">北京师范大学近世代数试卷</h1>
+          <h1 class="post-title" itemprop="name headline">魔方杂记</h1>
         
 
         <div class="post-meta">
@@ -333,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T00:03:33+08:00">
-                2017-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-24T21:06:51+08:00">
+                2020-03-24
               </time>
             
 
@@ -343,28 +352,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -393,119 +380,122 @@
       
 
       
-        <ul>
-<li>2015 期末试题 刘玉明</li>
-<li>2016 期中试题 胡维 刘玉明</li>
-<li>2016 期末试题 胡维 刘玉明</li>
+        <blockquote>
+<p>疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 <code>canvas</code> + <code>js</code> 画图…）</p>
+</blockquote>
+<ul>
+<li>233 魔方还原方法（网上的相关资源不多，且质量不高）</li>
 </ul>
 <a id="more"></a>
-<h2 id="期末试题-刘玉明">2015 期末试题 刘玉明</h2>
+<h2 id="魔方还原">233 魔方还原</h2>
+<blockquote>
+<p><strong>还原方法</strong>：底层十字（很简单）<span class="math inline">\(\to\)</span>底层角块<span class="math inline">\(\to\)</span>顶层角块<span class="math inline">\(\to\)</span>顶层棱块.</p>
+</blockquote>
+<p>233 魔方相比三阶魔方，有一些特殊之处：</p>
+<ul>
+<li>侧面的棱只能转 180 度，不能转 90 度. （<code>L</code> <code>R</code> <code>F</code> <code>B</code> 都必须连做两次）.</li>
+<li>底面还原好后，顶面也一定还原好了.
+<ul>
+<li>事实上，233 魔方只有位置的变化，总变化数为 <span class="math inline">\(7!\times 8!\times 2=406425600\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>据说可以视为三阶魔方去掉中间层，进而以三阶魔方的 <code>F2L</code> 以及 <code>PLL</code> 稍作改动来还原… 奈何本人才疏学浅，尝试几次却不得要领.</p>
+</blockquote>
+<p>底层十字很好做，因此从底层角块开始…</p>
+<h3 id="底层角块">底层角块</h3>
+<p>我们只需要解决下图中的情形：</p>
+<p><img src="/img/blog-graph/233Cube-1L-Corner.png" alt="第一层角块"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解决方法：R2U R2U&apos; R2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：该方法能够完整保留底层所有其他块的位置不动，但不能保证顶层的其余块不动.</li>
+</ul>
+<h3 id="顶层角块">顶层角块</h3>
+<p>我们只需要实现“交换相邻角块”的操作即可（暂时不管上层棱块）. 事实上，我们可以解决下图所示的情形（交换一组相邻角块以及一组相对的棱块）：</p>
+<p><img src="/img/blog-graph/233Cube-2L-Corner.png" alt="第二层角块"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解决方法：R2U R2U&apos; R2  F2U&apos; F2U F2U&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意，上述操作的前一半与还原底层角块时的操作完全一样，因此前一半实际上将图中的 <code>红-白-绿</code> 块放到了底面.</li>
+</ul>
+<h3 id="顶层棱块">顶层棱块</h3>
+<p>顶层棱块需要两种操作：<code>1. 交换相对的棱块</code>，<code>2. 交换相邻的棱块</code>.</p>
+<table>
+<tr>
+<td>
+<img src="/img/blog-graph/233Cube-2L-Edge1.png" alt="第二层相对棱块">
+</td>
+<td>
+<img src="/img/blog-graph/233Cube-2L-Edge2.png" alt="第二层相邻棱块">
+</td>
+</tr>
+<tr>
+<th>
+相对棱块交换示意图
+</th>
+<th>
+相邻棱块交换示意图
+</th>
+</tr>
+</table>
+<p>对于相对棱块的情形，直接做三次 <code>R2U2</code> 即可.</p>
+<ul>
+<li>上述操作能够完美保证其他所有块的位置和朝向均不发生变化. 因此可利用该操作还原相邻棱块的情形.</li>
+</ul>
+<p>事实上，对于相邻棱块，先做 <code>R2 D B2</code>，即可将右边的棱块（图中第二层右边的黄色棱块）转移到背面，此时就变成了相对的情形，按照相对棱块的办法复原，再还原即可.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解决方法：</span><br><span class="line">    相对棱块：R2U2 R2U2 R2U2，简记为 (R2U2)×3</span><br><span class="line">    相邻棱块：(R2 D B2) (R2U2)×3 (B2 D&apos; R2)</span><br></pre></td></tr></table></figure>
+<h3 id="其他操作">其他操作</h3>
+<blockquote>
+<p>可以做的一些其他操作.</p>
+</blockquote>
+<h4 id="两层同时交换相邻的棱块和角块">两层同时交换相邻的棱块和角块</h4>
+<p>解决如下情形：</p>
+<p><img src="/img/blog-graph/233Cube-Other1.png" alt="其他操作-1"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解决方法：R2U&apos;R2U DR2D&apos;R2</span><br></pre></td></tr></table></figure>
+<h4 id="同时调整第二层的三个棱块">同时调整第二层的三个棱块</h4>
+<p>解决如下两种情形：</p>
+<table>
+<tr>
+<td>
+<img src="/img/blog-graph/233Cube-2L-Edge3.png" alt="顺时针轮换">
+</td>
+<td>
+<img src="/img/blog-graph/233Cube-2L-Edge4.png" alt="逆时针轮换">
+</td>
+</tr>
+<tr>
+<th>
+棱块顺时针轮换示意图
+</th>
+<th>
+棱块逆时针轮换示意图
+</th>
+</tr>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解决方法：</span><br><span class="line">    顺时针：RURU&apos;R F LU&apos;LUL F（图 1）</span><br><span class="line">    逆时针：LU&apos;LUL F RURU&apos;R F（图 2）</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料">参考资料</h3>
 <ol type="1">
-<li>(20分) <span class="math inline">\(\mathbb{Z}_n=\{[0],[1],\cdots,[n-1]\}\)</span> 表示模 <span class="math inline">\(n\)</span> 的剩余类加群.
-<ol type="1">
-<li>写出 <span class="math inline">\(\mathbb{Z}_4\)</span> 的加法运算表.</li>
-<li>写出 <span class="math inline">\(\mathbb{Z}_6\)</span> 的所有子群.</li>
-<li><span class="math inline">\(\mathbb{Z}_7\)</span> 有几个子群?</li>
-<li><span class="math inline">\(\mathbb{Z}_{28}\)</span> 有几个 <span class="math inline">\(7\)</span> 阶元?</li>
-</ol></li>
-<li>(20分) <span class="math inline">\(\mathbb{Z}_n^*=\{[a]\in\mathbb{Z}_n~|~a~与~n~互素\}\)</span>.
-<ol type="1">
-<li>证明: <span class="math inline">\(\mathbb{Z}_n^*\)</span> 关于乘法 <span class="math inline">\([a][b]=[ab]\)</span> 构成一个阿贝尔群.</li>
-<li>求 <span class="math inline">\([3]\)</span> 在 <span class="math inline">\(\mathbb{Z}_8^*\)</span> 以及 <span class="math inline">\([5]\)</span> 在 <span class="math inline">\(\mathbb{Z}_{13}^*\)</span> 中的逆元.</li>
-</ol></li>
-<li>(15分) 用 <span class="math inline">\(S_5\)</span> 表示 <span class="math inline">\(5\)</span> 次对称群.
-<ol type="1">
-<li><span class="math inline">\(\sigma=(12345)\)</span> 是 <span class="math inline">\(S_5\)</span> 中的几阶元?</li>
-<li><span class="math inline">\(S_5\)</span> 中与 <span class="math inline">\(\sigma\)</span> 共轭的元素有几个?</li>
-<li>写出循环群 <span class="math inline">\(\langle\sigma\rangle\)</span> 中的所有元素. <span class="math inline">\(\langle\sigma\rangle\)</span> 是不是 <span class="math inline">\(S_5\)</span> 的正规子群?</li>
-</ol></li>
-<li>(20分)
-<ol type="1">
-<li>写出整数环 <span class="math inline">\(\mathbb{Z}\)</span> 的所有极大理想.</li>
-<li>写出模 <span class="math inline">\(18\)</span> 的剩余类环 <span class="math inline">\(\mathbb{Z}_{18}\)</span> 的所有极大理想.</li>
-<li><span class="math inline">\(x^2+1\)</span> 是否是 <span class="math inline">\(\mathbb{Z}_3[x]\)</span> 中的不可约多项式?</li>
-<li><span class="math inline">\(\mathbb{Z}_3[x]/\langle x^2+1\rangle\)</span> 是怎样的环?</li>
-</ol></li>
-<li>(15分) 用 <span class="math inline">\(R\)</span> 表示环 <span class="math inline">\(\mathbb{Z}[i]/\langle 1+3i \rangle\)</span>, 其中 <span class="math inline">\(\mathbb{Z}[i]\)</span> 表示高斯整环, 证明:
-<ol type="1">
-<li>在 <span class="math inline">\(R\)</span> 中, <span class="math inline">\([i]=[3]\)</span>, <span class="math inline">\([10]=[0]\)</span>, <span class="math inline">\([a+bi]=[a+3b]\)</span>, <span class="math inline">\(\forall a, b\in\mathbb{Z}\)</span>.</li>
-<li><span class="math inline">\(\varphi:\mathbb{Z}\to R~(a\mapsto [a])\)</span> 是环的满同态.</li>
-<li><span class="math inline">\(\ker\varphi=10\mathbb{Z}\)</span>. 从而 <span class="math inline">\(R=\mathbb{Z}_{10}\)</span>.</li>
-</ol></li>
-<li>(10分)
-<ol type="1">
-<li>设 <span class="math inline">\(E=F(\alpha)\)</span> 是域 <span class="math inline">\(F\)</span> 的单超越扩域, <span class="math inline">\(\beta\in E\backslash F\)</span>. 证明: <span class="math inline">\(\alpha\)</span> 是 <span class="math inline">\(F(\beta)\)</span> 上的代数元.</li>
-<li>证明或否定一下命题: 设 <span class="math inline">\(E/F\)</span> 是域扩张, <span class="math inline">\(\alpha\in E\)</span>, <span class="math inline">\(m,n\in\mathbb{Z}^+\)</span>. 如果 <span class="math inline">\(\alpha\)</span> 是 <span class="math inline">\(F\)</span> 上 <span class="math inline">\(n\)</span> 次代数元, 且 <span class="math inline">\(m\)</span> 与 <span class="math inline">\(n\)</span> 互素, 那么 <span class="math inline">\(\alpha^m\)</span> 也是 <span class="math inline">\(F\)</span> 上的 <span class="math inline">\(n\)</span> 次代数元, 且 <span class="math inline">\(F(\alpha^m)=F(\alpha)\)</span>.</li>
-</ol></li>
+<li>http://affairs.ymhs.tyc.edu.tw/reheart/RC/th/3x3x2.htm</li>
 </ol>
-<h2 id="期中试题-胡维-刘玉明">2016 期中试题 胡维 刘玉明</h2>
-<ol type="1">
-<li><p>(10分) 用 <span class="math inline">\(S_4\)</span> 代表4次对称群. 按共轭类写出 <span class="math inline">\(S_4\)</span> 的全部元素.</p></li>
-<li>(10分)
-<ol type="1">
-<li>循环群 <span class="math inline">\(\mathbb{Z}_{28}\)</span> 中的7阶元有几个?</li>
-<li><span class="math inline">\(\mathbb{Z}_{28}\)</span> 有几个7阶子群?</li>
-</ol></li>
-<li>(15分) 令 <span class="math inline">\(\varphi:(\mathbb{R},+)\longrightarrow (\mathbb{C}^\times,\cdot)\)</span> 是由 <span class="math inline">\(\varphi(x)=e^{ix}\)</span> 定义的函数, 其中 <span class="math inline">\((\mathbb{R},+)\)</span> 和 <span class="math inline">\((\mathbb{C}^\times,+)\)</span> 分别代表实数的加法群和非零复数的乘法群.
-<ol type="1">
-<li>证明: <span class="math inline">\(\varphi\)</span> 是一个群同态.</li>
-<li>求 <span class="math inline">\(\ker\varphi\)</span> 和 <span class="math inline">\({\rm Im}~\varphi\)</span>.</li>
-<li>根据同态基本定理, 你能得到什么结论?</li>
-</ol></li>
-<li><p>(15分) 应用群作用证明: 8阶群的中心至少有两个元素.</p></li>
-<li>(10分) 求下列环中的(乘法)可逆元:
-<ol type="1">
-<li>模8的剩余类环 <span class="math inline">\(\mathbb{Z}/8\mathbb{Z}\)</span>.</li>
-<li>高斯整环 <span class="math inline">\(\mathbb{Z}[i]\)</span>.</li>
-</ol></li>
-<li>(20分)
-<ol type="1">
-<li><span class="math inline">\(\mathbb{Z}_{10}\)</span> 与 <span class="math inline">\(\mathbb{Z}_2\times\mathbb{Z}_5\)</span> 作为环同构吗? 为什么?</li>
-<li><span class="math inline">\(\mathbb{Z}_9\)</span> 与 <span class="math inline">\(\mathbb{Z}_3\times\mathbb{Z}_3\)</span> 作为环同构吗? 为什么?</li>
-</ol></li>
-<li>(20分)
-<ol type="1">
-<li>利用环的同态基本定理证明: <span class="math inline">\(\mathbb{Z}[x]/\langle x^2+1\rangle\cong\mathbb{Z}[i]\)</span>.</li>
-<li><span class="math inline">\(\langle x^2+1 \rangle\)</span> 是 <span class="math inline">\(\mathbb{Z}[i]\)</span> 的素理想吗? 是极大理想吗?</li>
-</ol></li>
-</ol>
-<h2 id="期末试题-胡维-刘玉明">2016 期末试题 胡维 刘玉明</h2>
-<ol type="1">
-<li>(20分) 整数集 <span class="math inline">\(\mathbb{Z}\)</span> 关于普通加法构成有理数集 <span class="math inline">\(\mathbb{Q}\)</span> 的子群. 任取 <span class="math inline">\(q\in\mathbb{Q}\)</span>, 用 <span class="math inline">\([q]=q+\mathbb{Z}\)</span> 表示商群 <span class="math inline">\(\mathbb{Q}/\mathbb{Z}\)</span> 中对应的元素.
-<ol type="1">
-<li>写出商群 <span class="math inline">\(\mathbb{Q}/\mathbb{Z}\)</span> 的单位元.</li>
-<li>求元素 <span class="math inline">\([\frac{9}{4}]\)</span> 在群 <span class="math inline">\(\mathbb{Q}/\mathbb{Z}\)</span> 的阶.</li>
-<li>证明: 群 <span class="math inline">\(\mathbb{Q}/\mathbb{Z}\)</span> 中每个元素的阶都有限.</li>
-<li><span class="math inline">\(\mathbb{Q}/\mathbb{Z}\)</span> 是不是循环群? 为什么?</li>
-</ol></li>
-<li>(15分) 下列三个群互相同构吗? 说明理由. 其中, <span class="math inline">\(A_4\)</span> 代表4次交错群, <span class="math inline">\(\mathbb{Z}_{12}\)</span> 代表模12的剩余类加群, 等等.
-<ol type="1">
-<li><span class="math inline">\(\mathbb{Z}_{12}\)</span>.</li>
-<li><span class="math inline">\(\mathbb{Z}_3\times\mathbb{Z}_4\)</span>. (群的外直积)</li>
-<li><span class="math inline">\(A_4\)</span>.</li>
-</ol></li>
-<li><p>(10分) 设 <span class="math inline">\(G\)</span> 是一个群, 任取 <span class="math inline">\(x\in G\)</span>, 称 <span class="math inline">\(C_x=\{gxg^{-1}|g\in G\}\)</span> 为元素 <span class="math inline">\(x\)</span> 所在的共轭类. 每个共轭类 <span class="math inline">\(C_x\)</span> 中所含元素的个数一定整除群的阶 <span class="math inline">\(|G|\)</span>, 为什么?</p></li>
-<li>(20分) 令 <span class="math inline">\(\mathbb{Z}[i]=\{a+bi|a,b\in\mathbb{Z}\}\)</span> 代表高斯整环. 在 <span class="math inline">\(\mathbb{Z}[i]\)</span> 中定义范数如下: <span class="math display">\[N(a+bi)=a^2+b^2.\]</span>
-<ol type="1">
-<li>求出 <span class="math inline">\(\mathbb{Z}[i]\)</span> 中的所有单位 (即乘法可逆元).</li>
-<li>求出 <span class="math inline">\(\mathbb{Z}[i]\)</span> 的商域.</li>
-<li>素数2是 <span class="math inline">\(\mathbb{Z}[i]\)</span> 中的逆元吗? 为什么?</li>
-<li>有人说, <span class="math inline">\(\mathbb{Z}[i]\)</span> 中的非零素理想也是极大理想. 你认为对吗? 为什么?</li>
-</ol></li>
-<li>(10分) 设 <span class="math inline">\(E=\mathbb{Q}(\sqrt{2},i)\)</span> 是有理数域 <span class="math inline">\(\mathbb{Q}\)</span> 的扩域.
-<ol type="1">
-<li>求扩域的次数 <span class="math inline">\([E:\mathbb{Q}]\)</span>.</li>
-<li>证明: <span class="math inline">\(E=\mathbb{Q}(\sqrt{2}+i)\)</span>.</li>
-</ol></li>
-<li>(20分) 考虑有限域 <span class="math inline">\(\mathbb{Z}_3\)</span> 上的不可约多项式 <span class="math inline">\(p(x)=x^2+x-1\)</span>.
-<ol type="1">
-<li>设 <span class="math inline">\(\alpha\)</span> 是 <span class="math inline">\(p(x)\)</span> 在它的分裂域中的一个根. 单扩域 <span class="math inline">\(\mathbb{Z}_3(\alpha)\)</span> 是 <span class="math inline">\(\mathbb{Z}_3\)</span> 上的几次扩域?</li>
-<li>写出 <span class="math inline">\(\mathbb{Z}_3(\alpha)\)</span>作为 <span class="math inline">\(\mathbb{Z}_3\)</span> 上的向量空间的一组基.</li>
-<li>用这组基表达 <span class="math inline">\(\alpha\)</span> 和 <span class="math inline">\(1+\alpha\)</span> 在 <span class="math inline">\(\mathbb{Z}_3(\alpha)\)</span> 中的逆元.</li>
-<li>证明: <span class="math inline">\(p(x)\)</span> 整除 <span class="math inline">\(x^9-x\)</span> (在 <span class="math inline">\(\mathbb{Z}_3[x]\)</span> 中).</li>
-</ol></li>
-<li><p>(5分) 考虑81元域 <span class="math inline">\(F\)</span> 的非零元乘法群 <span class="math inline">\(F^\times\)</span>. 设 <span class="math inline">\(\alpha\)</span> 是 <span class="math inline">\(F^\times\)</span> 的生成元. 证明: <span class="math inline">\(\alpha^{40}=-1\)</span>.</p></li>
-</ol>
+<blockquote>
+<p>此外，还有一种类似于三阶魔方“缺角层先法”的还原思路，参考 <a href="http://www.soongsky.com/cube/solve233/" target="_blank" rel="noopener">http://www.soongsky.com/cube/solve233/</a></p>
+</blockquote>
+<h2 id="五阶魔方的棱">五阶魔方的棱</h2>
+<h3 id="翻棱">翻棱</h3>
+<p>常规的拼棱方法是把两侧的棱块逐个（按照正确的方向）拼到最中间的棱块上. 事实上，只需要如下的一个公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUR&apos; FR&apos;F&apos;R</span><br></pre></td></tr></table></figure>
+<ul>
+<li>该公式的效果是把 <code>R</code> 面和 <code>F</code> 面交叉的棱翻转过来，具体可以在三阶魔方上验证.</li>
+</ul>
+<h3 id="最后一组棱">最后一组棱</h3>
+<p>最后一组棱可能会出现位置对但方向不对的情况，如下图所示：</p>
+<p><img src="/img/blog-graph/5Cube-Edge1.png" alt="五阶魔方的最后一组棱"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解决方法：r2 B2 U2 l U2 r&apos; U2 r U2 F2 r F2 l&apos; B2 r2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上述操作同时也会将图中 <code>蓝-黄</code> 和 <code>绿-黄</code> 位置的两组棱以及角块互换，其他块保持不变.
+<ul>
+<li>不过好像并没有什么实质作用…</li>
+</ul></li>
+</ul>
 
       
     </div>
@@ -523,13 +513,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/师大/" rel="tag"># 师大</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
-            <a href="/tags/数学/" rel="tag"># 数学</a>
-          
-            <a href="/tags/抽象代数/" rel="tag"># 抽象代数</a>
-          
-            <a href="/tags/各种试卷/" rel="tag"># 各种试卷</a>
+            <a href="/tags/魔方/" rel="tag"># 魔方</a>
           
         </div>
       
@@ -542,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/02/BNU-Real-Analysis-Exam/" rel="next" title="北京师范大学实变函数试卷">
-                <i class="fa fa-chevron-left"></i> 北京师范大学实变函数试卷
+              <a href="/2020/03/11/Some-Cmd-skills-for-Windows/" rel="next" title="Windows 命令行的一些使用技巧">
+                <i class="fa fa-chevron-left"></i> Windows 命令行的一些使用技巧
               </a>
             
           </div>
@@ -551,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/04/BNU-Linear-Algebra-Exam/" rel="prev" title="北京师范大学高等代数试卷">
-                北京师范大学高等代数试卷 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -763,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#期末试题-刘玉明"><span class="nav-number">1.</span> <span class="nav-text">2015 期末试题 刘玉明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期中试题-胡维-刘玉明"><span class="nav-number">2.</span> <span class="nav-text">2016 期中试题 胡维 刘玉明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期末试题-胡维-刘玉明"><span class="nav-number">3.</span> <span class="nav-text">2016 期末试题 胡维 刘玉明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#魔方还原"><span class="nav-number">1.</span> <span class="nav-text">233 魔方还原</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#底层角块"><span class="nav-number">1.1.</span> <span class="nav-text">底层角块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层角块"><span class="nav-number">1.2.</span> <span class="nav-text">顶层角块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层棱块"><span class="nav-number">1.3.</span> <span class="nav-text">顶层棱块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他操作"><span class="nav-number">1.4.</span> <span class="nav-text">其他操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两层同时交换相邻的棱块和角块"><span class="nav-number">1.4.1.</span> <span class="nav-text">两层同时交换相邻的棱块和角块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同时调整第二层的三个棱块"><span class="nav-number">1.4.2.</span> <span class="nav-text">同时调整第二层的三个棱块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五阶魔方的棱"><span class="nav-number">2.</span> <span class="nav-text">五阶魔方的棱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#翻棱"><span class="nav-number">2.1.</span> <span class="nav-text">翻棱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后一组棱"><span class="nav-number">2.2.</span> <span class="nav-text">最后一组棱</span></a></li></ol></li></ol></div>
             
 
           </div>
