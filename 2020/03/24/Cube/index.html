@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   233 魔方还原方法（网上的相关资源不多，且质量不高） 5 阶魔方的棱 三阶魔方奇奇怪怪的姿势（×）">
+<meta name="description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   符号说明 233 魔方还原方法（网上的相关资源不多，且质量不高） 5 阶魔方的棱 三阶魔方奇奇怪怪的姿势（×）">
 <meta name="keywords" content="算法,魔方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="魔方杂记">
 <meta property="og:url" content="http://lizhechen.com/2020/03/24/Cube/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   233 魔方还原方法（网上的相关资源不多，且质量不高） 5 阶魔方的棱 三阶魔方奇奇怪怪的姿势（×）">
+<meta property="og:description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   符号说明 233 魔方还原方法（网上的相关资源不多，且质量不高） 5 阶魔方的棱 三阶魔方奇奇怪怪的姿势（×）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-1L-Corner.png">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/233Cube-2L-Corner.png">
@@ -134,10 +134,10 @@
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/3Cube-EdgeFirst-2.png">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/3Cube-EdgeFirst-3.png">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/3Cube-Init.png">
-<meta property="og:updated_time" content="2020-04-01T13:51:30.179Z">
+<meta property="og:updated_time" content="2020-04-29T01:53:22.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔方杂记">
-<meta name="twitter:description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   233 魔方还原方法（网上的相关资源不多，且质量不高） 5 阶魔方的棱 三阶魔方奇奇怪怪的姿势（×）">
+<meta name="twitter:description" content="疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 canvas + js 画图…）   符号说明 233 魔方还原方法（网上的相关资源不多，且质量不高） 5 阶魔方的棱 三阶魔方奇奇怪怪的姿势（×）">
 <meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/233Cube-1L-Corner.png">
 
 
@@ -416,11 +416,65 @@
 <p>疫情影响不能出门，在家又玩起了魔方…接触魔方已有很多年，玩过十几种不同的魔方了，把一些东西记录下来，给自己看. （被迫学习了一波 <code>canvas</code> + <code>js</code> 画图…）</p>
 </blockquote>
 <ul>
+<li>符号说明</li>
 <li>233 魔方还原方法（网上的相关资源不多，且质量不高）</li>
 <li>5 阶魔方的棱</li>
 <li>三阶魔方奇奇怪怪的姿势（×）</li>
 </ul>
 <a id="more"></a>
+<h2 id="描述魔方转动的记号singmaster-notation">描述魔方转动的记号——Singmaster Notation</h2>
+<p>简单来说，就是用符号来表示魔方的转动.</p>
+<blockquote>
+<p>现行的符号体系图解参见 <a href="http://www.mf100.org/base/about.php" target="_blank" rel="noopener">http://www.mf100.org/base/about.php</a></p>
+</blockquote>
+<p>比起那种平平无奇（×）的定义，我更想递归描述一下（什么毛病？）</p>
+<p>那么我要开始了…（×）</p>
+<p>先定义一下字符集：</p>
+<ul>
+<li>字母——表示旋转
+<ol type="1">
+<li><strong>单面操作</strong>：<code>U D L R F B</code>，分别表示上下左右前后面（单面）顺时针旋转90°；</li>
+<li><strong>双面操作</strong>：<code>u d l r f b</code>，分别表示上下左右前后面（双面）顺时针旋转90°，i.e. 单面+中间层一起转；</li>
+<li><strong>中层操作</strong>：<code>E M S</code>（<del>不是特快专递</del>）：
+<ol type="1">
+<li><code>E</code>：<code>U</code> 和 <code>D</code> 的夹层做 <code>D</code> 方向的旋转；</li>
+<li><code>M</code>：<code>L</code> 和 <code>R</code> 的夹层做 <code>L</code> 方向的旋转；</li>
+<li><code>S</code>：<code>F</code> 和 <code>B</code> 的夹层做 <code>F</code> 方向的旋转；</li>
+</ol></li>
+<li><strong>整体操作</strong>：<code>x y z</code>，分别表示魔方整体向着 <code>R U F</code> 方向旋转90°；</li>
+</ol></li>
+<li>逆向符号——逆操作，可以视为 <span class="math inline">\(a^{-1}\)</span>.
+<ul>
+<li><code>'</code>，可以加在所有字母后面，使得旋转方向变为逆时针.</li>
+<li>例如：<code>U'</code> 表示顶面逆时针旋转90°.</li>
+</ul></li>
+<li>括号——编组
+<ul>
+<li>表示将括号内的字符串编为一组. 不加括号时，单个字母（包括其后的 <code>'</code>）自成一组.</li>
+</ul></li>
+<li>数字——表示重复执行次数（幂次）
+<ul>
+<li><span class="math inline">\(\forall n\in N_+\)</span>，可以跟在单个字母（包括其后的 <code>'</code>）后，或完整的组之后，表示重复执行 <span class="math inline">\(n\)</span> 次.
+<ul>
+<li>例如：<code>U2</code> 表示顶面旋转180°.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>现在，我们可以说，公式就是由下面几条所定义的东西：</p>
+<ol type="1">
+<li>空语句 <code>e</code> 是公式，表示什么都不做；</li>
+<li>若 <code>A</code> 是公式，<code>n</code> 是数字，则 <code>(A)</code> 以及 <code>(A)n</code> 是公式；</li>
+<li>若 <code>A</code> 是公式，<code>c</code> 是字母，则 <code>Ac</code>、<code>cA</code>、<code>Ac'</code>、<code>c'A</code> 是公式；</li>
+</ol>
+<p>公式应当是可以化简的：</p>
+<ol type="1">
+<li>设 <code>c</code> 是字母，则相邻的 <code>cc'</code> 以及 <code>c'c</code> 可以消去；</li>
+<li>若括号中只有单个字母，则该括号可以扔掉（废话；</li>
+<li>以上步骤可以反复进行，直到没有任何可以消去的东西，那么这个公式应该就是最简的了（吧？）</li>
+</ol>
+<blockquote>
+<p>上述内容既没有经过查证，也没有经过严格的复核…如有疏漏之处还请指正（</p>
+</blockquote>
 <h2 id="魔方还原">233 魔方还原</h2>
 <blockquote>
 <p><strong>还原方法</strong>：底层十字（很简单）<span class="math inline">\(\to\)</span>底层角块<span class="math inline">\(\to\)</span>顶层角块<span class="math inline">\(\to\)</span>顶层棱块.</p>
@@ -540,11 +594,15 @@
 <h3 id="层先">层先</h3>
 <p>相关资源特别多：</p>
 <ul>
-<li>一个从第一层开始教学的教程：https://debug.fanzheng.org/post/how-to-solve-a-rubik-cube-with-layer-method.html
+<li>一个从第一层开始教学的教程：
 <ul>
+<li><a href="https://debug.fanzheng.org/post/how-to-solve-a-rubik-cube-with-layer-method.html" target="_blank" rel="noopener">https://debug.fanzheng.org/post/how-to-solve-a-rubik-cube-with-layer-method.html</a></li>
 <li>此教程详细但有些部分略显赘余</li>
 </ul></li>
-<li>一个简洁但内容足够充分的教程：https://cube3x3.com/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E9%AD%94%E6%96%B9/</li>
+<li>一个简洁但内容足够充分的教程：
+<ul>
+<li><a href="https://cube3x3.com/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E9%AD%94%E6%96%B9/" target="_blank" rel="noopener">https://cube3x3.com/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E9%AD%94%E6%96%B9/</a></li>
+</ul></li>
 </ul>
 <blockquote>
 <p>但是，层先法有着不同的路数..</p>
@@ -908,6 +966,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/04/29/Formal-Semantics/" rel="prev" title="形式语义学学习笔记">
+                形式语义学学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -990,7 +1052,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1119,7 +1181,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#魔方还原"><span class="nav-number">1.</span> <span class="nav-text">233 魔方还原</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#底层角块"><span class="nav-number">1.1.</span> <span class="nav-text">底层角块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层角块"><span class="nav-number">1.2.</span> <span class="nav-text">顶层角块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层棱块"><span class="nav-number">1.3.</span> <span class="nav-text">顶层棱块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他操作"><span class="nav-number">1.4.</span> <span class="nav-text">其他操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两层同时交换相邻的棱块和角块"><span class="nav-number">1.4.1.</span> <span class="nav-text">两层同时交换相邻的棱块和角块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同时调整第二层的三个棱块"><span class="nav-number">1.4.2.</span> <span class="nav-text">同时调整第二层的三个棱块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五阶魔方的棱"><span class="nav-number">2.</span> <span class="nav-text">五阶魔方的棱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#翻棱"><span class="nav-number">2.1.</span> <span class="nav-text">翻棱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后一组棱"><span class="nav-number">2.2.</span> <span class="nav-text">最后一组棱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拼棱法"><span class="nav-number">2.3.</span> <span class="nav-text">84 拼棱法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三阶魔方的各种玩法"><span class="nav-number">3.</span> <span class="nav-text">三阶魔方的各种玩法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层先"><span class="nav-number">3.1.</span> <span class="nav-text">层先</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我最初接触的层先法"><span class="nav-number">3.1.1.</span> <span class="nav-text">我最初接触的层先法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站-rubiks-cu.be"><span class="nav-number">3.1.2.</span> <span class="nav-text">网站 rubiks-cu.be</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gan-说明书"><span class="nav-number">3.1.3.</span> <span class="nav-text">GAN 说明书</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#升级版层先法cfop"><span class="nav-number">3.2.</span> <span class="nav-text">升级版层先法——CFOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#角先"><span class="nav-number">3.3.</span> <span class="nav-text">角先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#棱先"><span class="nav-number">3.4.</span> <span class="nav-text">棱先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桥式roux-method"><span class="nav-number">3.5.</span> <span class="nav-text">桥式（Roux method）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他方法"><span class="nav-number">3.6.</span> <span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔方资源整理"><span class="nav-number">4.</span> <span class="nav-text">魔方资源整理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述魔方转动的记号singmaster-notation"><span class="nav-number">1.</span> <span class="nav-text">描述魔方转动的记号——Singmaster Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔方还原"><span class="nav-number">2.</span> <span class="nav-text">233 魔方还原</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#底层角块"><span class="nav-number">2.1.</span> <span class="nav-text">底层角块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层角块"><span class="nav-number">2.2.</span> <span class="nav-text">顶层角块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层棱块"><span class="nav-number">2.3.</span> <span class="nav-text">顶层棱块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他操作"><span class="nav-number">2.4.</span> <span class="nav-text">其他操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两层同时交换相邻的棱块和角块"><span class="nav-number">2.4.1.</span> <span class="nav-text">两层同时交换相邻的棱块和角块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同时调整第二层的三个棱块"><span class="nav-number">2.4.2.</span> <span class="nav-text">同时调整第二层的三个棱块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">2.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五阶魔方的棱"><span class="nav-number">3.</span> <span class="nav-text">五阶魔方的棱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#翻棱"><span class="nav-number">3.1.</span> <span class="nav-text">翻棱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后一组棱"><span class="nav-number">3.2.</span> <span class="nav-text">最后一组棱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拼棱法"><span class="nav-number">3.3.</span> <span class="nav-text">84 拼棱法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三阶魔方的各种玩法"><span class="nav-number">4.</span> <span class="nav-text">三阶魔方的各种玩法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层先"><span class="nav-number">4.1.</span> <span class="nav-text">层先</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我最初接触的层先法"><span class="nav-number">4.1.1.</span> <span class="nav-text">我最初接触的层先法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站-rubiks-cu.be"><span class="nav-number">4.1.2.</span> <span class="nav-text">网站 rubiks-cu.be</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gan-说明书"><span class="nav-number">4.1.3.</span> <span class="nav-text">GAN 说明书</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#升级版层先法cfop"><span class="nav-number">4.2.</span> <span class="nav-text">升级版层先法——CFOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#角先"><span class="nav-number">4.3.</span> <span class="nav-text">角先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#棱先"><span class="nav-number">4.4.</span> <span class="nav-text">棱先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桥式roux-method"><span class="nav-number">4.5.</span> <span class="nav-text">桥式（Roux method）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他方法"><span class="nav-number">4.6.</span> <span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔方资源整理"><span class="nav-number">5.</span> <span class="nav-text">魔方资源整理</span></a></li></ol></div>
             
 
           </div>
