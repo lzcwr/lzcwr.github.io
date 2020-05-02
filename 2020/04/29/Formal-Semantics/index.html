@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-01T16:08:14.621Z">
+<meta property="og:updated_time" content="2020-05-02T15:08:58.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="形式语义学学习笔记">
 <meta name="twitter:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
@@ -593,6 +593,45 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 \end{cases}\]</span></p>
 <p>则容易验证 <span class="math inline">\(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\)</span> 是 <span class="math inline">\(F\)</span> 的一个不动点. 因此 <span class="math inline">\(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\)</span> 的存在和唯一性可转化为 <span class="math inline">\(F\)</span> 不动点的存在和唯一性.</p>
 <p>事实上，<span class="math inline">\(F\)</span> 的最小不动点存在且唯一. 这下稳了（</p>
+<p><font color="D0104C"><strong>最小不动点的相关讨论</strong></font></p>
+<p>首先需要定义完全偏序集：</p>
+<blockquote>
+<p><strong>Def. 完全偏序集</strong> （例子：离散序 <span class="math inline">\(a\sqsubseteq b\iff a=b\)</span>，平坦序 <span class="math inline">\(a\sqsubseteq b\sqsubseteq c \iff a=b~或~b=c\)</span>）</p>
+<ul>
+<li>复习一下偏序集：自反、传递、反对称. 偏序集记作 po.</li>
+<li>若偏序集中的每个升链 <span class="math inline">\(d_1\sqsubseteq d_2\sqsubseteq \cdots\)</span> 都有上确界 <span class="math inline">\(\bigsqcup_{i}d_i\)</span>，则称其为一个完全偏序集，记作 cpo.</li>
+<li>若 cpo <span class="math inline">\((P,\sqsubseteq)\)</span> 中有最小元 <span class="math inline">\(\perp\)</span>（<span class="math inline">\(\forall x\in P\)</span>，总有 <span class="math inline">\(x\sqsubseteq \perp\)</span>），则称其为带底的 cpo.</li>
+</ul>
+</blockquote>
+<ul>
+<li>可以证明：对任意集合 <span class="math inline">\(X\)</span>，给其幂集赋予包含关系 <span class="math inline">\((\mathscr{P}(x),\subseteq)\)</span> 都构成一个含底的 cpo.</li>
+</ul>
+<p>在 cpo 中，每个升链都有上确界，这实际上就是分析中“极限”的概念. 因此可以定义连续函数：</p>
+<blockquote>
+<p><strong>Def. 连续函数</strong> 设 <span class="math inline">\(D,E\)</span> 是 cpo，<span class="math inline">\(f:D\to E\)</span> 是一个函数</p>
+<ol type="1">
+<li>若对 <span class="math inline">\(\forall d_1,d_2\in D\)</span>，s.t. <span class="math inline">\(d_1\sqsubseteq d_2\)</span>，总有 <span class="math inline">\(f(d_1)\sqsubseteq f(d_2)\)</span>，则称 <span class="math inline">\(f\)</span> <strong>单调</strong>；</li>
+<li>若 <span class="math inline">\(f\)</span> 单调，且对任意升链 <span class="math inline">\(d_1\sqsubseteq d_2\sqsubseteq\cdots\)</span>，都有 <span class="math inline">\(f(\bigsqcup d_n)=\bigsqcup f(d_n)\)</span>，则称 <span class="math inline">\(f\)</span> 连续.</li>
+</ol>
+</blockquote>
+<p>对于连续函数，有如下的<strong>不动点定理</strong>：</p>
+<blockquote>
+<p><font color="#FB966E"><strong>Thm. 不动点定理</strong></font> 设 <span class="math inline">\(D\)</span> 是一个含底的 cpo，<span class="math inline">\(f:D\to D\)</span> 连续，则 <span class="math display">\[fix(f)=\bigsqcup_n f^n(\perp)\]</span> 是 <span class="math inline">\(f\)</span> 的最小不动点. 其中 <span class="math inline">\(f^n\)</span> 表示 <span class="math inline">\(f\)</span> 作用 <span class="math inline">\(n\)</span> 次. （证明很简单，先证是不动点，再证最小即可）</p>
+</blockquote>
+<p>现在，我们在状态集 <span class="math inline">\(\Sigma\)</span> 中添加底元素 <span class="math inline">\(\perp\)</span>，s.t. <span class="math inline">\(\forall \sigma\)</span>，<span class="math inline">\(\perp\sqsubseteq \sigma\)</span>. 新的集合记为 <span class="math inline">\(\Sigma_\perp\)</span>.</p>
+<blockquote>
+<p>部分函数当然也可以得到扩充（把无定义的元素全部拉到 <span class="math inline">\(\perp\)</span> 上）而成为全函数 <span class="math inline">\(\Sigma\to\Sigma_\perp\)</span>. 并且该扩充是一一对应的.</p>
+<ul>
+<li>还可以得到：这样扩充得到的全函数一定是连续的.</li>
+</ul>
+</blockquote>
+<p>考虑到部分函数 <span class="math inline">\(\Sigma\rightharpoonup\Sigma\)</span> 的全体被赋予包含关系后是一个含底的 cpo，一个自然的反应就是：<strong>扩充而来的全函数也构成一个含底的 cpo.</strong></p>
+<p>事实上，这句话是正确的. <span class="math inline">\(\Sigma\to\Sigma_\perp\)</span> 上的序构造如下： <span class="math display">\[f\sqsubseteq g~当且仅当~\forall\sigma\in\Sigma,~f(\sigma)\sqsubseteq g(\sigma)\]</span></p>
+<p><strong>到这里，就足以说明 while 循环指称语义的存在唯一性了.</strong></p>
+<p>关于不动点，在代数上还有如下定理（这里并用不到）：</p>
+<blockquote>
+<p><strong>Thm. Knaster-Tarski 最小不动点定理</strong> 设 <span class="math inline">\((L,\sqsubseteq)\)</span> 是一个完备格. 令 <span class="math inline">\(f:L\to L\)</span> 是单调函数（不必连续，可以看出这里减弱了条件），则 <span class="math display">\[m=\sqcap\{x\in L: f(x)\sqsubseteq x\}\]</span> 是 <span class="math inline">\(f\)</span> 的最小不动点.</p>
+</blockquote>
 <h2 id="公理语义">公理语义</h2>
 <ul>
 <li>前面的操作语义和指称语义已经对语义有了很详细的描述.</li>
@@ -647,6 +686,9 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
     \mathrm{Consequence}~\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} }
 \end{align*}
 \]</span></p>
+<blockquote>
+<p>while 循环始终是这些命令中最复杂的. 这里的 <span class="math inline">\(P\)</span> 叫做<strong>循环不变量</strong>，在公理语义的讨论中有着很重要的地位.</p>
+</blockquote>
 <ul>
 <li><font color="884C3A"><strong>Hoare rules 建立了一套推理系统，进一步可以验证它是可靠的（<u>它推出的结果在语义上都没毛病</u>）.</strong></font></li>
 <li>Hoare rules 之间的推理符号用 <span class="math inline">\(\vdash\)</span>.</li>
@@ -723,7 +765,7 @@ wp[X:=a, B] &amp;= B[a/X] \\
 wp[(c_1;~c_2), B] &amp;= wp[c_1, wp[c_2,B]] \\
 wp[\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,B] &amp;= (b\Rightarrow wp[c_1,B])\wedge (\neg b\Rightarrow wp[c_2,B]) \\
 wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\
-&amp;其中~ F_0(B)=\mathbf{true}, F_{i+1}(B)=(\neg b\Rightarrow B)\wedge (b\Rightarrow wp[c, F_i(B)]).
+其中~ F_0(B)=\mathbf{true},&amp;~F_{i+1}(B)=(\neg b\Rightarrow B)\wedge (b\Rightarrow wp[c, F_i(B)]).
 \end{align*}
 \]</span></p>
 <p>然后我们可以得到如下的两条引理：</p>
