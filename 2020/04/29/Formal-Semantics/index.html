@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-02T15:08:58.646Z">
+<meta property="og:updated_time" content="2020-05-03T11:23:34.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="形式语义学学习笔记">
 <meta name="twitter:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
@@ -439,7 +439,7 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 <p>事实上，描述 IMP 的语义只需要 <span class="math inline">\((s,d,c)\)</span> 机器就够了：</p>
 <ul>
 <li><span class="math inline">\(s \in(\mathbb{N} \cup\{\mathbf{T}, \mathbf{F}\} \cup \mathbf{Loc} \cup \mathbf{Com})^{*}\)</span>;</li>
-<li><span class="math inline">\(d \in \mathbf{Loc} \longrightarrow \mathbb{N}\)</span>;</li>
+<li><span class="math inline">\(d \in \mathbf{Loc} \longrightarrow \mathbb{N}\)</span>; 地址 -&gt; 地址存储的值.</li>
 <li><span class="math inline">\(c \in(\mathbf { Aexp } \cup \mathbf { Bexp } \cup \mathbf { Com } \cup \mathbf { Cs })^{*}\)</span>，其中 <span class="math inline">\(\mathbf{Cs}=\{\mathbf { if, while }, \rightarrow, ;,+,-, x,=, \leq, \neg, \vee, \wedge\}\)</span>.</li>
 </ul>
 </blockquote>
@@ -610,7 +610,7 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 <blockquote>
 <p><strong>Def. 连续函数</strong> 设 <span class="math inline">\(D,E\)</span> 是 cpo，<span class="math inline">\(f:D\to E\)</span> 是一个函数</p>
 <ol type="1">
-<li>若对 <span class="math inline">\(\forall d_1,d_2\in D\)</span>，s.t. <span class="math inline">\(d_1\sqsubseteq d_2\)</span>，总有 <span class="math inline">\(f(d_1)\sqsubseteq f(d_2)\)</span>，则称 <span class="math inline">\(f\)</span> <strong>单调</strong>；</li>
+<li>若对 <span class="math inline">\(\forall d_1,d_2\in D\)</span>，s.t. <span class="math inline">\(d_1\sqsubseteq d_2\)</span>，总有 <span class="math inline">\(f(d_1)\sqsubseteq f(d_2)\)</span>，则称 <span class="math inline">\(f\)</span> <strong>单调</strong>（保序）；</li>
 <li>若 <span class="math inline">\(f\)</span> 单调，且对任意升链 <span class="math inline">\(d_1\sqsubseteq d_2\sqsubseteq\cdots\)</span>，都有 <span class="math inline">\(f(\bigsqcup d_n)=\bigsqcup f(d_n)\)</span>，则称 <span class="math inline">\(f\)</span> 连续.</li>
 </ol>
 </blockquote>
@@ -631,6 +631,10 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 <p>关于不动点，在代数上还有如下定理（这里并用不到）：</p>
 <blockquote>
 <p><strong>Thm. Knaster-Tarski 最小不动点定理</strong> 设 <span class="math inline">\((L,\sqsubseteq)\)</span> 是一个完备格. 令 <span class="math inline">\(f:L\to L\)</span> 是单调函数（不必连续，可以看出这里减弱了条件），则 <span class="math display">\[m=\sqcap\{x\in L: f(x)\sqsubseteq x\}\]</span> 是 <span class="math inline">\(f\)</span> 的最小不动点.</p>
+</blockquote>
+<p>上述定理还有一个逆定理：</p>
+<blockquote>
+<p><strong>Thm.</strong> 若所有保序映射 <span class="math inline">\(f:L\to L\)</span> 都有不动点，则 <span class="math inline">\(L\)</span> 是完全格.</p>
 </blockquote>
 <h2 id="公理语义">公理语义</h2>
 <ul>
@@ -756,7 +760,7 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 <li>其中 <span class="math inline">\(A^I\)</span> 表示在 <span class="math inline">\(I\)</span> 下能够使得 <span class="math inline">\(A\)</span> 成立的状态集.</li>
 </ul>
 </blockquote>
-<p>事实上，上述定义相当直观：最弱前置条件是一个状态集，我们非常难以把它想象成一个“条件”. 但可表达性给出了一个断言 <span class="math inline">\(A\)</span>，使得断言成立的状态恰好就是这些状态，所以这个最弱前置条件就被这个断言 <span class="math inline">\(A\)</span> 所“表达”了.</p>
+<p>事实上，上述定义相当直观：最弱前置条件是一个状态集，我们非常难以把它想象成一个“条件”. 但可表达性给出了一个断言 <span class="math inline">\(A\)</span>，使得断言成立的状态恰好就是这些状态，所以这个最弱前置条件就被断言 <span class="math inline">\(A\)</span> 所“表达”了.</p>
 <p>所有命令的最弱前置条件如下：</p>
 <p><span class="math display">\[
 \begin{align*}
