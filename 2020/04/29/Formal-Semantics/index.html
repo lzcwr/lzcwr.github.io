@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-05T12:02:08.709Z">
+<meta property="og:updated_time" content="2020-05-07T08:30:12.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="形式语义学学习笔记">
 <meta name="twitter:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
@@ -452,7 +452,7 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 </ul>
 <p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Bexp}\)</span> 的求值</strong></font></p>
 <ul>
-<li>真值：（注意，<span class="math inline">\(\mathbf{true}\)</span> 是一个语法对象，但 <span class="math inline">\(\mathrm{T}\)</span> 是一个语义中的真值）<span class="math display">\[\langle\mathbf { true }, \sigma\rangle \longrightarrow \mathbf{T}, \quad\langle\mathbf { false }, \sigma\rangle \longrightarrow \mathbf{F}\]</span></li>
+<li>真值：（注意，<span class="math inline">\(\mathbf{true}\)</span> 是一个语法对象，但 <span class="math inline">\(\mathrm{T}\)</span> 是一个语义中的真值）<span class="math display">\[\langle\mathbf { true }, \sigma\rangle \longrightarrow \mathrm{T}, \quad\langle\mathbf { false }, \sigma\rangle \longrightarrow \mathrm{F}\]</span></li>
 <li>判断：（以 <span class="math inline">\(=\)</span> 为例，<span class="math inline">\(\leqslant\)</span> 同理）<span class="math display">\[\begin{align}
   \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{T}}, &amp;\quad 若~n_0~与~n_1~\text{相等}\\
   \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{F}}, &amp;\quad 若~n_0~与~n_1~\text{不等}
