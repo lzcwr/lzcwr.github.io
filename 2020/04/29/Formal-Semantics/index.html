@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-07T08:30:12.702Z">
+<meta property="og:updated_time" content="2020-05-14T02:34:48.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="形式语义学学习笔记">
 <meta name="twitter:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
@@ -168,7 +168,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">沉迷<del> 戳兔 </del>学习，偶尔<del> 学术 </del>戳兔.</p>
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
       
   </div>
 
@@ -307,7 +307,7 @@
     <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2020/04/29/Formal-Semantics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="戳兔专家 lzcwr">
+      <meta itemprop="name" content="Zhechen">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
@@ -645,7 +645,7 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 <p><font color="D0104C"><strong>断言语言 <span class="math inline">\(\mathbf{Assn}\)</span></strong></font></p>
 <p>在算术表达式 <span class="math inline">\(\mathbf{Aexp}\)</span> 中添加整型变量 <span class="math inline">\(\mathbf{IntVar}\)</span> 类型的元素（常用 <span class="math inline">\(i\)</span> 表示），扩充而为 <span class="math inline">\(\mathbf{Aexpv}\)</span>：</p>
 <ul>
-<li><span class="math inline">\(\mathbf{Aexpv}~a::=x~|~i~|~n~|~a_1+a_2~|~a_1-a_2~|~a_1\times a_2\)</span></li>
+<li><span class="math inline">\(\mathbf{Aexpv}~a::=X~|~i~|~n~|~a_1+a_2~|~a_1-a_2~|~a_1\times a_2\)</span></li>
 </ul>
 <blockquote>
 <p>既然有变量，那么就需要有“解释”，记为函数 <span class="math inline">\(I:\mathbf{IntVar}\to\mathbb{N}\)</span>. 这个东西在语义中用得到.</p>
@@ -683,9 +683,9 @@ fu&amp;nc~\mathbf{Factorial}~X~:\\
 <p>一共有六条规则：</p>
 <p><span class="math display">\[
 \begin{align*}
-    \mathrm{Skip}~\frac{}{\{B\} ~\mathbf{skip}~ \{B\}} &amp;\quad \mathrm{Assign}~\frac{}{\{B[a/X]\} ~X::=a~ \{B\}}\\
+    \mathrm{Skip}~\frac{}{\{B\} ~\mathbf{skip}~ \{B\}} &amp;\quad \mathrm{Assign}~\frac{}{\{B[a/X]\} ~X:=a~ \{B\}}\\
     \mathrm{If}~\frac{\{A\wedge b\}~c_0~\{B\}\quad \{A\wedge\neg b\}~c_1~\{B\}}{\{A\}~\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1~\{B\}} &amp;\quad 
-    \mathrm{Sequence}~\frac{ \{P\}~c_1~\{R\} \quad \{R\}~c_2~\{Q\} }{ \{P\}~c_1;;c_2~\{Q\} } \\
+    \mathrm{Sequence}~\frac{ \{P\}~c_1~\{R\} \quad \{R\}~c_2~\{Q\} }{ \{P\}~;c_2~\{Q\} } \\
     \mathrm{While}~\frac{ \{P\wedge b\}~c~\{P\} }{ \{P\}~\mathbf{while}~b~\mathbf{do}~c~\{P\wedge\neg b\} }&amp;\quad
     \mathrm{Consequence}~\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} }
 \end{align*}
@@ -904,9 +904,9 @@ wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.jpg"
-                alt="戳兔专家 lzcwr" />
+                alt="Zhechen" />
             
-              <p class="site-author-name" itemprop="name">戳兔专家 lzcwr</p>
+              <p class="site-author-name" itemprop="name">Zhechen</p>
               <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
           </div>
 
@@ -917,7 +917,7 @@ wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">98</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -939,7 +939,7 @@ wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -959,21 +959,9 @@ wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:lzcwr@lizhechen.com" target="_blank" title="E-Mail">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://stackoverflow.com/users/10452740/lzcwr" target="_blank" title="StackOverflow">
-                      
-                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://www.zhihu.com/people/lzcwr" target="_blank" title="知乎">
-                      
-                        <i class="fa fa-fw fa-globe"></i>知乎</a>
                   </span>
                 
             </div>

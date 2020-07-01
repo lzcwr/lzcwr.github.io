@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[形式语义学学习笔记]]></title>
     <url>%2F2020%2F04%2F29%2FFormal-Semantics%2F</url>
-    <content type="text"><![CDATA[这学期上whp老师的形式语义学课程，做一些简单的记录. 教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel. IMP: Simple Imperative Language 操作语义：MOS &amp; SOS 指称语义：Denotational Semantics 公理语义：Hoare Logic IMP: a Simple Imperative Language IMP的指令分为 \(\mathbf{Aexp}\)（算术表达式）, \(\mathbf{Bexp}\)（布尔表达式）, 以及 \(\mathbf{Com}\)（命令）三部分. 其抽象语法如下所示： 其中 \(n\) 为整数，\(X\) 为地址. \(\mathbf{Aexp}\) \(a::=n ~|~ X ~|~ a_1+a_2 ~|~ a_1-a_2 ~|~ a_1\times a_2\); \(\mathbf{Bexp}\) \(b::=\mathbf{true} ~|~ \mathbf{false} ~|~ a_{0}=a_{1} ~|~ a_{0} \leq a_{1} ~|~ \neg b ~|~ b_{0} \wedge b_{1} ~|~ b_{0} \vee b_{1}\); \(\mathbf{Com}\) \(c::=\mathbf{skip} ~|~ X:=a ~|~ \mathbf{if}~b~\mathbf{then}~c_{0}~\mathbf{else}~c_{1}~|~\mathbf{while}~b~\mathbf{do}~c ~|~ c_{0};~c_{1}\); 举一个 IMP 的例子吧…计算阶乘： \[ \begin{align*} fu&amp;nc~\mathbf{Factorial}~X~:\\ &amp;Y := 1;\\ &amp;\mathbf{while}~\neg(X=0)~\mathbf{do}\\ &amp;\quad Y:=Y\times X;\\ &amp;\quad X:=X-1\\ &amp;\mathbf{end} \end{align*} \] 形式语义学可以对 IMP 的语义做一些解释，进而完成程序的形式化验证等工作. 操作语义 操作语义首先规定了系统的状态，然后把指令视作系统状态间的转移（操作）. SDEC Machine: Stack-Environment-Device-Control 四元组： Stack：堆栈，记为 \(s\); Environment：记录系统外的环境，记为 \(e\); Device：记录存储的东西，记为 \(d\); Control：存储命令，记为 \(c\). 事实上，描述 IMP 的语义只需要 \((s,d,c)\) 机器就够了： \(s \in(\mathbb{N} \cup\{\mathbf{T}, \mathbf{F}\} \cup \mathbf{Loc} \cup \mathbf{Com})^{*}\); \(d \in \mathbf{Loc} \longrightarrow \mathbb{N}\); 地址 -&gt; 地址存储的值. \(c \in(\mathbf { Aexp } \cup \mathbf { Bexp } \cup \mathbf { Com } \cup \mathbf { Cs })^{*}\)，其中 \(\mathbf{Cs}=\{\mathbf { if, while }, \rightarrow, ;,+,-, x,=, \leq, \neg, \vee, \wedge\}\). 操作语义分为 SOS 和 MOS 两个路数 SOS: Structural Operational Semantics \(\mathbf{Aexp}\) 的求值 数字/地址：\[\langle n,\sigma\rangle\longrightarrow n\qquad \langle X,\sigma\rangle\longrightarrow \sigma(X)\] 求和：（其中 \(n\) 是 \(n_1\) 与 \(n_2\) 的和，减法乘法同理）\[\frac{\left\langle a_{0}, \sigma\right\rangle \longrightarrow n_{0} \quad\left\langle a_{1}, \sigma\right\rangle \longrightarrow n_{1}}{\left\langle a_{0}+a_{1}, \sigma\right\rangle \longrightarrow n}\] \(\mathbf{Bexp}\) 的求值 真值：（注意，\(\mathbf{true}\) 是一个语法对象，但 \(\mathrm{T}\) 是一个语义中的真值）\[\langle\mathbf { true }, \sigma\rangle \longrightarrow \mathrm{T}, \quad\langle\mathbf { false }, \sigma\rangle \longrightarrow \mathrm{F}\] 判断：（以 \(=\) 为例，\(\leqslant\) 同理）\[\begin{align} \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{T}}, &amp;\quad 若~n_0~与~n_1~\text{相等}\\ \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{F}}, &amp;\quad 若~n_0~与~n_1~\text{不等} \end{align}\] 取反：\[\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{T}}{\langle \neg b,\sigma\rangle\longrightarrow\mathrm{F}}\qquad\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{F}}{\langle \neg b,\sigma\rangle\longrightarrow\mathrm{T}}\] 二元逻辑运算：（以 \(\wedge\) 为例，其中 \(t=\begin{cases}\mathrm{T}\quad \text{if}~t_1\equiv t_2\equiv \mathrm{T} \\ \mathrm{F}\quad\text{otherwise} \end{cases}\)，\(\vee\) 同理. 其实和 \(\mathbf{Aexp}\) 中的加法也是同理）\[\begin{align*}\frac{\left\langle b_{0}, \sigma\right\rangle \longrightarrow t_{0} \quad\left\langle b_{1}, \sigma\right\rangle \longrightarrow t_{1}}{\langle b_0\wedge b_1,\sigma \rangle\longrightarrow t}\end{align*}\] \(\mathbf{Com}\) 的执行 \[ \begin{align*} \mathrm{Skip}~\frac{}{\langle \mathbf{skip},\sigma\rangle\longrightarrow\sigma} \qquad&amp;\qquad\qquad\qquad\mathrm{Assign}~\frac{\langle a,\sigma\rangle\longrightarrow n}{\langle X:=a,\sigma\rangle\longrightarrow\sigma[n/X]} \\ \mathrm{If}~\frac{\langle b,\sigma\rangle\longrightarrow \mathrm{T}\quad \langle c_0,\sigma\rangle\longrightarrow\sigma&#39;}{\langle \mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,\sigma \rangle\longrightarrow\sigma&#39;} &amp;\qquad\qquad\qquad \mathrm{If}~\frac{\langle b,\sigma\rangle\longrightarrow \mathrm{F}\quad \langle c_1,\sigma\rangle\longrightarrow\sigma&#39;}{\langle \mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,\sigma \rangle\longrightarrow\sigma&#39;} \\ \mathrm{While}~\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{F}}{\langle \mathbf{while}~b~\mathbf{do}~c,\sigma \rangle\longrightarrow\sigma} &amp;\qquad \mathrm{While}~\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{T} \quad \langle c,\sigma\rangle\longrightarrow\sigma&#39; \quad \langle \mathbf{while}~b~\mathbf{do}~c,\sigma&#39; \rangle\longrightarrow\sigma&#39;&#39;}{\langle \mathbf{while}~b~\mathbf{do}~c,\sigma \rangle\longrightarrow\sigma&#39;&#39;} \end{align*} \] SOS 的性质 确定性：SOS 具有确定性. 其中 \(\mathbf{Com}\) 的确定性证明用到了良基归纳（Well-founded induction）. 关于 well-founded induction 不多赘述. 终止性：\(\mathbf{Aexp}\) 和 \(\mathbf{Bexp}\) 是终止的，但 \(\mathbf{Com}\) 是不终止的. MOS: Mechanical Operational Semantics \(\mathbf{Aexp}\) 的语义 数字/地址：\[(s,d,nc&#39;) \longrightarrow (ns, d, c&#39;)\qquad (s,d, Xc&#39;) \longrightarrow (d(X)s,d,c&#39;)\] 运算：（其中 \(n\) 是 \(n_1\) 与 \(n_2\) 的和，减法乘法同理）\[\begin{align*}(s,d,(a_1+a_2)c&#39;) &amp;\longrightarrow (s,d,a_1a_2+c&#39;)\\ (n_2n_1s,d,+c&#39;)&amp;\longrightarrow (ns, d, c&#39;)\end{align*}\] 真值：\[\begin{align*} (s,d,\mathbf{true}c&#39;) &amp;\longrightarrow (\mathrm{T}s, d, c&#39;) \\ (s,d,\mathbf{false}c&#39;) &amp;\longrightarrow (\mathrm{F}s, d, c&#39;) \end{align*}\] 比较：（以 \(=\) 为例，\(\leqslant\) 同理）\[\begin{align*} (s,d,(a_1=a_2)c&#39;)&amp;\longrightarrow(s,d,a_1a_2=c&#39;) \\ (n_2n_1s,d,=c&#39;)&amp;\longrightarrow (\mathrm{T}s,d,c&#39;)\quad \text{if}~n_1=n_2 \\ (n_2n_1s,d,=c&#39;)&amp;\longrightarrow (\mathrm{F}s,d,c&#39;)\quad \text{if}~n_1\neq n_2 \\ \end{align*}\] 取反：\[\begin{align*} (s,d,(\neg b)c&#39;) &amp;\longrightarrow (s,d,b\neg c&#39;) \\ (\mathrm{T}s, d, \neg c&#39;) &amp;\longrightarrow (\mathrm{F}s, d, c&#39;) \\ (\mathrm{F}s, d, \neg c&#39;) &amp;\longrightarrow (\mathrm{T}s, d, c&#39;) \end{align*}\] 二元逻辑运算：（以 \(\wedge\) 为例，其中 \(t=\begin{cases}\mathrm{T}\quad \text{if}~t_1=t_2=\mathrm{T} \\ \mathrm{F}\quad\text{otherwise} \end{cases}\)，\(\vee\) 同理. 其实和 \(\mathbf{Aexp}\) 中的加法也是同理）\[\begin{align*} \left(s, d,\left(b_{1} \wedge b_{2}\right) c^{\prime}\right) &amp;\longrightarrow\left(s, d, b_{1} b_{2} \wedge c^{\prime}\right)\\ (t_2t_1s, d, \wedge c&#39;) &amp;\longrightarrow (ts, d, c&#39;) \\ \end{align*}\] \(\mathbf{Com}\) 的语义 空语句：\[(s,d,\mathbf{skip}~c&#39;)\longrightarrow(s,d,c&#39;)\] 赋值：\[\begin{align*} (s,d,X:=a~c&#39;) &amp;\longrightarrow (Xs, d, a\rightarrow c&#39;) \\ (nXs, d, \rightarrow c&#39;) &amp;\longrightarrow (s, d[n/X], c&#39;) \end{align*}\] 顺序：\[\begin{align*} (s, d, (c_0;~c_1)c&#39;) &amp;\longrightarrow (s,d,c_0;~(c_1c&#39;)) \\ (s&#39;, d&#39;, ;~c&#39;&#39;) &amp;\longrightarrow (s&#39;, d&#39;, c&#39;&#39;) \end{align*}\] 条件：\[\begin{align*} (s, d, (\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1) c&#39;) &amp;\longrightarrow (c_0c_1s, d, b~\mathbf{if}~c&#39;)\\ (\mathrm{T}c_0c_1s, d, \mathbf{if}~c&#39;) &amp;\longrightarrow (s,d,c_0c&#39;) \\ (\mathrm{F}c_0c_1s, d, \mathbf{if}~c&#39;) &amp;\longrightarrow (s,d,c_1c&#39;) \end{align*}\] 循环：\[\begin{align*} (s, d, (\mathbf{while}~b~\mathbf{do}~c)c&#39;) &amp;\longrightarrow ((c;~\mathbf{while}~b~\mathbf{do}~c)s, d, b~\mathbf{while}~c&#39;)\\ (\mathrm{T}(c;~\mathbf{while}~b~\mathbf{do}~c)s, d, \mathbf{while}~c&#39;) &amp;\longrightarrow (s,d,(c;~\mathbf{while}~b~\mathbf{do}~c)c&#39;) \\ (\mathrm{F}(c;~\mathbf{while}~b~\mathbf{do}~c)s, d, \mathbf{while}~c&#39;) &amp;\longrightarrow (s,d,c&#39;) \end{align*}\] MOS 的性质 确定性：上述 MOS 所规定的的转移 \(\rightarrow\) 是确定的，i.e. 若 \((s_0,d_0,c_0)\to(s_1,d_1,c_1)\) 且 \((s_0,d_0,c_0)\to(s_2,d_2,c_2)\)，则有 \((s_1,d_1,c_1)=(s_2,d_2,c_2)\) 证明挺容易的（ 终止性：\(\mathbf{Aexp}\) 和 \(\mathbf{Bexp}\) 都是终止的，但 \(\mathbf{Com}\) 不是（例如 \(\mathbf{while~true~do~skip}\)）. 这两条应该都和 SOS 一样. 现定义二元关系 \((s,d,c)\rightarrow^* (s&#39;,d&#39;,c&#39;)\)，表示存在一个序列 \(\left\{\left(s_{i}, d_{i}, c_{i}\right)\right\}_{i=1}^{n}\)，s.t. \[(s, d, c)=\left(s_{1}, d_{1}, c_{1}\right) \rightarrow \cdots \rightarrow\left(s_{n}, d_{n}, c_{n}\right)=\left(s^{\prime}, d^{\prime}, c^{\prime}\right)\] 则易得： \(\rightarrow^*\) 是自反的； \(\rightarrow^*\) 是传递的； 但 \(\rightarrow^*\) 不是确定的. 事实上，\(\rightarrow^*\) 具有另一种意义下的确定性，称为 Church-Rosser Property： 若 \((s,d,c)\rightarrow^* (s&#39;,d&#39;,c&#39;)\) 且 \((s,d,c)\rightarrow^* (s&#39;&#39;,d&#39;&#39;,c&#39;&#39;)\)，则存在 \((\bar{s},\bar{d},\bar{c})\)，s.t. \((s&#39;,d&#39;,c&#39;) \rightarrow^* (\bar{s},\bar{d},\bar{c})\) 且 \((s&#39;&#39;,d&#39;&#39;,c&#39;&#39;) \rightarrow^* (\bar{s},\bar{d},\bar{c})\). 还可以定义第三种关系 \(\rightarrow&#39;\)，表示 \(\rightarrow^*\) 的中间序列不为空，即“至少经过一步转移”. 不过我感觉好像没什么意义…这东西破坏了自反性和 Church-Rosser 性质… 指称语义 新的记号 状态集：\(\Sigma\)；一个指称就是从状态集到“意思”集合的映射. 全函数 \(A\to B\)：每个 \(a\in A\) 都有像； 部分函数 \(A\rightharpoonup B\)：不是每个 \(a\in A\) 都有像. \(\mathbf{Aexp}\) 的语义 实际上是定义了一个 \(\mathbf{Aexp}\) 到其指称的映射 \(\mathcal{A}: \mathbf{Aexp}\to (\Sigma\to\mathbb{N})\). （\(\mathbf{Bexp}\) 同理） 数字/地址：\[\mathcal{A}[[n]](\sigma)=n\qquad \mathcal{A}[[X]](\sigma)=\sigma(X)\] 加法：（减法和乘法同理）\[\mathcal{A}[[a_1+a_2]]=\mathcal{A}[[a_1]]+\mathcal{A}[[a_2]]\] \(\mathbf{Bexp}\) 的语义 真值/地址：\[\mathcal{B}[[\mathbf{true}]](\sigma)=\mathrm{T}\qquad \mathcal{B}[[\mathbf{false}]](\sigma)=\mathrm{F}\qquad \mathcal{B}[[X]](\sigma)=\sigma(X)\] 判断：（以 \(=\) 为例，\(\leqslant\) 同理）\[\mathcal{B}[[a_1=a_2]]=\begin{cases} \mathrm{T}\quad 若~\mathcal{A}[[a_1]](\sigma)=\mathcal{A}[[a_2]](\sigma)\\ \mathrm{F}\quad 若~\mathcal{A}[[a_1]](\sigma)\neq\mathcal{A}[[a_2]](\sigma) \end{cases}\] 逻辑运算：（\(\vee\) 同理）\[\mathcal{B}[[\neg b]](\sigma)=\neg\mathcal{B}[[b]](\sigma)\qquad \mathcal{B}[[b_1\wedge b_2]](\sigma)=\mathcal{B}[[b_1]](\sigma)\wedge \mathcal{B}[[b_2]](\sigma)\] \(\mathbf{Com}\) 的语义 命令的指称是部分函数 \(\Sigma\rightharpoonup\Sigma\)（因为有一些命令并不终止），因此其指称语义是 \(\mathcal{C}:\mathbf{Com}\to(\Sigma\rightharpoonup\Sigma)\). 空语句/赋值：\[\mathcal{C}[[\mathbf{skip}]](\sigma)=\sigma \qquad \mathcal{C}[[X:=a]](\sigma)=\sigma(n/X)\] 顺序：\[\mathcal{C}[[c_1;~c_2]](\sigma)=\mathcal{C}[[c_2]](\mathcal{C}[[c_1]](\sigma))=(\mathcal{C}[[c_2]]\circ\mathcal{C}[[c_1]])(\sigma)\] 条件：\[\mathcal{C}[[\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1]](\sigma)=\begin{cases} \mathcal{C}[[c_0]](\sigma)\quad 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \\ \mathcal{C}[[c_1]](\sigma)\quad 若~\mathcal{B}[[b]](\sigma)=\mathrm{F} \end{cases}\] 循环：\[\begin{align*} \mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]](\sigma)&amp;= \begin{cases} \sigma &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{F}\\ \mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]](\mathcal{C}[[c]](\sigma)) &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \end{cases} \\ &amp;=\begin{cases} \sigma &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{F}\\ (\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\circ\mathcal{C}[[c]])((\sigma)) &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \end{cases} \end{align*}\] \(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\) 的存在性与唯一性 定义函数： \[F:(\Sigma\rightharpoonup\Sigma)\to(\Sigma\rightharpoonup\Sigma),\quad F(\varphi)(\sigma)=\begin{cases} \sigma &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{F} \\ (\varphi\circ\mathcal{C}[[c]])(\sigma) &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \end{cases}\] 则容易验证 \(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\) 是 \(F\) 的一个不动点. 因此 \(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\) 的存在和唯一性可转化为 \(F\) 不动点的存在和唯一性. 事实上，\(F\) 的最小不动点存在且唯一. 这下稳了（ 最小不动点的相关讨论 首先需要定义完全偏序集： Def. 完全偏序集 （例子：离散序 \(a\sqsubseteq b\iff a=b\)，平坦序 \(a\sqsubseteq b\sqsubseteq c \iff a=b~或~b=c\)） 复习一下偏序集：自反、传递、反对称. 偏序集记作 po. 若偏序集中的每个升链 \(d_1\sqsubseteq d_2\sqsubseteq \cdots\) 都有上确界 \(\bigsqcup_{i}d_i\)，则称其为一个完全偏序集，记作 cpo. 若 cpo \((P,\sqsubseteq)\) 中有最小元 \(\perp\)（\(\forall x\in P\)，总有 \(x\sqsubseteq \perp\)），则称其为带底的 cpo. 可以证明：对任意集合 \(X\)，给其幂集赋予包含关系 \((\mathscr{P}(x),\subseteq)\) 都构成一个含底的 cpo. 在 cpo 中，每个升链都有上确界，这实际上就是分析中“极限”的概念. 因此可以定义连续函数： Def. 连续函数 设 \(D,E\) 是 cpo，\(f:D\to E\) 是一个函数 若对 \(\forall d_1,d_2\in D\)，s.t. \(d_1\sqsubseteq d_2\)，总有 \(f(d_1)\sqsubseteq f(d_2)\)，则称 \(f\) 单调（保序）； 若 \(f\) 单调，且对任意升链 \(d_1\sqsubseteq d_2\sqsubseteq\cdots\)，都有 \(f(\bigsqcup d_n)=\bigsqcup f(d_n)\)，则称 \(f\) 连续. 对于连续函数，有如下的不动点定理： Thm. 不动点定理 设 \(D\) 是一个含底的 cpo，\(f:D\to D\) 连续，则 \[fix(f)=\bigsqcup_n f^n(\perp)\] 是 \(f\) 的最小不动点. 其中 \(f^n\) 表示 \(f\) 作用 \(n\) 次. （证明很简单，先证是不动点，再证最小即可） 现在，我们在状态集 \(\Sigma\) 中添加底元素 \(\perp\)，s.t. \(\forall \sigma\)，\(\perp\sqsubseteq \sigma\). 新的集合记为 \(\Sigma_\perp\). 部分函数当然也可以得到扩充（把无定义的元素全部拉到 \(\perp\) 上）而成为全函数 \(\Sigma\to\Sigma_\perp\). 并且该扩充是一一对应的. 还可以得到：这样扩充得到的全函数一定是连续的. 考虑到部分函数 \(\Sigma\rightharpoonup\Sigma\) 的全体被赋予包含关系后是一个含底的 cpo，一个自然的反应就是：扩充而来的全函数也构成一个含底的 cpo. 事实上，这句话是正确的. \(\Sigma\to\Sigma_\perp\) 上的序构造如下： \[f\sqsubseteq g~当且仅当~\forall\sigma\in\Sigma,~f(\sigma)\sqsubseteq g(\sigma)\] 到这里，就足以说明 while 循环指称语义的存在唯一性了. 关于不动点，在代数上还有如下定理（这里并用不到）： Thm. Knaster-Tarski 最小不动点定理 设 \((L,\sqsubseteq)\) 是一个完备格. 令 \(f:L\to L\) 是单调函数（不必连续，可以看出这里减弱了条件），则 \[m=\sqcap\{x\in L: f(x)\sqsubseteq x\}\] 是 \(f\) 的最小不动点. 上述定理还有一个逆定理： Thm. 若所有保序映射 \(f:L\to L\) 都有不动点，则 \(L\) 是完全格. 公理语义 前面的操作语义和指称语义已经对语义有了很详细的描述. 公理语义给出了一套逻辑系统，并证明了其正确性. 这套系统可以被用于自动化推演证明，叫做 Hoare Logic. 断言语言 \(\mathbf{Assn}\) 在算术表达式 \(\mathbf{Aexp}\) 中添加整型变量 \(\mathbf{IntVar}\) 类型的元素（常用 \(i\) 表示），扩充而为 \(\mathbf{Aexpv}\)： \(\mathbf{Aexpv}~a::=x~|~i~|~n~|~a_1+a_2~|~a_1-a_2~|~a_1\times a_2\) 既然有变量，那么就需要有“解释”，记为函数 \(I:\mathbf{IntVar}\to\mathbb{N}\). 这个东西在语义中用得到. 断言（Assertions）就是一些可以判断真假的东西（可视为 \(\mathbf{Bexp}\) 的扩展）： \(\mathbf{Assn}~P::=\mathbf{true}~|~\mathbf{false}~|~a_1&lt;a_2~|~P_1\wedge P_2~|~P_1\vee P_2~|~P_1\Rightarrow P_2~|~\neg P~|~\forall i.~P~|~\exists i.~P\) 由于断言中有变量和量词的出现，因此也有类似数理逻辑中“自由”与“约束”的概念，不多赘述. \(\mathbf{Assn}\) 的语义：指称语义 \(\mathbf{Aexpv}\) 的语义：记为 \(\mathcal{A}v[[a]]\)…基本直接套用 \(\mathbf{Aexp}\) 的指称语义. 关于变量的语义如下：\[\mathcal{A}v[[i]]I\sigma=I(i)\] \(\mathbf{Assn}\) 的真假：基本与一阶逻辑的东西一样. 用 \(\sigma\vDash_I A\) 表示 \(A\) 在 \(I\) 中被 \(\sigma\in\Sigma\) 满足. 例 1：\(\sigma\vDash_I \mathbf{true}\), \(\sigma\not\vDash_I\mathbf{false}\); 例 2：\(\sigma\vDash_I a_1=a_2\) 当且仅当 \(\mathcal{A}v[[a_1]]I\sigma=\mathcal{A}v[[a_2]]I\sigma\); 例 3：\(\sigma\vDash_I A\wedge B\) 当且仅当 \(\sigma\vDash_I A\) 且 \(\sigma\vDash_I B\). Prop 给定 \(b\in\mathbf{Bexp}\) 和状态 \(\sigma\in\Sigma\)，则对任意解释 \(I\)，有\[\mathcal{A}[[b]]\sigma=\mathbf{true}~当且仅当~\sigma\vDash_I b\] Hoare 公式（Hoare triple） Hoare 公式（三元组）一般的形式为 \(\{P\}~c~\{Q\}\)： \(P,Q\in\mathbf{Assn}\) 是断言（描述系统的状态？）； \(c\in\mathbf{Com}\) 是指令. \(\{P\}~c~\{Q\}\) 的意思是：若 \(P\) 成立，则执行完 \(c\) 后，\(Q\) 将成立. Hoare Rules 一共有六条规则： \[ \begin{align*} \mathrm{Skip}~\frac{}{\{B\} ~\mathbf{skip}~ \{B\}} &amp;\quad \mathrm{Assign}~\frac{}{\{B[a/X]\} ~X::=a~ \{B\}}\\ \mathrm{If}~\frac{\{A\wedge b\}~c_0~\{B\}\quad \{A\wedge\neg b\}~c_1~\{B\}}{\{A\}~\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1~\{B\}} &amp;\quad \mathrm{Sequence}~\frac{ \{P\}~c_1~\{R\} \quad \{R\}~c_2~\{Q\} }{ \{P\}~c_1;;c_2~\{Q\} } \\ \mathrm{While}~\frac{ \{P\wedge b\}~c~\{P\} }{ \{P\}~\mathbf{while}~b~\mathbf{do}~c~\{P\wedge\neg b\} }&amp;\quad \mathrm{Consequence}~\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} } \end{align*} \] while 循环始终是这些命令中最复杂的. 这里的 \(P\) 叫做循环不变量，在公理语义的讨论中有着很重要的地位. Hoare rules 建立了一套推理系统，进一步可以验证它是可靠的（它推出的结果在语义上都没毛病）. Hoare rules 之间的推理符号用 \(\vdash\). Hoare 规则的可靠性 Def. 可满足性 \(\sigma\) 在 \(I\) 中满足 \(\{A\}~c~\{B\}\) 当且仅当：若 \(\sigma\vDash_I A\)，则 \(\mathcal{C}[[c]]\sigma\vDash_I B\). 记作 \(\sigma\vDash_I \{A\}~c~\{B\}\). Def. 永真性 若 \(\forall \sigma\)，\(\forall I\)，都有 \(\sigma\vDash_I \{A\}~c~\{B\}\)，则称其是永真的，记作 \(\vDash \{A\}~c~\{B\}\). Thm. 可靠性 Hoare 规则推理出来的东西都是永真的. i.e. 若 \(\vdash \{A\}~c~\{B\}\)，则 \(\vDash \{A\}~c~\{B\}\). 可靠性的证明需要以下两个引理： 赋值和语义符号 \([[ ]]\) 的交换 Lem. 设 \(a,a&#39;\in\mathbf{Aexpv}\)，\(X\in\mathbf{Loc}\)，则对 \(\forall I\)，\(\forall \sigma\in\Sigma\)，有 \[\mathcal{A} v[[a[[a^{\prime} / X]] I \sigma=\mathcal{A} v[[a]] I(\sigma[[\mathcal{A} v[[a^{\prime}]] / X]])\] 赋值和 \(\vDash\) 符号的交换 Lem. 设 \(I\) 是一个解释，\(B\in\mathbf{Assn}\)，\(a\in\mathbf{Aexpv}\)，\(X\in\mathbf{Loc}\)，则对 \(\forall \sigma\in\Sigma\)，有 \[\sigma \vDash_{I} B[a / X] ~~\mathrm{iff}~~ \sigma[\mathcal{A}[[a]] \sigma / X] \vDash_{I} B\] 引理的证明和定理的证明都不算太困难（while 循环最为困难），不详细描述了… Hoare 规则的完备性 完备性是指：一个系统能够把所有“正确”的东西都推出来. 这个“正确性”这里有两种解读： 绝对：\(\{A\}~c~\{B\}\) 真的正确（比如 \(\{x=1\}~\mathbf{skip}~\{x=1\}\)）. 相对：在断言的逻辑（一阶逻辑）中能证明 \(\vDash\{A\}~c~\{B\}\). 如果按照上述 1. 的定义，则由 Godel 不完备定理可知，Hoare 规则是不完备的. 那么，不完备性从何而来呢？（一方面可考虑 \(\vDash B\) iff \(\{\mathbf{true}\}~\mathbf{skip}~\{B\}\)，另一方面可考虑 \(\{\mathbf{true}\}~c~\{\mathbf{false}\}\)） 实际上，是从 Consequence rule \(\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} }\) 中的蕴含（\(\Rightarrow\)）符号来的. 结合 Godel 定理考虑同样可知，Hoare 规则的不完备性应该至少有一部分来自于断言（类似一阶逻辑）的不完备性. 那么，Hoare 规则比断言更加不完备吗？ 答案是否定的. 我们称，Hoare 具有相对完备性. Thm. 相对完备性 Hoare 规则是相对完备的，i.e. 若 \(\vDash \{A\}~c~\{B\}\)，则 \(\vdash \{A\}~c~\{B\}\). 其证明用到了最弱前置条件与可表达性. 先来定义最弱前置条件（Weakest Liberal Preconditions），断言 \(B\) 相对于指令 \(c\) 的最弱前置条件为： \[wp^{I}[c, B]=\{\sigma \in \Sigma_{\perp}~|~\mathcal{C}[[c]] \sigma \vDash^{I} B\}\] 关于上述定义的一点解释： “前置条件”听起来像是一个断言，但是其实是一个状态的集合. 集合 \(S\) 是断言 \(B\) 相对于指令 \(c\) 的前置条件意味着对 \(S\) 中的每个状态执行完 \(c\) 后，\(B\) 都将成立； 最弱前置条件的“最弱”是把上述集合缩到最小，i.e. \(wp^{I}[c, B]\) 是最小的“前置条件”集合. 有了这个定义，可表达性就非常好理解了： Def. 可表达性 \(\mathbf{Assn}\) 是可表达的，i.e. 对 \(\forall c,B\)，总存在断言 \(A\)，s.t. \(wp^I[c,B]=A^I\) 在 \(\forall I\) 下成立. 其中 \(A^I\) 表示在 \(I\) 下能够使得 \(A\) 成立的状态集. 事实上，上述定义相当直观：最弱前置条件是一个状态集，我们非常难以把它想象成一个“条件”. 但可表达性给出了一个断言 \(A\)，使得断言成立的状态恰好就是这些状态，所以这个最弱前置条件就被断言 \(A\) 所“表达”了. 所有命令的最弱前置条件如下： \[ \begin{align*} wp[\mathbf{skip}, B] &amp;= B \\ wp[X:=a, B] &amp;= B[a/X] \\ wp[(c_1;~c_2), B] &amp;= wp[c_1, wp[c_2,B]] \\ wp[\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,B] &amp;= (b\Rightarrow wp[c_1,B])\wedge (\neg b\Rightarrow wp[c_2,B]) \\ wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\ 其中~ F_0(B)=\mathbf{true},&amp;~F_{i+1}(B)=(\neg b\Rightarrow B)\wedge (b\Rightarrow wp[c, F_i(B)]). \end{align*} \] 然后我们可以得到如下的两条引理： Lem. 1 \(\forall c\in\mathbf{Com}\)，\(Q\in\mathbf{Assn}\)，有\[\vDash\{wp[c,Q]\}~c~\{Q\}~且~\forall R\in\mathbf{Assn}.~\vDash \{R\}~c~\{Q\}~意味着~(R\Rightarrow wp[c,Q])\] Lem. 2 \(\forall c\in\mathbf{Com}\)，\(Q\in\mathbf{Assn}\)，有 \(\vdash \{wp[c,Q]\}~c~\{Q\}\). 有了这两条，即可证明相对完备性. 其大致思路是： 对任意命令 \(c\)，断言 \(P\) 和 \(Q\)，s.t. \(\vDash \{P\}~c~\{Q\}\)； 由 Lem 1，有 \(\vDash P\Rightarrow wp[c,Q]\)； 由 Lem 2，有 \(\vdash \{wp[c,Q]\}~c~\{Q\}\)； 由 Consequence rule，可知 \(\vdash \{P\}~c~\{Q\}\). 这里略去了很多细节，具体细节参见 Winskel 的书.]]></content>
+    <content type="text"><![CDATA[这学期上whp老师的形式语义学课程，做一些简单的记录. 教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel. IMP: Simple Imperative Language 操作语义：MOS &amp; SOS 指称语义：Denotational Semantics 公理语义：Hoare Logic IMP: a Simple Imperative Language IMP的指令分为 \(\mathbf{Aexp}\)（算术表达式）, \(\mathbf{Bexp}\)（布尔表达式）, 以及 \(\mathbf{Com}\)（命令）三部分. 其抽象语法如下所示： 其中 \(n\) 为整数，\(X\) 为地址. \(\mathbf{Aexp}\) \(a::=n ~|~ X ~|~ a_1+a_2 ~|~ a_1-a_2 ~|~ a_1\times a_2\); \(\mathbf{Bexp}\) \(b::=\mathbf{true} ~|~ \mathbf{false} ~|~ a_{0}=a_{1} ~|~ a_{0} \leq a_{1} ~|~ \neg b ~|~ b_{0} \wedge b_{1} ~|~ b_{0} \vee b_{1}\); \(\mathbf{Com}\) \(c::=\mathbf{skip} ~|~ X:=a ~|~ \mathbf{if}~b~\mathbf{then}~c_{0}~\mathbf{else}~c_{1}~|~\mathbf{while}~b~\mathbf{do}~c ~|~ c_{0};~c_{1}\); 举一个 IMP 的例子吧…计算阶乘： \[ \begin{align*} fu&amp;nc~\mathbf{Factorial}~X~:\\ &amp;Y := 1;\\ &amp;\mathbf{while}~\neg(X=0)~\mathbf{do}\\ &amp;\quad Y:=Y\times X;\\ &amp;\quad X:=X-1\\ &amp;\mathbf{end} \end{align*} \] 形式语义学可以对 IMP 的语义做一些解释，进而完成程序的形式化验证等工作. 操作语义 操作语义首先规定了系统的状态，然后把指令视作系统状态间的转移（操作）. SDEC Machine: Stack-Environment-Device-Control 四元组： Stack：堆栈，记为 \(s\); Environment：记录系统外的环境，记为 \(e\); Device：记录存储的东西，记为 \(d\); Control：存储命令，记为 \(c\). 事实上，描述 IMP 的语义只需要 \((s,d,c)\) 机器就够了： \(s \in(\mathbb{N} \cup\{\mathbf{T}, \mathbf{F}\} \cup \mathbf{Loc} \cup \mathbf{Com})^{*}\); \(d \in \mathbf{Loc} \longrightarrow \mathbb{N}\); 地址 -&gt; 地址存储的值. \(c \in(\mathbf { Aexp } \cup \mathbf { Bexp } \cup \mathbf { Com } \cup \mathbf { Cs })^{*}\)，其中 \(\mathbf{Cs}=\{\mathbf { if, while }, \rightarrow, ;,+,-, x,=, \leq, \neg, \vee, \wedge\}\). 操作语义分为 SOS 和 MOS 两个路数 SOS: Structural Operational Semantics \(\mathbf{Aexp}\) 的求值 数字/地址：\[\langle n,\sigma\rangle\longrightarrow n\qquad \langle X,\sigma\rangle\longrightarrow \sigma(X)\] 求和：（其中 \(n\) 是 \(n_1\) 与 \(n_2\) 的和，减法乘法同理）\[\frac{\left\langle a_{0}, \sigma\right\rangle \longrightarrow n_{0} \quad\left\langle a_{1}, \sigma\right\rangle \longrightarrow n_{1}}{\left\langle a_{0}+a_{1}, \sigma\right\rangle \longrightarrow n}\] \(\mathbf{Bexp}\) 的求值 真值：（注意，\(\mathbf{true}\) 是一个语法对象，但 \(\mathrm{T}\) 是一个语义中的真值）\[\langle\mathbf { true }, \sigma\rangle \longrightarrow \mathrm{T}, \quad\langle\mathbf { false }, \sigma\rangle \longrightarrow \mathrm{F}\] 判断：（以 \(=\) 为例，\(\leqslant\) 同理）\[\begin{align} \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{T}}, &amp;\quad 若~n_0~与~n_1~\text{相等}\\ \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{F}}, &amp;\quad 若~n_0~与~n_1~\text{不等} \end{align}\] 取反：\[\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{T}}{\langle \neg b,\sigma\rangle\longrightarrow\mathrm{F}}\qquad\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{F}}{\langle \neg b,\sigma\rangle\longrightarrow\mathrm{T}}\] 二元逻辑运算：（以 \(\wedge\) 为例，其中 \(t=\begin{cases}\mathrm{T}\quad \text{if}~t_1\equiv t_2\equiv \mathrm{T} \\ \mathrm{F}\quad\text{otherwise} \end{cases}\)，\(\vee\) 同理. 其实和 \(\mathbf{Aexp}\) 中的加法也是同理）\[\begin{align*}\frac{\left\langle b_{0}, \sigma\right\rangle \longrightarrow t_{0} \quad\left\langle b_{1}, \sigma\right\rangle \longrightarrow t_{1}}{\langle b_0\wedge b_1,\sigma \rangle\longrightarrow t}\end{align*}\] \(\mathbf{Com}\) 的执行 \[ \begin{align*} \mathrm{Skip}~\frac{}{\langle \mathbf{skip},\sigma\rangle\longrightarrow\sigma} \qquad&amp;\qquad\qquad\qquad\mathrm{Assign}~\frac{\langle a,\sigma\rangle\longrightarrow n}{\langle X:=a,\sigma\rangle\longrightarrow\sigma[n/X]} \\ \mathrm{If}~\frac{\langle b,\sigma\rangle\longrightarrow \mathrm{T}\quad \langle c_0,\sigma\rangle\longrightarrow\sigma&#39;}{\langle \mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,\sigma \rangle\longrightarrow\sigma&#39;} &amp;\qquad\qquad\qquad \mathrm{If}~\frac{\langle b,\sigma\rangle\longrightarrow \mathrm{F}\quad \langle c_1,\sigma\rangle\longrightarrow\sigma&#39;}{\langle \mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,\sigma \rangle\longrightarrow\sigma&#39;} \\ \mathrm{While}~\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{F}}{\langle \mathbf{while}~b~\mathbf{do}~c,\sigma \rangle\longrightarrow\sigma} &amp;\qquad \mathrm{While}~\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{T} \quad \langle c,\sigma\rangle\longrightarrow\sigma&#39; \quad \langle \mathbf{while}~b~\mathbf{do}~c,\sigma&#39; \rangle\longrightarrow\sigma&#39;&#39;}{\langle \mathbf{while}~b~\mathbf{do}~c,\sigma \rangle\longrightarrow\sigma&#39;&#39;} \end{align*} \] SOS 的性质 确定性：SOS 具有确定性. 其中 \(\mathbf{Com}\) 的确定性证明用到了良基归纳（Well-founded induction）. 关于 well-founded induction 不多赘述. 终止性：\(\mathbf{Aexp}\) 和 \(\mathbf{Bexp}\) 是终止的，但 \(\mathbf{Com}\) 是不终止的. MOS: Mechanical Operational Semantics \(\mathbf{Aexp}\) 的语义 数字/地址：\[(s,d,nc&#39;) \longrightarrow (ns, d, c&#39;)\qquad (s,d, Xc&#39;) \longrightarrow (d(X)s,d,c&#39;)\] 运算：（其中 \(n\) 是 \(n_1\) 与 \(n_2\) 的和，减法乘法同理）\[\begin{align*}(s,d,(a_1+a_2)c&#39;) &amp;\longrightarrow (s,d,a_1a_2+c&#39;)\\ (n_2n_1s,d,+c&#39;)&amp;\longrightarrow (ns, d, c&#39;)\end{align*}\] 真值：\[\begin{align*} (s,d,\mathbf{true}c&#39;) &amp;\longrightarrow (\mathrm{T}s, d, c&#39;) \\ (s,d,\mathbf{false}c&#39;) &amp;\longrightarrow (\mathrm{F}s, d, c&#39;) \end{align*}\] 比较：（以 \(=\) 为例，\(\leqslant\) 同理）\[\begin{align*} (s,d,(a_1=a_2)c&#39;)&amp;\longrightarrow(s,d,a_1a_2=c&#39;) \\ (n_2n_1s,d,=c&#39;)&amp;\longrightarrow (\mathrm{T}s,d,c&#39;)\quad \text{if}~n_1=n_2 \\ (n_2n_1s,d,=c&#39;)&amp;\longrightarrow (\mathrm{F}s,d,c&#39;)\quad \text{if}~n_1\neq n_2 \\ \end{align*}\] 取反：\[\begin{align*} (s,d,(\neg b)c&#39;) &amp;\longrightarrow (s,d,b\neg c&#39;) \\ (\mathrm{T}s, d, \neg c&#39;) &amp;\longrightarrow (\mathrm{F}s, d, c&#39;) \\ (\mathrm{F}s, d, \neg c&#39;) &amp;\longrightarrow (\mathrm{T}s, d, c&#39;) \end{align*}\] 二元逻辑运算：（以 \(\wedge\) 为例，其中 \(t=\begin{cases}\mathrm{T}\quad \text{if}~t_1=t_2=\mathrm{T} \\ \mathrm{F}\quad\text{otherwise} \end{cases}\)，\(\vee\) 同理. 其实和 \(\mathbf{Aexp}\) 中的加法也是同理）\[\begin{align*} \left(s, d,\left(b_{1} \wedge b_{2}\right) c^{\prime}\right) &amp;\longrightarrow\left(s, d, b_{1} b_{2} \wedge c^{\prime}\right)\\ (t_2t_1s, d, \wedge c&#39;) &amp;\longrightarrow (ts, d, c&#39;) \\ \end{align*}\] \(\mathbf{Com}\) 的语义 空语句：\[(s,d,\mathbf{skip}~c&#39;)\longrightarrow(s,d,c&#39;)\] 赋值：\[\begin{align*} (s,d,X:=a~c&#39;) &amp;\longrightarrow (Xs, d, a\rightarrow c&#39;) \\ (nXs, d, \rightarrow c&#39;) &amp;\longrightarrow (s, d[n/X], c&#39;) \end{align*}\] 顺序：\[\begin{align*} (s, d, (c_0;~c_1)c&#39;) &amp;\longrightarrow (s,d,c_0;~(c_1c&#39;)) \\ (s&#39;, d&#39;, ;~c&#39;&#39;) &amp;\longrightarrow (s&#39;, d&#39;, c&#39;&#39;) \end{align*}\] 条件：\[\begin{align*} (s, d, (\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1) c&#39;) &amp;\longrightarrow (c_0c_1s, d, b~\mathbf{if}~c&#39;)\\ (\mathrm{T}c_0c_1s, d, \mathbf{if}~c&#39;) &amp;\longrightarrow (s,d,c_0c&#39;) \\ (\mathrm{F}c_0c_1s, d, \mathbf{if}~c&#39;) &amp;\longrightarrow (s,d,c_1c&#39;) \end{align*}\] 循环：\[\begin{align*} (s, d, (\mathbf{while}~b~\mathbf{do}~c)c&#39;) &amp;\longrightarrow ((c;~\mathbf{while}~b~\mathbf{do}~c)s, d, b~\mathbf{while}~c&#39;)\\ (\mathrm{T}(c;~\mathbf{while}~b~\mathbf{do}~c)s, d, \mathbf{while}~c&#39;) &amp;\longrightarrow (s,d,(c;~\mathbf{while}~b~\mathbf{do}~c)c&#39;) \\ (\mathrm{F}(c;~\mathbf{while}~b~\mathbf{do}~c)s, d, \mathbf{while}~c&#39;) &amp;\longrightarrow (s,d,c&#39;) \end{align*}\] MOS 的性质 确定性：上述 MOS 所规定的的转移 \(\rightarrow\) 是确定的，i.e. 若 \((s_0,d_0,c_0)\to(s_1,d_1,c_1)\) 且 \((s_0,d_0,c_0)\to(s_2,d_2,c_2)\)，则有 \((s_1,d_1,c_1)=(s_2,d_2,c_2)\) 证明挺容易的（ 终止性：\(\mathbf{Aexp}\) 和 \(\mathbf{Bexp}\) 都是终止的，但 \(\mathbf{Com}\) 不是（例如 \(\mathbf{while~true~do~skip}\)）. 这两条应该都和 SOS 一样. 现定义二元关系 \((s,d,c)\rightarrow^* (s&#39;,d&#39;,c&#39;)\)，表示存在一个序列 \(\left\{\left(s_{i}, d_{i}, c_{i}\right)\right\}_{i=1}^{n}\)，s.t. \[(s, d, c)=\left(s_{1}, d_{1}, c_{1}\right) \rightarrow \cdots \rightarrow\left(s_{n}, d_{n}, c_{n}\right)=\left(s^{\prime}, d^{\prime}, c^{\prime}\right)\] 则易得： \(\rightarrow^*\) 是自反的； \(\rightarrow^*\) 是传递的； 但 \(\rightarrow^*\) 不是确定的. 事实上，\(\rightarrow^*\) 具有另一种意义下的确定性，称为 Church-Rosser Property： 若 \((s,d,c)\rightarrow^* (s&#39;,d&#39;,c&#39;)\) 且 \((s,d,c)\rightarrow^* (s&#39;&#39;,d&#39;&#39;,c&#39;&#39;)\)，则存在 \((\bar{s},\bar{d},\bar{c})\)，s.t. \((s&#39;,d&#39;,c&#39;) \rightarrow^* (\bar{s},\bar{d},\bar{c})\) 且 \((s&#39;&#39;,d&#39;&#39;,c&#39;&#39;) \rightarrow^* (\bar{s},\bar{d},\bar{c})\). 还可以定义第三种关系 \(\rightarrow&#39;\)，表示 \(\rightarrow^*\) 的中间序列不为空，即“至少经过一步转移”. 不过我感觉好像没什么意义…这东西破坏了自反性和 Church-Rosser 性质… 指称语义 新的记号 状态集：\(\Sigma\)；一个指称就是从状态集到“意思”集合的映射. 全函数 \(A\to B\)：每个 \(a\in A\) 都有像； 部分函数 \(A\rightharpoonup B\)：不是每个 \(a\in A\) 都有像. \(\mathbf{Aexp}\) 的语义 实际上是定义了一个 \(\mathbf{Aexp}\) 到其指称的映射 \(\mathcal{A}: \mathbf{Aexp}\to (\Sigma\to\mathbb{N})\). （\(\mathbf{Bexp}\) 同理） 数字/地址：\[\mathcal{A}[[n]](\sigma)=n\qquad \mathcal{A}[[X]](\sigma)=\sigma(X)\] 加法：（减法和乘法同理）\[\mathcal{A}[[a_1+a_2]]=\mathcal{A}[[a_1]]+\mathcal{A}[[a_2]]\] \(\mathbf{Bexp}\) 的语义 真值/地址：\[\mathcal{B}[[\mathbf{true}]](\sigma)=\mathrm{T}\qquad \mathcal{B}[[\mathbf{false}]](\sigma)=\mathrm{F}\qquad \mathcal{B}[[X]](\sigma)=\sigma(X)\] 判断：（以 \(=\) 为例，\(\leqslant\) 同理）\[\mathcal{B}[[a_1=a_2]]=\begin{cases} \mathrm{T}\quad 若~\mathcal{A}[[a_1]](\sigma)=\mathcal{A}[[a_2]](\sigma)\\ \mathrm{F}\quad 若~\mathcal{A}[[a_1]](\sigma)\neq\mathcal{A}[[a_2]](\sigma) \end{cases}\] 逻辑运算：（\(\vee\) 同理）\[\mathcal{B}[[\neg b]](\sigma)=\neg\mathcal{B}[[b]](\sigma)\qquad \mathcal{B}[[b_1\wedge b_2]](\sigma)=\mathcal{B}[[b_1]](\sigma)\wedge \mathcal{B}[[b_2]](\sigma)\] \(\mathbf{Com}\) 的语义 命令的指称是部分函数 \(\Sigma\rightharpoonup\Sigma\)（因为有一些命令并不终止），因此其指称语义是 \(\mathcal{C}:\mathbf{Com}\to(\Sigma\rightharpoonup\Sigma)\). 空语句/赋值：\[\mathcal{C}[[\mathbf{skip}]](\sigma)=\sigma \qquad \mathcal{C}[[X:=a]](\sigma)=\sigma(n/X)\] 顺序：\[\mathcal{C}[[c_1;~c_2]](\sigma)=\mathcal{C}[[c_2]](\mathcal{C}[[c_1]](\sigma))=(\mathcal{C}[[c_2]]\circ\mathcal{C}[[c_1]])(\sigma)\] 条件：\[\mathcal{C}[[\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1]](\sigma)=\begin{cases} \mathcal{C}[[c_0]](\sigma)\quad 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \\ \mathcal{C}[[c_1]](\sigma)\quad 若~\mathcal{B}[[b]](\sigma)=\mathrm{F} \end{cases}\] 循环：\[\begin{align*} \mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]](\sigma)&amp;= \begin{cases} \sigma &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{F}\\ \mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]](\mathcal{C}[[c]](\sigma)) &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \end{cases} \\ &amp;=\begin{cases} \sigma &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{F}\\ (\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\circ\mathcal{C}[[c]])((\sigma)) &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \end{cases} \end{align*}\] \(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\) 的存在性与唯一性 定义函数： \[F:(\Sigma\rightharpoonup\Sigma)\to(\Sigma\rightharpoonup\Sigma),\quad F(\varphi)(\sigma)=\begin{cases} \sigma &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{F} \\ (\varphi\circ\mathcal{C}[[c]])(\sigma) &amp; 若~\mathcal{B}[[b]](\sigma)=\mathrm{T} \end{cases}\] 则容易验证 \(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\) 是 \(F\) 的一个不动点. 因此 \(\mathcal{C}[[\mathbf{while}~b~\mathbf{do}~c]]\) 的存在和唯一性可转化为 \(F\) 不动点的存在和唯一性. 事实上，\(F\) 的最小不动点存在且唯一. 这下稳了（ 最小不动点的相关讨论 首先需要定义完全偏序集： Def. 完全偏序集 （例子：离散序 \(a\sqsubseteq b\iff a=b\)，平坦序 \(a\sqsubseteq b\sqsubseteq c \iff a=b~或~b=c\)） 复习一下偏序集：自反、传递、反对称. 偏序集记作 po. 若偏序集中的每个升链 \(d_1\sqsubseteq d_2\sqsubseteq \cdots\) 都有上确界 \(\bigsqcup_{i}d_i\)，则称其为一个完全偏序集，记作 cpo. 若 cpo \((P,\sqsubseteq)\) 中有最小元 \(\perp\)（\(\forall x\in P\)，总有 \(x\sqsubseteq \perp\)），则称其为带底的 cpo. 可以证明：对任意集合 \(X\)，给其幂集赋予包含关系 \((\mathscr{P}(x),\subseteq)\) 都构成一个含底的 cpo. 在 cpo 中，每个升链都有上确界，这实际上就是分析中“极限”的概念. 因此可以定义连续函数： Def. 连续函数 设 \(D,E\) 是 cpo，\(f:D\to E\) 是一个函数 若对 \(\forall d_1,d_2\in D\)，s.t. \(d_1\sqsubseteq d_2\)，总有 \(f(d_1)\sqsubseteq f(d_2)\)，则称 \(f\) 单调（保序）； 若 \(f\) 单调，且对任意升链 \(d_1\sqsubseteq d_2\sqsubseteq\cdots\)，都有 \(f(\bigsqcup d_n)=\bigsqcup f(d_n)\)，则称 \(f\) 连续. 对于连续函数，有如下的不动点定理： Thm. 不动点定理 设 \(D\) 是一个含底的 cpo，\(f:D\to D\) 连续，则 \[fix(f)=\bigsqcup_n f^n(\perp)\] 是 \(f\) 的最小不动点. 其中 \(f^n\) 表示 \(f\) 作用 \(n\) 次. （证明很简单，先证是不动点，再证最小即可） 现在，我们在状态集 \(\Sigma\) 中添加底元素 \(\perp\)，s.t. \(\forall \sigma\)，\(\perp\sqsubseteq \sigma\). 新的集合记为 \(\Sigma_\perp\). 部分函数当然也可以得到扩充（把无定义的元素全部拉到 \(\perp\) 上）而成为全函数 \(\Sigma\to\Sigma_\perp\). 并且该扩充是一一对应的. 还可以得到：这样扩充得到的全函数一定是连续的. 考虑到部分函数 \(\Sigma\rightharpoonup\Sigma\) 的全体被赋予包含关系后是一个含底的 cpo，一个自然的反应就是：扩充而来的全函数也构成一个含底的 cpo. 事实上，这句话是正确的. \(\Sigma\to\Sigma_\perp\) 上的序构造如下： \[f\sqsubseteq g~当且仅当~\forall\sigma\in\Sigma,~f(\sigma)\sqsubseteq g(\sigma)\] 到这里，就足以说明 while 循环指称语义的存在唯一性了. 关于不动点，在代数上还有如下定理（这里并用不到）： Thm. Knaster-Tarski 最小不动点定理 设 \((L,\sqsubseteq)\) 是一个完备格. 令 \(f:L\to L\) 是单调函数（不必连续，可以看出这里减弱了条件），则 \[m=\sqcap\{x\in L: f(x)\sqsubseteq x\}\] 是 \(f\) 的最小不动点. 上述定理还有一个逆定理： Thm. 若所有保序映射 \(f:L\to L\) 都有不动点，则 \(L\) 是完全格. 公理语义 前面的操作语义和指称语义已经对语义有了很详细的描述. 公理语义给出了一套逻辑系统，并证明了其正确性. 这套系统可以被用于自动化推演证明，叫做 Hoare Logic. 断言语言 \(\mathbf{Assn}\) 在算术表达式 \(\mathbf{Aexp}\) 中添加整型变量 \(\mathbf{IntVar}\) 类型的元素（常用 \(i\) 表示），扩充而为 \(\mathbf{Aexpv}\)： \(\mathbf{Aexpv}~a::=X~|~i~|~n~|~a_1+a_2~|~a_1-a_2~|~a_1\times a_2\) 既然有变量，那么就需要有“解释”，记为函数 \(I:\mathbf{IntVar}\to\mathbb{N}\). 这个东西在语义中用得到. 断言（Assertions）就是一些可以判断真假的东西（可视为 \(\mathbf{Bexp}\) 的扩展）： \(\mathbf{Assn}~P::=\mathbf{true}~|~\mathbf{false}~|~a_1&lt;a_2~|~P_1\wedge P_2~|~P_1\vee P_2~|~P_1\Rightarrow P_2~|~\neg P~|~\forall i.~P~|~\exists i.~P\) 由于断言中有变量和量词的出现，因此也有类似数理逻辑中“自由”与“约束”的概念，不多赘述. \(\mathbf{Assn}\) 的语义：指称语义 \(\mathbf{Aexpv}\) 的语义：记为 \(\mathcal{A}v[[a]]\)…基本直接套用 \(\mathbf{Aexp}\) 的指称语义. 关于变量的语义如下：\[\mathcal{A}v[[i]]I\sigma=I(i)\] \(\mathbf{Assn}\) 的真假：基本与一阶逻辑的东西一样. 用 \(\sigma\vDash_I A\) 表示 \(A\) 在 \(I\) 中被 \(\sigma\in\Sigma\) 满足. 例 1：\(\sigma\vDash_I \mathbf{true}\), \(\sigma\not\vDash_I\mathbf{false}\); 例 2：\(\sigma\vDash_I a_1=a_2\) 当且仅当 \(\mathcal{A}v[[a_1]]I\sigma=\mathcal{A}v[[a_2]]I\sigma\); 例 3：\(\sigma\vDash_I A\wedge B\) 当且仅当 \(\sigma\vDash_I A\) 且 \(\sigma\vDash_I B\). Prop 给定 \(b\in\mathbf{Bexp}\) 和状态 \(\sigma\in\Sigma\)，则对任意解释 \(I\)，有\[\mathcal{A}[[b]]\sigma=\mathbf{true}~当且仅当~\sigma\vDash_I b\] Hoare 公式（Hoare triple） Hoare 公式（三元组）一般的形式为 \(\{P\}~c~\{Q\}\)： \(P,Q\in\mathbf{Assn}\) 是断言（描述系统的状态？）； \(c\in\mathbf{Com}\) 是指令. \(\{P\}~c~\{Q\}\) 的意思是：若 \(P\) 成立，则执行完 \(c\) 后，\(Q\) 将成立. Hoare Rules 一共有六条规则： \[ \begin{align*} \mathrm{Skip}~\frac{}{\{B\} ~\mathbf{skip}~ \{B\}} &amp;\quad \mathrm{Assign}~\frac{}{\{B[a/X]\} ~X:=a~ \{B\}}\\ \mathrm{If}~\frac{\{A\wedge b\}~c_0~\{B\}\quad \{A\wedge\neg b\}~c_1~\{B\}}{\{A\}~\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1~\{B\}} &amp;\quad \mathrm{Sequence}~\frac{ \{P\}~c_1~\{R\} \quad \{R\}~c_2~\{Q\} }{ \{P\}~;c_2~\{Q\} } \\ \mathrm{While}~\frac{ \{P\wedge b\}~c~\{P\} }{ \{P\}~\mathbf{while}~b~\mathbf{do}~c~\{P\wedge\neg b\} }&amp;\quad \mathrm{Consequence}~\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} } \end{align*} \] while 循环始终是这些命令中最复杂的. 这里的 \(P\) 叫做循环不变量，在公理语义的讨论中有着很重要的地位. Hoare rules 建立了一套推理系统，进一步可以验证它是可靠的（它推出的结果在语义上都没毛病）. Hoare rules 之间的推理符号用 \(\vdash\). Hoare 规则的可靠性 Def. 可满足性 \(\sigma\) 在 \(I\) 中满足 \(\{A\}~c~\{B\}\) 当且仅当：若 \(\sigma\vDash_I A\)，则 \(\mathcal{C}[[c]]\sigma\vDash_I B\). 记作 \(\sigma\vDash_I \{A\}~c~\{B\}\). Def. 永真性 若 \(\forall \sigma\)，\(\forall I\)，都有 \(\sigma\vDash_I \{A\}~c~\{B\}\)，则称其是永真的，记作 \(\vDash \{A\}~c~\{B\}\). Thm. 可靠性 Hoare 规则推理出来的东西都是永真的. i.e. 若 \(\vdash \{A\}~c~\{B\}\)，则 \(\vDash \{A\}~c~\{B\}\). 可靠性的证明需要以下两个引理： 赋值和语义符号 \([[ ]]\) 的交换 Lem. 设 \(a,a&#39;\in\mathbf{Aexpv}\)，\(X\in\mathbf{Loc}\)，则对 \(\forall I\)，\(\forall \sigma\in\Sigma\)，有 \[\mathcal{A} v[[a[[a^{\prime} / X]] I \sigma=\mathcal{A} v[[a]] I(\sigma[[\mathcal{A} v[[a^{\prime}]] / X]])\] 赋值和 \(\vDash\) 符号的交换 Lem. 设 \(I\) 是一个解释，\(B\in\mathbf{Assn}\)，\(a\in\mathbf{Aexpv}\)，\(X\in\mathbf{Loc}\)，则对 \(\forall \sigma\in\Sigma\)，有 \[\sigma \vDash_{I} B[a / X] ~~\mathrm{iff}~~ \sigma[\mathcal{A}[[a]] \sigma / X] \vDash_{I} B\] 引理的证明和定理的证明都不算太困难（while 循环最为困难），不详细描述了… Hoare 规则的完备性 完备性是指：一个系统能够把所有“正确”的东西都推出来. 这个“正确性”这里有两种解读： 绝对：\(\{A\}~c~\{B\}\) 真的正确（比如 \(\{x=1\}~\mathbf{skip}~\{x=1\}\)）. 相对：在断言的逻辑（一阶逻辑）中能证明 \(\vDash\{A\}~c~\{B\}\). 如果按照上述 1. 的定义，则由 Godel 不完备定理可知，Hoare 规则是不完备的. 那么，不完备性从何而来呢？（一方面可考虑 \(\vDash B\) iff \(\{\mathbf{true}\}~\mathbf{skip}~\{B\}\)，另一方面可考虑 \(\{\mathbf{true}\}~c~\{\mathbf{false}\}\)） 实际上，是从 Consequence rule \(\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} }\) 中的蕴含（\(\Rightarrow\)）符号来的. 结合 Godel 定理考虑同样可知，Hoare 规则的不完备性应该至少有一部分来自于断言（类似一阶逻辑）的不完备性. 那么，Hoare 规则比断言更加不完备吗？ 答案是否定的. 我们称，Hoare 具有相对完备性. Thm. 相对完备性 Hoare 规则是相对完备的，i.e. 若 \(\vDash \{A\}~c~\{B\}\)，则 \(\vdash \{A\}~c~\{B\}\). 其证明用到了最弱前置条件与可表达性. 先来定义最弱前置条件（Weakest Liberal Preconditions），断言 \(B\) 相对于指令 \(c\) 的最弱前置条件为： \[wp^{I}[c, B]=\{\sigma \in \Sigma_{\perp}~|~\mathcal{C}[[c]] \sigma \vDash^{I} B\}\] 关于上述定义的一点解释： “前置条件”听起来像是一个断言，但是其实是一个状态的集合. 集合 \(S\) 是断言 \(B\) 相对于指令 \(c\) 的前置条件意味着对 \(S\) 中的每个状态执行完 \(c\) 后，\(B\) 都将成立； 最弱前置条件的“最弱”是把上述集合缩到最小，i.e. \(wp^{I}[c, B]\) 是最小的“前置条件”集合. 有了这个定义，可表达性就非常好理解了： Def. 可表达性 \(\mathbf{Assn}\) 是可表达的，i.e. 对 \(\forall c,B\)，总存在断言 \(A\)，s.t. \(wp^I[c,B]=A^I\) 在 \(\forall I\) 下成立. 其中 \(A^I\) 表示在 \(I\) 下能够使得 \(A\) 成立的状态集. 事实上，上述定义相当直观：最弱前置条件是一个状态集，我们非常难以把它想象成一个“条件”. 但可表达性给出了一个断言 \(A\)，使得断言成立的状态恰好就是这些状态，所以这个最弱前置条件就被断言 \(A\) 所“表达”了. 所有命令的最弱前置条件如下： \[ \begin{align*} wp[\mathbf{skip}, B] &amp;= B \\ wp[X:=a, B] &amp;= B[a/X] \\ wp[(c_1;~c_2), B] &amp;= wp[c_1, wp[c_2,B]] \\ wp[\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,B] &amp;= (b\Rightarrow wp[c_1,B])\wedge (\neg b\Rightarrow wp[c_2,B]) \\ wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\ 其中~ F_0(B)=\mathbf{true},&amp;~F_{i+1}(B)=(\neg b\Rightarrow B)\wedge (b\Rightarrow wp[c, F_i(B)]). \end{align*} \] 然后我们可以得到如下的两条引理： Lem. 1 \(\forall c\in\mathbf{Com}\)，\(Q\in\mathbf{Assn}\)，有\[\vDash\{wp[c,Q]\}~c~\{Q\}~且~\forall R\in\mathbf{Assn}.~\vDash \{R\}~c~\{Q\}~意味着~(R\Rightarrow wp[c,Q])\] Lem. 2 \(\forall c\in\mathbf{Com}\)，\(Q\in\mathbf{Assn}\)，有 \(\vdash \{wp[c,Q]\}~c~\{Q\}\). 有了这两条，即可证明相对完备性. 其大致思路是： 对任意命令 \(c\)，断言 \(P\) 和 \(Q\)，s.t. \(\vDash \{P\}~c~\{Q\}\)； 由 Lem 1，有 \(\vDash P\Rightarrow wp[c,Q]\)； 由 Lem 2，有 \(\vdash \{wp[c,Q]\}~c~\{Q\}\)； 由 Consequence rule，可知 \(\vdash \{P\}~c~\{Q\}\). 这里略去了很多细节，具体细节参见 Winskel 的书.]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -241,8 +241,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>组合数学</tag>
         <tag>计算机</tag>
         <tag>算法</tag>
@@ -260,8 +260,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>组合数学</tag>
         <tag>计算机</tag>
         <tag>算法</tag>
@@ -279,8 +279,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>组合数学</tag>
         <tag>计算机</tag>
         <tag>北大</tag>
@@ -296,8 +296,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>组合数学</tag>
         <tag>计算机</tag>
         <tag>北大</tag>
@@ -317,19 +317,6 @@
         <tag>算法</tag>
         <tag>图论</tag>
         <tag>网络流</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[差分隐私[1]——初窥门径]]></title>
-    <url>%2F2018%2F10%2F29%2F%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81-1-%E2%80%94%E2%80%94%E5%88%9D%E7%AA%A5%E9%97%A8%E5%BE%84%2F</url>
-    <content type="text"><![CDATA[暑假以来一直在读一本书《Differential Privacy and Applications》1，做一点简单的记录. 何为差分隐私 乱谈隐私 真·乱谈… 如有错误之处请留言指正，Orz. 什么是隐私呢？我们通常把某一特定个体的一些个人信息称为是隐私，比方说我代数做了几个题，泛函考了多少分，大学挂了几门课，最喜欢听哪个老师讲课等等… 那么在以上信息不能直接查询到，并且我们也不透露这些信息的前提下，我们的上述隐私是否会泄露？ 答案是会. 为了说明这些隐私是如何丢掉的，我们就先来谈谈查询的问题. 查询一般是针对某一数据库的，比方说学校的教务网就是一个很好的例子. 那么，数据库如何从最简单的方面来保护隐私呢？一般有发布数据集和提供查询两种场合，分述如下. 数据集的匿名化 姓名 学号 数学分析 高等代数 微分几何 泛函分析 郭犇 201401 100 100 100 100 丁丁 201402 100 90 90 100 小兔子 201403 90 90 90 90 数分哥 201404 100 90 90 90 代数哥 201405 90 100 90 90 几何哥 201406 90 90 100 90 泛函哥 201407 90 90 90 100 LZC 201408 90 90 0 90 成绩数据示例 我们都知道数据库中，有“主键”的概念，它能唯一地标识数据库中的某一条记录（比如学号）. 那么保护隐私最直接的办法，就是在给人看数据的时候，将具有标识功能的属性全部删掉，比如在成绩单中将姓名学号删掉，只留下成绩，即得到如下的表格. 序号 数学分析 高等代数 微分几何 泛函分析 1 100 100 100 100 2 100 90 90 100 3 90 90 90 90 4 100 90 90 90 5 90 100 90 90 6 90 90 100 90 7 90 90 90 100 8 90 90 0 90 去掉姓名学号的成绩单 如果攻击者本人什么都不知道，那么这帮人的隐私就算是得到了保护——攻击者无法得知某一学生（如“丁丁”）的具体成绩信息. 但隐私保护显然不能建立在如此侥幸的情形之上. 比如某一攻击者已知郭犇数分，代数和微分几何都考了100分，想知道他的泛函成绩，那么就可以从表中轻松获取该信息，因为表中只有郭犇一个人在这三门课都拿到100分. 又如某一攻击者已知LZC挂了一科，同样可以查询到关于LZC的更多隐私信息. 但这样的保护机制也不能说是毫无作用——它成功保护了“小兔子”的所有成绩信息：即便你知道小兔子的三科成绩，也无法确定她的第四科成绩. 那么如何改进这种匿名化方法呢？答案就是时下颇为流行的k-匿名算法. k-匿名算法将一些属性概化，以保证：任一条数据库中的记录，任取其一属性，在库中都有k条记录的该属性值与其相同. 比如我们要保护LZC的泛函分析成绩，那么我们将7号和8号的微分几何成绩凑成一个元组，统一写为[0-90]，攻击者即无法分辨二者的区别. 以上的匿名化过程看起来很美好，但k-匿名算法仍有缺陷，可能会遭受同质化攻击和背景知识攻击的挑战，所以需要更多的隐私化处理，不再详谈. 查询中的差分攻击与差分隐私 我们现在抛掉匿名性的问题，考虑数据库的查询问题. 此时我们不会把整个数据集暴露给攻击者，而是给攻击者提供一些查询的机会. 在查询的同时，保护单条记录的敏感属性值（比如在此处设定为保护“泛函”的成绩隐私）. 如果我们的数据库管理员总是说实话，那么我们必须拒绝单条记录的查询. 比如，你不能询问“丁丁的泛函成绩是多少”，因为我们要保护的正是泛函的成绩. 那么，阻止单条记录的查询是否就能很好地保护隐私？答案是不能. 这种攻击的手法就称为差分攻击. 攻击者想知道LZC的泛函成绩，于是进行了两步查询： 求1-8所有人的泛函成绩之和. SUM(1, 8). 求1-7所有人的泛函成绩之和. SUM(1, 7). 然后做差，就得到了LZC的泛函成绩. SUM(1, 8) - SUM(1, 7). 隐私泄露了！这种局面当然不是我们希望看到的，于是我们需要一些机制来抵御这种“差分攻击”. 差分攻击的核心做法就是找两个只差一条记录的数据集，分别做查询，再比较结果的差异，来获取两个集合所相差的记录的敏感信息. 所以我们最直接的想法也就是，通过随机化的查询（即管理员不能总说实话），使得攻击者无法区分只差一条记录的两个集合. 这便是差分隐私. 差分隐私的数学框架 DEFINITION 差分隐私：若机制 \(M\) 对于任一输出集合 \(S\) 和任意邻近集 \(D,D&#39;\) 总有： \[Pr[M(D)\in S] \leqslant e^{\varepsilon}\cdot Pr[M(D&#39;)\in S] + \delta\] 则称 \(M\) 满足 \((\varepsilon,\delta)\)-(近似)差分隐私. 当 \(\delta=0\) 时，称为 \(\varepsilon\)-差分隐私. 其中 \(\varepsilon\) 称为隐私预算. 记号说明： 数据集：数据全体记作 \(\mathscr{X}\)，其子集 \(D\subset\mathscr{X}\) 称为数据集. 邻近集：只相差一条记录的一对数据集. 即 \(|D\triangle D&#39;|=1\). 查询：映射 \(f:D\to\mathbb{R}\). 全体查询记作 \(F\). 查询的敏感度： 局部敏感度：\(\Delta f_{LS}=\max\limits_{D&#39;}\Vert f(D)-f(D&#39;)\Vert_1\). 全局敏感度：\(\Delta f_{LS}=\max\limits_{D,D&#39;}\Vert f(D)-f(D&#39;)\Vert_1\). 容易看出，局部敏感度会与数据分布有很强的关联，但全局敏感度一般较大. 故在需要使用局部敏感度时，常采用局部敏感度的平滑上界. 如何实现差分隐私 差分隐私是通过随机化的方式来干扰正常的查询，或是对数据集做一些处理. 那么最常规的干扰查询/处理数据的手法，就是加噪音. 一般情况下，数据库的查询可分为两类：数值查询和非数值查询. 数值查询：小兔子的微分几何考了多少分？ 非数值查询：LZC分最高的是哪一门课？ 应对这两种查询，分别有Laplace机制和指数机制. Laplace机制 Laplace分布：这里只考虑均值为 \(0\) 的Laplace分布. 尺度参数为 \(b\) 的Laplace分布记为 \(Lap(b)\)，其密度函数为： \[p(x) = \frac{1}{2b}\exp(-\frac{|x|}{b}).\] Laplace机制就是给查询结果添加服从Laplace分布的噪声，即： \[M(D) = f(D)+\xi\] 若 \(\xi\sim Lap(\frac{\Delta f}{\varepsilon})\)，则该算法可提供 \(\varepsilon\)-差分隐私保护. 从过程即可知道，Laplace机制只适合数值查询. 指数机制 对于非数值查询，需要用指数机制来干扰. 具体的办法是（以查询LZC分最高的课程为例）： 先给所有可能的答案一个打分，称为效用函数 \(q\)，\(q\) 越大表示这个答案越接近真实答案. 此处可能的答案为：数学分析、高等代数、微分几何、泛函分析. 此处的效用可以用成绩表示：90，90，0，90. 给所有可能答案分别分配一个概率，规则为： \[Pr[\text{return }\phi] \propto \exp(\frac{\varepsilon q(D,\varphi)}{2\Delta q}).\] 此时算法提供 \(\varepsilon\)-差分隐私保护. 网上关于指数机制有非常多的例子，不多赘述. 可用性评估 给数据加噪声必定会降低数据的可用性，对可用性的评估一般有以下几种： 直接看噪声大小：噪声 \(\downarrow\)，可用性 \(\uparrow\). 对误差进行度量：单次查询误差为 \(\Vert f(D)-\hat{f}(D)\Vert\). （\(\hat{f}\) 表示加了噪音的 \(f\).） \((\alpha,\beta)\)-可用性：当 \(F\) 满足 \[Pr[\max\limits_{f\in F}|f(D)-\hat{f}(D)| \leqslant \alpha] &gt; 1-\beta\] 称 \(D\) 是 \((\alpha,\beta)\)-可用的. 数据发布 数据发布所指的，就是数据库中的数据对于外界访问的支持. 一般有两种情形： 交互式发布：一问一答. 非交互式发布：问完再答/发布处理过的数据集. 交互式数据发布 给定预算 \(\varepsilon\)，然后进行一问一答，直至预算耗尽. Laplace机制 能回答问题的数较少，与数据库大小成次线性关系. 时间复杂度低，算法简单. K-norm：将查询结果转为高维多面体研究 能回答指数级别的问题. 时间复杂度高. 中位数：将查询分为难易两类，简单问题的结果可由难问题的答案确定. 困难的查询大约只有 \(O(\log |F|\log|\mathscr{X}|)\) 个，故能回答指数级别个问题. 时间复杂度高，样本复杂度也很高. PMW，IDC：将数据集视为直方图进行迭代查询 能回答指数级别的问题. 只能处理计数类查询. 基于直方图的数据发布 将数据集 \(D\) 视为 \(\mathscr{X}\) 上的直方图 \(x\in N^{|\mathscr{X}|}\)，其中 \(N\) 为所有可能的属性值组合. 主要手段： Laplace机制：每次查询都给涉及到的所有格子添加噪声. 格子较多会累积大量噪声 将格子分为若干区域，区域内部取平均，再给每个区域分别添加噪声，减少添加噪声的次数. （分区可借助kd-tree） 会面临一致性的问题：可能不能维持原先的大小关系. 流数据的差分隐私 流数据是用一个0-1串来表示的数据，每一位代表一个时间节点，0表示这个时刻没有事情发生，1表示这个时刻有事情发生. 这里输出的数据主要是某一段的1的个数，于是有两种隐私的级别： 用户层面（user-level）：将与单个用户相关的所有事件隐藏起来. 事件层面（event-level）：将单个事件隐藏起来. 由于用户层面的隐私会导致查询的敏感度过高，故一般只考虑事件层面的隐私. 在预算一定的前提下尽可能提高任一时间节点 \(t_k\) 的前缀 \(D(t_k)\) 中的事件计数 \(\hat{\iota}(t_k)\) 的精确度. 主要手段如下： Laplace机制：给每个时间步都添加噪声. 噪声过大 分割数据集：p-sum机制. 迭代 图数据的差分隐私 边的差分隐私：将边藏起来 主要解决的问题：与子图相关的问题. 参考：Nissim K, Raskhodnikova S. Smooth sensitivity and sampling in private data analysis. 点的差分隐私：将点藏起来 参考： J. Blocki, A. Blum, A. Datta, and O. Sheffet. Differentially private data analysis of social networks via restricted sensitivity. 非交互式数据发布 非交互式的数据发布要比交互式的更困难，因为需要考虑多个问题之间的联系. 发布处理后的数据集则更为困难，在隐私预算固定的情况下，常常需要加入巨量的噪声来保证安全性. 批查询 批查询：给出多个查询，然后一并回答. 面对的挑战：查询之间的相关性会导致敏感度升高，进而导致噪声过大. 处理的手段：一般是对查询做一些变换，或是一些迭代的方法. 列联表 列联表：对数据集按照属性分类时列出的频数表. 注意和直方图并不太一样，一个是列频数，一个是列属性. 最直接的Laplace机制 直接向每个格子添加Laplace噪声，再求边缘频数 缺点：噪声过大 改进的Laplace机制 先求边缘频数，再向边缘频数添加Laplace噪声，减少噪声添加次数 缺点：不能维持一致性 Fourier变换： 先进行Fourier变换，再添加噪声 由于Fourier变换后的每一个系数都对应一个满足一致性的列联表，故不会破坏一致性，同时还能减小噪声. 匿名化数据集发布 这是一种发布处理过的数据集的非交互式数据发布方法. 在最初的“乱谈隐私”中提到了匿名化数据集的方法，由于最终发布的数据集中的一些记录，会包含有与原数据集完全相同的部分属性信息，故可能会泄露用户的隐私. 所以我们需要将传统的匿名化方法进行处理，使其满足差分隐私的要求. 根据差分隐私的串行组合性质，我们知道如果算法的每一步都能够满足差分隐私的要求，则整个算法也能够提供差分隐私保护. 于是我们只需要将传统的匿名化方法的每一步都变得满足差分隐私要求. DiffGen算法. 不详细解释. 差分隐私PAC学习 这也是一种发布处理过的数据集的非交互式数据发布方法. PAC学习：设有 \(\mathscr{X}\) 上的概念类 \(\mathscr{C}\) 上的算法 \(\mathscr{A}\)，使用假设空间 \(H\). 若 \(\mathscr{A}\) 对所有概念 \(c\in\mathscr{C}\) 和所有 \(\mathscr{X}\) 上的分布 \(D\)，给定 \(D\) 中 \(n\) 个 i.i.d. 样本作为输入，算法 \(\mathscr{A}\) 输出假设 \(h\in H\)，s.t. \[Pr[error_D (c,h)\leqslant\alpha]\geqslant 1 − \beta.\] 则称算法 \(\mathscr{A}\) 是一个 \(\mathscr{X}\) 上概念类 \(\mathscr{C}\) 上的 PAC 学习算法. 如果一个概念类别在无隐私保护要求和多项式样本复杂度下是可学习的，那么在差分隐私保护条件下就是可学习的. 差分隐私PAC学习的效率比较低下，且只适用于离散情形. 隐私性算法 传统的数据挖掘/数据分析算法都有可能泄露用户隐私，若我们将其每一个步骤都视为一次查询，然后改进之使其满足差分隐私要求，则整个算法也可满足差分隐私要求. Laplace与指数机制的直接应用：SuLQ与PINQ接口 提供接口来满足数据挖掘和分析的需求. SuLQ 框架：以 SuLQ 原语为基本单元，设计隐私化的复杂算法. SuLQ 原语：单属性布尔查询 → 连续值. PINQ 框架：在数值询问使用 Laplace，选择操作使用指数机制. Partition：对数据集进行分割 ⇒ 可利用并行组合提高预算利用率. 以上接口不考虑算法的目标和性能，故分析效果可能不理想. 适用情形：监督学习，无监督学习，频繁项集挖掘. 监督学习：决策树 SuLQ-based ID3：在计算信息增益时，加入噪声. 缺点：噪声过大，可用性很差. SuLQ-based ID3-PINQ 改进：利用 Partition. 利用 Partition 减少不必要的预算损耗. 但由于每次查询都需要提供预算来进行计数，故分配的预算仍然较少，无法显著减少噪声. DiffID3：利用指数机制，一次运算评估所有属性. 指数机制的优越性：决策树分裂一次只需要一次运算. 提高了单次查询分配的预算，有效提高精确度. 无监督学习：聚类 以k-means为例，计算每个元素到质心的距离可能会泄露隐私. SuLQ k-means：发布质心和元素数量的估计值 缺点：查询质心的敏感度为聚类的最大直径，噪声过大. 有更好的框架，此处不再详谈. 频繁项集挖掘 频繁项集定义不清楚的自觉面壁… 基于截断支持度的 FIM 算法：求长度为 \(l\) 的前 \(k\) 频繁项集. 预处理：挖掘到所有 \(l\)-项集，计算其截断支持度. 求前 k 频繁项集. Laplace-FIM：为每个截断支持度添加噪声，再取前 \(k\) 个项集. 指数 FIM：以截断支持度为效用函数用指数机制选出 \(k\) 个项集. 输出：上一步得到的项集，以及加噪声后的真实支持度. 完全访问：差分隐私与机器学习 用原始数据集来做机器学习显然有可能会泄露用户的隐私，所以我们要在传统的机器学习算法上进行改进，使其满足差分隐私的要求. 一般有两种实现方法：在输出时加噪声，以及在损失函数上加噪声. 更多复杂的内容不再详谈. 作者水平有限且落笔仓促，如有错误之处，恳请指正. Zhu, T., Li, G., Zhou, W., &amp; Yu, P. S. (2017). Differential Privacy and Applications. （其实这本书很难看…） &gt; 空口无凭…请看这个句子：In addition, for a dataset with size n, the Laplace mechanism can only answer, at most, sub-linear in n number of queries to a certain level of accuracy. &gt; 小子不才，初次看到这句话是暑假，10月份才明白其意思… Orz.↩]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-        <tag>计算机</tag>
-        <tag>差分隐私</tag>
       </tags>
   </entry>
   <entry>
@@ -426,17 +413,17 @@
   <entry>
     <title><![CDATA[保研二三事]]></title>
     <url>%2F2018%2F07%2F28%2F%E4%BF%9D%E7%A0%94%E5%A4%8F%E4%BB%A4%E8%90%A5%E4%BA%8C%E4%B8%89%E4%BA%8B%2F</url>
-    <content type="text"><![CDATA[只是随便写写3月份以来的各种经历. 按时间顺序是北大数科, 软件所, 北大信科. 第一站：北大数科 只是大概谈一下过程吧. 接到通知 按照飞机童鞋的说法, 考试时间应在4月10日前后, 但实际上的考试时间是在3.31, 略有意外. 经查, 去年的考试时间好像是4.8. 通知链接: 直博生摸底考试通知 初审及考试 初审 3.23前后接到初审通过的短信, 北大的考试在师大设有考点. 在北大官网也出了通知: 直博生摸底考试初审结果通知 初审要求感觉非常松, 有广撒网的意思. 考试 考试时间是一上午, 北大派老师来监考, 之后会介绍北大的大概情况. 3.31 正式考试, 满分200分, 数分代数几何各占100, 70, 30. 我几何学的非常差, 尽管几何题看起来不是很难, 我仍然没有做出来. 并且对题目没有印象了. 数分题目思路清奇, 当然题目也很清奇… 将一个五元店视作一个超市物品到 \(\mathbb{R}\) 的函数, 该函数是否可微? 构造一个夹在 \(|x|\) 与 \(|x|+1\) 之间的严格下凸函数. 并证明. 好像有一个类似函数方程/微分方程的东西, 记不起来了. 题目不能全部记起Orz. 代数题目总共有三道, 其中有30分很简单. 30分超级简单的题目, 是一些求子空间交并和维数的题目, 其实就是矩阵瞎搞搞. 一个分块矩阵的题目, 很好玩, 可是不会做Orz. 还有一个记不得了. 结果 考完感觉一般般, 通过概率应该不大, 但还是和之前联系的xbc老师见了一面. 夏老师做的是符号计算, 具体来说是可满足性问题SAT/SMT. 夏老师最后表示我的背景适合学习他的方向, 若此次考试未能通过, 9月份可以继续联系. 我仔细了解了SAT/SMT问题以及夏老师所提及的Z3求解工具, 其实是很有意思的问题, 但是考试未能通过, 我也不可能把未来押到9月份, 故没有继续联系. 考试结果应该是一个月内就除了, 我只考了60+, 未能通过Orz. 太菜了. 当然就没有后续了. 非常感谢复习期间飞机童鞋(张骏达)给我的一些帮助. 非常感谢xbc老师给我等菜鸡一个机会. 其实在北大信科夏令营之后仍然联系过, 在此不多讨论. 自此开始联系其他老师, 主要是yms老师和cyz老师. 后续的其他尝试 按照时间顺序, 是cyz老师-&gt;yms老师. 我联系老师主要是看方向, 能看懂的话也可以找一篇论文看? 时间仓促, 我没怎么看懂二位的论文… 要想清楚找老师时要说些什么, 邮件和简历里面捡好听的写. 可以写专业课平均分90+, 但是公选课得61分什么的别写. 要有自信, 老师看不上自己的话别气馁( cyz老师：社会计算 曹老师以前是师大数科的博士, 聊起来气氛大概也比较轻松愉快. 和老师聊天的内容不外乎几条: 个人情况, 无须多讲. 老师情况, 也无须多讲. 方向细节, 曹老师有几个方向, 其中我兴趣高一点的是社会计算. 后续操作, 在曹老师的建议下, 开始参加曹老师的讨论班. yms老师：量子计算 我最初联系yms老师是在清华网站上找的, 应老师回信中表示欢迎到软件所的办公室聊一聊. 最初以为应老师仍然在做逻辑等方向, 但应老师表示现在只做量子计算. 应老师本人非常随和, 我聊得还挺愉快的? (就是不知道应老师愉快不愉快Orz毕竟我太菜). 最后应老师表示虽然你成绩差, 但是你这个背景还算合适, 并且我也不是非常看重排名的老师, 所以你可以试试. 最后给了我两本书看. 接下来一段时间没有太多联系, 主要是在看应老师的书. 最初看 Nielsen 的书, 结果有点看不进去, 可能是废话有点多. 之后开始读应老师自己写的 Foundations… 一书, 比较精炼, 有数学教材的味道. 从此就开始读这本书. 对量子计算有一个大概了解后, 再次与应老师联系, 应老师表示做做习题发给他看. 大概做了第二章的大部分习题之后, 到了夏令营报名时间. 再次见到应老师就是夏令营了. 第二站：科学院软件所 按时间顺序, 这是我的第一个夏令营. 准备材料 根据在官网上挂出的通知, 需要准备如下材料: 夏令营申请表, 须签字; 成绩单 + 排名证明; 这个吐槽一下, 学院开的貌似是所有成绩都算的那个排名. 英语水平证明材料; 四六级/TOEFL/IELTS/GRE 等. 论文/获奖证书等; 社会工作奖这样没有说服力的东西可以不要. 推免申请表, 须签字; 同时须在其申请系统中报名, 详见具体通知. 其他几点: 材料不需要寄送, 只需要在开营的时候带着就可以了. 成绩单在主楼可以打印. 需要盖章的地方找学院盖章即可, 我不记得软件所有没有要盖章的地方了. 面试? 笔试? 只有一道题的考核. 夏令营一共五天, 具体安排如下: D1: 白天报到, 晚上开营+班会. 班会按照姓氏拼音分组, 与师兄师姐交流夏令营相关的问题, 时长大约2h. D2: 一个很长的报告+整整一下午的方向介绍, 晚上有鸟巢游览, 没有去. D3: 上午仍然是实验室方向介绍, 下午组织考核. 中午吃完饭直接去找应老师, 下午三点就结束了. 也不知道应老师感觉如何. D4: 按照安排应是一天考试, 但国重全看老师, 应老师表示不用过来. 自我介绍的slides其实白做了哈哈. D5: 体检+退卡. 中午和郭犇吃饭, 偶遇应老师, 应老师给一篇文章读. 在开营的前一两天, 国重的xmj老师电话联系我, 当时在图书馆的我有点emmm 受宠若惊. 聊了一下方向, 表示了招收我的意向. 夏老师做的也是理论计算机, 似乎是复杂性理论和一些组合相关的东西. 曾经也是我非常想学的东西Orz. 夏老师非常热情, 问我是否联系过老师之类的问题, 我表示联系了yms老师, 场面一度有点尴尬… 我肥肠感谢夏老师的欣赏Orz. 了解了一下夏老师的研究, 非常佩服夏老师的学术水平. 简单谈一下考核的事情: 整体的考核流程应该是 D3下午笔试/机试 + D4全天继续考核, 包括面试. 国重的考核全听老师的意思, 比方说yms老师只考了我一个题目, 大概2-3h就结束了. D4我完全不用去, 自我介绍slides完全白做了. 好像应老师在与不在完全不是两种考核方式… 听说去年是四个数学题+一个算法题, 主要包括代数数分和概率论. 还有包括英文自我介绍在内的N对1面试. 今年应老师亲自面试我, 出了一个拓扑题目(敲黑板划重点, 拓扑! 我也很意外.) 证明Kuratowski十四集定理, 并在 \(\mathbb{E}^1\) 中构造一个能生成14个集合的例子. 这是一个很有意思的题目, 据说在凯莱《一般拓扑学》中有此题目, 我没有读过该书. 考核之后应老师给我发了一封邮件, 然而我没有及时查看Orz… 最后一日在软件所用卡里剩下的钱请郭犇在软件所吃饭, 吃饭时偶遇应老师, 向我提及了邮件的事情, 表示让我发成绩单, 并且读一读论文, 有空时给他讲. 然而因为16-18日就是北大夏令营, 故论文只读了一小部分, 很惭愧… 夏令营期间去自动化所找郭犇蹭饭, 偶然抓拍到nb的郭犇Orz. 话不多说, 先Orz为敬. 关于结果 听说, 除国重外的实验室, 不会立刻知道结果. 国重应该全看老师, 但我最终没有全部完成yms老师的考核流程, 所以不太清楚. 软件所研究生部会给国重老师一个提供自己优秀营员名单的截止日期, 国重的老师须在截止日期之前提交自己的优秀营员名单. 软件所有一个人性化的双向选择机制, 优秀营员公布后不会直接分派名额. 应充分考虑和尝试后, 再决定是否最终来软件所. 故软件所会给优秀营员长约一个月的缓冲时间, 来尝试其他夏令营 &amp; 做最终决定. 非常感谢yms老师给我的机会以及xmj老师对我的赏识, 虽然我最后浪费掉了这个机会Orz. 希望自己有朝一日能成为yms老师这样的大家. 非常感谢应老师的学生方望老哥, 非常感谢. 非常感谢. 在我读应老师的书时给予了我非常大量, 真的是非常大量的帮助. 在下感激不尽. 同时也非常感谢国重的李页霆师兄在夏令营期间的照顾. 非常感谢. 第三站：北大信科 按时间顺序, 这是我的最后一个夏令营. 当然 总共就俩. 准备材料 + 等待初审 北大在4月底挂出了夏令营的通知, 原定6.30出入营名单, 但种种原因导致推迟到了7.5前后. (附: 北大信科参营通知) 主要谈谈申请流程. 首先是在网上填写申请材料. 按照通知, 还应准备如下材料: 申请表, 应该是要签字盖章; 个人陈述, 应该也要签字; 推荐信, 博士需要找三个副教授以上的老师签推荐信, 我分别找了冯速, 何青, 以及李俊峰老师(此处按年龄排序哈哈哈), 需要骑缝处签字; 成绩单 + 排名证明; 英语水平证明材料; 四六级/TOEFL/IELTS/GRE 等. 论文/获奖证书等. 社会工作奖这样没有说服力的东西可以不要. 所有材料需在指定日期前自己送/邮寄至北大. 机试 + 面试 夏令营时间是7.16-7.18, 活动大致安排如下: D1: 上午报到+下午讲座, 实验室方向介绍. 晚上机试热身赛, 各种IDE非常齐全, OpenJudge环境也相当不错. D2: 上午讲座+下午座谈会. 上午讲座翘掉了, 座谈会就是和老师聊天. 理论和软工在一起, 满屋子全是软工. 晚上机试, 打得非常崩, 前几天敲了很多题但手还是很生&amp;复习方向有误… D3: 按照安排上午8.30开始面试, 事实上理论组下午1.30开始. 和信安+图形学一起, 三个方向加起来才十个人… 面试发挥还凑合, 题目大都答得上来, 但是似乎老师们觉得我成绩一般… 虽然好像确实如此… 但我从不质疑自己的能力, 尽管机试打得非常崩. 晚些时候, 大概吃晚饭时, 最终得到了曹老师的口头承诺, 准备参加曹老师联系的暑期课程. 北大的活动安排十分紧凑. 这里还是主要说说考核. 机试热身赛据说是去年的题目, 不算难吧.. 随便写了写. 主要是测环境嘛. OpenJudge环境很好, 比poj.org强百倍. 支持 #include &lt;bits/stdc++.h&gt;; 支持 C++11; 没试过, 应该也支持 rope 吧? 本地编译器非常齐全. 按照习惯 我仍然用了 Sublime+命令行. 但是命令行好像有时会有一种奇怪的问题, 连接不上输入的接口. Code::Blocks, Dec-C++ 好像都有. 正式赛用的是codeblocks. 总之环境很好, 各种环境不背锅. 完全是自己太菜. 正式赛题目我觉得选的一般, 区分度不太好. 长时间不摸键盘, 两个水题半个多小时才过, 并且还挂了几次. 一道线段树/树状数组求逆序, 按理来说是裸题, 可是怎么也写不上来… 完全没想过会考这种东西??? 打比赛的时候哥也是经常写线段树的人, 现在太菜了Orz 一道带权并查集, GGGGGGG. 复习的时候完全没想过会考带权的??? 以上四个是中文题… 本菜鸡就这样, 中文题卡全场… 英文题几乎都没有细读, 看出来好像有一个搜索, 然而没怎么搞… 赛前主要是在补动态规划的内容… 没想到中文题一个也没有??? 太难过了. 复习方向完全偏离, 很难受. 打得实在太崩, 细节不想多谈. 最后谈一下面试: 一般是自己所报方向的老师主面, 我是比较幸运, 是曹老师主面. 不清楚自我介绍环节是否必须, 反正我没有自我介绍.. 开头是念一段英文的论文, 并翻译. 文段不是很长, 生词也不会多, 就是典型的论文. 然后就聊一些专业课的内容. 之后是学习的一些情况, 在此期间被一些老师嫌弃成绩差Orz. 其实是很多公共课成绩差( 最后一个老师问了一个算法题, 比较简单. 其实面试略有尴尬的原因, 就是机试打得太菜. 如果机试多过题, 面试会非常有底气. 最终算是涉险过关. 开始参加xlr老师的暑期课程. 非常巧, xlr老师和cyz老师以前都是yms老师的学生. 关于结果 今年出结果非常快, 面试当晚就有很多人得到了结果. 如果提前联系过老师, 可以直接询问. 官网挂通知是夏令营结束后的第二天 (周三面试完毕, 周五晚上挂通知). 由于今年硕士名额大幅减少, 很多方向竞争非常激烈. 两波夏令营期间蹭了几顿饭, 感谢郭犇某天中午的收留. 非常感谢. 上课期间也蹭了几顿饭, 感谢曹老师的学生王海滨老哥以及郭晓熙老哥. 同样非常感谢. 也要感谢冯速, 何青, 李俊峰三位老师给我签推荐信. 当然也要感谢曹老师和夏老师. 课程非常有趣, 收获良多. 夏令营事后 北大官网出优秀营员名单后, 自然是与xbc老师, yms老师, 以及xmj老师发邮件联系, 告知三位老师自己大致定了北大信科的事情. 三位老师都很友好, 我非常感激三位老师的认可. 其实加上曹老师, 四位老师的方向我都很喜欢, 但已经定了曹老师这里, 不可得兼. 当然, 更要感谢曹老师的认可了Orz… 希望自己能真正做出自己的成果. 尾声 2018.9.28 最终在学信网上填写了个人信息并进行了报名和确认. 保研之路终于算是走完了.]]></content>
+    <content type="text"><![CDATA[只是随便写写3月份以来的各种经历. 按时间顺序是北大数科, 软件所, 北大信科. 第一站：北大数科 只是大概谈一下过程吧. 接到通知 按照飞机童鞋的说法, 考试时间应在4月10日前后, 但实际上的考试时间是在3.31, 略有意外. 经查, 去年的考试时间好像是4.8. 通知链接: 直博生摸底考试通知 初审及考试 初审 3.23前后接到初审通过的短信, 北大的考试在师大设有考点. 在北大官网也出了通知: 直博生摸底考试初审结果通知 初审要求感觉非常松, 有广撒网的意思. 考试 考试时间是一上午, 北大派老师来监考, 之后会介绍北大的大概情况. 3.31 正式考试, 满分200分, 数分代数几何各占100, 70, 30. 我几何学的非常差, 尽管几何题看起来不是很难, 我仍然没有做出来. 并且对题目没有印象了. 数分题目思路清奇, 当然题目也很清奇… 将一个五元店视作一个超市物品到 \(\mathbb{R}\) 的函数, 该函数是否可微? 构造一个夹在 \(|x|\) 与 \(|x|+1\) 之间的严格下凸函数. 并证明. 好像有一个类似函数方程/微分方程的东西, 记不起来了. 题目不能全部记起Orz. 代数题目总共有三道, 其中有30分很简单. 30分超级简单的题目, 是一些求子空间交并和维数的题目, 其实就是矩阵瞎搞搞. 一个分块矩阵的题目, 很好玩, 可是不会做Orz. 还有一个记不得了. 结果 考完感觉一般般, 通过概率应该不大, 但还是和之前联系的xbc老师见了一面. 夏老师做的是符号计算, 具体来说是可满足性问题SAT/SMT. 夏老师最后表示我的背景适合学习他的方向, 若此次考试未能通过, 9月份可以继续联系. 我仔细了解了SAT/SMT问题以及夏老师所提及的Z3求解工具, 其实是很有意思的问题, 但是考试未能通过, 我也不可能把未来押到9月份, 故没有继续联系. 考试结果应该是一个月内就出了, 我只考了60+, 未能通过Orz. 太菜了. 当然就没有后续了. 非常感谢复习期间飞机童鞋(张骏达)给我的一些帮助. 非常感谢xbc老师给我等菜鸡一个机会. 其实在北大信科夏令营之后仍然联系过, 在此不多讨论. 自此开始联系其他老师, 主要是yms老师和cyz老师. 后续的其他尝试 按照时间顺序, 是cyz老师 \(\to\) yms老师. 我联系老师主要是看方向, 能看懂的话也可以找一篇论文看? 时间仓促, 我没怎么看懂二位的论文… 要想清楚找老师时要说些什么, 邮件和简历里面捡好听的写. 可以写专业课平均分90+, 但是公选课得61分什么的别写. 要有自信, 老师看不上自己的话别气馁( cyz老师：社会计算 曹老师以前是师大数科的博士, 聊起来气氛大概也比较轻松愉快. 和老师聊天的内容不外乎几条: 个人情况, 无须多讲. 老师情况, 也无须多讲. 方向细节, 曹老师有几个方向, 其中我兴趣高一点的是社会计算. 后续操作, 在曹老师的建议下, 开始参加曹老师的讨论班. yms老师：量子计算 我最初联系yms老师是在清华网站上找的, 应老师回信中表示欢迎到软件所的办公室聊一聊. 最初以为应老师仍然在做逻辑等方向, 但应老师表示现在只做量子计算. 应老师本人非常随和, 我聊得还挺愉快的? (就是不知道应老师愉快不愉快Orz毕竟我太菜). 最后应老师表示虽然你成绩差, 但是你这个背景还算合适, 并且我也不是非常看重排名的老师, 所以你可以试试. 最后给了我两本书看. 接下来一段时间没有太多联系, 主要是在看应老师的书. 最初看 Nielsen 的书, 结果有点看不进去, 可能是废话有点多. 之后开始读应老师自己写的 Foundations… 一书, 比较精炼, 有数学教材的味道. 从此就开始读这本书. 对量子计算有一个大概了解后, 再次与应老师联系, 应老师表示做做习题发给他看. 大概做了第二章的大部分习题之后, 到了夏令营报名时间. 再次见到应老师就是夏令营了. 第二站：科学院软件所 按时间顺序, 这是我的第一个夏令营. 准备材料 根据在官网上挂出的通知, 需要准备如下材料: 夏令营申请表, 须签字; 成绩单 + 排名证明; 这个吐槽一下, 学院开的貌似是所有成绩都算的那个排名. 英语水平证明材料; 四六级/TOEFL/IELTS/GRE 等. 论文/获奖证书等; 社会工作奖这样没有说服力的东西可以不要. 推免申请表, 须签字; 同时须在其申请系统中报名, 详见具体通知. 其他几点: 材料不需要寄送, 只需要在开营的时候带着就可以了. 成绩单在主楼可以打印. 需要盖章的地方找学院盖章即可, 我不记得软件所有没有要盖章的地方了. 面试? 笔试? 只有一道题的考核. 夏令营一共五天, 具体安排如下: D1: 白天报到, 晚上开营+班会. 班会按照姓氏拼音分组, 与师兄师姐交流夏令营相关的问题, 时长大约2h. D2: 一个很长的报告+整整一下午的方向介绍, 晚上有鸟巢游览, 没有去. D3: 上午仍然是实验室方向介绍, 下午组织考核. 中午吃完饭直接去找应老师, 下午三点就结束了. 也不知道应老师感觉如何. D4: 按照安排应是一天考试, 但国重全看老师, 应老师表示不用过来. 自我介绍的slides其实白做了哈哈. D5: 体检+退卡. 中午和郭犇吃饭, 偶遇应老师, 应老师给一篇文章读. 在开营的前一两天, 国重的xmj老师电话联系我, 当时在图书馆的我有点emmm 受宠若惊. 聊了一下方向, 表示了招收我的意向. 夏老师做的也是理论计算机, 似乎是复杂性理论和一些组合相关的东西. 曾经也是我非常想学的东西Orz. 夏老师非常热情, 问我是否联系过老师之类的问题, 我表示联系了yms老师, 场面一度有点尴尬… 我肥肠感谢夏老师的欣赏Orz. 了解了一下夏老师的研究, 非常佩服夏老师的学术水平. 简单谈一下考核的事情: 整体的考核流程应该是 D3下午笔试/机试 + D4全天继续考核, 包括面试. 国重的考核全听老师的意思, 比方说yms老师只考了我一个题目, 大概2-3h就结束了. D4我完全不用去, 自我介绍slides完全白做了. 好像应老师在与不在完全不是两种考核方式… 听说去年是四个数学题+一个算法题, 主要包括代数数分和概率论. 还有包括英文自我介绍在内的N对1面试. 今年应老师亲自面试我, 出了一个拓扑题目(敲黑板划重点, 拓扑! 我也很意外.) 证明Kuratowski十四集定理, 并在 \(\mathbb{E}^1\) 中构造一个能生成14个集合的例子. 这是一个很有意思的题目, 据说在凯莱《一般拓扑学》中有此题目, 我没有读过该书. 考核之后应老师给我发了一封邮件, 然而我没有及时查看Orz… 最后一日在软件所用卡里剩下的钱请郭犇在软件所吃饭, 吃饭时偶遇应老师, 向我提及了邮件的事情, 表示让我发成绩单, 并且读一读论文, 有空时给他讲. 然而因为16-18日就是北大夏令营, 故论文只读了一小部分, 很惭愧… 夏令营期间去自动化所找郭犇蹭饭, 偶然抓拍到nb的郭犇Orz. 话不多说, 先Orz为敬. 关于结果 听说, 除国重外的实验室, 不会立刻知道结果. 国重应该全看老师, 但我最终没有全部完成yms老师的考核流程, 所以不太清楚. 软件所研究生部会给国重老师一个提供自己优秀营员名单的截止日期, 国重的老师须在截止日期之前提交自己的优秀营员名单. 软件所有一个人性化的双向选择机制, 优秀营员公布后不会直接分派名额. 应充分考虑和尝试后, 再决定是否最终来软件所. 故软件所会给优秀营员长约一个月的缓冲时间, 来尝试其他夏令营 &amp; 做最终决定. 非常感谢yms老师给我的机会以及xmj老师对我的赏识, 虽然我最后浪费掉了这个机会Orz. 希望自己有朝一日能成为yms老师这样的大家. 非常感谢应老师的学生方望老哥, 非常感谢. 非常感谢. 在我读应老师的书时给予了我非常大量, 真的是非常大量的帮助. 在下感激不尽. 同时也非常感谢国重的李页霆师兄在夏令营期间的照顾. 非常感谢. 第三站：北大信科 按时间顺序, 这是我的最后一个夏令营. 当然 总共就俩. 准备材料 + 等待初审 北大在4月底挂出了夏令营的通知, 原定6.30出入营名单, 但种种原因导致推迟到了7.5前后. (附: 北大信科参营通知) 主要谈谈申请流程. 首先是在网上填写申请材料. 按照通知, 还应准备如下材料: 申请表, 应该是要签字盖章; 个人陈述, 应该也要签字; 推荐信, 博士需要找三个副教授以上的老师签推荐信, 我分别找了冯速, 何青, 以及李俊峰老师(此处按年龄排序哈哈哈), 需要骑缝处签字; 成绩单 + 排名证明; 英语水平证明材料; 四六级/TOEFL/IELTS/GRE 等. 论文/获奖证书等. 社会工作奖这样没有说服力的东西可以不要. 所有材料需在指定日期前自己送/邮寄至北大. 机试 + 面试 夏令营时间是7.16-7.18, 活动大致安排如下: D1: 上午报到+下午讲座, 实验室方向介绍. 晚上机试热身赛, 各种IDE非常齐全, OpenJudge环境也相当不错. D2: 上午讲座+下午座谈会. 上午讲座翘掉了, 座谈会就是和老师聊天. 理论和软工在一起, 满屋子全是软工. 晚上机试, 打得非常崩, 前几天敲了很多题但手还是很生&amp;复习方向有误… D3: 按照安排上午8.30开始面试, 事实上理论组下午1.30开始. 和信安+图形学一起, 三个方向加起来才十个人… 面试发挥还凑合, 题目大都答得上来, 但是似乎老师们觉得我成绩一般… 虽然好像确实如此… 但我从不质疑自己的能力, 尽管机试打得非常崩. 晚些时候, 大概吃晚饭时, 最终得到了曹老师的口头承诺, 准备参加曹老师联系的暑期课程. 北大的活动安排十分紧凑. 这里还是主要说说考核. 机试热身赛据说是去年的题目, 不算难吧.. 随便写了写. 主要是测环境嘛. OpenJudge环境很好, 比poj.org强百倍. 支持 #include &lt;bits/stdc++.h&gt;; 支持 C++11; 没试过, 应该也支持 rope 吧? 本地编译器非常齐全. 按照习惯 我仍然用了 Sublime+命令行. 但是命令行好像有时会有一种奇怪的问题, 连接不上输入的接口. Code::Blocks, Dec-C++ 好像都有. 正式赛用的是codeblocks. 总之环境很好, 各种环境不背锅. 完全是自己太菜. 正式赛题目我觉得选的一般, 区分度不太好. 长时间不摸键盘, 两个水题半个多小时才过, 并且还挂了几次. 一道线段树/树状数组求逆序, 按理来说是裸题, 可是怎么也写不上来… 完全没想过会考这种东西??? 打比赛的时候哥也是经常写线段树的人, 现在太菜了Orz 一道带权并查集, GGGGGGG. 复习的时候完全没想过会考带权的??? 以上四个是中文题… 本菜鸡就这样, 中文题卡全场… 英文题几乎都没有细读, 看出来好像有一个搜索, 然而没怎么搞… 赛前主要是在补动态规划的内容… 没想到中文题一个也没有??? 太难过了. 复习方向完全偏离, 很难受. 打得实在太崩, 细节不想多谈. 最后谈一下面试: 一般是自己所报方向的老师主面, 我是比较幸运, 是曹老师主面. 不清楚自我介绍环节是否必须, 反正我没有自我介绍.. 开头是念一段英文的论文, 并翻译. 文段不是很长, 生词也不会多, 就是典型的论文. 然后就聊一些专业课的内容. 之后是学习的一些情况, 在此期间被一些老师嫌弃成绩差Orz. 其实是很多公共课成绩差( 最后一个老师问了一个算法题, 比较简单. 其实面试略有尴尬的原因, 就是机试打得太菜. 如果机试多过题, 面试会非常有底气. 最终算是涉险过关. 开始参加xlr老师的暑期课程. 非常巧, xlr老师和cyz老师以前都是yms老师的学生. 关于结果 今年出结果非常快, 面试当晚就有很多人得到了结果. 如果提前联系过老师, 可以直接询问. 官网挂通知是夏令营结束后的第二天 (周三面试完毕, 周五晚上挂通知). 由于今年硕士名额大幅减少, 很多方向竞争非常激烈. 两波夏令营期间蹭了几顿饭, 感谢郭犇某天中午的收留. 非常感谢. 上课期间也蹭了几顿饭, 感谢曹老师的学生王海滨老哥以及郭晓熙老哥. 同样非常感谢. 也要感谢冯速, 何青, 李俊峰三位老师给我签推荐信. 当然也要感谢曹老师和夏老师. 课程非常有趣, 收获良多. 夏令营事后 北大官网出优秀营员名单后, 自然是与xbc老师, yms老师, 以及xmj老师发邮件联系, 告知三位老师自己大致定了北大信科的事情. 三位老师都很友好, 我非常感激三位老师的认可. 其实加上曹老师, 四位老师的方向我都很喜欢, 但已经定了曹老师这里, 不可得兼. 当然, 更要感谢曹老师的认可了Orz… 希望自己能真正做出自己的成果. 尾声 2018.9.28 最终在学信网上填写了个人信息并进行了报名和确认. 保研之路终于算是走完了.]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>保研</tag>
         <tag>软件所</tag>
+        <tag>保研</tag>
       </tags>
   </entry>
   <entry>
@@ -491,8 +478,8 @@
         <tag>数学</tag>
         <tag>计算机</tag>
         <tag>算法</tag>
-        <tag>保研复习</tag>
         <tag>图论</tag>
+        <tag>保研复习</tag>
       </tags>
   </entry>
   <entry>
@@ -532,8 +519,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>组合数学</tag>
         <tag>各种试卷</tag>
       </tags>
@@ -570,8 +557,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>计算机</tag>
         <tag>北大</tag>
         <tag>抽象代数</tag>
@@ -616,8 +603,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>北大</tag>
         <tag>论文笔记</tag>
         <tag>保研</tag>
@@ -632,8 +619,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>北大</tag>
         <tag>线性代数</tag>
@@ -650,8 +637,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>北大</tag>
         <tag>线性代数</tag>
@@ -791,8 +778,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>拓扑学</tag>
       </tags>
@@ -805,8 +792,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>泛函分析</tag>
       </tags>
@@ -819,8 +806,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>拓扑学</tag>
         <tag>期末复习</tag>
       </tags>
@@ -833,8 +820,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>概率论</tag>
         <tag>统计学</tag>
         <tag>期末复习</tag>
@@ -848,8 +835,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>概率论</tag>
         <tag>测度论</tag>
         <tag>期末复习</tag>
@@ -915,8 +902,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>概率论</tag>
         <tag>测度论</tag>
@@ -1064,8 +1051,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>数学分析</tag>
       </tags>
@@ -1078,8 +1065,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>线性代数</tag>
       </tags>
@@ -1092,8 +1079,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>抽象代数</tag>
       </tags>
@@ -1106,8 +1093,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>实变函数</tag>
       </tags>
@@ -1120,8 +1107,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>组合数学</tag>
         <tag>期末复习</tag>
       </tags>
@@ -1134,8 +1121,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>期末复习</tag>
         <tag>微分几何</tag>
       </tags>
@@ -1148,8 +1135,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>概率论</tag>
         <tag>期末复习</tag>
       </tags>
@@ -1162,8 +1149,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>复变函数</tag>
         <tag>期末复习</tag>
       </tags>
@@ -1176,8 +1163,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>概率论</tag>
       </tags>
@@ -1190,8 +1177,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>复变函数</tag>
       </tags>
@@ -1290,8 +1277,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>师大</tag>
         <tag>数学</tag>
+        <tag>师大</tag>
         <tag>各种试卷</tag>
         <tag>数学分析</tag>
       </tags>
