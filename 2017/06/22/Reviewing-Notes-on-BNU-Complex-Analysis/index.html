@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,数学,复变函数,期末复习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="复变函数考试复习重点.">
+<meta name="keywords" content="师大,数学,复变函数,期末复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复变复习重点">
+<meta property="og:url" content="http://lizhechen.com/2017/06/22/Reviewing-Notes-on-BNU-Complex-Analysis/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="复变函数考试复习重点.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-08T02:20:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="复变复习重点">
+<meta name="twitter:description" content="复变函数考试复习重点.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2017/06/22/Reviewing-Notes-on-BNU-Complex-Analysis/"/>
+
+
+
+
+
+  <title>复变复习重点 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2017/06/22/Reviewing-Notes-on-BNU-Complex-Analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">复变复习重点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T18:59:26+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  复变函数考试复习重点.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="重要的定义和定理">重要的定义和定理</h2>
+<h3 id="实可微的定义">实可微的定义</h3>
+<p>设 <span class="math inline">\(f\)</span> 是从开集 <span class="math inline">\(\Omega\)</span> 到 <span class="math inline">\(\mathbb{C}\)</span> 中的函数, <span class="math inline">\(a\in\Omega\)</span>, 如果有复常数 <span class="math inline">\(A,b\)</span>, s.t. <span class="math display">\[\lim\limits_{z\to\infty}\frac{f(a+z)-f(a)-Ax-By}{z}=0,\]</span> 则称 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(a\)</span> 处<strong>实可微</strong>.</p>
+<h3 id="复可微">复可微</h3>
+<p>设 <span class="math inline">\(f\)</span> 是定义在开集 <span class="math inline">\(\Omega\)</span> 上的复变函数, <span class="math inline">\(a\in\Omega\)</span>, 如果有常数 <span class="math inline">\(\alpha\)</span>, s.t. <span class="math display">\[\lim\limits_{z\to\infty}\frac{f(a+z)-f(a)}{z}=\alpha\]</span> 存在, 我们称 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(a\in\Omega\)</span> 处<strong>复可微</strong>或称 <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(a\)</span> 可导, 并把 <span class="math inline">\(\alpha\)</span> 记作 <span class="math inline">\(f&#39;(a)\)</span>.</p>
+<h3 id="cauchy-riemann方程">Cauchy-Riemann方程</h3>
+<p>如果 <span class="math inline">\(f(z)=u(x,y)+iv(x,y)\)</span> 在 <span class="math inline">\(a\in\Omega\)</span> 处实可微, <span class="math inline">\(u,v\)</span> 为实值函数, 则 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(a\)</span> 处复可微当且仅当 <span class="math display">\[\frac{\partial f}{\partial \overline{z}}(a)=0~或~
+\begin{cases}
+\frac{\partial u}{\partial x}=\frac{\partial y}{\partial y} \\
+\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} \\
+\end{cases}
+\]</span> 以上式子被称为Cauchy-Riemann方程, 简称C-R方程.</p>
+<h3 id="复解析">复解析</h3>
+<p>如果存在 <span class="math inline">\(a\)</span> 的一个邻域 <span class="math inline">\(D(a,r)\subset\Omega\)</span>, 使得 <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(D(a,r)\)</span> 中每点都有导数, 则称 <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(a\)</span> 点<strong>解析</strong>. 如果 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\Omega\)</span> 上的每点解析, 则称 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\Omega\)</span> 中<strong>解析</strong>或<strong>全纯</strong>.</p>
+<h3 id="cauchy高阶求导公式">Cauchy高阶求导公式</h3>
+<p>设 <span class="math inline">\(\Omega\)</span> 是一个单连通区域, <span class="math inline">\(C\)</span> 是全在区域 <span class="math inline">\(\Omega\)</span> 中的闭Jordan分段光滑曲线, <span class="math inline">\(C\)</span> 所围区域是 <span class="math inline">\(\omega\)</span>. 如果 <span class="math inline">\(f(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 中解析, 则有如下<strong>Cauchy公式</strong> <span class="math display">\[f(z_0)=\frac{1}{2\pi i}\int\nolimits_C\frac{f(z)dz}{z-z_0}\qquad(z_0\in\omega)\]</span> 且对于任意整数 <span class="math inline">\(m\)</span>, <span class="math inline">\(f\)</span> 的 <span class="math inline">\(m\)</span> 阶复导数 <span class="math inline">\(f^{(m)}(z)\)</span> 在 <span class="math inline">\(\Omega\)</span> 中存在解析, 且有如下的Cauchy高阶求导公式 <span class="math display">\[f^{(m)}(z_0)=\frac{m!}{2\pi i}\int\nolimits_C\frac{f(z)dz}{(z-z_0)^{m+1}}\qquad(z_0\in\omega,~m\in\mathbb{N}^+)\]</span></p>
+<h3 id="泰勒taylor定理">泰勒(Taylor)定理</h3>
+<p>设 <span class="math inline">\(f\)</span> 在区域 <span class="math inline">\(\Omega\)</span> 内解析, <span class="math inline">\(a\in\Omega\)</span>, 只要 <span class="math inline">\(D(a,R)=\{z:|z-a|&lt;R\}\)</span> 包含在 <span class="math inline">\(\Omega\)</span> 中, 则 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(D(a,R)\)</span> 内能展成幂级数 <span class="math display">\[f(z)=\sum\limits_{n=0}^\infty c_n(z-a)^n=c_0+c_1(z-a)+\cdots+c_n(z-a)^n+\cdots,\]</span> 其中系数 <span class="math display">\[c_n=\frac{f^{(n)}(a)}{n!}=\frac{1}{2\pi i}\int\nolimits_{\partial D(a,\rho)}\frac{f(\zeta)d\zeta}{(\zeta-a)^{n+1}},\quad (0&lt;\rho&lt;R,n\in\mathbb{N})\]</span> 且如果 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(D(a,R)\)</span> 内能展成幂级数, 则其系数一定满足上述要求.</p>
+<h3 id="解析函数唯一性定理">解析函数唯一性定理</h3>
+<p>设函数 <span class="math inline">\(g\)</span> 和 <span class="math inline">\(h\)</span> 在区域 <span class="math inline">\(\Omega\)</span> 内解析, <span class="math inline">\(a\in\Omega\)</span>, 且 <span class="math inline">\(\Omega\)</span> 内有一个收敛于 <span class="math inline">\(a\in\Omega\)</span> 的点列 <span class="math inline">\(\{z_n\}~(z_n\neq a)\)</span>, s.t. <span class="math inline">\(g(z_k)=h(z_k)~(k\in\mathbb{N})\)</span>, 则 <span class="math inline">\(g\)</span> 和 <span class="math inline">\(h\)</span> 在 <span class="math inline">\(\Omega\)</span> 内恒等.</p>
+<h3 id="洛朗laurent定理">洛朗(Laurent)定理</h3>
+<p>设 <span class="math inline">\(f\)</span> 在区域 <span class="math inline">\(\Omega\)</span> 内解析, 只要 <span class="math inline">\(B(r,R)=\{z:r&lt;|z-a|&lt;R\}\subset\Omega\)</span>, 则 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(B(r,R)\)</span> 内能展成洛朗级数, 其中系数 <span class="math display">\[c_n=\frac{1}{2\pi i}\int\nolimits_{\partial D(a,\rho)}\frac{f(\zeta)d\zeta}{(\zeta-a)^{n+1}}\quad (r&lt;\rho&lt;R,~n\in\mathbb{Z}),\]</span> 且展式是唯一的(即系数 <span class="math inline">\(c_n\)</span> 由 <span class="math inline">\(f(z)\)</span> 和圆环 <span class="math inline">\(B(r,R)\)</span> 唯一确定).</p>
+<h3 id="孤立奇点">孤立奇点</h3>
+<p>设函数 <span class="math inline">\(f\)</span> 在点 <span class="math inline">\(a\)</span> 的某一去心邻域 <span class="math inline">\(D(a,r)\backslash\{a\}=\{z:0&lt;|z-a|&lt;r\}\)</span> 内解析, 则点 <span class="math inline">\(a\)</span> 称为 <span class="math inline">\(f\)</span> 的<strong>孤立奇点</strong>.</p>
+<h3 id="留数定理">留数定理</h3>
+<p>考虑 <span class="math inline">\(n+1\)</span> 条Jordan闭分段光滑曲线 <span class="math inline">\(C_0,C_1,\cdots,C_n\)</span>, 其中 <span class="math inline">\(C_1,C_2,\cdots,C_n\)</span> 中每一条都在其余各条的外部, 而它们又都在 <span class="math inline">\(C_0\)</span> 的内部. 在 <span class="math inline">\(C_0\)</span> 的内部同时又在 <span class="math inline">\(C_1,C_2,\cdots,C_n\)</span> 外部的点集构成一个多界的多连通区域 <span class="math inline">\(\Omega\)</span>, 以 <span class="math inline">\(C_1,C_2,\cdots,C_n\)</span> 为它的边界. <span class="math inline">\(z_k\in\Omega,~k=1,2,\cdots,m\)</span>, 函数 <span class="math inline">\(f\)</span> 在闭域 <span class="math inline">\(\overline{\Omega}=\Omega\cup\partial\Omega\)</span> 上除去孤立奇点 <span class="math inline">\(z_1,z_2,\cdots,z_k\)</span> 外是解析的, 则 <span class="math display">\[\int\nolimits_{\partial\Omega}f(z)dz=2\pi i\sum\limits_{k=1}^n {\rm Res}(f,z_k).\]</span></p>
+<h3 id="儒歇rouche定理">儒歇(Rouche)定理</h3>
+<p>设 <span class="math inline">\(\Omega\)</span> 是区域, <span class="math inline">\(\omega\subset\Omega\)</span> 是有界区域, 其边界 <span class="math inline">\(C=\partial\omega\subset\Omega\)</span> 是一条Jordan闭分段光滑曲线, 如果 <span class="math inline">\(f\)</span> 和 <span class="math inline">\(g\)</span> 在开集 <span class="math inline">\(\Omega\)</span> 中解析且在 <span class="math inline">\(C\)</span> 上有 <span class="math inline">\(|f(z)|&gt;|g(z)|\)</span>, 则函数 <span class="math inline">\(f(z)\)</span> 与 <span class="math inline">\(f(z)+g(z)\)</span> 在 <span class="math inline">\(C\)</span> 的内部 <span class="math inline">\(\omega\)</span> 有相同的( <span class="math inline">\(k\)</span> 阶零点算 <span class="math inline">\(k\)</span> 次)零点个数, 即 <span class="math display">\[N(f+g,C)=N(f,C).\]</span></p>
+<h2 id="典型题目">典型题目</h2>
+<h3 id="证明复级数的cauchy乘积收敛">证明复级数的Cauchy乘积收敛</h3>
+<h4 id="师大复变习题一-31">师大复变习题一 31</h4>
+<blockquote>
+<p>设复级数 <span class="math inline">\(s=\sum\limits_{n=0}^\infty\alpha_n\)</span>, <span class="math inline">\(s&#39;=\sum\limits_{n=0}^\infty\alpha_n&#39;\)</span> 收敛, 且其中一个绝对收敛, 则其 Cauchy 乘积 <span class="math display">\[\sum\limits_{n=0}^\infty(\alpha_0\alpha_n&#39;+\alpha_1\alpha_{n-1}&#39;+\cdots+\alpha_n\alpha_0&#39;)=\sum\limits_{n=0}^\infty\sum\limits_{k=0}^n\alpha_k\alpha_{n-k}&#39;\]</span>也收敛, 且其和为 <span class="math inline">\(ss&#39;\)</span>.</p>
+</blockquote>
+<p><strong>证明</strong>: 不妨设 <span class="math inline">\(\sum\limits_{n=0}^\infty|\alpha_n|\)</span> 收敛, 记 <span class="math inline">\(S_m=\sum\limits_{n=0}^m\alpha_n\)</span>, <span class="math inline">\(S_m&#39;=\sum\limits_{n=0}^m\alpha_n&#39;\)</span>, <span class="math inline">\(\gamma_n=\alpha_0\alpha_n&#39;+\alpha_1\alpha_{n-1}&#39;+\cdots+\alpha_n\alpha_0&#39;\)</span>, <span class="math inline">\(\tau_m=\sum\limits_{n=0}^m\gamma_n\)</span>, 则有 <span class="math inline">\(S_m\to s\)</span>, <span class="math inline">\(S_m&#39;\to s&#39;\)</span>.</p>
+<p>于是, <span class="math inline">\(\tau_m=\sum\limits_{n=0}^m\gamma_n=\alpha_0S_m&#39;+\cdots+\alpha_nS_0&#39;=S_ms&#39;+\delta_m\)</span></p>
+<p>其中, <span class="math inline">\(\delta_m=\alpha_0(S_m&#39;-s&#39;)+\alpha_1(S_{m-1}&#39;-s&#39;)+\cdots+\alpha_n(S&#39;-s&#39;)\)</span></p>
+<p>由于 <span class="math inline">\(\{S_m&#39;\}\)</span> 收敛, 故 <span class="math inline">\(\{S_m&#39;\}\)</span> 有界, 故 <span class="math inline">\(\exists~M&gt;0\)</span>, s.t. <span class="math inline">\(\forall~m\in\mathbb{N}\)</span>, <span class="math inline">\(|S_m&#39;-s&#39;|&lt;M\)</span></p>
+<p>又由 <span class="math inline">\(\sum\limits_{n=0}^m\alpha_n\)</span> 绝对收敛, 知 <span class="math inline">\(\forall~\epsilon&gt;0\)</span>, <span class="math inline">\(\exists~N_1\in\mathbb{N}\)</span>, s.t. <span class="math inline">\(\sum\limits_{k=N_1+1}^m|\alpha_k|&lt;\frac{\epsilon}{4M+1}\)</span>.</p>
+<p>再记 <span class="math inline">\(L=\sum\limits_{k=0}^{N_1}|\alpha_k|\)</span>, 同理由 <span class="math inline">\(S_m&#39;\to s&#39;\)</span> 可得 <span class="math inline">\(\exists~N_2\in\mathbb{N}\)</span>, s.t. <span class="math inline">\(\forall~m&gt;N_2\)</span>, <span class="math inline">\(|S_m&#39;-s&#39;|&lt;\frac{\epsilon}{4L+1}\)</span>.</p>
+<p>于是当 <span class="math inline">\(m&gt;N_1+N_2\)</span> 时有: <span class="math display">\[|\delta_m|\leq\sum\limits_{k=0}^m|\alpha_k||S_{m-k}&#39;-s&#39;|+(|\alpha_{N_1}|+\cdots+|\alpha_m|)M\leq\frac{\epsilon}{4L+1}\times L+\frac{\epsilon}{4M+1}&lt;\frac{\epsilon}{2}\]</span></p>
+<p>故: <span class="math display">\[|\tau_m-ss&#39;|=|S_ms&#39;-ss&#39;+\delta_m|\leq |s&#39;||S_m-s|+|\delta_m|&lt;\frac{\epsilon}{2|s&#39;|}|s&#39;|+\frac{\epsilon}{2}=\epsilon\]</span></p>
+<p>即 <span class="math inline">\(\sum\limits_{n=0}^\infty\sum\limits_{k=0}^n\alpha_k\alpha_{n-k}&#39;\)</span> 收敛到 <span class="math inline">\(ss&#39;\)</span>.</p>
+<h3 id="分式线性映射映像区域">分式线性映射映像区域</h3>
+<h4 id="师大复变习题五-5.1">师大复变习题五 5.(1)</h4>
+<blockquote>
+<p>求区域 <span class="math inline">\(\Omega=\{z:{\rm Re}~z&gt;0,{\rm Im}~z&gt;0\}\)</span> 在分式线性映射 <span class="math inline">\(w=\frac{z-i}{z+i}\)</span> 下的映像区域.</p>
+</blockquote>
+<p><strong>解答</strong>: 记 <span class="math inline">\(L_1=\{z:{\rm Im}~z=0\}\)</span>, <span class="math inline">\(L_2=\{z:{\rm Re}~z=0\}\)</span>. 由于 <span class="math inline">\(T(z)=\infty\Leftrightarrow z=-i\)</span>, 并且 <span class="math inline">\(-i\)</span> 在 <span class="math inline">\(L_2\)</span> 上, 不在 <span class="math inline">\(L_1\)</span> 上, 故 <span class="math inline">\(T(L_1)\)</span> 为圆, <span class="math inline">\(T(L_2)\)</span> 为直线.</p>
+<p><strong>一方面</strong>, <span class="math inline">\(T(-i)=\infty\)</span>, <span class="math inline">\(T(i)=0\)</span>, 并且 <span class="math inline">\(i\)</span> 和 <span class="math inline">\(-i\)</span> 关于 <span class="math inline">\(L_1\)</span> 对称, 故 <span class="math inline">\(\infty\)</span> 和 <span class="math inline">\(0\)</span> 关于 <span class="math inline">\(T(L_1)\)</span> 对称. 即 <span class="math inline">\(T(L_1)\)</span> 以 <span class="math inline">\(0\)</span> 为心. 取 <span class="math inline">\(0\in L_1\)</span>, 则有 <span class="math inline">\(T(0)=-1\in T(L_1)\)</span>, 故 <span class="math inline">\(T(L_1)=\{z:|z|=1\}\)</span>.</p>
+<p><strong>另一方面</strong>, <span class="math inline">\(T(-1)=\frac{-1-i}{-1+i}=i\)</span>, <span class="math inline">\(T(1)=-i\)</span>, 故 <span class="math inline">\(T(L_2)\)</span> 为过原点的直线. 取 <span class="math inline">\(0\in L_2\)</span>, 有 <span class="math inline">\(-1\in T(L_2)\)</span>, 即 <span class="math inline">\(T(L_2)\)</span> 为实轴. 取 <span class="math inline">\(1+i\in\Omega\)</span>, 则 <span class="math inline">\(T(1+i)=\frac{1}{1+2i}=\frac{1}{5}-\frac{2}{5}i\in T(\Omega)\)</span>, 即可确定像区域.</p>
+<h3 id="已知原区域和像区域求映射">已知原区域和像区域求映射</h3>
+<h4 id="师大复变习题五-12">师大复变习题五 12</h4>
+<blockquote>
+<p>求把区域 <span class="math inline">\(\{z:|z-3i|&gt;2,~|z-4|&gt;2\}\)</span> 映射为同心圆环 <span class="math inline">\(\{w:1&lt;|w|&lt;R\}\)</span> 的分式线性映射 <span class="math inline">\(w=T(z)\)</span> 并求 <span class="math inline">\(R\)</span>.</p>
+</blockquote>
+<p><strong>解答</strong>: 记 <span class="math inline">\(L_1=\{z:|z-3i|=2\}\)</span>, <span class="math inline">\(L_2=\{z:|z-4|=2\}\)</span>. 由于 <span class="math inline">\(0\)</span> 和 <span class="math inline">\(\infty\)</span> 为 <span class="math inline">\(T(L_1)\)</span> 和 <span class="math inline">\(T(L_2)\)</span> 的公共对称点, 故只需要寻找一对 <span class="math inline">\(L_1\)</span> 和 <span class="math inline">\(L_2\)</span> 的公共对称点. 考虑在圆心连线上寻找, 可以找到 <span class="math inline">\(\frac{4}{5}+\frac{12}{5}i\)</span> 和 <span class="math inline">\(\frac{16}{5}+\frac{3}{5}i\)</span> 为 <span class="math inline">\(L_1\)</span> 和 <span class="math inline">\(L_2\)</span> 的公共对称点.</p>
+<p>于是可令 <span class="math inline">\(T(z)=\lambda\frac{z-\frac{16}{5}-\frac{3}{5}i}{z-\frac{4}{5}-\frac{12}{5}i}=\lambda\frac{5z-16-3i}{5z-4-12i}\)</span>. 此时只差 <span class="math inline">\(\lambda\)</span> 确定表达式. 不妨取 <span class="math inline">\(\{w:|w|=1\}\)</span> 为 <span class="math inline">\(T(L_2)\)</span>, 则 <span class="math inline">\(|T(2)|=1\)</span>, 可得 <span class="math inline">\(|\lambda|\cdot|\frac{10-16-3i}{10-4-12i}|=1\)</span>, 即 <span class="math inline">\(|\lambda|=2\)</span>. 故由 <span class="math inline">\(T(i)=R\)</span> 可知 <span class="math inline">\(|\lambda|\cdot|\frac{5i-16-3i}{5i-4-12i}|=R\)</span>, 即 <span class="math inline">\(R=4\)</span>.</p>
+<p>至此, 映射的放大倍数已经确定, 只需要取一个点来确定方向, 不妨取 <span class="math inline">\(T(2)=-1\)</span>, 则 <span class="math inline">\(\lambda\cdot\frac{-6-3i}{6-12i}=-1\)</span>, 可得 <span class="math inline">\(\lambda=-2i\)</span>. 即 <span class="math inline">\(T(z)=-2i\cdot\frac{5z-16-3i}{5z-4-12i}\)</span>.</p>
+<p>最后一步中, 如不取 <span class="math inline">\(T(2)=-1\)</span>, 则最后所得表达式与原表达式之间相差一个旋转, 映像区域仍然不变.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/复变函数/" rel="tag"># 复变函数</a>
+          
+            <a href="/tags/期末复习/" rel="tag"># 期末复习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/14/Exam-BNU-Probability-Theory/" rel="next" title="北京师范大学概率论试卷">
+                <i class="fa fa-chevron-left"></i> 北京师范大学概率论试卷
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/23/Reviewing-Notes-on-BNU-Probability-Theory/" rel="prev" title="概率论复习重点">
+                概率论复习重点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的定义和定理"><span class="nav-number">1.</span> <span class="nav-text">重要的定义和定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实可微的定义"><span class="nav-number">1.1.</span> <span class="nav-text">实可微的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复可微"><span class="nav-number">1.2.</span> <span class="nav-text">复可微</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cauchy-riemann方程"><span class="nav-number">1.3.</span> <span class="nav-text">Cauchy-Riemann方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复解析"><span class="nav-number">1.4.</span> <span class="nav-text">复解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cauchy高阶求导公式"><span class="nav-number">1.5.</span> <span class="nav-text">Cauchy高阶求导公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泰勒taylor定理"><span class="nav-number">1.6.</span> <span class="nav-text">泰勒(Taylor)定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析函数唯一性定理"><span class="nav-number">1.7.</span> <span class="nav-text">解析函数唯一性定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#洛朗laurent定理"><span class="nav-number">1.8.</span> <span class="nav-text">洛朗(Laurent)定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孤立奇点"><span class="nav-number">1.9.</span> <span class="nav-text">孤立奇点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#留数定理"><span class="nav-number">1.10.</span> <span class="nav-text">留数定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#儒歇rouche定理"><span class="nav-number">1.11.</span> <span class="nav-text">儒歇(Rouche)定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#典型题目"><span class="nav-number">2.</span> <span class="nav-text">典型题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明复级数的cauchy乘积收敛"><span class="nav-number">2.1.</span> <span class="nav-text">证明复级数的Cauchy乘积收敛</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#师大复变习题一-31"><span class="nav-number">2.1.1.</span> <span class="nav-text">师大复变习题一 31</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分式线性映射映像区域"><span class="nav-number">2.2.</span> <span class="nav-text">分式线性映射映像区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#师大复变习题五-5.1"><span class="nav-number">2.2.1.</span> <span class="nav-text">师大复变习题五 5.(1)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已知原区域和像区域求映射"><span class="nav-number">2.3.</span> <span class="nav-text">已知原区域和像区域求映射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#师大复变习题五-12"><span class="nav-number">2.3.1.</span> <span class="nav-text">师大复变习题五 12</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机,保研复习,Java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="比较重要的几条是:  add, subtract, multiply, divide, mod, remainder 加减乘除取模取余—注意取模中 \(b\) 必须为正! a.compareTo(b) \(a=b\) 返回 \(0\), 否则返回 \(a&amp;gt;b\) 的值. a.toString(b) 将 \(a\) 转换为 \(b\) 进制字符串.  另外注意 Scanner 的写">
+<meta name="keywords" content="计算机,保研复习,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法拾遗[5]——Java大数">
+<meta property="og:url" content="http://lizhechen.com/2018/07/17/Before-Baoyan-Algorithm-5-Java-BigInteger/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="比较重要的几条是:  add, subtract, multiply, divide, mod, remainder 加减乘除取模取余—注意取模中 \(b\) 必须为正! a.compareTo(b) \(a=b\) 返回 \(0\), 否则返回 \(a&amp;gt;b\) 的值. a.toString(b) 将 \(a\) 转换为 \(b\) 进制字符串.  另外注意 Scanner 的写">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-30T16:21:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法拾遗[5]——Java大数">
+<meta name="twitter:description" content="比较重要的几条是:  add, subtract, multiply, divide, mod, remainder 加减乘除取模取余—注意取模中 \(b\) 必须为正! a.compareTo(b) \(a=b\) 返回 \(0\), 否则返回 \(a&amp;gt;b\) 的值. a.toString(b) 将 \(a\) 转换为 \(b\) 进制字符串.  另外注意 Scanner 的写">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2018/07/17/Before-Baoyan-Algorithm-5-Java-BigInteger/"/>
+
+
+
+
+
+  <title>算法拾遗[5]——Java大数 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/07/17/Before-Baoyan-Algorithm-5-Java-BigInteger/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法拾遗[5]——Java大数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T00:40:51+08:00">
+                2018-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>比较重要的几条是:</p>
+<ul>
+<li><code>add, subtract, multiply, divide, mod, remainder</code> 加减乘除取模取余<font color="red">—注意取模中 <span class="math inline">\(b\)</span> 必须为正!</font></li>
+<li><code>a.compareTo(b)</code> <span class="math inline">\(a=b\)</span> 返回 <span class="math inline">\(0\)</span>, 否则返回 <span class="math inline">\(a&gt;b\)</span> 的值.</li>
+<li><code>a.toString(b)</code> 将 <span class="math inline">\(a\)</span> 转换为 <span class="math inline">\(b\)</span> 进制字符串.</li>
+</ul>
+<p>另外注意 <code>Scanner</code> 的写法:</p>
+<ul>
+<li>输入接口: <code>Scanner cin = new Scanner(System.in);</code></li>
+<li>EOF写法: <code>while(cin.hasNext()) {}</code></li>
+<li>输入:<code>BigInteger a = cin.nextBigInteger();</code></li>
+</ul>
+<p>以及变量的声明(注意 <code>new</code>):</p>
+<ul>
+<li>单个变量: <code>BigInteger a = new BigInteger(&quot;0&quot;);</code></li>
+<li>声明数组: <code>BigInteger a[] = new BigInteger[size];</code></li>
+<li>静态方法: <code>BigInteger a = BigInteger.valueOf(x);</code></li>
+</ul>
+<a id="more"></a>
+<p>完整版本如下:</p>
+<blockquote>
+<p>来源: https://blog.csdn.net/qq644262163/article/details/53116713</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;  </span><br><span class="line"><span class="keyword">import</span> java.math.*;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span>  </span></span><br><span class="line"><span class="class"></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 读到EOF</span></span><br><span class="line">        <span class="keyword">while</span>(cin.hasNext())&#123;&#125;</span><br><span class="line">        <span class="comment">// 读入BigInteger</span></span><br><span class="line">        BigInteger a = cin.nextBigInteger();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 赋值</span></span><br><span class="line">        <span class="comment">// 将十进制字符串转化为BigInteger</span></span><br><span class="line">        <span class="comment">// public BigInteger(String val)</span></span><br><span class="line">        BigInteger a = <span class="keyword">new</span> BigInteger(<span class="string">"3"</span>);</span><br><span class="line">        <span class="comment">// 将radix进制的字符串转化为BigInteger</span></span><br><span class="line">        <span class="comment">// public BigInteger(String val, int radix)</span></span><br><span class="line">        BigInteger a = <span class="keyword">new</span> BigInteger(<span class="string">"3"</span>, <span class="number">2</span>);</span><br><span class="line">        <span class="comment">// 将整数赋给BigInteger</span></span><br><span class="line">        BigInteger a = BigInteger.valueOf(<span class="number">100</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 常量</span></span><br><span class="line">        a = BigInteger.ZERO;</span><br><span class="line">        a = BigInteger.ONE;</span><br><span class="line">        a = BigInteger.TEN;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 值等于val的值</span></span><br><span class="line">        <span class="comment">// public static BigInteger valueOf(long val)</span></span><br><span class="line">        BigInteger.valueOf(<span class="number">10</span>);</span><br><span class="line">        </span><br><span class="line">        a.add(b);</span><br><span class="line">        a.subtract(b);</span><br><span class="line">        a.multiply(b);</span><br><span class="line">        a.divide(b);</span><br><span class="line">        <span class="comment">// 取模a%b b需大于0 5mod3=2 -5mod3=1</span></span><br><span class="line">        a.mod(b);</span><br><span class="line">        <span class="comment">// 求余 5rem3=2 -5rem3=-2 5rem-3=2 -5rem-3=-2</span></span><br><span class="line">        <span class="comment">// public BigInteger remainder(BigInteger val)</span></span><br><span class="line">        a.remainder(b);</span><br><span class="line">        <span class="comment">// [0]为a/b [1]为a%b</span></span><br><span class="line">        <span class="comment">// public BigInteger[] divideAndRemainder(BigInteger val)</span></span><br><span class="line">        a.divideAndRemainder(b);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// a==b?</span></span><br><span class="line">        <span class="comment">// public boolean equals(Object x)</span></span><br><span class="line">        a.equals(b);</span><br><span class="line">        <span class="comment">// a的正负 正为1 0为0 负为-1</span></span><br><span class="line">        <span class="comment">// public int signum()</span></span><br><span class="line">        a.signum();</span><br><span class="line">        <span class="comment">// 绝对值|a|</span></span><br><span class="line">        <span class="comment">// public BigInteger abs()</span></span><br><span class="line">        a.abs();</span><br><span class="line">        <span class="comment">// 比较a&gt;b返回1 a==b返回0 a&lt;b返回-1</span></span><br><span class="line">        <span class="comment">// public BigInteger andNot(BigInteger val)</span></span><br><span class="line">        a.compareTo(b);</span><br><span class="line">        <span class="comment">// 相反数-a</span></span><br><span class="line">        <span class="comment">// public BigInteger negate()</span></span><br><span class="line">        a.negate();</span><br><span class="line">        <span class="comment">// max(a,b)</span></span><br><span class="line">        <span class="comment">// public BigInteger max(BigInteger val)</span></span><br><span class="line">        a.max(b);</span><br><span class="line">        <span class="comment">// min(a,b)</span></span><br><span class="line">        <span class="comment">// public BigInteger min(BigInteger val)</span></span><br><span class="line">        a.min(b);</span><br><span class="line">        <span class="comment">// 乘方</span></span><br><span class="line">        <span class="comment">// public BigInteger pow(int exponent)</span></span><br><span class="line">        a.pow(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">// a模b的逆元</span></span><br><span class="line">        <span class="comment">// public BigInteger modInverse(BigInteger m)</span></span><br><span class="line">        a.modInverse(b);</span><br><span class="line">        <span class="comment">// 乘方取模 a^b%c</span></span><br><span class="line">        <span class="comment">// public BigInteger modPow(BigInteger exponent,BigInteger m)</span></span><br><span class="line">        a.modPow(b, c);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 位运算</span></span><br><span class="line">        <span class="comment">// ~a</span></span><br><span class="line">        <span class="comment">// public BigInteger not()</span></span><br><span class="line">        a.not();</span><br><span class="line">        <span class="comment">// a^b</span></span><br><span class="line">        <span class="comment">// public BigInteger xor(BigInteger val)</span></span><br><span class="line">        a.xor(b);</span><br><span class="line">        <span class="comment">// a|b</span></span><br><span class="line">        <span class="comment">// public BigInteger or(BigInteger val)</span></span><br><span class="line">        a.or(b);</span><br><span class="line">        <span class="comment">// a&amp;b</span></span><br><span class="line">        <span class="comment">// public BigInteger divide(BigInteger val)</span></span><br><span class="line">        a.and(b);</span><br><span class="line">        <span class="comment">// a左移n位 (a &lt;&lt; n)</span></span><br><span class="line">        <span class="comment">// public BigInteger shiftLeft(int n)</span></span><br><span class="line">        a.shiftLeft(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// a右移n位 (a &gt;&gt; n)</span></span><br><span class="line">        <span class="comment">// public BigInteger shiftRight(int n)</span></span><br><span class="line">        a.shiftRight(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// a&amp;(~b)</span></span><br><span class="line">        <span class="comment">// public BigInteger andNot(BigInteger val)</span></span><br><span class="line">        a.andNot(b);</span><br><span class="line">        <span class="comment">// 二进制形式中把第n位二进制设为0 (a &amp; ~(1&lt;&lt;n))</span></span><br><span class="line">        <span class="comment">// public BigInteger clearBit(int n)</span></span><br><span class="line">        a.clearBit(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// 二进制形式中把第n位二进制设为1 (a | (1&lt;&lt;n))</span></span><br><span class="line">        <span class="comment">// public BigInteger setBit(int n)</span></span><br><span class="line">        a.setBit(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// 二进制形式中第n位二进制是否为1 (a &amp; (1&lt;&lt;n)) != 0)</span></span><br><span class="line">        <span class="comment">// public boolean testBit(int n)</span></span><br><span class="line">        a.testBit(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// 二进制形式中把第n位二进制翻转 (a ^ (1&lt;&lt;n))</span></span><br><span class="line">        <span class="comment">// public BigInteger flipBit(int n)</span></span><br><span class="line">        a.flipBit(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// 二进制形式中最低位1后面0的个数 (a == 0? -1 : log2(a &amp; -a))</span></span><br><span class="line">        <span class="comment">// public int getLowestSetBit()</span></span><br><span class="line">        a.getLowestSetBit();</span><br><span class="line">        <span class="comment">// 二进制形式中与符号不同的位的数量 7为3 -7为2</span></span><br><span class="line">        <span class="comment">// public int bitCount()</span></span><br><span class="line">        a.bitCount();</span><br><span class="line">        <span class="comment">// 二进制形式中不包括符号位的长度</span></span><br><span class="line">        <span class="comment">// public int bitLength()</span></span><br><span class="line">        a.bitLength();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// a和b的最大公约数</span></span><br><span class="line">        <span class="comment">// public BigInteger gcd(BigInteger val)</span></span><br><span class="line">        a.gcd(b);</span><br><span class="line">        <span class="comment">// a可能为素数返回true a一定为合数返回false 素数可能性大于(1-1/(2的certainty次方))</span></span><br><span class="line">        <span class="comment">// public boolean isProbablePrime(int certainty)</span></span><br><span class="line">        a.isProbablePrime(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">// 大于a的可能为素数的第一个整数。</span></span><br><span class="line">        <span class="comment">// public BigInteger nextProbablePrime()</span></span><br><span class="line">        a.nextProbablePrime();</span><br><span class="line">        <span class="comment">// a的哈希码</span></span><br><span class="line">        <span class="comment">// public int hashCode()</span></span><br><span class="line">        a.hashCode();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// a的二进制补码形式</span></span><br><span class="line">        <span class="comment">// public byte[] toByteArray()</span></span><br><span class="line">        a.toByteArray();</span><br><span class="line">        <span class="comment">// a的十进制字符串形式</span></span><br><span class="line">        <span class="comment">// public String toString()</span></span><br><span class="line">        a.toString();</span><br><span class="line">        <span class="comment">// a的radix进制字符串形式</span></span><br><span class="line">        <span class="comment">// public String toString(int radix)</span></span><br><span class="line">        a.toString(<span class="number">2</span>);</span><br><span class="line">        <span class="comment">// 将a转换为int</span></span><br><span class="line">        <span class="comment">// public int intValue()</span></span><br><span class="line">        a.intValue();</span><br><span class="line">        <span class="comment">// 将a转换为long</span></span><br><span class="line">        <span class="comment">// public long longValue()</span></span><br><span class="line">        a.longValue();</span><br><span class="line">        <span class="comment">// 将a转换为float</span></span><br><span class="line">        <span class="comment">// public float floatValue()</span></span><br><span class="line">        a.floatValue();</span><br><span class="line">        <span class="comment">// 将a转换为double</span></span><br><span class="line">        <span class="comment">// public double doubleValue()</span></span><br><span class="line">        a.doubleValue();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// JAVA 1.8</span></span><br><span class="line">        a.byteValueExact();</span><br><span class="line">        a.intValueExact();</span><br><span class="line">        a.longValueExact();</span><br><span class="line">        a.shortValueExact();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 从类 java.lang.Number 继承的方法</span></span><br><span class="line">        <span class="comment">// 将a转换为short</span></span><br><span class="line">        <span class="comment">// public short shortValue()</span></span><br><span class="line">        a.shortValue();</span><br><span class="line">        <span class="comment">// 将a转换为byte</span></span><br><span class="line">        <span class="comment">// public byte byteValue()</span></span><br><span class="line">        a.byteValue();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 从类 java.lang.Object 继承的方法</span></span><br><span class="line">        <span class="comment">// public final Class&lt;?&gt; getClass()</span></span><br><span class="line">        a.getClass();</span><br><span class="line">        <span class="comment">// public final void notify()</span></span><br><span class="line">        a.notify();</span><br><span class="line">        <span class="comment">// public final void notifyAll()</span></span><br><span class="line">        a.notifyAll();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// public final void wait() throws InterruptedException</span></span><br><span class="line">            a.wait();</span><br><span class="line">            <span class="comment">// public final void wait(long timeout) throws InterruptedException</span></span><br><span class="line">            a.wait(<span class="number">10</span>);</span><br><span class="line">            <span class="comment">// public final void wait(long timeout, int nanos) throws InterruptedException</span></span><br><span class="line">            a.wait(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/保研复习/" rel="tag"># 保研复习</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/17/Before-Baoyan-Algorithm-4-STL/" rel="next" title="算法拾遗[4]——STL用法">
+                <i class="fa fa-chevron-left"></i> 算法拾遗[4]——STL用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/26/点估计——极大似然估计、最大后验估计和贝叶斯估计/" rel="prev" title="点估计——最大似然估计、最大后验概率估计和贝叶斯估计">
+                点估计——最大似然估计、最大后验概率估计和贝叶斯估计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

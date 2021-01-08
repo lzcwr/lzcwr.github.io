@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,数学,概率论,测度论,期末复习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="测度与概率期末复习重点: 定义&amp;定理.">
+<meta name="keywords" content="师大,数学,概率论,测度论,期末复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测度与概率复习重点">
+<meta property="og:url" content="http://lizhechen.com/2018/01/02/Reviewing-Notes-on-BNU-Probability-and-Measure-Theory/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="测度与概率期末复习重点: 定义&amp;定理.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-30T16:07:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="测度与概率复习重点">
+<meta name="twitter:description" content="测度与概率期末复习重点: 定义&amp;定理.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2018/01/02/Reviewing-Notes-on-BNU-Probability-and-Measure-Theory/"/>
+
+
+
+
+
+  <title>测度与概率复习重点 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/01/02/Reviewing-Notes-on-BNU-Probability-and-Measure-Theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">测度与概率复习重点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T21:16:11+08:00">
+                2018-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  测度与概率期末复习重点: 定义&定理.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="测度空间">测度空间</h2>
+<h3 id="各种集类">各种集类</h3>
+<h4 id="半集代数">半集代数</h4>
+<ol type="1">
+<li><span class="math inline">\(\Omega\in\mathscr{S}\)</span>, <span class="math inline">\(\varnothing\in\mathscr{S}\)</span>;</li>
+<li>若 <span class="math inline">\(A,B\in\mathscr{S}\)</span>, 则 <span class="math inline">\(A\cap B\in\mathscr{S}\)</span>;</li>
+<li>若 <span class="math inline">\(A,A_1\in\mathscr{S}\)</span>, <span class="math inline">\(A_1\subset A\)</span>, 则 <span class="math inline">\(\exists A_2,\cdots,A_n\subset\mathscr{S}\)</span>, <span class="math inline">\(A_1,\cdots,A_n\)</span> 两两不交, 且 <span class="math inline">\(A=\bigcup\limits_{k=1}^nA_k\)</span>.</li>
+</ol>
+<h4 id="集代数">集代数</h4>
+<ol type="1">
+<li><span class="math inline">\(\Omega\in\mathscr{A}\)</span>;</li>
+<li>若 <span class="math inline">\(A,B\in\mathscr{A}\)</span>, 则 <span class="math inline">\(A\cap B, A\cup B\in\mathscr{A}\)</span>;</li>
+<li>若 <span class="math inline">\(A\in\mathscr{A}\)</span>, 则 <span class="math inline">\(A^c\in\mathscr{A}\)</span>.</li>
+</ol>
+<ul>
+<li>包含半集代数 <span class="math inline">\(\mathscr{S}\)</span> 的最小集代数为 <span class="math inline">\(\mathscr{A}(\mathscr{S})=\{\bigcup\limits_{k=1}^n A_k:A_1,\cdots,A_n\in\mathscr{S}\}\)</span>.</li>
+</ul>
+<h4 id="sigma-代数"><span class="math inline">\(\sigma\)</span> 代数</h4>
+<ol type="1">
+<li><span class="math inline">\(\Omega\in\mathcal{F}\)</span>;</li>
+<li>若 <span class="math inline">\(A\in\mathcal{F}\)</span>, 则 <span class="math inline">\(A^c\in\mathcal{F}\)</span>;</li>
+<li>若 <span class="math inline">\(A_n\in\mathcal{F}~(n\in\mathbb{N})\)</span>, 则 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\mathcal{F}\)</span>.</li>
+</ol>
+<ul>
+<li>任意一族 <span class="math inline">\(\sigma\)</span> 代数的交仍然是 <span class="math inline">\(\sigma\)</span> 代数;</li>
+<li>所有包含 <span class="math inline">\(\mathcal{C}\)</span> 的 <span class="math inline">\(\sigma\)</span> 代数的交称为包含 <span class="math inline">\(\mathcal{C}\)</span> 的<strong>最小 <span class="math inline">\(\sigma\)</span> 代数</strong>, 记作 <span class="math inline">\(\sigma(\mathcal{C})\)</span>.</li>
+</ul>
+<h3 id="单调类定理">单调类定理</h3>
+<h4 id="lambda-系"><span class="math inline">\(\lambda\)</span> 系</h4>
+<ol type="1">
+<li><span class="math inline">\(\Omega\in\Lambda\)</span>;</li>
+<li>对真差封闭: <span class="math inline">\(A,B\in\Lambda\)</span>, <span class="math inline">\(A\subset B\)</span>, 则 <span class="math inline">\(B\backslash A\in\Lambda\)</span>;</li>
+<li>对不降序列的并封闭: <span class="math inline">\(\{A_n:n\in\mathbb{N}\} \subset\Lambda\)</span>, <span class="math inline">\(A_n\uparrow\)</span>, 则 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\Lambda\)</span>.</li>
+</ol>
+<h4 id="pi-系"><span class="math inline">\(\pi\)</span> 系</h4>
+<ol type="1">
+<li>对交封闭: <span class="math inline">\(A,B\in\Lambda\)</span>, 则 <span class="math inline">\(A\cap B\in\Lambda\)</span>.</li>
+</ol>
+<h4 id="单调类定理-1">单调类定理</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(\Omega\)</span> 的子集类 <span class="math inline">\(\mathcal{C}\)</span> 是 <span class="math inline">\(\pi\)</span> 系, 则 <span class="math inline">\(\Lambda(\mathcal{C})=\sigma(\mathcal{C})\)</span>.</p>
+</blockquote>
+<p>证明思路:</p>
+<ol type="1">
+<li>令 $_A={B():AB()} $;</li>
+<li><span class="math inline">\(\forall A\in\Lambda(\mathcal{C})\)</span>, 证明 <span class="math inline">\(\Lambda_A\)</span> 是 <span class="math inline">\(\lambda\)</span> 系;</li>
+<li><span class="math inline">\(\forall A\in\mathcal{C}\)</span>, 证明 <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span>;</li>
+<li><span class="math inline">\(\forall A\in\Lambda(\mathcal{C})\)</span>, 证明 <span class="math inline">\(\Lambda_A=\Lambda(\mathcal{C})\)</span>.</li>
+</ol>
+<h3 id="测度的构造">测度的构造</h3>
+<h4 id="有限可加测度">有限可加测度</h4>
+<ul>
+<li>可加: <span class="math inline">\(\forall A,B\in\mathcal{C}\)</span>, <span class="math inline">\(A\cup B\in\mathcal{C}\)</span>, <span class="math inline">\(A\cap B=\varnothing\)</span>, 有 <span class="math inline">\(\mu(A\cup B)=\mu(A)+\mu(B)\)</span>.</li>
+<li>可加测度 <span class="math inline">\(\Leftrightarrow\)</span> 有限可加测度.</li>
+</ul>
+<h4 id="sigma-可加测度"><span class="math inline">\(\sigma\)</span> 可加测度</h4>
+<ul>
+<li><span class="math inline">\(\forall A_n\in\mathcal{C}\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 两两不交且 <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n\in\mathcal{C}\)</span>, 有 <span class="math inline">\(\mu(\bigcup\limits_{n=1}^\infty A_n)=\sum\limits_{n=1}^\infty\mu(A_n)\)</span>.</li>
+</ul>
+<h4 id="sigma-有限测度"><span class="math inline">\(\sigma\)</span> 有限测度</h4>
+<p>若 <span class="math inline">\(\forall A\in\mathcal{C}\)</span>, <span class="math inline">\(\exists \{A_n:n\in\mathbb{N}\} \subset\mathcal{C}\)</span>, s.t. <span class="math inline">\(\bigcup\limits_{n=1}^\infty A_n=A\)</span> 且 <span class="math inline">\(\mu(A_n)&lt;\infty\)</span>, <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, 则称其为 <span class="math inline">\(\sigma\)</span> 有限的.</p>
+<h3 id="测度扩张定理">测度扩张定理</h3>
+<h4 id="半集代数上的测度">半集代数上的测度</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(F\)</span> 为 <span class="math inline">\(\mathbb{R}\)</span> 上的右连续增函数, 则在半集代数 <span class="math display">\[\mathscr{S}:=\{(a,b]:-\infty\leqslant a\leqslant b\leqslant\infty\} \]</span> 上有唯一的测度 <span class="math inline">\(\mu=\mu_F\)</span>, s.t. <span class="math display">\[\mu((a,b])=F(b)-F(a),~a\leqslant b\leqslant a,b\in\mathbb{R},\]</span> 并且 <span class="math inline">\(\mu\)</span> 在有限区间上的值有限(因而 <span class="math inline">\(\sigma\)</span> 有限).</p>
+</blockquote>
+<h4 id="测度扩张定理-1">测度扩张定理</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(\mu\)</span> 为 <span class="math inline">\(\Omega\)</span> 的半集代数 <span class="math inline">\(\mathscr{S}\)</span> 上的测度, 则 <span class="math inline">\(\mu\)</span> 在 <span class="math inline">\(\mathscr{S}\)</span> 生成的 <span class="math inline">\(\sigma\)</span> 代数 <span class="math inline">\(\sigma(\mathscr{S})\)</span> 上存在一个扩张. 若 <span class="math inline">\(\mu\)</span> 是 <span class="math inline">\(\sigma\)</span> 有限的, 则扩张唯一.</p>
+</blockquote>
+<ul>
+<li>唯一性证明: <span class="math inline">\(\lambda-\pi\)</span> 系方法.</li>
+</ul>
+<h4 id="外测度">外测度</h4>
+<ol type="1">
+<li><span class="math inline">\(\mu^*(\varnothing)=0\)</span>;</li>
+<li>不降性: <span class="math inline">\(\forall A\subset B\subset\Omega\)</span>, 有 <span class="math inline">\(\mu^*(A)\leqslant \mu^*(B)\)</span>;</li>
+<li>次 <span class="math inline">\(\sigma\)</span> 可加性: <span class="math inline">\(\forall A_n\subset\Omega\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, 有 <span class="math display">\[\mu^*(\bigcup\limits_{N=1}^\infty A_n)\leqslant \sum\limits_{n=1}^\infty \mu^*(A_n).\]</span></li>
+</ol>
+<ul>
+<li><span class="math inline">\(\mu^*\)</span> 可测集: <span class="math inline">\(\mu^*(D)=\mu^*(A\cap D)+\mu^*(A^c\cap D)\)</span>.</li>
+</ul>
+<h3 id="测度空间-1">测度空间</h3>
+<h4 id="测度空间-2">测度空间</h4>
+<p><span class="math inline">\((\Omega,\mathcal{F},\mu)\)</span> 是测度空间当且仅当 <span class="math inline">\(\mathcal{F}\)</span> 是 <span class="math inline">\(\sigma\)</span> 代数且 <span class="math inline">\(\mu\)</span> 是 <span class="math inline">\(\Omega\)</span> 上的 <span class="math inline">\(\sigma\)</span> 可加测度.</p>
+<ul>
+<li>若 <span class="math inline">\(\mu(\Omega)=1\)</span> 则称为概率空间, <span class="math inline">\(\mu\)</span> 即为概率 <span class="math inline">\(\mathbb{P}\)</span>.</li>
+</ul>
+<h4 id="可加性的提升">可加性的提升</h4>
+<blockquote>
+<p><strong>定理</strong> <span class="math inline">\(\mu\)</span> 为集代数 <span class="math inline">\(\mathscr{A}\)</span> 上的<strong>可加</strong>测度, 若 <span class="math inline">\(\mu\)</span> 还满足以下条件之一:</p>
+</blockquote>
+<blockquote>
+<ol type="1">
+<li><span class="math inline">\(\mu\)</span> 下方连续: 即对 <span class="math inline">\(\forall \{A_n\} \subset\mathscr{A}\)</span>, <span class="math inline">\(A_n\uparrow A\)</span>, 总有 <span class="math inline">\(\lim\limits_ {n\to\infty}\mu(A_n)=\mu(A)\)</span>;</li>
+<li><span class="math inline">\(\mu\)</span> 有限且在 <span class="math inline">\(\varnothing\)</span> 上方连续: 即对 <span class="math inline">\(\forall \{A_n\} \subset\mathscr{A}\)</span>, <span class="math inline">\(A_n\downarrow\varnothing\)</span>, 都有 <span class="math inline">\(\lim\limits_{n\to\infty}\mu(A_n)=0\)</span>. 则 <span class="math inline">\(\mu\)</span> 为 <span class="math inline">\(\mathscr{A}\)</span> 上的测度(即有限可加可提升为 <span class="math inline">\(\sigma\)</span> 可加).</li>
+</ol>
+</blockquote>
+<h4 id="测度的完全化">测度的完全化</h4>
+<ul>
+<li><strong><span class="math inline">\(\mu\)</span> 零集</strong>: 零测集的子集称为 <span class="math inline">\(\mu\)</span> 零集;</li>
+<li><strong>完全测度</strong>: 若每一个 <span class="math inline">\(\mu\)</span> 零集都属于 <span class="math inline">\(\mathcal{F}\)</span>, 则称 <span class="math inline">\(\mu\)</span> 为完全测度, 该测度空间为完全测度空间.</li>
+</ul>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> 为测度空间, 令 <span class="math display">\[\overline{\mathcal{F}}=\{A\triangle N:A\in\mathcal{F}, N 为 \mu 零集\} =\{A\cup N:A\in\mathcal{F}, N 为 \mu 零集\} \]</span> <span class="math display">\[\overline{\mu}(A\triangle N)=\mu(A),~A\in\mathcal{F},~N 为 \mu 零集合\]</span> 则 <span class="math inline">\((\Omega,\overline{\mathcal{F}},\overline{\mu})\)</span> 为一个完全测度空间, 称为原空间的完全化.</p>
+</blockquote>
+<h2 id="可测函数与随机变量">可测函数与随机变量</h2>
+<h3 id="逆像">逆像</h3>
+<h4 id="逆像与集合运算的交换">逆像与集合运算的交换</h4>
+<p>设 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\Omega\to E\)</span> 的映射, 则 <span class="math inline">\(f^{-1}\)</span> 有如下性质:</p>
+<ol type="1">
+<li><p><span class="math inline">\(f^{-1}(E)=\Omega\)</span>, <span class="math inline">\(f^{-1}(\varnothing)=\varnothing\)</span>;</p></li>
+<li><p><span class="math inline">\(f^{-1}(B^c)=(f^{-1}(B))^c\)</span>;</p></li>
+<li><p><span class="math inline">\(f^{-1}(\bigcup\limits_{\gamma\in\Gamma}B_\gamma)=\bigcup\limits_{\gamma\in\Gamma}f^{-1}(B_\gamma)\)</span>;</p></li>
+<li><p><span class="math inline">\(f^{-1}(\bigcap\limits_{\gamma\in\Gamma}B_\gamma)=\bigcap\limits_{\gamma\in\Gamma}f^{-1}(B_\gamma)\)</span>;</p></li>
+<li><p><span class="math inline">\(f^{-1}(B_1\backslash B_2)=f^{-1}(B_1)\backslash f^{-1}(B_2)\)</span>.</p></li>
+</ol>
+<h4 id="逆像与集类">逆像与集类</h4>
+<p>进一步, <span class="math inline">\(f^{-1}\)</span> 还对集类有相同的作用:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathscr{E}\)</span> 为 <span class="math inline">\(E\)</span> 的一个 <span class="math inline">\(\sigma\)</span> 代数 <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(f^{-1}(\mathscr{E})\)</span> 是 <span class="math inline">\(\Omega\)</span> 的 <span class="math inline">\(\sigma\)</span> 代数;</p></li>
+<li><p><span class="math inline">\(\mathcal{C}\)</span> 是 <span class="math inline">\(E\)</span> 的任意非空子集类, 则 <span class="math inline">\(f^{-1}(\sigma(\mathcal{C}))=\sigma(f^{-1}(\mathcal{C}))\)</span>. (<strong>证明: <span class="math inline">\(\lambda-\pi\)</span> 系方法</strong>)</p></li>
+</ol>
+<h3 id="随机变量">随机变量</h3>
+<blockquote>
+<p><strong>定理</strong> <span class="math inline">\(X\)</span> 是 <span class="math inline">\((\Omega,\mathcal{F})\to (E,\mathscr{E})\)</span> 的可测映射的充要条件是: 存在 <span class="math inline">\(\mathscr{E}\)</span> 的一个子集类 <span class="math inline">\(\mathcal{C}\)</span>, s.t. 1. <span class="math inline">\(\sigma(\mathcal{C})=\mathscr{E}\)</span>; 2. <span class="math inline">\(\forall A\in\mathcal{C}\)</span>, <span class="math inline">\(X^{-1}(A)\in\mathcal{F}\)</span>.</p>
+</blockquote>
+<h4 id="可测函数的构造">可测函数的构造</h4>
+<center>
+<font color="red"><strong>非负简单函数→非负可测函数→可测函数</strong></font>
+</center>
+<h3 id="单调类定理-2">单调类定理</h3>
+<h4 id="mathscrl-系"><span class="math inline">\(\mathscr{L}\)</span> 系</h4>
+<p>设 <span class="math inline">\(\mathscr{L}\)</span> 是定义在 <span class="math inline">\(\Omega\)</span> 上的广义实函数类, 满足: <span class="math inline">\(f\in\mathscr{L}\Rightarrow f^+,f^-\in\mathscr{L}\)</span>. 函数族 <span class="math inline">\(L\)</span> 称为 <span class="math inline">\(\mathscr{L}\)</span>, 如果满足: 1. <span class="math inline">\(1\in L\)</span>; 2. <span class="math inline">\(L\)</span> 中有限个函数的线性组合(如果有意义)属于 <span class="math inline">\(L\)</span>; 3. 若 <span class="math inline">\(f_n\in L\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(0\leqslant f_n\uparrow f\)</span>, <span class="math inline">\(f\)</span> 有界或 <span class="math inline">\(f\in\mathscr{L}\)</span>, 则 <span class="math inline">\(f\in L\)</span>.</p>
+<h4 id="单调类定理-3">单调类定理</h4>
+<blockquote>
+<p>若 <span class="math inline">\(\mathscr{L}\)</span> 系 <span class="math inline">\(L\)</span> 包含一 <span class="math inline">\(\pi\)</span> 系 <span class="math inline">\(\mathcal{C}\)</span> 中任意集合的示性函数, 则 <span class="math inline">\(L\)</span> 包含所有属于 <span class="math inline">\(\mathscr{L}\)</span> 的 <span class="math inline">\(\sigma(\mathcal{C})\)</span> 可测函数.</p>
+</blockquote>
+<ul>
+<li>证明: <span class="math inline">\(\lambda-\pi\)</span> 系方法.</li>
+</ul>
+<h2 id="积分与数学期望">积分与数学期望</h2>
+<center>
+<font color="red"><strong>非负简单函数→非负可测函数→可测函数</strong></font>
+</center>
+<h3 id="积分的性质">积分的性质</h3>
+<h4 id="单调收敛">单调收敛</h4>
+<blockquote>
+<p><strong>定理</strong> 若 <span class="math inline">\(f_n\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 是<strong>非负</strong>(可举反例)可测函数列, 且 <span class="math inline">\(f_n\uparrow f\)</span>, 则 <span class="math inline">\(\lim\limits_{n\to\infty}\int f_n=\int f\)</span>.</p>
+</blockquote>
+<h4 id="积分的序性质">积分的序性质</h4>
+<ol type="1">
+<li><p>若 <span class="math inline">\(f,g\)</span> 为实函数, <span class="math inline">\(\int f\)</span>, <span class="math inline">\(\int g\)</span> 存在, 且 <span class="math inline">\(f\geqslant g\)</span>, a.e. 则 <span class="math inline">\(\int_A f\geqslant \int_A g\)</span>, <span class="math inline">\(\forall A\in\mathcal{F}\)</span>.</p></li>
+<li><p>若 <span class="math inline">\(\int f\)</span> 存在, 则 <span class="math inline">\(\vert\int f\vert\leqslant \int\vert f\vert\)</span>,</p></li>
+<li><p><span class="math inline">\(f\geqslant 0\)</span>, 则 <span class="math inline">\(\int f=0\Leftrightarrow f=0\)</span>, a.e..</p></li>
+</ol>
+<h4 id="可积性质">可积性质</h4>
+<p>给定可测函数 <span class="math inline">\(f,g\)</span> 有:</p>
+<ol type="1">
+<li><p><span class="math inline">\(f\)</span> 可积 <span class="math inline">\(\Leftrightarrow\)</span> $f&lt;$; 当 <span class="math inline">\(f\)</span> 可积时, <span class="math inline">\(f\)</span> a.e. 有限;</p></li>
+<li><p>若 <span class="math inline">\(\vert f\vert\leqslant g\)</span> 可积, 则 <span class="math inline">\(f\)</span> 可积;</p></li>
+<li><p>若 <span class="math inline">\(f,g\)</span> 可积, 则 <span class="math inline">\(f+g\)</span> 可积.</p></li>
+</ol>
+<h3 id="期望的性质">期望的性质</h3>
+<h4 id="独立事件类的扩张">独立事件类的扩张</h4>
+<p>独立事件类可以由 <span class="math inline">\(\pi\)</span> 系扩张至其生成的 <span class="math inline">\(\sigma\)</span> 代数.</p>
+<blockquote>
+<p><strong>定理</strong> <span class="math inline">\(\mathcal{C}_k\subset\mathcal{F}\)</span> 为包含 <span class="math inline">\(\Omega\)</span> 的 <span class="math inline">\(\pi\)</span> 系, 若 <span class="math inline">\(\forall A_k\in\mathcal{C}_k\)</span>, <span class="math inline">\(k=1,\cdots,n\)</span>, 有 <span class="math display">\[\mathbb{P}(\bigcap\limits_{k=1}^n A_k)=\prod\limits_{k=1}^n \mathbb{P}(A_k),\]</span> 则上式对 <span class="math inline">\(\forall A_k\in\sigma(\mathcal{C}_k)\)</span>, <span class="math inline">\(k=1,\cdots,n\)</span> 成立.</p>
+</blockquote>
+<h4 id="独立随机变量">独立随机变量</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(X_1,\cdots,X_n\)</span> 为独立r.v., 且 <span class="math inline">\(\mathbb{E}X_k\)</span> 有限, 则 <span class="math display">\[\mathbb{E}(X_1\cdots X_n)=\prod\limits_{k=1}^n \mathbb{E}X_k.\]</span></p>
+</blockquote>
+<h3 id="l-s-积分表示">L-S 积分表示</h3>
+<h4 id="分布测度">分布测度</h4>
+<p>设 <span class="math inline">\(f\)</span> 是 <span class="math inline">\((\Omega,\mathcal{F},\mu)\to(E,\mathscr{E})\)</span> 的可测映射, <span class="math inline">\(\mu\)</span> 是 <span class="math inline">\(\mathcal{F}\)</span> 上的测度, 定义 <span class="math display">\[\mu_f(B)=\mu(f^{-1}(B)),\quad \forall B\in\mathscr{E},\]</span> 则 <span class="math inline">\(\mu_f\)</span> 是 <span class="math inline">\(\mathscr{E}\)</span> 上的测度, 也可记作 <span class="math inline">\(\mu_f=\mu\circ f^{-1}\)</span>.</p>
+<h4 id="积分变换定理">积分变换定理</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(f\)</span> 是 <span class="math inline">\((\Omega,\mathcal{F},\mu)\to(E,\mathscr{E})\)</span> 的可测映射, <span class="math inline">\(g\)</span> 是 <span class="math inline">\((E,\mathscr{E})\)</span> 上的可测函数, 则 <span class="math display">\[\int_{f^{-1}(B)}(g\circ f){\rm d}\mu=\int_B g{\rm d}\mu_f,\quad \forall B\in\mathscr{E}.~(同时存在,~存在即相等)\]</span></p>
+</blockquote>
+<h4 id="积分变换">积分变换</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(\mu\)</span> 是 <span class="math inline">\((\Omega,\mathcal{F})\)</span> 上的测度, <span class="math inline">\(p\)</span> 是非负 <span class="math inline">\(\mathcal{F}\)</span> 可测函数, 定义 <span class="math display">\[\nu(A)=\int_A p(w)\mu({\rm d}w),\quad A\in \mathcal{F},\]</span> 则 <span class="math inline">\(\nu\)</span> 是 <span class="math inline">\(\mathcal{F}\)</span> 上的测度, 且有 <span class="math display">\[\int_A g(w)\nu({\rm d}w)=\int_A g(w)p(w)\mu({\rm d}w).~(同时存在,~存在即相等)\]</span></p>
+</blockquote>
+<h3 id="积分的收敛">积分的收敛</h3>
+<h4 id="单调收敛定理">单调收敛定理</h4>
+<blockquote>
+<p><strong>定理</strong> 给定 <span class="math inline">\((\Omega,\mathcal{F},\mu)\)</span>, <span class="math inline">\(g\)</span> 为实可积函数, <span class="math inline">\(f_n\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 是实 <span class="math inline">\(\mathcal{F}\)</span> 可测函数, 若 <span class="math inline">\(g\leqslant f_n\uparrow f\)</span>, a.e. 则 <span class="math display">\[\lim\limits_{n\to\infty}\int f_n=\int\lim\limits_{n\to\infty}f_n.\]</span></p>
+</blockquote>
+<h4 id="fatou引理">Fatou引理</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(g,h\)</span> 是可积实函数, ${f_n:n} $ 是实可测函数列, 有 1. <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\geqslant g\)</span>, a.e., 则 <span class="math display">\[\int\varliminf\limits_{n\to\infty} f_n\leqslant \varliminf\limits_{n\to\infty}\int f_n.\]</span> 2. <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\leqslant h\)</span>, a.e., 则 <span class="math display">\[\int\varlimsup\limits_{n\to\infty} f_n\geqslant \varlimsup\limits_{n\to\infty}\int f_n.\]</span></p>
+</blockquote>
+<h4 id="控制收敛定理">控制收敛定理</h4>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(g,h\)</span> 为可积实函数. 1. 若 <span class="math inline">\(f_n\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 为实可测函数序列, 当 <span class="math inline">\(g\leqslant f_n\leqslant h\)</span>, a.e., <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\to f\)</span>, a.e. 时, 有 <span class="math inline">\(\int f_n\to\int f\)</span>. 2. 若 <span class="math inline">\(f_n\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 为实或复可测函数序列, 当 <span class="math inline">\(\vert f_n\vert\leqslant g\)</span>, a.e., <span class="math inline">\(\forall n\in\mathbb{N}\)</span>, <span class="math inline">\(f_n\to f\)</span>, a.e. 时, 有 <span class="math inline">\(\int\vert f_n-f\vert\to 0\)</span>, 因而 <span class="math inline">\(\int f_n\to\int f\)</span>.</p>
+</blockquote>
+<h2 id="乘积空间">乘积空间</h2>
+<h3 id="乘积-sigma-代数">乘积 <span class="math inline">\(\sigma\)</span> 代数</h3>
+<p>设 <span class="math inline">\((\Omega_i,\mathcal{F})\)</span>, <span class="math inline">\(i=1,2\)</span> 是可测空间, 称包含可测矩形 <span class="math display">\[\mathcal{C}=\{A_1\times A_2: A_i\in\mathcal{F}, i=1,2\} \]</span> 的最小 <span class="math inline">\(\sigma\)</span> 代数为 <span class="math inline">\(\mathcal{F}_1,\mathcal{F}_2\)</span> 的乘积 <span class="math inline">\(\sigma\)</span> 代数.</p>
+<ul>
+<li>可测矩形类 <span class="math inline">\(\mathcal{C}\)</span> 是一个半集代数;</li>
+<li><span class="math inline">\(\mathscr{B}^2=\mathscr{B}\times\mathscr{B}\)</span>. (<strong>证明: <span class="math inline">\(\lambda-\pi\)</span> 系方法</strong>)</li>
+</ul>
+<h3 id="截集">截集</h3>
+<h4 id="截集-1">截集</h4>
+<p><span class="math inline">\(A\subset\Omega_1\times\Omega_2\)</span>, <span class="math inline">\(\omega_i\in\Omega_i\)</span>, <span class="math inline">\(i=1,2\)</span>, 称集合 <span class="math display">\[A_{\omega_1}=A(\omega_1)=\{\omega_2\in\Omega_2: (\omega_1,\omega_2)\in A\} ,\]</span> <span class="math display">\[A_{\omega_2}=A(\omega_2)=\{\omega_1\in\Omega_1: (\omega_1,\omega_2)\in A\} ,\]</span> 分别为 <span class="math inline">\(A\)</span> 在 <span class="math inline">\(\omega_1\)</span>, <span class="math inline">\(\omega_2\)</span> 处的截集.</p>
+<h4 id="截集的性质">截集的性质</h4>
+<p>截集与集合的运算可以交换:</p>
+<ol type="1">
+<li><p><span class="math inline">\(A\cap B=\varnothing\Rightarrow A(\omega_i)\cap B(\omega_i)=\varnothing\)</span>;</p></li>
+<li><p><span class="math inline">\(A\subset B\Rightarrow A(\omega_i)\subset B(\omega_i)\)</span>;</p></li>
+<li><p><span class="math inline">\(A=\bigcup\limits_\alpha A^{(\alpha)}\Rightarrow A(\omega_i)=\bigcup\limits_\alpha A^{(\alpha)}(\omega_i)\)</span>;</p></li>
+<li><p><span class="math inline">\(A=\bigcap\limits_\alpha A^{(\alpha)}\Rightarrow A(\omega_i)=\bigcap\limits_\alpha A^{(\alpha)}(\omega_i)\)</span>;</p></li>
+<li><p><span class="math inline">\(C=A\backslash B\Rightarrow C(\omega_i)=A(\omega_i)\backslash B(\omega_i)\)</span>.</p></li>
+</ol>
+<p>对于截集的可测性有如下定理:</p>
+<blockquote>
+<p><strong>定理</strong> 取 <span class="math inline">\(A\in\mathcal{F}_1\times\mathcal{F}_2\)</span>, 则 <span class="math inline">\(\forall \omega_1\in\mathcal{F}_1\)</span>, 有 <span class="math inline">\(A(\omega_1)\in\mathcal{F}_2\)</span>.</p>
+</blockquote>
+<p><strong>证明: <span class="math inline">\(\lambda-\pi\)</span> 系方法.</strong></p>
+<h4 id="截函数">截函数</h4>
+<ul>
+<li><span class="math inline">\(f_{\omega_1}=f(\omega_1,\cdot)\)</span> 称为 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\omega_1\)</span> 的截函数;</li>
+<li><span class="math inline">\(f_{\omega_2}=f(\cdot,\omega_2)\)</span> 称为 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\omega_2\)</span> 的截函数;</li>
+</ul>
+<blockquote>
+<p><strong>定理</strong> 任意 <span class="math inline">\(\mathcal{F}_1\times\mathcal{F}_2\)</span> 可测函数的截函数是可测的.</p>
+</blockquote>
+<p>关于截函数还有如下重要定理:</p>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathcal{F}_1\times\mathcal{F}_2\)</span> 可测函数, <span class="math inline">\(\mu_i\)</span> 是 <span class="math inline">\(\sigma\)</span> 有限测度, 则 <span class="math display">\[f^{(2)}=\int_{\Omega_1}f(\omega_1,\cdot)\mu_1({\rm d}\omega_1)\]</span> <span class="math display">\[f^{(1)}=\int_{\Omega_2}f(\cdot,\omega_2)\mu_2({\rm d}\omega_2)\]</span> 是非负可测函数.</p>
+</blockquote>
+<h3 id="乘积测度">乘积测度</h3>
+<p>设 <span class="math inline">\(\mu_i\)</span> 是 <span class="math inline">\(\sigma\)</span> 有限测度, 若令 <span class="math display">\[\mu(A)=\int_{\Omega_1}\mu_2(A(\omega_1))\mu_1({\rm d}\omega_1),~A\in\mathcal{F}_1\times\mathcal{F}_2,\]</span> 或 <span class="math display">\[\mu(A)=\int_{\Omega_2}\mu_1(A(\omega_2))\mu_2({\rm d}\omega_2),~A\in\mathcal{F}_1\times\mathcal{F}_2,\]</span> 则 <span class="math inline">\(\mu\)</span> 是 <span class="math inline">\(\mathcal{F}_1\times\mathcal{F}_2\)</span> 上唯一满足 <span class="math display">\[\mu(A_1\times A_2)=\mu_1(A_1)\mu_2(A_2),~\forall A_i\in\mathcal{F}_i\]</span> 的 <span class="math inline">\(\sigma\)</span> 有限测度.</p>
+<h3 id="转移测度">转移测度</h3>
+<p>映射 <span class="math inline">\(\lambda:\Omega_1\times\mathcal{F}_2\to [0,\infty]\)</span> 满足下列条件, 就称之为 <span class="math inline">\((\Omega_1,\mathcal{F}_1)\to(\Omega_2,\mathcal{F}_2)\)</span> 的转移测度: 1. <span class="math inline">\(\forall B\in\mathcal{F}_2\)</span>, <span class="math inline">\(\lambda(\cdot,B)\)</span> 是 <span class="math inline">\(\mathcal{F}_1\)</span> 可测函数; 2. <span class="math inline">\(\forall \omega\in\Omega_1\)</span>, <span class="math inline">\(\lambda(\omega,\cdot)\)</span> 是 <span class="math inline">\(\mathcal{F}_2\)</span> 上的测度.</p>
+<p>若 <span class="math inline">\(\exists B_{kn}\in\mathcal{F}_k\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> 两两不交, <span class="math inline">\(\Omega_k=\bigcup\limits_{n=1}^\infty B_{kn}\)</span>, <span class="math inline">\(k=1,2\)</span>, s.t. <span class="math display">\[\sup\limits_{\omega\in B_{1m}}\lambda(\omega,B_{2n})&lt;\infty,~\forall m,n\in\mathbb{N},\]</span> 则称 <span class="math inline">\(\lambda\)</span> 为 <span class="math inline">\(\sigma\)</span> 有限转移测度.</p>
+<h3 id="fubini定理">Fubini定理</h3>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(f\)</span> 是非负 <span class="math inline">\(\mathcal{F}_1\times\mathcal{F}_2\)</span> 可测函数, 则 <span class="math display">\[
+\begin{align}
+\int_{\Omega_1\times\Omega_2}f{\rm d}(\mu_1\times\mu_2) &amp;= \int_{\Omega_1}\left(\int_{\Omega_2}f(\omega_1,\omega_2)\mu_2({\rm d}\omega_2)\right)\mu_1({\rm d}\omega_1) \\
+&amp;= \int_{\Omega_2}\left(\int_{\Omega_1}f(\omega_1,\omega_2)\mu_1({\rm d}\omega_1)\right)\mu_2({\rm d}\omega_2).
+\end{align}\]</span></p>
+</blockquote>
+<h4 id="fubini定理-1">Fubini定理</h4>
+<blockquote>
+<p><strong>Fubini</strong> 设 <span class="math inline">\(f\)</span> 是非负 <span class="math inline">\(\mathcal{F}_1\times\mathcal{F}_2\)</span> 可测函数且 <span class="math inline">\(\int f{\rm d}(\mu_1\times\mu_2)\)</span> 存在, 则 1. 积分函数存在且可测: - <span class="math inline">\(g(\omega_1)=\int_{\Omega_2}f(\omega_1,\omega_2)\mu_2({\rm d}\omega_2)\)</span> 存在且 <span class="math inline">\(\mathcal{F}_1\)</span> 可测; - <span class="math inline">\(h(\omega_2)=\int_{\Omega_1}f(\omega_1,\omega_2)\mu_1({\rm d}\omega_1)\)</span> 存在且 <span class="math inline">\(\mathcal{F}_2\)</span> 可测; 2. <span class="math inline">\(\int_{\Omega_1}g{\rm d}\mu_1\)</span>, <span class="math inline">\(\int_{\Omega_2}h{\rm d}\mu_2\)</span> 存在且 <span class="math display">\[\int_{\Omega_1\times\Omega_2}f({\rm d}\mu_1\times\mu_2)=\int_{\Omega_1}g({\rm d}\mu_1)=\int_{\Omega_2}f({\rm d}\mu_2);\]</span> 3. 若 <span class="math inline">\(f\)</span> 对 <span class="math inline">\(\mu_1\times\mu_2\)</span> 可积, 则 <span class="math inline">\(g\)</span>, <span class="math inline">\(h\)</span> 分别对 <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> 可积.</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/概率论/" rel="tag"># 概率论</a>
+          
+            <a href="/tags/测度论/" rel="tag"># 测度论</a>
+          
+            <a href="/tags/期末复习/" rel="tag"># 期末复习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/24/Reviewing-Notes-on-BNU-Functional-Analysis/" rel="next" title="泛函——复习重点">
+                <i class="fa fa-chevron-left"></i> 泛函——复习重点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/06/Reviewing-Notes-on-BNU-Mathematical-Statistics/" rel="prev" title="数理统计复习重点">
+                数理统计复习重点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测度空间"><span class="nav-number">1.</span> <span class="nav-text">测度空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#各种集类"><span class="nav-number">1.1.</span> <span class="nav-text">各种集类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#半集代数"><span class="nav-number">1.1.1.</span> <span class="nav-text">半集代数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集代数"><span class="nav-number">1.1.2.</span> <span class="nav-text">集代数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sigma-代数"><span class="nav-number">1.1.3.</span> <span class="nav-text">\(\sigma\) 代数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单调类定理"><span class="nav-number">1.2.</span> <span class="nav-text">单调类定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda-系"><span class="nav-number">1.2.1.</span> <span class="nav-text">\(\lambda\) 系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pi-系"><span class="nav-number">1.2.2.</span> <span class="nav-text">\(\pi\) 系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单调类定理-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">单调类定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测度的构造"><span class="nav-number">1.3.</span> <span class="nav-text">测度的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有限可加测度"><span class="nav-number">1.3.1.</span> <span class="nav-text">有限可加测度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sigma-可加测度"><span class="nav-number">1.3.2.</span> <span class="nav-text">\(\sigma\) 可加测度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sigma-有限测度"><span class="nav-number">1.3.3.</span> <span class="nav-text">\(\sigma\) 有限测度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测度扩张定理"><span class="nav-number">1.4.</span> <span class="nav-text">测度扩张定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#半集代数上的测度"><span class="nav-number">1.4.1.</span> <span class="nav-text">半集代数上的测度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测度扩张定理-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">测度扩张定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外测度"><span class="nav-number">1.4.3.</span> <span class="nav-text">外测度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测度空间-1"><span class="nav-number">1.5.</span> <span class="nav-text">测度空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#测度空间-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">测度空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可加性的提升"><span class="nav-number">1.5.2.</span> <span class="nav-text">可加性的提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测度的完全化"><span class="nav-number">1.5.3.</span> <span class="nav-text">测度的完全化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可测函数与随机变量"><span class="nav-number">2.</span> <span class="nav-text">可测函数与随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逆像"><span class="nav-number">2.1.</span> <span class="nav-text">逆像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逆像与集合运算的交换"><span class="nav-number">2.1.1.</span> <span class="nav-text">逆像与集合运算的交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆像与集类"><span class="nav-number">2.1.2.</span> <span class="nav-text">逆像与集类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机变量"><span class="nav-number">2.2.</span> <span class="nav-text">随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可测函数的构造"><span class="nav-number">2.2.1.</span> <span class="nav-text">可测函数的构造</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单调类定理-2"><span class="nav-number">2.3.</span> <span class="nav-text">单调类定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mathscrl-系"><span class="nav-number">2.3.1.</span> <span class="nav-text">\(\mathscr{L}\) 系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单调类定理-3"><span class="nav-number">2.3.2.</span> <span class="nav-text">单调类定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#积分与数学期望"><span class="nav-number">3.</span> <span class="nav-text">积分与数学期望</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#积分的性质"><span class="nav-number">3.1.</span> <span class="nav-text">积分的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单调收敛"><span class="nav-number">3.1.1.</span> <span class="nav-text">单调收敛</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#积分的序性质"><span class="nav-number">3.1.2.</span> <span class="nav-text">积分的序性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可积性质"><span class="nav-number">3.1.3.</span> <span class="nav-text">可积性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#期望的性质"><span class="nav-number">3.2.</span> <span class="nav-text">期望的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#独立事件类的扩张"><span class="nav-number">3.2.1.</span> <span class="nav-text">独立事件类的扩张</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#独立随机变量"><span class="nav-number">3.2.2.</span> <span class="nav-text">独立随机变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#l-s-积分表示"><span class="nav-number">3.3.</span> <span class="nav-text">L-S 积分表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布测度"><span class="nav-number">3.3.1.</span> <span class="nav-text">分布测度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#积分变换定理"><span class="nav-number">3.3.2.</span> <span class="nav-text">积分变换定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#积分变换"><span class="nav-number">3.3.3.</span> <span class="nav-text">积分变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#积分的收敛"><span class="nav-number">3.4.</span> <span class="nav-text">积分的收敛</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单调收敛定理"><span class="nav-number">3.4.1.</span> <span class="nav-text">单调收敛定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fatou引理"><span class="nav-number">3.4.2.</span> <span class="nav-text">Fatou引理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制收敛定理"><span class="nav-number">3.4.3.</span> <span class="nav-text">控制收敛定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乘积空间"><span class="nav-number">4.</span> <span class="nav-text">乘积空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乘积-sigma-代数"><span class="nav-number">4.1.</span> <span class="nav-text">乘积 \(\sigma\) 代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截集"><span class="nav-number">4.2.</span> <span class="nav-text">截集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#截集-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">截集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截集的性质"><span class="nav-number">4.2.2.</span> <span class="nav-text">截集的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截函数"><span class="nav-number">4.2.3.</span> <span class="nav-text">截函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘积测度"><span class="nav-number">4.3.</span> <span class="nav-text">乘积测度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移测度"><span class="nav-number">4.4.</span> <span class="nav-text">转移测度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fubini定理"><span class="nav-number">4.5.</span> <span class="nav-text">Fubini定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fubini定理-1"><span class="nav-number">4.5.1.</span> <span class="nav-text">Fubini定理</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

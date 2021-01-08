@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,数学,北大,论文笔记,保研,经济学," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.   \(n\) 个物品被分配给 \(n\) 个人的问题, 称为分配问题. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出">
+<meta name="keywords" content="师大,数学,北大,论文笔记,保研,经济学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记[1]——随机分配问题的PS算法和依次有效性">
+<meta property="og:url" content="http://lizhechen.com/2018/04/05/Paper-Reading-1-A New Solution to the Random Assignment Problem/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.   \(n\) 个物品被分配给 \(n\) 个人的问题, 称为分配问题. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-27T15:48:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记[1]——随机分配问题的PS算法和依次有效性">
+<meta name="twitter:description" content="文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.   \(n\) 个物品被分配给 \(n\) 个人的问题, 称为分配问题. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2018/04/05/Paper-Reading-1-A New Solution to the Random Assignment Problem/"/>
+
+
+
+
+
+  <title>论文笔记[1]——随机分配问题的PS算法和依次有效性 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/04/05/Paper-Reading-1-A New Solution to the Random Assignment Problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记[1]——随机分配问题的PS算法和依次有效性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-05T20:02:56+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.</p>
+</blockquote>
+<ul>
+<li><span class="math inline">\(n\)</span> 个物品被分配给 <span class="math inline">\(n\)</span> 个人的问题, 称为<strong>分配问题</strong>. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出一种RP算法.</li>
+<li>文章对已有的RP算法进行了讨论, 并提出了一种新的分配方法, PS算法.</li>
+</ul>
+<a id="more"></a>
+<h2 id="分配问题">分配问题</h2>
+<blockquote>
+<p><strong>分配问题</strong>: <span class="math inline">\(n\)</span> 个物品被分配给 <span class="math inline">\(n\)</span> 个人的问题, 称为分配问题.</p>
+</blockquote>
+<p>分配中, 每个人都对这 <span class="math inline">\(n\)</span> 个东西有一个偏好顺序. 此处假定每个人的偏好关系是严格的, 即每个人对任何两个物品都有一个严格的排序.</p>
+<h2 id="随机优先rp算法">随机优先(RP)算法</h2>
+<blockquote>
+<p><strong>RP</strong> <span class="math inline">\(n\)</span> 个人随机选定一个选择的顺序, 按照顺序在 <span class="math inline">\(n\)</span> 个物品中选择.</p>
+</blockquote>
+<p>很容易发现RP算法有以下两点好处:</p>
+<ul>
+<li>RP算法看起来是比较<strong>公平</strong>的;</li>
+<li><span title="若某个人在选择中撒了谎, 则他最终获得的一定不是他所能得到的最好选择, 故撒谎没有好处.">RP算法是<strong>无操作</strong>(Strategyproofness)的, 即大家都会选择说真话.</span></li>
+</ul>
+<p>但用<code>VNM效用</code>函数去分析时, RP算法存在缺陷.</p>
+<blockquote>
+<p><strong>VNM效用</strong> 设某人得到物品 <span class="math inline">\(x_i\)</span> 的概率为 <span class="math inline">\(P_i\)</span>, 在得到 <span class="math inline">\(x_i\)</span> 时的效用为 <span class="math inline">\(u(x_i)\)</span>, 则其VNM效用为 <span class="math display">\[U(X)=\sum_i P_i u(x_i)\]</span></p>
+</blockquote>
+<p>分析可知:</p>
+<ul>
+<li><strong>在使VNM效用最大化的意义下, RP算法并不总是最优的.</strong></li>
+</ul>
+<p>但RP算法具有如下两个优势:</p>
+<ol type="1">
+<li>事后有效 (ex post efficient): 每次分配确定的方案都是Pareto最优的. <span title="每个人都会在选择时选当前最优的物品, 若为增大某人利益而进行了一些改变, 则至少有一个人的利益会损害. (写的有点不太像人话Orz)">即增大某人利益的同时一定会损害其他人的利益.</span></li>
+<li>算法简单: RP算法在分配时, 每一轮只需要考虑一个人的偏好.</li>
+</ol>
+<h2 id="概率序列ps算法">概率序列(PS)算法</h2>
+<p>考虑一个例子:</p>
+<blockquote>
+<ul>
+<li>参与者1, 2: <span class="math inline">\(a\succ b\succ c\succ d\)</span>;<br>
+</li>
+<li>参与者3, 4: <span class="math inline">\(b\succ a\succ d\succ c\)</span>.</li>
+</ul>
+</blockquote>
+<p>则RP算法的概率矩阵为 <span class="math inline">\(A\)</span>(每行代表一个人, 每列代表一样物品). 然而考虑 <span class="math inline">\(B\)</span> 可知, 无论效用函数的形式如何, 概率矩阵 <span class="math inline">\(B\)</span> 都比RP算法得到的结果要好. <span class="math display">\[A=\begin{bmatrix}\frac{5}{12}&amp;\frac{1}{12}&amp;\frac{5}{12}&amp;\frac{1}{12}\\ \frac{5}{12}&amp;\frac{1}{12}&amp;\frac{5}{12}&amp;\frac{1}{12}\\ \frac{1}{12}&amp;\frac{5}{12}&amp;\frac{1}{12}&amp;\frac{5}{12}\\ \frac{1}{12}&amp;\frac{5}{12}&amp;\frac{1}{12}&amp;\frac{5}{12}\\ \end{bmatrix},~B=\begin{bmatrix}\frac{1}{2}&amp;0&amp;\frac{1}{2}&amp;0\\ \frac{1}{2}&amp;0&amp;\frac{1}{2}&amp;0\\ 0&amp;\frac{1}{2}&amp;0&amp;\frac{1}{2}\\ 0&amp;\frac{1}{2}&amp;0&amp;\frac{1}{2}\\ \end{bmatrix}\]</span></p>
+<p><span class="math inline">\(B\)</span> 矩阵的获取可从如下角度考虑:</p>
+<p>在分配中, 将每个物品都视为一种食物, 偏好关系表示对食物的喜好. 所有的人同时开始以相同速率(不妨设为1)吃东西. 每个人都会优先吃自己最喜欢的食物. 当一样食物被吃完时, 该食物即被分配给吃该食物量最多的人.</p>
+<h2 id="ps算法的有效性">PS算法的有效性</h2>
+<h3 id="形式化定义">形式化定义</h3>
+<p>设参与者的集合为 <span class="math inline">\(N\)</span>, 物品集合为 <span class="math inline">\(A\)</span>, 集合大小为 <span class="math inline">\(\vert N\vert=\vert A\vert=n\)</span>.</p>
+<h4 id="确定性分配与随机性分配">确定性分配与随机性分配</h4>
+<ul>
+<li>Deterministic Assignment: <span class="math inline">\(N\to A\)</span> 的一一映射, 可用 <span class="math inline">\(n\times n\)</span> 的置换矩阵表示. 记这样的分配构成的集合为 <span class="math inline">\(\mathscr{D}\)</span>;</li>
+<li>Random Allocation: <span class="math inline">\(A\)</span> 上的概率分布, 可用各个分量和为1的 <span class="math inline">\(n\)</span> 维向量表示. 记这样的分配构成的集合为 <span class="math inline">\(\mathscr{L}(A)\)</span>;</li>
+<li>Random Assignment: <span class="math inline">\(\mathscr{D}\)</span> 上的概率分布, 可用一个 <span class="math inline">\(n\times n\)</span> 的双随机矩阵(Bistochastic)表示. 即: <span class="math display">\[P=[p_{ia}]_{i\in N,a\in A}~~其中~~P=\sum\limits_{\Pi\in D}\lambda_\Pi\cdot\Pi,~\lambda_\Pi\geqslant 0,~\sum_\Pi\lambda_\Pi=1\]</span>矩阵的第 <span class="math inline">\(i\)</span> 行 <span class="math inline">\(P_i\)</span> 对应第 <span class="math inline">\(i\)</span> 个人的Random Allocation. <span class="math inline">\(p_{ia}\)</span> 表示 <span class="math inline">\(i\)</span> 得到物品 <span class="math inline">\(a\)</span> 的概率. 双随机矩阵构成的集合记为 <span class="math inline">\(\mathscr{R}\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>双随机矩阵</strong>可定义为: 每行每列和都为 <span class="math inline">\(1\)</span> 的矩阵. 如此可得到以下结论:<br>
+1. 第 <span class="math inline">\(i\)</span> 行可视为编号为 <span class="math inline">\(i\)</span> 的人对于 <span class="math inline">\(A\)</span> 中物品的效用分布;<br>
+2. 第 <span class="math inline">\(j\)</span> 列可视为 <span class="math inline">\(N\)</span> 中的每个人得到编号为 <span class="math inline">\(j\)</span> 的物品的可能性.</p>
+</blockquote>
+<h4 id="效用函数与偏好关系">效用函数与偏好关系</h4>
+<ul>
+<li>Preference: 每个参与者对物品都存在一个严格的偏好关系, 即对应于 <span class="math inline">\(A\)</span> 上的一个序关系 <span class="math inline">\(\succ_i\)</span>. 记所有这样的偏好关系构成的集合为 <span class="math inline">\(\mathscr{A}\)</span>;</li>
+<li>VNM Utility: 每个参与者拿到 <span class="math inline">\(A\)</span> 中的一件物品时, 产生的效用可视作 <span class="math inline">\(A\to\mathbb{R}\)</span> 的函数, 记作 <span class="math inline">\(u_i\)</span>. 效用函数实际上是偏好程度的量化.</li>
+</ul>
+<blockquote>
+<p>称效用函数 <span class="math inline">\(u_i\)</span> 和偏好关系 <span class="math inline">\(\succ_i\)</span> 是<strong>相容</strong>(compatible)的, 如果 <span class="math display">\[u_i(a)&gt;u_i(b)\iff a\succ_ib,~\forall a,b\in A.\]</span></p>
+</blockquote>
+<h3 id="确定性分配的有效性">确定性分配的有效性</h3>
+<ul>
+<li>Priority Assignment: 考虑偏好关系 <span class="math inline">\(\succ=\{\succ_i\}_{i\in N}\)</span>, 设 <span class="math inline">\(\sigma\)</span> 是 <span class="math inline">\(N\)</span> 的一个排列, 则按 <span class="math inline">\(\sigma\)</span> 的顺序进行分配即可得到一个分配方案, 即Priority Assignment. 记作 <span class="math inline">\(Prio(\sigma,\succ)\)</span>;</li>
+</ul>
+<center>
+<strong>以下记 <span class="math inline">\(N\)</span> 的所有排列构成的集合为 <span class="math inline">\(\theta\)</span>.</strong>
+</center>
+<blockquote>
+<p>一个Deterministic Assignment <span class="math inline">\(\Pi\)</span> 称为有效的, 如果<span class="math display">\[\exists\sigma\in\theta,~ \text{s.t.}~ \Pi=Prio(\sigma,\succ).\]</span></p>
+</blockquote>
+<p>关于确定性分配的有效性, 很容易得到下述引理:</p>
+<blockquote>
+<p><strong>LEMMA 1.</strong> 给定偏好关系 <span class="math inline">\(\succ\in\mathscr{A}^N\)</span> 和确定性分配 <span class="math inline">\(\Pi\)</span>, 则下列命题等价:<br>
+1. <span class="math inline">\(\Pi\)</span> 在 <span class="math inline">\(\mathscr{D}\)</span> 中是Pareto最优的;<br>
+2. <span class="math inline">\(\forall\)</span> 效用函数组 <span class="math inline">\(u=\{u_i\}\)</span>, <span class="math inline">\(\Pi\)</span> 在 <span class="math inline">\(\mathscr{R}\)</span> 中对 <span class="math inline">\(u\)</span> 是Pareto最优的;<br>
+3. <span class="math inline">\(\exists\sigma\in\theta\)</span>, s.t. <span class="math inline">\(\Pi=Prio(\sigma,\succ)\)</span>.</p>
+</blockquote>
+<h3 id="随机性分配的有效性">随机性分配的有效性</h3>
+<p>首先定义事前评估有效(ex ante efficient)和事后评估有效(ex post efficient):</p>
+<blockquote>
+<p><strong>Definition 1.</strong> 给定随机性分配 <span class="math inline">\(P\in\mathscr{R}\)</span>, 偏好关系组 <span class="math inline">\(\succ\in\mathscr{A}^N\)</span> 和VNM效用函数组 <span class="math inline">\(u\)</span>, 则有定义:<br>
+1. <span class="math inline">\(P\)</span> 对 <span class="math inline">\(u\)</span> 是<strong>事前评估有效</strong>的, iff <span class="math inline">\(P\)</span> 在 <span class="math inline">\(\mathscr{R}\)</span> 中对 <span class="math inline">\(u\)</span> 是Pareto最优的;<br>
+2. <span class="math inline">\(P\)</span> 对 <span class="math inline">\(\succ\)</span> 是<strong>事后评估有效</strong>的, iff <span class="math inline">\(P\)</span> 可被表示为有效的deterministic assignments上的概率分布, 即 <span class="math inline">\(P\)</span> 满足<span class="math display">\[P=\sum_{\sigma\in\theta}\mu_\sigma\cdot Prio(\sigma,\succ),~~~\mu_\sigma\geqslant 0,~\sum_{\sigma\in\theta}\mu_\sigma=1.\]</span></p>
+</blockquote>
+<p>根据上式可知, 所有<strong>事后评估有效</strong>的分配方案存在一个<strong>中心点</strong>(natural central point). 这个中心点就是<strong>随机优先分配</strong>(Random Priority), 即 <span class="math display">\[RP(\succ)=\frac{1}{n!}\sum_{\sigma\in\theta}Prio(\sigma,\succ).\]</span></p>
+<h4 id="随机占优关系">随机占优关系</h4>
+<p>考虑 <span class="math inline">\(A\)</span> 上的序关系 <span class="math inline">\(\succ_i\)</span>, 假设 <span class="math inline">\(a_1\succ_ia_2\succ_i\cdots\succ_ia_n\)</span>.</p>
+<blockquote>
+<p>可如下定义 <span class="math inline">\(\mathscr{L}(A)\)</span> 上的一个偏序关系 <span class="math inline">\(sd(\succ_i)\)</span>: <span class="math display">\[P_i~sd(\succ_i)~Q_i\iff\left\{\sum\limits_{k=1}^tp_{ia_k}\geqslant\sum\limits_{k=1}^tq_{ia_k},~\forall t=1,\cdots,n\right\},~P_i,Q_i\in\mathscr{L}(A).\]</span> 该偏序关系称作<strong>随机占优</strong>(stochastic dominance).</p>
+</blockquote>
+<p>关于随机占优, 容易得到如下结论:</p>
+<blockquote>
+<p><span class="math inline">\(\forall P_i,Q_i\in\mathscr{L}(A)\)</span>, <span class="math inline">\(P_i~sd(\succ_i)~Q_i\)</span> iff <span class="math inline">\(\forall\)</span> 与 <span class="math inline">\(\succ_i\)</span> 相容的 <span class="math inline">\(u_i\)</span>, 总有 <span class="math display">\[u_i\cdot P_i\geqslant u_i\cdot Q_i.\]</span></p>
+</blockquote>
+<p>进一步可以将随机占优关系推到 <span class="math inline">\(\mathscr{R}\)</span> 上:</p>
+<blockquote>
+<p><strong>DEFINITION 2.</strong> 给定偏好 <span class="math inline">\(\succ\)</span>, <span class="math inline">\(P,Q\in\mathscr{R}\)</span>, 称 <span class="math inline">\(Q\)</span> 随机占优于 <span class="math inline">\(P\)</span>(<span class="math inline">\(P\)</span> is stochastically dominated by <span class="math inline">\(Q\)</span>), 如果 <span class="math display">\[Q_i~sd(\succ_i)~P_i,~\forall i~且~Q\neq P\]</span></p>
+</blockquote>
+<h4 id="依次有效性">依次有效性</h4>
+<blockquote>
+<p>给定偏好关系 <span class="math inline">\(\succ\)</span>, 称 <span class="math inline">\(P\in\mathscr{R}\)</span> 是<strong>依次有效</strong>的, 如果不存在 <span class="math inline">\(Q\in\mathscr{R}\)</span>, s.t. <span class="math inline">\(Q\)</span> 随机占优于 <span class="math inline">\(P\)</span>.</p>
+</blockquote>
+<p>依次有效性与事前/事后评估有如下关系:</p>
+<blockquote>
+<p><strong>LEMMA 2.</strong> 给定一个Random Assignment <span class="math inline">\(P\in\mathscr{R}\)</span>, 一个偏好关系 <span class="math inline">\(\succ\)</span>, 和一组与 <span class="math inline">\(\succ\)</span> 相容的效用函数 <span class="math inline">\(u\)</span>, 则有:<br>
+1. 若 <span class="math inline">\(P\)</span> 对 <span class="math inline">\(u\)</span> 是<strong>事前评估有效</strong>的, 则 <span class="math inline">\(P\)</span> 对 <span class="math inline">\(\succ\)</span> 是<strong>依次有效</strong>的. <em>(逆命题在 <span class="math inline">\(n=2\)</span> 时成立, <span class="math inline">\(n\geqslant 3\)</span> 时可能失效)</em>;<br>
+2. 若 <span class="math inline">\(P\)</span> 对 <span class="math inline">\(\succ\)</span> 是<strong>依次有效</strong>的, 则 <span class="math inline">\(P\)</span> 对 <span class="math inline">\(\succ\)</span> 是<strong>事后评估有效</strong>的. <em>(逆命题在 <span class="math inline">\(n\leqslant 3\)</span> 时成立, <span class="math inline">\(n\geqslant 4\)</span> 时可能失效)</em>.</p>
+</blockquote>
+<h2 id="进食算法">进食算法</h2>
+<p>在PS算法处已经实际上介绍了进食算法:</p>
+<blockquote>
+<p><strong>SIMULTANEOUS EATING ALGORITHM</strong><br>
+　　给定偏好关系 <span class="math inline">\(\succ\)</span> 和一组函数 <span class="math inline">\(\{\omega_i(t)\}_{i\in N}\)</span>, s.t. <span class="math inline">\(\omega_i(t)\geqslant 0\)</span>, 且 <span class="math inline">\(\int_0^1\omega_i(t){\rm d}t=1\)</span>, 表示进食的速度.<br>
+　　所有的人按照自己的偏好关系开始进食, 并且在每个时刻, 每个参与者都吃自己当前最想吃并且有剩余的物品.</p>
+</blockquote>
+<h3 id="进食算法的依次有效性">进食算法的依次有效性</h3>
+<h4 id="依次有效的条件">依次有效的条件</h4>
+<p>在 <span class="math inline">\(\mathscr{R}\)</span> 上可如下定义一个二元关系 <span class="math inline">\(\tau\)</span>:</p>
+<blockquote>
+<p><strong>DEFINITION 2.</strong> 给定一个 Random Assignment <span class="math inline">\(P\in\mathscr{R}\)</span> 和偏好关系 <span class="math inline">\(\succ\)</span>, 如下定义 <span class="math inline">\(\tau\)</span>: <span class="math display">\[a\tau(P,\succ)b\iff \exists i\in N,~s.t.~a\succ_ib,~p_{ib}&gt;0.\]</span></p>
+</blockquote>
+<ul>
+<li><span class="math inline">\(a\tau b\)</span> 其实表示的是: 存在一个 <span class="math inline">\(i\)</span>, 比起 <span class="math inline">\(b\)</span> 更喜欢 <span class="math inline">\(a\)</span>, 但有可能会得到 <span class="math inline">\(b\)</span>.</li>
+</ul>
+<p>根据二元关系 <span class="math inline">\(\tau\)</span> 可得到依次有效的等价条件:</p>
+<blockquote>
+<p><strong>LEMMA 3.</strong> 一个Random Assignment <span class="math inline">\(P\in\mathscr{R}\)</span> 是依次有效的, iff <span class="math inline">\(\tau(P,\succ)\)</span> 无环(acyclic).</p>
+</blockquote>
+<p>其证明并不困难:</p>
+<ul>
+<li>充分性: 假设有一个环, 沿着环转一圈即可得到一个随机占优于 <span class="math inline">\(P\)</span> 的Assignment.</li>
+<li>必要性: 假设存在 <span class="math inline">\(Q\)</span> 随机占优于 <span class="math inline">\(P\)</span>, 则可直接得到一个 <span class="math inline">\(\tau\)</span> 的环.</li>
+</ul>
+<h4 id="进食算法的依次有效性-1">进食算法的依次有效性</h4>
+<blockquote>
+<p>进食算法是依次有效的.</p>
+</blockquote>
+<p>其证明也很简单, 直接利用引理 1即可.</p>
+<p>假设进食算法不是依次有效的, 则 <span class="math inline">\(\tau\)</span> 存在环: <span class="math display">\[a_0\tau a_1\tau\cdots \tau a_k\tau a_0.\]</span> 于是按照算法, 有如下命题:</p>
+<ul>
+<li><span class="math inline">\(i_0\)</span> 开始吃 <span class="math inline">\(a_1\)</span> 的时候, <span class="math inline">\(a_0\)</span> 已经被吃完, 故 <span class="math inline">\(a_0\)</span> 比 <span class="math inline">\(a_1\)</span> 更早被开始吃;</li>
+<li><span class="math inline">\(i_1\)</span> 开始吃 <span class="math inline">\(a_2\)</span> 的时候, <span class="math inline">\(a_1\)</span> 已经被吃完, 故 <span class="math inline">\(a_1\)</span> 比 <span class="math inline">\(a_2\)</span> 更早被开始吃;</li>
+<li><span class="math inline">\(\cdots\cdots\)</span></li>
+<li><span class="math inline">\(i_k\)</span> 开始吃 <span class="math inline">\(a_0\)</span> 的时候, <span class="math inline">\(a_k\)</span> 已经被吃完, 故 <span class="math inline">\(a_k\)</span> 比 <span class="math inline">\(a_0\)</span> 更早被开始吃.</li>
+</ul>
+<p>这显然是一个矛盾.</p>
+<p>进食算法的有效性由下列定理给出:</p>
+<blockquote>
+<p><strong>THEOREM 1.</strong> 给定偏好关系 <span class="math inline">\(\succ\in\mathscr{A}^N\)</span>, 对于任一组进食速率函数 <span class="math inline">\(\omega=\{\omega_i\}_{i\in N}\)</span>, Random Assignment <span class="math inline">\(P_\omega(\succ)\)</span> <strong>总是依次有效的</strong>.<br>
+　　反过来, 对于任一个对 <span class="math inline">\(\succ\)</span> 依次有效的Random Assignment <span class="math inline">\(P\)</span>, 存在一组进食速率函数 <span class="math inline">\(\omega=\{\omega_i\}_{i\in N}\)</span>, s.t. <span class="math inline">\(P=P_\omega(\succ)\)</span>.</p>
+</blockquote>
+<h3 id="ps算法">PS算法</h3>
+<p>至此我们可以严格地定义PS算法:</p>
+<blockquote>
+<p><strong>DEFINITION 4.</strong> 满足 <span class="math inline">\(\omega_i(t)\equiv 1,~\forall t\in[0,1],~\forall i\in N\)</span> 的进食算法即为PS算法. 记作 <span class="math inline">\(PS(\succ)\)</span>.</p>
+</blockquote>
+<p>PS算法有如下两条性质:</p>
+<ol class="example" type="1">
+<li>PS算法是依次有效的, 由定理1即得;</li>
+<li>PS算法是匿名的, 即对于 <span class="math inline">\(n\)</span> 个人的身份对称.</li>
+</ol>
+<p>关于以上的(2), 有如下引理:</p>
+<blockquote>
+<p><strong>LEMMA 4.</strong> 给定一组进食速率函数 <span class="math inline">\(\omega=(\omega_1,\cdots,\omega_n)\)</span>, <span class="math inline">\(P\)</span> 是由 <span class="math inline">\(\omega\)</span> 生成的分配机制(mechanism). 则 <span class="math inline">\(P\)</span> 是匿名的当且仅当 <span class="math inline">\(P\)</span> 是PS算法.</p>
+</blockquote>
+<h2 id="rp算法与ps算法的比较">RP算法与PS算法的比较</h2>
+<p>略去文中的例子, 直接不加证明地给出文中的结论:</p>
+<h3 id="无嫉妒性">无嫉妒性</h3>
+<p>无嫉妒性(envy-free)定义如下:</p>
+<blockquote>
+<strong>DEFINITION 4.</strong> 称Random Assignment <span class="math inline">\(P\in\mathscr{R}\)</span> 是无嫉妒/弱无嫉妒(envy-free/weak envy-free)的, 当且仅当对 <span class="math inline">\(\forall i,j\in N\)</span>, 总有:<br>
+
+<table>
+<tr>
+<td>
+无嫉妒
+</td>
+<td>
+<span class="math inline">\(P_i~sd(\succ_i)~P_j\)</span>
+</td>
+</tr>
+<tr>
+<td>
+弱无嫉妒
+</td>
+<td>
+<span class="math inline">\(P_j~sd(\succ_i)~P_j\Rightarrow P_i=P_j\)</span>
+</td>
+</tr>
+</table>
+</blockquote>
+<h3 id="无操作性">无操作性</h3>
+<p>无操作性(strategyproofness)定义如下:</p>
+<blockquote>
+<strong>DEFINITION 5.</strong> 称一个分配机制 <span class="math inline">\(P(\cdot)\)</span> 是无操作/弱无操作(strategyproofness/weak strategyproofness)的, 当且仅当对 <span class="math inline">\(\forall i,j\in N\)</span>, 总有:<br>
+
+<table>
+<tr>
+<td>
+无操作
+</td>
+<td>
+<span class="math inline">\(P_i(\succ)~sd(\succ_i)~P_i(\succ\vert^i\succ_i^*)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+弱无操作
+</td>
+<td>
+<span class="math inline">\(P_i(\succ\vert^i\succ_i^*)~sd(\succ_i)~P_i(\succ)\Rightarrow P_i(\succ)=P_i(\succ\vert^i\succ_i^*)\)</span>
+</td>
+</tr>
+</table>
+</blockquote>
+<h3 id="ps与rp的比较">PS与RP的比较</h3>
+对任意的偏好关系 <span class="math inline">\(\succ\in\mathscr{A}^N\)</span>, PS与RP的关系如下:<br>
+
+<table>
+<tr>
+<td>
+</td>
+<td>
+<strong>无嫉妒性</strong>
+</td>
+<td>
+<strong>无操作性</strong>
+</td>
+</tr>
+<tr>
+<td>
+<strong>RP</strong>
+</td>
+<td>
+弱无嫉妒
+</td>
+<td>
+无操作
+</td>
+</tr>
+<tr>
+<td>
+<strong>PS</strong>
+</td>
+<td>
+无嫉妒
+</td>
+<td>
+弱无操作
+</td>
+</tr>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+            <a href="/tags/保研/" rel="tag"># 保研</a>
+          
+            <a href="/tags/经济学/" rel="tag"># 经济学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/01/北京大学数学科学学院2018年直博生考试题目/" rel="next" title="北京大学数学科学学院2018年直博生考试题目">
+                <i class="fa fa-chevron-left"></i> 北京大学数学科学学院2018年直博生考试题目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/11/Before-Baoyan-Complex-Analysis-1-Cauchy-High-Order-Derivative-Formula/" rel="prev" title="复变函数拾遗[1]——Cauchy定理与最大模原理">
+                复变函数拾遗[1]——Cauchy定理与最大模原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分配问题"><span class="nav-number">1.</span> <span class="nav-text">分配问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机优先rp算法"><span class="nav-number">2.</span> <span class="nav-text">随机优先(RP)算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率序列ps算法"><span class="nav-number">3.</span> <span class="nav-text">概率序列(PS)算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps算法的有效性"><span class="nav-number">4.</span> <span class="nav-text">PS算法的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形式化定义"><span class="nav-number">4.1.</span> <span class="nav-text">形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确定性分配与随机性分配"><span class="nav-number">4.1.1.</span> <span class="nav-text">确定性分配与随机性分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效用函数与偏好关系"><span class="nav-number">4.1.2.</span> <span class="nav-text">效用函数与偏好关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定性分配的有效性"><span class="nav-number">4.2.</span> <span class="nav-text">确定性分配的有效性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机性分配的有效性"><span class="nav-number">4.3.</span> <span class="nav-text">随机性分配的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机占优关系"><span class="nav-number">4.3.1.</span> <span class="nav-text">随机占优关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依次有效性"><span class="nav-number">4.3.2.</span> <span class="nav-text">依次有效性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进食算法"><span class="nav-number">5.</span> <span class="nav-text">进食算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进食算法的依次有效性"><span class="nav-number">5.1.</span> <span class="nav-text">进食算法的依次有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依次有效的条件"><span class="nav-number">5.1.1.</span> <span class="nav-text">依次有效的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进食算法的依次有效性-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">进食算法的依次有效性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps算法"><span class="nav-number">5.2.</span> <span class="nav-text">PS算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rp算法与ps算法的比较"><span class="nav-number">6.</span> <span class="nav-text">RP算法与PS算法的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无嫉妒性"><span class="nav-number">6.1.</span> <span class="nav-text">无嫉妒性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无操作性"><span class="nav-number">6.2.</span> <span class="nav-text">无操作性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps与rp的比较"><span class="nav-number">6.3.</span> <span class="nav-text">PS与RP的比较</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

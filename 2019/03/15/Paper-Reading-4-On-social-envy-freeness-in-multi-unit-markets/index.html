@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,数学,计算机,北大,组合数学,社会计算,论文笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文章：Michele Flammini and Manuel Mauro and Matteo Tonelli, On social envy-freeness in multi-unit markets, Artificial Intelligence, volume 269, 2019, Pages 1-26.">
+<meta name="keywords" content="师大,数学,计算机,北大,组合数学,社会计算,论文笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记[4]——On social envy-freeness in multi-unit markets">
+<meta property="og:url" content="http://lizhechen.com/2019/03/15/Paper-Reading-4-On-social-envy-freeness-in-multi-unit-markets/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="文章：Michele Flammini and Manuel Mauro and Matteo Tonelli, On social envy-freeness in multi-unit markets, Artificial Intelligence, volume 269, 2019, Pages 1-26.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-26T03:06:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记[4]——On social envy-freeness in multi-unit markets">
+<meta name="twitter:description" content="文章：Michele Flammini and Manuel Mauro and Matteo Tonelli, On social envy-freeness in multi-unit markets, Artificial Intelligence, volume 269, 2019, Pages 1-26.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2019/03/15/Paper-Reading-4-On-social-envy-freeness-in-multi-unit-markets/"/>
+
+
+
+
+
+  <title>论文笔记[4]——On social envy-freeness in multi-unit markets | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2019/03/15/Paper-Reading-4-On-social-envy-freeness-in-multi-unit-markets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记[4]——On social envy-freeness in multi-unit markets</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T23:36:01+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>文章：Michele Flammini and Manuel Mauro and Matteo Tonelli, On social envy-freeness in multi-unit markets, Artificial Intelligence, volume 269, 2019, Pages 1-26.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="准备工作">准备工作</h2>
+<ul>
+<li>一个多单位市场 <span class="math inline">\(\mu\)</span> 可以用一个元组 <span class="math inline">\((n, m, (v_i)_{i\in n})\)</span> 来表示：
+<ul>
+<li><span class="math inline">\(N=\{1,\cdots,n\}\)</span> 是 <span class="math inline">\(n\)</span> 个买家；</li>
+<li><span class="math inline">\(M\)</span> 是商品集合，是一组 <span class="math inline">\(m\)</span> 个<strong>相同的</strong>物品；</li>
+<li><span class="math inline">\(v_i\)</span> 是一族函数：对于每个买家 <span class="math inline">\(i\in N\)</span>，<span class="math inline">\(v_i=(v_i(1),\cdots,v_i(m))\)</span> 是一个估价函数（或说向量）.
+<ul>
+<li>其意义是给定一堆物品 <span class="math inline">\(X\subset M\)</span>，且 <span class="math inline">\(|X|=j\)</span>，则 <span class="math inline">\(i\)</span> 为了买到 <span class="math inline">\(X\)</span>，愿意付出的价值是 <span class="math inline">\(v_i(j)\)</span>.</li>
+<li>我们假定 <span class="math inline">\(v_i(0)=0\)</span>，且 <span class="math inline">\(j\geqslant 1\)</span> 时，<span class="math inline">\(v_i(j)\geqslant 0\)</span>，<span class="math inline">\(\forall i\in N\)</span>.</li>
+</ul></li>
+</ul></li>
+<li>对估价函数，有两种假定：
+<ul>
+<li>single-minded（一心一意的买家）：买家仅对一定数量的物品有兴趣，即只在一个特定的size处有正值（记为 <span class="math inline">\(m_i\)</span>），其余时候都为 <span class="math inline">\(0\)</span>；</li>
+<li>general：不受上述限制.</li>
+</ul></li>
+<li>定价函数（向量）是指一个 <span class="math inline">\(m\)</span> 元组 <span class="math inline">\(\overline{p}=(\overline{p}(1),\cdots,\overline{p}(m))\)</span>，s.t. <span class="math inline">\(1\leqslant j\leqslant m\)</span>，<span class="math inline">\(\overline{p}(j)\geqslant 0\)</span> 表示 <span class="math inline">\(j\)</span> 个物品的价格,
+<ul>
+<li>对于商品的定价模式，也有两种假定：
+<ul>
+<li>item-pricing：按照物品来定价，例如单个物品价格是 <span class="math inline">\(p\)</span>，则 <span class="math inline">\(\overline{p}(X)=|X|\cdot p\)</span>.</li>
+<li>bundle-pricing：对一捆物品直接定价，并且该价格与物品数量不是成比例的（否则同item-pricing）.</li>
+</ul></li>
+</ul></li>
+<li>消费者的效用（utility）是指：消费者对所得物品的估价 <span class="math inline">\(-\)</span> 消费者为此付出的价格. 即：<span class="math display">\[u_i(X,\overline{p})=v_i(|X|)-\overline{p}(X).\]</span></li>
+<li>一个分配向量是指一个 <span class="math inline">\(n\)</span> 元组 <span class="math inline">\(\overline(X)=\{X_1,\cdots,X_n\}\)</span>，其中 <span class="math inline">\(X_i\subset M\)</span> 表示分配给买家 <span class="math inline">\(i\)</span> 的商品.
+<ul>
+<li>称一个分配是可行的，如果：
+<ol type="1">
+<li>货物够分：<span class="math inline">\(\sum\limits_{i=1}^n |X_i|\leqslant |X|\)</span>；</li>
+<li>买家不傻：<span class="math inline">\(u_i(X_i,\overline{p})\geqslant 0\)</span>.</li>
+</ol></li>
+</ul></li>
+<li>一个市场输出 <span class="math inline">\((\overline{X},p)\)</span> 的总收益用 <span class="math inline">\(r(\overline{X},p)\)</span> 表示.</li>
+</ul>
+<blockquote>
+<p><strong>Def 1.</strong> 一个市场 <span class="math inline">\(\mu\)</span> 得出的一个可行分配 <span class="math inline">\((\overline{X},\overline{p})\)</span> 在关系图 <span class="math inline">\(G(V,E)\)</span> 下是社会无嫉妒（或称稳定）的，如果 <span class="math inline">\(u_i(X_i,\overline{p})\geqslant u_i(X_j,\overline{p})\)</span>，<span class="math inline">\(\forall i\in N\)</span>，<span class="math inline">\(j\in N(i)\)</span>，其中 <span class="math inline">\(N(i)\)</span> 表示图 <span class="math inline">\(G\)</span> 中 <span class="math inline">\(i\)</span> 的所有邻居构成的集合.</p>
+</blockquote>
+<ul>
+<li>该定义实际上是说，每个人相比邻居得到的，更喜欢自己得到的，那么就不会嫉妒邻居. 每个人都不嫉妒自己认识的人，那么久无嫉妒了；</li>
+<li>当图 <span class="math inline">\(G\)</span> 是完全图时，此时的social envy-free即常义的无嫉妒.</li>
+</ul>
+<blockquote>
+<p><strong>Def 2.</strong> 给定一族市场模型 <span class="math inline">\(\mathcal{M}\)</span> 和一族社会关系图 <span class="math inline">\(\mathcal{G}\)</span>，无嫉妒的代价（price of envy-free）<span class="math inline">\(c(\mathcal{M}, \mathcal{G})\)</span> 是指：不考虑无嫉妒时 <span class="math inline">\(\mathcal{M}\)</span> 中模型能达到的最大收入与考虑无嫉妒后的最大收入的比值的上确界，即： <span class="math display">\[c(\mathcal{M}, \mathcal{G})=\sup_{\mu\in\mathcal{M}, G\in\mathcal{G}}\frac{opt(\mu)}{opt(\mu,G)}.\]</span></p>
+</blockquote>
+<ul>
+<li>在对分配问题进行讨论时，我们经常将其规约到 <code>MULTIPLE-CHOICE KNAPSACK</code>（多重背包问题）.
+<ul>
+<li>多重背包问题 <span class="math inline">\((o,z,w,k)\)</span>：
+<ul>
+<li><span class="math inline">\(O\)</span>：物品集合；</li>
+<li><span class="math inline">\(z\)</span>：物品体积；</li>
+<li><span class="math inline">\(w\)</span>：物品价值；</li>
+<li><span class="math inline">\(k\)</span>：背包容量.</li>
+</ul></li>
+<li>我们通常这样构造：
+<ul>
+<li>背包的容量为 <span class="math inline">\(k\)</span>；</li>
+<li>考虑 <span class="math inline">\(t\)</span> 个物品类 <span class="math inline">\(\{O_1,\cdots,O_t\}\)</span>；</li>
+<li>物品 <span class="math inline">\(o_{j,h}\)</span> 的体积和价值分别是 <span class="math inline">\(z_{j,h}\)</span> 和 <span class="math inline">\(w_{j,h}\)</span>.</li>
+</ul></li>
+<li>我们需要从每个物品类中恰好选取一个物品装入，使得总价值最大，且总体积不超过背包容量.</li>
+</ul></li>
+<li>多重背包问题已被证明是NP难的，但有FPTAS近似解法.</li>
+</ul>
+<h2 id="single-minded买家">single-minded买家</h2>
+<p>按照定价模式，有两种情况，分述如下.</p>
+<h3 id="item-pricing">Item-pricing</h3>
+<blockquote>
+<p><strong>Lemma 3.</strong> 对于single-minded买家，设 <span class="math inline">\(p^{opt}\)</span> 是能达到最优稳定分配 <span class="math inline">\((\overline{X}^{opt},p^{opt})\)</span> 的价格函数，且能最大化卖家的收入，则 <span class="math inline">\(p\in\mathbb{P}=\{\frac{v_i(m_i)}{m_i}|i\in N\}\)</span>.</p>
+</blockquote>
+<p>这个引理实际上是在说，对于single-minded情况，最优定价 <span class="math inline">\(p^{opt}\)</span> 一定是某个买家对单物品的估价.</p>
+<blockquote>
+<p><strong>Proof.</strong> 假设 <span class="math inline">\((\overline{X}^{opt},p^{opt})\)</span> 中的 <span class="math inline">\(p^{opt}\notin\mathbb{P}\)</span>. 取 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\in\mathbb{P}\)</span> 为 <span class="math inline">\(\mathbb{P}\)</span> 中比 <span class="math inline">\(p^{opt}\)</span> 大的最小者，考虑 <span class="math inline">\((\overline{X}^{opt},p)\)</span>：</p>
+<blockquote>
+<p>由于二者的分配方案是一致的，故 <span class="math inline">\((\overline{X}^{opt},p)\)</span> 也满足可行性的两个要求（货物够分，买家不傻）. 现将价格从 <span class="math inline">\(p^{opt}\)</span> 涨至 <span class="math inline">\(p\)</span>，没有任何卖家的效用会因此变为负值. 于是 <span class="math inline">\((\overline{X}^{opt},p)\)</span> 也是social envy-free的，因为价格的上涨只会使得估值在 <span class="math inline">\(p^{opt}\)</span> 与 <span class="math inline">\(p\)</span> 之间的买家效用变为 <span class="math inline">\(0\)</span>，因此对于买家对邻居的评估没有影响，故仍然是social envy-free的.<br>
+但是，值得注意的是 <span class="math inline">\(p\)</span> 显然会比 <span class="math inline">\(p^{opt}\)</span> 给卖家带来严格正的收益增幅，故 <span class="math inline">\(p\)</span> 比 <span class="math inline">\(p^{opt}\)</span> 更优. This is a contradition.</p>
+</blockquote>
+<p>命题得证！</p>
+</blockquote>
+<p>尽管有了该结论，但 <code>(SINGLE, ITEM)</code> 设定下的分配问题仍然是困难的：</p>
+<blockquote>
+<p><strong>Th 4.</strong> <code>(SINGLE, ITEM)</code> 设定下的分配问题是NP难的.</p>
+</blockquote>
+<ul>
+<li>其证明考虑从 <code>SUBSET-SUM</code> 问题进行规约.
+<ul>
+<li><code>SUBSET-SUM</code> 问题：给定一个自然数集 <span class="math inline">\(A\subset\mathbb{N}\)</span> 以及一个自然数 <span class="math inline">\(k\in\mathbb{N}\)</span>，找到 <span class="math inline">\(S\subset A\)</span>，s.t. <span class="math inline">\(\sum_{a_i\in S} a_i=k\)</span>.</li>
+<li>一个 <code>SUBSET-SUM</code> 问题通常可以被表示为 <span class="math inline">\((A=\{a_1,\cdots,a_n\},k)\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Proof.</strong> 记 <span class="math inline">\(N=\{1,\cdots,N\}\)</span>，<span class="math inline">\(M=\{1,\cdots,M\}\)</span>，<span class="math inline">\(v_i(x)=\begin{cases} a_i, &amp; x=a_i \\ 0, &amp; x\neq a_i \end{cases}\)</span>，则：<br>
+考虑 <code>SUBSET-SUM</code> 中的一个 <span class="math inline">\(S\)</span>，若 <span class="math inline">\(a_i\in S\)</span>，则给买家 <span class="math inline">\(i\)</span>分配一捆大小为 <span class="math inline">\(a_i\)</span> 的商品，否则不给 <span class="math inline">\(i\)</span> 分配任何东西. 反过来，市场 <span class="math inline">\(\mu\)</span> 的每一个输出也对应了一个 <span class="math inline">\(S\)</span>.<br>
+由 <strong>Lemma 3</strong>，要想达到最优结果，<span class="math inline">\(\mu\)</span> 的单物品定价必定是 <span class="math inline">\(1\)</span>，此时所有买家的效用都是 <span class="math inline">\(0\)</span>，因而是稳定的.<br>
+因此，<span class="math inline">\(A\)</span> 存在和为 <span class="math inline">\(k\)</span> 的子集 <span class="math inline">\(S\)</span>，当且仅当 <span class="math inline">\(\mu\)</span> 在稳定前提下的最大收益是 <span class="math inline">\(k\)</span>.</p>
+</blockquote>
+<p>尽管问题本身是NP的，但存在好的近似算法.</p>
+<blockquote>
+<p><strong>Th 5.</strong> <code>(single,item)</code> 分配问题有FPTAS.</p>
+</blockquote>
+<p>考虑算法：</p>
+<ul>
+<li>对 <span class="math inline">\(\forall p\in\mathbb{P}\)</span>：
+<ul>
+<li>对 <span class="math inline">\(\forall j\)</span>，定义：
+<ul>
+<li><span class="math inline">\(N_j^+\)</span>：对大小为 <span class="math inline">\(j\)</span> 的商品集持严格正估价的买家数，<span class="math inline">\(n_j^+=|N_j^+|\)</span>；</li>
+<li><span class="math inline">\(N_j^0\)</span>：对大小为 <span class="math inline">\(j\)</span> 的商品集持零估价的买家数，<span class="math inline">\(n_j^0=|N_j^0|\)</span>；</li>
+</ul></li>
+<li>建立如下的背包问题 <span class="math inline">\(K(\overline{O},\overline{z},\overline{w},k)\)</span>：
+<ul>
+<li><span class="math inline">\(k=m\)</span>；</li>
+<li>对每个<strong>至少有一个买家喜欢的 <span class="math inline">\(j\)</span></strong>，<span class="math inline">\(O_j=\{o_{j,0},\cdots,o_{j,n_j^0},\}\)</span> 表示 <span class="math inline">\(j\)</span> 生成的 <span class="math inline">\(n_j^0+1\)</span> 个物品；</li>
+<li><span class="math inline">\(z_{j,h}=w_{j,h}=j\cdot (n_j^++h)\)</span>，<span class="math inline">\(\forall o_{j,h}\in O_j\)</span>.</li>
+</ul></li>
+<li>求解该背包问题，对得到的结果做如下处理：
+<ul>
+<li>若选择了物品 <span class="math inline">\(o_{j,h}\)</span>，则给所有 <span class="math inline">\(N_j^+\)</span> 中的买家以及 <span class="math inline">\(h\)</span> 个 <span class="math inline">\(N_j^0\)</span> 中的买家每人分配 <span class="math inline">\(j\)</span> 个商品.</li>
+</ul></li>
+<li>得到分配方案后，即可计算收入并将其存下来.</li>
+</ul></li>
+<li>在所有 <span class="math inline">\(p\)</span> 中，求使得收入最大的分配方案 <span class="math inline">\((\overline{X},p)=\arg\max_p r(\overline{X}&#39;,p&#39;)\)</span>.</li>
+</ul>
+<p>以下对该算法进行证明：</p>
+<blockquote>
+<p><strong>Proof.</strong> 由 <strong>Lemma 3</strong>，对每个 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\)</span>，<span class="math inline">\(i\in N\)</span>，我们建立一个多重背包问题 <span class="math inline">\(K(\mu\)</span>)…（具体构建方法见上述算法）<br>
+构建完成后，我们来证明：一个 <span class="math inline">\(K(\mu)\)</span> 的解 <span class="math inline">\(T\)</span>，对应着一个 <span class="math inline">\(\mu\)</span> 的稳定输出 <span class="math inline">\((\overline{X},p)\)</span>. 事实上，<span class="math inline">\(T\)</span> 所装载的物品不会超过背包容量，而背包容量恰好就是商品的总量. 进一步，<span class="math inline">\(\overline{X},p)\)</span> 是稳定的，因为当我们分配了一捆数量为 <span class="math inline">\(j\)</span> 商品时，只有 <span class="math inline">\(N_j^+\)</span> 里的人可能会因此产生嫉妒. 于是对于确定的 <span class="math inline">\(p\)</span>，<span class="math inline">\(K(\mu)\)</span> 的 <span class="math inline">\((1-\epsilon)\)</span>-近似解 <span class="math inline">\(T\)</span>，都对应了一个 <span class="math inline">\(\mu\)</span> 的 <span class="math inline">\((1-\epsilon)\)</span>-近似解 <span class="math inline">\((\overline{X},p)\)</span>，并且这个解是稳定的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 6.</strong> <code>(SINGLE, ITEM)</code> 问题是强NP难的.</p>
+</blockquote>
+<ul>
+<li>证明考虑规约到问题 <code>DENSEST K-SUBGRAPH</code>：
+<ul>
+<li>给定无向图 <span class="math inline">\(H(V,F)\)</span> 和整数 <span class="math inline">\(k\)</span>，求一个 <span class="math inline">\(S\subset V\)</span>，s.t. <span class="math inline">\(|S|\leqslant k\)</span> 且 <span class="math inline">\(S\)</span> 能最大化 <span class="math inline">\(S\)</span> 引出的边数.</li>
+<li>一个 <code>DENSEST K-GRAPH</code> 的实例由 <span class="math inline">\((G,k)\)</span> 二元组表示.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Proof.</strong> 进行如下考虑：</p>
+<ul>
+<li>对市场 <span class="math inline">\(\mu\)</span>： - 对每个 <span class="math inline">\(u\in V\)</span>，将其与 <span class="math inline">\(|F|+1\)</span> 个买家对应（记为 <span class="math inline">\(N_u\)</span>）. 进一步，对每个 <span class="math inline">\(i\in N_u\)</span>，都有 <span class="math inline">\(v_i(1)=1+\epsilon\)</span>，其中 <span class="math inline">\(\epsilon=\frac{k}{|V|+1}\)</span>； - 对图 <span class="math inline">\(G\)</span> 的每条边 <span class="math inline">\(e\in F\)</span>，存在一个买家 <span class="math inline">\(i_e\)</span>，s.t. <span class="math inline">\(v_{i_e}=1\)</span>； - 再来一个买家 <span class="math inline">\(w\)</span>，s.t. <span class="math inline">\(v_w(|V|(|F|+1))=|V|(|F|+1)\)</span>； - 总共有 <span class="math inline">\(m=(|V|+k)(|F|+1)+|F|\)</span> 件商品.</li>
+<li>对社会关系图 <span class="math inline">\(G(N,E)\)</span>： - 设 <span class="math inline">\(u\in V\)</span>，则对所有 <span class="math inline">\(i,i&#39;\in N_u\)</span>，有 <span class="math inline">\(\{i,i&#39;\}\in E\)</span>； - 对 <span class="math inline">\(\forall i\in N_u\)</span>，<span class="math inline">\(\{i,i_e\}\in E\)</span>，其中 <span class="math inline">\(e\)</span> 在 <span class="math inline">\(H\)</span> 中是由 <span class="math inline">\(u\)</span> 引出的.</li>
+</ul>
+<p>以下证明 <span class="math inline">\(H\)</span> 存在一个有 <span class="math inline">\(h\)</span> 条边的 <span class="math inline">\(k\)</span> 阶子图，当且仅当上述市场 <span class="math inline">\(\mu\)</span> 在 <span class="math inline">\(G\)</span> 下有一个稳定的输出 <span class="math inline">\((\overline{X},p)\)</span>，s.t. <span class="math inline">\(r(\overline{X},p)=(|V|+k)(|F|+1)+h\)</span>.</p>
+<blockquote>
+<p><font color="red">简单来说，就是：</font></p>
+<p><font color="red">买家一共有 <span class="math inline">\((|V|+1)(|F|+1)\)</span> 个：</font></p>
+<ol type="1">
+<li><font color="red">给 <span class="math inline">\(V\)</span> 里的每个点分别配 <span class="math inline">\(|F|+1\)</span> 个未来在 <span class="math inline">\(G\)</span> 中的邻居，记作 <span class="math inline">\(N_u\)</span>，这些邻居都只喜欢一个物品，并且效用只比 <span class="math inline">\(0\)</span> 严格大一点点；（这里共 <span class="math inline">\(|V|(|F|+1)\)</span> 个）</font></li>
+<li><font color="red"><span class="math inline">\(H\)</span> 里的每条边，都对应一个买家，只喜欢一个物品，且效用是 <span class="math inline">\(0\)</span>；（这里共 <span class="math inline">\(|F|\)</span> 个）</font></li>
+<li><font color="red">有一个超级买家，喜欢很多物品，但效用是 <span class="math inline">\(0\)</span>；（这里共 <span class="math inline">\(1\)</span> 个）</font></li>
+</ol>
+<p><font color="red">物品总量是 <span class="math inline">\((|V|+k)(|F|+1)+|F|\)</span>，小于总需求量：</font></p>
+<ol type="1">
+<li><font color="red">上述第1步，共需要物品 <span class="math inline">\(|V|(|F|+1)\)</span> 个；</font></li>
+<li><font color="red">上述第2步，共需要物品 <span class="math inline">\(|F|\)</span> 个；</font></li>
+<li><font color="red">上述第3步，共需要物品 <span class="math inline">\(|V|(|F|+1)\)</span> 个；</font></li>
+</ol>
+<p><font color="red">图 <span class="math inline">\(G\)</span> 是这样规划的：</font></p>
+<ol type="1">
+<li><font color="red">所有 <span class="math inline">\(N_u\)</span> 内部的点两两相连；</font></li>
+<li><font color="red">点 <span class="math inline">\(u\)</span> 在 <span class="math inline">\(H\)</span> 中的所有邻居，在 <span class="math inline">\(G\)</span> 中都要与 <span class="math inline">\(u\)</span> 现在的所有邻居相连；</font></li>
+</ol>
+</blockquote>
+<p><strong>先证 <span class="math inline">\(\Rightarrow\)</span>：</strong>假设 <span class="math inline">\(|S|=k\)</span> 且 <span class="math inline">\(S\)</span> 引出的边数为 <span class="math inline">\(h\)</span>. 考虑 <span class="math inline">\(p=1\)</span> 时的输出，得到物品的买家为 <span class="math display">\[\{w\}\cup\bigcup_{u\in S} N_u\cup\{i_e\in N:e=\{u,z\}\in F,~u,z\in S\}.\]</span> <font color="red">就是说，给：超级卖家 <span class="math inline">\(w\)</span>，<span class="math inline">\(S\)</span> 中的所有点对应的买家，以及 <span class="math inline">\(S\)</span> 内部所有边对应的卖家 分配了商品.</font><br>
+考虑所有 <span class="math inline">\(i_e\)</span> 中未得到物品的买家，他们所喜欢的物品对他们的效用也不过是 <span class="math inline">\(0\)</span>，所以不会产生嫉妒；其他未得到物品的买家，他们所处的 <span class="math inline">\(N_u\)</span> 中，<span class="math inline">\(u\notin S\)</span>，即他们的邻居也都没有得到东西，故他们也不会产生嫉妒. 于是 <span class="math inline">\((\overline{X},p)\)</span> 是稳定的，其总收益是 <span class="math inline">\((|V|+k)(|F|+1)+k\)</span>.</p>
+<p><strong>再证 <span class="math inline">\(\Leftarrow\)</span>：</strong>假设存在总收益为 <span class="math inline">\((|V|+k)(|F|+1)+h\)</span> 的稳定输出 <span class="math inline">\((\overline{X},p)\)</span>，则：<br>
+在 <span class="math inline">\((\overline{X},p)\)</span> 中，<span class="math inline">\(p\)</span> 绝不能严格大于 <span class="math inline">\(1+\epsilon\)</span>，否则收益将为 <span class="math inline">\(0\)</span> <font color="red">（这是个废话）</font>. 事实上，如果 <span class="math inline">\(p&gt;1\)</span>，那么只有 <span class="math inline">\(N_u\)</span> 里的买家愿意购买，此时收益至多为 <span class="math display">\[(1+\epsilon)[|V|(|F|+1)]&lt;(|V|+k)(|F|+1)+h,~~其中~ \epsilon=\frac{k}{|V|+1}.\]</span> 因此，必定有 <span class="math inline">\(p\leqslant 1\)</span>. 此时，为获取 <span class="math inline">\(r(\overline{X},p)=(|V|+k)(|F|+1)+h\)</span> 的总收益，必须满足超级买家 <span class="math inline">\(w\)</span> 的购买需求. 继续进行分配，由稳定性条件，<span class="math inline">\(N_u\)</span> 只要有一个人得到了他想要的商品堆，<span class="math inline">\(N_u\)</span> 里的其他人也必须得到他们想要的. 又根据解的可行性条件（商品够 + 人不傻），我们至多分给 <span class="math inline">\(k\)</span> 个 <span class="math inline">\(N_u\)</span> 足够的商品，考虑到预期收益，我们也必须分给 <span class="math inline">\(k\)</span> 个 <span class="math inline">\(N_u\)</span> 足够的商品. 至此，还剩 <span class="math inline">\(h\)</span> 个商品，分配给 <span class="math inline">\(i_e\)</span> 中的买家.<br>
+此时考虑 <span class="math inline">\(S=\{u:\forall i\in N_u,|X_i|=1\}\)</span>（即所分到物品的 <span class="math inline">\(N_u\)</span> 的 <span class="math inline">\(u\)</span> 构成的集合），容易知道 <span class="math inline">\(|S|=k\)</span>. 以下只需说明 <span class="math inline">\(S\)</span> 引导的 <span class="math inline">\(H\)</span> 的子图至少有 <span class="math inline">\(h\)</span> 条边，而这正是分配了物品的 <span class="math inline">\(i_e\)</span> 的数量. 因此由一个市场也可以导出一个 <code>DENSTEST K-GRAPH</code> 的解.</p>
+<p>由 <code>DENSTEST K-GRAPH</code> 的复杂性，命题得证.</p>
+</blockquote>
+<p>由以上的定理可知，分配问题的 FPTAS 是不存在的（除非已经证明 <span class="math inline">\(P=NP\)</span>）. 另一方面，我们可以找到一个较好的近似算法（一个 PTAS）.</p>
+<ul>
+<li>证明思路：给定了 <span class="math inline">\((\mu, G)\)</span> 和给定的价格 <span class="math inline">\(p\)</span>，<span class="math inline">\(j\leqslant m\)</span>，<span class="math inline">\(h\leqslant n\)</span>.
+<ul>
+<li>假设我们可以迅速求解一个受限制的子问题：将商品每 <span class="math inline">\(j\)</span> 个捆成一捆，再在 <span class="math inline">\(G\)</span> 下分给 <span class="math inline">\(h\)</span> 个买家，且该分配在 <span class="math inline">\(G\)</span> 下稳定（如果存在）.</li>
+<li><span class="math inline">\(J\)</span> 表示所有“至少有一个买家喜欢的物品量”构成的集合，且至多含 <span class="math inline">\(n\)</span> 个元素.</li>
+<li>在以上假设之下我们甚至可以找到一个 FTPAS，仍然是利用多重背包 <span class="math inline">\(K(\mu, G,p)\)</span>：
+<ul>
+<li>背包容量 <span class="math inline">\(k=m\)</span>；</li>
+<li>对 <span class="math inline">\(\forall j\in J\)</span>，考虑 <span class="math inline">\(O_j=\{o_{j,h}:存在~j~个商品分给~h~个买家的在~G~下稳定的分配\}\)</span>；</li>
+<li>物品的重量和价值：<span class="math inline">\(z_{j,h}=w_{j,h}=j\cdot h\)</span>.</li>
+</ul></li>
+<li>事实上，这样的一个背包的物品个数是多项式的.
+<ul>
+<li>至多有 <span class="math inline">\(n\)</span> 个不同的物品类 <span class="math inline">\(O_j\)</span>；</li>
+<li>每个物品类都至多有 <span class="math inline">\(n\)</span> 个物品.</li>
+</ul></li>
+<li>于是由 <strong>Lemma 3</strong>，对每个 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\)</span> 跑一次 FPTAS，选取最大的总收益，这样就得到了一个多项式时间的 <span class="math inline">\((1-\epsilon)\)</span>-近似. 即一个 <code>(SINGLE, ITEM)</code> 的FPTAS.</li>
+</ul></li>
+</ul>
+<p>然而，由 <strong>Th 6</strong>，上述思路的基本假设就是不成立的…换言之，受限制的子问题是不可能在多项式时间内解决的. 然而，以下的近似结果仍能保持：</p>
+<blockquote>
+<p><strong>Lemma 7.</strong> 给定一个 <code>(SINGLE, ITEM)</code> 分配问题的实例和一组固定的价格 <span class="math inline">\(p\)</span>，<span class="math inline">\(j\leqslant m\)</span>，<span class="math inline">\(h\leqslant n\)</span>，则求一个</p>
+<ul>
+<li>将商品 <span class="math inline">\(j\)</span> 个一捆包装起来，分给至多 <span class="math inline">\(h\)</span> 个买家的分配；</li>
+<li>在 <span class="math inline">\(G\)</span> 下稳定；</li>
+<li>能最大化总收益；</li>
+</ul>
+<p>这样的问题，存在一个 PTAS.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 记 <span class="math inline">\(N_j^+\)</span> 和 $<span class="math inline">\(N_j^0\)</span> 分别为在价格 <span class="math inline">\(p\)</span> 下对 <span class="math inline">\(j\)</span> 持严格正效用的买家以和持零效用的买家，记 <span class="math inline">\(G_j^*\)</span> 为 <span class="math inline">\(N_j^+\)</span> 引导的子图，则对于任意 <span class="math inline">\(\mu\)</span> 的稳定（文中用了optimal）输出 <span class="math inline">\((\overline{X},p)\)</span>，<span class="math inline">\(G_j^+\)</span> 的所有连通分支中的买家要不都获得 <span class="math inline">\(j\)</span> 个商品，要不都没有得到 <span class="math inline">\(j\)</span> 个商品. （由稳定性易得）<br>
+取定 <span class="math inline">\(\epsilon&gt;0\)</span>，记 big 为 <span class="math inline">\(G_j^+\)</span> 的至少包含 <span class="math inline">\(\epsilon\cdot h\)</span> 个买家的连通分支（可能有多个），small 为其余的连通分支. 则，<font color="red">任意的optimal输出 <span class="math inline">\((\overline{X},o)\)</span> 至多分给 <span class="math inline">\(h\)</span> 个人</font>每人 <span class="math inline">\(j\)</span> 个商品，于是 <span class="math inline">\((\overline{X},p)\)</span> 至多给 <span class="math inline">\(O(\lfloor\frac{1}{\epsilon}\rfloor)\)</span> 个 big 连通分支分配商品. 当然，此外它还可以给一些 small 的连通分支分配商品. 再次，也可以给 <span class="math inline">\(N_j^0\)</span> 中的买家分配，但仅限通过 <span class="math inline">\(G_j^+\)</span> 与 <span class="math inline">\(G\)</span> 相连的买家. （否则可能引起嫉妒） 考虑以下步骤：</p>
+<ul>
+<li>给所有 big 连通块分配商品；</li>
+<li>不停地给 small 连通块分配商品，直到无法分配. 无法分配有两种情况： - 商品不够分了： - 此时至少有 <span class="math inline">\((1-\epsilon)h\)</span> 个买家被分配了商品； - 所有small都被分配了商品： - 继续给 <span class="math inline">\(N_j^0\)</span> 中的弟兄们分配商品，直到无法继续，有以下两种情况： - 总共已经分配了 <span class="math inline">\(h\)</span> 个买家：如此便是一个optimal分配； - 所有 <span class="math inline">\(N_j^0\)</span> 中的买家都被分配了商品：我们也得到了最优的结果.</li>
+</ul>
+<p>综上所述，以上算法可以产出一个 <span class="math inline">\((1-\epsilon)\)</span>-近似最优结果，并且是多项式时间的.</p>
+</blockquote>
+<p>由以上引理，给定价格 <span class="math inline">\(p\)</span>，我们可以构造一个多重背包的近似实例 <span class="math inline">\(K_\epsilon(\mu, G, p)\)</span>，对应于 <code>MULTIPLE-CHOICE KNAPSACK</code> 实例 <span class="math inline">\(K(\mu,G,p)\)</span>：</p>
+<ul>
+<li>背包容量 <span class="math inline">\(k=m\)</span>；</li>
+<li>对每个 <span class="math inline">\(j\in J\)</span>，物品类 <span class="math inline">\(O_j=\{o_{j,l}:对某个~1\leqslant h\leqslant n~运行上述PTAS，j~个一捆，买家数~l\leqslant h\}\)</span>；</li>
+<li>体积和价值：<span class="math inline">\(w_{j,l}=z_{j,l}=j\cdot h\)</span>.</li>
+</ul>
+<p>显然，若 <span class="math inline">\(T=\{o_{j_1,h_1},\cdots,o_{j_t,h_t}\}\)</span> 是 <span class="math inline">\(K(\mu,G,p)\)</span> 的一个可行解，则存在一个 <span class="math inline">\(K_\epsilon(\mu,G,p)\)</span> 的可行解 <span class="math inline">\(\{o_{j_1,l_1},\cdots,o_{j_t,l_t}\}\)</span>，s.t. <span class="math inline">\((1-\epsilon)h_q\leqslant l_q\leqslant h_q\)</span>，<span class="math inline">\(\forall 1\leqslant q\leqslant t\)</span>. 因此，若用 <span class="math inline">\(opt(K)\)</span> 和 <span class="math inline">\(opt(K_\epsilon)\)</span> 分别表示 <span class="math inline">\(K\)</span> 和 <span class="math inline">\(K_\epsilon\)</span> 的最优解，我们有 <span class="math inline">\(opt(K_\epsilon)\geqslant (1-\epsilon)opt(K)\)</span>. 进一步，<span class="math inline">\(opt(K_\epsilon)\)</span> 对 <span class="math inline">\(K\)</span> 也是可行的.</p>
+<p>进一步，有以下定理成立：</p>
+<blockquote>
+<p><strong>Th 8.</strong> <code>(SINGLE, ITEM)</code> 问题有 PTAS.</p>
+</blockquote>
+<p>考虑算法：</p>
+<ul>
+<li>对每个 <span class="math inline">\(p=\frac{v_i(m_i)}{m_i}\)</span>：
+<ul>
+<li>计算多重背包 <span class="math inline">\(K_{\epsilon/2}(\mu,G,p)\)</span>；</li>
+<li>记 <span class="math inline">\(T\)</span> 为 <span class="math inline">\((K_{\epsilon/2}(\mu,G,p),\epsilon/2)\)</span>； <!-- - 记 $T$ 所对应的分配为 $(\overline{X},p)$； --></li>
+<li>对 <span class="math inline">\(\forall o_{j,l}\in T\)</span>:
+<ul>
+<li><span class="math inline">\(\overline{X}\)</span> 给 <span class="math inline">\(l\)</span> 个买家每人一个大小为 <span class="math inline">\(j\)</span> 的物品堆；</li>
+</ul></li>
+<li>算一下收益.</li>
+</ul></li>
+<li>收益对所有 <span class="math inline">\(p\)</span> 取最大.</li>
+</ul>
+<blockquote>
+<p><strong>Proof.</strong> 证明暂时从略Orz.</p>
+</blockquote>
+<h3 id="bundle-pricing">Bundle-pricing</h3>
+<p>与item-pricing相同，bundle-pricing情形的计算也是困难的.</p>
+<blockquote>
+<p><strong>Th. 9</strong> <code>(SINGLE, BUNDLE)</code> 分配问题是NP难的.</p>
+</blockquote>
+<blockquote>
+<strong>Proof.</strong> 与 <strong>Th 4</strong> 进行类似的规约（利用 <code>SUBSET-SUM</code>），集合 <span class="math inline">\(S\subset A\)</span> 对应于一个市场 <span class="math inline">\(\mu\)</span> 的输出：<br>
+
+<center>
+买家 <span class="math inline">\(i\)</span> 得到大小为 <span class="math inline">\(a_i\)</span> 的一捆商品，当且仅当 <span class="math inline">\(a_i\in S\)</span>.
+</center>
+进一步，一个最优的稳定分配方案中，已分配的大小为 <span class="math inline">\(j\)</span> 的物品堆价格至少是 <span class="math inline">\(j\)</span>，否则提价到 <span class="math inline">\(j\)</span> 可继续增大收入. 于是：<br>
+
+<center>
+存在 <code>SUBSET-SUM</code> <span class="math inline">\((A,k)\)</span> 的解，当且仅当 <span class="math inline">\(\mu\)</span> 存在收益为 <span class="math inline">\(k\)</span> 的最优稳定分配.
+</center>
+</blockquote>
+<p>不过Bundle-pricing条件下，同样有好的近似.</p>
+<blockquote>
+<p><strong>Th 10.</strong> <code>(SINGLE, BUNDLE)</code> 分配问题有FPTAS.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof.</strong> 考虑给定的物品堆大小 <span class="math inline">\(j\leqslant m\)</span>，令 <span class="math inline">\(i_{j,1},\cdots,i_{j,n_j}\)</span> 为买家对 <span class="math inline">\(j\)</span> 的喜好程度的顺序，即 <span class="math inline">\(v_{i_{j,1}}(j)\geqslant \cdots\geqslant v_{i_{j,n_j}}(j)\)</span>.<br>
+对于 <span class="math inline">\(h\leqslant n_j\)</span>，取价格 <span class="math inline">\(v_{i_{j,h}}(j)\)</span>，考虑 <span class="math inline">\(h\)</span> 个大小为 <span class="math inline">\(j\)</span> 的物品堆分给上述序列的前 <span class="math inline">\(h\)</span> 位的情况，它将得到一个稳定的分配. 由于一心一意的买家只可能嫉妒和自己有相同喜好的买家，故上述过程可以对任意“至少有一个买家喜欢的bundle size”运行.<br>
+到这一步，就可以继续参考item情形的思路，规约到多重背包问题.</p>
+</blockquote>
+<p>考虑以下算法：</p>
+<hr>
+<ul>
+<li>对每个 <span class="math inline">\(j\in J\)</span>，令 <span class="math inline">\(i_1,\cdots,i_{n_j}\)</span> 为 <span class="math inline">\(n_j\)</span> 个喜欢大小为 <span class="math inline">\(j\)</span> 的物品堆的买家的序，即 <span class="math inline">\(v_{i_1}(j)\geqslant\cdots\geqslant v_{i_{n_j}}(j)\)</span>.</li>
+<li>构造如下的多重背包问题：
+<ul>
+<li>背包容量 <span class="math inline">\(k=m\)</span>；</li>
+<li>物品类 <span class="math inline">\(O_j=\{o_{j,i,h}:i\in N,h]in M\}\)</span>；
+<ul>
+<li>体积 <span class="math inline">\(z_{j,i,h}=v_{j,h}(j)\cdot h\)</span>；</li>
+<li>价值 <span class="math inline">\(w_{j,i,h}=j\cdot h\)</span>；</li>
+</ul></li>
+</ul></li>
+<li>令 <span class="math inline">\(T\)</span> 为背包问题 <span class="math inline">\((K,\epsilon)\)</span> 的解；</li>
+<li>对每个 <span class="math inline">\(o_{j,i,h}\in T\)</span>：
+<ul>
+<li><span class="math inline">\(p(j)=v_{j,h}(j)\)</span>；</li>
+<li>给 <span class="math inline">\(i_{j,1},\cdots,i_{j,h}\)</span> 每人一个大小为 <span class="math inline">\(j\)</span> 的物品堆</li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>应当注意，上述算法中没有用到社会关系图 <span class="math inline">\(G\)</span> 的任何信息，即该算法在完全图下也是social envy-free的. 事实上，后文将证明，在 <code>(SINGLE, BUNDLE)</code> 设定下，social envy-free与否不影响总收益的大小.</li>
+<li>与前文类似，可立刻得到如下推论：</li>
+</ul>
+<blockquote>
+<p><strong>Cor 11.</strong> <code>(SINGLE, BUNDLE)</code> 分配问题有FPTAS.</p>
+</blockquote>
+<h3 id="自由处置">自由处置</h3>
+<h4 id="什么是自由处置free-disposal">什么是自由处置（Free disposal）</h4>
+<p>自由处置是指，不考虑代价的情况下，拿到更多的东西总不是坏事。体现在估价函数上，就是指： <span class="math display">\[v(j)\geqslant v(i),~~若~j\leqslant i.\]</span> 如果对于single-minded买家 <span class="math inline">\(i\)</span>，应有： <span class="math display">\[v_i(j)\geqslant v_i(m_i),~~若~j\geqslant m_i.\]</span></p>
+<p>以下引理来自文献27：Revenue maximization envy-free pricing for homogeneous resources. IJCAI 2015.</p>
+<blockquote>
+<p><strong>Lemma 12.</strong> 给定一个pair envy-free的输出 <span class="math inline">\((X,p)\)</span>，若其不满足货物够分的条件，则可在多项式时间内找到一个pair envy-free的可行输出 <span class="math inline">\((X&#39;,p&#39;)\)</span>，s.t. <span class="math inline">\(r(X&#39;,p&#39;)\geqslant \frac{m}{2}\cdot p\)</span>.</p>
+</blockquote>
+<p>仍然考虑 <code>(SINGLE, ITEM)</code> 的买家，与非自由处置情形（能找到一个多项式规模的最优定价集 <span class="math inline">\(\mathbb{P}=\{\frac{v_i(m_i)}{m_i}\}\)</span>）不同，此处不能找到多项式规模的最优定价集 <span class="math inline">\(\mathbb{P}\)</span> （即至少能包含一个 <span class="math inline">\(p^{opt}\)</span>，使其能构成一个稳定的最优输出 <span class="math inline">\((X^{opt}, p^{opt})\)</span>）.</p>
+<p>然而，考虑定价集 <span class="math inline">\(\mathbb{P}_\epsilon=\{(1+\epsilon/2)^\ell\}\)</span>，其规模对于输入规模和 <span class="math inline">\(1/\epsilon\)</span> 是多项式级别的，并且至少包含一个价格 <span class="math inline">\(p\)</span>，s.t. 对于某个 <span class="math inline">\(p^{opt}\)</span>，有 <span class="math inline">\(\frac{p^{opt}}{1+\epsilon/2}\leqslant p\leqslant p^{opt}\)</span>.</p>
+<p>最终的算法需要对 <span class="math inline">\(\mathbb{P}_\epsilon\)</span> 中的每一个 <span class="math inline">\(p\)</span>，选择最优的分配方案.</p>
+<p>不失一般性，设买家的最低估价为 <span class="math inline">\(1\)</span>，再令 <span class="math inline">\(v_{max}\)</span> 为最大的买家估价，给定 <span class="math inline">\(\epsilon&gt;0\)</span>，令 <span class="math inline">\(\mathbb{P}_\epsilon=\{(1+\epsilon/2)^\ell :-\log_{(1+\epsilon/2)}m\leqslant \ell\leqslant \log_{(1+\epsilon/2)}v_{max}\}\)</span>. 则 <span class="math inline">\(\mathbb{P}\)</span> 的规模大约为 <span class="math inline">\(O(\log_{(1+\epsilon/2)}m+\log_{(1+\epsilon/2)}v_{max})=O(\frac{\log v_{max}+\log m}{\epsilon})\)</span>. 又由于 <span class="math inline">\(p^{opt}\)</span> 须满足 <span class="math inline">\(\frac{1}{m}\leqslant p^{opt}\leqslant v_{max}\)</span>，故 <span class="math inline">\(\mathbb{P}\)</span> 中存在一个 <span class="math inline">\(p\)</span>，s.t. <span class="math inline">\(\frac{p^{opt}}{1+\epsilon/2}\leqslant p\leqslant p^{opt}\)</span>.</p>
+<p>定义一个子问题：</p>
+<ul>
+<li>给定市场 <span class="math inline">\(\mu\)</span> 和定价 <span class="math inline">\(p\)</span>，求一个 pair envy-free 的分配方案 <span class="math inline">\((\overline{X},p)\)</span>，s.t. 该方案能最大化已分配的商品数量（无视商品总量的限制）.</li>
+</ul>
+<p>则整个问题将通过如下算法转化为子问题的求解：</p>
+<hr>
+<ul>
+<li>记 <span class="math inline">\(\mathbb{P}_\epsilon=\{(1+\epsilon/2)^\ell :-\log_{(1+\epsilon/2)}m\leqslant \ell\leqslant \log_{(1+\epsilon/2)}v_{max}\}\)</span>；</li>
+<li>对于每个 <span class="math inline">\(p\in\mathbb{P}_\epsilon\)</span>：
+<ul>
+<li>对 <span class="math inline">\((\mu,p)\)</span> 找到一个（不考虑商品数量限制）卖掉商品最多的分配，记为 <span class="math inline">\((\overline{X}^p,p)\)</span>（子问题他lei了）；</li>
+<li>记 <span class="math inline">\((\overline{X}^{p&#39;},p&#39;)\)</span> 为 <span class="math inline">\((\overline{X}^p,p)\)</span> 按照 <strong>Lemma 12</strong> 的方法所得到的可行解；</li>
+<li>算一下收益；</li>
+</ul></li>
+<li>对所有 <span class="math inline">\(p\)</span> 算最大收益.</li>
+</ul>
+<hr>
+<p>记 <span class="math inline">\((\overline{X}^{opt},p^{opt})\)</span> 是一个最优输出，<span class="math inline">\(p=(1+\epsilon/2)^{\lfloor \log_{(1+\epsilon/2)}p^{opt} \rfloor}\in\mathbb{P}_\epsilon\)</span>，s.t. <span class="math inline">\(\frac{p^{opt}}{1+\epsilon/2}\leqslant p\leqslant p^{opt}\)</span>.</p>
+<p>由于 <span class="math inline">\(p\leqslant p^{opt}\)</span>，故在子问题中，<span class="math inline">\(p\)</span> 对应的方案能比 <span class="math inline">\(p^{opt}\)</span> 对应的方案卖掉更多（至少不会更少）的商品. 考虑 <span class="math inline">\(\overline{X}&#39;\)</span>，s.t. <span class="math inline">\(|X_i&#39;|=|X_i^{opt}|\)</span>，若 <span class="math inline">\(X_i^{opt}\neq\varnothing\)</span>，且 <font color="red"><span class="math inline">\(|X_i&#39;|\)</span> 是被 <span class="math inline">\(\overline{X}^{opt}\)</span> 分配的商品集大小中，在 <span class="math inline">\(p\)</span> 下使 <span class="math inline">\(i\)</span> 的效用最大的商品集大小？？？</font> 显然，<span class="math inline">\(\overline{X}&#39;\)</span> 在 <span class="math inline">\(p\)</span> 下是pair envy-free的，并且至少分配了和 <span class="math inline">\(\overline{X}^{opt}\)</span> 一样多的商品. 因此，对于子问题的最优解，它一定是这样的一个 <span class="math inline">\(\overline{X}^p\)</span>，s.t. <span class="math inline">\(\sum\limits_{i=1}^n |X_i^p|\geqslant \sum\limits_{i=1}^n |X_i&#39;|\leqslant \sum\limits_{i=1}^n |X_i^{opt}|\)</span>.</p>
+<p>若 <span class="math inline">\(\sum\limits_{i=1}^n |X_i^p|&gt; m\)</span>，则 <span class="math inline">\((\overline{X}^p,p)\)</span> 分配了过多的商品，应当用 <strong>Lemma 12</strong> 来修正为 <span class="math inline">\((\overline{X}^{p&#39;},p&#39;)\)</span>.</p>
+<p>于是，考虑到 <span class="math inline">\((\overline{X}^{p&#39;},p&#39;)\)</span> 至少分配了 <span class="math inline">\((\overline{X}^{opt},p^{opt})\)</span> 所分配商品量的一半，并且价格 <span class="math inline">\(p&#39;\geqslant p\geqslant \frac{p^{opt}}{1+\epsilon/2}\)</span>，故 <span class="math inline">\(r(\overline{X}^{p&#39;},p&#39;)\geqslant \frac{r(\overline{X}^{opt},p&#39;)}{2}\geqslant \frac{r(\overline{X}^{opt},p^{opt})}{2+\epsilon}\)</span>.</p>
+<hr>
+<p>至此，我们只剩下子问题的最优解需要讨论.</p>
+<p>给定一个pair envy-free的分配方案 <span class="math inline">\((\overline{X},p)\)</span>，使其能在市场 <span class="math inline">\((\mu,p)\)</span> 下最大化商品分配数. 记 <span class="math inline">\(B_{\overline{X}}\)</span> 为 <span class="math inline">\(\overline{X}\)</span> 中出现的所有“商品捆”大小构成的集合. 由于 <span class="math inline">\(\overline{X}\)</span> 是pair envy-free 并且最优的，故对于每个对 <span class="math inline">\(B_{\overline{X}}\)</span> 中至少一个 <span class="math inline">\(j\)</span> 持非负效用的买家，我们都必须给该买家分配他认为最好（效用最高）的商品量. 因此，给定 <span class="math inline">\(B_\overline{X}\)</span>，我们可以在多项式时间内将 <span class="math inline">\(\overline{X}\)</span> 重建，换言之，子问题的解决只需确定 <span class="math inline">\(B_\overline{X}\)</span>.</p>
+<p>注意到，给定 <span class="math inline">\(p\)</span>，每个买家 <span class="math inline">\(i\)</span>，若 <span class="math inline">\(m_i\leqslant \frac{v_i(m_i)}{p}\)</span>，则 <span class="math inline">\(i\)</span> 对所有处在区间 <span class="math inline">\([m_i, \lfloor\frac{v_i(m_i)}{p}\rfloor]\)</span> 中的“捆大小”都具有非负效用（这是句废话）. 由于一捆商品的价格会随着size增大而增大，但价值并不会，因此效用是在递减的（也是废话）. 因此，给定 <span class="math inline">\(B_\overline{X}\)</span>，（若下述集合为空，则取 <span class="math inline">\(0\)</span>） <span class="math display">\[|X_i|=\min\{t:t\in [m_i, \lfloor\frac{v_i(m_i)}{p}\rfloor]\cap B_\overline{X}\}.\]</span></p>
+<p>由于输入可能是指数级别<font color="red">？？？为什么？</font>故我们需要搞一个包含 <span class="math inline">\(B_\overline{X}\)</span> 的多项式级别的集合 <span class="math inline">\(B_p\)</span>.</p>
+<blockquote>
+<p><strong>Lemma 14.</strong> 给定市场 <span class="math inline">\(\mu\)</span> 和价格 <span class="math inline">\(p\)</span>，令 <span class="math inline">\(B_p=\{\lfloor\frac{v_i(m_i)}{p}\rfloor :i\in n\}\)</span>，则 <span class="math inline">\(B_\overline{X}\subset B_p\)</span>，对所有最大化商品分配数的输出 <span class="math inline">\((\overline{X},p)\)</span>.</p>
+</blockquote>
+<p>证明考虑反证法，假设存在 <span class="math inline">\(j\notin B_p\)</span>，再记 <span class="math inline">\(N_i\)</span> 为所有在 <span class="math inline">\((\overline{X},p)\)</span> 中拿到 <span class="math inline">\(j\)</span> 个物品的买家. 将他们得到的商品量调整为 <span class="math inline">\(\min_{i\in N_j}\frac{v_i(m_i)}{p}\)</span> 即可. 细节略去.</p>
+<p>最终子问题的解决办法如下:</p>
+<hr>
+<ul>
+<li>令 <span class="math inline">\(B_p=\{\lfloor\frac{v_i(m_i)}{p}\rfloor:i\in N\}\)</span>；</li>
+<li>对 <span class="math inline">\(j\in B_p\)</span>（从大到小）：
+<ul>
+<li>计算一个“最大化‘收入’的分配”所分配掉的商品总数 <span class="math inline">\(x(j)\)</span>，其所分配的最小的商品集大小为 <span class="math inline">\(j\)</span>，即：<span class="math display">\[x(j)=\max\{\max_{k\in B,k&gt;j}\{x(k)+\Delta_k^j\},~j\cdot|N_j|\};\]</span></li>
+</ul></li>
+<li>返回最大的 <span class="math inline">\(x(j)\)</span> 所对应的分配 <span class="math inline">\((\overline{X}^j,p)\)</span>.</li>
+</ul>
+<hr>
+<h2 id="general-买家">General 买家</h2>
+<h3 id="item-pricing-1">Item-pricing</h3>
+<ul>
+<li>现有如下猜想：
+<ul>
+<li>一个随机的 <span class="math inline">\(n\)</span> 元3-SAT问题，有 <span class="math inline">\(m=\Delta n\)</span> 条约束，该猜想断言对 <span class="math inline">\(\forall \epsilon&gt;0\)</span>，以及一个与 <span class="math inline">\(n\)</span> 无关的大常数 <span class="math inline">\(\Delta\)</span>，不存在这样的多项式时间算法，能够求解满足 <span class="math inline">\((1-\epsilon)\)</span> 比例的约束.</li>
+</ul></li>
+<li>一个问题被称为是 <code>R3SAT</code> 困难的，如果”该问题有多项式时间解法“能够证伪上述猜想.</li>
+</ul>
+<blockquote>
+<p><strong>Def 15.</strong> <code>MES</code> 是如下的问题：</p>
+<ul>
+<li>给定全集 <span class="math inline">\(U\)</span> 和一个有序子集族 <span class="math inline">\(\mathcal{C}=\{S_1,\cdots,S_c\}\)</span>；</li>
+<li>一个长度为 <span class="math inline">\(\ell\)</span> 的扩张序列(expanding sequence)<span class="math inline">\(\phi=(\phi(1)&lt;\cdots&lt;\phi(\ell))\)</span> 是一系列集合 <span class="math inline">\(S_{\phi(1)},\cdots,S_{\phi(\ell)}\)</span>，s.t. <span class="math inline">\(\forall 1\leqslant y\leqslant \ell\)</span>，<span class="math inline">\(S_{\phi(y)}\not\subseteq\bigcup\limits_{l=1}^{y-1} S_{\phi(l)}\)</span>.</li>
+<li><code>MES</code> 的目标就是求出最长的序列(Maximum expanding sequence).</li>
+<li><code>MES</code> 问题是一个 <code>R3SAT</code> 困难的问题.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Def 16.</strong> 称一个 <code>MES</code> 问题是 <span class="math inline">\(\kappa\)</span>-separable的，若 <span class="math inline">\(\mathcal{C}\)</span> 的序列可以被分为 <span class="math inline">\(\kappa\)</span> 个不交子列/子类 <span class="math inline">\(\mathcal{C}_1,\cdots,\mathcal{C}_\kappa\)</span>.<br>
+文献[21]证明了，<span class="math inline">\(\exists\epsilon&gt;0\)</span>，s.t 当 <code>MES</code> 问题是 <span class="math inline">\(f(c)\)</span>-separable的，在 <span class="math inline">\(O(f(c)^\epsilon)\)</span> 内逼近该问题也是 <code>R3SAT</code> 困难的. 其中 <span class="math inline">\(f\)</span> 满足：</p>
+<ul>
+<li><span class="math inline">\(f\)</span> 是不减的；</li>
+<li><span class="math inline">\(f(a)\leqslant a\)</span> 且 <span class="math inline">\(f(a^b)\leqslant f(a)^b\)</span>，<span class="math inline">\(\forall b&gt;1\)</span>，<span class="math inline">\(a\in\mathbb{N}\)</span>.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Th 17.</strong> 对一些 <span class="math inline">\(\epsilon&gt;0\)</span> 来说，在 <span class="math inline">\(O(\log^\epsilon n)\)</span> 下逼近 <code>(GENERAL, ITEM)</code> 问题是 <code>R3SAT</code>-困难的.</p>
+</blockquote>
+<blockquote>
+<p><strong>Lemma 18.</strong> 如果市场 <span class="math inline">\(\mu\)</span> 存在一个稳定的输出 <span class="math inline">\((\overline{X},p\neq 1)\)</span>，记其收益为 <span class="math inline">\(r\)</span>，则也存在一个稳定的输出 <span class="math inline">\((\overline{X}&#39;,1)\)</span>，其收益为 <span class="math inline">\(r/4\)</span>.</p>
+</blockquote>
+<h3 id="bundle-pricing-1">Bundle-pricing</h3>
+<blockquote>
+<p><strong>Th 22.</strong> <code>(GENERAL, BUNDLE)</code> 分配问题有 <span class="math inline">\(\frac{\log n}{1-\frac{1}{e}}\)</span> 近似算法.</p>
+</blockquote>
+<h2 id="无嫉妒的代价">无嫉妒的代价</h2>
+<blockquote>
+<p><strong>Th 24.</strong> <code>(SINGLE, ITEM)</code> 情形的代价是 <span class="math inline">\(2\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 25.</strong> <code>(SINGLE, BUNDLE)</code> 情形的代价是 <span class="math inline">\(1\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 26.</strong> <code>(GENERAL, ITEM)</code> 情形的代价是 <span class="math inline">\(\Theta(\log n)\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Th 27.</strong> <code>(GENERAL, BUNDLE)</code> 情形的代价是 <span class="math inline">\(\Theta(\log n)\)</span>.</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
+          
+            <a href="/tags/社会计算/" rel="tag"># 社会计算</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/10/Paper-Reading-3-Computing-a-small-agreeable-set-of-indivisible-items/" rel="next" title="论文笔记[3]——Computing a small agreeable set of indivisible items">
+                <i class="fa fa-chevron-left"></i> 论文笔记[3]——Computing a small agreeable set of indivisible items
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/25/Paper-Reading-5-The-undercut-procedure-an-algorithm-for-the-envy-free-division-of-indivisible-items/" rel="prev" title="论文笔记[5]——The undercut procedure: an algorithm for the envy-free division of indivisible items">
+                论文笔记[5]——The undercut procedure: an algorithm for the envy-free division of indivisible items <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#single-minded买家"><span class="nav-number">2.</span> <span class="nav-text">single-minded买家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#item-pricing"><span class="nav-number">2.1.</span> <span class="nav-text">Item-pricing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bundle-pricing"><span class="nav-number">2.2.</span> <span class="nav-text">Bundle-pricing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自由处置"><span class="nav-number">2.3.</span> <span class="nav-text">自由处置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是自由处置free-disposal"><span class="nav-number">2.3.1.</span> <span class="nav-text">什么是自由处置（Free disposal）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#general-买家"><span class="nav-number">3.</span> <span class="nav-text">General 买家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#item-pricing-1"><span class="nav-number">3.1.</span> <span class="nav-text">Item-pricing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bundle-pricing-1"><span class="nav-number">3.2.</span> <span class="nav-text">Bundle-pricing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无嫉妒的代价"><span class="nav-number">4.</span> <span class="nav-text">无嫉妒的代价</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

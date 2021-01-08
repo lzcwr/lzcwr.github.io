@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="师大,数学,拓扑学,期末复习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="拓扑期末复习.">
+<meta name="keywords" content="师大,数学,拓扑学,期末复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拓扑学复习重点">
+<meta property="og:url" content="http://lizhechen.com/2018/01/08/Reviewing-Notes-on-BNU-Topology/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="拓扑期末复习.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-30T16:22:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="拓扑学复习重点">
+<meta name="twitter:description" content="拓扑期末复习.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2018/01/08/Reviewing-Notes-on-BNU-Topology/"/>
+
+
+
+
+
+  <title>拓扑学复习重点 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2018/01/08/Reviewing-Notes-on-BNU-Topology/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">拓扑学复习重点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T20:27:14+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  拓扑期末复习.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="点集拓扑">点集拓扑</h2>
+<h3 id="拓扑空间">拓扑空间</h3>
+<h4 id="拓扑空间-1">拓扑空间</h4>
+<ul>
+<li>拓扑: 包含全集和空集, 对任意并和有限交封闭的集类;</li>
+<li>开集: 拓扑中包含的集合为开集.</li>
+</ul>
+<h4 id="几个拓扑的例子">几个拓扑的例子</h4>
+<ol type="1">
+<li><p><strong>平凡拓扑</strong>: <span class="math inline">\(\{\varnothing, X\}\)</span>(最粗拓扑);</p></li>
+<li><p><strong>离散拓扑</strong>: <span class="math inline">\(\{U: U\subset X\}\)</span>(最细拓扑);</p></li>
+<li><p><strong>欧式拓扑</strong>: <span class="math inline">\(\{U: x\in U\Leftrightarrow B(x,\delta)\subset U\}\)</span>;</p></li>
+<li><p><strong>余有限拓扑</strong>: <span class="math inline">\(\{U: U=\varnothing 或 U^c 是有限集\}\)</span>(类似有余可数拓扑).</p></li>
+</ol>
+<h3 id="邻域与开集">邻域与开集</h3>
+<h4 id="邻域">邻域</h4>
+<p>对于包含 <span class="math inline">\(x\)</span> 的集合 <span class="math inline">\(N\)</span>, 若存在开集 <span class="math inline">\(O\)</span>, s.t. <span class="math inline">\(x\in O\subset N\)</span>, 则称 <span class="math inline">\(N\)</span> 是 <span class="math inline">\(x\)</span> 的邻域.</p>
+<blockquote>
+<p><strong>命题</strong> 设 <span class="math inline">\(X\)</span> 是拓扑空间, 则 <span class="math inline">\(W\)</span> 是 <span class="math inline">\(X\)</span> 的开集当且仅当 <span class="math inline">\(W\)</span> 是其中每点的邻域.</p>
+</blockquote>
+<h4 id="闭集">闭集</h4>
+<p>开集的补集称为闭集, 由此可以立刻得到:</p>
+<ul>
+<li>闭集对任意交和有限并封闭;</li>
+<li>全集和空集是闭集;</li>
+</ul>
+<h4 id="导集">导集</h4>
+<ul>
+<li><strong>聚点</strong>: 若 <span class="math inline">\(p\)</span> 的任意邻域都包含 <span class="math inline">\(A-\{p\}\)</span> 中的至少一点, 则称 <span class="math inline">\(p\)</span> 为 <span class="math inline">\(A\)</span> 的聚点;</li>
+<li><strong>导集</strong>: <span class="math inline">\(A\)</span> 的聚点全体称为 <span class="math inline">\(A\)</span> 的导集, 记作 <span class="math inline">\(A&#39;\)</span>;</li>
+<li><strong>闭包</strong>: <span class="math inline">\(\overline{A}=A\cup A&#39;\)</span>.</li>
+</ul>
+<p>一个例子: <span class="math display">\[A=\{(x,\sin(\frac{\pi}{x}))~\vert~0&lt;x\leqslant 1\},\quad B=\{(0,y)~\vert~-1\leqslant y\leqslant 1\}\Rightarrow \]</span></p>
+<p>关于闭集, 容易得到下列命题:</p>
+<blockquote>
+<p><strong>命题</strong> <span class="math inline">\(A\)</span> 闭 <span class="math inline">\(\iff\)</span> <span class="math inline">\(\overline{A}=A\)</span>.</p>
+</blockquote>
+<h4 id="拓扑基">拓扑基</h4>
+<ul>
+<li>拓扑基: 设 <span class="math inline">\(X\)</span> 是拓扑空间, <span class="math inline">\(\mathcal{B}\)</span> 是一组开集, s.t. <span class="math inline">\(X\)</span> 中的任意非空开集可以写成 <span class="math inline">\(\mathcal{B}\)</span> 中集合的并, 则称 <span class="math inline">\(\mathcal{B}\)</span> 为该拓扑的一组拓扑基;</li>
+<li>拓扑基的定义等价于 <span class="math inline">\(\forall x\in X\)</span> 以及 <span class="math inline">\(x\)</span> 的开邻域 <span class="math inline">\(N\)</span>, <span class="math inline">\(\exists B\in\mathcal{B}\)</span>, s.t. <span class="math inline">\(x\in B\subset N\)</span>.</li>
+</ul>
+<p>关于拓扑基有如下定理:</p>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(\mathcal{B}\)</span> 是集合 <span class="math inline">\(X\)</span> 的子集构成的子集类, s.t. 1. 设 <span class="math inline">\(U_1,U_2\in\mathcal{B}\)</span>, <span class="math inline">\(\forall x\in U_1\cap U_2\)</span>, <span class="math inline">\(\exists V\in \mathcal{B}\)</span>, s.t. <span class="math inline">\(x\in V\subset U_1\cap U_2;\)</span> 2. <span class="math inline">\(\mathcal{B}\)</span> 覆盖 <span class="math inline">\(X\)</span>. 则 <span class="math inline">\(\mathcal{B}\)</span> 是 <span class="math inline">\(X\)</span> 中某个拓扑的拓扑基.</p>
+</blockquote>
+<h4 id="子空间拓扑">子空间拓扑</h4>
+<ul>
+<li><strong>子空间拓扑</strong>: 子空间中的开集是全空间中开集与 <span class="math inline">\(A\)</span> 的交.</li>
+<li>子空间中的闭集也是全空间中闭集与 <span class="math inline">\(A\)</span> 的交.</li>
+<li>子空间中的开集也是全空间中的开集.</li>
+</ul>
+<h3 id="连续性">连续性</h3>
+<h4 id="连续性-1">连续性</h4>
+<ul>
+<li><strong>连续性</strong>: 开集的原像是开集.</li>
+</ul>
+<h4 id="关于与连续性等价的几个命题">关于与连续性等价的几个命题</h4>
+<ol type="1">
+<li>开集的原像是开集;</li>
+<li>拓扑基中集合的原像是开集;</li>
+<li>闭集的原像是闭集.</li>
+</ol>
+<h4 id="连续性的其他结论">连续性的其他结论</h4>
+<ol type="1">
+<li>连续映射的复合映射连续;</li>
+<li>连续映射在子空间的限制连续;</li>
+</ol>
+<h4 id="同胚">同胚</h4>
+<ul>
+<li><strong>同胚</strong>: 若连续映射 <span class="math inline">\(f: X\to Y\)</span> 是 <span class="math inline">\(1-1\)</span> 映射且 <span class="math inline">\(f^{-1}\)</span> 连续, 则称其为同胚.</li>
+</ul>
+<p>关于同胚有以下等价命题:</p>
+<ol type="1">
+<li><span class="math inline">\(f\)</span> 是同胚;</li>
+<li><span class="math inline">\(f\)</span> 是连续的一一映射并且是开映射;</li>
+<li><span class="math inline">\(f\)</span> 是连续的一一映射并且是闭映射.</li>
+</ol>
+<h3 id="分离性">分离性</h3>
+<h4 id="分离性-1">分离性</h4>
+<ul>
+<li><span class="math inline">\(T_0\)</span>: 任意一点与另一点分离;</li>
+<li><span class="math inline">\(T_1\)</span>: 任意两点互相分离 <span class="math inline">\(\Leftrightarrow\)</span> 单点集是闭集;</li>
+<li><span class="math inline">\(T_2\)</span>: 任意两点存在各自的开邻域不相交(Hausdorff);</li>
+<li><span class="math inline">\(T_3\)</span>: 任意闭集与其外一点存在开邻域不相交;</li>
+<li><span class="math inline">\(T_4\)</span>: 任意两个不相交闭集存在各自开邻域不相交.</li>
+</ul>
+<p>一些分离性的例子如下:</p>
+<ol type="1">
+<li><p><span class="math inline">\(X=\{0,1\}\)</span>, <span class="math inline">\(\mathcal{T}=\{X,\varnothing,\{0\}\}\)</span>: 是 <span class="math inline">\(T_0\)</span> 但不是 <span class="math inline">\(T_1\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^1\)</span> 上的余有限拓扑是 <span class="math inline">\(T_1\)</span> 但不是 <span class="math inline">\(T_2\)</span>.</p></li>
+</ol>
+<p>对于Hausdorff空间还有如下命题:</p>
+<blockquote>
+<p><strong>命题</strong> Hausdorff空间 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(T_3\)</span> 的当且仅当对于 <span class="math inline">\(\forall x\)</span> 以及 <span class="math inline">\(U_x\)</span>, <span class="math inline">\(\exists V_x\)</span>, s.t. <span class="math display">\[x\in V\subset\overline{V}\subset U.\]</span></p>
+</blockquote>
+<h4 id="tietze-扩张定理">Tietze 扩张定理</h4>
+<blockquote>
+<p><strong>Urysohn引理</strong> 设 <span class="math inline">\(X\)</span> 是Hausdorff空间, 则 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(T_4\)</span> 的当且仅当对于 <span class="math inline">\(X\)</span> 内任意不相交的闭集 <span class="math inline">\(A,B\)</span>, 存在 <span class="math inline">\(X\)</span> 上的连续实函数 <span class="math inline">\(f\)</span>, s.t. <span class="math display">\[f\vert_A=1,~f\vert_B=-1,~-1 &lt; f\vert_{X-(A\cup B)} &lt; 1.\]</span></p>
+</blockquote>
+<p>进一步有 Tietze 扩张定理:</p>
+<blockquote>
+<p><strong>Tietze扩张定理</strong> 设 <span class="math inline">\(X\)</span> 是Hausdorff空间, 则 <span class="math inline">\(X\)</span> 是 <span class="math inline">\(T_4\)</span> 的当且仅当对于 <span class="math inline">\(X\)</span> 内任意闭子集 <span class="math inline">\(A\)</span> 及任意连续函数 <span class="math inline">\(f: A\to \mathbb{E}^1\)</span>, 存在连续函数 <span class="math inline">\(g: X\to \mathbb{E}^1\)</span>, s.t. <span class="math inline">\(g\vert_A=f\)</span>. 进一步, 若在 <span class="math inline">\(A\)</span> 上有 <span class="math inline">\(\vert f\vert\leqslant M\)</span>, 则可做到 <span class="math inline">\(\vert g\vert\leqslant M\)</span>.</p>
+</blockquote>
+<h3 id="紧致性">紧致性</h3>
+<h4 id="紧致性-1">紧致性</h4>
+<ul>
+<li><strong>紧致性</strong>: 任意开覆盖含有限子覆盖.</li>
+</ul>
+<blockquote>
+<p><strong>Heine-Borel定理</strong> <span class="math inline">\(\mathbb{E}^1\)</span> 上的闭区间是紧集.</p>
+</blockquote>
+<ul>
+<li>紧致空间的闭子集是紧的.</li>
+<li>Hausdorff空间中的紧集是闭集.</li>
+<li>紧空间到Hausdorff空间的既单又满的连续映射是同胚.</li>
+</ul>
+<blockquote>
+<p><strong>Bolzano-Weierstrass定理</strong> 紧空间的无穷点集必有聚点.</p>
+</blockquote>
+<h4 id="局部紧致">局部紧致</h4>
+<ul>
+<li>局部紧致: <span class="math inline">\(\forall x\in X\)</span>, 存在 <span class="math inline">\(x\)</span> 的紧致邻域.</li>
+<li>紧致 <span class="math inline">\(\Rightarrow\)</span> 局部紧.</li>
+</ul>
+<h3 id="乘积空间">乘积空间</h3>
+<h4 id="乘积拓扑">乘积拓扑</h4>
+<ul>
+<li>开集 <span class="math inline">\(\times\)</span> 开集 构成一组拓扑基 <span class="math inline">\(\mathcal{B}\)</span>;</li>
+<li>乘积拓扑: <span class="math inline">\(\mathcal{B}\)</span> 决定的拓扑称为乘积拓扑.</li>
+</ul>
+<h4 id="自然投影">自然投影</h4>
+<p>称映射 <span class="math display">\[p_1: X\times Y\to X,~(x,y)\to x;\]</span> <span class="math display">\[p_2: X\times Y\to X,~(x,y)\to y;\]</span> 为自然投影.</p>
+<ul>
+<li><span class="math inline">\(X\times Y\)</span> 的乘积拓扑是使得自然投影都连续的最粗拓扑;</li>
+<li><span class="math inline">\(f:Z\to X\times Y\)</span> 连续 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(p_1\circ f\)</span> 和 <span class="math inline">\(p_2\circ f\)</span> 都连续;</li>
+<li><span class="math inline">\(X\times Y\)</span> 是Hausdorff空间当且仅当 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> 都是Hausdorff空间;</li>
+<li><span class="math inline">\(X\times Y\)</span> 紧致当且仅当<span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> 都紧致.</li>
+</ul>
+<h3 id="连通性">连通性</h3>
+<h4 id="连通性-1">连通性</h4>
+<p>以下命题等价:</p>
+<ol type="1">
+<li><span class="math inline">\(X\)</span> 连通;</li>
+<li><span class="math inline">\(X\)</span> 内既开又闭的子集只有 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(\varnothing\)</span>;</li>
+<li><span class="math inline">\(X\)</span> 不能表示为两个不相交的非空开集的并;</li>
+<li>不存在从 <span class="math inline">\(X\)</span> 到多于一点的离散拓扑空间的连续满射.</li>
+</ol>
+<blockquote>
+<p><strong>命题</strong> <span class="math inline">\(\mathbb{E}^1\)</span> 的非空子集连通当且仅当它是一个区间.</p>
+</blockquote>
+<p>关于连通还有如下命题:</p>
+<ul>
+<li>连通空间的连续像连通;</li>
+<li><span class="math inline">\(X\times Y\)</span> 连通当且仅当 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> 都连通;</li>
+</ul>
+<h4 id="连通分支">连通分支</h4>
+<ul>
+<li><strong>连通分支</strong>: 极大连通子集.</li>
+</ul>
+<p>有如下例子:</p>
+<ul>
+<li>离散拓扑空间的每一个点是一个连通分支;</li>
+<li>有理数作为欧氏空间的子空间, 每个点是一个连通分支.</li>
+</ul>
+<blockquote>
+<p><strong>中间值定理</strong> 设 <span class="math inline">\(f: X\to\mathbb{E}^1\)</span> 是一个连续函数, 若 <span class="math inline">\(f\)</span> 可以取到 <span class="math inline">\(a,b\)</span>, 则 <span class="math inline">\(f\)</span> 可以取到 <span class="math inline">\(a,b\)</span> 中间的任何值.</p>
+</blockquote>
+<h4 id="局部连通">局部连通</h4>
+<ul>
+<li>局部连通: 任意 <span class="math inline">\(x\)</span>, 任意 <span class="math inline">\(x\)</span> 的邻域 <span class="math inline">\(U\)</span>, 存在连通邻域 <span class="math inline">\(V\)</span>, s.t. <span class="math inline">\(x\in V\subset U\)</span>.</li>
+<li>连通未必局部连通. (例子: <span class="math inline">\((x,\sin(\frac{\pi}{x}))\)</span>)</li>
+</ul>
+<h3 id="道路连通性">道路连通性</h3>
+<h4 id="道路">道路</h4>
+<ul>
+<li><strong>道路</strong>: 连续映射 <span class="math inline">\(\alpha: I\to X\)</span>: 起点为 <span class="math inline">\(\alpha(0)\)</span>, 终点为 <span class="math inline">\(\alpha(1)\)</span>.</li>
+<li><strong>逆道路</strong>: <span class="math inline">\(\overline{\alpha}(t)=\alpha(1-t)\)</span>.</li>
+<li><strong>道路的乘积</strong>: 设 <span class="math inline">\(\alpha: x\to y\)</span>, <span class="math inline">\(\beta: y\to z\)</span>, 定义 <span class="math display">\[\gamma(t)=\begin{cases} \alpha(2t), &amp; 0\leqslant t\leqslant\frac{1}{2}, \\\\ s\beta(2t-1), &amp; \frac{1}{2}\leqslant t\leqslant 1, \end{cases}\]</span> 则 <span class="math inline">\(\gamma\)</span> 为 <span class="math inline">\(\alpha\)</span> 与 <span class="math inline">\(\beta\)</span> 的乘积道路.</li>
+<li><strong>道路的连续像是道路</strong>: <span class="math inline">\(f: X\to Y\)</span> 连续, 则 <span class="math inline">\(f\circ \alpha\)</span> 是 <span class="math inline">\(Y\)</span> 中的道路.</li>
+</ul>
+<h4 id="道路连通">道路连通</h4>
+<ul>
+<li><strong>道路连通空间</strong>: 任意两点都有道路连接的空间;</li>
+<li><strong>道路连通空间必定是连通的</strong> (反证法: 若不然, 则与 <span class="math inline">\(I\)</span> 的连通性矛盾);</li>
+<li><strong>连通空间未必道路连通</strong>: <span class="math inline">\(\sin(x,\sin(\frac{\pi}{x}))\)</span> (证明 <span class="math inline">\((0,0)\)</span> 与 <span class="math inline">\((1,0)\)</span> 之间无道路);</li>
+<li><strong>道路连通分支</strong>: 极大道路连通子集.</li>
+</ul>
+<h4 id="局部道路连通">局部道路连通</h4>
+<ul>
+<li>局部道路连通: 任意 <span class="math inline">\(x\)</span>, 任意 <span class="math inline">\(x\)</span> 的邻域 <span class="math inline">\(U\)</span>, 存在道路连通邻域 <span class="math inline">\(V\)</span>, s.t. <span class="math inline">\(x\in V\subset U\)</span>;</li>
+<li>道路连通未必局部道路连通. (例子: <span class="math inline">\((\frac{1}{n},t)\cup (0,t)\cup (t,0)~t\in I\)</span>)</li>
+<li>连通+局部道路连通 <span class="math inline">\(\Rightarrow\)</span> 道路连通.</li>
+</ul>
+<h3 id="商空间">商空间</h3>
+<h4 id="商空间-1">商空间</h4>
+<ul>
+<li><strong>商空间</strong>: 设 <span class="math inline">\(X\)</span> 上有等价关系, 则可定义商空间 <span class="math inline">\(Y=X/\sim\)</span> (把一个等价类捏成一点);</li>
+<li><strong>投影映射</strong>: <span class="math inline">\(\pi: X\to Y\)</span>, <span class="math inline">\(x\mapsto [x]\)</span>;</li>
+<li><strong>商拓扑</strong>: 在商空间 <span class="math inline">\(Y\)</span> 定义拓扑: <span class="math display">\[U\subset Y 是开集 \Leftrightarrow \pi^{-1}(U) 是 X 中的开集\]</span> 则称该拓扑为 <span class="math inline">\(Y\)</span> 上的商拓扑;</li>
+</ul>
+<p>关于商空间, 一个重要的性质如下:</p>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(X\)</span> 是拓扑空间, <span class="math inline">\(Y\)</span> 是 <span class="math inline">\(X\)</span> 的商空间, <span class="math inline">\(Z\)</span> 是任意空间, 则: <span class="math display">\[f: Y\to Z ~连续~\Leftrightarrow~f\circ\pi: X\to Z~连续.\]</span></p>
+</blockquote>
+<h4 id="商空间的例子">商空间的例子</h4>
+<p><span class="math inline">\(I^2\)</span> 上商空间的几个例子如下:</p>
+<ol type="1">
+<li>平环 <span class="math inline">\(S^1\times I\)</span>: <span class="math inline">\((0,y)\sim(1,y)\)</span>;</li>
+<li>Mobius带: <span class="math inline">\((0,y)\sim(1,1-y)\)</span>.</li>
+<li>球面 <span class="math inline">\(\mathbb{S}^2\)</span>: <span class="math inline">\((0,y)\sim(1,y)\sim(x,0)\sim(x,1)~\forall x,y\)</span>.</li>
+</ol>
+<p>粘合两组对边可得环面 <span class="math inline">\(T^2\)</span> 和Klein瓶:</p>
+<ol type="1">
+<li>环面 <span class="math inline">\(T^2\)</span>: <span class="math inline">\((x,0)\sim (x,1)\)</span>, <span class="math inline">\((0,y)\sim (1,y)\)</span>; (<span class="math inline">\(T^2\cong \mathbb{S}^1\times\mathbb{S}^1\)</span>)</li>
+<li>Klein瓶: <span class="math inline">\((x,0)\sim (x,1)\)</span>, <span class="math inline">\((0,y)\sim (1,1-y)\)</span>.</li>
+</ol>
+<p>在 <span class="math inline">\(S^n\)</span> 上, 重要的商空间是实投影空间:</p>
+<ol type="1">
+<li>实投影空间 <span class="math inline">\(\mathbb{P}^n\)</span>: <span class="math inline">\(x\sim -x\)</span>, <span class="math inline">\(\forall x\in\mathbb{S}^n\)</span>.</li>
+</ol>
+<h4 id="商映射">商映射</h4>
+<p><strong>商映射</strong>: <span class="math inline">\(f\)</span> 是连续满射, 且 <span class="math inline">\(U\subset Y\)</span> 是开集 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(f^{-1}(U)\subset X\)</span> 是开集, 则称 <span class="math inline">\(f\)</span> 是商映射.</p>
+<p>有如下命题:</p>
+<blockquote>
+<p><strong>定理</strong> 设 <span class="math inline">\(f: X\to Y\)</span> 是商映射, 则 1. 映射 <span class="math inline">\(g: Y\to Z\)</span> 连续 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(g\circ f: X\to Z\)</span> 连续; 2. <span class="math inline">\(Y\cong X/\sim\)</span>.</p>
+</blockquote>
+<p>关于商映射的判断, 有如下两条常见的定理:</p>
+<ol type="1">
+<li><strong>连续满射若同时是开映射或闭映射, 则是商映射</strong>;</li>
+<li><strong>紧空间到Hausdorff空间的连续满射是商映射</strong>.</li>
+</ol>
+<h4 id="拓扑锥与双角锥">拓扑锥与双角锥</h4>
+<ul>
+<li>拓扑锥: <span class="math inline">\(X\times I\)</span> 上定义 <span class="math display">\[(x,1)\sim (x&#39;,1),~\forall x,x&#39;\in X;\]</span> <span class="math display">\[(x,t)\sim(x,t), ~\forall x,\forall t&lt;1.\]</span> 而成的商空间称为 <span class="math inline">\(X\)</span> 的拓扑锥, 记作 <span class="math inline">\(CX\)</span>.</li>
+</ul>
+<p>容易知道 <span class="math inline">\(C\mathbb{S}^{n-1}\cong B^n\)</span>.</p>
+<ul>
+<li>双角锥: <span class="math inline">\(X\times[-1,1]\)</span> 上定义 <span class="math display">\[(x,1)\sim(x&#39;,1),~\forall x,x&#39;\]</span> <span class="math display">\[(x,-1)\sim(x&#39;,-1),~\forall x,x&#39;\]</span> <span class="math display">\[(x,t)\sim (x,t), \text{otherwise}.\]</span></li>
+</ul>
+<p>容易知道 <span class="math inline">\(S\mathbb{S}^{n-1}\cong \mathbb{S}^n\)</span>.</p>
+<h3 id="拓扑群与轨道空间">拓扑群与轨道空间</h3>
+<h4 id="拓扑群">拓扑群</h4>
+<ul>
+<li><strong>拓扑群</strong>: 设 <span class="math inline">\(G\)</span> 是一个Hausdorff空间, 同时也是一个群. 若 <span class="math inline">\(G\)</span> 的乘法和求逆都连续, 则称 <span class="math inline">\(G\)</span> 为拓扑群.</li>
+<li><strong>子群</strong>: 子空间+子群.</li>
+<li><strong>同态</strong>: 连续+同态. (同构=同胚+同构).</li>
+</ul>
+<p>拓扑群的例子:</p>
+<ol type="1">
+<li>四元数空间 <span class="math inline">\(\mathbb{H}=\mathbb{C}^2\)</span>;</li>
+<li>一般线性群 <span class="math inline">\(GL(n,\mathbb{R})\subset \mathbb{E}^{n^2}\)</span>.</li>
+<li>正交群 <span class="math inline">\(O(n)\)</span>, <span class="math inline">\(SO(n)\)</span> 和 酉群 <span class="math inline">\(U(n)\)</span>, <span class="math inline">\(SU(n)\)</span>.</li>
+</ol>
+<h4 id="拓扑群作用">拓扑群作用</h4>
+<ul>
+<li>拓扑群作用: 连续映射 <span class="math inline">\(\phi: G\times X\to X\)</span>, s.t.</li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(\phi(hg,x)=\phi(h,\phi(g,x))\)</span>, <span class="math inline">\(\forall g,h,x\)</span>;</li>
+<li><span class="math inline">\(\phi(e,x)=x\)</span>, <span class="math inline">\(\forall x\)</span></li>
+</ol>
+<p>可以简写为:</p>
+<ol type="1">
+<li><span class="math inline">\((hg)x=h(gx)\)</span>;</li>
+<li><span class="math inline">\(ex=x\)</span>.</li>
+</ol>
+<h4 id="轨道空间">轨道空间</h4>
+<ul>
+<li><strong>轨道</strong>: <span class="math inline">\(O(x)=\{gx~\vert~g\in G\}\)</span>, 显然轨道相交等价于轨道重合;</li>
+<li><strong>轨道空间</strong>: <span class="math inline">\(x\sim y: O(x)=O(y)\)</span>. 记作 <span class="math inline">\(X/G\)</span>.</li>
+<li><strong>可迁作用</strong>: <span class="math inline">\(\forall x,y\in X\)</span>, <span class="math inline">\(\exists g\in G\)</span>, s.t. <span class="math inline">\(gx=y\)</span>;</li>
+<li><strong>自由作用</strong>: <span class="math inline">\(\forall g\neq h\in G\)</span>, <span class="math inline">\(\forall x\in X\)</span>, <span class="math inline">\(gx\neq hx\)</span>.</li>
+<li><strong>迷向群</strong>: <span class="math inline">\(G_x=\{g\in G~\vert~gx=x\}\subset G\)</span>.</li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(G\)</span> 是自由作用当且仅当每点的迷向群是平凡群.</p>
+</blockquote>
+<p>关于轨道空间的连通性有如下命题:</p>
+<blockquote>
+<p><strong>命题</strong> 设 <span class="math inline">\(G\)</span> 是拓扑群, 作用于 <span class="math inline">\(X\)</span> 上. 若 <span class="math inline">\(G\)</span> 与 <span class="math inline">\(G/X\)</span> 连通, 则 <span class="math inline">\(X\)</span> 连通. 反证法: 取开集 <span class="math inline">\(X=A\cup B\)</span>, 则 <span class="math inline">\(U=\pi(A)\cap\pi(B)\)</span> 非空, 取 <span class="math inline">\([p]\in U\)</span>, 考虑 <span class="math inline">\(O_p\)</span> 的连通性即可得结论.</p>
+</blockquote>
+<h2 id="代数拓扑">代数拓扑</h2>
+<h3 id="映射与空间的同伦">映射与空间的同伦</h3>
+<h4 id="映射的同伦">映射的同伦</h4>
+<ul>
+<li><strong>映射同伦</strong>: 设 <span class="math inline">\(X,Y\)</span> 是拓扑空间, <span class="math inline">\(f,g:X\to Y\)</span> 是连续映射, 则 <span class="math inline">\(f\)</span> 到 <span class="math inline">\(g\)</span> 的同伦是指连续映射 <span class="math display">\[F: X\times I\to Y,~\text{s.t.}~F(x,0)=f(x),~F(x,1)=g(x).\]</span> 此时称 <span class="math inline">\(f\)</span> 与 <span class="math inline">\(g\)</span> 同伦, 记作 <span class="math inline">\(f\underset{F}{\simeq} g\)</span>.</li>
+<li><strong>相对子集的同伦</strong>: 若对于 <span class="math inline">\(A\subset X\)</span> 有 <span class="math display">\[F(a,t)=f(a),~\forall a\in A,t\in I,\]</span> 则称 <span class="math inline">\(f\)</span> 与 <span class="math inline">\(g\)</span> 相对于 <span class="math inline">\(A\)</span> 同伦, 记作 <span class="math inline">\(f\underset{F}{\simeq} g, rel A\)</span>.</li>
+<li><strong>线性同伦</strong>: <span class="math inline">\(C\)</span> 是 <span class="math inline">\(\mathbb{E}^n\)</span> 中的凸集, 映射 <span class="math inline">\(f,g: X\to C\)</span> 连续, 取 <span class="math display">\[F(x,t)=(1-t)f(x)+tg(x),\]</span> 则 <span class="math inline">\(f\underset{F}{\simeq} g\)</span>.</li>
+<li><strong>零伦</strong>: 同伦于常值映射的映射称为是零伦的. <strong><span class="math inline">\(X\)</span> 到 <span class="math inline">\(\mathbb{E}^n\)</span> 中凸集的连续映射是零伦的.</strong></li>
+<li><strong>环路</strong>: <span class="math inline">\(\alpha: I\to X\)</span> 是一条道路, 且 <span class="math inline">\(\alpha(0)=\alpha(1)=p\)</span>, 则称 <span class="math inline">\(\alpha\)</span> 是以 <span class="math inline">\(p\)</span> 为基点的环路.</li>
+<li><strong>保基点同伦</strong>: <span class="math inline">\(\alpha\simeq \beta,~rel\{0,1\}\)</span>.</li>
+</ul>
+<h4 id="空间的同伦等价">空间的同伦等价</h4>
+<ul>
+<li><strong>同伦等价</strong>: 存在连续映射 <span class="math display">\[f: X\to Y,\quad g:Y\to X,\]</span> s.t. <span class="math display">\[g\circ f\simeq id_X: X\to X,\quad f\circ g\simeq Y\to Y.\]</span> 则称 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 同伦等价, 记作 <span class="math inline">\(X\simeq Y\)</span>.</li>
+</ul>
+<p>几个例子如下:</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbb{E}^n-\{0\}\simeq\mathbb{S}^{n-1}\)</span>, <span class="math inline">\(f(x)=\frac{x}{\Vert x\Vert}\)</span>, <span class="math inline">\(g(x)=x\)</span>;</li>
+<li><span class="math inline">\(CX\simeq \{p(锥顶)\}\)</span>, <span class="math inline">\(f(x)=p\)</span>, <span class="math inline">\(g(p)\)</span> 为包含映射.</li>
+</ol>
+<h4 id="收缩">收缩</h4>
+<ul>
+<li><strong>可缩空间</strong>: 与单点同伦等价的空间;</li>
+<li><strong>收缩核</strong>: <span class="math inline">\(A\subset X\)</span>, 若存在连续映射 <span class="math inline">\(r: X\to A\)</span>, s.t. <span class="math inline">\(r\vert_A=id_A\)</span>, 则称 <span class="math inline">\(A\)</span> 是 <span class="math inline">\(X\)</span> 的收缩核;</li>
+<li><strong>形变收缩</strong>: <span class="math inline">\(A\subset X\)</span>, <span class="math inline">\(i: A\to X\)</span> 是包含映射, <span class="math inline">\(r\)</span> 是 <span class="math inline">\(X\)</span> 到 <span class="math inline">\(A\)</span> 的收缩. 若 <span class="math inline">\(id_X\underset{F}{\simeq} i\circ r\)</span>, 则称 <span class="math inline">\(F\)</span> 是 <span class="math inline">\(X\)</span> 到 <span class="math inline">\(A\)</span> 的形变收缩, <span class="math inline">\(A\)</span> 是 <span class="math inline">\(X\)</span> 的形变收缩核;</li>
+<li><strong>强形变收缩</strong>: 若 <span class="math inline">\(id_X\underset{F}{\simeq} i\circ r,~rel A\)</span> 则称 <span class="math inline">\(A\)</span> 是 <span class="math inline">\(X\)</span> 的强形变收缩核.</li>
+</ul>
+<blockquote>
+<p><strong>命题</strong> <span class="math inline">\(X\)</span> 可缩 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(X\)</span> 可形变收缩到其中一点.</p>
+</blockquote>
+<p>几个例子: 1. <span class="math inline">\(\mathbb{S}^1\)</span> 是平环和Mobius带的强形变收缩核; 2. <span class="math inline">\(\mathbb{S}^{n-1}\)</span> 是 <span class="math inline">\(\mathbb{E}^n-\{0\}\)</span> 的强形变收缩核.</p>
+<h3 id="基本群">基本群</h3>
+<h4 id="基本群-1">基本群</h4>
+<ul>
+<li><strong>基本群</strong>: 拓扑空间上以 <span class="math inline">\(p\)</span> 点为基点的环路的保基点同伦类关于同伦类的乘积构成一个群, 称为基本群 <span class="math inline">\(\pi_1(X,p)\)</span>. &gt; <strong>道路连通空间的基本群</strong> 若 <span class="math inline">\(X\)</span> 道路连通, 则 <span class="math inline">\(\pi_1(X,p)\cong \pi_1(X,q)\)</span>, <span class="math inline">\(\forall p,q\)</span>.</li>
+</ul>
+<h4 id="基本群的不变性">基本群的不变性</h4>
+<p>设 <span class="math inline">\(f: X\to Y\)</span> 连续, 且 <span class="math inline">\(f(p)=q\)</span>, 则 <span class="math inline">\(f\)</span> 可以诱导映射 <span class="math display">\[g: \pi_1(X,p)\to \pi_1(Y,q),~\langle\alpha\rangle\mapsto \langle f\circ\alpha\rangle.\]</span> 且由 <span class="math display">\[g\circ(\alpha\cdot\beta)=(f\circ\alpha)\cdot(f\circ\beta)\]</span> 可知 <span class="math inline">\(g\)</span> 是同态.</p>
+<h4 id="乘积空间的基本群">乘积空间的基本群</h4>
+<blockquote>
+<p><strong>命题</strong> 若 <span class="math inline">\(X,Y\)</span> 道路连通, 则 <span class="math display">\[\pi_1(X\times Y,(x_0,y_0))\cong \pi_1(X,x_0)\times \pi_1(Y,y_0).\]</span></p>
+</blockquote>
+<h3 id="mathbbsn-的基本群"><span class="math inline">\(\mathbb{S}^n\)</span> 的基本群</h3>
+<h4 id="道路提升定理">道路提升定理</h4>
+<blockquote>
+<p><strong>道路提升</strong> <span class="math inline">\(\alpha\)</span> 是 <span class="math inline">\(\mathbb{S}^1\)</span> 内以 <span class="math inline">\(1\)</span> 为起点的道路, 则存在 <span class="math inline">\(\mathbb{E}^1\)</span> 中唯一一条以 <span class="math inline">\(0\)</span> 为起点的道路<span class="math inline">\(\tilde{\alpha}\)</span>, s.t. <span class="math inline">\(\pi\circ\tilde{\alpha}=\alpha\)</span>.</p>
+</blockquote>
+<h4 id="同伦提升定理">同伦提升定理</h4>
+<blockquote>
+<p><strong>同伦提升</strong> <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> 是 <span class="math inline">\(\mathbb{S}^1\)</span> 中的两条道路, 且 <span class="math inline">\(\exists F:I\times I\to \mathbb{S}^1\)</span>, s.t. <span class="math inline">\(\alpha\underset{F}{\simeq}\beta\)</span>, 若 <span class="math inline">\(\alpha\)</span> 有提升, 则 <span class="math inline">\(F\)</span> 有唯一提升 <span class="math inline">\(\tilde{F}: I\times I\to\mathbb{E}^1\)</span>, s.t. <span class="math inline">\(\tilde{F}(0,0)=0\)</span>.</p>
+</blockquote>
+<h4 id="mathbbsn-的基本群-1"><span class="math inline">\(\mathbb{S}^n\)</span> 的基本群</h4>
+<ol type="1">
+<li><span class="math inline">\(\mathbb{S}^1\)</span> 的基本群为 <span class="math inline">\(\mathbb{Z}\)</span>;</li>
+<li><span class="math inline">\(\mathbb{S}^n~(n&gt;2)\)</span> 的基本群为平凡群.</li>
+</ol>
+<h4 id="基本群的应用">基本群的应用</h4>
+<ol type="1">
+<li><strong>代数学基本定理</strong>: <span class="math inline">\(\mathbb{C}\)</span> 上的 <span class="math inline">\(n\)</span> 次多项式存在零点;</li>
+<li><strong>Brouwer 不动点定理</strong>: <span class="math inline">\(\mathbb{B}^n\)</span> 具有不动点性质(任意到自身的连续映射有不动点).</li>
+</ol>
+<h4 id="van-kampen-定理">Van Kampen 定理</h4>
+<blockquote>
+<p><strong>van kampen</strong> 设 <span class="math inline">\(X\)</span> 可以写成非空开集 <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> 的并集且 <span class="math inline">\(X_0=X_1\cap X_2\neq\varnothing\)</span>. 设 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(X_0\)</span> 道路连通, 取 <span class="math inline">\(x_0\in X_0\)</span>, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)*\pi_1(X_2,x_0)/\sim,\]</span> 其中 <span class="math inline">\(\sim\)</span> 是等价关系 <span class="math display">\[\{i_{1*}(\alpha)=i_{2*}(\alpha)~\vert~\alpha\in\pi_1(X_0,x_0)\}~(i_k~是~X_0\to X_k~的包含映射).\]</span></p>
+</blockquote>
+<p>两个特殊情形如下:</p>
+<blockquote>
+<p><strong>推论 1</strong> 若 <span class="math inline">\(X_0\)</span> 单连通, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)*\pi_1(X_2,x_0).\]</span> <strong>推论 2</strong> 若 <span class="math inline">\(X_2\)</span> 单连通, 则 <span class="math display">\[\pi_1(X,x_0)\cong\pi_1(X_1,x_0)/\sim,\]</span> 其中 <span class="math inline">\(\sim\)</span> 为等价关系 <span class="math inline">\(\{i_{1*}(\alpha)=e~\vert~\alpha\in\pi_1(X_0,x_0)\}\)</span>.</p>
+</blockquote>
+<h4 id="闭曲面分类定理">闭曲面分类定理</h4>
+<ul>
+<li><strong>曲面</strong>: 第二可数的Hausdorff空间 <span class="math inline">\(S\)</span> 称为曲面当且仅当 <span class="math inline">\(\forall x\in S\)</span>, 存在 <span class="math inline">\(x\)</span> 的邻域 <span class="math inline">\(U\)</span>, s.t. <span class="math inline">\(U\)</span> 同胚于圆盘 <span class="math inline">\(D^2\)</span> 或 半圆盘<span class="math inline">\(D^2_+\)</span>;</li>
+<li><strong>内部</strong>: 存在邻域同胚于圆盘的点称为内点, 内点的全体称为内部;</li>
+<li><strong>边界</strong>: 存在邻域同胚于半圆盘的点称为边界点, 边界点的全体称为边界.</li>
+<li><strong>闭曲面</strong>: 紧致无边界的曲面称为闭曲面.</li>
+</ul>
+<p>关于曲面还有如下结论:</p>
+<ol type="1">
+<li>曲面间的同胚把内点映射到内点, 边界点映射到边界点;</li>
+<li>同胚的曲面具有同胚的边界. (由上一条可得到)</li>
+</ol>
+<p>如下定义曲面的可定向性:</p>
+<ul>
+<li><strong>不可定向曲面</strong>: 存在一个同胚于Mobius带的子空间. (否则称为可定向的)</li>
+</ul>
+<blockquote>
+<p><strong>闭曲面分类定理</strong> <span class="math inline">\(\mathbb{S}^2\)</span>, <span class="math inline">\(nT^2~(n\in\mathbb{N})\)</span>, <span class="math inline">\(m\mathbb{P}^2~(m\in \mathbb{N})\)</span> 是两两不同胚的闭曲面, 且所有的闭曲面都可以归为这三类. 进一步, 1. 可定向曲面必定同胚于 <span class="math inline">\(\mathbb{S}^2\)</span> 或 <span class="math inline">\(nT^2~(n\in\mathbb{N})\)</span>; 2. 不可定向曲面必定同胚于 <span class="math inline">\(m\mathbb{P}^2~(m\in \mathbb{N})\)</span>.</p>
+</blockquote>
+<h3 id="复叠空间">复叠空间</h3>
+<h4 id="复叠空间-1">复叠空间</h4>
+<ul>
+<li><strong>复叠映射</strong>: 设 <span class="math inline">\(E,B\)</span> 是道路连通且局部道路连通的空间, <span class="math inline">\(p: E\to B\)</span> 是连续映射. 若对 <span class="math inline">\(\forall b\in B\)</span>, 存在 <span class="math inline">\(b\)</span> 的开邻域 <span class="math inline">\(U\)</span>, s.t. <span class="math inline">\(p^{-1}(U)\)</span> 是 <span class="math inline">\(E\)</span> 中一族两两不交的开集 <span class="math inline">\(\{V_\alpha\}\)</span> 的并集, 且 <span class="math inline">\(p\vert_{V_\alpha}: V_\alpha\to U\)</span> 是同胚, 则称 <span class="math inline">\(p\)</span> 是复叠映射.</li>
+<li><strong>复叠空间</strong>: <span class="math inline">\((E,p)\)</span> 称为 <span class="math inline">\(B\)</span> 上的复叠空间.</li>
+<li><strong>基本邻域</strong>: 上述定义中的 <span class="math inline">\(U\)</span> 称为基本邻域. <span class="math inline">\(U\)</span> 的逆像可以拆成若干与 <span class="math inline">\(U\)</span> 同胚的集合的不交并.</li>
+<li><strong>纤维</strong>: <span class="math inline">\(b\in B\)</span>, 称 <span class="math inline">\(p^{-1}(b)\)</span> 为 <span class="math inline">\(b\)</span> 的纤维. 其基数称为复叠空间的重数/叶数.</li>
+</ul>
+<p>简单来说, 复叠映射就是把一族同胚的不交开集映射到同一开集的映射, 原空间就称为复叠空间. 如果该映射是 <span class="math inline">\(n\)</span> 对 <span class="math inline">\(1\)</span> 的, 则该空间是 <span class="math inline">\(n\)</span> 重的.</p>
+<h4 id="复叠空间上的道路提升与同伦提升">复叠空间上的道路提升与同伦提升</h4>
+<blockquote>
+<p><strong>道路提升</strong> 若 <span class="math inline">\(\alpha\)</span> 是以 <span class="math inline">\(b_0\in B\)</span> 为起点的一条道路, <span class="math inline">\(e_0\in p^{-1}(b_0)\)</span>, 则存在 <span class="math inline">\(E\)</span> 内唯一一条以 <span class="math inline">\(e_0\)</span> 为起点的道路 <span class="math inline">\(\tilde{\alpha}\)</span>, s.t. <span class="math display">\[\alpha=p\circ\tilde{\alpha}.\]</span> <font color="red"> <strong>这说明 <span class="math inline">\(B\)</span> 中以 <span class="math inline">\(b_0\)</span> 为起点的道路与 <span class="math inline">\(E\)</span> 中以 <span class="math inline">\(e_0\)</span> 为起点的道路一一对应.</strong></font> <strong>同伦提升</strong> 若 <span class="math inline">\(\alpha_1,\alpha_2\)</span> 是 <span class="math inline">\(B\)</span> 内两条道路, 且 <span class="math display">\[\alpha_1\underset{F}{\simeq}\alpha_2.\]</span> 设 <span class="math inline">\(\tilde{\alpha}_1\)</span> 是 <span class="math inline">\(\alpha_1\)</span> 的提升, 且 <span class="math inline">\(\tilde{\alpha}_1(0)=e_0\in E\)</span>, 则 <span class="math inline">\(F\)</span> 有唯一提升 <span class="math display">\[\tilde{F}: I\times I\to E,~\text{s.t.}~\tilde{F}(0,0)=e_0.\]</span> <strong>推论</strong> 若 <span class="math inline">\(\alpha_1,\alpha_2\)</span> 是 <span class="math inline">\(B\)</span> 内两条道路, 且 <span class="math display">\[\alpha_1\simeq\alpha_2,~rel\{0,1\}.\]</span> 设 <span class="math inline">\(\tilde{\alpha}_i\)</span> 是 <span class="math inline">\(\alpha_i\)</span> 的提升, 且 <span class="math inline">\(\tilde{\alpha_1}(0)=\tilde{\alpha_2}(0)\)</span>, 则 <span class="math display">\[\alpha_1\simeq\alpha_2,~rel\{0,1\}.\]</span> <font color="red"><strong>这说明道路提升中产生的一一对应能够保持保端点同伦.</strong></font></p>
+</blockquote>
+<h4 id="复叠空间的基本群">复叠空间的基本群</h4>
+<ul>
+<li>复叠映射 <span class="math inline">\(p\)</span> 可诱导单同态 <span class="math inline">\(p_*: \pi_1(E,e_0)\to\pi_1(B,b_0)\)</span>, 且 <span class="math inline">\(p_*(\pi_1(E,e_0))\)</span> 在 <span class="math inline">\(\pi_1(B,b_0)\)</span> 中的指数等于 <span class="math inline">\((E,p)\)</span> 的重数.</li>
+</ul>
+<blockquote>
+<p><strong>命题</strong> 集合 <span class="math inline">\(\{p_*(\pi_1(E,e))~\vert~e\in p^{-1}(b_0)\}\)</span> 是 <span class="math inline">\(\pi_1(B,b_0)\)</span> 的某个子群的共轭类. <font color="red"> <strong>这说明复叠空间 <span class="math inline">\((E,p)\)</span> 决定了 <span class="math inline">\(\pi_1(B,b_0)\)</span> 中的一个子群共轭类.</strong> </font></p>
+</blockquote>
+<h4 id="映射的提升">映射的提升</h4>
+<blockquote>
+<p><strong>映射提升的唯一性</strong> 设 <span class="math inline">\((E,p)\)</span> 是 <span class="math inline">\(B\)</span> 上的复叠空间, <span class="math inline">\(X\)</span> 连通, 映射 <span class="math inline">\(\tilde{f_i}: X\to E\)</span>, <span class="math inline">\(i=1,2\)</span> 都是 <span class="math inline">\(f: X\to B\)</span> 的提升. 若 <span class="math display">\[\exists x_0\in X,~\text{s.t.}~\tilde{f}_1(x_0)=\tilde{f}_2(x_0),\]</span> 则 <span class="math inline">\(\tilde{f}_1=\tilde{f}_2\)</span>. <font color="red"> <strong>这说明对于 <span class="math inline">\(f(x_0)=b_0\)</span>, 满足 <span class="math inline">\(\tilde{f}(x_0)=e_0\)</span> 的提升若存在必唯一.</strong> </font></p>
+</blockquote>
+<p>对于提升的存在性, 有如下定理:</p>
+<blockquote>
+<p><strong>映射提升定理</strong> 设 <span class="math inline">\(X\)</span> 是道路连通且局部道路连通空间, <span class="math inline">\(f: X\to B\)</span> 连续, <span class="math inline">\(f(x_0)=b_0\)</span>, <span class="math inline">\(e_0\in p^{-1}(b_0)\)</span>, 则: <span class="math display">\[\exists~提升~\tilde{f},~\text{s.t.}~\tilde{f}(x_0)=e_0~\Leftrightarrow~f_*(\pi_1(X, x_0))\subset p_*(\pi_1(E,e_0)).\]</span></p>
+</blockquote>
+<h4 id="复叠空间的分类">复叠空间的分类</h4>
+<ul>
+<li><strong>复叠空间的同态</strong>: <span class="math inline">\((E_i, p_i)\)</span>, <span class="math inline">\(i=1,2\)</span> 是 <span class="math inline">\(B\)</span> 上的复叠空间, 若连续映射 <span class="math inline">\(h: E_1\to E_2\)</span> 满足 <span class="math inline">\(p_2\circ h=p_1\)</span>, 则称 <span class="math inline">\(h\)</span> 是复叠空间 <span class="math inline">\((E_1,p_1)\to (E_2,p_2)\)</span> 的同态. 当 <span class="math inline">\(h\)</span> 是同胚时, 则称 <span class="math inline">\(h\)</span> 是同构.</li>
+</ul>
+<blockquote>
+<p><strong>定理</strong> <span class="math inline">\((E_1,p_1)\)</span> 与 <span class="math inline">\((E_2,p_2)\)</span> 等价 <span class="math inline">\(\Leftrightarrow\)</span> 它们决定 <span class="math inline">\(\pi_1(B,b_0)\)</span> 的同一个子群共轭类.</p>
+</blockquote>
+<h4 id="复叠变换">复叠变换</h4>
+<ul>
+<li><strong>复叠变换</strong>: <span class="math inline">\((E,p)\)</span> 上的自同构;</li>
+<li><strong>复叠变换群</strong>: <span class="math inline">\((E,p)\)</span> 上自同构全体关于映射的复合构成一个群, 记作 <span class="math inline">\(D(E,p)\)</span>.</li>
+</ul>
+<h4 id="正则复叠空间">正则复叠空间</h4>
+<p>以下命题等价:</p>
+<ol type="1">
+<li><span class="math inline">\((E,p)\)</span> 是正则复叠空间;</li>
+<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e\in p^{-1}(b)\)</span>, <span class="math inline">\(p_*(\pi_1(E,e))\)</span> 是 <span class="math inline">\(\pi_1(B,p(e))\)</span> 的正规子群;</li>
+<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e,e&#39;\in p^{-1}(b)\)</span>, <span class="math inline">\(p_*(\pi_1(E,e))=p_*(\pi_1(E,e&#39;))\)</span>;</li>
+<li><span class="math inline">\(\forall b\in B\)</span>, <span class="math inline">\(e,e&#39;\in p^{-1}(b)\)</span>, <span class="math inline">\(\exists h\in D(E,p)\)</span>, s.t. <span class="math inline">\(h(e)=e&#39;\)</span>.</li>
+</ol>
+<h4 id="万有复叠空间">万有复叠空间</h4>
+<ul>
+<li><strong>万有复叠空间</strong>: 单连通的复叠空间.(显然正则)</li>
+</ul>
+<blockquote>
+<p><strong>命题</strong> 设 <span class="math inline">\(p:E\to B\)</span> 是复叠空间, <span class="math inline">\(p&#39;: E&#39;\to B\)</span> 是万有复叠空间, 则有复叠映射 <span class="math inline">\(\tilde{p}: E&#39;\to E\)</span>, s.t. <span class="math inline">\(p&#39;=p\circ\tilde{p}\)</span>.</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/拓扑学/" rel="tag"># 拓扑学</a>
+          
+            <a href="/tags/期末复习/" rel="tag"># 期末复习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/06/Reviewing-Notes-on-BNU-Mathematical-Statistics/" rel="next" title="数理统计复习重点">
+                <i class="fa fa-chevron-left"></i> 数理统计复习重点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/11/Exam-BNU-Functional-Analysis/" rel="prev" title="北京师范大学泛函分析试题">
+                北京师范大学泛函分析试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点集拓扑"><span class="nav-number">1.</span> <span class="nav-text">点集拓扑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑空间"><span class="nav-number">1.1.</span> <span class="nav-text">拓扑空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑空间-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">拓扑空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几个拓扑的例子"><span class="nav-number">1.1.2.</span> <span class="nav-text">几个拓扑的例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邻域与开集"><span class="nav-number">1.2.</span> <span class="nav-text">邻域与开集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻域"><span class="nav-number">1.2.1.</span> <span class="nav-text">邻域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭集"><span class="nav-number">1.2.2.</span> <span class="nav-text">闭集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导集"><span class="nav-number">1.2.3.</span> <span class="nav-text">导集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑基"><span class="nav-number">1.2.4.</span> <span class="nav-text">拓扑基</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子空间拓扑"><span class="nav-number">1.2.5.</span> <span class="nav-text">子空间拓扑</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续性"><span class="nav-number">1.3.</span> <span class="nav-text">连续性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#连续性-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">连续性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于与连续性等价的几个命题"><span class="nav-number">1.3.2.</span> <span class="nav-text">关于与连续性等价的几个命题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续性的其他结论"><span class="nav-number">1.3.3.</span> <span class="nav-text">连续性的其他结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同胚"><span class="nav-number">1.3.4.</span> <span class="nav-text">同胚</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分离性"><span class="nav-number">1.4.</span> <span class="nav-text">分离性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分离性-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">分离性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tietze-扩张定理"><span class="nav-number">1.4.2.</span> <span class="nav-text">Tietze 扩张定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#紧致性"><span class="nav-number">1.5.</span> <span class="nav-text">紧致性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#紧致性-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">紧致性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部紧致"><span class="nav-number">1.5.2.</span> <span class="nav-text">局部紧致</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘积空间"><span class="nav-number">1.6.</span> <span class="nav-text">乘积空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#乘积拓扑"><span class="nav-number">1.6.1.</span> <span class="nav-text">乘积拓扑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自然投影"><span class="nav-number">1.6.2.</span> <span class="nav-text">自然投影</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连通性"><span class="nav-number">1.7.</span> <span class="nav-text">连通性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#连通性-1"><span class="nav-number">1.7.1.</span> <span class="nav-text">连通性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连通分支"><span class="nav-number">1.7.2.</span> <span class="nav-text">连通分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部连通"><span class="nav-number">1.7.3.</span> <span class="nav-text">局部连通</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#道路连通性"><span class="nav-number">1.8.</span> <span class="nav-text">道路连通性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#道路"><span class="nav-number">1.8.1.</span> <span class="nav-text">道路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#道路连通"><span class="nav-number">1.8.2.</span> <span class="nav-text">道路连通</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部道路连通"><span class="nav-number">1.8.3.</span> <span class="nav-text">局部道路连通</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#商空间"><span class="nav-number">1.9.</span> <span class="nav-text">商空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#商空间-1"><span class="nav-number">1.9.1.</span> <span class="nav-text">商空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#商空间的例子"><span class="nav-number">1.9.2.</span> <span class="nav-text">商空间的例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#商映射"><span class="nav-number">1.9.3.</span> <span class="nav-text">商映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑锥与双角锥"><span class="nav-number">1.9.4.</span> <span class="nav-text">拓扑锥与双角锥</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑群与轨道空间"><span class="nav-number">1.10.</span> <span class="nav-text">拓扑群与轨道空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑群"><span class="nav-number">1.10.1.</span> <span class="nav-text">拓扑群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑群作用"><span class="nav-number">1.10.2.</span> <span class="nav-text">拓扑群作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轨道空间"><span class="nav-number">1.10.3.</span> <span class="nav-text">轨道空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代数拓扑"><span class="nav-number">2.</span> <span class="nav-text">代数拓扑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#映射与空间的同伦"><span class="nav-number">2.1.</span> <span class="nav-text">映射与空间的同伦</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#映射的同伦"><span class="nav-number">2.1.1.</span> <span class="nav-text">映射的同伦</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空间的同伦等价"><span class="nav-number">2.1.2.</span> <span class="nav-text">空间的同伦等价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩"><span class="nav-number">2.1.3.</span> <span class="nav-text">收缩</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本群"><span class="nav-number">2.2.</span> <span class="nav-text">基本群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本群-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">基本群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本群的不变性"><span class="nav-number">2.2.2.</span> <span class="nav-text">基本群的不变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乘积空间的基本群"><span class="nav-number">2.2.3.</span> <span class="nav-text">乘积空间的基本群</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mathbbsn-的基本群"><span class="nav-number">2.3.</span> <span class="nav-text">\(\mathbb{S}^n\) 的基本群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#道路提升定理"><span class="nav-number">2.3.1.</span> <span class="nav-text">道路提升定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同伦提升定理"><span class="nav-number">2.3.2.</span> <span class="nav-text">同伦提升定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mathbbsn-的基本群-1"><span class="nav-number">2.3.3.</span> <span class="nav-text">\(\mathbb{S}^n\) 的基本群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本群的应用"><span class="nav-number">2.3.4.</span> <span class="nav-text">基本群的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#van-kampen-定理"><span class="nav-number">2.3.5.</span> <span class="nav-text">Van Kampen 定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭曲面分类定理"><span class="nav-number">2.3.6.</span> <span class="nav-text">闭曲面分类定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复叠空间"><span class="nav-number">2.4.</span> <span class="nav-text">复叠空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#复叠空间-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">复叠空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复叠空间上的道路提升与同伦提升"><span class="nav-number">2.4.2.</span> <span class="nav-text">复叠空间上的道路提升与同伦提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复叠空间的基本群"><span class="nav-number">2.4.3.</span> <span class="nav-text">复叠空间的基本群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#映射的提升"><span class="nav-number">2.4.4.</span> <span class="nav-text">映射的提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复叠空间的分类"><span class="nav-number">2.4.5.</span> <span class="nav-text">复叠空间的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复叠变换"><span class="nav-number">2.4.6.</span> <span class="nav-text">复叠变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则复叠空间"><span class="nav-number">2.4.7.</span> <span class="nav-text">正则复叠空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#万有复叠空间"><span class="nav-number">2.4.8.</span> <span class="nav-text">万有复叠空间</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

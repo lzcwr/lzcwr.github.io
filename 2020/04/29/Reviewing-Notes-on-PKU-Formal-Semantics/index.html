@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aaa.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/aaa.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数学,计算机,北大,数理逻辑," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
+<meta name="keywords" content="数学,计算机,北大,数理逻辑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="形式语义学学习笔记">
+<meta property="og:url" content="http://lizhechen.com/2020/04/29/Reviewing-Notes-on-PKU-Formal-Semantics/index.html">
+<meta property="og:site_name" content="Zhechen&#39;s Personal Website">
+<meta property="og:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-11-14T08:22:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="形式语义学学习笔记">
+<meta name="twitter:description" content="这学期上whp老师的形式语义学课程，做一些简单的记录.  教材：The Formal Semantics of Programming Languages_ An Introduction. Gylnn Winskel.   IMP: Simple Imperative Language 操作语义：MOS &amp;amp; SOS 指称语义：Denotational Semantics">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'zhechen'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lizhechen.com/2020/04/29/Reviewing-Notes-on-PKU-Formal-Semantics/"/>
+
+
+
+
+
+  <title>形式语义学学习笔记 | Zhechen's Personal Website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhechen's Personal Website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷<del> 戳兔 </del>学术，偶尔<del> 学术 </del>戳兔.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lizhechen.com/2020/04/29/Reviewing-Notes-on-PKU-Formal-Semantics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhechen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhechen's Personal Website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">形式语义学学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-29T10:04:13+08:00">
+                2020-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这学期上whp老师的形式语义学课程，做一些简单的记录.</p>
+<blockquote>
+<p>教材：The Formal Semantics of Programming Languages_ An Introduction. <em>Gylnn Winskel</em>.</p>
+</blockquote>
+<ul>
+<li>IMP: Simple Imperative Language</li>
+<li>操作语义：MOS &amp; SOS</li>
+<li>指称语义：Denotational Semantics</li>
+<li>公理语义：Hoare Logic</li>
+</ul>
+<a id="more"></a>
+<h2 id="imp-a-simple-imperative-language">IMP: a Simple Imperative Language</h2>
+<p>IMP的指令分为 <span class="math inline">\(\mathbf{Aexp}\)</span>（算术表达式）, <span class="math inline">\(\mathbf{Bexp}\)</span>（布尔表达式）, 以及 <span class="math inline">\(\mathbf{Com}\)</span>（命令）三部分. 其抽象语法如下所示：</p>
+<blockquote>
+<p>其中 <span class="math inline">\(n\)</span> 为整数，<span class="math inline">\(X\)</span> 为地址.</p>
+</blockquote>
+<ul>
+<li><span class="math inline">\(\mathbf{Aexp}\)</span> <span class="math inline">\(a::=n ~|~ X ~|~ a_1+a_2 ~|~ a_1-a_2 ~|~ a_1\times a_2\)</span>;</li>
+<li><span class="math inline">\(\mathbf{Bexp}\)</span> <span class="math inline">\(b::=\mathbf{true} ~|~ \mathbf{false} ~|~ a_{0}=a_{1} ~|~ a_{0} \leq a_{1} ~|~ \neg b ~|~ b_{0} \wedge b_{1} ~|~ b_{0} \vee b_{1}\)</span>;</li>
+<li><span class="math inline">\(\mathbf{Com}\)</span> <span class="math inline">\(c::=\mathbf{skip} ~|~ X:=a ~|~ \mathbf{if}~b~\mathbf{then}~c_{0}~\mathbf{else}~c_{1}~|~\mathbf{while}~b~\mathbf{do}~c ~|~ c_{0};~c_{1}\)</span>;</li>
+</ul>
+<p>举一个 IMP 的例子吧…计算阶乘：</p>
+<p><span class="math display">\[
+\begin{align*}
+fu&amp;nc~\mathbf{Factorial}~X~:\\
+  &amp;Y := 1;\\
+  &amp;\mathbf{while}~\neg(X=0)~\mathbf{do}\\
+  &amp;\quad Y:=Y\times X;\\
+  &amp;\quad X:=X-1\\
+  &amp;\mathbf{end}
+\end{align*}
+\]</span></p>
+<p>形式语义学可以对 IMP 的语义做一些解释，进而完成程序的形式化验证等工作.</p>
+<h2 id="操作语义">操作语义</h2>
+<p>操作语义首先规定了系统的状态，然后把指令视作系统状态间的转移（操作）.</p>
+<blockquote>
+<p>SDEC Machine: Stack-Environment-Device-Control 四元组：</p>
+<ul>
+<li>Stack：堆栈，记为 <span class="math inline">\(s\)</span>;</li>
+<li>Environment：记录系统外的环境，记为 <span class="math inline">\(e\)</span>;</li>
+<li>Device：记录存储的东西，记为 <span class="math inline">\(d\)</span>;</li>
+<li>Control：存储命令，记为 <span class="math inline">\(c\)</span>.</li>
+</ul>
+<p>事实上，描述 IMP 的语义只需要 <span class="math inline">\((s,d,c)\)</span> 机器就够了：</p>
+<ul>
+<li><span class="math inline">\(s \in(\mathbb{N} \cup\{\mathbf{T}, \mathbf{F}\} \cup \mathbf{Loc} \cup \mathbf{Com})^{*}\)</span>;</li>
+<li><span class="math inline">\(d \in \mathbf{Loc} \longrightarrow \mathbb{N}\)</span>; 地址 -&gt; 地址存储的值.</li>
+<li><span class="math inline">\(c \in(\mathbf { Aexp } \cup \mathbf { Bexp } \cup \mathbf { Com } \cup \mathbf { Cs })^{*}\)</span>，其中 <span class="math inline">\(\mathbf{Cs}=\{\mathbf { if, while }, \rightarrow, ;,+,-, x,=, \leq, \neg, \vee, \wedge\}\)</span>.</li>
+</ul>
+</blockquote>
+<p><font color="D0104C"><strong>操作语义分为 SOS 和 MOS 两个路数</strong></font></p>
+<h3 id="sos-structural-operational-semantics">SOS: Structural Operational Semantics</h3>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Aexp}\)</span> 的求值</strong></font></p>
+<ul>
+<li>数字/地址：<span class="math display">\[\langle n,\sigma\rangle\longrightarrow n\qquad \langle X,\sigma\rangle\longrightarrow \sigma(X)\]</span></li>
+<li>求和：（其中 <span class="math inline">\(n\)</span> 是 <span class="math inline">\(n_1\)</span> 与 <span class="math inline">\(n_2\)</span> 的和，减法乘法同理）<span class="math display">\[\frac{\left\langle a_{0}, \sigma\right\rangle \longrightarrow n_{0} \quad\left\langle a_{1}, \sigma\right\rangle \longrightarrow n_{1} }{\left\langle a_{0}+a_{1}, \sigma\right\rangle \longrightarrow n}\]</span></li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Bexp}\)</span> 的求值</strong></font></p>
+<ul>
+<li>真值：（注意，<span class="math inline">\(\mathbf{true}\)</span> 是一个语法对象，但 <span class="math inline">\(\mathrm{T}\)</span> 是一个语义中的真值）<span class="math display">\[\langle\mathbf { true }, \sigma\rangle \longrightarrow \mathrm{T}, \quad\langle\mathbf { false }, \sigma\rangle \longrightarrow \mathrm{F}\]</span></li>
+<li>判断：（以 <span class="math inline">\(=\)</span> 为例，<span class="math inline">\(\leqslant\)</span> 同理）<span class="math display">\[\begin{align}
+  \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{T} }, &amp;\quad 若~n_0~与~n_1~\text{相等}\\
+  \frac{\langle a_0,\sigma\rangle\longrightarrow n_0\quad\langle a_1,\sigma\rangle\longrightarrow n_1}{\langle a_0=a_1,\sigma\rangle\longrightarrow \mathrm{F} }, &amp;\quad 若~n_0~与~n_1~\text{不等}
+\end{align}\]</span></li>
+<li>取反：<span class="math display">\[\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{T} }{\langle \neg b,\sigma\rangle\longrightarrow\mathrm{F} }\qquad\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{F} }{\langle \neg b,\sigma\rangle\longrightarrow\mathrm{T} }\]</span></li>
+<li>二元逻辑运算：（以 <span class="math inline">\(\wedge\)</span> 为例，其中 <span class="math inline">\(t=\begin{cases}\mathrm{T}\quad \text{if}~t_1\equiv t_2\equiv \mathrm{T} \\ \mathrm{F}\quad\text{otherwise} \end{cases}\)</span>，<span class="math inline">\(\vee\)</span> 同理. 其实和 <span class="math inline">\(\mathbf{Aexp}\)</span> 中的加法也是同理）<span class="math display">\[\begin{align*}\frac{\left\langle b_{0}, \sigma\right\rangle \longrightarrow t_{0} \quad\left\langle b_{1}, \sigma\right\rangle \longrightarrow t_{1} }{\langle b_0\wedge b_1,\sigma \rangle\longrightarrow t}\end{align*}\]</span></li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Com}\)</span> 的执行</strong></font></p>
+<p><span class="math display">\[
+\begin{align*}
+\mathrm{Skip}~\frac{}{\langle \mathbf{skip},\sigma\rangle\longrightarrow\sigma} \qquad&amp;\qquad\qquad\qquad\mathrm{Assign}~\frac{\langle a,\sigma\rangle\longrightarrow n}{\langle X:=a,\sigma\rangle\longrightarrow\sigma[n/X]} \\
+\mathrm{If}~\frac{\langle b,\sigma\rangle\longrightarrow \mathrm{T}\quad \langle c_0,\sigma\rangle\longrightarrow\sigma&#39;}{\langle \mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,\sigma \rangle\longrightarrow\sigma&#39;} &amp;\qquad\qquad\qquad \mathrm{If}~\frac{\langle b,\sigma\rangle\longrightarrow \mathrm{F}\quad \langle c_1,\sigma\rangle\longrightarrow\sigma&#39;}{\langle \mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,\sigma \rangle\longrightarrow\sigma&#39;} \\
+\mathrm{While}~\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{F} }{\langle \mathbf{while}~b~\mathbf{do}~c,\sigma \rangle\longrightarrow\sigma} &amp;\qquad  \mathrm{While}~\frac{\langle b,\sigma\rangle\longrightarrow\mathrm{T} \quad \langle c,\sigma\rangle\longrightarrow\sigma&#39; \quad \langle \mathbf{while}~b~\mathbf{do}~c,\sigma&#39; \rangle\longrightarrow\sigma&#39;&#39;}{\langle \mathbf{while}~b~\mathbf{do}~c,\sigma \rangle\longrightarrow\sigma&#39;&#39;}
+\end{align*}
+\]</span></p>
+<p><font color="D0104C"><strong>SOS 的性质</strong></font></p>
+<ol type="1">
+<li>确定性：SOS 具有确定性. 其中 <span class="math inline">\(\mathbf{Com}\)</span> 的确定性证明用到了良基归纳（Well-founded induction）.
+<ul>
+<li>关于 well-founded induction 不多赘述.</li>
+</ul></li>
+<li>终止性：<span class="math inline">\(\mathbf{Aexp}\)</span> 和 <span class="math inline">\(\mathbf{Bexp}\)</span> 是终止的，但 <span class="math inline">\(\mathbf{Com}\)</span> 是不终止的.</li>
+</ol>
+<h3 id="mos-mechanical-operational-semantics">MOS: Mechanical Operational Semantics</h3>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Aexp}\)</span> 的语义</strong></font></p>
+<ul>
+<li>数字/地址：<span class="math display">\[(s,d,nc&#39;) \longrightarrow (ns, d, c&#39;)\qquad (s,d, Xc&#39;) \longrightarrow (d(X)s,d,c&#39;)\]</span></li>
+<li><p>运算：（其中 <span class="math inline">\(n\)</span> 是 <span class="math inline">\(n_1\)</span> 与 <span class="math inline">\(n_2\)</span> 的和，减法乘法同理）<span class="math display">\[\begin{align*}(s,d,(a_1+a_2)c&#39;) &amp;\longrightarrow (s,d,a_1a_2+c&#39;)\\ (n_2n_1s,d,+c&#39;)&amp;\longrightarrow (ns, d, c&#39;)\end{align*}\]</span></p></li>
+<li>真值：<span class="math display">\[\begin{align*}
+  (s,d,\mathbf{true}c&#39;) &amp;\longrightarrow (\mathrm{T}s, d, c&#39;) \\
+  (s,d,\mathbf{false}c&#39;) &amp;\longrightarrow (\mathrm{F}s, d, c&#39;)
+\end{align*}\]</span></li>
+<li>比较：（以 <span class="math inline">\(=\)</span> 为例，<span class="math inline">\(\leqslant\)</span> 同理）<span class="math display">\[\begin{align*}
+  (s,d,(a_1=a_2)c&#39;)&amp;\longrightarrow(s,d,a_1a_2=c&#39;) \\
+  (n_2n_1s,d,=c&#39;)&amp;\longrightarrow (\mathrm{T}s,d,c&#39;)\quad \text{if}~n_1=n_2 \\
+  (n_2n_1s,d,=c&#39;)&amp;\longrightarrow (\mathrm{F}s,d,c&#39;)\quad \text{if}~n_1\neq n_2 \\
+\end{align*}\]</span></li>
+<li>取反：<span class="math display">\[\begin{align*}
+  (s,d,(\neg b)c&#39;) &amp;\longrightarrow (s,d,b\neg c&#39;) \\
+  (\mathrm{T}s, d, \neg c&#39;) &amp;\longrightarrow (\mathrm{F}s, d, c&#39;) \\
+  (\mathrm{F}s, d, \neg c&#39;) &amp;\longrightarrow (\mathrm{T}s, d, c&#39;) 
+\end{align*}\]</span></li>
+<li><p>二元逻辑运算：（以 <span class="math inline">\(\wedge\)</span> 为例，其中 <span class="math inline">\(t=\begin{cases}\mathrm{T}\quad \text{if}~t_1=t_2=\mathrm{T} \\ \mathrm{F}\quad\text{otherwise} \end{cases}\)</span>，<span class="math inline">\(\vee\)</span> 同理. 其实和 <span class="math inline">\(\mathbf{Aexp}\)</span> 中的加法也是同理）<span class="math display">\[\begin{align*}
+  \left(s, d,\left(b_{1} \wedge b_{2}\right) c^{\prime}\right) &amp;\longrightarrow\left(s, d, b_{1} b_{2} \wedge c^{\prime}\right)\\
+  (t_2t_1s, d, \wedge c&#39;) &amp;\longrightarrow (ts, d, c&#39;) \\
+\end{align*}\]</span></p></li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Com}\)</span> 的语义</strong></font></p>
+<ul>
+<li>空语句：<span class="math display">\[(s,d,\mathbf{skip}~c&#39;)\longrightarrow(s,d,c&#39;)\]</span></li>
+<li>赋值：<span class="math display">\[\begin{align*}
+  (s,d,X:=a~c&#39;) &amp;\longrightarrow (Xs, d, a\rightarrow c&#39;) \\
+  (nXs, d, \rightarrow c&#39;) &amp;\longrightarrow (s, d[n/X], c&#39;)
+\end{align*}\]</span></li>
+<li>顺序：<span class="math display">\[\begin{align*}
+  (s, d, (c_0;~c_1)c&#39;) &amp;\longrightarrow (s,d,c_0;~(c_1c&#39;)) \\
+  (s&#39;, d&#39;, ;~c&#39;&#39;) &amp;\longrightarrow (s&#39;, d&#39;, c&#39;&#39;)
+\end{align*}\]</span></li>
+<li>条件：<span class="math display">\[\begin{align*}
+  (s, d, (\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1) c&#39;) &amp;\longrightarrow (c_0c_1s, d, b~\mathbf{if}~c&#39;)\\
+  (\mathrm{T}c_0c_1s, d, \mathbf{if}~c&#39;) &amp;\longrightarrow (s,d,c_0c&#39;) \\
+  (\mathrm{F}c_0c_1s, d, \mathbf{if}~c&#39;) &amp;\longrightarrow (s,d,c_1c&#39;)
+\end{align*}\]</span></li>
+<li>循环：<span class="math display">\[\begin{align*}
+  (s, d, (\mathbf{while}~b~\mathbf{do}~c)c&#39;) &amp;\longrightarrow ((c;~\mathbf{while}~b~\mathbf{do}~c)s, d, b~\mathbf{while}~c&#39;)\\
+  (\mathrm{T}(c;~\mathbf{while}~b~\mathbf{do}~c)s, d, \mathbf{while}~c&#39;) &amp;\longrightarrow (s,d,(c;~\mathbf{while}~b~\mathbf{do}~c)c&#39;) \\
+  (\mathrm{F}(c;~\mathbf{while}~b~\mathbf{do}~c)s, d, \mathbf{while}~c&#39;) &amp;\longrightarrow (s,d,c&#39;)
+\end{align*}\]</span></li>
+</ul>
+<p><font color="D0104C"><strong>MOS 的性质</strong></font></p>
+<ol type="1">
+<li>确定性：上述 MOS 所规定的的转移 <span class="math inline">\(\rightarrow\)</span> 是确定的，i.e. 若 <span class="math inline">\((s_0,d_0,c_0)\to(s_1,d_1,c_1)\)</span> 且 <span class="math inline">\((s_0,d_0,c_0)\to(s_2,d_2,c_2)\)</span>，则有 <span class="math inline">\((s_1,d_1,c_1)=(s_2,d_2,c_2)\)</span>
+<ul>
+<li>证明挺容易的（</li>
+</ul></li>
+<li>终止性：<span class="math inline">\(\mathbf{Aexp}\)</span> 和 <span class="math inline">\(\mathbf{Bexp}\)</span> 都是终止的，但 <span class="math inline">\(\mathbf{Com}\)</span> 不是（例如 <span class="math inline">\(\mathbf{while~true~do~skip}\)</span>）.</li>
+</ol>
+<blockquote>
+<p>这两条应该都和 SOS 一样.</p>
+</blockquote>
+<p>现定义二元关系 <span class="math inline">\((s,d,c)\rightarrow^* (s&#39;,d&#39;,c&#39;)\)</span>，表示存在一个序列 <span class="math inline">\(\left\{\left(s_{i}, d_{i}, c_{i}\right)\right\}_{i=1}^{n}\)</span>，s.t. <span class="math display">\[(s, d, c)=\left(s_{1}, d_{1}, c_{1}\right) \rightarrow \cdots \rightarrow\left(s_{n}, d_{n}, c_{n}\right)=\left(s^{\prime}, d^{\prime}, c^{\prime}\right)\]</span> 则易得：</p>
+<ul>
+<li><span class="math inline">\(\rightarrow^*\)</span> 是自反的；</li>
+<li><span class="math inline">\(\rightarrow^*\)</span> 是传递的；</li>
+<li><font color="red">但 <span class="math inline">\(\rightarrow^*\)</span> 不是确定的.</font></li>
+</ul>
+<p>事实上，<span class="math inline">\(\rightarrow^*\)</span> 具有另一种意义下的确定性，称为 <strong>Church-Rosser Property</strong>：</p>
+<blockquote>
+<p>若 <span class="math inline">\((s,d,c)\rightarrow^* (s&#39;,d&#39;,c&#39;)\)</span> 且 <span class="math inline">\((s,d,c)\rightarrow^* (s&#39;&#39;,d&#39;&#39;,c&#39;&#39;)\)</span>，则存在 <span class="math inline">\((\bar{s},\bar{d},\bar{c})\)</span>，s.t. <span class="math inline">\((s&#39;,d&#39;,c&#39;) \rightarrow^* (\bar{s},\bar{d},\bar{c})\)</span> 且 <span class="math inline">\((s&#39;&#39;,d&#39;&#39;,c&#39;&#39;) \rightarrow^* (\bar{s},\bar{d},\bar{c})\)</span>.</p>
+</blockquote>
+<p>还可以定义第三种关系 <span class="math inline">\(\rightarrow&#39;\)</span>，表示 <span class="math inline">\(\rightarrow^*\)</span> 的中间序列不为空，即“至少经过一步转移”. 不过我感觉好像没什么意义…这东西破坏了自反性和 Church-Rosser 性质…</p>
+<h2 id="指称语义">指称语义</h2>
+<p><font color="D0104C"><strong>新的记号</strong></font></p>
+<ul>
+<li>状态集：<span class="math inline">\(\Sigma\)</span>；一个指称就是从状态集到“意思”集合的映射.</li>
+<li>全函数 <span class="math inline">\(A\to B\)</span>：每个 <span class="math inline">\(a\in A\)</span> 都有像；</li>
+<li>部分函数 <span class="math inline">\(A\rightharpoonup B\)</span>：不是每个 <span class="math inline">\(a\in A\)</span> 都有像.</li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Aexp}\)</span> 的语义</strong></font></p>
+<p>实际上是定义了一个 <span class="math inline">\(\mathbf{Aexp}\)</span> 到其指称的映射 <span class="math inline">\(\mathcal{A}: \mathbf{Aexp}\to (\Sigma\to\mathbb{N})\)</span>. （<span class="math inline">\(\mathbf{Bexp}\)</span> 同理）</p>
+<ul>
+<li>数字/地址：<span class="math display">\[\mathcal{A}[ [n] ](\sigma)=n\qquad \mathcal{A}[ [X] ](\sigma)=\sigma(X)\]</span></li>
+<li>加法：（减法和乘法同理）<span class="math display">\[\mathcal{A}[ [a_1+a_2] ]=\mathcal{A}[ [a_1] ]+\mathcal{A}[ [a_2 ]]\]</span></li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Bexp}\)</span> 的语义</strong></font></p>
+<ul>
+<li>真值/地址：<span class="math display">\[\mathcal{B}[ [\mathbf{true}] ](\sigma)=\mathrm{T}\qquad \mathcal{B}[ [\mathbf{false}] ](\sigma)=\mathrm{F}\qquad \mathcal{B}[ [X] ](\sigma)=\sigma(X)\]</span></li>
+<li>判断：（以 <span class="math inline">\(=\)</span> 为例，<span class="math inline">\(\leqslant\)</span> 同理）<span class="math display">\[\mathcal{B}[ [a_1=a_2] ]=\begin{cases}
+  \mathrm{T}\quad 若~\mathcal{A}[ [a_1] ](\sigma)=\mathcal{A}[ [a_2] ](\sigma)\\
+  \mathrm{F}\quad 若~\mathcal{A}[ [a_1] ](\sigma)\neq\mathcal{A}[ [a_2] ](\sigma)
+\end{cases}\]</span></li>
+<li>逻辑运算：（<span class="math inline">\(\vee\)</span> 同理）<span class="math display">\[\mathcal{B}[ [\neg b] ](\sigma)=\neg\mathcal{B}[ [b] ](\sigma)\qquad \mathcal{B}[ [b_1\wedge b_2] ](\sigma)=\mathcal{B}[ [b_1] ](\sigma)\wedge \mathcal{B} [[b_2] ](\sigma)\]</span></li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Com}\)</span> 的语义</strong></font></p>
+<p>命令的指称是部分函数 <span class="math inline">\(\Sigma\rightharpoonup\Sigma\)</span>（因为有一些命令并不终止），因此其指称语义是 <span class="math inline">\(\mathcal{C}:\mathbf{Com}\to(\Sigma\rightharpoonup\Sigma)\)</span>.</p>
+<ul>
+<li>空语句/赋值：<span class="math display">\[\mathcal{C}[ [\mathbf{skip}] ](\sigma)=\sigma \qquad \mathcal{C}[ [X:=a ]](\sigma)=\sigma(n/X)\]</span></li>
+<li>顺序：<span class="math display">\[\mathcal{C}[ [c_1;~c_2] ](\sigma)=\mathcal{C}[ [c_2] ](\mathcal{C}[ [c_1 ]](\sigma))=(\mathcal{C}[ [c_2] ]\circ\mathcal{C}[ [c_1] ])(\sigma)\]</span></li>
+<li>条件：<span class="math display">\[\mathcal{C}[ [\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1] ](\sigma)=\begin{cases}
+  \mathcal{C}[ [c_0] ](\sigma)\quad 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{T} \\
+  \mathcal{C}[ [c_1] ](\sigma)\quad 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{F}
+\end{cases}\]</span></li>
+<li>循环：<span class="math display">\[\begin{align*}
+  \mathcal{C}[ [\mathbf{while}~b~\mathbf{do}~c] ](\sigma)&amp;= \begin{cases}
+      \sigma &amp; 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{F}\\
+      \mathcal{C}[ [\mathbf{while}~b~\mathbf{do}~c] ](\mathcal{C}[ [c] ](\sigma)) &amp; 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{T}
+  \end{cases} \\
+  &amp;=\begin{cases}
+      \sigma &amp; 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{F}\\
+      (\mathcal{C}[ [\mathbf{while}~b~\mathbf{do}~c] ]\circ\mathcal{C}[ [c] ])((\sigma)) &amp; 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{T}
+  \end{cases}
+\end{align*}\]</span></li>
+</ul>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathcal{C}[ [\mathbf{while}~b~\mathbf{do}~c] ]\)</span> 的存在性与唯一性</strong></font></p>
+<p>定义函数： <span class="math display">\[F:(\Sigma\rightharpoonup\Sigma)\to(\Sigma\rightharpoonup\Sigma),\quad F(\varphi)(\sigma)=\begin{cases}
+    \sigma &amp; 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{F} \\
+    (\varphi\circ\mathcal{C}[ [c] ])(\sigma) &amp; 若~\mathcal{B}[ [b] ](\sigma)=\mathrm{T}
+\end{cases}\]</span></p>
+<p>则容易验证 <span class="math inline">\(\mathcal{C}[ [\mathbf{while}~b~\mathbf{do}~c] ]\)</span> 是 <span class="math inline">\(F\)</span> 的一个不动点. 因此 <span class="math inline">\(\mathcal{C}[ [\mathbf{while}~b~\mathbf{do}~c] ]\)</span> 的存在和唯一性可转化为 <span class="math inline">\(F\)</span> 不动点的存在和唯一性.</p>
+<p>事实上，<span class="math inline">\(F\)</span> 的最小不动点存在且唯一. 这下稳了（</p>
+<p><font color="D0104C"><strong>最小不动点的相关讨论</strong></font></p>
+<p>首先需要定义完全偏序集：</p>
+<blockquote>
+<p><strong>Def. 完全偏序集</strong> （例子：离散序 <span class="math inline">\(a\sqsubseteq b\iff a=b\)</span>，平坦序 <span class="math inline">\(a\sqsubseteq b\sqsubseteq c \iff a=b~或~b=c\)</span>）</p>
+<ul>
+<li>复习一下偏序集：自反、传递、反对称. 偏序集记作 po.</li>
+<li>若偏序集中的每个升链 <span class="math inline">\(d_1\sqsubseteq d_2\sqsubseteq \cdots\)</span> 都有上确界 <span class="math inline">\(\bigsqcup_{i}d_i\)</span>，则称其为一个完全偏序集，记作 cpo.</li>
+<li>若 cpo <span class="math inline">\((P,\sqsubseteq)\)</span> 中有最小元 <span class="math inline">\(\perp\)</span>（<span class="math inline">\(\forall x\in P\)</span>，总有 <span class="math inline">\(x\sqsubseteq \perp\)</span>），则称其为带底的 cpo.</li>
+</ul>
+</blockquote>
+<ul>
+<li>可以证明：对任意集合 <span class="math inline">\(X\)</span>，给其幂集赋予包含关系 <span class="math inline">\((\mathscr{P}(x),\subseteq)\)</span> 都构成一个含底的 cpo.</li>
+</ul>
+<p>在 cpo 中，每个升链都有上确界，这实际上就是分析中“极限”的概念. 因此可以定义连续函数：</p>
+<blockquote>
+<p><strong>Def. 连续函数</strong> 设 <span class="math inline">\(D,E\)</span> 是 cpo，<span class="math inline">\(f:D\to E\)</span> 是一个函数</p>
+<ol type="1">
+<li>若对 <span class="math inline">\(\forall d_1,d_2\in D\)</span>，s.t. <span class="math inline">\(d_1\sqsubseteq d_2\)</span>，总有 <span class="math inline">\(f(d_1)\sqsubseteq f(d_2)\)</span>，则称 <span class="math inline">\(f\)</span> <strong>单调</strong>（保序）；</li>
+<li>若 <span class="math inline">\(f\)</span> 单调，且对任意升链 <span class="math inline">\(d_1\sqsubseteq d_2\sqsubseteq\cdots\)</span>，都有 <span class="math inline">\(f(\bigsqcup d_n)=\bigsqcup f(d_n)\)</span>，则称 <span class="math inline">\(f\)</span> 连续.</li>
+</ol>
+</blockquote>
+<p>对于连续函数，有如下的<strong>不动点定理</strong>：</p>
+<blockquote>
+<p><font color="#FB966E"><strong>Thm. 不动点定理</strong></font> 设 <span class="math inline">\(D\)</span> 是一个含底的 cpo，<span class="math inline">\(f:D\to D\)</span> 连续，则 <span class="math display">\[fix(f)=\bigsqcup_n f^n(\perp)\]</span> 是 <span class="math inline">\(f\)</span> 的最小不动点. 其中 <span class="math inline">\(f^n\)</span> 表示 <span class="math inline">\(f\)</span> 作用 <span class="math inline">\(n\)</span> 次. （证明很简单，先证是不动点，再证最小即可）</p>
+</blockquote>
+<p>现在，我们在状态集 <span class="math inline">\(\Sigma\)</span> 中添加底元素 <span class="math inline">\(\perp\)</span>，s.t. <span class="math inline">\(\forall \sigma\)</span>，<span class="math inline">\(\perp\sqsubseteq \sigma\)</span>. 新的集合记为 <span class="math inline">\(\Sigma_\perp\)</span>.</p>
+<blockquote>
+<p>部分函数当然也可以得到扩充（把无定义的元素全部拉到 <span class="math inline">\(\perp\)</span> 上）而成为全函数 <span class="math inline">\(\Sigma\to\Sigma_\perp\)</span>. 并且该扩充是一一对应的.</p>
+<ul>
+<li>还可以得到：这样扩充得到的全函数一定是连续的.</li>
+</ul>
+</blockquote>
+<p>考虑到部分函数 <span class="math inline">\(\Sigma\rightharpoonup\Sigma\)</span> 的全体被赋予包含关系后是一个含底的 cpo，一个自然的反应就是：<strong>扩充而来的全函数也构成一个含底的 cpo.</strong></p>
+<p>事实上，这句话是正确的. <span class="math inline">\(\Sigma\to\Sigma_\perp\)</span> 上的序构造如下： <span class="math display">\[f\sqsubseteq g~当且仅当~\forall\sigma\in\Sigma,~f(\sigma)\sqsubseteq g(\sigma)\]</span></p>
+<p><strong>到这里，就足以说明 while 循环指称语义的存在唯一性了.</strong></p>
+<p>关于不动点，在代数上还有如下定理（这里并用不到）：</p>
+<blockquote>
+<p><strong>Thm. Knaster-Tarski 最小不动点定理</strong> 设 <span class="math inline">\((L,\sqsubseteq)\)</span> 是一个完备格. 令 <span class="math inline">\(f:L\to L\)</span> 是单调函数（不必连续，可以看出这里减弱了条件），则 <span class="math display">\[m=\sqcap\{x\in L: f(x)\sqsubseteq x\}\]</span> 是 <span class="math inline">\(f\)</span> 的最小不动点.</p>
+</blockquote>
+<p>上述定理还有一个逆定理：</p>
+<blockquote>
+<p><strong>Thm.</strong> 若所有保序映射 <span class="math inline">\(f:L\to L\)</span> 都有不动点，则 <span class="math inline">\(L\)</span> 是完全格.</p>
+</blockquote>
+<h2 id="公理语义">公理语义</h2>
+<ul>
+<li>前面的操作语义和指称语义已经对语义有了很详细的描述.</li>
+<li>公理语义给出了一套逻辑系统，并证明了其正确性.</li>
+<li>这套系统可以被用于自动化推演证明，叫做 Hoare Logic.</li>
+</ul>
+<p><font color="D0104C"><strong>断言语言 <span class="math inline">\(\mathbf{Assn}\)</span></strong></font></p>
+<p>在算术表达式 <span class="math inline">\(\mathbf{Aexp}\)</span> 中添加整型变量 <span class="math inline">\(\mathbf{IntVar}\)</span> 类型的元素（常用 <span class="math inline">\(i\)</span> 表示），扩充而为 <span class="math inline">\(\mathbf{Aexpv}\)</span>：</p>
+<ul>
+<li><span class="math inline">\(\mathbf{Aexpv}~a::=X~|~i~|~n~|~a_1+a_2~|~a_1-a_2~|~a_1\times a_2\)</span></li>
+</ul>
+<blockquote>
+<p>既然有变量，那么就需要有“解释”，记为函数 <span class="math inline">\(I:\mathbf{IntVar}\to\mathbb{N}\)</span>. 这个东西在语义中用得到.</p>
+</blockquote>
+<p>断言（Assertions）就是一些可以判断真假的东西（可视为 <span class="math inline">\(\mathbf{Bexp}\)</span> 的扩展）：</p>
+<ul>
+<li><span class="math inline">\(\mathbf{Assn}~P::=\mathbf{true}~|~\mathbf{false}~|~a_1&lt;a_2~|~P_1\wedge P_2~|~P_1\vee P_2~|~P_1\Rightarrow P_2~|~\neg P~|~\forall i.~P~|~\exists i.~P\)</span></li>
+</ul>
+<blockquote>
+<p>由于断言中有变量和量词的出现，因此也有类似数理逻辑中“自由”与“约束”的概念，不多赘述.</p>
+</blockquote>
+<p><font color="D0104C"><strong><span class="math inline">\(\mathbf{Assn}\)</span> 的语义：指称语义</strong></font></p>
+<ul>
+<li><span class="math inline">\(\mathbf{Aexpv}\)</span> 的语义：记为 <span class="math inline">\(\mathcal{A}v[ [a] ]\)</span>…基本直接套用 <span class="math inline">\(\mathbf{Aexp}\)</span> 的指称语义. 关于变量的语义如下：<span class="math display">\[\mathcal{A}v[ [i] ]I\sigma=I(i)\]</span></li>
+<li><span class="math inline">\(\mathbf{Assn}\)</span> 的真假：基本与一阶逻辑的东西一样. 用 <span class="math inline">\(\sigma\vDash_I A\)</span> 表示 <span class="math inline">\(A\)</span> 在 <span class="math inline">\(I\)</span> 中被 <span class="math inline">\(\sigma\in\Sigma\)</span> 满足.
+<ul>
+<li>例 1：<span class="math inline">\(\sigma\vDash_I \mathbf{true}\)</span>, <span class="math inline">\(\sigma\not\vDash_I\mathbf{false}\)</span>;</li>
+<li>例 2：<span class="math inline">\(\sigma\vDash_I a_1=a_2\)</span> 当且仅当 <span class="math inline">\(\mathcal{A}v[ [a_1] ]I\sigma=\mathcal{A}v [[a_2] ]I\sigma\)</span>;</li>
+<li>例 3：<span class="math inline">\(\sigma\vDash_I A\wedge B\)</span> 当且仅当 <span class="math inline">\(\sigma\vDash_I A\)</span> 且 <span class="math inline">\(\sigma\vDash_I B\)</span>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Prop</strong> 给定 <span class="math inline">\(b\in\mathbf{Bexp}\)</span> 和状态 <span class="math inline">\(\sigma\in\Sigma\)</span>，则对任意解释 <span class="math inline">\(I\)</span>，有<span class="math display">\[\mathcal{A}[ [b] ]\sigma=\mathbf{true}~当且仅当~\sigma\vDash_I b\]</span></p>
+</blockquote>
+<p><font color="D0104C"><strong>Hoare 公式（Hoare triple）</strong></font></p>
+<p>Hoare 公式（三元组）一般的形式为 <span class="math inline">\(\{P\}~c~\{Q\}\)</span>：</p>
+<ul>
+<li><span class="math inline">\(P,Q\in\mathbf{Assn}\)</span> 是断言（描述系统的状态？）；</li>
+<li><span class="math inline">\(c\in\mathbf{Com}\)</span> 是指令.</li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(\{P\}~c~\{Q\}\)</span> 的意思是：若 <span class="math inline">\(P\)</span> 成立，则执行完 <span class="math inline">\(c\)</span> 后，<span class="math inline">\(Q\)</span> 将成立.</p>
+</blockquote>
+<p><font color="D0104C"><strong>Hoare Rules</strong></font></p>
+<p>一共有六条规则：</p>
+<p><span class="math display">\[
+\begin{align*}
+    \mathrm{Skip}~\frac{}{ \{B\} ~\mathbf{skip}~ \{B\} } &amp;\quad \mathrm{Assign}~\frac{} {\{B[a/X]\} ~X:=a~ \{B\} }\\
+    \mathrm{If}~\frac{ \{A\wedge b\}~c_0~\{B\}\quad \{A\wedge\neg b\}~c_1~\{B\} }{ \{A\}~\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1~\{B\} } &amp;\quad 
+    \mathrm{Sequence}~\frac{ \{P\}~c_1~\{R\} \quad \{R\}~c_2~\{Q\} }{ \{P\}~;c_2~\{Q\} } \\
+    \mathrm{While}~\frac{ \{P\wedge b\}~c~\{P\} }{ \{P\}~\mathbf{while}~b~\mathbf{do}~c~\{P\wedge\neg b\} }&amp;\quad
+    \mathrm{Consequence}~\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} }
+\end{align*}
+\]</span></p>
+<blockquote>
+<p>while 循环始终是这些命令中最复杂的. 这里的 <span class="math inline">\(P\)</span> 叫做<strong>循环不变量</strong>，在公理语义的讨论中有着很重要的地位.</p>
+</blockquote>
+<ul>
+<li><font color="884C3A"><strong>Hoare rules 建立了一套推理系统，进一步可以验证它是可靠的（<u>它推出的结果在语义上都没毛病</u>）.</strong></font></li>
+<li>Hoare rules 之间的推理符号用 <span class="math inline">\(\vdash\)</span>.</li>
+</ul>
+<p><font color="D0104C"><strong>Hoare 规则的可靠性</strong></font></p>
+<blockquote>
+<p><strong>Def. 可满足性</strong> <span class="math inline">\(\sigma\)</span> 在 <span class="math inline">\(I\)</span> 中满足 <span class="math inline">\(\{A\}~c~\{B\}\)</span> 当且仅当：若 <span class="math inline">\(\sigma\vDash_I A\)</span>，则 <span class="math inline">\(\mathcal{C}[ [c] ]\sigma\vDash_I B\)</span>. 记作 <span class="math inline">\(\sigma\vDash_I \{A\}~c~\{B\}\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Def. 永真性</strong> 若 <span class="math inline">\(\forall \sigma\)</span>，<span class="math inline">\(\forall I\)</span>，都有 <span class="math inline">\(\sigma\vDash_I \{A\}~c~\{B\}\)</span>，则称其是永真的，记作 <span class="math inline">\(\vDash \{A\}~c~\{B\}\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><font color="#FB966E"><strong>Thm. 可靠性</strong></font> Hoare 规则推理出来的东西都是永真的. i.e. 若 <span class="math inline">\(\vdash \{A\}~c~\{B\}\)</span>，则 <span class="math inline">\(\vDash \{A\}~c~\{B\}\)</span>.</p>
+</blockquote>
+<p>可靠性的证明需要以下两个引理：</p>
+<ol type="1">
+<li>赋值和语义符号 <span class="math inline">\([ [ ] ]\)</span> 的交换</li>
+</ol>
+<blockquote>
+<p><strong>Lem.</strong> 设 <span class="math inline">\(a,a&#39;\in\mathbf{Aexpv}\)</span>，<span class="math inline">\(X\in\mathbf{Loc}\)</span>，则对 <span class="math inline">\(\forall I\)</span>，<span class="math inline">\(\forall \sigma\in\Sigma\)</span>，有 <span class="math display">\[\mathcal{A} v[ [a[ [a^{\prime} / X] ] I \sigma=\mathcal{A} v[ [a] ] I(\sigma[ [\mathcal{A} v[ [a^{\prime}] ] / X] ])\]</span></p>
+</blockquote>
+<ol type="1">
+<li>赋值和 <span class="math inline">\(\vDash\)</span> 符号的交换</li>
+</ol>
+<blockquote>
+<p><strong>Lem.</strong> 设 <span class="math inline">\(I\)</span> 是一个解释，<span class="math inline">\(B\in\mathbf{Assn}\)</span>，<span class="math inline">\(a\in\mathbf{Aexpv}\)</span>，<span class="math inline">\(X\in\mathbf{Loc}\)</span>，则对 <span class="math inline">\(\forall \sigma\in\Sigma\)</span>，有 <span class="math display">\[\sigma \vDash_{I} B[a / X] ~~\mathrm{iff}~~ \sigma[\mathcal{A}[ [a] ] \sigma / X] \vDash_{I} B\]</span></p>
+</blockquote>
+<p>引理的证明和定理的证明都不算太困难（while 循环最为困难），不详细描述了…</p>
+<p><font color="D0104C"><strong>Hoare 规则的完备性</strong></font></p>
+<p>完备性是指：一个系统能够把所有“正确”的东西都推出来. 这个“正确性”这里有两种解读：</p>
+<ol type="1">
+<li>绝对：<span class="math inline">\(\{A\}~c~\{B\}\)</span> 真的正确（比如 <span class="math inline">\(\{x=1\}~\mathbf{skip}~\{x=1\}\)</span>）.</li>
+<li>相对：在断言的逻辑（一阶逻辑）中能证明 <span class="math inline">\(\vDash\{A\}~c~\{B\}\)</span>.</li>
+</ol>
+<ul>
+<li>如果按照上述 1. 的定义，<strong>则由 Godel 不完备定理可知，Hoare 规则是不完备的.</strong></li>
+</ul>
+<p>那么，不完备性从何而来呢？（一方面可考虑 <span class="math inline">\(\vDash B\)</span> iff <span class="math inline">\(\{\mathbf{true}\}~\mathbf{skip}~\{B\}\)</span>，另一方面可考虑 <span class="math inline">\(\{\mathbf{true}\}~c~\{\mathbf{false}\}\)</span>）</p>
+<blockquote>
+<p>实际上，是从 Consequence rule <span class="math inline">\(\frac{ \vDash(P\Rightarrow P&#39;)\quad \{P&#39;\}~c~\{Q&#39;\}\quad \vDash(Q&#39;\Rightarrow Q) }{ \{P\}~c~\{Q\} }\)</span> 中的蕴含（<span class="math inline">\(\Rightarrow\)</span>）符号来的.</p>
+</blockquote>
+<p>结合 Godel 定理考虑同样可知，Hoare 规则的不完备性应该至少有一部分来自于断言（类似一阶逻辑）的不完备性.</p>
+<p>那么，Hoare 规则比断言更加不完备吗？</p>
+<p>答案是否定的. 我们称，<strong>Hoare 具有相对完备性.</strong></p>
+<blockquote>
+<p><font color="#FB966E"><strong>Thm. 相对完备性</strong></font> Hoare 规则是相对完备的，i.e. 若 <span class="math inline">\(\vDash \{A\}~c~\{B\}\)</span>，则 <span class="math inline">\(\vdash \{A\}~c~\{B\}\)</span>.</p>
+</blockquote>
+<ul>
+<li>其证明用到了最弱前置条件与可表达性.</li>
+</ul>
+<p>先来定义<strong>最弱前置条件</strong>（Weakest Liberal Preconditions），断言 <span class="math inline">\(B\)</span> 相对于指令 <span class="math inline">\(c\)</span> 的最弱前置条件为：</p>
+<p><span class="math display">\[wp^{I}[c, B]=\{\sigma \in \Sigma_{\perp}~|~\mathcal{C}[ [c] ] \sigma \vDash^{I} B\}\]</span></p>
+<p>关于上述定义的一点解释：</p>
+<ul>
+<li>“前置条件”听起来像是一个断言，但是其实是一个状态的集合.
+<ul>
+<li>集合 <span class="math inline">\(S\)</span> 是断言 <span class="math inline">\(B\)</span> 相对于指令 <span class="math inline">\(c\)</span> 的前置条件意味着对 <span class="math inline">\(S\)</span> 中的每个状态执行完 <span class="math inline">\(c\)</span> 后，<span class="math inline">\(B\)</span> 都将成立；</li>
+<li>最弱前置条件的“最弱”是把上述集合缩到最小，i.e. <span class="math inline">\(wp^{I}[c, B]\)</span> 是最小的“前置条件”集合.</li>
+</ul></li>
+</ul>
+<p>有了这个定义，<strong>可表达性就非常好理解了</strong>：</p>
+<blockquote>
+<p><strong>Def. 可表达性</strong> <span class="math inline">\(\mathbf{Assn}\)</span> 是可表达的，i.e. 对 <span class="math inline">\(\forall c,B\)</span>，总存在断言 <span class="math inline">\(A\)</span>，s.t. <span class="math inline">\(wp^I[c,B]=A^I\)</span> 在 <span class="math inline">\(\forall I\)</span> 下成立.</p>
+<ul>
+<li>其中 <span class="math inline">\(A^I\)</span> 表示在 <span class="math inline">\(I\)</span> 下能够使得 <span class="math inline">\(A\)</span> 成立的状态集.</li>
+</ul>
+</blockquote>
+<p>事实上，上述定义相当直观：最弱前置条件是一个状态集，我们非常难以把它想象成一个“条件”. 但可表达性给出了一个断言 <span class="math inline">\(A\)</span>，使得断言成立的状态恰好就是这些状态，所以这个最弱前置条件就被断言 <span class="math inline">\(A\)</span> 所“表达”了.</p>
+<p>所有命令的最弱前置条件如下：</p>
+<p><span class="math display">\[
+\begin{align*}
+wp[\mathbf{skip}, B] &amp;= B \\
+wp[X:=a, B] &amp;= B[a/X] \\
+wp[(c_1;~c_2), B] &amp;= wp[c_1, wp[c_2,B] ] \\
+wp[\mathbf{if}~b~\mathbf{then}~c_0~\mathbf{else}~c_1,B] &amp;= (b\Rightarrow wp[c_1,B])\wedge (\neg b\Rightarrow wp[c_2,B]) \\
+wp[\mathbf{while}~b~\mathbf{do}~c, B] &amp;= \bigwedge_i F_i(B) \\
+其中~ F_0(B)=\mathbf{true},&amp;~F_{i+1}(B)=(\neg b\Rightarrow B)\wedge (b\Rightarrow wp[c, F_i(B)]).
+\end{align*}
+\]</span></p>
+<p>然后我们可以得到如下的两条引理：</p>
+<blockquote>
+<p><strong>Lem. 1</strong> <span class="math inline">\(\forall c\in\mathbf{Com}\)</span>，<span class="math inline">\(Q\in\mathbf{Assn}\)</span>，有<span class="math display">\[\vDash\{wp[c,Q]\}~c~\{Q\}~且~\forall R\in\mathbf{Assn}.~\vDash \{R\}~c~\{Q\}~意味着~(R\Rightarrow wp[c,Q])\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>Lem. 2</strong> <span class="math inline">\(\forall c\in\mathbf{Com}\)</span>，<span class="math inline">\(Q\in\mathbf{Assn}\)</span>，有 <span class="math inline">\(\vdash \{wp[c,Q]\}~c~\{Q\}\)</span>.</p>
+</blockquote>
+<p>有了这两条，即可证明相对完备性. 其大致思路是：</p>
+<ul>
+<li>对任意命令 <span class="math inline">\(c\)</span>，断言 <span class="math inline">\(P\)</span> 和 <span class="math inline">\(Q\)</span>，s.t. <span class="math inline">\(\vDash \{P\}~c~\{Q\}\)</span>；</li>
+<li>由 Lem 1，有 <span class="math inline">\(\vDash P\Rightarrow wp[c,Q]\)</span>；</li>
+<li>由 Lem 2，有 <span class="math inline">\(\vdash \{wp[c,Q]\}~c~\{Q\}\)</span>；</li>
+<li>由 Consequence rule，可知 <span class="math inline">\(\vdash \{P\}~c~\{Q\}\)</span>.</li>
+</ul>
+<blockquote>
+<p>这里略去了很多细节，具体细节参见 Winskel 的书.</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/北大/" rel="tag"># 北大</a>
+          
+            <a href="/tags/数理逻辑/" rel="tag"># 数理逻辑</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/24/Cube/" rel="next" title="魔方杂记">
+                <i class="fa fa-chevron-left"></i> 魔方杂记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/30/Paper-reading-15-DP-in-Metric-Spaces/" rel="prev" title="论文笔记[15]——度量空间中的差分隐私">
+                论文笔记[15]——度量空间中的差分隐私 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Zhechen" />
+            
+              <p class="site-author-name" itemprop="name">Zhechen</p>
+              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzcwr" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:me@lizhechen.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/" title="NexT主题使用文档" target="_blank">NexT主题使用文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xuhongxu.com/zh-cn/" title="许宏旭的博客" target="_blank">许宏旭的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bufan.xyz" title="卜凡的博客" target="_blank">卜凡的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/quailty" title="曾耀辉的博客" target="_blank">曾耀辉的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lib-pku.github.io/" title="贵校课程资料民间整理" target="_blank">贵校课程资料民间整理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://owenmasculinity.github.io/en/" title="张凌霄的博客" target="_blank">张凌霄的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sites.math.rutgers.edu/~yw665/" title="Yuchen Wei's HomePage" target="_blank">Yuchen Wei's HomePage</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bunnifold.github.io/" title="兔胖逛吃记" target="_blank">兔胖逛吃记</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#imp-a-simple-imperative-language"><span class="nav-number">1.</span> <span class="nav-text">IMP: a Simple Imperative Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作语义"><span class="nav-number">2.</span> <span class="nav-text">操作语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sos-structural-operational-semantics"><span class="nav-number">2.1.</span> <span class="nav-text">SOS: Structural Operational Semantics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mos-mechanical-operational-semantics"><span class="nav-number">2.2.</span> <span class="nav-text">MOS: Mechanical Operational Semantics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指称语义"><span class="nav-number">3.</span> <span class="nav-text">指称语义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公理语义"><span class="nav-number">4.</span> <span class="nav-text">公理语义</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Zhechen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="/js/md5.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '8338cf91e7bad4fae36a',
+          clientSecret: '5b405caf9991780570baa57a7ad6c6c6ac60ef69',
+          repo: 'Gitalk-comments',
+          owner: 'lzcwr',
+          admin: ['lzcwr'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
