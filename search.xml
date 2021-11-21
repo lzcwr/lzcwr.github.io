@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[集图问题集]]></title>
+    <url>%2F2021%2F11%2F21%2FSG%2F</url>
+    <content type="text"><![CDATA[在担任集图助教的过程中遇到了各种各样的问题，这里记录一些常见的，或是值得被记下来的问题. PART 1: Set Theory 所有归纳集为什么不是集合 书和课件中都只说了“这会导致集合论悖论”，十分笼统. 这里给出一个简短的证明： 证明：在 ZF 公理系统中，所有归纳集不构成一个集合. 用 ZF 公理系统中的正则公理来证明： 正则公理（Axiom of Regularity）：\(\forall A,\exists x:(\exists z:z\in A)\Rightarrow (x\in A\wedge (\neg\exists y: y\in A\wedge y\in x))\). 假设所有的归纳集构成一个集合 \(D\)，则我们可以将 \(D\) 扩充成一个归纳集 \(X\)（将 \(D\) 子集的所有内容物全部加入 \(X\) 中）. 此时，由 \(D\) 和 \(X\) 的定义，有 \(D\in X\in D\). 构造集合 \(\{D,X\}\)（容易验证这是一个集合），则对 \(\forall Y\in \{D,X\}\)，均有 \(Y\cap \{D,X\}\) 非空. 这与正则公理矛盾. 因此 \(D\) 不是一个集合. 这里再强调一次李老师课件中的一个辨析： 自然数是属于所有归纳集的集合； 自然数集 \(\mathbb{N}\) 是包含于所有归纳集的集合. 基数和序数 通俗地说，就是： 序数是表示次序的数（数数的时候会数到的数）：\[1,2,\ldots,n,\ldots,\aleph_0,\aleph_0+1,\ldots,\aleph_1,\ldots,\aleph_n,\ldots\] 基数是序数的等价类：\[1,2,\ldots,n,\ldots,\aleph_0,\aleph_1,\aleph_2,\ldots,\aleph_n,\ldots\] 有关序数，有各种严格的定义. 较早的版本规定“序数”是良序集在保序映射下的等价类，而 ZF 系统中无法接受如此大的“集合”（现代会将其称为一个 class），因此“序数”的现行定义为“对 \(\in\) 关系构成良序集的传递集”. 现行定义使用代表元来描述序数，这样就避开了“良序集等价类”这一宏大的概念. 限于篇幅，这里不再展开. 2020 期中问题集 第 33 题 考虑如 \(\mathscr{P}(\mathbb{N})\) 中的等价关系：\(A\sim B\) 当且仅当 \(A\triangle B\) 为有限集. 给定 \(A\in \mathscr{P}(\mathbb{N})\)，求 \(A\) 的等价类 \([A]\) 的势； 求商集 \(\mathscr{P}(\mathbb{N})/\sim\) 的势. 答案：1. \(\aleph_0\)；2. \(\aleph_1\). 事实上，\(A\) 的等价类中的所有元素均可通过“删掉有限个元素，再添加有限个新元素”得到，易见这两步的操作方案数都是可数的，因此 \(|[A]|=\aleph_0\)； 易见上界是 \(\aleph_1\)，确定下界的方法有两种，分述如下： 由第 1 问，容易构造单射 \(f\colon \mathscr{P}(\mathbb{N})\to \mathscr{P}(\mathbb{N})/\sim \times \mathbb{N}\)，结合 \(|\mathscr{P}(\mathbb{N})|=\aleph_1\) 可知 \(|\mathscr{P}(\mathbb{N})/\sim|\times \aleph_0\geqslant \aleph_1\)； 考虑集族 \(S_m=\{p^k~|~k\in\mathbb{N},p~为第~m~个素数\}\)，易见该集族有 \(\aleph_0\) 个不相交集合，且对不同的 \(T\subseteq \mathbb{N}\)，\(\bigcup\limits_{m\in T} S_m\) 均属于不同的等价类. 由于 \(T\) 有 \(\aleph_1\) 种选法，因此 \(|\mathscr{P}(\mathbb{N})/\sim|\) 至少为 \(\aleph_1\). 2021 期中问题集 第 29 题 判断：对于任意有穷基数 \(n\) 和无穷基数 \(\kappa\)，总有 \(\kappa^n=\kappa\). 错误. 当 \(n=0\) 时，显然不成立. （当 \(n\neq 0\) 时，该断言是正确的） 这题太坑了，我在考场上随手做了一下就被坑到了（ 第 31 题 题面写得不太严谨，这里给出一个（我自认为）较为严谨的版本： 设 \(R\) 是集合 \(A\) 上的偏序集，且其最长链和最长反链长度均为 \(3\)，则 \(A\) 的最小基数是多少？在此基数下，画出 \(R\) 互不同构的所有可能哈斯图. 易知 \(A\) 最少有 \(5\) 个元素（不难证明 \(4\) 个元素无法满足条件）. 共 14 种哈斯图同构类，分类如下： 除最长链外，至多有一条边的，共 5 种 0 1 2 3 4 除最长链外，还有两条边的，共 9 种 11 12 13 14 21 22 23（最长反链只有 2） 24 同 12 31 32 33 34 同 13 同 23 41 42 43 44 同 14 同 24 同 34 应该不难看出我的分类依据，也很容易验证这是不重不漏的. 阅卷时好像是写出至少 11 个就基本给满分了. 第 32 题 设 \(\oplus\) 表示对称差，求证：\(\left(\bigcap\limits_{i=1}^n A_i\right)\oplus \left(\bigcap\limits_{i=1}^n B_i\right)=\bigcup\limits_{i=1}^n(A_i\oplus B_i)\). 标答做法：（应该是最好的证法）由对称差的定义，对于 \(\forall x\in \operatorname{LHS}\)，有且仅有两种情况： \(x\) 属于所有的 \(A\)，但至少不属于某一个 \(B\). 不妨设 \(x\notin B_i\)，则 \(x\in A_i\oplus B_i\subseteq \operatorname{RHS}\)； \(x\) 属于所有的 \(B\)，但至少不属于某一个 \(A\). 不妨设 \(x\notin A_j\)，则 \(x\in A_j\oplus B_j\subseteq \operatorname{RHS}\). OK. 这样证明就结束了，简洁又直观. 归纳法：归纳方法可能不唯一，不过本质应该都是 \(n=2\) 的情形. 当 \(n=1\) 时，\(\operatorname{LHS}=\operatorname{RHS}\)； 设当 \(n=k\) 时原式成立，则 \(n=k+1\) 时（令 \(A=\bigcap\limits_{i=1}^k A_i\)，\(B=\bigcap\limits_{i=1}^k B_i\)），有： \[ \begin{align} \operatorname{LHS} &amp;= (A\cap A_{n+1})\oplus (B\cap B_{n+1}) \\ &amp;= \big((A\cap A_{n+1})\setminus (B\cap B_{n+1})\big) \cup \big( (B\cap B_{n+1})\setminus (A\cap A_{n+1}) \big) \\ &amp;= \big((A\cap A_{n+1})\cap \overline{B\cap B_{n+1}}\big) \cup \big((B\cap B_{n+1})\cap \overline{A\cap A_{n+1}}\big) \\ &amp;= \big((A\cap A_{n+1})\cap (\overline{B}\cup \overline{B_{n+1}})\big) \cup \big((B\cap B_{n+1})\cap (\overline{A}\cup \overline{A_{n+1}})\big) \\ &amp;= (A\cap A_{n+1}\cap \overline{B})\cup (A\cap A_{n+1}\cap \overline{B_{n+1}}) \cup (B\cap B_{n+1}\cap \overline{A})\cup (B\cap B_{n+1}\cap \overline{A_{n+1}}) \\ &amp;= (A_{n+1}\cap A\setminus B)\cup (A\cap A_{n+1}\setminus B_{n+1}) \cup (B_{n+1}\cap B\setminus A)\cup (B\cap B_{n+1}\setminus A_{n+1}) \\ &amp;\subseteq (A\setminus B)\cup (A_{n+1}\setminus B_{n+1}) \cup (B\setminus A)\cup (B_{n+1}\setminus A_{n+1}) \\ &amp;= (A\oplus B)\cup (A_{n+1}\oplus B_{n+1}) = \operatorname{RHS} \end{align} \] 证明过程不困难，但有一点复杂，应该需要一些耐心（阅卷时感觉很多同学写得都有问题 另一种直接的证明：将对称差拆成 \(A\setminus B\) 和 \(B\setminus A\) 两部分，则有： \[ \begin{align} \bigcap\limits_{i=1}^n A_i\setminus \bigcap\limits_{i=1}^n B_i &amp;= \bigcap\limits_{i=1}^n A_i\cap \overline{\bigcap\limits_{i=1}^n B_i} \\ &amp;= \bigcap\limits_{i=1}^n A_i\cap \bigcup\limits_{i=1}^n\overline{B_i} \\ &amp;= \bigcup\limits_{i=1}^n \left(\overline{B_i}\cap \bigcap\limits_{j=1}^n A_j\right) \\ &amp;= \bigcup\limits_{i=1}^n \left(\bigcap\limits_{j=1}^n A_j \setminus B_i\right) \\ &amp;\subseteq \bigcup\limits_{i=1}^n \left(A_i \setminus B_i\right) \end{align} \] 另一半同理，合并起来即可完成证明. 该做法是阅卷时看到的，也是比较直观的一种做法. PART 2: Graph Theory 所有奇圈共点 \(\Rightarrow\) 可被 5-染色 若一个图 \(G\) 中任意两个奇数长度的回路都有公共点，证明该图可被 \(5\)-染色. 若 \(\chi(G)\geqslant 6\)，考虑颜色 \(1,2,3\) 的导出子图 \(G_1\) 和颜色 \(4,5,6\) 的导出子图 \(G_2\)，则 \(G_1\cap G_2=\varnothing\). 由于 \(\chi(G_1)=\chi(G_2)=3\)，故二者均不是二部图，因此 \(G_1\) 和 \(G_2\) 均含有奇圈. 又由于 \(G_1\) 和 \(G_2\) 无公共点，故这两个奇圈也无公共点，矛盾. 因此 \(\chi(G)\leqslant 5\).]]></content>
+      <categories>
+        <category>助教</category>
+      </categories>
+      <tags>
+        <tag>北大</tag>
+        <tag>集图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[论文笔记[15]——度量空间中的差分隐私]]></title>
     <url>%2F2020%2F07%2F30%2FPaper-reading-15-DP-in-Metric-Spaces%2F</url>
     <content type="text"><![CDATA[论文：Holohan N, Leith D J, Mason O. Differential privacy in metric spaces: Numerical, categorical and functional data under the one roof[J]. Information Sciences, 2015, 305: 256-268. 基础知识 首先是一些实变/测度论里的基础知识：\(\sigma\) 代数、测度空间、乘积 \(\sigma\) 代数、单调类等等. 不多赘述.. \(U\) 是一个度量空间，带有度量 \(\rho\). 考虑其上的 Borel \(\sigma\) 代数 \(\mathcal{A}\) \(D\) 是其子空间，我们称其为所有数据（可能是数值，也可能不是）构成的集合. \(D\) 天然继承了 Borel \(\sigma\) 代数. 进一步，如果我们的数据是 \(n\) 维向量，那么其所属的空间就是 \(D^n\)，当然，其上的测度完全可以用乘积测度来构造. Database：一个 database 就是一个序列 \(\mathbf{d}=(d_1,\ldots,d_n)\). 称 \(\mathbf{d}\) 和 \(\mathbf{d}&#39;\) 为 neighboring datasets，如果仅有一项不同，记作 \(\mathbf{d}\sim\mathbf{d}&#39;\). 更一般地，Hamming 距离用 \(h(\mathbf{d},\mathbf{d}&#39;)\) 表示. Query：设所有查询结果所构成的集合为 \(E_Q\)，\(\mathcal{A}_Q\) 是其上的 \(\sigma\)-代数.（若 \(E_Q\) 为度量空间，则为 Borel 代数） 一个查询 \(Q(\mathbf{d})\) 是一个可测映射 \(Q:U^n\to E_Q\). Reponse Mechanism：现给定一个概率空间 \((\Omega,\mathcal{F},\mathbb{P})\)，其中 \(\Omega\) 是一个集合（原文：corresponding informally to the set of outcomes of some ‘random experiment’） 一个应答机制就是一大堆可测映射 \(\{X_{Q,\mathbf{d}}:\Omega\to E_Q| Q\in\mathcal{Q},\mathbf{d}\in D^n\}\). Sanitised Reponse Mechanism：一个应答机制 \(X_{Q,\mathbf{d}}\) 是 sanitised reponse mech，当且仅当它具有 \(X_{Q,\mathbf{d}}=Q\circ Y_\mathbf{d}\) 的形式. Sanitisation：一些可测映射 \(\{Y_\mathbf{d}:\Omega\to U^n | \mathbf{d}\in D^n \}\). 这些映射实际上是对 \(D^n\) 中的数据做了“清洗”（譬如加噪音）. Output Perturbations：给定查询 \(Q: U^n\to E_Q\)，考虑一族可测函数 \(\{Z_q:\Omega\to E_Q|Q\in E_Q\}\). 我们假定查询的真实结果就是 \(q\)，那么 \(Z_q\) 就是对该查询的一个扰动. 因此一个 Output Pertur Mech 应当具有 \(X_{Q,\mathbf{d}}=Z_{Q(\mathbf{d})}\) 的形式. 现在即可定义差分隐私： Def 1. （DP with respect to a query） 现有 \(\epsilon\geqslant 0\)，\(\delta\in [0,1]\)，一个应答机制对查询 \(Q_0\in\mathcal{Q}\) 服从 \((\epsilon,\delta)\)-DP，当且仅当对 \(\forall \mathbf{d}\sim\mathbf{d}&#39;\in D^n\)，以及 \(\forall A\in \mathcal{A}_{Q_0}\)，总有 \[\mathbb{P}\left(X_{Q_{0}, \mathbf{d}} \in A\right) \leqslant e^{\epsilon} \mathbb{P}\left(X_{Q_{0}, \mathbf{d ^ { \prime }}} \in A\right)+\delta.\] Sufficient sets for differential privacy 本节主要讨论了这样的一个问题：是否存在 \(\mathcal{A}_Q\) 的一个真子集 \(\mathcal{S}\)，s.t. 只要 \(\forall A\in\mathcal{S}\) 都满足差分隐私的定义，就足以说明 \(\mathcal{A}_Q\) 中所有集合也都满足差分隐私. Output space：\(\mathbb{R}^n\) 或 \(C([0,T])\). Thm 3 给定应答机制 \(X_{Q,\mathbf{d}}\) 以及查询 \((Q,E_Q,\mathcal{A}_Q)\)，令 \(\mathcal{S}\subset \mathcal{A}_Q\) 是一个集代数，s.t. \(\sigma(\mathcal{S})=\mathcal{A}_Q\). 若对 \(\forall A\in\mathcal{S}\)，\((\epsilon,\delta)\)-DP 的定义式都成立，则对 \(\forall A\in\mathcal{A}_Q\) 也才成立. Sanitised response mechanisms and the identity query Identity query：\(I_n\) 为 \(U^n\) 上的恒等映射，即 \(I_n(\mathbf{x})=\mathbf{x},~\forall \mathbf{x}\in U^n\). 对于 Id query 而言，\(E_Q=U^n\). 在数据清洗中，\(Y_\mathbf{d}(\omega)\) 可被视为对于 id query 的一个响应. Th 4（Id query） 若数据清洗过程的 \(Y_\mathbf{d}\) 是 \((\epsilon,\delta)\)-DP 的，则任何查询 \((Q,E_Q,\mathcal{A}_Q)\) 的响应机制都满足相同规格的 DP. 文中这里有一个 Remark，比较了一下数据清洗与输出扰动. 事实上，二者的区别是显而易见的： 数据清洗后，显然可以在保证隐私的情况下回答任何问题； 采用输出扰动机制的话，反复进行相同查询会导致隐私泄露，似乎没什么难以理解的吧（ Cor 1 考虑一个基于数据清洗的应答机制，设 \(I_n\in\mathcal{Q}\). 则该机制是 \((\epsilon,\delta)\)-DP 的，当且仅当该机制对所有 \(I_n\) 的应答是 \((\epsilon,\delta)\)-DP 的. Product sanitisations 顾名思义，乘积数据清洗就是把一维的清洗扩展到高维. 先是一个集类的结论： Lemma 1 设 \(A_1,\ldots,A_p,B_1,\ldots,B_p\) 是两列非空集合，则有 \[\bigcup_{i=1}^p(A_i\times B_i)=\bigcup_{I\subset\{1,\ldots,p\}}(\tilde{A}_I\times\tilde{B}_I)\] 其中 \(\tilde{A}_I=\bigcup_{i\in I}A_i\)，\(\tilde{B}_I=\bigcap_{i\in I}B_i\backslash\bigcup_{i\notin I}B_i\).（进一步有 \(\tilde{B_I}\cap\tilde{B_J}=\varnothing\)，\(\forall I\neq J\)） Lemma 3 给定一族可测映射 \(\{Y_d:\Omega\to U | d\in D\}\)，定义 \(Y_\mathbf{d}:\Omega\to U\) 为 \(Y_\mathbf{d}(\omega)=\left( Y^1_\mathbf{d}(\omega),Y^2_\mathbf{d}(\omega),\ldots,Y^n_\mathbf{d}(\omega) \right)\). 若 \(Y_\mathbf{d}\) 是 \((\epsilon,\delta)\)-DP 的，则 \[\mathbb{P}(Y_d\in A)\leqslant e^\epsilon \mathbb{P}(Y_{d&#39;}\in A)+\delta,\quad \forall d,d&#39;\in D, A\in\mathcal{A}_U\] Th 5 考虑一族可测映射 \(\{Y_d:\Omega\to U|d\in D\}\)，假设 \[\mathbb{P}(Y_d\in A)\leqslant e^\epsilon \mathbb{P}(Y_{d&#39;}\in A)+\delta,\quad \forall d,d&#39;\in D,A\in\mathcal{A}_U\] 按照前文所述定义 \(Y_\mathbf{d}\)，则有： \[\mathbb{P}(Y_\mathbf{d}\in A)\leqslant e^\epsilon \mathbb{P}(Y_{\mathbf{d}&#39;}\in A)+\delta,\quad \forall \mathbf{d}\sim\mathbf{d}&#39;\in D^n, A\in\mathcal{A}_{U^n}\] 上述 Th 5 还是比较有用的，文中给出了两个例子： Accuracy 我们利用期望误差来评价准确性： \[\mathcal{E}=\max\limits_{d\in D}~\mathbb{E} [\rho(Y_d,d)]\] 文中的 Lemma 4 没什么营养，就是告诉我们在满足 DP 的前提下 \(\mathcal{E}\) 一定是正数. 接下来是关于它的进一步估计： Th 6 给定一族可测映射 \(\{Y_d:\Omega\to U|d\in D\}\)，且满足 \((\epsilon,\delta)\)-DP，则有： \[\mathcal{E}\geqslant (1-\delta)\left( \frac{\operatorname{diam}(D)}{2(1+e^\epsilon)} \right)\] 简单总结一下…这篇文章大概给了一个度量空间下的差分隐私框架. 文中先对数据清洗和输出扰动两种隐私方案进行了介绍与比较，然后分析了一下准确性（误差）. 总体来说，有一点点失望hhh，感觉没有想象中营养丰富==（不过文章也不算长吧，13页）]]></content>
@@ -11,8 +23,8 @@
         <tag>数学</tag>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -59,8 +71,8 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -73,8 +85,8 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -87,8 +99,8 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -126,8 +138,8 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -140,8 +152,8 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -154,9 +166,9 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
-        <tag>论文笔记</tag>
         <tag>经济学</tag>
+        <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -211,9 +223,9 @@
       <tags>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
-        <tag>论文笔记</tag>
         <tag>经济学</tag>
+        <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -242,9 +254,9 @@
         <tag>师大</tag>
         <tag>计算机</tag>
         <tag>北大</tag>
-        <tag>社会计算</tag>
-        <tag>论文笔记</tag>
         <tag>经济学</tag>
+        <tag>论文笔记</tag>
+        <tag>社会计算</tag>
         <tag>隐私</tag>
       </tags>
   </entry>
@@ -262,9 +274,9 @@
         <tag>算法</tag>
         <tag>北大</tag>
         <tag>组合数学</tag>
-        <tag>社会计算</tag>
-        <tag>论文笔记</tag>
         <tag>经济学</tag>
+        <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -281,9 +293,9 @@
         <tag>算法</tag>
         <tag>北大</tag>
         <tag>组合数学</tag>
-        <tag>社会计算</tag>
-        <tag>论文笔记</tag>
         <tag>经济学</tag>
+        <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -299,8 +311,8 @@
         <tag>计算机</tag>
         <tag>北大</tag>
         <tag>组合数学</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -316,8 +328,8 @@
         <tag>计算机</tag>
         <tag>北大</tag>
         <tag>组合数学</tag>
-        <tag>社会计算</tag>
         <tag>论文笔记</tag>
+        <tag>社会计算</tag>
       </tags>
   </entry>
   <entry>
@@ -354,8 +366,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>计算机</tag>
         <tag>Web</tag>
+        <tag>计算机</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -367,8 +379,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>计算机</tag>
         <tag>Web</tag>
+        <tag>计算机</tag>
         <tag>Hexo</tag>
         <tag>Mathjax</tag>
         <tag>Gitalk</tag>
@@ -536,8 +548,8 @@
       <tags>
         <tag>师大</tag>
         <tag>数学</tag>
-        <tag>组合数学</tag>
         <tag>各种试卷</tag>
+        <tag>组合数学</tag>
       </tags>
   </entry>
   <entry>
@@ -622,8 +634,8 @@
         <tag>数学</tag>
         <tag>北大</tag>
         <tag>保研</tag>
-        <tag>论文笔记</tag>
         <tag>经济学</tag>
+        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -726,8 +738,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>计算机</tag>
         <tag>Web</tag>
+        <tag>计算机</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -1061,7 +1073,7 @@
   <entry>
     <title><![CDATA[北京师范大学数学分析试卷]]></title>
     <url>%2F2017%2F07%2F04%2FExam-BNU-Mathematical-Analysis%2F</url>
-    <content type="text"><![CDATA[2015秋 数学分析一 期末 唐仲伟 2016秋 数学分析三 期中 唐仲伟 2016秋 数学分析三 期末 唐仲伟 2015 数学分析一 期末 唐仲伟 计算题 共40分, 每题5分. 求极限 \(\lim\limits_{n\to\infty}\sqrt{n}(\sqrt{n+1}-\sqrt{n})\); 求极限 \(\lim\limits_{x\to\infty}\sqrt{(a+x)(b+x)}-\sqrt{(a-x)(b-x)}\); 求不定积分 \(\int e^{\sqrt{x}}dx\); 求不定积分 \(\int \frac{1}{1+x^4}dx\); 求广义积分 \(\int\nolimits_0^1 lnxdx\); 求广义积分 \(\int\nolimits_0^{+\infty}\frac{dx}{1+x^3}\); 求二重积分 \(\iint\nolimits_D [x+y]dxdy\), 其中 \(D=[0,2]\times[0,2]\), \([x+y]\) 是取整函数; 设二阶偏导数连续的二元函数 \(z=f(x,y)\) 满足方程 \[\frac{\partial^2 f}{\partial x^2}(x,y)-\frac{\partial^2 f}{\partial y^2}(x,y)=0\] 且 \(f(x,2x)=x\), \(\frac{\partial f}{\partial x}(x,y)\) 当 \(y=2x\) 时等于 \(x^2\). 求 \(\frac{\partial^2 f}{\partial x^2}(x,y)\) 当 \(y=2x\) 时的值. 证明题 共60分, 每题10分. 求证数列 \(x_n=(-1)^n\) 当 \(n\to\infty\) 时发散; 设 \(f,g\) 在闭区间 \([a,b]\) 连续, 证明 \[\int\nolimits_a^b f(x)g(x)dx\leqslant\frac{1}{2}\left[\int\nolimits_a^bf^2(x)dx+\int\nolimits_a^bg^2(x)dx\right];\] 设广义积分 \(\int\nolimits_0^{+\infty}\frac{\sin^2 x}{x^2}dx\) 和 \(\int\nolimits_0^{+\infty}\frac{\sin x}{x}dx\) 都收敛, 证明: \[\int\nolimits_0^{+\infty}\frac{\sin^2 x}{x^2}dx=\int\nolimits_0^{+\infty}\frac{\sin x}{x}dx;\] 设 \[f(x,y)=\begin{cases} \frac{xy}{x^2+y^2}, &amp; (x,y)\neq(0,0), \\ 0, &amp; (x,y)=(0,0). \\ \end{cases}\] 设函数 \(f(x)\) 在 \(x=0\) 连续, 且 \(\lim\limits_{x\to\infty}\frac{f(2x)-f(x)}{x}=a\). 求证: \(f&#39;(0)\) 存在, 且 \(f&#39;(0)=a\). 设 \[P_n(x)=\frac{1}{n!2^n}\frac{d^n}{dx^n}(x^2-1)^n,\] 证明: \[\int\nolimits_{-1}^1 P_n(x)P_m(x)dx = \begin{cases} 0, &amp; m\neq n,\\ \frac{2}{2n+1}, &amp; m=n. \\ \end{cases}\] 2016秋 数学分析三 期中 唐仲伟 计算题 共50分, 前4题每题5分, 后3题每题10分. \(\lim\limits_{(x,y)\to(0,0)}\frac{\sin(xy)}{xy}\). \(\lim\limits_{(x,y)\to(0,0)}(x+y)\sin\frac{1}{x^2+y^2}\). \(\lim\limits_{x\to\infty}\lim\limits_{y\to\infty}\frac{xy}{x+y}\). \(\lim\limits_{(x,y)\to(+\infty,+\infty)}\left(\frac{xy}{x^2+y^2}\right)^{x^2}\). 设 \(f(x,y)=(x+y,x-y,xy)\in\mathbb{R}^3\), \(g(x,y,z)=(xyz,ze^{xy})\in\mathbb{R}^2\). 记 \(F=f\circ g\), 求 \(F\) 的Frechet导数 \(F&#39;(x,y,z)\). 求 \(f(x,y)=x^3+y^3-3xy\) 的普通极值. 设方程 \(y-\frac{1}{2}\sin y=x\) 能确定隐函数 \(y=f(x)\), 令 \(z=e^{x+y}\), 求 \(\frac{dz}{dx}\), \(\frac{d^2z}{dx^2}\). 证明题 共50分, 每题10分. 证明: \(f(x,y)=\frac{xy}{x+y}\) 在 \((x,y)=(0,0)\) 处极限不存在. 设数值函数 \(f(x)\) 在紧集 \(D\subset\mathbb{R}^n\) 上连续, 且恒为正值, 求证: \(\exists~K&gt;0\), s.t. \(\forall~x\in D\), 有 \(f(x)&gt;K\). 证明: \[f(x,y)=\begin{cases}\frac{xy}{\sqrt{x^2+y^2}}, &amp; (x,y)\neq(0,0) \\ 0, &amp; (x,y)=(0,0) \\ \end{cases}\] 在 \((0,0)\) 的邻域中连续且有有界的偏导数 \(f_x&#39;(x,y)\) 和 \(f&#39;_y(x,y)\), 但函数在点 \((0,0)\) 不可微 . 设 \(f:\mathbf{R}^n\rightarrow\mathbf{R}^n\) 是开集 \(G\) 上的 \(C^1\) 类函数, 且 \(J_f(x_0)=0\), 记 \(y_0=f(x_0)\). 如果 \(f\) 在 \(x_0\) 存在反函数 \(f^{-1}\), 求证 \(f^{-1}\) 在 \(y_0\) 不可微. 证明: 由方程 \[y=x\varphi(x)+\psi(z)\] 所定义的隐函数 \(z=z(x,y)\) 满足方程 \[\left(\frac{\partial z}{\partial y}\right)^2\frac{\partial^2 z}{\partial x^2}-2\frac{\partial z}{\partial x}\frac{\partial z}{\partial y}\frac{\partial^2 z}{\partial x\partial y}+\left(\frac{\partial z}{\partial x}\right)^2\frac{\partial^2 z}{\partial y^2}=0.\] 2016秋 数学分析三 期末 唐仲伟 计算题 共20分, 前四题每题5分, 后3题每题10分. 计算二重积分 \(\iint\limits_E xydxdy\), 其中 \(E\) 是四条抛物线 \[y^2=px,~y^2=qx,~x^2=ay,~x^2=by\] 所围成的区域, \(0&lt;p&lt;q\), \(0&lt;a&lt;b\). 计算三重积分 \(\iiint\limits_Vxyzdxdydz\), 其中 \(V\) 是由曲面 \[x^2+y^2+z^2=1,x\geqslant,y\geqslant0,z\geqslant0\] 所围成的区域. 计算第一型曲线积分 \(\int\nolimits_C(x^2+y^2)ds\), 其中 \(C\) 为曲线 \[x=a(\cos t+t\sin t),y=a(\sin t-t\cos t)~(0\leqslant t \leqslant 2\pi).\] 计算第一型曲面积分 \(\iint\limits_S(x+y+z)dS\), 其中 \(S\) 为曲面 \(x^2+y^2+z^2=a^2\), \(z\geqslant0\). 设 \(\sin z-xyz=0\), 当 \(\cos z-xy\neq0\) 时, 求 \(\frac{\partial z}{\partial x}\), \(\frac{\partial^2 z}{\partial y\partial x}\). 求函数 \(f(x,y,z)=x-2y+2z\) 在球面 \(x^2+y^2+z^2=1\) 上的最大、最小值. 计算第二型曲线积分 \(\oint\nolimits_C e^x[(1-\cos y)dx-(y-\sin y)dy]\), 其中 \(C\) 是曲线 \(y=\sin x\) 介于 \([0,1]\) 的一段, \(C\) 的方向对应于 \(x\) 增加的方向. 证明题 共50分, 每题10分. 设二元数值函数 \(f(x,y)\) 在 \([a,b]\times[c,d]\) 上连续, 一元数值函数序列 \(\{\phi_n(x)\}\) 在 \([a,b]\) 上一致收敛, 且 \(\phi_n(x)\in [c,d]\). 则 \(g_n=f(x,\phi_n(x))\) 在 \([a,b]\) 上一致收敛. 设数值函数 \(z=f(x,y)\) 在矩形区域 \(D=[a,b]\times[c,d]\subset\mathbb{R}^2\) 上偏导数有界, 求证: \(f\) 在 \(D\) 上一致连续. 设三重积分 \(\iiint\limits_D f(x,y,z)dxdydz\) 存在, 区域 \(D\) 关于 \(xOy\) 平面对称, 被积函数 \(f\) 关于 \(x\) 是一个奇函数, 即 \(f(-x,y,z)=-f(x,y,z)\), 求证: \(\iiint\limits_D f(x,y,z)dxdydz=0\). 设 \(f\in C[0,a]\), 即 \(f\) 在区间 \([0,1]\) 上连续, 证明: \[\int\nolimits_0^a dx_1\int\nolimits_0^{x_1}dx_2\cdots\int_0^{x_{n-1}} f(x_1)f(x_2)\cdots f(x_n)dx_n=\frac{1}{n!}\left[\int\nolimits_0^a f(x) dx\right]^n.\] 设 \(S\) 为 \(\mathbb{R}^3\) 空间中分片光滑的封闭定向曲面, \(\nu_0\) 为任意固定的方向, \(N\) 为 \(S\) 的单位外法向量, 求证 \[\iint\limits_S \cos(\nu_0, N)dS=0.\] 证明Lebesgue引理: 设 \(\mathbb{R}^n\) 中的紧集 \(D\) 有一个开覆盖 \(\mathfrak{C}=\{G_\alpha\}\), 则存在正数 \(l&gt;0\), 对于 \(\forall~x\in D\), \(\exists~G_\alpha\in\mathfrak{C}\), s.t. \(x\) 的球(方)邻域 \(U(x,l)\subset G_\alpha\).]]></content>
+    <content type="text"><![CDATA[2015秋 数学分析一 期末 唐仲伟 2016秋 数学分析三 期中 唐仲伟 2016秋 数学分析三 期末 唐仲伟 2020秋 数学分析三 期末 熊金钢 2015 数学分析一 期末 唐仲伟 计算题 共40分, 每题5分. 求极限 \(\lim\limits_{n\to\infty}\sqrt{n}(\sqrt{n+1}-\sqrt{n})\); 求极限 \(\lim\limits_{x\to\infty}\sqrt{(a+x)(b+x)}-\sqrt{(a-x)(b-x)}\); 求不定积分 \(\int e^{\sqrt{x}}dx\); 求不定积分 \(\int \frac{1}{1+x^4}dx\); 求广义积分 \(\int\nolimits_0^1 lnxdx\); 求广义积分 \(\int\nolimits_0^{+\infty}\frac{dx}{1+x^3}\); 求二重积分 \(\iint\nolimits_D [x+y]dxdy\), 其中 \(D=[0,2]\times[0,2]\), \([x+y]\) 是取整函数; 设二阶偏导数连续的二元函数 \(z=f(x,y)\) 满足方程 \[\frac{\partial^2 f}{\partial x^2}(x,y)-\frac{\partial^2 f}{\partial y^2}(x,y)=0\] 且 \(f(x,2x)=x\), \(\frac{\partial f}{\partial x}(x,y)\) 当 \(y=2x\) 时等于 \(x^2\). 求 \(\frac{\partial^2 f}{\partial x^2}(x,y)\) 当 \(y=2x\) 时的值. 证明题 共60分, 每题10分. 求证数列 \(x_n=(-1)^n\) 当 \(n\to\infty\) 时发散; 设 \(f,g\) 在闭区间 \([a,b]\) 连续, 证明 \[\int\nolimits_a^b f(x)g(x)dx\leqslant\frac{1}{2}\left[\int\nolimits_a^bf^2(x)dx+\int\nolimits_a^bg^2(x)dx\right];\] 设广义积分 \(\int\nolimits_0^{+\infty}\frac{\sin^2 x}{x^2}dx\) 和 \(\int\nolimits_0^{+\infty}\frac{\sin x}{x}dx\) 都收敛, 证明: \[\int\nolimits_0^{+\infty}\frac{\sin^2 x}{x^2}dx=\int\nolimits_0^{+\infty}\frac{\sin x}{x}dx;\] 设 \[f(x,y)=\begin{cases} \frac{xy}{x^2+y^2}, &amp; (x,y)\neq(0,0), \\ 0, &amp; (x,y)=(0,0). \\ \end{cases}\] 设函数 \(f(x)\) 在 \(x=0\) 连续, 且 \(\lim\limits_{x\to\infty}\frac{f(2x)-f(x)}{x}=a\). 求证: \(f&#39;(0)\) 存在, 且 \(f&#39;(0)=a\). 设 \[P_n(x)=\frac{1}{n!2^n}\frac{d^n}{dx^n}(x^2-1)^n,\] 证明: \[\int\nolimits_{-1}^1 P_n(x)P_m(x)dx = \begin{cases} 0, &amp; m\neq n,\\ \frac{2}{2n+1}, &amp; m=n. \\ \end{cases}\] 2016秋 数学分析三 期中 唐仲伟 计算题 共50分, 前4题每题5分, 后3题每题10分. \(\lim\limits_{(x,y)\to(0,0)}\frac{\sin(xy)}{xy}\). \(\lim\limits_{(x,y)\to(0,0)}(x+y)\sin\frac{1}{x^2+y^2}\). \(\lim\limits_{x\to\infty}\lim\limits_{y\to\infty}\frac{xy}{x+y}\). \(\lim\limits_{(x,y)\to(+\infty,+\infty)}\left(\frac{xy}{x^2+y^2}\right)^{x^2}\). 设 \(f(x,y)=(x+y,x-y,xy)\in\mathbb{R}^3\), \(g(x,y,z)=(xyz,ze^{xy})\in\mathbb{R}^2\). 记 \(F=f\circ g\), 求 \(F\) 的Frechet导数 \(F&#39;(x,y,z)\). 求 \(f(x,y)=x^3+y^3-3xy\) 的普通极值. 设方程 \(y-\frac{1}{2}\sin y=x\) 能确定隐函数 \(y=f(x)\), 令 \(z=e^{x+y}\), 求 \(\frac{dz}{dx}\), \(\frac{d^2z}{dx^2}\). 证明题 共50分, 每题10分. 证明: \(f(x,y)=\frac{xy}{x+y}\) 在 \((x,y)=(0,0)\) 处极限不存在. 设数值函数 \(f(x)\) 在紧集 \(D\subset\mathbb{R}^n\) 上连续, 且恒为正值, 求证: \(\exists~K&gt;0\), s.t. \(\forall~x\in D\), 有 \(f(x)&gt;K\). 证明: \[f(x,y)=\begin{cases}\frac{xy}{\sqrt{x^2+y^2}}, &amp; (x,y)\neq(0,0) \\ 0, &amp; (x,y)=(0,0) \\ \end{cases}\] 在 \((0,0)\) 的邻域中连续且有有界的偏导数 \(f_x&#39;(x,y)\) 和 \(f&#39;_y(x,y)\), 但函数在点 \((0,0)\) 不可微 . 设 \(f:\mathbf{R}^n\rightarrow\mathbf{R}^n\) 是开集 \(G\) 上的 \(C^1\) 类函数, 且 \(J_f(x_0)=0\), 记 \(y_0=f(x_0)\). 如果 \(f\) 在 \(x_0\) 存在反函数 \(f^{-1}\), 求证 \(f^{-1}\) 在 \(y_0\) 不可微. 证明: 由方程 \[y=x\varphi(x)+\psi(z)\] 所定义的隐函数 \(z=z(x,y)\) 满足方程 \[\left(\frac{\partial z}{\partial y}\right)^2\frac{\partial^2 z}{\partial x^2}-2\frac{\partial z}{\partial x}\frac{\partial z}{\partial y}\frac{\partial^2 z}{\partial x\partial y}+\left(\frac{\partial z}{\partial x}\right)^2\frac{\partial^2 z}{\partial y^2}=0.\] 2016秋 数学分析三 期末 唐仲伟 计算题 共20分, 前四题每题5分, 后3题每题10分. 计算二重积分 \(\iint\limits_E xydxdy\), 其中 \(E\) 是四条抛物线 \[y^2=px,~y^2=qx,~x^2=ay,~x^2=by\] 所围成的区域, \(0&lt;p&lt;q\), \(0&lt;a&lt;b\). 计算三重积分 \(\iiint\limits_Vxyzdxdydz\), 其中 \(V\) 是由曲面 \[x^2+y^2+z^2=1,x\geqslant,y\geqslant0,z\geqslant0\] 所围成的区域. 计算第一型曲线积分 \(\int\nolimits_C(x^2+y^2)ds\), 其中 \(C\) 为曲线 \[x=a(\cos t+t\sin t),y=a(\sin t-t\cos t)~(0\leqslant t \leqslant 2\pi).\] 计算第一型曲面积分 \(\iint\limits_S(x+y+z)dS\), 其中 \(S\) 为曲面 \(x^2+y^2+z^2=a^2\), \(z\geqslant0\). 设 \(\sin z-xyz=0\), 当 \(\cos z-xy\neq0\) 时, 求 \(\frac{\partial z}{\partial x}\), \(\frac{\partial^2 z}{\partial y\partial x}\). 求函数 \(f(x,y,z)=x-2y+2z\) 在球面 \(x^2+y^2+z^2=1\) 上的最大、最小值. 计算第二型曲线积分 \(\oint\nolimits_C e^x[(1-\cos y)dx-(y-\sin y)dy]\), 其中 \(C\) 是曲线 \(y=\sin x\) 介于 \([0,1]\) 的一段, \(C\) 的方向对应于 \(x\) 增加的方向. 证明题 共50分, 每题10分. 设二元数值函数 \(f(x,y)\) 在 \([a,b]\times[c,d]\) 上连续, 一元数值函数序列 \(\{\phi_n(x)\}\) 在 \([a,b]\) 上一致收敛, 且 \(\phi_n(x)\in [c,d]\). 则 \(g_n=f(x,\phi_n(x))\) 在 \([a,b]\) 上一致收敛. 设数值函数 \(z=f(x,y)\) 在矩形区域 \(D=[a,b]\times[c,d]\subset\mathbb{R}^2\) 上偏导数有界, 求证: \(f\) 在 \(D\) 上一致连续. 设三重积分 \(\iiint\limits_D f(x,y,z)dxdydz\) 存在, 区域 \(D\) 关于 \(xOy\) 平面对称, 被积函数 \(f\) 关于 \(x\) 是一个奇函数, 即 \(f(-x,y,z)=-f(x,y,z)\), 求证: \(\iiint\limits_D f(x,y,z)dxdydz=0\). 设 \(f\in C[0,a]\), 即 \(f\) 在区间 \([0,1]\) 上连续, 证明: \[\int\nolimits_0^a dx_1\int\nolimits_0^{x_1}dx_2\cdots\int_0^{x_{n-1}} f(x_1)f(x_2)\cdots f(x_n)dx_n=\frac{1}{n!}\left[\int\nolimits_0^a f(x) dx\right]^n.\] 设 \(S\) 为 \(\mathbb{R}^3\) 空间中分片光滑的封闭定向曲面, \(\nu_0\) 为任意固定的方向, \(N\) 为 \(S\) 的单位外法向量, 求证 \[\iint\limits_S \cos(\nu_0, N)dS=0.\] 证明Lebesgue引理: 设 \(\mathbb{R}^n\) 中的紧集 \(D\) 有一个开覆盖 \(\mathfrak{C}=\{G_\alpha\}\), 则存在正数 \(l&gt;0\), 对于 \(\forall~x\in D\), \(\exists~G_\alpha\in\mathfrak{C}\), s.t. \(x\) 的球(方)邻域 \(U(x,l)\subset G_\alpha\). 2020秋 数学分析三 熊金钢 从6个题目中选择5个做，每题20分. 计算参变量积分 \[ F(x)=\int_0^{x^2} {\rm d}t\int_{t-x}^{t+x}\cos(x^2-y^2-t^2)~{\rm d}y, \quad x\in\mathbb{R} \] 的导数 \(F&#39;\). 计算第一型曲面积分 \[ I=\int_L y~{\rm d}s, \] 其中 \(L\) 为连接三点 \(A(0,0)\)，\(B(1,0)\)，\(C(0,1)\) 的封闭折线. 计算第二型曲面积分 \[ I=\oiint_Sf(x)~{\rm d}y\wedge{\rm d}z+g(y)~{\rm d}z\wedge{\rm d}x+h(z)~{\rm d}x\wedge{\rm d}y, \] 其中 \(S\) 是 \(\Omega=[-1,1]^3\) 的外表面，函数 \(f,g,h\) 在 \(S\) 上均连续. 设 \(f\) 是定义在 \(\mathbb{R}\) 上的有界连续函数，令 \[ F(x,t)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi t}}e^{-\frac{|x-y|^2}{4t}}f(y)~{\rm d}y,\quad (x,t)\in\mathbb{R}\times (0,+\infty). \] 证明：\(F(x,t)\in C^2(\mathbb{R}\times (0,+\infty))\) 且满足 \(\frac{\partial}{\partial x}F(x,t)-\frac{\partial^2}{\partial x^2}F(x,t)=0\). 计算 \(f(x)=\frac{e^x+e^{-x}}{2}\) 在 \([-\pi,\pi)\) 上的 Fourier 级数，用该级数计算 \[ \sum\limits_{k=0}^\infty \frac{1}{k^2+1}. \] 设 \(f(\rho)\in C(\mathbb{R})\)，\(F\) 是 \(f\) 的一个原函数. 设 \(u\in C^2(\bar{B}_R)\) 满足方程 \[ -\Delta u(x)=f(u(x))\quad \forall x\in\bar{B}_R, \] 其中 \(\delta\equiv -\sum_{i=1}^n \frac{\partial^2}{\partial x_i^2}\)，\(R&gt;0\)，\(B_R=\{ x\in\mathbb{R}^n: |x|&lt;R \}\)，\(n\geqslant 3\). 证明： \[ \frac{2-n}{n}\int_{B_R}|\nabla u|^2~ {\rm d}x+\frac{R}{2}\int_{\partial B_R} |\nabla u|^2~ {\rm d}\sigma-\frac{1}{R}\int_{\partial B_R}\left| \frac{\partial u}{\partial \nu} \right|^2~ {\rm d}\sigma \\ =-n \int_{B_R}F(u)~ {\rm d}x+ R\int_{\partial B_R}F(u)~ {\rm d}\sigma, \] 其中 \(\nu=\frac{x}{R}\) 是 \(\partial B_R\) 的单位外法向，\({\rm d}\sigma\) 是面积微元. 提示： \[ -\Delta u(x)\cdot \sum\limits_{i=1}^n x_i\partial_{x_i} u(x)=f(u)\sum\limits_{i=1}^n x_i\partial_{x_i}u(x). \]]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -1225,7 +1237,7 @@
   <entry>
     <title><![CDATA[一些 LaTeX 技巧]]></title>
     <url>%2F2017%2F04%2F04%2FLaTeX-Skills%2F</url>
-    <content type="text"><![CDATA[修改数学公式字体 打生僻字 一些数学符号 代码环境 修改数学公式字体 LaTeX - Beamer 中默认字体很难看，以下两种方法均可修改 1\usefonttheme[onlymath]&#123;serif&#125; 1\usefonttheme&#123;professionalfonts&#125; 左右结构的生僻字 名字有“喆”的痛苦… 有些字体可能没有这个字.. 既然打不出来“喆”，那“吉”总可以搞定吧，那我打两个一半宽度的“吉”不就好了吗？ 实现代码如下： 1\hbox&#123;\resizebox&#123;1.1ex&#125;&#123;1.8ex&#125;&#123;吉&#125;&#125;\hbox&#123;\resizebox&#123;1.1ex&#125;&#123;1.8ex&#125;&#123;吉&#125;&#125; 其中的高度和宽度可以自行调整。 类似“喆”的左右结构的生僻字都可以用这种方法解决。 一些数学符号 正规子群：\(\trianglelefteq\) \trianglelefteq \(\triangleleft\) \triangleleft 半直积：\(\rtimes\) \rtimes \(\ltimes\) \ltimes 逻辑运算：\(\lnot\) \lnot \(\land\) \land \(\lor\) \lor 映射：\(f: G\to H,~~a \mapsto f(a)\) \mapsto 代码环境 一般用 listings，C++ 的具体配置如下： 123456789101112131415161718192021222324252627282930313233\usepackage&#123;listings&#125;\usepackage&#123;xcolor&#125;\definecolor&#123;CPPLight&#125; &#123;HTML&#125; &#123;686868&#125;\definecolor&#123;CPPSteel&#125; &#123;HTML&#125; &#123;888888&#125;\definecolor&#123;CPPDark&#125; &#123;HTML&#125; &#123;262626&#125;\definecolor&#123;CPPBlue&#125; &#123;HTML&#125; &#123;4172A3&#125;\definecolor&#123;CPPGreen&#125; &#123;HTML&#125; &#123;487818&#125;\definecolor&#123;CPPBrown&#125; &#123;HTML&#125; &#123;A07040&#125;\definecolor&#123;CPPRed&#125; &#123;HTML&#125; &#123;AD4D3A&#125;\definecolor&#123;CPPViolet&#125; &#123;HTML&#125; &#123;7040A0&#125;\definecolor&#123;CPPGray&#125; &#123;HTML&#125; &#123;B8B8B8&#125;\lstset&#123; columns=fixed, numbers=left, % 在左侧显示行号 frame=none, % 不显示背景边框 backgroundcolor=\color[RGB]&#123;245,245,244&#125;, % 设定背景颜色 keywordstyle=\color[RGB]&#123;40,40,255&#125;, % 设定关键字颜色 numberstyle=\footnotesize\color&#123;darkgray&#125;, % 设定行号格式 commentstyle=\it\color[RGB]&#123;0,96,96&#125;, % 设置代码注释的格式 stringstyle=\rmfamily\slshape\color[RGB]&#123;128,0,0&#125;, % 设置字符串格式 showstringspaces=false, % 不显示字符串中的空格 language=c++, % 设置语言 morekeywords=&#123;alignas,continute,friend,register,true,alignof,decltype,goto, reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short, typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case, dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using, char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct, void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t, const,false,private,this,while,constexpr,float,protected,thread_local, const_cast,for,public,throw,std&#125;,&#125; 2019.09.01 Young 表绘制 核心是去掉一些竖线. 123456\begin&#123;array&#125;&#123;|cc|&#125; \cline&#123;1-1&#125; 1 &amp; \multicolumn&#123;1&#125;&#123;|c&#125;&#123;&#125; \\ \hline 2 &amp; 3 \\ \hline\end&#123;array&#125; 2020.09.25 图片与文字在同一行的对齐问题 似乎默认是最下面对齐的，也就是说文字的最下面和图片的最下面对齐……这可能会导致一些问题。 解决方法有两种： 用 raisebox（应该是不需要额外宏包了）： 1\raisebox&#123;-1em&#125;&#123;\includegraphics&#123;FIGURE.png&#125;&#125; % 调节第一个参数即可 用 adjustbox 宏包 123\usepackage&#123;adjustbox&#125;...\adjustbox&#123;valign=t&#125;&#123;\includegraphics&#123;FIGURE.png&#125;&#125; 参见 https://www.latexstudio.net/archives/6983.html 2020.12.11 控制表格尺寸（宽/高） 1234567\begin&#123;tabular&#125;&#123;p&#123;.3\linewidth&#125;&lt;&#123;\flushleft&#125;p&#123;0.05\linewidth&#125;p&#123;.3\linewidth&#125;&lt;&#123;\center&#125;&#125; \specialrule&#123;0em&#125;&#123;1pt&#125;&#123;1pt&#125; aaa \hfill 97 &amp; &amp; bbb \hfill 91 \\ \specialrule&#123;0em&#125;&#123;-8pt&#125;&#123;-8pt&#125; ccc \hfill 95 &amp; &amp; ddd \hfill 95 \\ \specialrule&#123;0em&#125;&#123;-6pt&#125;&#123;-6pt&#125;\end&#123;tabular&#125;]]></content>
+    <content type="text"><![CDATA[修改数学公式字体 打生僻字 一些数学符号 代码环境 修改数学公式字体 LaTeX - Beamer 中默认字体很难看，以下两种方法均可修改 1\usefonttheme[onlymath]&#123;serif&#125; 1\usefonttheme&#123;professionalfonts&#125; 左右结构的生僻字 名字有“喆”的痛苦… 有些字体可能没有这个字.. 既然打不出来“喆”，那“吉”总可以搞定吧，那我打两个一半宽度的“吉”不就好了吗？ 实现代码如下： 1\hbox&#123;\resizebox&#123;1.1ex&#125;&#123;1.8ex&#125;&#123;吉&#125;&#125;\hbox&#123;\resizebox&#123;1.1ex&#125;&#123;1.8ex&#125;&#123;吉&#125;&#125; 其中的高度和宽度可以自行调整。 类似“喆”的左右结构的生僻字都可以用这种方法解决。 一些数学符号 正规子群：\(\trianglelefteq\) \trianglelefteq \(\triangleleft\) \triangleleft 半直积：\(\rtimes\) \rtimes \(\ltimes\) \ltimes 逻辑运算：\(\lnot\) \lnot \(\land\) \land \(\lor\) \lor 映射：\(f: G\to H,~~a \mapsto f(a)\) \mapsto 代码环境 一般用 listings，C++ 的具体配置如下： 123456789101112131415161718192021222324252627282930313233\usepackage&#123;listings&#125;\usepackage&#123;xcolor&#125;\definecolor&#123;CPPLight&#125; &#123;HTML&#125; &#123;686868&#125;\definecolor&#123;CPPSteel&#125; &#123;HTML&#125; &#123;888888&#125;\definecolor&#123;CPPDark&#125; &#123;HTML&#125; &#123;262626&#125;\definecolor&#123;CPPBlue&#125; &#123;HTML&#125; &#123;4172A3&#125;\definecolor&#123;CPPGreen&#125; &#123;HTML&#125; &#123;487818&#125;\definecolor&#123;CPPBrown&#125; &#123;HTML&#125; &#123;A07040&#125;\definecolor&#123;CPPRed&#125; &#123;HTML&#125; &#123;AD4D3A&#125;\definecolor&#123;CPPViolet&#125; &#123;HTML&#125; &#123;7040A0&#125;\definecolor&#123;CPPGray&#125; &#123;HTML&#125; &#123;B8B8B8&#125;\lstset&#123; columns=fixed, numbers=left, % 在左侧显示行号 frame=none, % 不显示背景边框 backgroundcolor=\color[RGB]&#123;245,245,244&#125;, % 设定背景颜色 keywordstyle=\color[RGB]&#123;40,40,255&#125;, % 设定关键字颜色 numberstyle=\footnotesize\color&#123;darkgray&#125;, % 设定行号格式 commentstyle=\it\color[RGB]&#123;0,96,96&#125;, % 设置代码注释的格式 stringstyle=\rmfamily\slshape\color[RGB]&#123;128,0,0&#125;, % 设置字符串格式 showstringspaces=false, % 不显示字符串中的空格 language=c++, % 设置语言 morekeywords=&#123;alignas,continute,friend,register,true,alignof,decltype,goto, reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short, typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case, dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using, char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct, void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t, const,false,private,this,while,constexpr,float,protected,thread_local, const_cast,for,public,throw,std&#125;,&#125; 2019.09.01 Young 表绘制 核心是去掉一些竖线. 123456\begin&#123;array&#125;&#123;|cc|&#125; \cline&#123;1-1&#125; 1 &amp; \multicolumn&#123;1&#125;&#123;|c&#125;&#123;&#125; \\ \hline 2 &amp; 3 \\ \hline\end&#123;array&#125; 2020.09.25 图片与文字在同一行的对齐问题 似乎默认是最下面对齐的，也就是说文字的最下面和图片的最下面对齐……这可能会导致一些问题。 解决方法有两种： 用 raisebox（应该是不需要额外宏包了）： 1\raisebox&#123;-1em&#125;&#123;\includegraphics&#123;FIGURE.png&#125;&#125; % 调节第一个参数即可 用 adjustbox 宏包 123\usepackage&#123;adjustbox&#125;...\adjustbox&#123;valign=t&#125;&#123;\includegraphics&#123;FIGURE.png&#125;&#125; 参见 https://www.latexstudio.net/archives/6983.html 2020.12.11 控制表格尺寸（宽/高） 1234567\begin&#123;tabular&#125;&#123;p&#123;.3\linewidth&#125;&lt;&#123;\flushleft&#125;p&#123;0.05\linewidth&#125;p&#123;.3\linewidth&#125;&lt;&#123;\center&#125;&#125; \specialrule&#123;0em&#125;&#123;1pt&#125;&#123;1pt&#125; aaa \hfill 97 &amp; &amp; bbb \hfill 91 \\ \specialrule&#123;0em&#125;&#123;-8pt&#125;&#123;-8pt&#125; ccc \hfill 95 &amp; &amp; ddd \hfill 95 \\ \specialrule&#123;0em&#125;&#123;-6pt&#125;&#123;-6pt&#125;\end&#123;tabular&#125; 2021.04.13 行间公式使用 display style 在公式前加 \displaystyle 即可： 12What is $\frac&#123;a&#125;&#123;b&#125;$ -&gt; Inline modeWhat is $\displaystyle \frac&#123;a&#125;&#123;b&#125;$ -&gt; Display mode]]></content>
       <categories>
         <category>瞎折腾</category>
       </categories>
@@ -1278,8 +1290,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>计算机</tag>
         <tag>Web</tag>
+        <tag>计算机</tag>
         <tag>Hexo</tag>
         <tag>Mathjax</tag>
       </tags>
@@ -1345,8 +1357,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>计算机</tag>
         <tag>Web</tag>
+        <tag>计算机</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
