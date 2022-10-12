@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="计算机,算法,数据结构," />
+  <meta name="keywords" content="算法,数据结构," />
 
 
 
@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="数据结构之树状数组的原理与应用.">
-<meta name="keywords" content="计算机,算法,数据结构">
+<meta name="description" content="树状数组(binary indexed tree)能够高效地获取数组的子段和。 一般来说，树状数组可以用于解决数组子段和的动态查询或高效查询问题。  传统的数组单点修改的复杂度为\(~O(1)~\)，查询子段和的复杂度为\(~O(n)~\)。 而树状数组的修改和查询子段和复杂度均为\(~O(\log n)~\)。 所以在多组查询或动态查询时，用树状数组可以有效减小耗时，提高程序效率。">
+<meta name="keywords" content="算法,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构——树状数组 Binary Indexed Tree">
 <meta property="og:url" content="http://lizhechen.com/2017/02/21/Data-Structure-2-Binary Indexed Tree/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="数据结构之树状数组的原理与应用.">
+<meta property="og:description" content="树状数组(binary indexed tree)能够高效地获取数组的子段和。 一般来说，树状数组可以用于解决数组子段和的动态查询或高效查询问题。  传统的数组单点修改的复杂度为\(~O(1)~\)，查询子段和的复杂度为\(~O(n)~\)。 而树状数组的修改和查询子段和复杂度均为\(~O(\log n)~\)。 所以在多组查询或动态查询时，用树状数组可以有效减小耗时，提高程序效率。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://static.zybuluo.com/lzcwr/cygbcza2ann0629f6fanea4n/image_1b9ho5pkm1vdbnld1hkc551nji9.png">
-<meta property="og:updated_time" content="2018-07-30T16:16:35.000Z">
+<meta property="og:image" content="http://lizhechen.com/img/blog-graph/Data-Structure-BIT.png">
+<meta property="og:updated_time" content="2021-11-25T06:40:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构——树状数组 Binary Indexed Tree">
-<meta name="twitter:description" content="数据结构之树状数组的原理与应用.">
-<meta name="twitter:image" content="http://static.zybuluo.com/lzcwr/cygbcza2ann0629f6fanea4n/image_1b9ho5pkm1vdbnld1hkc551nji9.png">
+<meta name="twitter:description" content="树状数组(binary indexed tree)能够高效地获取数组的子段和。 一般来说，树状数组可以用于解决数组子段和的动态查询或高效查询问题。  传统的数组单点修改的复杂度为\(~O(1)~\)，查询子段和的复杂度为\(~O(n)~\)。 而树状数组的修改和查询子段和复杂度均为\(~O(\log n)~\)。 所以在多组查询或动态查询时，用树状数组可以有效减小耗时，提高程序效率。">
+<meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/Data-Structure-BIT.png">
 
 
 
@@ -381,10 +381,6 @@
           
 
           
-              <div class="post-description">
-                  数据结构之树状数组的原理与应用.
-              </div>
-          
 
         </div>
       </header>
@@ -399,20 +395,20 @@
       
 
       
-        <h2 id="树状数组概述">树状数组概述</h2>
-<p>树状数组(binary indexed tree)能够高效地获取数组的子段和。 一般来说，树状数组可以用于解决数组子段和的动态查询或高效查询问题。</p>
+        <p>树状数组(binary indexed tree)能够高效地获取数组的子段和。 一般来说，树状数组可以用于解决数组子段和的动态查询或高效查询问题。</p>
 <blockquote>
 <p>传统的数组单点修改的复杂度为<span class="math inline">\(~O(1)~\)</span>，查询子段和的复杂度为<span class="math inline">\(~O(n)~\)</span>。 而树状数组的修改和查询子段和复杂度均为<span class="math inline">\(~O(\log n)~\)</span>。 所以在多组查询或动态查询时，用树状数组可以有效减小耗时，提高程序效率。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="树状数组的操作">树状数组的操作</h2>
 <h3 id="构建">构建</h3>
 <p>从已知数组构建树状数组就是把线性的数组变成一棵树。那么，树状数组是如何把线性结构的数组变成一棵树的呢？以下以一个长度为8的数组为例：</p>
 <p>原始数组：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A[1], A[2], A[3], A[4], A[5], A[6], A[7], A[8]</span><br></pre></td></tr></table></figure>
-<p>在修改和查询子段和时，很容易想到一种类似二分的想法来构建一棵树状的数组来保存原数组的所有信息。 用这种方法构造出的数组具有如下的结构（图片来自<a href="http://baike.baidu.com/link?url=MWXznqHrg5WOaQXOilx_IgGzC_YzDNcwVqbMqltULN9YUIPgB75WQU2xpoIfPXsq7z21_2LSn3wILiRRZXC97xYZleNY6LkqUEIlsCsOLeUEamNkjYhEvMKisCmKMNXK" target="_blank" rel="noopener">百度百科-树状数组</a>）：</p>
-<figure>
-<img src="http://static.zybuluo.com/lzcwr/cygbcza2ann0629f6fanea4n/image_1b9ho5pkm1vdbnld1hkc551nji9.png" alt="image_1b9ho5pkm1vdbnld1hkc551nji9.png-86.1kB"><figcaption>image_1b9ho5pkm1vdbnld1hkc551nji9.png-86.1kB</figcaption>
-</figure>
+<p>在修改和查询子段和时，很容易想到一种类似二分的想法来构建一棵树状的数组来保存原数组的所有信息。 用这种方法构造出的数组具有如下的结构：</p>
+<center>
+<img src="/img/blog-graph/Data-Structure-BIT.png" width="600" alt="树状数组示意图">
+</center>
 <p>这样的一棵树满足如下的条件：</p>
 <ul>
 <li><span class="math inline">\(C_1=A_1\)</span></li>
@@ -453,12 +449,20 @@
 <li>HDU 1556 color the ball</li>
 <li>POJ 2299 Ultra-QuickSort</li>
 </ul>
-<h3 id="参考资料">参考资料</h3>
-<ul>
-<li><a href="http://blog.csdn.net/matrix_reloaded/article/details/32101509" target="_blank" rel="noopener">Matrix_Reloaded——树状数组题目集</a></li>
-<li><a href="http://dongxicheng.org/structure/binary_indexed_tree/" target="_blank" rel="noopener">董的博客——树状数组</a></li>
-<li><a href="http://blog.csdn.net/x_iya/article/details/8943264" target="_blank" rel="noopener">晚晴小筑——树状数组学习笔记</a></li>
-</ul>
+<!-- 
+### 参考资料
+
+- [Matrix_Reloaded——树状数组题目集][4]
+- [董的博客——树状数组][5]
+- [晚晴小筑——树状数组学习笔记][6]
+
+
+  [1]: http://baike.baidu.com/link?url=MWXznqHrg5WOaQXOilx_IgGzC_YzDNcwVqbMqltULN9YUIPgB75WQU2xpoIfPXsq7z21_2LSn3wILiRRZXC97xYZleNY6LkqUEIlsCsOLeUEamNkjYhEvMKisCmKMNXK
+  [2]: http://static.zybuluo.com/lzcwr/cygbcza2ann0629f6fanea4n/image_1b9ho5pkm1vdbnld1hkc551nji9.png
+  [3]: http://baike.baidu.com/link?url=MWXznqHrg5WOaQXOilx_IgGzC_YzDNcwVqbMqltULN9YUIPgB75WQU2xpoIfPXsq7z21_2LSn3wILiRRZXC97xYZleNY6LkqUEIlsCsOLeUEamNkjYhEvMKisCmKMNXK
+  [4]: http://blog.csdn.net/matrix_reloaded/article/details/32101509
+  [5]: http://dongxicheng.org/structure/binary_indexed_tree/
+  [6]: http://blog.csdn.net/x_iya/article/details/8943264 -->
 
       
     </div>
@@ -475,8 +479,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/计算机/" rel="tag"># 计算机</a>
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
@@ -579,7 +581,7 @@
                 alt="Zhechen" />
             
               <p class="site-author-name" itemprop="name">Zhechen</p>
-              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+              <p class="site-description motion-element" itemprop="description">description 空着就好（</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -589,7 +591,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -600,7 +602,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -611,7 +613,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -668,15 +670,7 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
                     <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -714,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组概述"><span class="nav-number">1.</span> <span class="nav-text">树状数组概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组的操作"><span class="nav-number">2.</span> <span class="nav-text">树状数组的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建"><span class="nav-number">2.1.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点修改"><span class="nav-number">2.2.</span> <span class="nav-text">单点修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求前n项和"><span class="nav-number">2.3.</span> <span class="nav-text">求前\(~n~\)项和</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维树状数组"><span class="nav-number">3.</span> <span class="nav-text">二维树状数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组的应用"><span class="nav-number">4.</span> <span class="nav-text">树状数组的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#练习题目"><span class="nav-number">4.1.</span> <span class="nav-text">练习题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组的操作"><span class="nav-number">1.</span> <span class="nav-text">树状数组的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建"><span class="nav-number">1.1.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点修改"><span class="nav-number">1.2.</span> <span class="nav-text">单点修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求前n项和"><span class="nav-number">1.3.</span> <span class="nav-text">求前\(~n~\)项和</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维树状数组"><span class="nav-number">2.</span> <span class="nav-text">二维树状数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树状数组的应用"><span class="nav-number">3.</span> <span class="nav-text">树状数组的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#练习题目"><span class="nav-number">3.1.</span> <span class="nav-text">练习题目</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -734,7 +728,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

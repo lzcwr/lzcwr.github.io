@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="师大,数学,北大,保研,经济学,论文笔记," />
+  <meta name="keywords" content="数学,北大,保研,师大,经济学,论文笔记," />
 
 
 
@@ -87,14 +87,14 @@
 
 
 <meta name="description" content="文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.   \(n\) 个物品被分配给 \(n\) 个人的问题, 称为分配问题. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出">
-<meta name="keywords" content="师大,数学,北大,保研,经济学,论文笔记">
+<meta name="keywords" content="数学,北大,保研,师大,经济学,论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记[1]——随机分配问题的PS算法和依次有效性">
 <meta property="og:url" content="http://lizhechen.com/2018/04/05/Paper-Reading-1-A New Solution to the Random Assignment Problem/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
 <meta property="og:description" content="文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.   \(n\) 个物品被分配给 \(n\) 个人的问题, 称为分配问题. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-27T15:48:10.000Z">
+<meta property="og:updated_time" content="2022-10-12T14:37:02.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[1]——随机分配问题的PS算法和依次有效性">
 <meta name="twitter:description" content="文章: Bogomolnaia A, Moulin H. A New Solution to the Random Assignment Problem[J]. Journal of Economic Theory, 2001, 100(2):295-328.   \(n\) 个物品被分配给 \(n\) 个人的问题, 称为分配问题. 生活中此类问题常采取抽签方式解决. 在此基础上可归纳出">
@@ -413,7 +413,7 @@
 <p>很容易发现RP算法有以下两点好处:</p>
 <ul>
 <li>RP算法看起来是比较<strong>公平</strong>的;</li>
-<li><span title="若某个人在选择中撒了谎, 则他最终获得的一定不是他所能得到的最好选择, 故撒谎没有好处.">RP算法是<strong>无操作</strong>(Strategyproofness)的, 即大家都会选择说真话.</span></li>
+<li><span title="若某个人在选择中撒了谎, 则他最终获得的一定不是他所能得到的最好选择, 故撒谎没有好处.">RP算法是<strong>防策略</strong>(Strategyproofness)的, 即大家都会选择说真话.</span></li>
 </ul>
 <p>但用<code>VNM效用</code>函数去分析时, RP算法存在缺陷.</p>
 <blockquote>
@@ -593,15 +593,15 @@
 </tr>
 </table>
 </blockquote>
-<h3 id="无操作性">无操作性</h3>
-<p>无操作性(strategyproofness)定义如下:</p>
+<h3 id="防策略性">防策略性</h3>
+<p>防策略性(strategyproofness)定义如下:</p>
 <blockquote>
-<strong>DEFINITION 5.</strong> 称一个分配机制 <span class="math inline">\(P(\cdot)\)</span> 是无操作/弱无操作(strategyproofness/weak strategyproofness)的, 当且仅当对 <span class="math inline">\(\forall i,j\in N\)</span>, 总有:<br>
+<strong>DEFINITION 5.</strong> 称一个分配机制 <span class="math inline">\(P(\cdot)\)</span> 是防策略/弱防策略(strategyproofness/weak strategyproofness)的, 当且仅当对 <span class="math inline">\(\forall i,j\in N\)</span>, 总有:<br>
 
 <table>
 <tr>
 <td>
-无操作
+防策略
 </td>
 <td>
 <span class="math inline">\(P_i(\succ)~sd(\succ_i)~P_i(\succ\vert^i\succ_i^*)\)</span>
@@ -609,7 +609,7 @@
 </tr>
 <tr>
 <td>
-弱无操作
+弱防策略
 </td>
 <td>
 <span class="math inline">\(P_i(\succ\vert^i\succ_i^*)~sd(\succ_i)~P_i(\succ)\Rightarrow P_i(\succ)=P_i(\succ\vert^i\succ_i^*)\)</span>
@@ -628,7 +628,7 @@
 <strong>无嫉妒性</strong>
 </td>
 <td>
-<strong>无操作性</strong>
+<strong>防策略性</strong>
 </td>
 </tr>
 <tr>
@@ -639,7 +639,7 @@
 弱无嫉妒
 </td>
 <td>
-无操作
+防策略
 </td>
 </tr>
 <tr>
@@ -650,7 +650,7 @@
 无嫉妒
 </td>
 <td>
-弱无操作
+弱防策略
 </td>
 </tr>
 </table>
@@ -671,13 +671,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/师大/" rel="tag"># 师大</a>
-          
             <a href="/tags/数学/" rel="tag"># 数学</a>
           
             <a href="/tags/北大/" rel="tag"># 北大</a>
           
             <a href="/tags/保研/" rel="tag"># 保研</a>
+          
+            <a href="/tags/师大/" rel="tag"># 师大</a>
           
             <a href="/tags/经济学/" rel="tag"># 经济学</a>
           
@@ -780,7 +780,7 @@
                 alt="Zhechen" />
             
               <p class="site-author-name" itemprop="name">Zhechen</p>
-              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+              <p class="site-description motion-element" itemprop="description">description 空着就好（</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -790,7 +790,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -801,7 +801,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -812,7 +812,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -869,15 +869,7 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
                     <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -915,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分配问题"><span class="nav-number">1.</span> <span class="nav-text">分配问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机优先rp算法"><span class="nav-number">2.</span> <span class="nav-text">随机优先(RP)算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率序列ps算法"><span class="nav-number">3.</span> <span class="nav-text">概率序列(PS)算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps算法的有效性"><span class="nav-number">4.</span> <span class="nav-text">PS算法的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形式化定义"><span class="nav-number">4.1.</span> <span class="nav-text">形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确定性分配与随机性分配"><span class="nav-number">4.1.1.</span> <span class="nav-text">确定性分配与随机性分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效用函数与偏好关系"><span class="nav-number">4.1.2.</span> <span class="nav-text">效用函数与偏好关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定性分配的有效性"><span class="nav-number">4.2.</span> <span class="nav-text">确定性分配的有效性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机性分配的有效性"><span class="nav-number">4.3.</span> <span class="nav-text">随机性分配的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机占优关系"><span class="nav-number">4.3.1.</span> <span class="nav-text">随机占优关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依次有效性"><span class="nav-number">4.3.2.</span> <span class="nav-text">依次有效性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进食算法"><span class="nav-number">5.</span> <span class="nav-text">进食算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进食算法的依次有效性"><span class="nav-number">5.1.</span> <span class="nav-text">进食算法的依次有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依次有效的条件"><span class="nav-number">5.1.1.</span> <span class="nav-text">依次有效的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进食算法的依次有效性-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">进食算法的依次有效性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps算法"><span class="nav-number">5.2.</span> <span class="nav-text">PS算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rp算法与ps算法的比较"><span class="nav-number">6.</span> <span class="nav-text">RP算法与PS算法的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无嫉妒性"><span class="nav-number">6.1.</span> <span class="nav-text">无嫉妒性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无操作性"><span class="nav-number">6.2.</span> <span class="nav-text">无操作性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps与rp的比较"><span class="nav-number">6.3.</span> <span class="nav-text">PS与RP的比较</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分配问题"><span class="nav-number">1.</span> <span class="nav-text">分配问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机优先rp算法"><span class="nav-number">2.</span> <span class="nav-text">随机优先(RP)算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率序列ps算法"><span class="nav-number">3.</span> <span class="nav-text">概率序列(PS)算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps算法的有效性"><span class="nav-number">4.</span> <span class="nav-text">PS算法的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形式化定义"><span class="nav-number">4.1.</span> <span class="nav-text">形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确定性分配与随机性分配"><span class="nav-number">4.1.1.</span> <span class="nav-text">确定性分配与随机性分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效用函数与偏好关系"><span class="nav-number">4.1.2.</span> <span class="nav-text">效用函数与偏好关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定性分配的有效性"><span class="nav-number">4.2.</span> <span class="nav-text">确定性分配的有效性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机性分配的有效性"><span class="nav-number">4.3.</span> <span class="nav-text">随机性分配的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机占优关系"><span class="nav-number">4.3.1.</span> <span class="nav-text">随机占优关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依次有效性"><span class="nav-number">4.3.2.</span> <span class="nav-text">依次有效性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进食算法"><span class="nav-number">5.</span> <span class="nav-text">进食算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进食算法的依次有效性"><span class="nav-number">5.1.</span> <span class="nav-text">进食算法的依次有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依次有效的条件"><span class="nav-number">5.1.1.</span> <span class="nav-text">依次有效的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进食算法的依次有效性-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">进食算法的依次有效性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps算法"><span class="nav-number">5.2.</span> <span class="nav-text">PS算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rp算法与ps算法的比较"><span class="nav-number">6.</span> <span class="nav-text">RP算法与PS算法的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无嫉妒性"><span class="nav-number">6.1.</span> <span class="nav-text">无嫉妒性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防策略性"><span class="nav-number">6.2.</span> <span class="nav-text">防策略性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps与rp的比较"><span class="nav-number">6.3.</span> <span class="nav-text">PS与RP的比较</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -935,7 +927,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

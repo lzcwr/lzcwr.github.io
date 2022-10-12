@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
+<meta name="description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  文中描述的是一个以物易物的市场，即需要给定一个初始分配.">
 <meta name="keywords" content="计算机,北大,论文笔记,社会计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记[14]——Private Pareto Optimal Exchange">
 <meta property="og:url" content="http://lizhechen.com/2020/03/08/Paper-reading-14-Private-pareto-optimal-exchange/index.html">
 <meta property="og:site_name" content="Zhechen&#39;s Personal Website">
-<meta property="og:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
+<meta property="og:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  文中描述的是一个以物易物的市场，即需要给定一个初始分配.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lizhechen.com/img/blog-graph/Private%20Pareto%20optimal%20exchange-PTTC.png">
-<meta property="og:updated_time" content="2020-03-15T09:30:48.605Z">
+<meta property="og:updated_time" content="2022-10-12T14:41:02.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记[14]——Private Pareto Optimal Exchange">
-<meta name="twitter:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  注意，本文中的市场是一个以物易物（barter）的市场.">
+<meta name="twitter:description" content="Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.  文中描述的是一个以物易物的市场，即需要给定一个初始分配.">
 <meta name="twitter:image" content="http://lizhechen.com/img/blog-graph/Private%20Pareto%20optimal%20exchange-PTTC.png">
 
 
@@ -397,7 +397,7 @@
       
         <p>Justin Hsu 在其 STOC 2014 的工作中表明了，在 dp，甚至是放宽条件后的 Joint-dp 之下，都无法保证得到一个渐进 Pareto 最优的分配（在所有分配参与者都是理性的情况下）. 因此，在此工作中使用了比 Joint-dp 更为宽松的 Marginal-dp，并在此条件下找到了渐进 Pareto 最优的分配.</p>
 <ul>
-<li><font color="red">注意，本文中的市场是一个以物易物（barter）的市场.</font></li>
+<li><font color="red">文中描述的是一个以物易物的市场，即需要给定一个初始分配.</font></li>
 </ul>
 <blockquote>
 <p>Sampath Kannan, et al. Private pareto optimal exchange. ACM Transactions on Economics and Computation (TEAC), 2018.</p>
@@ -531,10 +531,11 @@
 </blockquote>
 <p>接下来作者改进了 Justin Hsu 在 2014 年的工作，获得了渐进PO，IR 且满足 Joint-dp 的分配，但需要允许我们注入一些额外的物品.</p>
 <blockquote>
-<p><strong>定理 5.3</strong> 在 exchange markets 中，存在满足 <span class="math inline">\((\epsilon, \delta)\)</span> Joint-dp 的分配机制，使得导出的分配至少有 <span class="math inline">\(1-\beta\)</span> 的概率满足 <span class="math inline">\(\alpha\)</span>-PO 且总是 IR 的, 但可能需要 <span class="math inline">\(\Lambda\)</span> 个额外的物品，以使得每个人都至少得到一个物品，其中： <span class="math display">\[
+<p><strong>定理 5.3</strong> 在 exchange markets 中，存在满足 <span class="math inline">\((\epsilon, \delta)\)</span> Joint-dp 的分配机制，使得导出的分配至少有 <span class="math inline">\(1-\beta\)</span> 的概率满足 <span class="math inline">\(\alpha\)</span>-PO 且总是 IR 的, 但可能需要 <span class="math inline">\(\Lambda\)</span> 个额外的物品，以使得每个人都至少得到一个物品，其中：</p>
+</blockquote>
+<p><span class="math display">\[
 \alpha=O\left(\frac{k^{2} \log ^{3 / 2}(n k / \beta) \log ^{1 / 2}(n / \delta)}{\sqrt{n} \epsilon}\right) \quad \text { and } \quad \Lambda=O\left(\frac{k \sqrt{n} \log ^{3 / 2}(n k / \beta) \log ^{1 / 2}(n / \delta)}{\epsilon}\right)
 \]</span></p>
-</blockquote>
 
       
     </div>
@@ -657,7 +658,7 @@
                 alt="Zhechen" />
             
               <p class="site-author-name" itemprop="name">Zhechen</p>
-              <p class="site-description motion-element" itemprop="description">BNU/PKU/数学/计算机/篮球/乒乓球and... 戳兔兔！(*☛ ‾▿◝)☛(●⁰౪⁰●)</p>
+              <p class="site-description motion-element" itemprop="description">description 空着就好（</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -667,7 +668,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -678,7 +679,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -689,7 +690,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -746,15 +747,7 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://njuwfang.github.io" title="方望的博客" target="_blank">方望的博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
                     <a href="http://zhuanlan.zhihu.com/typetheory" title="Arjuna的类型论驿站" target="_blank">Arjuna的类型论驿站</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://wishawk.github.io/" title="高健杨的博客" target="_blank">高健杨的博客</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -812,7 +805,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
