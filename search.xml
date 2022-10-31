@@ -5,7 +5,7 @@
     <entry>
       <title>集图问题集</title>
       <link href="/2021/11/21/SG/"/>
-      <content type="html"><![CDATA[<p>在担任集图助教的过程中遇到了各种各样的问题，这里记录一些常见的，或是值得被记下来的问题.</p><a id="more"></a><hr><center><b><font size="6" face="Monaco" color="F05E1C"> PART 1: Set Theory </font></b></center><h2 id="所有归纳集为什么不是集合">所有归纳集为什么不是集合</h2><p>书和课件中都只说了“这会导致集合论悖论”，十分笼统. 这里给出一个简短的证明：</p><blockquote><p>证明：在 ZF 公理系统中，所有归纳集不构成一个集合.</p></blockquote><p>用 ZF 公理系统中的正则公理来证明：</p><ul><li><strong>正则公理（Axiom of Regularity）</strong>：<span class="math inline">\(\forall A,\exists x:(\exists z:z\in A)\Rightarrow (x\in A\wedge (\neg\exists y: y\in A\wedge y\in x))\)</span>.</li></ul><p>假设所有的归纳集构成一个集合 <span class="math inline">\(D\)</span>，则我们可以将 <span class="math inline">\(D\)</span> 扩充成一个归纳集 <span class="math inline">\(X\)</span>（将 <span class="math inline">\(D\)</span> 子集的所有内容物全部加入 <span class="math inline">\(X\)</span> 中）. 此时，由 <span class="math inline">\(D\)</span> 和 <span class="math inline">\(X\)</span> 的定义，有 <span class="math inline">\(D\in X\in D\)</span>. 构造集合 <span class="math inline">\(\{D,X\}\)</span>（容易验证这是一个集合），则对 <span class="math inline">\(\forall Y\in \{D,X\}\)</span>，均有 <span class="math inline">\(Y\cap \{D,X\}\)</span> 非空. 这与正则公理矛盾. 因此 <span class="math inline">\(D\)</span> 不是一个集合.</p><p>这里再强调一次李老师课件中的一个辨析：</p><ul><li><strong>自然数</strong>是<strong>属于</strong>所有归纳集的集合；</li><li><strong>自然数集</strong> <span class="math inline">\(\mathbb{N}\)</span> 是<strong>包含于</strong>所有归纳集的集合.</li></ul><h2 id="基数和序数">基数和序数</h2><p>通俗地说，就是：</p><ul><li>序数是表示次序的数（数数的时候会数到的数）：<span class="math display">\[1,2,\ldots,n,\ldots,\aleph_0,\aleph_0+1,\ldots,\aleph_1,\ldots,\aleph_n,\ldots\]</span></li><li>基数是序数的等价类：<span class="math display">\[1,2,\ldots,n,\ldots,\aleph_0,\aleph_1,\aleph_2,\ldots,\aleph_n,\ldots\]</span></li></ul><p>有关序数，有各种严格的定义. 较早的版本规定“序数”是良序集在保序映射下的等价类，而 ZF 系统中无法接受如此大的“集合”（现代会将其称为一个 class），因此“序数”的现行定义为“对 <span class="math inline">\(\in\)</span> 关系构成良序集的传递集”. 现行定义使用代表元来描述序数，这样就避开了“良序集等价类”这一宏大的概念. 限于篇幅，这里不再展开.</p><h2 id="期中问题集">2018 期中问题集</h2><h3 id="填空题-4">填空题 (4)</h3><blockquote><ol type="i"><li>直线上所有开区间的集合的基数是？</li><li>平面上所有曲线的集合的基数是？（曲线是闭区间在连续映射下的像）</li></ol></blockquote><p><strong>答案</strong>：(i) <span class="math inline">\(\aleph_1\)</span>；(ii) <span class="math inline">\(\aleph_1\)</span>.</p><ol type="i"><li><p>这个比较显然，左右端点都有 <span class="math inline">\(\aleph_1\)</span> 种取法，因此开区间有 <span class="math inline">\(\aleph_1\times\aleph_1=\aleph_1\)</span> 种取法；</p></li><li><p>由于是连续映射，因此曲线完全由该映射在有理点处的取值确定（由闭区间套原理立得），故其基数为 <span class="math inline">\({\aleph_1}^{\aleph_0}=\aleph_1\)</span>.</p></li></ol><h2 id="期中问题集-1">2020 期中问题集</h2><h3 id="第-33-题">第 33 题</h3><blockquote><p>考虑如 <span class="math inline">\(\mathscr{P}(\mathbb{N})\)</span> 中的等价关系：<span class="math inline">\(A\sim B\)</span> 当且仅当 <span class="math inline">\(A\triangle B\)</span> 为有限集.</p><ol type="1"><li>给定 <span class="math inline">\(A\in \mathscr{P}(\mathbb{N})\)</span>，求 <span class="math inline">\(A\)</span> 的等价类 <span class="math inline">\([A]\)</span> 的势；</li><li>求商集 <span class="math inline">\(\mathscr{P}(\mathbb{N})/\sim\)</span> 的势.</li></ol></blockquote><p><strong>答案</strong>：1. <span class="math inline">\(\aleph_0\)</span>；2. <span class="math inline">\(\aleph_1\)</span>.</p><ol type="1"><li>事实上，<span class="math inline">\(A\)</span> 的等价类中的所有元素均可通过“删掉有限个元素，再添加有限个新元素”得到，易见这两步的操作方案数都是可数的，因此 <span class="math inline">\(|[A]|=\aleph_0\)</span>；</li><li>易见上界是 <span class="math inline">\(\aleph_1\)</span>，确定下界的方法有两种，分述如下：<ul><li>由第 1 问，容易构造单射 <span class="math inline">\(f\colon \mathscr{P}(\mathbb{N})\to \mathscr{P}(\mathbb{N})/\sim \times \mathbb{N}\)</span>，结合 <span class="math inline">\(|\mathscr{P}(\mathbb{N})|=\aleph_1\)</span> 可知 <span class="math inline">\(|\mathscr{P}(\mathbb{N})/\sim|\times \aleph_0\geqslant \aleph_1\)</span>；</li><li>考虑集族 <span class="math inline">\(S_m=\{p^k~|~k\in\mathbb{N},p~为第~m~个素数\}\)</span>，易见该集族有 <span class="math inline">\(\aleph_0\)</span> 个不相交集合，且对不同的 <span class="math inline">\(T\subseteq \mathbb{N}\)</span>，<span class="math inline">\(\bigcup\limits_{m\in T} S_m\)</span> 均属于不同的等价类. 由于 <span class="math inline">\(T\)</span> 有 <span class="math inline">\(\aleph_1\)</span> 种选法，因此 <span class="math inline">\(|\mathscr{P}(\mathbb{N})/\sim|\)</span> 至少为 <span class="math inline">\(\aleph_1\)</span>.</li></ul></li></ol><h2 id="期中问题集-2">2021 期中问题集</h2><h3 id="第-29-题">第 29 题</h3><blockquote><p>判断：对于任意有穷基数 <span class="math inline">\(n\)</span> 和无穷基数 <span class="math inline">\(\kappa\)</span>，总有 <span class="math inline">\(\kappa^n=\kappa\)</span>.</p></blockquote><p><strong>错误</strong>. 当 <span class="math inline">\(n=0\)</span> 时，显然不成立. （当 <span class="math inline">\(n\neq 0\)</span> 时，该断言是正确的）</p><blockquote><p>这题太坑了，我在考场上随手做了一下就被坑到了（</p></blockquote><h3 id="第-31-题">第 31 题</h3><p>题面写得不太严谨，这里给出一个（我自认为）较为严谨的版本：</p><blockquote><p>设 <span class="math inline">\(R\)</span> 是集合 <span class="math inline">\(A\)</span> 上的偏序关系，且其最长链和最长反链长度均为 <span class="math inline">\(3\)</span>，则 <span class="math inline">\(A\)</span> 的最小基数是多少？在此基数下，画出 <span class="math inline">\(R\)</span> 互不同构的所有可能哈斯图.</p></blockquote><p>易知 <span class="math inline">\(A\)</span> 最少有 <span class="math inline">\(5\)</span> 个元素（不难证明 <span class="math inline">\(4\)</span> 个元素无法满足条件）. 共 14 种哈斯图同构类，分类如下：</p><ol type="1"><li><p>除最长链外，至多有一条边的，共 5 种</p><table><tr><th><center>0</center></th><th><center>1</center></th><th><center>2</center></th><th><center>3</center></th><th><center>4</center></th></tr><tr><td><img src="/img/SG/SG2021-31-0.png" width="400" alt="1"></td><td><img src="/img/SG/SG2021-31-1.png" width="400" alt="2"></td><td><img src="/img/SG/SG2021-31-2.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-3.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-4.png" width="400" alt="3"></td></tr></table></li><li><p>除最长链外，还有两条边的，共 9 种</p><table><tr><th><center>11</center></th><th><center>12</center></th><th><center>13</center></th><th><center>14</center></th></tr><tr><td><img src="/img/SG/SG2021-31-11.png" width="400" alt="1"></td><td><img src="/img/SG/SG2021-31-12.png" width="400" alt="2"></td><td><img src="/img/SG/SG2021-31-13.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-14.png" width="400" alt="3"></td></tr><tr><th><center>21</center></th><th><center>22</center></th><th><center>23（最长反链只有 2）</center></th><th><center>24</center></th></tr><tr><td><center>同 12</center></td><td><img src="/img/SG/SG2021-31-22.png" width="400" alt="4"></td><td><img src="/img/SG/SG2021-31-23.png" width="400" alt="5"></td><td><img src="/img/SG/SG2021-31-24.png" width="400" alt="6"></td></tr><tr><th><center>31</center></th><th><center>32</center></th><th><center>33</center></th><th><center>34</center></th></tr><tr><td><center>同 13</center></td><td><center>同 23</center></td><td><img src="/img/SG/SG2021-31-33.png" width="400" alt="7"></td><td><img src="/img/SG/SG2021-31-34.png" width="400" alt="8"></td></tr><tr><th><center>41</center></th><th><center>42</center></th><th><center>43</center></th><th><center>44</center></th></tr><tr><td><center>同 14</center></td><td><center>同 24</center></td><td><center>同 34</center></td><td><img src="/img/SG/SG2021-31-44.png" width="400" alt="9"></td></tr></table></li></ol><p>应该不难看出我的分类依据，也很容易验证这是不重不漏的. 阅卷时好像是写出至少 11 个就基本给满分了.</p><h3 id="第-32-题">第 32 题</h3><blockquote><p>设 <span class="math inline">\(\oplus\)</span> 表示对称差，求证：<span class="math inline">\(\left(\bigcap\limits_{i=1}^n A_i\right)\oplus \left(\bigcap\limits_{i=1}^n B_i\right)=\bigcup\limits_{i=1}^n(A_i\oplus B_i)\)</span>.</p></blockquote><p><strong>标答做法</strong>：（应该是最好的证法）由对称差的定义，对于 <span class="math inline">\(\forall x\in \operatorname{LHS}\)</span>，有且仅有两种情况：</p><ol type="1"><li><span class="math inline">\(x\)</span> 属于所有的 <span class="math inline">\(A\)</span>，但至少不属于某一个 <span class="math inline">\(B\)</span>. 不妨设 <span class="math inline">\(x\notin B_i\)</span>，则 <span class="math inline">\(x\in A_i\oplus B_i\subseteq \operatorname{RHS}\)</span>；</li><li><span class="math inline">\(x\)</span> 属于所有的 <span class="math inline">\(B\)</span>，但至少不属于某一个 <span class="math inline">\(A\)</span>. 不妨设 <span class="math inline">\(x\notin A_j\)</span>，则 <span class="math inline">\(x\in A_j\oplus B_j\subseteq \operatorname{RHS}\)</span>.</li></ol><p>OK. 这样证明就结束了，简洁又直观.</p><p><strong>归纳法</strong>：归纳方法可能不唯一，不过本质应该都是 <span class="math inline">\(n=2\)</span> 的情形.</p><ol type="1"><li><p>当 <span class="math inline">\(n=1\)</span> 时，<span class="math inline">\(\operatorname{LHS}=\operatorname{RHS}\)</span>；</p></li><li><p>设当 <span class="math inline">\(n=k\)</span> 时原式成立，则 <span class="math inline">\(n=k+1\)</span> 时（令 <span class="math inline">\(A=\bigcap\limits_{i=1}^k A_i\)</span>，<span class="math inline">\(B=\bigcap\limits_{i=1}^k B_i\)</span>），有： <span class="math display">\[\begin{align}\operatorname{LHS} &amp;= (A\cap A_{n+1})\oplus (B\cap B_{n+1}) \\&amp;= \big((A\cap A_{n+1})\setminus  (B\cap B_{n+1})\big) \cup \big( (B\cap B_{n+1})\setminus (A\cap A_{n+1}) \big) \\&amp;= \big((A\cap A_{n+1})\cap \overline{B\cap B_{n+1}}\big) \cup \big((B\cap B_{n+1})\cap \overline{A\cap A_{n+1}}\big) \\&amp;= \big((A\cap A_{n+1})\cap (\overline{B}\cup \overline{B_{n+1}})\big) \cup \big((B\cap B_{n+1})\cap (\overline{A}\cup \overline{A_{n+1}})\big) \\&amp;= (A\cap A_{n+1}\cap \overline{B})\cup (A\cap A_{n+1}\cap \overline{B_{n+1}}) \cup (B\cap B_{n+1}\cap \overline{A})\cup (B\cap B_{n+1}\cap \overline{A_{n+1}}) \\&amp;= (A_{n+1}\cap A\setminus B)\cup (A\cap A_{n+1}\setminus B_{n+1}) \cup (B_{n+1}\cap B\setminus A)\cup (B\cap B_{n+1}\setminus A_{n+1}) \\&amp;\subseteq (A\setminus B)\cup (A_{n+1}\setminus B_{n+1}) \cup (B\setminus A)\cup (B_{n+1}\setminus A_{n+1}) \\&amp;= (A\oplus B)\cup (A_{n+1}\oplus B_{n+1}) = \operatorname{RHS}.\end{align}\]</span></p></li></ol><p>证明过程不困难，但有一点复杂，应该需要一些耐心（阅卷时感觉很多同学写得或多或少都有点问题）</p><p><strong>另一种直接的证明</strong>：将对称差拆成 <span class="math inline">\(A\setminus B\)</span> 和 <span class="math inline">\(B\setminus A\)</span> 两部分，则有： <span class="math display">\[\begin{align}\bigcap\limits_{i=1}^n A_i\setminus \bigcap\limits_{i=1}^n B_i &amp;= \bigcap\limits_{i=1}^n A_i\cap \overline{\bigcap\limits_{i=1}^n B_i} = \bigcap\limits_{i=1}^n A_i\cap \bigcup\limits_{i=1}^n\overline{B_i} \\&amp;= \bigcup\limits_{i=1}^n \left(\overline{B_i}\cap \bigcap\limits_{j=1}^n A_j\right) \\&amp;= \bigcup\limits_{i=1}^n \left(\bigcap\limits_{j=1}^n A_j \setminus B_i\right) \\&amp;\subseteq \bigcup\limits_{i=1}^n \left(A_i \setminus B_i\right)\end{align}\]</span> 另一半同理，合并起来即可完成证明. 该做法是阅卷时看到的，也是比较直观的一种做法.</p><!-- ### 第 33 题> 实数轴上两两不相交的开区间族的最大基数.在每个开区间中都可以取一个有理数，因此至多可数. --><hr><center><b><font size="6" face="Monaco" color="F05E1C"> PART 2: Graph Theory </font></b></center><h2 id="所有奇圈共点-rightarrow-可被-5-染色">所有奇圈共点 <span class="math inline">\(\Rightarrow\)</span> 可被 5-染色</h2><blockquote><p>若一个图 <span class="math inline">\(G\)</span> 中任意两个奇数长度的回路都有公共点，证明该图可被 <span class="math inline">\(5\)</span>-染色.</p></blockquote><p>若 <span class="math inline">\(\chi(G)\geqslant 6\)</span>，考虑颜色 <span class="math inline">\(1,2,3\)</span> 的导出子图 <span class="math inline">\(G_1\)</span> 和颜色 <span class="math inline">\(4,5,6\)</span> 的导出子图 <span class="math inline">\(G_2\)</span>，则 <span class="math inline">\(G_1\cap G_2=\varnothing\)</span>. 由于 <span class="math inline">\(\chi(G_1)=\chi(G_2)=3\)</span>，故二者均不是二部图，因此 <span class="math inline">\(G_1\)</span> 和 <span class="math inline">\(G_2\)</span> 均含有奇圈. 又由于 <span class="math inline">\(G_1\)</span> 和 <span class="math inline">\(G_2\)</span> 无公共点，故这两个奇圈也无公共点，矛盾. 因此 <span class="math inline">\(\chi(G)\leqslant 5\)</span>.</p>]]></content>
+      <content type="html"><![CDATA[<p>在担任集图助教的过程中遇到了各种各样的问题，这里记录一些常见的，或是值得被记下来的问题.</p><a id="more"></a><hr><center><b><font size="6" face="Monaco" color="F05E1C"> PART 1: Set Theory </font></b></center><h2 id="所有归纳集为什么不是集合">所有归纳集为什么不是集合</h2><p>书和课件中都只说了“这会导致集合论悖论”，十分笼统. 这里给出一个简短的证明：</p><blockquote><p>证明：在 ZF 公理系统中，所有归纳集不构成一个集合.</p></blockquote><p>用 ZF 公理系统中的正则公理来证明：</p><ul><li><strong>正则公理（Axiom of Regularity）</strong>：<span class="math inline">\(\forall A,\exists x:(\exists z:z\in A)\Rightarrow (x\in A\wedge (\neg\exists y: y\in A\wedge y\in x))\)</span>.</li></ul><p>假设所有的归纳集构成一个集合 <span class="math inline">\(D\)</span>，则我们可以将 <span class="math inline">\(D\)</span> 扩充成一个归纳集 <span class="math inline">\(X\)</span>（将 <span class="math inline">\(D\)</span> 子集的所有内容物全部加入 <span class="math inline">\(X\)</span> 中）. 此时，由 <span class="math inline">\(D\)</span> 和 <span class="math inline">\(X\)</span> 的定义，有 <span class="math inline">\(D\in X\in D\)</span>. 构造集合 <span class="math inline">\(\{D,X\}\)</span>（容易验证这是一个集合），则对 <span class="math inline">\(\forall Y\in \{D,X\}\)</span>，均有 <span class="math inline">\(Y\cap \{D,X\}\)</span> 非空. 这与正则公理矛盾. 因此 <span class="math inline">\(D\)</span> 不是一个集合.</p><p>这里再强调一次李老师课件中的一个辨析：</p><ul><li><strong>自然数</strong>是<strong>属于</strong>所有归纳集的集合；</li><li><strong>自然数集</strong> <span class="math inline">\(\mathbb{N}\)</span> 是<strong>包含于</strong>所有归纳集的集合.</li></ul><h2 id="基数和序数">基数和序数</h2><p>通俗地说，就是：</p><ul><li>序数是表示次序的数（数数的时候会数到的数）：<span class="math display">\[1,2,\ldots,n,\ldots,\aleph_0,\aleph_0+1,\ldots,\aleph_1,\ldots,\aleph_n,\ldots\]</span></li><li>基数是序数的等价类：<span class="math display">\[1,2,\ldots,n,\ldots,\aleph_0,\aleph_1,\aleph_2,\ldots,\aleph_n,\ldots\]</span></li></ul><p>有关序数，有各种严格的定义. 较早的版本规定“序数”是良序集在保序映射下的等价类，而 ZF 系统中无法接受如此大的“集合”（现代会将其称为一个 class），因此“序数”的现行定义为“对 <span class="math inline">\(\in\)</span> 关系构成良序集的传递集”. 现行定义使用代表元来描述序数，这样就避开了“良序集等价类”这一宏大的概念. 限于篇幅，这里不再展开.</p><h2 id="期中问题集">2018 期中问题集</h2><h3 id="填空题-4">填空题 (4)</h3><blockquote><ol type="i"><li>直线上所有开区间的集合的基数是？</li><li>平面上所有曲线的集合的基数是？（曲线是闭区间在连续映射下的像）</li></ol></blockquote><p><strong>答案</strong>：(i) <span class="math inline">\(\aleph_1\)</span>；(ii) <span class="math inline">\(\aleph_1\)</span>.</p><ol type="i"><li><p>这个比较显然，左右端点都有 <span class="math inline">\(\aleph_1\)</span> 种取法，因此开区间有 <span class="math inline">\(\aleph_1\times\aleph_1=\aleph_1\)</span> 种取法；</p></li><li><p>由于是连续映射，因此曲线完全由该映射在有理点处的取值确定（由闭区间套原理立得），故其基数为 <span class="math inline">\({\aleph_1}^{\aleph_0}=\aleph_1\)</span>.</p></li></ol><h2 id="期中问题集-1">2020 期中问题集</h2><h3 id="第-33-题">第 33 题</h3><blockquote><p>考虑如 <span class="math inline">\(\mathscr{P}(\mathbb{N})\)</span> 中的等价关系：<span class="math inline">\(A\sim B\)</span> 当且仅当 <span class="math inline">\(A\triangle B\)</span> 为有限集.</p><ol type="1"><li>给定 <span class="math inline">\(A\in \mathscr{P}(\mathbb{N})\)</span>，求 <span class="math inline">\(A\)</span> 的等价类 <span class="math inline">\([A]\)</span> 的势；</li><li>求商集 <span class="math inline">\(\mathscr{P}(\mathbb{N})/\sim\)</span> 的势.</li></ol></blockquote><p><strong>答案</strong>：1. <span class="math inline">\(\aleph_0\)</span>；2. <span class="math inline">\(\aleph_1\)</span>.</p><ol type="1"><li>事实上，<span class="math inline">\(A\)</span> 的等价类中的所有元素均可通过“删掉有限个元素，再添加有限个新元素”得到，易见这两步的操作方案数都是可数的，因此 <span class="math inline">\(|[A]|=\aleph_0\)</span>；</li><li>易见上界是 <span class="math inline">\(\aleph_1\)</span>，确定下界的方法有两种，分述如下：<ul><li>由第 1 问，容易构造单射 <span class="math inline">\(f\colon \mathscr{P}(\mathbb{N})\to \mathscr{P}(\mathbb{N})/\sim \times \mathbb{N}\)</span>，结合 <span class="math inline">\(|\mathscr{P}(\mathbb{N})|=\aleph_1\)</span> 可知 <span class="math inline">\(|\mathscr{P}(\mathbb{N})/\sim|\times \aleph_0\geqslant \aleph_1\)</span>；</li><li>考虑集族 <span class="math inline">\(S_m=\{p^k~|~k\in\mathbb{N},p~为第~m~个素数\}\)</span>，易见该集族有 <span class="math inline">\(\aleph_0\)</span> 个不相交集合，且对不同的 <span class="math inline">\(T\subseteq \mathbb{N}\)</span>，<span class="math inline">\(\bigcup\limits_{m\in T} S_m\)</span> 均属于不同的等价类. 由于 <span class="math inline">\(T\)</span> 有 <span class="math inline">\(\aleph_1\)</span> 种选法，因此 <span class="math inline">\(|\mathscr{P}(\mathbb{N})/\sim|\)</span> 至少为 <span class="math inline">\(\aleph_1\)</span>.</li></ul></li></ol><h2 id="期中问题集-2">2021 期中问题集</h2><h3 id="第-29-题">第 29 题</h3><blockquote><p>判断：对于任意有穷基数 <span class="math inline">\(n\)</span> 和无穷基数 <span class="math inline">\(\kappa\)</span>，总有 <span class="math inline">\(\kappa^n=\kappa\)</span>.</p></blockquote><p><strong>错误</strong>. 当 <span class="math inline">\(n=0\)</span> 时，显然不成立. （当 <span class="math inline">\(n\neq 0\)</span> 时，该断言是正确的）</p><blockquote><p>这题太坑了，我在考场上随手做了一下就被坑到了（</p></blockquote><h3 id="第-31-题">第 31 题</h3><p>题面写得不太严谨，这里给出一个（我自认为）较为严谨的版本：</p><blockquote><p>设 <span class="math inline">\(R\)</span> 是集合 <span class="math inline">\(A\)</span> 上的偏序关系，且其最长链和最长反链长度均为 <span class="math inline">\(3\)</span>，则 <span class="math inline">\(A\)</span> 的最小基数是多少？在此基数下，画出 <span class="math inline">\(R\)</span> 互不同构的所有可能哈斯图.</p></blockquote><p>易知 <span class="math inline">\(A\)</span> 最少有 <span class="math inline">\(5\)</span> 个元素（不难证明 <span class="math inline">\(4\)</span> 个元素无法满足条件）. 共 16 种哈斯图同构类，分类如下：</p><ol type="1"><li><p>除最长链外，至多有一条边的，共 5 种</p><table><tr><th><center>0</center></th><th><center>1</center></th><th><center>2</center></th><th><center>3</center></th><th><center>4</center></th></tr><tr><td><img src="/img/SG/SG2021-31-0.png" width="400" alt="1"></td><td><img src="/img/SG/SG2021-31-1.png" width="400" alt="2"></td><td><img src="/img/SG/SG2021-31-2.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-3.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-4.png" width="400" alt="3"></td></tr></table></li><li><p>除最长链外，还有两条边的，共 7 种</p><table><tr><th><center>11</center></th><th><center>12（最长反链只有 2）</center></th><th><center>13</center></th><th><center>14</center></th></tr><tr><td><img src="/img/SG/SG2021-31-11.png" width="400" alt="1"></td><td><img src="/img/SG/SG2021-31-12.png" width="400" alt="2"></td><td><img src="/img/SG/SG2021-31-13.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-14.png" width="400" alt="3"></td></tr><tr><th><center>21</center></th><th><center>22</center></th><th><center>23（最长反链只有 2）</center></th><th><center>24</center></th></tr><tr><td><center>同 12</center></td><td><img src="/img/SG/SG2021-31-22.png" width="400" alt="4"></td><td><img src="/img/SG/SG2021-31-23.png" width="400" alt="5"></td><td><img src="/img/SG/SG2021-31-24.png" width="400" alt="6"></td></tr><tr><th><center>31</center></th><th><center>32</center></th><th><center>33</center></th><th><center>34（最长反链只有 2）</center></th></tr><tr><td><center>同 13</center></td><td><center>同 23</center></td><td><img src="/img/SG/SG2021-31-33.png" width="400" alt="7"></td><td><img src="/img/SG/SG2021-31-34.png" width="400" alt="8"></td></tr><tr><th><center>41</center></th><th><center>42</center></th><th><center>43</center></th><th><center>44</center></th></tr><tr><td><center>同 14</center></td><td><center>同 24</center></td><td><center>同 34</center></td><td><img src="/img/SG/SG2021-31-44.png" width="400" alt="9"></td></tr></table></li><li><p>有多条最长链（有环）的，共 4 种</p><table><tr><th><center>1</center></th><th><center>2</center></th><th><center>3</center></th><th><center>4</center></th></tr><tr><td><img src="/img/SG/SG2021-31-Loop1.png" width="400" alt="2"></td><td><img src="/img/SG/SG2021-31-Loop2.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-Loop3.png" width="400" alt="3"></td><td><img src="/img/SG/SG2021-31-Loop4.png" width="400" alt="3"></td></tr></table></li></ol><p>应该不难看出我的分类依据，也很容易验证这是不重不漏的. 阅卷时好像是写出至少 11 个就基本给满分了.</p><h3 id="第-32-题">第 32 题</h3><blockquote><p>设 <span class="math inline">\(\oplus\)</span> 表示对称差，求证：<span class="math inline">\(\left(\bigcap\limits_{i=1}^n A_i\right)\oplus \left(\bigcap\limits_{i=1}^n B_i\right)=\bigcup\limits_{i=1}^n(A_i\oplus B_i)\)</span>.</p></blockquote><p><strong>标答做法</strong>：（应该是最好的证法）由对称差的定义，对于 <span class="math inline">\(\forall x\in \operatorname{LHS}\)</span>，有且仅有两种情况：</p><ol type="1"><li><span class="math inline">\(x\)</span> 属于所有的 <span class="math inline">\(A\)</span>，但至少不属于某一个 <span class="math inline">\(B\)</span>. 不妨设 <span class="math inline">\(x\notin B_i\)</span>，则 <span class="math inline">\(x\in A_i\oplus B_i\subseteq \operatorname{RHS}\)</span>；</li><li><span class="math inline">\(x\)</span> 属于所有的 <span class="math inline">\(B\)</span>，但至少不属于某一个 <span class="math inline">\(A\)</span>. 不妨设 <span class="math inline">\(x\notin A_j\)</span>，则 <span class="math inline">\(x\in A_j\oplus B_j\subseteq \operatorname{RHS}\)</span>.</li></ol><p>OK. 这样证明就结束了，简洁又直观.</p><p><strong>归纳法</strong>：归纳方法可能不唯一，不过本质应该都是 <span class="math inline">\(n=2\)</span> 的情形.</p><ol type="1"><li><p>当 <span class="math inline">\(n=1\)</span> 时，<span class="math inline">\(\operatorname{LHS}=\operatorname{RHS}\)</span>；</p></li><li><p>设当 <span class="math inline">\(n=k\)</span> 时原式成立，则 <span class="math inline">\(n=k+1\)</span> 时（令 <span class="math inline">\(A=\bigcap\limits_{i=1}^k A_i\)</span>，<span class="math inline">\(B=\bigcap\limits_{i=1}^k B_i\)</span>），有： <span class="math display">\[\begin{align}\operatorname{LHS} &amp;= (A\cap A_{n+1})\oplus (B\cap B_{n+1}) \\&amp;= \big((A\cap A_{n+1})\setminus  (B\cap B_{n+1})\big) \cup \big( (B\cap B_{n+1})\setminus (A\cap A_{n+1}) \big) \\&amp;= \big((A\cap A_{n+1})\cap \overline{B\cap B_{n+1}}\big) \cup \big((B\cap B_{n+1})\cap \overline{A\cap A_{n+1}}\big) \\&amp;= \big((A\cap A_{n+1})\cap (\overline{B}\cup \overline{B_{n+1}})\big) \cup \big((B\cap B_{n+1})\cap (\overline{A}\cup \overline{A_{n+1}})\big) \\&amp;= (A\cap A_{n+1}\cap \overline{B})\cup (A\cap A_{n+1}\cap \overline{B_{n+1}}) \cup (B\cap B_{n+1}\cap \overline{A})\cup (B\cap B_{n+1}\cap \overline{A_{n+1}}) \\&amp;= (A_{n+1}\cap A\setminus B)\cup (A\cap A_{n+1}\setminus B_{n+1}) \cup (B_{n+1}\cap B\setminus A)\cup (B\cap B_{n+1}\setminus A_{n+1}) \\&amp;\subseteq (A\setminus B)\cup (A_{n+1}\setminus B_{n+1}) \cup (B\setminus A)\cup (B_{n+1}\setminus A_{n+1}) \\&amp;= (A\oplus B)\cup (A_{n+1}\oplus B_{n+1}) = \operatorname{RHS}.\end{align}\]</span></p></li></ol><p>证明过程不困难，但有一点复杂，应该需要一些耐心（阅卷时感觉很多同学写得或多或少都有点问题）</p><p><strong>另一种直接的证明</strong>：将对称差拆成 <span class="math inline">\(A\setminus B\)</span> 和 <span class="math inline">\(B\setminus A\)</span> 两部分，则有： <span class="math display">\[\begin{align}\bigcap\limits_{i=1}^n A_i\setminus \bigcap\limits_{i=1}^n B_i &amp;= \bigcap\limits_{i=1}^n A_i\cap \overline{\bigcap\limits_{i=1}^n B_i} = \bigcap\limits_{i=1}^n A_i\cap \bigcup\limits_{i=1}^n\overline{B_i} \\&amp;= \bigcup\limits_{i=1}^n \left(\overline{B_i}\cap \bigcap\limits_{j=1}^n A_j\right) \\&amp;= \bigcup\limits_{i=1}^n \left(\bigcap\limits_{j=1}^n A_j \setminus B_i\right) \\&amp;\subseteq \bigcup\limits_{i=1}^n \left(A_i \setminus B_i\right)\end{align}\]</span> 另一半同理，合并起来即可完成证明. 该做法是阅卷时看到的，也是比较直观的一种做法.</p><!-- ### 第 33 题> 实数轴上两两不相交的开区间族的最大基数.在每个开区间中都可以取一个有理数，因此至多可数. --><hr><center><b><font size="6" face="Monaco" color="F05E1C"> PART 2: Graph Theory </font></b></center><h2 id="所有奇圈共点-rightarrow-可被-5-染色">所有奇圈共点 <span class="math inline">\(\Rightarrow\)</span> 可被 5-染色</h2><blockquote><p>若一个图 <span class="math inline">\(G\)</span> 中任意两个奇数长度的回路都有公共点，证明该图可被 <span class="math inline">\(5\)</span>-染色.</p></blockquote><p>若 <span class="math inline">\(\chi(G)\geqslant 6\)</span>，考虑颜色 <span class="math inline">\(1,2,3\)</span> 的导出子图 <span class="math inline">\(G_1\)</span> 和颜色 <span class="math inline">\(4,5,6\)</span> 的导出子图 <span class="math inline">\(G_2\)</span>，则 <span class="math inline">\(G_1\cap G_2=\varnothing\)</span>. 由于 <span class="math inline">\(\chi(G_1)=\chi(G_2)=3\)</span>，故二者均不是二部图，因此 <span class="math inline">\(G_1\)</span> 和 <span class="math inline">\(G_2\)</span> 均含有奇圈. 又由于 <span class="math inline">\(G_1\)</span> 和 <span class="math inline">\(G_2\)</span> 无公共点，故这两个奇圈也无公共点，矛盾. 因此 <span class="math inline">\(\chi(G)\leqslant 5\)</span>.</p>]]></content>
       
       <categories>
           
@@ -456,11 +456,11 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 计算机 </tag>
             
             <tag> 北大 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 经济学 </tag>
             
@@ -488,6 +488,8 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 计算机 </tag>
@@ -495,8 +497,6 @@
             <tag> 算法 </tag>
             
             <tag> 北大 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 组合数学 </tag>
             
@@ -524,6 +524,8 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 计算机 </tag>
@@ -531,8 +533,6 @@
             <tag> 算法 </tag>
             
             <tag> 北大 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 组合数学 </tag>
             
@@ -560,13 +560,13 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 计算机 </tag>
             
             <tag> 北大 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 组合数学 </tag>
             
@@ -592,13 +592,13 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 计算机 </tag>
             
             <tag> 北大 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 组合数学 </tag>
             
@@ -716,9 +716,9 @@
       
         <tags>
             
-            <tag> 计算机 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 计算机 </tag>
             
             <tag> 统计学 </tag>
             
@@ -786,6 +786,8 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 计算机 </tag>
@@ -793,8 +795,6 @@
             <tag> 北大 </tag>
             
             <tag> 保研 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 软件所 </tag>
             
@@ -922,9 +922,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> 保研复习 </tag>
-            
             <tag> 数论 </tag>
+            
+            <tag> 保研复习 </tag>
             
         </tags>
       
@@ -970,9 +970,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -996,17 +996,17 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 计算机 </tag>
             
-            <tag> 北大 </tag>
-            
             <tag> 数论 </tag>
             
-            <tag> 保研 </tag>
+            <tag> 北大 </tag>
             
-            <tag> 师大 </tag>
+            <tag> 保研 </tag>
             
             <tag> 抽象代数 </tag>
             
@@ -1082,13 +1082,13 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 北大 </tag>
             
             <tag> 保研 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 经济学 </tag>
             
@@ -1112,6 +1112,8 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 北大 </tag>
             
             <tag> 保研 </tag>
@@ -1119,8 +1121,6 @@
             <tag> 线性代数 </tag>
             
             <tag> 数学分析 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1144,6 +1144,8 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 北大 </tag>
             
             <tag> 保研 </tag>
@@ -1151,8 +1153,6 @@
             <tag> 线性代数 </tag>
             
             <tag> 数学分析 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1382,9 +1382,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1408,9 +1408,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1554,9 +1554,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1666,11 +1666,11 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 数学分析 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1692,11 +1692,11 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 线性代数 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1718,9 +1718,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 抽象代数 </tag>
             
@@ -1744,9 +1744,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1842,9 +1842,9 @@
       
         <tags>
             
-            <tag> 复变函数 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 复变函数 </tag>
             
             <tag> 期末复习 </tag>
             
@@ -1866,9 +1866,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -1892,11 +1892,11 @@
       
         <tags>
             
+            <tag> 师大 </tag>
+            
             <tag> 数学 </tag>
             
             <tag> 复变函数 </tag>
-            
-            <tag> 师大 </tag>
             
             <tag> 各种试卷 </tag>
             
@@ -2048,9 +2048,9 @@
       
         <tags>
             
-            <tag> 数学分析 </tag>
-            
             <tag> 师大 </tag>
+            
+            <tag> 数学分析 </tag>
             
             <tag> 各种试卷 </tag>
             
